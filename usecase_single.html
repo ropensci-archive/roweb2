@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>rOpenSci | UseCase Single</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- stylesheet imports -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
+</head>
+<body>
+<!-- begins full header -->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <!-- ropensci logo container -->
+                <div class="col-1">
+                    <a href="/index.html"><img src="img/icon_lettering_white.svg" /></a>
+                </div>
+                <!-- ends ropensci logo container -->
+                <!-- begins navigation list in main menu -->
+                <nav class="col-6 col-offset-4 top-3">
+                    <ul class="row between">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="http://discuss.ropensci.org/" target="_blank">Discuss</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <!-- ends navigation list in main menu -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div>
+<!-- ends full Header -->
+
+<!-- begins single usecase template -->
+    <article class="usecase">
+        <div class="container top-20">
+            <div class="row centered">
+                
+                <!-- main text container -->
+                <div class="col-7 bottom-20 maintext">
+                    <small class="label">rbison</small>
+                    <h2>Macroecology - testing the species-abundance distribution</h2>
+
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <p>Keep in mind that BISON data is at least in part within GBIF, which can be accessed from R using our rgbif package. However, BISON provides a slightly different interface to their data than does GBIF, and if you are just interested in US data, then BISON may be easier to use.</p>
+
+                            <p>In addition, this example can be done using GBIF data via <code>rgbif</code>.</p>
+
+                            <p>In this example, we do some preliminary work in exploring species-abundance distribution.</p>
+
+                            <p>Make sure to update to the latest version of <code>rbison</code></p>
+
+                            <h3>Load libraries</h3>
+
+                            <pre><code class=" hljs r">
+                                <span class="hljs-keyword">library</span>(<span class="hljs-string">"rbison"</span>)
+                                <span class="hljs-keyword">library</span>(<span class="hljs-string">"ggplot2"</span>)
+                                <span class="hljs-keyword">library</span>(<span class="hljs-string">"plyr"</span>)
+                            </code></pre>
+
+                            <h3>Get BISON data using the rOpenSci package rbison.</h3>
+
+                            <p>We'll not restrain our search to any particular taxonomic group, although you will likely do that in your own research. </p>
+
+                            <pre><code class=" hljs bash">
+                                mynames &lt;- c(<span class="hljs-string">"Helianthus annuus"</span>, <span class="hljs-string">"Pinus contorta"</span>, <span class="hljs-string">"Poa annua"</span>, <span class="hljs-string">"Madia sativa"</span>,<span class="hljs-string">"Arctostaphylos glauca"</span>, <span class="hljs-string">"Heteromeles arbutifolia"</span>, <span class="hljs-string">"Symphoricarpos albus"</span>,<span class="hljs-string">"Ribes viburnifolium"</span>, <span class="hljs-string">"Diplacus aurantiacus"</span>, <span class="hljs-string">"Salvia leucophylla"</span>, <span class="hljs-string">"Encelia californica"</span>,<span class="hljs-string">"Ribes indecorum"</span>, <span class="hljs-string">"Ribes malvaceum"</span>, <span class="hljs-string">"Cercocarpus betuloides"</span>, <span class="hljs-string">"Penstemon spectabilis"</span>)
+                            </code></pre>
+
+                            <h3>Get data</h3>
+
+                            <p>Define a function to get data needed, here just the summary data, then pull out just the <em>total</em> column and make a <code>data.frame</code> along with the input taxon name</p>
+
+                            <pre><code class=" hljs php">
+                                getdata &lt;- <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> {</span>
+                                tmp &lt;- bison(species = x, what = <span class="hljs-string">"summary"</span>)<span class="hljs-variable">$summary</span>
+                                data.frame(x, abd = tmp<span class="hljs-variable">$total</span>)}
+                            </code></pre>
+
+                            <h3>Get the data by passing each name to the <code>getdata</code> function</h3>
+
+                            <pre><code class=" hljs cs">
+                                <span class="hljs-keyword">out</span> &lt;- ldply(mynames, getdata)
+                            </code></pre>
+
+                            <h3>Plot</h3>
+
+                            <p>Plot species-abundance distributions using the <code>radfit</code> function in vegan</p>
+
+                            <pre><code class=" hljs bash">library(vegan)
+                                plot(radfit(out<span class="hljs-variable">$abd</span>))
+                            </code></pre>
+
+                            <img src="img/usecases-images/rbison.png">
+
+                            <h3>Further reading</h3>
+
+                            <p>Read more about plotting abundance distributions <a href="http://cran.r-project.org/web/packages/vegan/vignettes/diversity-vegan.pdf" target="_Blank">here</a>. </p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ends main text container -->
+            </div>
+        </div>
+    </article>
+<!-- ends single usecase template -->
+
+    <section class="disqus">
+        <div class="container">
+            <div class="row center">
+                <div class="col-9">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        /**
+                         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                         */
+                        /*
+                        var disqus_config = function () {
+                            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+                            var d = document, s = d.createElement('script');
+                            
+                            s.src = '//EXAMPLE.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+                            
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- begin footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row start">
+                <div class="col-1 col-1-3 top-8">
+                    <img src="img/icon_short_white.svg" />
+                </div>
+
+                <div class="col-9 col-offset-2 top-10 bottom-8">
+                    <div class="row between">
+                        <div class="col-2 col-1-3">
+                            <a href="http://github.com/ropensci" target="_blank"><div class="icon icon-github"></div></a>
+                            <a href="http://twitter.com/ropensci" target="_blank"><div class="icon icon-twitter"></div></a>
+                            <a href="http://vimeo.com/ropensci" target="_blank"><div class="icon icon-vimeo"></div></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 col-1-3 top-8 bottom-8">
+                            <ul>
+                                <h5 class="bottom-2">Info</h5>
+                                <li><a href="careers.html">Careers</a></li>
+                                <li><a href="http://discuss.ropensci.org/" target="_blank">Discuss</a></li>
+                                <li><a href="community.html#events">Events</a></li>
+                                <li><a href="related.html">Related</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-2 col-1-3 top-8 bottom-8">
+                            <ul>
+                                <h5 class="bottom-2">Work</h5>
+                                <li><a href="packages.html">Packages</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="tutorials.html">Tutorials</a></li>
+                                <li><a href="use_cases.html">Use Cases</a></li>
+                                <li><a href="resources.html">Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-2 col-1-3 top-8 bottom-8">
+                            <ul>
+                                <h5 class="bottom-2">About</h5>
+                                <li><a href="about.html">Team</a></li>
+                                <li><a href="community.html">Community</a></li>
+                                <li><a href="donate.html">Donate</a></li>
+                                <li><a href="careers.html">Careers</a></li>
+                                <li><a href="coc.html">Code of Conduct</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-4 top-8 bottom-8">
+                            <h5 class="bottom-2">Sponsorship</h5>
+                            <p>rOpenSci is a fiscally sponsored project by <a href="http://numfocus.org" target="_blank">NumFocus</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 top-8 bottom-9 divider">
+                    <p class="top-9">Except where otherwise noted, content on this site is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY license</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- / end footer -->
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "use": [
+        "postcss-import",
+        "postcss-for",
+        "postcss-each",
+        "postcss-conditionals",
+        "postcss-custom-properties",
+        "postcss-nesting",
+        "postcss-custom-media",
+        "postcss-animation",
+        "postcss-calc",
+        "autoprefixer"
+    ],
+    "autoprefixer": {
+        "browsers": "> 5%"
+    }
+
+}
