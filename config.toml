@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "A minimal Hugo website"
-theme = "hugo-xmin"
+title = "rOpenSci - open tools for open science"
+theme = "ropensci"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
@@ -32,5 +32,5 @@ footnotereturnlinkcontents = "↩"
     url = "/index.xml"
 
 [params]
-    description = "A website built through Hugo and blogdown."
-    footer = "&copy; [Yihui Xie](https://yihui.name) 2017 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
+    description = "rOpenSci - Open Tools for Open Science"
+    footer = "&copy; The rOpenSci Project"

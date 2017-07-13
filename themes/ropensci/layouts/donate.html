@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>rOpenSci | Donate</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" /> <!-- stylesheet imports -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
+    <!-- Fonts.com imports -->
+</head>
+<body>
+{{ partial "header.html" . }}
+
+<!-- begins donate section -->
+    <section class="donateonline">
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Make your Donation</h2>
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col-3 top-4">
+                    <img src="img/donate.svg" />
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col-8 top-4">
+                    Under a <a>fiscal sponsorship agreement</a> with the <a>NumFocus foundation</a>, a 501(c)3 nonprofit, we are now able to accept donations from individuals, institutions, and corporations to support our activities. Contributions from US based individuals and organizations are tax deductible. If you would like to support our activities, we are now able to accept contributions in a variety of forms including <a>FlipCause</a> and <a>BitCoin</a>.
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col-2 top-6 bottom-20">
+                    <a class="button main">Donate online now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ends donateonline -->
+
+<!-- begins receiving checks section -->
+    <section class="checks">
+        <div class="container">
+            <div class="row">
+                <div class="col-1 col-offset-2 top-12">
+                    <img src="img/check.svg" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 col-offset-2 top-4">
+                    <h4>We also take checks!</h4>
+                    <p>Checks can also be made out to NumFOCUS, just make sure to <strong>add rOpenSci in the memo line</strong></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 col-offset-2 top-4 bottom-12">
+                    <p><strong>NumFOCUS</strong></p>
+                    <p> P.O. Box 90596 <br/>
+                        Austin, TX 78709 <br/>
+                        USA
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- /checks -->
+
+  {{ partial "footer.html" . }}
+
+</body>
+</html>

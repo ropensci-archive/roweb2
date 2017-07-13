@@ -1,0 +1,79 @@
+/* Tables */
+
+
+table {
+    width: 100%;
+    text-align: left;
+    font-size: .87rem;
+
+    & thead {
+        font-weight: 600;
+        background-color: var(--table_header);
+        text-transform: uppercase;
+        color: var(--title);
+
+        & tr {
+
+            & th {
+            padding: 15px 13px;
+            }
+        }
+
+    }
+
+    & tbody {
+        & tr {
+            &:nth-child(even) {
+                background-color: var(--table_row)
+            }
+            &:last-of-type {
+                border-bottom: 1px solid var(--table_divider)
+            }
+            & td {
+                padding: 15px;
+                &:last-child {
+                    padding: 15px 0;
+                }
+            }
+        }
+    }
+}
+
+/***************************************************************************************** DATA TABLES *****/
+
+.dataTables_paginate {
+    padding: 0 15px 15px 15px;
+    margin: 20px 0 60px 0;
+    display: flex;
+    border-bottom: 1px solid var(--table_divider);
+    justify-content: center;
+    cursor: pointer;
+    & span {
+        cursor: pointer;
+        & a {
+            padding: 7px 10px 5px 9px;
+            color: var(--text_medGray);
+            text-decoration: none;
+            &:hover {
+                color: var(--main_link);
+            }
+        }
+    }
+}
+.paginate_button {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 3px 10%;
+    &.disabled {
+        color: var(--text_medGray);
+        text-decoration: none;
+    }
+    &.current {
+        border: 1px solid var(--main_link);
+        color: var(--main_link);
+        border-radius: 20px;
+        font-weight: 700;
+    }
+
+}
