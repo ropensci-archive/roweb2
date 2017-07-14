@@ -10,39 +10,29 @@
 {{ partial "header.html" . }}
 
 
-{{if not .IsHome }}
-<h1>{{ .Title }}</h1>
-{{ end }}
-
-{{ .Content }}
     <article>
         <div class="container top-20">
             <div class="row">
+
                 <div class="col-7 col-offset-2 bottom-20 maintext">
-               {{ range (where .Data.Pages "Section" "!=" "") }}     
                     <div class="excerpt">
-                        <small class="meta">{{ .Date.Format "2006/01/02" }}</small>
-                        <h3>{{ .Title }}</h3>
+                        <small class="meta">Jun 20, 2015</small>
+                        <h3>ROTL paper published</h3>
                         <p class="authors">
-                            {{ $.Param "author.display_name" }}
+                            <a alt="co-author" href="#" target="_blank">Francois Michonneau</a>, <a alt="co-author" href="#" target="_blank">Joseph Brown</a>, <a alt="co-author" href="#" target="_blank">David Winter</a>
                         </p><!-- /authors -->
                         <div class="labels">
                             <a href=""><span class="label">R</span></a><a href=""><span class="label">ROTL</span></a><a href=""><span class="label">open-tree</span></a><a href=""><span class="label">publication</span></a>
-
-                            <br>
-                            {{ .ReadingTime }} minute(s)
                         </div><!-- /labels -->
-                        <p>{{ .Summary }}</p>
-                        <a href="{{ .URL | relURL }}">Continue Reading</a>
+                        <p>We are excited to announce a paper describing rotl, our package for the Open Tree of Life data, has been published. The full citation is: Michonneau, F., Brown, J. W. and Winter, D. J. (2016), rotl: an R package to interact with the Open Tree of Life data. Methods Ecol Evol. doi: https://doi.org/10.1111/2041-210X.12593</p>
+                        <p>The paper, which is freely available, describes the package and the data it wraps in detail. Rather than rehash the information here</p>
+                        <a href="blog_single.html">Continue Reading</a>
                     </div><!-- /excerpt -->
-                     {{ end }}
                 </div><!-- /maintext -->
 
             </div>
         </div>
     </article>
-
-
 
 
 {{ partial "footer.html" . }}
