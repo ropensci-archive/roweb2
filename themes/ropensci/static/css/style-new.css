@@ -630,7 +630,7 @@ q:before, q:after {
 }.donate i{
         font-size: 1.5rem;
 }.checks {
-    background-image: url('images/bg_checks.png');
+    background-image: url('img/bg_checks.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat; 
@@ -691,8 +691,8 @@ q:before, q:after {
     background-position: center;
     background: #f5f7fd;
     background-repeat: no-repeat;
-    background-image: url('../images/bg_community.png'); /* fallback */
-    background-image: url('../images/bg_community.png'), linear-gradient(to bottom,  #f5f7fd 0%,#ffffff 50%); /* W3C */
+    background-image: url('../img/bg_community.png'); /* fallback */
+    background-image: url('../img/bg_community.png'), linear-gradient(to bottom,  #f5f7fd 0%,#ffffff 50%); /* W3C */
     background-size: cover;
 }.helmsley {
     background-color: #dae3f5
@@ -912,10 +912,10 @@ q:before, q:after {
         box-sizing: border-box;
         position: relative;
 }form input[type='email']{
-            background: url('../images/email.svg') 15px center no-repeat white;
+            background: url('../img/email.svg') 15px center no-repeat white;
             background-size: 15px;
 }form input[name^="name"]{
-            background: url('../images/id.svg') 15px center no-repeat white;
+            background: url('../img/id.svg') 15px center no-repeat white;
             background-size: 15px;
 }form input[type='radio']{
             margin: 0 15px 0 0;
@@ -945,7 +945,7 @@ q:before, q:after {
         border-radius: 2px;
         border: 1px solid #e8edf7;
         resize: none;
-        background: url('../images/message.svg') 15px 18px no-repeat white;
+        background: url('../img/message.svg') 15px 18px no-repeat white;
         background-size: 15px;
 }form button{
         font-family: "ProximaNova";
@@ -987,7 +987,7 @@ q:before, q:after {
             box-sizing: border-box;
             position: relative;
             width: 100%;
-            background: url('../images/email.svg') 15px center no-repeat white;
+            background: url('../img/email.svg') 15px center no-repeat white;
             background-size: 15px;
 }a.button {
     text-transform: uppercase;
@@ -1042,7 +1042,7 @@ q:before, q:after {
     border-radius: 2px;
     background-color: white;
     box-sizing: border-box;
-    background: url('../images/search.svg') 15px center no-repeat white;
+    background: url('../img/search.svg') 15px center no-repeat white;
     background-size: 15px;
     width: 100%;
 }::-webkit-input-placeholder {
@@ -1873,7 +1873,7 @@ q:before, q:after {
     -webkit-animation-delay: 24s;
             animation-delay: 24s; 
 }.slideshow li:nth-child(6) span { 
-    background-image: url(../images/hadley-wickham.jpg);
+    background-image: url(../img/hadley-wickham.jpg);
     -webkit-animation-delay: 30s;
             animation-delay: 30s; 
 }.slideshow li:nth-child(2) div { 
