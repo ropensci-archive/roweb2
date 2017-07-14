@@ -94,29 +94,11 @@
     </section>
     <!-- /calendar            ******** IMPORTANT: this section requires calinit.js ********* --> 
 
-    <section class="newsletter">
-        <div class="container">
-            <div class="row center">
-                <div class="col-4 top-9">
-                    <form class="newsletter">
-                        <input type="email" name="email" placeholder="email@domain.net" />
-                        <button class="sumbit" name="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row center">
-                <div class="col-6 top-4 bottom-9">
-                    <p>Stay up to date on our projects and events by subscribing to our mailing list</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+{{ partial "mailkimp.html" . }}
 {{ partial "footer.html" . }}
 
     <!-- Loads calendar authorization and funcionality -->
-    <script type="text/javascript" src="js/calinit.js"></script>
+    <script type="text/javascript" src="/js/calinit.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
 </body>
