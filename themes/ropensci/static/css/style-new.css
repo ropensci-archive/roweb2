@@ -1855,7 +1855,7 @@ q:before, q:after {
     font-size: .87rem;
     padding: 0;
 }.slideshow li:nth-child(1) span { 
-    background-image: url(../images/hadley-wickham.jpg) 
+    background-image: url(../img/hadley-wickham.jpg) 
 }.slideshow li:nth-child(2) span { 
     background-image: url(https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg);
     -webkit-animation-delay: 6s;
