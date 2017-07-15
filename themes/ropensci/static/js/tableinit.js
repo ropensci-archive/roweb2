@@ -14,7 +14,7 @@ $(document).ready( function () {
                 return '<a href="' + row.url + '">' + row.name + '</a>';
             }},
             { "data": function(row, type, set, meta){
-                return '<a href="#" onclick="oTable.search(\'' + row.maintainer + '\').draw(); $(\'input[type=radio]\').prop(\'checked\', false);">' + row.maintainer + '</a>';
+                return '<a href="#" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
             }},
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.description);
@@ -54,6 +54,9 @@ $(document).ready( function () {
                 "previous": "Prev", //changes 'Previous' label value
             }
         }
+    }).on('search', function(){
+        if(oTable.search())
+            radio.prop('checked', false);
     });
 
     $(radio).change(function() {
