@@ -1,9 +1,10 @@
+var oTable;
 $(document).ready( function () {
     var radio = $('input[type=radio]')
     var checkbox = $('input[type=checkbox]')
     var markdown = new showdown.Converter();
 
-    var oTable = $('#packagestable').DataTable({
+    oTable = $('#packagestable').DataTable({
         "ajax" : {
             "url" : "https://ropensci.github.io/roregistry/registry.json",
             "dataSrc": "packages"
@@ -12,7 +13,9 @@ $(document).ready( function () {
             { "data" : function(row, type, set, meta){
                 return '<a href="' + row.url + '">' + row.name + '</a>';
             }},
-            { "data": "maintainer" },
+            { "data": function(row, type, set, meta){
+                return '<a href="#" onclick="oTable.search(\'' + row.maintainer + '\').draw(); $(\'input[type=radio]\').prop(\'checked\', false);">' + row.maintainer + '</a>';
+            }},
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.description);
             }},
@@ -54,11 +57,11 @@ $(document).ready( function () {
     });
 
     $(radio).change(function() {
-        oTable.draw();
+        oTable.search("").draw();
     });
 
     $(checkbox).change(function() {
-        oTable.draw();
+        oTable.search("").draw();
     });
 
     /* Custom filtering function which will filter data in column four between two values */
@@ -66,11 +69,11 @@ $(document).ready( function () {
         function (oSettings, aData, iDataIndex) {
             var cran = $('input[type=checkbox]')
             var selected = $('input:checked')
-            var $class = selected.attr('class')
+            var filter = selected.attr('class')
             if (cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran')){
                 return false;
             }
-            return ($class === 'all') || $(oSettings.aoData[iDataIndex].nTr).hasClass($class);
+            return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
         }
     );
 });
