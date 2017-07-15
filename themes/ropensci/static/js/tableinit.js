@@ -1,6 +1,7 @@
 $(document).ready( function () {
     var radio = $('input[type=radio]')
     var checkbox = $('input[type=checkbox]')
+    var markdown = new showdown.Converter();
 
     var oTable = $('#packagestable').DataTable({
         "ajax" : {
@@ -12,7 +13,9 @@ $(document).ready( function () {
                 return '<a href="' + row.url + '">' + row.name + '</a>';
             }},
             { "data": "maintainer" },
-            { "data": "description" },
+            { "data": function(row, type, set, meta){
+                return markdown.makeHtml(row.description);
+            }},
             { "data": function(row, type, set, meta){
                 var src = '<a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
                 if(row.on_cran){
