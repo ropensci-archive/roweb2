@@ -86,6 +86,11 @@
     }
 
     #footer {
+        text-align: left;
+        & img[src$='.svg'] {
+            max-width: 50%;
+            width: 50%;
+        }
         & .row {
             text-align: left;
             justify-content: start;
@@ -136,11 +141,6 @@
         }
     }
 
-    
-    footer {
-        text-align: left;
-    }
-
 }
 
 @custom-media --mPortrait (max-width: 320px);
@@ -178,6 +178,11 @@
     }
 
     #footer {
+        text-align: left;
+        & img[src$=".svg"] {
+            max-width: 50%;
+            width: 50%;
+        }
         & .row {
             justify-content: flex-start;
             text-align: start;
