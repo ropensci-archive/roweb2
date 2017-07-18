@@ -3,3 +3,4 @@ public
 node_modules
 package.json
 postcss.json
+package-lock.json
