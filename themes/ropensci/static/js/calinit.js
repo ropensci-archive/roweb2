@@ -1,5 +1,5 @@
 //replace this with proper public calendar client_id
-var CLIENT_ID = '425941038259-fq37oh9k3il1ot49saca0rin7t68a6si.apps.googleusercontent.com'; 
+var CLIENT_ID = '237243040571-3gjdcv4ul9kdivml6pu725qcs2aclpfk.apps.googleusercontent.com'; 
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
