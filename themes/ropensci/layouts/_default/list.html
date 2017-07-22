@@ -8,40 +8,51 @@
 </head>
 <body>
 {{ partial "header.html" . }}
-
-
-
+{{ partial "paginate-list" . }}
 
 {{ .Content }}
+
     <article>
         <div class="container top-20">
             <div class="row">
                 <div class="col-7 col-offset-2 bottom-20 maintext">
-               {{ range (where .Data.Pages "Section" "!=" "") }}     
+               {{ range (.Paginator 10).Pages }}
                     <div class="excerpt">
-                        <small class="meta">{{ .Date.Format "2006/01/02" }}</small>
+                        <small class="meta">{{ .Date.Format "January 1, 2006" }}</small>
                         <h3>{{ .Title }}</h3>
                         <p class="authors">
-                            {{ $.Param "author.display_name" }}
+                            {{ range .Params.authors }}
+                                <a href={{ .url }} target="_blank">{{ .name }}</a>,
+                            {{ end }}
                         </p><!-- /authors -->
                         <div class="labels">
-                            <a href=""><span class="label">R</span></a><a href=""><span class="label">ROTL</span></a><a href=""><span class="label">open-tree</span></a><a href=""><span class="label">publication</span></a>
-
+                            {{ range $key, $value := .Params.topics }}
+                                <a href="#"><span class="label">{{ $value }}</span></a>
+                            {{ end }}
                             <br>
                             {{ .ReadingTime }} minute(s)
                         </div><!-- /labels -->
                         <p>{{ .Summary }}</p>
                         <a href="{{ .URL | relURL }}">Continue Reading</a>
                     </div><!-- /excerpt -->
-                     {{ end }}
+                {{ end }}
                 </div><!-- /maintext -->
 
             </div>
         </div>
     </article>
-
-
-
+    <!-- <nav class="pagination" role="pagination">
+    {{ if .Paginator.HasPrev }}
+        <a class="btn btn-default" href="{{ .Paginator.Prev.URL }}">
+            < Previous Page
+        </a>
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+        <a class="btn btn-default" href="{{ .Paginator.Next.URL }}">
+            Next Page >
+        </a>
+    {{ end }}
+    </nav> -->
 
 {{ partial "footer.html" . }}
 
