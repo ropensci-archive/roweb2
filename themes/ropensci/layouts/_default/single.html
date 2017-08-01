@@ -8,6 +8,7 @@
 </head>
 <body>
 {{ partial "header.html" . }}
+<!-- {{ printf "%#v" .Site.Params.staff }} -->
 <article>
         <div class="container">
             <div class="row">
@@ -22,7 +23,15 @@
                 <div class="col-offset-2 col-10 top-10">
                     <p class="authors">
                         {{ range .Params.authors }}
-                            <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                            {{ if in $.Site.Params.leadership .name }}
+                              <a href="/about/#leadership"> {{ .name }} </a>&nbsp;
+                            {{ else if in $.Site.Params.staff .name }}
+                              <a href="/about/#staff"> {{ .name }} </a>&nbsp;
+                            {{ else if eq .name "Ted Hart" }}
+                              <a href="/about/#alumni"> {{ .name }} </a>&nbsp;
+                            {{ else }}
+                              <a href="{{ .url }}" target="_blank"> {{ .name }} </a>&nbsp;
+                            {{ end }}
                         {{ end }}
                     </p>
                 </div>

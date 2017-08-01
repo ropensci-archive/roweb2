@@ -22,7 +22,15 @@
                         <h3>{{ .Title }}</h3>
                         <p class="authors">
                             {{ range .Params.authors }}
-                                <a href={{ .url }} target="_blank">{{ .name }}</a>,
+                                {{ if in $.Site.Params.leadership .name }}
+                                  <a href="/about/#leadership"> {{ .name }}</a>,
+                                {{ else if in $.Site.Params.staff .name }}
+                                  <a href="/about/#staff"> {{ .name }}</a>,
+                                {{ else if eq .name "Ted Hart" }}
+                                  <a href="/about/#alumni"> {{ .name }}</a>,
+                                {{ else }}
+                                  <a href="{{ .url }}" target="_blank"> {{ .name }}</a>,
+                                {{ end }}
                             {{ end }}
                         </p><!-- /authors -->
                         <div class="labels">
