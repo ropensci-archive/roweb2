@@ -409,6 +409,8 @@ q:before, q:after {
   font-weight: 700;
 }p em{
   font-weight: italic;
+}p img{
+  width: 100%;
 }a {
     text-decoration: none;
     color: #3d98ff
