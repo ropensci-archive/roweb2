@@ -11,8 +11,12 @@ code {
     background: var(--code_container);
 }
 
-pre code {
+pre {
     background-color: #2b303b;
+    padding: 1rem;
+    & code {
+        background-color: #2b303b;
+    }
 }
 
 .hljs-comment, 
