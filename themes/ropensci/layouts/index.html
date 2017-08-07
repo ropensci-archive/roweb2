@@ -5,6 +5,7 @@
     <title>rOpenSci</title>
 {{ partial "style-path.html"}}<!-- stylesheet imports -->
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 {{ partial "header.html" . }}
@@ -155,13 +156,6 @@
         </div><!-- /row -->
         <div class="row center">
             <div class="col-10 top-12">
-
-                <div id="authorize-div" style="display: none">
-                    <span>Authorize access to Google Calendar API</span>
-                    <!--Button for the user to click to initiate auth sequence -->
-                    <button id="authorize-button" onclick="handleAuthClick(event)">Authorize</button>
-                </div>
-
                 <table id="upcoming-events">
                     <thead>
                         <tr>
@@ -210,6 +204,19 @@
 <!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag -->
 <script type="text/javascript" src="/js/calinit.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+<script>
+    formatGoogleCalendar.init({
+      calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/maru@bxe.me/events?key=AIzaSyAJdWBFd0bSFqnRYPSVyJiQkW13BAMP6Wo',
+      past: false,
+      upcoming: true,
+      pastTopN: -1,
+      upcomingTopN: 6,
+      itemsTagName: 'tr',
+      upcomingSelector: '#eventlist',
+      format: ['*summary*','*date*','*location*','*attendees*','*description*']
+    });
+</script>
+
 
 </body>
 </html>
