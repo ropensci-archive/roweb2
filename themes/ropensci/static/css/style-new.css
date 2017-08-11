@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');/* Reset *//* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -1518,60 +1517,70 @@ q:before, q:after {
     .col-3{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-4{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-5{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-6{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-7{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-8{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-9{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-10{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-11{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-12{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
@@ -1711,60 +1720,70 @@ q:before, q:after {
     .col-3{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-4{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-5{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-6{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-7{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-8{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-9{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-10{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-11{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
     .col-12{
     flex-basis: 100%;
     max-width: 100%;
+    min-width: 100%;
     box-sizing: border-box;
   }
 
@@ -1872,6 +1891,42 @@ q:before, q:after {
     .col-6{
     flex-basis: 90%;
     max-width: 90%;
+    box-sizing: border-box;
+  }
+
+    .col-7{
+    flex-basis: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+    .col-8{
+    flex-basis: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+    .col-9{
+    flex-basis: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+    .col-10{
+    flex-basis: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+    .col-11{
+    flex-basis: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+    .col-12{
+    flex-basis: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
