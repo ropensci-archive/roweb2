@@ -378,7 +378,7 @@ var formatGoogleCalendar = (function () {
   return {
     init: function (settingsOverride) {
       var settings = {
-        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/milan.kacurak@gmail.com/events?key=AIzaSyCR3-ptjHE-_douJsn8o20oRwkxt-zHStY',
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/milan.kacurak@gmail.com/events?key=AIzaSyBmXtukDAp5bYZLlJNxHYIL8JcgOgA_90s',
         past: true,
         upcoming: true,
         sameDayTimes: true,
