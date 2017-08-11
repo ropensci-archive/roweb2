@@ -385,6 +385,7 @@ q:before, q:after {
     font-size: 3em;
     line-height: 1em;
     font-weight: 700;
+    margin-bottom: 1.65rem;
 }h3 {
     font-size: 2.25em;
     line-height: 1em;
@@ -402,6 +403,10 @@ q:before, q:after {
     font-size: .75rem;
     text-transform: uppercase;
     font-weight: 500;
+}article { 
+    text-align: left
+}article ul{
+  margin-left: 1.15rem;
 }p {
     font-size: inherit;
     line-height: 1.6rem
@@ -1121,7 +1126,8 @@ q:before, q:after {
     background: #f3f7ff;
 }pre {
     background-color: #2b303b;
-    padding: 1rem
+    padding: 1rem;
+    margin-bottom: 2.65rem
 }pre code{
   background-color: #2b303b;
 }.hljs-comment, 
