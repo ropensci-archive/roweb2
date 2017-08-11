@@ -205,8 +205,10 @@
 <script type="text/javascript" src="/js/calinit.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 <script>
+    var APIkey = 'AIzaSyA9p0b4twqiFrJN9d0L7ZIqB9NCC4qIcRA'
+    var calName = 'maru@bxe.me'
     formatGoogleCalendar.init({
-      calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/maru@bxe.me/events?key=AIzaSyA9p0b4twqiFrJN9d0L7ZIqB9NCC4qIcRA',
+      calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/'+ calName +'/events?key=' + APIkey,
       past: false,
       upcoming: true,
       pastTopN: -1,
@@ -215,7 +217,6 @@
       upcomingSelector: '#eventlist',
       format: ['*summary*','*date*','*location*','*attendees*','*description*']
     });
-    console.log('puchi')
 </script>
 
 
