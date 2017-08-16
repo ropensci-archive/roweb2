@@ -156,8 +156,6 @@
         </div>
         <div class="row center">
             <div class="col-10 top-12">
-            <iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no" ></iframe>
-            <!-- 
                 <table id="upcoming-events">
                     <thead>
                         <tr>
@@ -169,9 +167,22 @@
                         </tr>
                     </thead>
                     <tbody id="eventlist"> 
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
-            -->
             </div>
 
             <div class="col-4 top-5 bottom-13">
@@ -202,9 +213,13 @@
 
 {{ partial "footer.html" . }}
 
-<!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag 
+<!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
+
+<script type="text/javascript" src="/js/calendarJSON.js"></script>
 <script type="text/javascript" src="/js/calinit.js"></script>
-<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+
+<!-- 
+<script type="text/javascript" src="/js/calinit.js"></script>
 <script>
     var APIkey = 'AIzaSyC-On2g8M99iQ7VVPt2biEcsJkVeErKVxc'
     var calName = 't6pva0jm24urp7cp0n32262jd8'
