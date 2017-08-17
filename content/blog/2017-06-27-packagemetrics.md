@@ -1,6 +1,5 @@
 ---
-date: 2017-06-27
-slug: packagemetrics
+slug: "packagemetrics"
 title: packagemetrics - Helping you choose a package since runconf17
 authors:
   - name: Becca Krouse

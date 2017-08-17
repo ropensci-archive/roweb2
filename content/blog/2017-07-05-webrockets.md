@@ -1,6 +1,5 @@
 ---
-date: 2017-07-05
-slug: webrockets
+slug: "webrockets"
 title: Launching webrockets at runconf17
 authors:
   - name: Alicia Schep
