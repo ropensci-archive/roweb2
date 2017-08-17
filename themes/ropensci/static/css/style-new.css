@@ -38,7 +38,7 @@ q:before, q:after {
 }table thead th{
   font-weight: inherit;
 }/* General */:root {
-    font-size: 20px;
+    font-size: 18px;
     font-family: "ProximaNova";
     font-weight: 500;
     line-height: 22px;
@@ -907,21 +907,6 @@ q:before, q:after {
   color: #aac9f3;
 }#footer a{
   color: #ccdef6;
-}// calendar
-
-
-iframe {
-}// calendar
-
-
-iframe .today-button{
-  padding: 12px 20px;
-  border: 1px solid #01dc0b;
-  border-radius: 20px;
-  color: #01dc0b;
-  background-color: transparent;
-  text-transform: uppercase;
-  font-family: proxima nova;
 }/* Forms */form {
     width: 100%
 }form input{
@@ -994,9 +979,9 @@ iframe .today-button{
   background-color: #3d98ff;
   border: 0 none;
   color: white;
-  padding: 15px 20px;
+  padding: 17px 20px;
   position: relative;
-  margin-top: -45px;
+  margin-top: -50px;
   float: right;
 }form.newsletter, form.tutorial{
 }form.newsletter input, form.tutorial input{
@@ -1005,7 +990,7 @@ iframe .today-button{
   font-size: 1rem;
   font-style: italic;
   border: 1px solid #e8edf7;
-  padding: 13px 15px 15px 40px;
+  padding: 16px 15px 15px 40px;
   border-radius: 2px;
   background-color: white;
   box-sizing: border-box;
