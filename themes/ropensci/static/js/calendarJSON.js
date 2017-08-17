@@ -4,12 +4,12 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': 'An article',
-      'dateStart': 'August 20 2017, 8:00 ',
-      'dateEnd': 'August 21 2017, 19:00',
-      'description': 'Some sample text here',
-      'location': '255 Steel St, CA',
-      'attendees': 'example author'
+      'title': 'Numfocus Summit',
+      'dateStart': 'October 10 2017',
+      'dateEnd': 'October 11 2017',
+      'description': 'Numfocus opens source projects meeting',
+      'location': 'Austin, TX',
+      'attendees': 'Karthik & Stefanie'
     },
     {
       'title': 'Some workshop',
