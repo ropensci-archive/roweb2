@@ -177,7 +177,7 @@
     </div>
 </section>
 <!-- / ends upcoming events calendar section           
- ******** IMPORTANT: this section requires calinit.js please see bottom of the page [or search for `calendar] for required scripts ********* --> 
+ ******** IMPORTANT: this section requires calinit.js and calendarJSON.js please see bottom of the page [or search for `calendar] for required scripts ********* --> 
 
 {{ partial "mailkimp.html" . }}
 
@@ -198,29 +198,9 @@
 
 {{ partial "footer.html" . }}
 
-<!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
-
+<!-- Loads `calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
 <script type="text/javascript" src="/js/calendarJSON.js"></script>
 <script type="text/javascript" src="/js/calinit.js"></script>
-
-<!-- 
-<script type="text/javascript" src="/js/calinit.js"></script>
-<script>
-    var APIkey = 'AIzaSyC-On2g8M99iQ7VVPt2biEcsJkVeErKVxc'
-    var calName = 't6pva0jm24urp7cp0n32262jd8'
-    formatGoogleCalendar.init({
-      calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/'+ calName +'/events?key=' + APIkey,
-      past: false,
-      upcoming: true,
-      pastTopN: -1,
-      upcomingTopN: 6,
-      itemsTagName: 'tr',
-      upcomingSelector: '#eventlist',
-      format: ['*summary*','*date*','*location*','*attendees*','*description*']
-    });
-</script> 
-
--->
 
 
 </body>

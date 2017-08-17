@@ -54,58 +54,44 @@
 <!-- ends commcalls slideshow -->
 
 <!-- begins event calendar section -->
-    <section class="upcoming" id="events">
-        <div class="container">
-            <div class="row center">
-                <div class="col-8 top-20">
-                    <h2>Upcoming events</h2>
-                </div>
-            </div><!-- /row -->
-            <div class="row center">
-                <div class="col-10 top-12">
-
-                    <table id="upcoming-events">
-                        <thead>
-                            <tr>
-                                <th>Event</th>
-                                <th>Date</th>
-                                <th>Location</th>
-                                <th>Attendees</th>
-                                <th>Details</th>
-                            </tr>
-                        </thead>
-                        <tbody id="eventlist"> 
-                        <!-- Auto appends calendar events from calinit.js --> 
-                        </tbody>
-                    </table>
-
-                </div>
-
-                <div class="col-4 top-5 bottom-13">
-                    <a href="CALENDARLINK" target="_blank" class="button outline green">View full calendar</a>
-                </div>
+    <!-- begins upcoming events calendar section -->
+<section class="upcoming">
+    <div class="container">
+        <div class="row center">
+            <div class="col-8 top-20">
+                <h2>Upcoming events</h2>
             </div>
         </div>
-    </section>
-    <!-- /calendar            ******** IMPORTANT: this section requires calinit.js ********* --> 
+        <div class="row center">
+            <div class="col-10 top-12">
+                <table id="upcoming-events">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Attendees</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventlist"></tbody>
+                </table>
+            </div>
+
+            <div class="col-4 top-5 bottom-13">
+                <a href="https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles" target="_blank" class="button outline green">View full calendar</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / ends upcoming events calendar section           
+ ******** IMPORTANT: this section requires calinit.js and calendarJSON.js please see bottom of the page [or search for `calendar] for required scripts ********* --> 
 
 {{ partial "mailkimp.html" . }}
 {{ partial "footer.html" . }}
 
-<!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag -->
+<!-- Loads `calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
+<script type="text/javascript" src="/js/calendarJSON.js"></script>
 <script type="text/javascript" src="/js/calinit.js"></script>
-<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-<script>
-    formatGoogleCalendar.init({
-      calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/t6pva0jm24urp7cp0n32262jd8@group.calendar.google.com/events?key=AIzaSyBmXtukDAp5bYZLlJNxHYIL8JcgOgA_90s',
-      past: false,
-      upcoming: true,
-      pastTopN: -1,
-      upcomingTopN: 6,
-      itemsTagName: 'tr',
-      upcomingSelector: '#eventlist',
-      format: ['*summary*','*date*','*location*','*attendees*','*description*']
-    });
-</script>
 </body>
 </html>
