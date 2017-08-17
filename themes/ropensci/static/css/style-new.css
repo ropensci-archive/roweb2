@@ -38,7 +38,7 @@ q:before, q:after {
 }table thead th{
   font-weight: inherit;
 }/* General */:root {
-    font-size: 16px;
+    font-size: 20px;
     font-family: "ProximaNova";
     font-weight: 500;
     line-height: 22px;
@@ -911,7 +911,6 @@ q:before, q:after {
 
 
 iframe {
-    border: 1px solid red
 }// calendar
 
 
