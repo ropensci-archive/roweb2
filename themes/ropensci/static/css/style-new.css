@@ -907,6 +907,22 @@ q:before, q:after {
   color: #aac9f3;
 }#footer a{
   color: #ccdef6;
+}// calendar
+
+
+iframe {
+    border: 1px solid red
+}// calendar
+
+
+iframe .today-button{
+  padding: 12px 20px;
+  border: 1px solid #01dc0b;
+  border-radius: 20px;
+  color: #01dc0b;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-family: proxima nova;
 }/* Forms */form {
     width: 100%
 }form input{

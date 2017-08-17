@@ -8,6 +8,7 @@ var calendar = {
       'dateStart': 'August 20 2017, 8:00 ',
       'dateEnd': 'August 21 2017, 19:00',
       'description': 'Some sample text here',
+      'location': '255 Steel St, CA',
       'attendees': 'example author'
     },
     {
@@ -15,6 +16,7 @@ var calendar = {
       'dateStart': 'August 20 2017, 8:00 ',
       'dateEnd': 'August 26 2017, 19:00',
       'description': 'Some sample text here',
+      'location': '255 Steel St, CA',
       'attendees': 'example author'
     },
     {
@@ -22,6 +24,7 @@ var calendar = {
       'dateStart': 'August 20 2017, 8:00 ',
       'dateEnd': 'August 20 2017, 19:00',
       'description': 'Some sample text here',
+      'location': '255 Steel St, CA',
       'attendees': 'example author'
     }
   ]
