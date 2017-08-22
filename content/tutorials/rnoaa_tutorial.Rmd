@@ -1,0 +1,279 @@
+---
+title: rnoaa tutorial
+package_version: 0.5.2
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rnoaa/",
+  fig.width = 6,
+  fig.height = 4,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+<section id="installation">
+
+## Installation
+
+Install and load `rnoaa` into the R session. Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("rnoaa")
+```
+
+Or development version from Github:
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/rnoaa")
+```
+
+```{r load}
+library('plyr')
+library('rnoaa')
+```
+
+<section id="usage">
+
+## Usage
+
+## National Climatic Data Center (NCDC) data
+
+### Get info on a station by specifying a datasetid, locationid, and stationid
+
+```{r two, message=FALSE, warning=FALSE, cache=FALSE}
+ncdc_stations(datasetid='GHCND', locationid='FIPS:12017', stationid='GHCND:USC00084289')
+```
+
+### Search for data and get a data.frame
+
+```{r three, message=FALSE, warning=FALSE, cache=FALSE}
+out <- ncdc(datasetid='NORMAL_DLY', datatypeid='dly-tmax-normal', startdate = '2010-05-01', enddate = '2010-05-10')
+```
+
+See a data.frame
+
+```{r four, message=FALSE, warning=FALSE, cache=FALSE}
+out$data
+```
+
+### Plot data, super simple, but it's a start
+
+```{r six, message=FALSE, warning=FALSE, cache=FALSE}
+out <- ncdc(datasetid='NORMAL_DLY', stationid='GHCND:USW00014895', datatypeid='dly-tmax-normal', startdate = '2010-01-01', enddate = '2010-12-10', limit = 300)
+ncdc_plot(out)
+```
+
+Note that the x-axis tick text is not readable, but see futher down in tutorial for how to adjust that.
+
+### More on plotting
+
+#### Example 1
+
+Search for data first, then plot
+
+```{r}
+out <- ncdc(datasetid='GHCND', stationid='GHCND:USW00014895', datatypeid='PRCP', startdate = '2010-05-01', enddate = '2010-10-31', limit=500)
+```
+
+Default plot
+
+```{r}
+ncdc_plot(out)
+```
+
+Create 14 day breaks
+
+```{r}
+ncdc_plot(out, breaks="14 days")
+```
+
+One month breaks
+
+```{r}
+ncdc_plot(out, breaks="1 month", dateformat="%d/%m")
+```
+
+#### Example 2
+
+Search for data
+
+```{r}
+out2 <- ncdc(datasetid='GHCND', stationid='GHCND:USW00014895', datatypeid='PRCP', startdate = '2010-05-01', enddate = '2010-05-03', limit=100)
+```
+
+Make a plot, with 6 hour breaks, and date format with only hour
+
+```{r}
+ncdc_plot(out2, breaks="6 hours", dateformat="%H")
+```
+
+### Combine many calls to noaa function
+
+Search for two sets of data
+
+```{r}
+out1 <- ncdc(datasetid='GHCND', stationid='GHCND:USW00014895', datatypeid='PRCP', startdate = '2010-03-01', enddate = '2010-05-31', limit=500)
+
+out2 <- ncdc(datasetid='GHCND', stationid='GHCND:USW00014895', datatypeid='PRCP', startdate = '2010-09-01', enddate = '2010-10-31', limit=500)
+```
+
+Then combine with a call to `ncdc_combine`
+
+```{r}
+df <- ncdc_combine(out1, out2)
+head(df[[1]]); tail(df[[1]])
+```
+
+Then plot - the default passing in the combined plot plots the data together. In this case it looks kind of weird since a straight line combines two distant dates.
+
+```{r}
+ncdc_plot(df)
+```
+
+But we can pass in each separately, which uses `facet_wrap` in `ggplot2` to plot each set of data in its own panel.
+
+```{r}
+ncdc_plot(out1, out2, breaks="45 days")
+```
+
+## ERDDAP data
+
+> ERDDAP data is now avialable through the `rerddap` package
+
+
+## Severe Weather Data Inventory (SWDI) data
+
+### Search for nx3tvs data from 5 May 2006 to 6 May 2006
+
+```{r}
+swdi(dataset='nx3tvs', startdate='20060505', enddate='20060506')
+```
+
+### Use an id
+
+```{r}
+out <- swdi(dataset='warn', startdate='20060506', enddate='20060507', id=533623)
+list(out$meta, head(out$data), head(out$shape))
+```
+
+### Get all 'plsr' within the bounding box (-91,30,-90,31)
+
+```{r}
+swdi(dataset='plsr', startdate='20060505', enddate='20060510', bbox=c(-91,30,-90,31))
+```
+
+
+## Sea ice data
+
+### Map all years for April only for North pole
+
+```{r seaice, message=FALSE, warning=FALSE, eval=FALSE}
+urls <- seaiceeurls(mo='Apr', pole='N')[1:10]
+out <- lapply(urls, seaice)
+names(out) <- seq(1979,1988,1)
+df <- ldply(out)
+library('ggplot2')
+ggplot(df, aes(long, lat, group=group)) +
+  geom_polygon(fill="steelblue") +
+  theme_ice() +
+  facet_wrap(~ .id)
+```
+
+![seaice](../assets/tutorial-images/rnoaa/seaice.png)
+
+
+## IBTrACS storm data
+
+Get NOAA wind storm tabular data, metadata, or shp files from International Best Track Archive for Climate Stewardship (IBTrACS). See http://www.ncdc.noaa.gov/ibtracs/index.php?name=numbering for more.
+
+### Metadata
+
+There are two datasets stored in the package. By default `storm_meta()` gives metadata describing columns of the datasets returned.
+
+```{r}
+head( storm_meta() )
+```
+
+Or you can get back a dataset of storm names, including storm ids and their names.
+
+```{r}
+head( storm_meta("storm_names") )
+```
+
+### Tabular data
+
+You can get tabular data for basins, storms, or years, (or all data). `storm_data()` and the next function `storm_shp()` figure out what files to get, and gets them from an ftp server, and saves them to your machine. Do let us know if you have any problems with paths on your machine, and we'll fix 'em. The result from `storm_data()` is a `dplyr`-like data.frame with a easy summary that makes large datasets easy to view.
+
+First, by basin (one of EP, NA, NI, SA, SI, SP, or WP)
+
+```{r eval=FALSE}
+storm_data(year=1941)
+#> <path>~/.rnoaa/storms/year/Year.1941.ibtracs_all.v03r06.csv
+#>
+#> <NOAA Storm Data>
+#> Size: 1766 X 195
+#>
+#>       serial_num season num basin sub_basin      name            iso_time nature latitude
+#> 1  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-01 12:00:00     NR     -999
+#> 2  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-01 18:00:00     NR     -999
+#> 3  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-02 00:00:00     NR     -999
+#> 4  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-02 06:00:00     NR     -999
+#> 5  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-02 12:00:00     NR     -999
+#> 6  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-02 18:00:00     NR     -999
+#> 7  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-03 00:00:00     NR     -999
+#> 8  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-03 06:00:00     NR     -999
+#> 9  1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-03 12:00:00     NR     -999
+#> 10 1940215S18149   1941   1    SP        EA NOT NAMED 1940-08-03 18:00:00     NR     -999
+#> ..           ...    ... ...   ...       ...       ...                 ...    ...      ...
+#> Variables not shown: longitude (dbl), wind.wmo. (dbl), pres.wmo. (dbl), center (chr),
+#>      wind.wmo..percentile (dbl), pres.wmo..percentile (dbl), track_type (chr),
+#>      latitude_for_mapping (dbl), longitude_for_mapping (dbl), current.basin (chr), hurdat_atl_lat
+#>      (dbl), hurdat_atl_lon (dbl), hurdat_atl_grade (dbl), hurdat_atl_wind (dbl), hurdat_atl_pres
+#>      (dbl), td9636_lat (dbl), td9636_lon (dbl), td9636_grade (dbl), td9636_wind (dbl),
+```
+
+## Buoy data
+
+## Find out what buoys are available in a dataset
+
+```{r}
+head(buoys(dataset = "cwind"))
+```
+
+## Get buoy data
+
+With `buoy` you can get data for a particular dataset, buoy id, year, and datatype.
+
+Get data for a buoy, specifying year and datatype
+
+```{r}
+buoy(dataset = 'cwind', buoyid = 41001, year = 2008, datatype = "cc")
+```
+
+
+## More data
+
+There are more NOAA data sources in `noaa`. Check out the various vignettes in the package.
+
+<section id="citing">
+
+## Citing
+
+To cite `rnoaa` in publications use:
+
+<br>
+
+> Scott Chamberlain, Adam Erickson, Nicholas Potter, Joseph Stachelek, Karthik Ram and Hart Edmund (2016). rnoaa: NOAA climate data from R. R package version 0.5.2. https://github.com/ropensci/rnoaa
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rnoaa](https://github.com/ropensci/rnoaa/issues?state=open)
+
+[Back to top](#top)

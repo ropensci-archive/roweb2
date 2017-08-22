@@ -1,0 +1,153 @@
+---
+title: opencage tutorial
+package_version: 0.1.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/opencage/",
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+This package is an interface to the OpenCage API that allows forward and reverse geocoding. To use the package, you will need an API key. To get an API key for OpenCage geocoding, register at https://geocoder.opencagedata.com/pricing. The free API key provides up to 2,500 calls a day. For ease of use, save your API key as an environment variable as described at http://stat545.com/bit003_api-key-env-var.html.
+
+Both functions of the package will conveniently look for your API key using `Sys.getenv("OPENCAGE_KEY")` so if your API key is an environment variable called "OPENCAGE_KEY" you don't need to input it manually.
+
+# Geocoding
+
+The [OpenCage](https://geocoder.opencagedata.com/) API supports forward and reverse geocoding. Sources of OpenCage are open geospatial data including OpenStreetMap, Yahoo! GeoPlanet, Natural Earth Data, Thematic Mapping, Ordnance Survey OpenSpace, Statistics New Zealand, Zillow, MaxMind, GeoNames, the US Census Bureau and Flickr's shapefiles plus a whole lot more besides. See [this page](https://geocoder.opencagedata.com/credits) for the full list of credits.
+
+Both forward and reverse geocoding typically return multiple results. Regarding these multiple results, the API doc states, "In cases where the geocoder is able to find multiple matches, the geocoder will return multiple results. The confidence or coordinates for each result should be examined to determine whether each result from an ambiguous query is sufficiently high to warrant using a result or not. A good strategy to reduce ambiguity is to use the optional `bounds` parameter described below to limit the area searched." Multiple results might mean you get a result for the airport and a road when querying a city name, or results for cities with the same name in different countries.
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("opencage")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropenscilabs/opencage")
+```
+
+```{r}
+library("opencage")
+```
+
+<section id="usage">
+
+## Usage
+
+### Forward geocoding
+
+Forward geocoding is from placename to latitude and longitude tuplet(s).
+
+```{r}
+output <- opencage_forward(placename = "Sarzeau")
+library("dplyr")
+output$rate_info
+output$results
+```
+
+### Reverse geocoding
+
+Reverse geocoding is from latitude and longitude to placename(s).
+
+```{r, message=FALSE}
+output2 <- opencage_reverse(latitude = 51.5034070,
+                            longitude = -0.1275920)
+output2$rate_info
+output2$results
+```
+
+### Parameters
+
+Optional parameters of both `opencage_forward` and `opencage_reverse` can make the query more precise:
+
+* `bounds`: Provides the geocoder with a hint to the region that the query resides in. This value will restrict the possible results to the supplied region. The bounds parameter should be specified as 4 coordinate points forming the south-west and north-east corners of a bounding box. For example, `bounds = c(-0.563160, 51.280430, 0.278970, 51.683979)` (min long, min lat, max long, max lat).
+
+Below is an example of the use of `bounds` where the rectangle given in the second call does not include Europe so that we don't get results for Berlin in Germany.
+
+```{r, message=FALSE}
+results1 <- opencage_forward(placename = "Berlin")
+results1$results
+```
+
+```{r}
+results2 <- opencage_forward(placename = "Berlin",
+                             bounds = c(-90,38,0, 45))
+results2$results
+```
+
+* `countrycode`: Restricts the results to the given country. The country code is a two letter code as defined by the ISO 3166-1 Alpha 2 standard. E.g. "GB" for the United Kingdom, "FR" for France, "US" for United States. See example below.
+
+```{r, message=FALSE}
+results3 <- opencage_forward(placename = "Berlin", country = "DE")
+results3$results
+```
+
+* `language`: an IETF format language code (such as "es" for Spanish or "pt-BR" for Brazilian Portuguese). If no language is explicitly specified, we will look for an HTTP Accept-Language header like those sent by a brower and use the first language specified and if none are specified "en" (English) will be assumed. See example below.
+
+```{r, message=FALSE}
+results4 <- opencage_forward(placename = "Berlin", country = "DE", language = "de")
+results4$results
+```
+
+* `limit`: How many results should be returned (1-100). Default is 10.
+
+* `min_confidence`: an integer from 1-10. Only results with at least this confidence will be returned.
+
+* `no_annotations`: Logical (default FALSE), when TRUE the output will not contain annotations.
+
+* `no_dedupe`: Logical (default FALSE), when TRUE the output will not be deduplicated.
+
+ For more information about the output and the query parameters, see the package documentation, the [API doc](https://geocoder.opencagedata.com/api) and [OpenCage FAQ](https://geocoder.opencagedata.com/faq).
+
+### Caching
+
+The underlying data at OpenCage is updated about once a day. Note that the package uses [memoise](https://github.com/hadley/memoise) with no timeout argument so that results are cached inside an active R session.
+
+```{r, message=FALSE}
+system.time(opencage_reverse(latitude = 10, longitude = 10))
+
+system.time(opencage_reverse(latitude = 10, longitude = 10))
+
+memoise::forget(opencage_reverse)
+system.time(opencage_reverse(latitude = 10, longitude = 10))
+```
+
+### Privacy
+
+Both functions have a parameter `no_record`. It is `FALSE` by default.
+
+* When `no_record` is `FALSE` a log of the query is made by OpenCage. The company uses them to better generally understand how people are using its service (forward or reverse geocoding, what parts of the world are people most interested in, etc) and for debugging. The overwhelming majority (99.9999+% of queries) are never specifically looked at (sheer volume prevents that) and are automatically deleted after a few days. More information about privacy can be found [here](https://geocoder.opencagedata.com/faq#legal).
+
+* When `no_record` is `TRUE` the actual query is replaced with FILTERED in OpenCage logs, so that the company has no chance to see what your request was.
+
+
+<section id="citing">
+
+## Citing
+
+> Maëlle Salmon. 2016. opencage: Interface to the OpenCage API. R package version
+  0.1.0. https://cran.rstudio.com/package=opencage
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [GPL-2](https://opensource.org/licenses/GPL-2.0)
+* Report bugs at [our GitHub repo for opencage](https://github.com/ropenscilabs/opencage/issues?state=open)
+
+
+[Back to top](#top)

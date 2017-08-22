@@ -1,0 +1,211 @@
+---
+title: rebird tutorial
+package_version: 0.3.0
+---
+
+```{r echo=FALSE}
+library("knitr")
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines)==1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1])>1) more else NULL,
+            x[lines],
+            if (length(x)>lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/geojsonio/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+	output.lines = 1:10
+)
+```
+
+A programmatic interface to the eBird database. Find out more about eBird at [their website](http://ebird.org/content/ebird/).
+
+<section id="installation">
+
+## Installation
+
+
+You can install the stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("rebird")
+```
+
+Or the development version from Github
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/rebird")
+```
+
+Then load the package into the R sesssion
+
+```{r}
+library("rebird")
+```
+
+<section id="usage">
+
+## Usage
+
+### Sightings at location determined by latitude/longitude
+
+Search for bird occurrences by latitude and longitude point
+
+```{r ebirdgeo1}
+ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
+```
+
+Same, but with additional parameter settings, returning only 10 records, including provisional records, and hotspot records.
+
+```{r ebirdgeo2}
+ebirdgeo(lat = 42, lng = -76, max = 10, includeProvisional = TRUE, hotspot = TRUE)
+```
+
+
+### Recent sightings frm location IDs
+
+Search for bird occurrences for two locations by their IDs
+
+```{r ebirdloc1}
+ebirdloc(locID = c('L99381','L99382'))
+```
+
+Search by location ID and species name, as well as some additional parameter settings
+
+```{r ebirdloc2}
+ebirdloc(locID = 'L99381', species = 'larus delawarensis', max = 10, provisional = TRUE, hotspot=TRUE)
+```
+
+
+### Recent observations at a region
+
+Search for bird occurrences by region and species name
+
+```{r ebirdregion1}
+ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+```
+
+Search by location ID and species name, as well as some additional parameter settings. Note that we use `US-OH` to represent Ohio within the US. [See possible region values](https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference).
+
+```{r ebirdregion2}
+ebirdregion(region = 'US-OH', max = 10, provisional = TRUE, hotspot = TRUE)
+```
+
+
+### Recent observations at hotspots
+
+Search for bird occurrences by region and species name
+
+```{r ebirdhotspot}
+ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis')
+```
+
+
+### Frequency of observations at hotspots or regions
+
+Obtain historical frequencies of bird occurrences at a given hotspot
+
+```{r ebirdfreq1}
+ebirdfreq(loctype = 'hotspots', loc = 'L196159')
+```
+
+Same, but in wide format (for making bar charts)
+
+```{r ebirdfreq2}
+ebirdfreq(loctype = 'hotspots', loc = 'L196159', long = FALSE)
+```
+
+Obtain frequency data for a given state
+
+```{r ebirdfreq3}
+ebirdfreq(loctype = 'states', loc = 'CA-BC')
+```
+
+Or county
+
+```{r ebirdfreq4}
+ebirdfreq(loctype = 'counties', loc = 'CA-BC-GV')
+```
+
+Obtain frequency data within a range of years and months
+
+```{r ebirdfreq5}
+ebirdfreq(loctype = 'hotspots', loc = 'L196159', startyear = 2010,
+          endyear = 2014, startmonth = 1, endmonth = 3)
+```
+
+
+### Recent notable sightings
+
+Search for notable sightings at a given latitude and longitude
+
+```{r ebirdnotable}
+ebirdnotable(lat = 42, lng = -70)
+```
+
+
+### eBird taxonomy
+
+Returns a data.frame of all species in the eBird taxonomy for the given parameter inputs
+
+```{r ebirdtax1}
+ebirdtaxonomy()
+```
+
+Search for hybrid species only
+
+```{r ebirdtax2}
+ebirdtaxonomy(cat="hybrid")
+```
+
+
+### Check eBird region
+
+Check if region is valid in eBird database
+
+```{r ebirdregioncheck}
+ebirdregioncheck(loctype = 'counties', loc = 'CA-BC-GV')
+```
+
+
+
+<section id="citing">
+
+## Citing
+
+To cite `rebird` in publications use:
+
+<br>
+
+> Rafael Maia, Scott Chamberlain, Andy Teucher and Sebastian Pardo (2016). rebird: R Client for the eBird Database of Bird Observations. R package version 0.3.0. https://github.com/ropensci/rebird
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rebird](https://github.com/ropensci/rebird/issues?state=open)
+
+[Back to top](#top)

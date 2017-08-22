@@ -1,0 +1,104 @@
+---
+title: AntWeb tutorial
+package_version: 0.7.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/antweb/",
+  comment = "#>",
+	warning = FALSE,
+	message = FALSE
+)
+```
+
+[AntWeb](http://www.antweb.org/) is a repository that boasts a wealth of natural history data, digital images, and specimen records on ant species from a large community of museum curators.
+
+<section id="installation">
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("AntWeb")
+```
+
+or you can install the latest development version.
+
+```{r eval=FALSE}
+library("devtools")
+install_github("ropensci/AntWeb")
+```
+
+<section id="usage">
+
+## Usage
+
+
+### Searching through the database
+
+As with most of our packages, there are several ways to search through an API. In the case of AntWeb, you can search by a genus or full species name or by other taxonomic ranks like sub-phylum.
+
+To obtain data on any taxonomic group, you can make a request using the `aw_data()` function. It's possible to search easily by a taxonomic rank (e.g. a genus) or by passing a complete scientific name.
+
+__Searching by Genus__
+
+To get data on an ant genus found widely through Central and South America
+
+```{r}
+library("AntWeb")
+leaf_cutter_ants  <- aw_data(genus = "acromyrmex")
+leaf_cutter_ants$count
+```
+
+__Searching by species__
+
+You can request data on any particular species
+
+```{r}
+(acanthognathus_df <- aw_data(scientific_name = "acanthognathus brevicornis"))
+```
+
+You can also limit queries to observation records that have been geoferenced
+
+```{r}
+(acanthognathus_df_geo <- aw_data(genus = "acanthognathus", species = "brevicornis", georeferenced = TRUE))
+```
+
+
+It's also possible to search for records around any location by specifying a search radius.
+
+This will search for data on a 2 km radius around that latitude/longitude
+
+```{r}
+data_by_loc <- aw_coords(coord = "37.76,-122.45", r = 2)
+```
+
+### Mapping ant specimen data
+
+As with the previous ecoengine package, you can also visualize location data for any set of species. Adding `georeferenced = TRUE` to a data retrieval call will filter out any data points without location information. Once retrieved the data are mapped with the open source [Leaflet.js](http://leafletjs.com/) and pushed to your default browser. Maps and associated `geoJSON` files are also saved to a location specified (or defaults to your `/tmp` folder). This feature is only available on the development version on GitHub (`0.5.2` or greater; see above on how to install) and will be available from CRAN in version `0.6`
+
+```{r eval=FALSE}
+acd <- aw_data(genus = "acanthognathus")
+aw_map(acd)
+```
+
+![](../assets/tutorial-images/antweb/leafletmap.png)
+
+<section id="citing">
+
+## Citing
+
+To cite `AntWeb` in publications use:
+
+<br>
+
+> 'Karthik Ram' (2014). AntWeb: programmatic interface to the AntWeb. R package version 0.6.1. http://CRAN.R-project.org/package=AntWeb
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [CC0](http://creativecommons.org/choose/zero/)
+* Report bugs at [our Github repo for AntWeb](https://github.com/AntWeb/issues?state=open)
+
+[Back to top](#top)

@@ -1,0 +1,99 @@
+---
+title: hunspell tutorial
+package_version: 1.4.3
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/hunspell/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  cache = TRUE
+)
+```
+
+A spell checker and morphological analyzer library designed for
+languages with rich morphology and complex word compounding or character
+encoding. The package can check and analyze individual words as well as
+search for incorrect words within a text, latex or manual document.
+
+
+See also these blog posts about `hunspell`:
+
+- [Hunspell: Spell Checker and Text Parser for R](https://www.opencpu.org/posts/hunspell-release/)
+- [Stemming and Spell Checking in R](https://www.opencpu.org/posts/hunspell-1-2/)
+
+<section id="installation">
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("hunspell")
+```
+
+Or development version from GitHub
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/hunspell")
+```
+
+```{r}
+library("hunspell")
+```
+
+<section id="usage">
+
+## Usage
+
+### Check individual words
+
+```{r}
+words <- c("beer", "wiskey", "wine")
+correct <- hunspell_check(words)
+print(correct)
+```
+
+### Find suggestions for incorrect words
+
+```{r}
+hunspell_suggest(words[!correct])
+```
+
+### Extract incorrect from a piece of text
+
+```{r}
+bad <- hunspell("spell checkers are not neccessairy for langauge ninja's")
+print(bad[[1]])
+hunspell_suggest(bad[[1]])
+```
+
+### Stemming
+
+```{r}
+words <- c("love", "loving", "lovingly", "loved", "lover", "lovely", "love")
+hunspell_stem(words)
+hunspell_analyze(words)
+```
+
+<section id="citing">
+
+## Citing
+
+To cite `hunspell` in publications use:
+
+<br>
+
+> Jeroen Ooms (2016). hunspell: Morphological Analysis and Spell Checker
+  for R. R package version 1.4.3. https://cran.rstudio.com/package=hunspell
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for hunspell](https://github.com/ropensci/hunspell/issues?state=open)
+
+[Back to top](#top)

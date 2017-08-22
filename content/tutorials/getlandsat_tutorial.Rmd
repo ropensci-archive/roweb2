@@ -1,0 +1,117 @@
+---
+title: getlandsat tutorial
+package_version: 0.1.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/getlandsat/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`getlandsat` provides access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on AWS S3 at <https://aws.amazon.com/public-data-sets/landsat>. The package only fetches data. It does not attempt to aid users in downstream usage, but some additional functionality may be added.
+
+Potential users are probably anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data.
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("getlandsat")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropenscilabs/getlandsat")
+```
+
+```{r}
+library("getlandsat")
+```
+
+<section id="usage">
+
+## Usage
+
+
+```{r echo=FALSE}
+lsat_cache_delete_all()
+```
+
+
+### List scenes
+
+```{r}
+(res <- lsat_scenes(n_max = 10))
+```
+
+### List scene files
+
+```{r}
+lsat_scene_files(x = res$download_url[1])
+```
+
+### Get an image
+
+Returns path to the image
+
+```{r}
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+```
+
+Another one
+
+```{r}
+lsat_image("LC80010032014272LGN00_B10.TIF")
+```
+
+#### Caching
+
+When requesting an image, we first check if you already have that image. If you do,
+we return the path to the file. If not, we get the image, and return the file path.
+
+```{r message=TRUE}
+lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+```
+
+Note the message given.
+
+See `?lsat_cache` for cache management functions.
+
+### Visualize
+
+```{r}
+library("raster")
+x <- lsat_cache_details()
+img <- raster(x[[1]]$file)
+plot(img)
+```
+
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain (2016). getlandsat: Get Landsat 8 Data
+  from Amazon Pulic Data Sets. R package version 0.1.0.
+  https://cran.rstudio.com/package=getlandsat
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for getlandsat](https://github.com/ropenscilabs/getlandsat/issues?state=open)
+
+
+[Back to top](#top)

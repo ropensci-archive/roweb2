@@ -1,0 +1,121 @@
+---
+title: pangaear tutorial
+package_version: 0.2.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/pangaear/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+Tools to interact with the [Pangaea Database](https:// www.pangaea.de), including functions for searching for data, fetching datasets by dataset ID, and working with the Pangaea OAI-PMH service.
+
+<section id="installation">
+
+## Installation
+
+Stable `pangaear` version from CRAN
+
+```{r eval=FALSE}
+install.packages("pangaear")
+```
+
+Or, the development version from Github
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/pangaear")
+```
+
+```{r}
+library("pangaear")
+```
+
+<section id="usage">
+
+## Usage
+
+### Search for data
+
+This is a thin wrapper around the GUI search interface on the page [https://www.pangaea.de/](https://www.pangaea.de/). Everything you can do there, you can do here.
+
+```{r}
+pg_search(query = 'water', bbox = c(-124.2, 41.8, -116.8, 46.1), count = 3)
+```
+
+### Get data
+
+```{r}
+res <- pg_data(doi = '10.1594/PANGAEA.761032')
+res[[1]]
+```
+
+Search for data then pass DOI to data function.
+
+```{r}
+res <- pg_search(query = 'water', bbox = c(-124.2, 41.8, -116.8, 46.1), count = 3)
+pg_data(res$doi[1])
+```
+
+### OAI-PMH metadata
+
+#### Identify the service
+
+```{r}
+pg_identify()
+```
+
+#### List metadata formats
+
+```{r}
+pg_list_metadata_formats()
+```
+
+#### List identifiers
+
+```{r}
+pg_list_identifiers(from = '2015-09-01', until = '2015-09-05')
+```
+
+#### List sets
+
+```{r}
+pg_list_sets()
+```
+
+#### List records
+
+```{r}
+pg_list_records(from = '2015-09-01', until = '2015-09-10')
+```
+
+#### Get a record
+
+```{r}
+pg_get_record(identifier = "oai:pangaea.de:doi:10.1594/PANGAEA.788382")
+```
+
+
+<section id="citing">
+
+## Citing
+
+To cite `pangaear` in publications use:
+
+<br>
+
+> Scott Chamberlain, Kara Woo, Andrew MacDonald, Naupaka Zimmerman and Gavin Simpson (2016). pangaear:
+  Client for the 'Pangaea' Database. R package version 0.2.0. https://github.com/ropensci/pangaear
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for pangaear](https://github.com/ropensci/pangaear/issues?state=open)
+
+[Back to top](#top)

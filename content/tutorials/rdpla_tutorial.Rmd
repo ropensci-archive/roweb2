@@ -1,0 +1,188 @@
+---
+title: rdpla tutorial
+package_version: 0.1.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/rdpla/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`rdpla`: R client for Digital Public Library of America
+
+[Digital Public Library of America][dpla] brings together metadata from libraries, archives,
+and museums in the US, and makes it freely available via their web portal as well as
+an API. DPLA's portal and API don't provide the items themselves from contributing
+institutions, but they provide links to make it easy to find things. The kinds of
+things DPLA holds metadata for include images of works held in museums, photographs
+from various photographic collections, texts, sounds, and moving images.
+
+DPLA has [a great API](https://github.com/dpla/platform) with good documentation -
+a rare thing in this world. Further documentation on their API can be found on their [search fields](https://dp.la/info/developers/codex/responses/field-reference/) and [examples of queries](https://dp.la/info/developers/codex/requests/).  Metadata schema information [here](https://dp.la/info/wp-content/uploads/2013/04/DPLA-MAP-V3.1-2.pdf).
+
+DPLA API has two main services (quoting from [their API docs](https://dp.la/info/developers/codex/requests/)):
+
+* items: A reference to the digital representation of a single piece of content indexed by
+the DPLA. The piece of content can be, for example, a book, a photograph, a video, etc. The
+content is digitized from its original, physical source and uploaded to an online repository.
+items are available in the `dpla_items()` function.
+* collections: A collection is a little more abstract than an item. Where an item is a
+reference to the digital representation of a physical object, a collection is a
+representation of the grouping of a set of items. collections are available in the
+`dpla_collections()` function.
+
+Note that you can only run examples/vignette/tests if you have an API key. See below for an example of how
+to get an API key.
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("rdpla")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropensci/rdpla")
+```
+
+```{r}
+library("rdpla")
+```
+
+<section id="usage">
+
+## Usage
+
+### API key
+
+If you already have a DPLA API key, make sure it's in your `.Renviron` or `.Rprofile` file.
+
+If you don't have a DPLA API key, use the `dpla_get_key()` function to get a key.
+You only need a valid email address to get a key, for example:
+
+```{r eval=FALSE}
+dpla_get_key(email = "foo@bar.com")
+#> API key created and sent via email. Be sure to check your Spam folder, too.
+```
+
+### Search - items
+
+> Note: limiting fields returned for readme brevity.
+
+Basic search
+
+```{r}
+dpla_items(q="fruit", page_size=5, fields=c("provider","creator"))
+```
+
+Limit fields returned
+
+```{r}
+dpla_items(q="fruit", page_size = 10, fields=c("publisher","format"))
+```
+
+Limit records returned
+
+```{r}
+dpla_items(q="fruit", page_size=2, fields=c("provider","title"))
+```
+
+Search by date
+
+```{r}
+dpla_items(q="science", date_before=1900, page_size=10, fields=c("id","date"))
+```
+
+Search on specific fields
+
+```{r}
+dpla_items(description="obituaries", page_size=2, fields="description")
+```
+
+```{r}
+dpla_items(subject="yodeling", page_size=2, fields="subject")
+```
+
+```{r}
+dpla_items(provider="HathiTrust", page_size=2, fields="provider")
+```
+
+Spatial search, across all spatial fields
+
+```{r}
+dpla_items(sp='Boston', page_size=2, fields=c("id","provider"))
+```
+
+Spatial search, by states
+
+```{r}
+dpla_items(sp_state='Massachusetts OR Hawaii', page_size=2, fields=c("id","provider"))
+```
+
+Faceted search
+
+```{r}
+dpla_items(facets=c("sourceResource.spatial.state","sourceResource.spatial.country"),
+      page_size=0, facet_size=5)
+```
+
+### Search - collections
+
+Search for collections with the words _university of texas_
+
+```{r}
+dpla_collections(q="university of texas", page_size=2)
+```
+
+You can also search in the `title` and `description` fields
+
+```{r}
+dpla_collections(description="east")
+```
+
+### Visualize
+
+Visualize metadata from the DPLA - histogram of number of records per state (includes __states__ outside the US)
+
+```{r tidy=FALSE, fig.width=8, fig.height=6}
+out <- dpla_items(facets="sourceResource.spatial.state", page_size=0, facet_size=25)
+library("ggplot2")
+library("scales")
+ggplot(out$facets$sourceResource.spatial.state$data, aes(reorder(term, count), count)) +
+  geom_bar(stat="identity") +
+  coord_flip() +
+  theme_grey(base_size = 16) +
+  scale_y_continuous(labels = comma) +
+  labs(x="State", y="Records")
+```
+
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain (2016). rdpla: Client for the Digital Public Library of America ('DPLA'). R package version 0.1.0. https://github.com/ropensci/rdpla
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for rdpla](https://github.com/ropensci/rdpla/issues?state=open)
+
+
+[Back to top](#top)
+
+[dpla]: https://dp.la

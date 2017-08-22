@@ -1,0 +1,114 @@
+---
+title: rgeospatialquality tutorial
+package_version: 0.2.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/rgeospatialquality/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`rgeospatialquality` provides R native access to the methods of the [Geospatial Data Quality REST API](https://github.com/VertNet/api-geospatial/blob/master/GeospatialQuality.md). With this API, users can perform some basic quality checks on the geospatial aspect of biodiversity data.
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("rgeospatialquality")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropenscilabs/rgeospatialquality")
+```
+
+```{r}
+library("rgeospatialquality")
+```
+
+<section id="usage">
+
+## Usage
+
+### Get quality flags for single records
+
+There are two ways to assess single records and get information on their spatial quality: by providing a list-type object with named elements or by passing the required data via function arguments. In any case, flags are calculated with the function `parse_record`, and the result is a named list with the quality information.
+
+The API works on four specific fields, which should be present to provide the most complete answer: `decimalLatitude`, `decimalLongitude`, `countryCode` and `scientificName`. None of them is mandatory, but the more complete the provided information, the better the result set will be. [See the API documentation](https://github.com/VertNet/api-geospatial/blob/master/GeospatialQuality.md).
+
+#### Passing a record
+
+```{r single_record, eval=FALSE}
+rec <- list(decimalLatitude=42.1833,
+            decimalLongitude=-1.8332,
+            countryCode="ES",
+            scientificName="Puma concolor")
+
+parse_record(record=rec)
+```
+
+#### Passing individual values as arguments
+
+```{r single_parameters, eval=FALSE}
+parse_record(decimalLatitude=42.1833,
+             decimalLongitude=-1.8332,
+             countryCode="ES",
+             scientificName="Puma concolor")
+```
+
+#### Structure of response
+
+The response is a list of named elements, each element being the result of a single test. For more info on the meaning of these flags, please [check out the API documentation](https://github.com/VertNet/api-geospatial/blob/master/GeospatialQuality.md).
+
+This is what any of the two calls above would return:
+
+```{r single_flags, echo=FALSE}
+parse_record(decimalLatitude=42.1833,
+      decimalLongitude=-1.8332,
+      countryCode="ES",
+      scientificName="Puma concolor")
+```
+
+
+### Get quality flags for sets of more than one record
+
+Apart from assessing records one by one, the API also allows sending a set of records to evaluate them all with a single call, using the `add_flags` function. Records must be provided in the form of a `data.frame`. Just as before, each record should have the four key fields (`decimalLatitude`, `decimalLongitude`, `countryCode` and `scientificName`) to give a response as accurate as possible, although none is mandatory. This time, however, the function returns the provided `data.frame` with a new column, called `flags`, consisting of a list of all geospatial quality assessment results.
+
+```{r multi_dataframe, eval=FALSE}
+rec1 <- list(decimalLatitude=42.1833, decimalLongitude=-1.8332, countryCode="ES", scientificName="Puma concolor", ...)
+rec2 <- list(...)
+...
+df <- rbind(rec1, rec2, ...)
+df2 <- add_flags(df)
+```
+
+One easy way to directly get occurrences with the right format is to use the `occ_data` function in ROpenSci's `rgbif` package ([https://github.com/ropensci/rgbif](https://github.com/ropensci/rgbif)). There is a vignette (`rgbif-synergy`) illustrating how to integrate the two packages to improve the workflow of biodiversity data analysis.
+
+
+<section id="citing">
+
+## Citing
+
+> Javier Otegui (2016). rgeospatialquality: Wrapper for the Geospatial Data Quality REST API. R package
+  version 0.3.2. https://cran.rstudio.com/package=rgeospatialquality
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for rgeospatialquality](https://github.com/ropenscilabs/rgeospatialquality/issues?state=open)
+
+
+[Back to top](#top)

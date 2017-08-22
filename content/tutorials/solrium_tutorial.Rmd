@@ -1,0 +1,426 @@
+---
+title: solrium tutorial
+package_version: 0.3.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+      fig.path="../assets/tutorial-images/solrium/",
+      comment = "#>",
+      warning = FALSE,
+      message = FALSE
+)
+```
+
+`solrium` is a general purpose R interface to [Apache Solr](http://lucene.apache.org/solr/)
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("solrium")
+```
+
+Or the development version from GitHub
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/solrium")
+```
+
+Load
+
+```{r}
+library("solrium")
+```
+
+<section id="usage">
+
+## Usage
+
+### Solr search
+
+#### Setup connection
+
+You can setup for a remote Solr instance or on your local machine.
+
+```{r}
+solr_connect('http://api.plos.org/search')
+```
+
+#### Rundown
+
+`solr_search()` only returns the `docs` element of a Solr response body. If `docs` is
+all you need, then this function will do the job. If you need facet data only, or mlt
+data only, see the appropriate functions for each of those below. Another function,
+`solr_all()` has a similar interface in terms of parameter as `solr_search()`, but
+returns all parts of the response body, including, facets, mlt, groups, stats, etc.
+as long as you request those.
+
+#### Search docs
+
+`solr_search()` returns only docs. A basic search:
+
+```{r}
+solr_search(q = '*:*', rows = 2, fl = 'id')
+```
+
+__Search in specific fields with `:`__
+
+Search for word ecology in title and cell in the body
+
+```{r}
+solr_search(q = 'title:"ecology" AND body:"cell"', fl = 'title', rows = 5)
+```
+
+__Wildcards__
+
+Search for word that starts with "cell" in the title field
+
+```{r}
+solr_search(q = 'title:"cell*"', fl = 'title', rows = 5)
+```
+
+__Proximity search__
+
+Search for words "sports" and "alcohol" within four words of each other
+
+```{r}
+solr_search(q = 'everything:"stem cell"~7', fl = 'title', rows = 3)
+```
+
+__Range searches__
+
+Search for articles with Twitter count between 5 and 10
+
+```{r}
+solr_search(q = '*:*', fl = c('alm_twitterCount', 'id'), fq = 'alm_twitterCount:[5 TO 50]',
+rows = 10)
+```
+
+__Boosts__
+
+Assign higher boost to title matches than to body matches (compare the two calls)
+
+```{r}
+solr_search(q = 'title:"cell" abstract:"science"', fl = 'title', rows = 3)
+```
+
+```{r}
+solr_search(q = 'title:"cell"^1.5 AND abstract:"science"', fl = 'title', rows = 3)
+```
+
+#### Search all
+
+`solr_all()` differs from `solr_search()` in that it allows specifying facets, mlt, groups,
+stats, etc, and returns all of those. It defaults to `parsetype = "list"` and `wt="json"`,
+whereas `solr_search()` defaults to `parsetype = "df"` and `wt="csv"`. `solr_all()` returns
+by default a list, whereas `solr_search()` by default returns a data.frame.
+
+A basic search, just docs output
+
+```{r}
+solr_all(q = '*:*', rows = 2, fl = 'id')
+```
+
+Get docs, mlt, and stats output
+
+```{r}
+solr_all(q = 'ecology', rows = 2, fl = 'id', mlt = 'true', mlt.count = 2, mlt.fl = 'abstract', stats = 'true', stats.field = 'counter_total_all')
+```
+
+
+#### Facet
+
+```{r}
+solr_facet(q = '*:*', facet.field = 'journal', facet.query = c('cell', 'bird'))
+```
+
+#### Highlight
+
+```{r}
+solr_highlight(q = 'alcohol', hl.fl = 'abstract', rows = 2)
+```
+
+#### Stats
+
+```{r}
+out <- solr_stats(q = 'ecology', stats.field = c('counter_total_all', 'alm_twitterCount'), stats.facet = c('journal', 'volume'))
+```
+
+```{r}
+out$data
+```
+
+```{r}
+out$facet
+```
+
+#### More like this
+
+`solr_mlt` is a function to return similar documents to the one
+
+```{r}
+out <- solr_mlt(q = 'title:"ecology" AND body:"cell"', mlt.fl = 'title', mlt.mindf = 1, mlt.mintf = 1, fl = 'counter_total_all', rows = 5)
+out$docs
+```
+
+```{r}
+out$mlt
+```
+
+#### Groups
+
+`solr_groups()` is a function to return similar documents to the one
+
+```{r}
+solr_group(q = 'ecology', group.field = 'journal', group.limit = 1, fl = c('id', 'alm_twitterCount'))
+```
+
+#### Parsing
+
+`solr_parse()` is a general purpose parser function with extension methods for parsing outputs from functions in `solr`. `solr_parse()` is used internally within functions to do parsing after retrieving data from the server. You can optionally get back raw `json`, `xml`, or `csv` with the `raw=TRUE`, and then parse afterwards with `solr_parse()`.
+
+For example:
+
+```{r}
+(out <- solr_highlight(q = 'alcohol', hl.fl = 'abstract', rows = 2, raw = TRUE))
+```
+
+Then parse
+
+```{r}
+solr_parse(out, 'df')
+```
+
+
+
+
+### Document management
+
+Initialize connection. By default, you connect to `http://localhost:8983`
+
+```{r}
+solr_connect()
+```
+
+#### Create documents from R objects
+
+For now, only lists and data.frame's supported.
+
+#### data.frame
+
+```{r eval=FALSE}
+df <- data.frame(id = c(67, 68), price = c(1000, 500000000))
+add(df, "books")
+```
+
+#### list
+
+```{r eval=FALSE}
+delete_by_id(1:2, "books")
+```
+
+```{r eval=FALSE}
+ss <- list(list(id = 1, price = 100), list(id = 2, price = 500))
+add(ss, "books")
+```
+
+#### Delete documents
+
+##### By id
+
+Add some documents first
+
+```{r eval=FALSE}
+delete_by_id(1:3, "gettingstarted")
+```
+
+```{r eval=FALSE}
+docs <- list(list(id = 1, price = 100, name = "brown"),
+             list(id = 2, price = 500, name = "blue"),
+             list(id = 3, price = 2000L, name = "pink"))
+add(docs, "gettingstarted")
+```
+
+And the documents are now in your Solr database
+
+```{r eval=FALSE}
+tail(solr_search(name = "gettingstarted", "*:*", base = "http://localhost:8983/solr/select", rows = 100))
+```
+
+Now delete those documents just added
+
+```{r eval=FALSE}
+delete_by_id(ids = c(1, 2, 3), "gettingstarted")
+```
+
+And now they are gone
+
+```{r eval=FALSE}
+tail(solr_search("gettingstarted", "*:*", base = "http://localhost:8983/solr/select", rows = 100))
+```
+
+##### By query
+
+Add some documents first
+
+```{r eval=FALSE}
+add(docs, "gettingstarted")
+```
+
+And the documents are now in your Solr database
+
+```{r eval=FALSE}
+tail(solr_search("gettingstarted", "*:*", base = "http://localhost:8983/solr/select", rows = 100))
+```
+
+Now delete those documents just added
+
+```{r eval=FALSE}
+delete_by_query(query = "(name:blue OR name:pink)", "gettingstarted")
+```
+
+And now they are gone
+
+```{r eval=FALSE}
+tail(solr_search("gettingstarted", "*:*", base = "http://localhost:8983/solr/select", rows = 100))
+```
+
+#### Update documents from files
+
+This approach is best if you have many different things you want to do at once, e.g., delete and add files and set any additional options. The functions are:
+
+* `update_xml()`
+* `update_json()`
+* `update_csv()`
+
+There are separate functions for each of the data types as they take slightly different parameters - and to make it more clear that those are the three input options for data types.
+
+##### JSON
+
+```{r eval=FALSE}
+file <- system.file("examples", "books.json", package = "solrium")
+update_json(file, "books")
+```
+
+##### Add and delete in the same file
+
+Add a document first, that we can later delete
+
+```{r eval=FALSE}
+ss <- list(list(id = 456, name = "cat"))
+add(ss, "books")
+```
+
+Now add a new document, and delete the one we just made
+
+```{r eval=FALSE}
+file <- system.file("examples", "add_delete.xml", package = "solrium")
+cat(readLines(file), sep = "\n")
+update_xml(file, "books")
+```
+
+##### Notes
+
+Note that `update_xml()` and `update_json()` have exactly the same parameters, but simply use different data input formats. `update_csv()` is different in that you can't provide document or field level boosts or other modifications. In addition `update_csv()` can accept not just csv, but tsv and other types of separators.
+
+
+
+
+### Cores/collections management
+
+Initialize connection
+
+```{r}
+solr_connect()
+```
+
+#### Cores
+
+There are many operations you can do on cores, including:
+
+* `core_create()` - create a core
+* `core_exists()` - check if a core exists
+* `core_mergeindexes()` - merge indexes
+* `core_reload()` - reload a core
+* `core_rename()` - rename a core
+* `core_requeststatus()` - check request status
+* `core_split()` - split a core
+* `core_status()` - check core status
+* `core_swap()` - core swap
+* `core_unload()` - delete a core
+
+##### Create a core
+
+```{r eval=FALSE}
+core_create()
+```
+
+##### Delete a core
+
+```{r eval=FALSE}
+core_unload()
+```
+
+#### Collections
+
+There are many operations you can do on collections, including:
+
+* `collection_addreplica()`
+* `collection_addreplicaprop()`
+* `collection_addrole()`
+* `collection_balanceshardunique()`
+* `collection_clusterprop()`
+* `collection_clusterstatus()`
+* `collection_create()`
+* `collection_createalias()`
+* `collection_createshard()`
+* `collection_delete()`
+* `collection_deletealias()`
+* `collection_deletereplica()`
+* `collection_deletereplicaprop()`
+* `collection_deleteshard()`
+* `collection_list()`
+* `collection_migrate()`
+* `collection_overseerstatus()`
+* `collection_rebalanceleaders()`
+* `collection_reload()`
+* `collection_removerole()`
+* `collection_requeststatus()`
+* `collection_splitshard()`
+
+##### Create a collection
+
+```{r eval=FALSE}
+collection_create()
+```
+
+##### Delete a collection
+
+```{r eval=FALSE}
+collection_delete()
+```
+
+<section id="citing">
+
+## Citing
+
+To cite `solrium` in publications use:
+
+<br>
+
+> Scott Chamberlain (2016). solrium: General Purpose R Interface to 'Solr'. R
+package version 0.3.0. https://github.com/ropensci/solrium
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for solrium](https://github.com/ropensci/solrium/issues?state=open)
+
+[Back to top](#top)

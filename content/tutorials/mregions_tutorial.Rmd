@@ -1,0 +1,207 @@
+---
+title: mregions tutorial
+package_version: 0.1.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/mregions/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`mregions` is useful to a wide diversity of R users because you get access to all of the
+data MarineRegions has, which can help in a variety of use cases:
+
+* Visualize marine regions alone
+* Visualize marine regions with associated data paired with analysis
+* Use marine region geospatial boundaries to query data providers (e.g., OBIS (<http://www.iobis.org>))
+* Geocode - get geolocation data from place names
+* Reverse Geocode - get place names from geolocation data
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("mregions")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropenscilabs/mregions")
+```
+
+```{r}
+library("mregions")
+```
+
+<section id="usage">
+
+## Usage
+
+### Get list of place types
+
+```{r}
+res <- mr_place_types()
+head(res$type)
+```
+
+### Get Marineregions records by place type
+
+```{r}
+res1 <- mr_records_by_type(type = "EEZ")
+head(res1)
+```
+
+### Get a data.frame of region names
+
+```{r}
+rnames <- mr_names()
+```
+
+### Search region names
+
+Either pass output of `mr_names()`
+
+```{r}
+mr_names_search(rnames, "IHO")
+```
+
+or don't (but then `mr_names_search()` call takes longer)
+
+```{r}
+mr_names_search("IHO")
+```
+
+### Get a region - geojson
+
+```{r}
+res3 <- mr_geojson(name = "Turkmen Exclusive Economic Zone")
+class(res3)
+names(res3)
+```
+
+### Get a region - shp
+
+```{r}
+res4 <- mr_shp(name = "Belgian Exclusive Economic Zone")
+class(res4)
+```
+
+### Get OBIS EEZ ID
+
+```{r}
+res6 <- rnames[grepl("eez", rnames$name, ignore.case = TRUE), ]
+mr_obis_eez_id(res6$title)
+```
+
+### Convert to WKT
+
+From geojson or shp. Here, geojson
+
+```{r eval=FALSE}
+res7 <- mr_geojson(key = "MarineRegions:eez_33176")
+mr_as_wkt(res7, fmt = 5)
+#> [1] "MULTIPOLYGON (((41.573732 -1.659444, 45.891882 ... cutoff
+```
+
+### Get regions, then OBIS data
+
+Using Well-Known Text. Both shp and geojson data returned from `region_shp()` and `region_geojson()`, respectively, can be passed to `as_wkt()` to get WKT.
+
+```{r}
+shp <- mr_shp(name = "Belgian Exclusive Economic Zone")
+wkt <- mr_as_wkt(shp)
+library('httr')
+library('data.table')
+args <- list(scientificname = "Abra alba", geometry = wkt, limit = 100)
+res <- httr::GET('http://api.iobis.org/occurrence', query = args)
+xx <- data.table::setDF(data.table::rbindlist(httr::content(res)$results, use.names = TRUE, fill = TRUE))
+xx <- xx[, c('scientificName', 'decimalLongitude', 'decimalLatitude')]
+names(xx)[2:3] <- c('longitude', 'latitude')
+```
+
+Plot
+
+```{r eval=FALSE}
+library('leaflet')
+leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(data = xx) %>%
+  addPolygons(data = shp)
+```
+
+![map1](../assets/tutorial-images/mregions/map1.png)
+
+### Dealing with bigger WKT
+
+What if you're WKT string is super long?  It's often a problem because some online species occurrence databases that accept WKT to search by geometry bork due to
+limitations on length of URLs if your WKT string is too long (about 8000 characters,
+including remainder of URL). One way to deal with it is to reduce detail - simplify.
+
+```{r eval=FALSE}
+install.packages("rmapshaper")
+```
+
+Using `rmapshaper` we can simplify a spatial object, then search with that.
+
+```{r}
+shp <- mr_shp(name = "Dutch Exclusive Economic Zone")
+```
+
+Visualize
+
+```{r eval=FALSE}
+leaflet() %>%
+  addTiles() %>%
+  addPolygons(data = shp)
+```
+
+![map2](../assets/tutorial-images/mregions/complex.png)
+
+Simplify
+
+```{r}
+library("rmapshaper")
+shp <- ms_simplify(shp)
+```
+
+It's simplified:
+
+```{r eval=FALSE}
+leaflet() %>%
+  addTiles() %>%
+  addPolygons(data = shp)
+```
+
+![map3](../assets/tutorial-images/mregions/simple.png)
+
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain (2016). mregions: Marine Regions Data
+  from 'Marineregions.org'. R package version 0.1.0.
+  https://cran.rstudio.com/package=mregions
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for mregions](https://github.com/ropenscilabs/mregions/issues?state=open)
+
+
+[Back to top](#top)
+
+[mr]: https://github.com/ropenscilabs/mregions

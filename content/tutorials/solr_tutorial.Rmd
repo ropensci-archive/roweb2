@@ -1,0 +1,167 @@
+---
+title: solr tutorial
+package_version: 0.1.6
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/solr/",
+  warning = FALSE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+> This package has been rebooted as `solrium` - check out the tutorial at [https://ropensci.org/tutorials/solrium_tutorial.html](https://ropensci.org/tutorials/solrium_tutorial.html)
+
+<section id="installation">
+
+## Installation
+
+
+More stable version from CRAN
+
+```{r installcran, eval=FALSE}
+install.packages("solr")
+```
+
+Development version from Github
+
+```{r installgithub, eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropensci/solr")
+```
+
+Load
+
+```{r}
+library("solr")
+```
+
+<section id="usage">
+
+## Usage
+
+The `solr` package is a general purpose R interface to [Solr](http://lucene.apache.org/solr/)
+
+This package only deals with exracting data from a Solr endpoint, not writing data (pull request or holla if you're interested in writing solr data).
+
+### Solr info
+
++ [Solr home page](http://lucene.apache.org/solr/)
++ [Highlighting help](http://wiki.apache.org/solr/HighlightingParameters)
++ [Faceting help](http://wiki.apache.org/solr/SimpleFacetParameters)
++ [Installing Solr on Mac using homebrew](http://ramlev.dk/blog/2012/06/02/install-apache-solr-on-your-mac/)
++ [Install and Setup SOLR in OSX, including running Solr](http://risnandar.wordpress.com/2013/09/08/how-to-install-and-setup-apache-lucene-solr-in-osx/)
+
+### Quick start
+
+**Define stuff** Your base url and a key (if needed). This example should work. You do need to pass a key to the Public Library of Science search API, but it apparently doesn't need to be a real one.
+
+```{r}
+url <- 'http://api.plos.org/search'
+key <- 'key'
+```
+
+**Search**
+
+```{r}
+solr_search(q='*:*', rows=2, fl='id', base=url, key=key)
+```
+
+**Facet**
+
+```{r}
+solr_facet(q='*:*', facet.field='journal', facet.query=c('cell','bird'), base=url, key=key)
+```
+
+**Highlight**
+
+```{r}
+solr_highlight(q='alcohol', hl.fl = 'abstract', rows=2, base = url, key=key)
+```
+
+**Stats**
+
+```{r}
+out <- solr_stats(q='ecology', stats.field=c('counter_total_all','alm_twitterCount'), stats.facet=c('journal','volume'), base=url, key=key)
+```
+
+```{r}
+out$data
+```
+
+```{r}
+out$facet
+```
+
+**More like this**
+
+`solr_mlt` is a function to return similar documents to the one
+
+```{r}
+out <- solr_mlt(q='title:"ecology" AND body:"cell"', mlt.fl='title', mlt.mindf=1, mlt.mintf=1, fl='counter_total_all', rows=5, base=url, key=key)
+out$docs
+```
+
+```{r}
+out$mlt
+```
+
+**Parsing**
+
+`solr_parse` is a general purpose parser function with extension methods `solr_parse.sr_search`, `solr_parse.sr_facet`, and `solr_parse.sr_high`, for parsing `solr_search`, `solr_facet`, and `solr_highlight` function output, respectively. `solr_parse` is used internally within those three functions (`solr_search`, `solr_facet`, `solr_highlight`) to do parsing. You can optionally get back raw `json` or `xml` from `solr_search`, `solr_facet`, and `solr_highlight` setting parameter `raw=TRUE`, and then parsing after the fact with `solr_parse`. All you need to know is `solr_parse` can parse
+
+For example:
+
+```{r}
+(out <- solr_highlight(q='alcohol', hl.fl = 'abstract', rows=2, base = url, key=key, raw=TRUE))
+```
+
+Then parse
+
+```{r}
+solr_parse(out, 'df')
+```
+
+**Using specific data sources**
+
+*USGS BISON service*
+
+The occurrences service
+
+```{r}
+url <- "http://bisonapi.usgs.ornl.gov/solr/occurrences/select"
+solr_search(q='*:*', fl=c('decimalLatitude','decimalLongitude','scientificName'), base=url)
+```
+
+The species names service
+
+```{r}
+url <- "http://bisonapi.usgs.ornl.gov/solr/scientificName/select"
+out <- solr_search(q='*:*', base=url, raw=TRUE)
+solr_parse(out, "list")$response$docs[1:3]
+```
+
+
+Sweet!  Love me some `solr`
+
+
+<section id="citing">
+
+## Citing
+
+To cite `solr` in publications use:
+
+<br>
+
+> Scott Chamberlain (2016). solr: General purpose R interface to Solr. R package version 0.1.6. http://CRAN.R-project.org/package=solr
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for solr](https://github.com/solr/rgauges/issues?state=open)
+
+[Back to top](#top)

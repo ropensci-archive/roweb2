@@ -1,0 +1,156 @@
+---
+title: rvertnet tutorial
+package_version: 0.4.4
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+      fig.path="../assets/tutorial-images/rvertnet/",
+      comment = "#>",
+      warning = FALSE,
+      message = FALSE
+)
+```
+
+`rvertnet` is a client for interacting with [VertNet.org](http://vertnet.org/). VertNet is a online database of vertebrate specimens/observations. They have a really nice web interface at [http://portal.vertnet.org/search](http://portal.vertnet.org/search), but of course to do reproducible research you may want to use this package.
+
+This package retrieves data, makes maps, and summarizes data from VertNet, with functions for searching by many parameters, including taxonomic names, places, dates, and more. In addition, there is an interface for conducting spatially delimited searches, and another for requesting large datasets via email.
+
+<section id="installation">
+
+## Installation
+
+You can install the stable version from CRAN:
+
+```{r eval=FALSE}
+install.packages("rvertnet")
+```
+
+Or the development version from GitHub using the `devtools` package:
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropensci/rvertnet")
+```
+
+```{r}
+library('rvertnet')
+```
+
+<section id="usage">
+
+## Usage
+
+### Search by term
+
+Search for _Aves_ in the state of _California_, limit to 10 records
+
+```{r}
+res <- searchbyterm(class = "Aves", state = "California", limit = 10, verbose = FALSE)
+```
+
+All major functions (`searchbyterm()`, `spatialsearch()`, `vertsearch()`) give back a `meta` (for metadata, in a list) and `data` (for data, in a data.frame) slot. The metadata:
+
+```{r}
+res$meta
+```
+
+The data
+
+```{r}
+res$data
+```
+
+Search for _Mustela nigripes_ in the states of _Wyoming_ or _South Dakota_, limit to 20 records
+
+```{r}
+res <- searchbyterm(specificepithet = "nigripes", genus = "Mustela", state = "(wyoming OR south dakota)", limit = 20, verbose = FALSE)
+res$data
+```
+
+Search for class _Aves_, in the state of _Nevada_, with a coordinate uncertainty range (in meters) of less than 25 meters
+
+```{r}
+res <- searchbyterm(class = "Aves", stateprovince = "Nevada", error = "<25", verbose = FALSE)
+res$data
+```
+
+### Spatial search
+
+Spatial search service allows only to search on a point defined by latitude and longitude pair, with a radius (meters) from that point. All three parameters are required.
+
+```{r}
+res <- spatialsearch(lat = 33.529, lon = -105.694, radius = 2000, limit = 10, verbose = FALSE)
+res$data
+```
+
+### Global full text search
+
+`vertsearch()` provides a simple full text search against all fields. For more info see [the docs](https://github.com/VertNet/webapp/wiki/The-API-search-function#global-full-text-search). An example:
+
+```{r}
+res <- vertsearch(taxon = "aves", state = "california", limit = 10)
+res$data
+```
+
+Limit the number of records returned (under 1000)
+
+```{r}
+res <- vertsearch("(kansas state OR KSU)", limit = 200)
+res$data
+```
+
+Pass output of `vertsearch()` to a map
+
+```{r fig.width=8, fig.height=4}
+out <- vertsearch(tax = "(mustela nivalis OR mustela erminea)")
+vertmap(out)
+```
+
+### Lots of data
+
+For `searchbyterm()`, `spatialsearch()`, and `vertsearch()`, you can request more than 1000 records. VertNet limits each request to 1000 records, but internally in this package, if you request more than 1000 records, we'll continue to send requests to get all the records you want. See the [VertNet docs](https://github.com/VertNet/webapp/wiki/The-API-search-function#retrieving-large-result-sets) for more information on this.
+
+### Email dump of data
+
+`bigsearch()` specifies a termwise search (like `searchbyterm()`), but requests that all available records be made available for download as a tab-delimited text file.
+
+```{r eval=FALSE}
+bigsearch(genus = "ochotona", rfile = "mydata", email = "you@gmail.com")
+#> Processing request...
+#>
+#> Download of records file 'mydata' requested for 'you@gmail.com'
+#>
+#> Query/URL: "http://api.vertnet-portal.appspot.com/api/download?q=%7B%22q%22:%22genus:ochotona%22,%22n%22:%22mydata%22,%22e%22:%22you@gmail.com%22%7D"
+#>
+#> Thank you! Download instructions will be sent by email.
+```
+
+### Messages
+
+In the previous examples, we've suppressed messages for more concise output, but you can set `verbose=TRUE` to get helpful messages - `verbose=TRUE` is also the default setting so if you don't specify that parameter messages will be printed to the console.
+
+```{r}
+res <- searchbyterm(class = "Aves", state = "California", limit = 10, verbose = TRUE)
+```
+
+<section id="citing">
+
+## Citing
+
+To cite `rvertnet` in publications use:
+
+<br>
+
+>  Scott Chamberlain, Chris Ray and Vijay Barve (2016). rvertnet: Search
+  VertNet, a Database of Vertebrate Specimen Records. R package version
+  0.4.4. https://github.com/ropensci/rvertnet
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rvertnet](https://github.com/ropensci/rvertnet/issues?state=open)
+
+[Back to top](#top)

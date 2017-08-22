@@ -1,5 +1,6 @@
 ---
 title: geojsonio tutorial
+package_version: 0.1.8
 ---
 
 
@@ -23,7 +24,7 @@ Additional functions:
 
 <section id="installation">
 
-## Installation
+### Installation
 
 Install rgdal - in case you can't get it installed from binary , here's what works on a Mac (change to the version of `rgdal` and `GDAL` you have).
 
@@ -56,9 +57,9 @@ library("geojsonio")
 
 <section id="usage">
 
-## GeoJSON
+### Usage
 
-### Convert various formats to geojson
+#### Convert various formats to geojson
 
 From a `numeric` vector of length 2
 
@@ -191,7 +192,7 @@ geojson_list(s)
 ...
 ```
 
-### Write geojson
+#### Write geojson
 
 
 ```r
@@ -203,7 +204,7 @@ geojson_write(us.cities[1:2, ], lat = 'lat', lon = 'long')
 #>   From class: data.frame
 ```
 
-### Read geojson
+#### Read geojson
 
 
 ```r
@@ -266,14 +267,14 @@ out <- topojson_read(loc, verbose = FALSE)
 
 <section id="citing">
 
-## Citing
+### Citing
 
 > Scott Chamberlain and Andy Teucher (2016). geojsonio: Convert Data from and to 'geoJSON' or 'topoJSON'. R package version 0.1.8. https://cran.rstudio.com/package=geojsonio
 
 
 <section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for geojsonio](https://github.com/ropensci/geojsonio/issues?state=open)

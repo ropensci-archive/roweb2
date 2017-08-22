@@ -1,0 +1,129 @@
+---
+title: rdatacite tutorial
+package_version: 0.1.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rdatacite/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`rdatacite` provides programmatic accesses to [DataCite](http://datacite.org/) metadata
+
+* OAI-PMH. Documentation for the DataCite OAI-PMH is available [here](http://oai.datacite.org/). [Documentation for OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html)
+* REST API. [Docs](http://search.datacite.org/help.html). [Metadata schema](http://schema.datacite.org/). [Solr config file](https://github.com/datacite/search/blob/master/src/main/resources/solrconfig.xml)
+
+<section id="installation">
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("rdatacite")
+```
+
+Or development version from GitHub
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/rdatacite")
+```
+
+```{r}
+library("rdatacite")
+```
+
+<section id="usage">
+
+## Usage
+
+
+### OAI-PMH
+
+#### Ping the service
+
+```{r}
+dc_oai_identify()
+```
+
+#### List metadata formats
+
+```{r}
+dc_oai_listmetadataformats(id = "56225")
+```
+
+#### List identifiers
+
+```{r}
+dc_oai_listidentifiers(from = '2011-06-01T', until = '2011-07-01T')
+```
+
+#### Get records
+
+```{r}
+dc_oai_getrecord(id = "56225")
+```
+
+You can pass in more than one identifier to `id` parameter.
+
+### Search API
+
+This is the API for the same query interface you'd use on the DataCite website.
+
+#### Search
+
+Search for the term _laser_
+
+```{r}
+dc_search(q = "laser", fl = c('doi','publicationYear'), rows = 5)
+```
+
+Another search: published between 2000 and 2005
+
+```{r}
+dc_search(q = "publicationYear:[2000 TO 2005]", fl = c('doi', 'publicationYear'), rows = 5)
+```
+
+#### Facet
+
+```{r}
+dc_facet(q = "wind", facet.field = 'publisher_facet', facet.limit = 5)
+```
+
+#### Stats
+
+
+```{r}
+dc_stats(q = "ecology", stats.field = 'date')
+```
+
+#### More-like-this
+
+```{r}
+dc_mlt(q = "ecology", mlt.fl = 'title', mlt.count = 2, fl = 'doi')
+```
+
+
+<section id="citing">
+
+## Citing
+
+To cite `rdatacite` in publications use:
+
+<br>
+
+> Scott Chamberlain (2016). rdatacite: 'DataCite' Client for 'OAI-PMH'
+  Methods and their Search 'API'. R package version 0.1.0. https://cran.rstudio.com/package=rdatacite
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rdatacite](https://github.com/ropensci/rdatacite/issues?state=open)
+
+[Back to top](#top)

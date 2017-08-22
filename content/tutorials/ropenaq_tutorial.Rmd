@@ -1,0 +1,188 @@
+---
+title: ropenaq tutorial
+package_version: 0.1.1
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/ropenaq/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+This R package is aimed at accessing the openaq API. OpenAQ is a community of scientists, software developers, and lovers of open environmental data who are building an open, real-time database that provides programmatic and historical access to air quality data. See their website at <https://openaq.org/> and see the API documentation at <https://docs.openaq.org/>. The package contains 5 functions that correspond to the 5 different types of query offered by the openaq API: cities, countries, latest, locations and measurements. The package uses the `dplyr` package: all output tables are data.frame (dplyr "tbl_df") objects, that can be further processed and analysed.
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("ropenaq")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropenscilabs/ropenaq")
+```
+
+```{r}
+library("ropenaq")
+```
+
+<section id="usage">
+
+## Usage
+
+### Finding measurements availability
+
+Three functions of the package allow to get lists of available information. Measurements are obtained from *locations* that are in *cities* that are in *countries*.
+
+#### The `aq_countries` function
+
+The `aq_countries` function allows to see for which countries information is available within the platform. It is the easiest function because it does not have any argument. The code for each country is its ISO 3166-1 alpha-2 code.
+
+````{r, warning=FALSE, message=FALSE}
+countriesTable <- aq_countries()
+library("knitr")
+```
+
+````{r}
+countriesTable$results
+```
+
+````{r}
+countriesTable$meta
+```
+
+````{r}
+countriesTable$timestamp
+```
+
+#### The `aq_cities` function
+
+Using the `aq_cities` functions one can get all cities for which information is available within the platform. For each city, one gets the number of locations and the count of measures for the city, the URL encoded string, and the country it is in.
+
+```{r, cache=FALSE}
+citiesTable <- aq_cities()
+citiesTable$results
+```
+
+The optional `country` argument allows to do this for a given country instead of the whole world.
+
+```{r, cache=FALSE}
+citiesTableIndia <- aq_cities(country="IN")
+citiesTableIndia$results
+```
+
+If one inputs a country that is not in the platform (or misspells a code), then an error message is thrown.
+
+```{r, error=TRUE}
+#aq_cities(country="PANEM")
+```
+
+#### The `locations` function
+
+The `aq_locations` function has far more arguments than the first two functions. On can filter locations in a given country, city, location, for a given parameter (valid values are "pm25", "pm10", "so2", "no2", "o3", "co" and "bc"), from a given date and/or up to a given date, for values between a minimum and a maximum, for a given circle outside a central point by the use of the `latitude`, `longitude` and `radius` arguments. In the output table one also gets URL encoded strings for the city and the location. Below are several examples.
+
+Here we only look for locations with PM2.5 information in India.
+
+```{r, cache=FALSE}
+locationsIndia <- aq_locations(country="IN", parameter="pm25")
+locationsIndia$results
+```
+
+
+### Getting measurements
+
+Two functions allow to get data: `aq_measurement` and `aq_latest`. In both of them the arguments city and location needs to be given as URL encoded strings.
+
+#### The `aq_measurements` function
+
+The `aq_measurements` function has many arguments for getting a query specific to, say, a given parameter in a given location or for a given circle outside a central point by the use of the `latitude`, `longitude` and `radius` arguments. Below we get the PM2.5 measures for Anand Vihar in Delhi in India.
+
+```{r, cache=FALSE}
+tableResults <- aq_measurements(country="IN", city="Delhi", location="Anand+Vihar", parameter="pm25")
+tableResults$results
+```
+
+```{r}
+tableResults$timestamp
+```
+
+```{r}
+tableResults$meta
+```
+
+One could also get all possible parameters in the same table.
+
+
+#### The `aq_latest` function
+
+This function gives a table with all newest measures for the locations that are chosen by the arguments. If all arguments are `NULL`, it gives all the newest measures for all locations.
+
+
+```{r, cache=FALSE}
+tableLatest <- aq_latest()
+tableLatest$results
+```
+
+Below are the latest values for Anand Vihar at the time this vignette was compiled (cache=FALSE).
+
+```{r, cache=FALSE}
+tableLatest <- aq_latest(country="IN", city="Delhi", location="Anand+Vihar")
+tableLatest$results
+```
+
+### Paging and limit
+
+For all endpoints/functions, there a a `limit` and a `page` arguments, which indicate, respectively, how many results per page should be shown and which page should be queried. Based on this, how to get all results corresponding to a query? First, look at the number of results, e.g.
+
+```{r}
+how_many <- aq_measurements(city = "Delhi",
+                            parameter = "pm25")$meta
+how_many
+```
+
+```{r}
+how_many$found
+```
+
+Then one can write a loop over pages. Note that the maximal value of `limit` is 1000.
+
+```{r, eval = FALSE}
+meas <- NULL
+for (page in 1:(ceiling(how_many$found/1000))){
+  meas <- dplyr::bind_rows(meas,
+                aq_measurements(city = "Delhi",
+                                parameter = "pm25",
+                                page = page,
+                                limit = 1000))
+  }
+
+```
+
+
+<section id="citing">
+
+## Citing
+
+> Maëlle Salmon (2016). ropenaq: Accesses Air Quality Data from the Open Data Platform OpenAQ. R
+  package version 0.1.1. https://cran.rstudio.com/package=ropenaq
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [GPL-2](https://opensource.org/licenses/GPL-2.0)
+* Report bugs at [our GitHub repo for ropenaq](https://github.com/ropenscilabs/ropenaq/issues?state=open)
+
+
+[Back to top](#top)

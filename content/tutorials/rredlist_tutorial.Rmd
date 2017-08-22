@@ -1,0 +1,133 @@
+---
+title: rredlist tutorial
+package_version: 0.2.2
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rredlist/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`rredlist` is a [IUCN Red List](http://apiv3.iucnredlist.org/api/v3/docs) R client. The IUCN Red List is a global list of threatened and endangered species.
+
+## Authentication
+
+IUCN requires you to get your own API key, an alphanumeric string that you
+need to send in every request. Get it at
+[http://apiv3.iucnredlist.org/api/v3/token](http://apiv3.iucnredlist.org/api/v3/token).
+Keep this key private. You can pass the key in to each function via the
+`key` parameter, but it's better to store the key either as a environment
+variable (`IUCN_REDLIST_KEY`) or an R option (`iucn_redlist_key`) - we
+suggest using the former option.
+
+## High vs. Low level package APIs
+
+__High level API__
+
+High level functions do the HTTP request and parse data to a data.frame for
+ease of downstream use. The high level functions have no underscore on the end
+of the function name, e.g., `rl_search`
+
+__Low level API__
+
+The parsing to data.frame in the high level API does take extra time. The low
+level API only does the HTTP request, and gives back JSON without doing any
+more parsing. The low level functions DO have an underscore on the end
+of the function name, e.g., `rl_search_`
+
+<section id="installation">
+
+## Installation
+
+Stable `rredlist` version from CRAN
+
+```{r eval=FALSE}
+install.packages("rredlist")
+```
+
+Or, the development version from Github
+
+```{r eval=FALSE}
+devtools::install_github("ropenscilabs/rredlist")
+```
+
+```{r}
+library("rredlist")
+```
+
+<section id="usage">
+
+## Usage
+
+
+### Citing IUCN API
+
+use the function `rl_citation()`
+
+```{r}
+rl_citation()
+```
+
+### High level API
+
+High level functions do the HTTP request and parse to data to a data.frame for ease
+of downstream use.
+
+```{r}
+rl_search('Fratercula arctica')
+```
+
+Likely a bit faster is to parse to a list only, and not take the extra data.frame parsing time
+
+```{r output.lines=1:10}
+rl_search('Fratercula arctica', parse = FALSE)
+```
+
+### Low level API
+
+The parsing to data.frame in the high level API does take extra time. The low level API
+only does the HTTP request, and gives back JSON without doing any more parsing
+
+```{r}
+rl_search_('Fratercula arctica')
+```
+
+To consume this JSON, you can use `jsonlite`
+
+```{r}
+library("jsonlite")
+jsonlite::fromJSON(rl_search_('Fratercula arctica'))
+```
+
+Or other tools, e.g., `jq` via the `jqr` R client
+
+```{r output.lines=1:20}
+# devtools::install_github("ropensci/jqr")
+library("jqr")
+rl_search_('Fratercula arctica') %>% dot()
+```
+
+<section id="citing">
+
+## Citing
+
+To cite `rredlist` in publications use:
+
+<br>
+
+> Scott Chamberlain (2016). rredlist: 'IUCN' Red List Client. R package version 0.1.0.
+https://github.com/ropenscilabs/rredlist
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rredlist](https://github.com/ropenscilabs/rredlist/issues?state=open)
+
+[Back to top](#top)

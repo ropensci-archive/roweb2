@@ -1,0 +1,226 @@
+---
+title: musemeta tutorial
+package_version: 0.0.6
+---
+
+```{r, eval=TRUE, echo=FALSE}
+library("knitr")
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines) == 1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1]) > 1) more else NULL,
+            x[lines],
+            if (length(x) > lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+
+knitr::opts_chunk$set(
+      fig.path="../assets/tutorial-images/musemeta/",
+      comment = "#>",
+      warning = FALSE,
+      message = FALSE
+)
+```
+
+Currently `musemeta` can get data from:
+
+* [The Metropolitan Museum of Art](http://www.metmuseum.org/) via
+    * scraping the MET website (see function `met()`)
+    * http://scrapi.org/ (see functions `scrapi_()`)
+* The [Canadian Science & Technology Museum Corporation](http://techno-science.ca/en/index.php) (CSTMC) (see functions `cstmc_()`)
+* The [National Gallery of Art](http://www.nga.gov/content/ngaweb.html) (NGA) (see function `nga()`)
+* The [Getty Museum](http://www.getty.edu/) (see function `getty()`)
+* The [Art Institute of Chicago](http://www.artic.edu/) (see function `aic()`)
+* The [Asian Art Museum of San Francisco](http://www.asianart.org/) (see function `aam()`)
+
+Other sources of museum metadata will be added...check back later & see [issues](https://github.com/ropensci/musemeta/issues).
+
+<section id="installation">
+
+## Installation
+
+Not on CRAN yet. Get `ckanr` first
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/ckanr")
+```
+
+Then install musemeta
+
+```{r eval=FALSE}
+devtools::install_github("ropensci/musemeta")
+```
+
+
+<section id="usage">
+
+## Usage
+
+```{r}
+library("musemeta")
+```
+
+### MET data
+
+To get actual metadata for an object, you can use `met()` or `scrapi_get()` functions. The latter gets much more data, and uses a REST API, while the former scrapes the html directly, and can be more fragile with any changes in the html on the site.
+<br>
+#### Scraping site directly
+
+Data for a single object
+
+```{r}
+met(559490)
+```
+
+Or index to name of object, or values in the description
+
+```{r}
+met(559490)$name
+```
+
+```{r}
+met(559490)$values[1:2]
+```
+
+A different object
+
+```{r}
+met(246562)
+```
+
+Get many objects
+
+```{r}
+lapply(c(479283, 228901, 436876), met)
+```
+
+#### Using the scrapi API
+
+This is again, for The Metropolitan Museum of Art only
+
+Get a specific object
+
+```{r output.lines=1:10}
+scrapi_info(123, fields=c('title','primaryArtistNameOnly','medium'))
+```
+
+Search for objects
+
+```{r output.lines=1:10}
+scrapi_search(query='mirror')
+```
+
+Get an object, with a scrapi.org url
+
+```{r}
+out <- scrapi_get("http://scrapi.org/object/427581")
+out$primaryArtist
+```
+
+or an object id
+
+```{r}
+out <- scrapi_get(427581)
+out$primaryArtist
+```
+
+### CSTMC data
+
+List changes
+
+```{r output.lines=1:10}
+cstmc_changes(limit = 1)
+```
+
+List datasets
+
+```{r output.lines=1:10}
+cstmc_datasets(as = "table")
+```
+
+Search for packages
+
+```{r}
+out <- cstmc_package_search(q = '*:*', rows = 2, as='table')
+lapply(out$results$resources, function(x) x[,1:3])
+```
+
+### National Gallery of Art (NGA)
+
+Get metadata for a single object
+
+```{r}
+nga(id=33267)
+```
+
+Get metadata for many objects
+
+```{r}
+lapply(c(143679,27773,28487), nga)
+```
+
+### Getty Museum
+
+Get metadata for a single object
+
+```{r}
+getty(id=140725)
+```
+
+Get metadata for many objects
+
+```{r}
+lapply(c(140725,8197), getty)
+```
+
+## Art Institute of Chicago
+
+Get metadata for a single object
+
+```{r}
+aic(41033)
+```
+
+Get metadata for many objects
+
+```{r}
+lapply(c(41033,210804), aic)
+```
+
+
+
+<section id="citing">
+
+## Citing
+
+To cite `musemeta` in publications use:
+
+<br>
+
+>  Scott Chamberlain (2015). musemeta: R Client for Scraping Museum Metadata. R
+  package version 0.0.5. https://github.com/ropensci/musemeta
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for musemeta](https://github.com/ropensci/musemeta/issues?state=open)
+
+[Back to top](#top)

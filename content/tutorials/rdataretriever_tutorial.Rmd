@@ -1,0 +1,131 @@
+---
+title: rdataretriever tutorial
+package_version: 1.0.0
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rdataretriever/",
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+<section id="installation">
+
+## Installation
+
+### Install DataRetriever software
+
+To use the R package `rdataretriever` you first need to install `Retriever`. For installation instructions go to <http://www.data-retriever.org/#install>; you can install with `pip`, and there's installers available for all major operating systems, or it can be installed from source.
+
+[Source code](https://github.com/weecology/retriever).
+
+### Install R package
+
+Install and load `rdataretriever` into the R session. Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("rdataretriever")
+```
+
+Or development version from Github:
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/rdataretriever")
+```
+
+```{r}
+library('rdataretriever')
+```
+
+<section id="usage">
+
+## Usage
+
+### List the datasets available via the Retriever
+
+```{r}
+rdataretriever::datasets()
+```
+
+### Install into csv
+
+Install the Gentry dataset into csv files in your working directory
+
+```{r}
+rdataretriever::install(dataset = 'AvianBodySize', connection = 'csv')
+head(read.csv("AvianBodySize_species.csv")[,c(1:10)])
+```
+
+### Read into R
+
+Install and load a dataset as a list
+
+```{r}
+Gentry <- rdataretriever::fetch('Gentry')
+```
+
+```{r}
+head(Gentry$sites)
+```
+
+### Write data into a database
+
+Install a dataset into a SQLite database
+
+```{r}
+rdataretriever::install(dataset = 'Gentry', connection = 'sqlite', db_file = "gentrysqlite.sqlite3")
+rdataretriever::install(dataset = 'MCDB', connection = 'sqlite', db_file = "mcdbsqlite.sqlite3")
+```
+
+Load `RSQLite` and connect to the database
+
+```{r}
+library("RSQLite")
+db <- dbConnect(SQLite(), "mcdbsqlite.sqlite3")
+```
+
+List tables in the database
+
+```{r}
+dbListTables(db)
+```
+
+List fields in the table
+
+```{r}
+dbListFields(db, "MCDB_species")
+```
+
+Query and get data
+
+```{r}
+dbGetQuery(db, "SELECT * FROM MCDB_species LIMIT 10")
+```
+
+<section id="citing">
+
+## Citing
+
+To cite `rdataretriever` in publications use:
+
+Software:
+
+> Daniel McGlinn, Henry Senyondo, Shawn Taylor and Ethan White (2017). rdataretriever: R Interface to the Data Retriever. R package version 1.0.0. https://github.com/ropensci/rdataretriever/
+
+Publication:
+
+> Morris, Benjamin D., and Ethan P. White. (2013). The EcoData Retriever: Improving Access to Existing Ecological Data. PLoS ONE 8 (6) (jun): 65848. doi:10.1371/journal.pone.0065848.
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rdataretriever](https://github.com/ropensci/rdataretriever/issues?state=open)
+
+[Back to top](#top)

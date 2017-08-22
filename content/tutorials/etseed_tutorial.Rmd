@@ -1,0 +1,184 @@
+---
+title: etseed tutorial
+package_version: 0.1.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`etcd` is a key-value DB written in `Go`. It has an HTTP API, which this R package wraps.
+
+[etcd API docs](https://github.com/coreos/etcd/blob/master/Documentation/v2/api.md)
+
+## Installing etcd
+
+See the [etcd Github repo](https://github.com/coreos/etcd#etcd) for help on installing `etcd`.
+
+There are various ways to install it, and they depend on your operating sytsem.
+
+You can install via `homebrew`, install from source, and via Docker.
+
+## Start etcd
+
+at the command line
+
+```sh
+etcd
+```
+
+> how to start etcd may differ depending on your setup
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("etseed")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropensci/etseed")
+```
+
+```{r}
+library("etseed")
+```
+
+<section id="usage">
+
+## Usage
+
+### Make a client
+
+First task when using this package is to initialize a client
+with the `etcd()` function. it's a wrapper around an R6 class.
+
+```{r}
+(client <- etcd())
+```
+
+Default settings in `etcd()` connect you to `localhost`, and port `2379`,
+using etcd API version 2, with an `http` scheme.
+
+### Get version
+
+```{r}
+client$version()
+```
+
+### Create a directory
+
+```{r echo=FALSE, results='hide'}
+out <- tryCatch(client$key("/neighbor"), error=function(e) e)
+if (!inherits(out, "http_error")) client$delete("/neighbor", dir=TRUE)
+Sys.sleep(3)
+```
+
+```{r}
+client$create("/neighbor", dir = TRUE)
+```
+
+### Create a key
+
+```{r echo=FALSE, results='hide'}
+out <- tryCatch(client$key("/mykey"), error=function(e) e)
+if (!is(out, "http_error")) client$delete("/mykey")
+out <- tryCatch(client$key("/stuff"), error=function(e) e)
+if (!is(out, "http_error")) client$delete("/stuff")
+```
+
+```{r}
+client$create(key = "/mykey", value = "this is awesome")
+```
+
+```{r echo=FALSE, results='hide'}
+Sys.sleep(3)
+```
+
+Use `ttl` parameter to make it dissappear after `x` seconds
+
+```{r}
+client$create(key = "/stuff", value = "tables", ttl = 5)
+```
+
+And the key will be gone after 5 seconds, see:
+
+```{r eval=FALSE}
+client$key("/stuff")
+#> Error in etcd_GET(sprintf("%s%s/%s/", etcdbase(), "keys", key), ...) :
+#>   client error: (404) Not Found
+```
+
+### Update a key
+
+```{r echo=FALSE, results='hide'}
+out <- tryCatch(client$key("/foo"), error=function(e) e)
+if (!is(out, "http_error")) client$delete("/foo")
+```
+
+Create a key
+
+```{r}
+client$create(key = "/foo", value = "bar")
+```
+
+Then update the key
+
+```{r output.lines = 1:10}
+client$update(key = "/foo", value = "bar stool")
+```
+
+### Create in-order keys
+
+```{r}
+client$create_inorder("/queue", "thing1")
+```
+
+```{r}
+client$create_inorder("/queue", "thing2")
+```
+
+```{r}
+client$create_inorder("/queue", "thing3")
+```
+
+### List keys
+
+```{r output.lines = 1:10}
+client$keys()
+```
+
+### List a key
+
+```{r}
+client$key("/mykey")
+```
+
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain (2016). etseed: Client for 'etcd', a 'Key-value' Database. R package version 0.1.0. https://CRAN.R-project.org/package=etseed
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for etseed](https://github.com/ropensci/etseed/issues?state=open)
+
+
+[Back to top](#top)

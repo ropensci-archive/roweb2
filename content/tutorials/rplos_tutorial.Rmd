@@ -1,0 +1,225 @@
+---
+title: rplos tutorial
+package_version: 0.5.6
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rplos/",
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+The `rplos` package interacts with the API services of [PLoS](http://www.plos.org/) (Public Library of Science) Journals. You used to need an API key to work with this package - that is no longer needed!
+
+This tutorial will go through three use cases to demonstrate the kinds
+of things possible in `rplos`.
+
+* Search across PLoS papers in various sections of papers
+* Search for terms and visualize results as a histogram OR as a plot through time
+* Text mining of scientific literature
+
+<section id="installation">
+
+## Installation
+
+
+```{r eval=FALSE}
+install.packages("rplos")
+```
+
+Or development version
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropensci/rplos")
+```
+
+```{r}
+library("rplos")
+```
+
+<section id="usage">
+
+## Usage
+
+### Search across PLoS papers in various sections of papers
+
+`searchplos` is a general search, and in this case searches for the term
+**Helianthus** and returns the DOI's of matching papers
+
+```{r searchplos1}
+searchplos(q= "Helianthus", fl= "id", limit = 5)
+```
+
+Get only full article DOIs
+
+```{r searchplos2}
+searchplos(q="*:*", fl='id', fq='doc_type:full', start=0, limit=5)
+```
+
+Get DOIs for only PLoS One articles
+
+```{r searchplos3}
+searchplos(q="*:*", fl='id', fq='cross_published_journal_key:PLoSONE', start=0, limit=5)
+```
+
+Get DOIs for full article in PLoS One
+
+```{r searchplos4}
+searchplos(q="*:*", fl='id',
+   fq=list('cross_published_journal_key:PLoSONE', 'doc_type:full'),
+   start=0, limit=5)
+```
+
+Search for many terms
+
+```{r searchplos5}
+q <- c('ecology','evolution','science')
+lapply(q, function(x) searchplos(x, limit=2))
+```
+
+### Search on specific sections
+
+A suite of functions were created as light wrappers around `searchplos` as a shorthand to search specific sections of a paper.
+
+* `plosauthor` searchers in authors
+* `plosabstract` searches in abstracts
+* `plostitle` searches in titles
+* `plosfigtabcaps` searches in figure and table captions
+* `plossubject` searches in subject areas
+
+`plosauthor` searches across authors, and in this case returns the authors of the matching papers. the fl parameter determines what is returned
+
+```{r plosauthor}
+plosauthor(q = "Eisen", fl = "author", limit = 5)
+```
+
+`plosabstract` searches across abstracts, and in this case returns the id and title of the matching papers
+
+```{r plosabstract}
+plosabstract(q = 'drosophila', fl='id,title', limit = 5)
+```
+
+`plostitle` searches across titles, and in this case returns the title and journal of the matching papers
+
+```{r plostitle}
+plostitle(q='drosophila', fl='title,journal', limit=5)
+```
+
+### Search for terms and visualize results as a histogram OR as a plot through time
+
+`plosword` allows you to search for 1 to K words and visualize the results
+as a histogram, comparing number of matching papers for each word
+
+```{r plosword1}
+out <- plosword(list("monkey", "Helianthus", "sunflower", "protein", "whale"),
+    vis = "TRUE")
+out$table
+```
+
+```{r plosword1plot, fig.width=6, fig.height=4}
+out$plot
+```
+
+You can also pass in curl options, in this case get verbose information on the curl call.
+
+```{r plosword2}
+plosword('Helianthus', callopts=list(verbose=TRUE))
+```
+
+### Visualize terms
+
+`plot_throughtime` allows you to search for up to 2 words and visualize the results as a line plot through time, comparing number of articles matching through time. Visualize with the ggplot2 package, only up to two terms for now.
+
+```{r throughtime1, fig.width=6, fig.height=4}
+library("ggplot2")
+plot_throughtime(terms = "phylogeny", limit = 200) + geom_line(size=2, color='black')
+```
+
+### Faceted search
+
+In addition to `searchplos()` and related searching functions, there are a few slightly different ways to search: faceting and highlighted searches. Faceting allows you to ask, e.g., how many articles are published in each of the PLOS journals. Highlighting allows you to ask, e.g., highlight terms that I search for in the text results given back, which can make downstream processing easier, and help visualize search results (see `highbrow()` below).
+
+Facet by journal
+
+```{r facet1}
+facetplos(q='*:*', facet.field='journal')
+```
+
+Using `facet.query` to get counts
+
+```{r facet2}
+facetplos(q='*:*', facet.field='journal', facet.query='cell,bird')
+```
+
+Date faceting
+
+```{r facet3}
+facetplos(q='*:*', url=url, facet.date='publication_date',
+  facet.date.start='NOW/DAY-5DAYS', facet.date.end='NOW', facet.date.gap='+1DAY')
+```
+
+### Highlighted search
+
+Search for the term _alcohol_ in the abstracts of articles, return only 10 results
+
+```{r high1}
+highplos(q='alcohol', hl.fl = 'abstract', rows=2)
+```
+
+Search for the term _alcohol_ in the abstracts of articles, and return fragment size of 20 characters, return only 5 results
+
+```{r high2}
+highplos(q='alcohol', hl.fl='abstract', hl.fragsize=20, rows=2)
+```
+
+Search for the term _experiment_ across all sections of an article, return id (DOI) and title fl only, search in full articles only (via `fq='doc_type:full'`), and return only 10 results
+
+```{r high3}
+highplos(q='everything:"experiment"', fl='id,title', fq='doc_type:full',
+   rows=2)
+```
+
+### Visualize highligted searches
+
+Browse highlighted fragments in your default browser
+
+This first examle, we only looko at 10 results
+
+```{r eval=FALSE}
+out <- highplos(q='alcohol', hl.fl = 'abstract', rows=10)
+highbrow(out)
+```
+
+![highbrow1](../assets/tutorial-images/rplos/highbrow.png)
+
+But it works quickly with lots of results too
+
+```{r eval=FALSE}
+out <- highplos(q='alcohol', hl.fl = 'abstract', rows=1200)
+highbrow(out)
+```
+
+![highbrow2](../assets/tutorial-images/rplos/highbrow_big.png)
+
+<section id="citing">
+
+## Citing
+
+To cite `rplos` in publications use:
+
+<br>
+
+> Scott Chamberlain, Carl Boettiger and Karthik Ram (2016). rplos: Interface to PLOS Journals search API. R package version 0.5.6 https://github.com/ropensci/rplos
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rplos](https://github.com/ropensci/rplos/issues?state=open)
+
+[Back to top](#top)

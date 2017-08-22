@@ -1,0 +1,134 @@
+---
+title: oai vignette
+package_version: 0.2.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/oai/",
+	warning = FALSE,
+	message = FALSE,
+	comment = "#>"
+)
+```
+
+A general purpose client to work with any 'OAI-PMH' service. The 'OAI-PMH' protocol is described at [http://www.openarchives.org/OAI/openarchivesprotocol.html](http://www.openarchives.org/OAI/openarchivesprotocol.html). The main functions follow the OAI-PMH verbs:
+
+* `GetRecord`
+* `Identify`
+* `ListIdentifiers`
+* `ListMetadataFormats`
+* `ListRecords`
+* `ListSets`
+
+<section id="installation">
+
+You can install from CRAN
+
+```{r eval=FALSE}
+install.packages("oai")
+```
+
+Or the development version from GitHub
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/oai")
+```
+
+<section id="usage">
+
+## Usage
+
+### Identify
+
+```{r}
+id("http://oai.datacite.org/oai")
+```
+
+### ListIdentifiers
+
+```{r}
+list_identifiers(from = '2011-05-01T', until = '2011-09-01T')
+```
+
+### Count Identifiers
+
+```{r}
+count_identifiers()
+```
+
+### ListRecords
+
+```{r}
+list_records(from = '2011-05-01T', until = '2011-08-15T')
+```
+
+### GetRecords
+
+```{r}
+get_records(c("oai:oai.datacite.org:32255", "oai:oai.datacite.org:32325"))
+```
+
+### List MetadataFormats
+
+```{r}
+list_metadataformats(id = "oai:oai.datacite.org:32348")
+```
+
+### List Sets
+
+```{r}
+list_sets("http://oai.datacite.org/oai")
+```
+
+### Examples of other OAI providers
+
+#### Global Biodiversity Information Facility
+
+Identify
+
+```{r}
+id("http://api.gbif.org/v1/oai-pmh/registry")
+```
+
+Get records
+
+```{r}
+get_records(c("816f4734-6b49-41ab-8a1d-1b21e6b5486d", "95e3042f-f48d-4a04-8251-f755bebeced6"),
+            url = "http://api.gbif.org/v1/oai-pmh/registry")
+```
+
+#### Biodiversity Heritage Library
+
+Identify
+
+```{r}
+id("http://www.biodiversitylibrary.org/oai")
+```
+
+Get records
+
+```{r}
+get_records(c("oai:biodiversitylibrary.org:item/7", "oai:biodiversitylibrary.org:item/9"),
+            url = "http://www.biodiversitylibrary.org/oai")
+```
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain and Michal Bojanowski (2016). oai: General Purpose 'Oai-PMH' Services Client. R package
+  version 0.2.0. https://github.com/ropensci/oai
+
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for oai](https://github.com/ropensci/oai/issues?state=open)
+
+
+[Back to top](#top)

@@ -1,0 +1,206 @@
+---
+title: traits tutorial
+package_version: 0.2.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rnoaa/",
+  fig.width = 6,
+  fig.height = 4,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+<section id="installation">
+
+## Installation
+
+Install and load `traits` into the R session. Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("traits")
+```
+
+Or development version from Github:
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropensci/traits")
+```
+
+```{r}
+library("traits")
+```
+
+<section id="usage">
+
+## Usage
+
+### BetyDB
+
+Get trait data for Willow (_Salix_ spp.)
+
+```{r}
+(salix <- betydb_search("Salix Vcmax"))
+# equivalent:
+# (out <- betydb_search("willow"))
+```
+
+Summarise data from the output `data.frame`
+
+```{r}
+library("dplyr")
+salix %>%
+  group_by(scientificname, trait) %>%
+  mutate(.mean = as.numeric(mean)) %>%
+  summarise(mean = round(mean(.mean, na.rm = TRUE), 2),
+            min = round(min(.mean, na.rm = TRUE), 2),
+            max = round(max(.mean, na.rm = TRUE), 2),
+            n = length(n))
+```
+
+### NCBI sequence data
+
+Get sequences by id
+
+```{r}
+ncbi_byid(ids = "360040093")
+```
+
+Get sequences searching by taxonomic name
+
+```{r}
+out <- ncbi_searcher(taxa = "Umbra limi", seqrange = "1:2000")
+head(out)
+```
+
+### GISD invasive species data
+
+> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
+
+```{r}
+sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
+g_invasive(sp)
+```
+
+Or as simplified output
+
+```{r}
+g_invasive(sp, simplify = TRUE)
+```
+
+### EOL invasive species data
+
+> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
+
+```{r}
+eol_invasive_('Brassica oleracea', dataset = 'gisd')
+```
+
+Another example, with more species, and from
+
+```{r}
+eol_invasive_(c('Lymantria dispar','Cygnus olor',
+                'Hydrilla verticillata','Pinus concolor'),
+              dataset = 'i3n')
+```
+
+### EOL's Traitbank data
+
+Note that EOL's Traitbank does not allow us to search by trait.
+The only interface we have is to search by taxon page ID.
+
+Searching for _Potus flavus_, page id `328067`
+
+```{r cache=FALSE}
+res <- traitbank(pageid = 328067)
+res$graph %>%
+  select(dwc.measurementtype,
+         dwc.measurementvalue) %>%
+  filter(!is.na(dwc.measurementvalue))
+```
+
+### Coral
+
+Get the species list and their ids
+
+```{r cache=FALSE}
+coral_species()
+```
+
+Get data by taxon
+
+```{r cache=FALSE}
+coral_taxa(80)
+```
+
+Get data by trait
+
+```{r cache=FALSE}
+coral_traits(105)
+```
+
+### Flora Europaea
+
+```{r}
+sp <- c("Lavandula stoechas", "Carpobrotus edulis",
+        "Rhododendron ponticum", "Alkanna lutea", "Anchusa arvensis")
+sapply(sp, fe_native, simplify = FALSE)
+```
+
+### Birdlife International
+
+Habitat data
+
+```{r}
+birdlife_habitat(22721692)
+```
+
+Threats data
+
+```{r}
+birdlife_threats(22721692)
+```
+
+### Nativity
+
+> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
+
+```{r}
+sp <- c("Lavandula stoechas", "Carpobrotus edulis", "Rhododendron ponticum",
+      "Alkanna lutea", "Anchusa arvensis")
+```
+
+Native in the continental USA?
+
+```{r}
+sapply(sp, is_native, where = "Continental US", region = "america")
+```
+
+Native on Islas Baleares?
+
+```{r}
+sapply(sp, is_native, where = "Islas_Baleares", region = "europe")
+```
+
+<section id="citing">
+
+## Citing
+
+To cite `traits` in publications use:
+
+<br>
+
+> Scott Chamberlain, Zachary Foster, Ignasi Bartomeus, David LeBauer, and David Harris (2015). traits: Species Trait Data from Around the Web. R package version 0.2.0. https://github.com/ropensci/traits
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for traits](https://github.com/ropensci/traits/issues?state=open)
+
+[Back to top](#top)

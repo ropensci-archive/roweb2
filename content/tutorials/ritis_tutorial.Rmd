@@ -1,0 +1,117 @@
+---
+title: ritis vignette
+package_version: 0.5.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/ritis/",
+	warning = FALSE,
+	message = FALSE,
+	comment = "#>"
+)
+```
+
+An interface to the Integrated Taxonomic Information System (ITIS)
+(<http://www.itis.gov>). Includes functions to work with the ITIS REST
+API methods (<http://www.itis.gov/ws_description.html>), as well as the
+Solr web service (<http://www.itis.gov/solr_documentation.html>).
+
+<section id="installation">
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("ritis")
+```
+
+Or development version from GitHub
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/ritis")
+```
+
+<section id="usage">
+
+## Usage
+
+```{r}
+library("ritis")
+```
+
+### ITIS Solr interface
+
+There are four methods.
+
+* `itis_search()` - Search
+* `itis_group()` - Group
+* `itis_highlight()` - Hightlight
+* `itis_facet()` - Facet
+
+These four methods use the equivalent functions in the package `solrium`, e.g.,
+`ritis::itis_search()` uses `solrium::solr_search()`, etc. The `itis_*()` functions
+simply use `...` to allow users to pass on parameters to the wrapped `solrium`
+functions. So do read the `solrium` docs.
+
+ITIS Solr API docs: [http://www.itis.gov/solr_documentation.html](http://www.itis.gov/solr_documentation.html)
+
+Some examples:
+
+matches only monomials
+
+```{r}
+itis_search(q = "nameWOInd:/[A-Za-z0-9]*[%20]{0,0}*/")
+```
+
+matches only binomials
+
+```{r}
+itis_search(q = "nameWOInd:/[A-Za-z0-9]*[%20]{1,1}[A-Za-z0-9]*/")
+```
+
+### ITIS REST API interface
+
+ITIS REST API docs: [http://www.itis.gov/ws_description.html](http://www.itis.gov/ws_description.html)
+
+The following are some example uses. There are many more methods not shown below
+
+-------
+
+Get accepted names for a TSN
+
+```{r}
+accepted_names(tsn = 504239)
+```
+
+Get common names for a TSN
+
+```{r}
+common_names(tsn = 183833)
+```
+
+Full hierarchy for a TSN
+
+```{r}
+hierarchy_full(tsn = 37906)
+```
+
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain (2016). ritis: Integrated Taxonomic Information System Client. R
+  package version 0.5.0. https://github.com/ropensci/ritis
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for ritis](https://github.com/ropensci/ritis/issues?state=open)
+
+
+[Back to top](#top)

@@ -1,0 +1,110 @@
+---
+title: originr tutorial
+package_version: 0.1.0
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+	fig.path = "../assets/tutorial-images/originr/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+Species Origin Data
+
+Data sources:
+
+* Encyclopedia of Life [http://eol.org](http://eol.org)
+* Flora Europaea [http://rbg-web2.rbge.org.uk/FE/fe.html](http://rbg-web2.rbge.org.uk/FE/fe.html)
+* Global Invasive Species Database [http://www.iucngisd.org/gisd](http://www.iucngisd.org/gisd)
+* Native Species Resolver [http://bien.nceas.ucsb.edu/bien/tools/nsr/nsr-ws/](http://bien.nceas.ucsb.edu/bien/tools/nsr/nsr-ws/)
+* Integrated Taxonomic Information Service [http://www.itis.gov/](http://www.itis.gov/)
+
+
+<section id="installation">
+
+## Installation
+
+Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("originr")
+```
+
+Development version from GitHub
+
+```{r eval=FALSE}
+if (!require("devtools")) install.packages("devtools")
+devtools::install_github("ropenscilabs/originr")
+```
+
+```{r}
+library("originr")
+```
+
+<section id="usage">
+
+## Usage
+
+### EOL invasive species datasets
+
+Datasets included:
+
+* `gisd100` - 100 of the World's Worst Invasive Alien Species
+(Global Invasive Species Database) [http://eol.org/collections/54500](http://eol.org/collections/54500)
+* `gisd` - Global Invasive Species Database 2013 [http://eol.org/collections/54983](http://eol.org/collections/54983)
+* `isc` - Centre for Agriculture and Biosciences International Invasive Species
+Compendium (ISC) [http://eol.org/collections/55180](http://eol.org/collections/55180)
+* `daisie` - Delivering Alien Invasive Species Inventories for Europe (DAISIE) Species
+List [http://eol.org/collections/55179](http://eol.org/collections/55179)
+* `i3n` - IABIN Invasives Information Network (I3N) Species
+http://eol.org/collections/55176
+* `mineps` - Marine Invaders of the NE Pacific Species [http://eol.org/collections/55331](http://eol.org/collections/55331)
+
+An example using `mineps`
+
+```{r}
+eol(name='Ciona intestinalis', dataset='mineps')
+```
+
+### Native Species Resolver
+
+```{r}
+nsr("Pinus ponderosa", "United States")
+```
+
+### Global Invasive Species Database
+
+```{r}
+sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
+gisd(sp)
+```
+
+### Flora Europaea
+
+```{r}
+flora_europaea("Lavandula stoechas")
+```
+
+
+<section id="citing">
+
+## Citing
+
+> Scott Chamberlain and Ignasi Bartomeus (2016). originr: Fetch Species
+  Origin Data from the Web. R package version 0.1.0. https://cran.rstudio.com/package=originr
+
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our GitHub repo for originr](https://github.com/ropenscilabs/originr/issues?state=open)
+
+
+[Back to top](#top)
+

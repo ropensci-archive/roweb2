@@ -1,0 +1,133 @@
+---
+title: rAltmetric tutorial
+package_version: 0.3
+---
+
+```{r, eval=TRUE, echo=FALSE}
+opts_chunk$set(fig.path="../assets/tutorial-images/rAltmetric/")
+```
+
+This package provides a way to programmatically retrieve altmetric data from [altmetric.com](http://altmetric.com) for any publication with the appropriate identifer. The package is really simple to use and only has two major functions: One (`altmetrics()`) to download metrics and another (`altmetric_data()`) to extract the data into a `data.frame`. It also includes generic S3 methods to plot/print metrics for any altmetric object.
+
+Questions, features requests and issues should go [here](https://github.com/ropensci/rAltmetric/issues/). General comments to [karthik.ram@gmail.com](mailto:karthik.ram@gmail.com).
+
+<section id="installation">
+
+## Installation
+
+
+A stable version is available from CRAN. To install
+
+```{r install, message=FALSE, warning=FALSE, eval=FALSE}
+install.packages('rAltmetric')
+```
+
+### Development version
+
+```{r installcran, message=FALSE, warning=FALSE, eval=FALSE}
+# If you don't already have the devtools library, first run
+install.packages('devtools')
+```
+
+Then install the package
+
+```{r installgithub, message=FALSE, warning=FALSE, eval=FALSE}
+library(devtools)
+install_github('rAltmetric', 'ropensci')
+```
+
+<section id="usage">
+
+## Usage
+
+
+### Obtaining metrics
+
+There was a recent paper by [Acuna et al](http://www.nature.com/news/2010/100616/full/465860a.html) that received a lot of attention on Twitter. What was the impact of that paper?
+
+```{r one, message=FALSE, warning=FALSE}
+library(rAltmetric)
+```
+
+```{r two, message=FALSE, warning=FALSE}
+acuna <- altmetrics(doi="10.1038/489201a")
+acuna
+```
+
+### Data
+
+To obtain the metrics in tabular form for further processing, run any object of class `altmetric` through `altmetric_data()` to get data that can easily be written to disk as a spreadsheet.
+
+```{r x, message=FALSE, warning=FALSE}
+altmetric_data(acuna)
+```
+
+You can save these data into a clean spreadsheet format:
+
+```{r write, message=FALSE, warning=FALSE, eval=FALSE}
+acuna_data <- altmetric_data(acuna)
+write.csv(acuna_data, file = 'acuna_altmetrics.csv')
+```
+
+### Visualization
+
+For any altmetric object you can quickly plot the stats with a generic `plot` function. The plot overlays the [altmetric badge and the score](http://api.altmetric.com/embeds.html) on the top right corner. If you prefer a customized plot, create your own with the raw data generated from `almetric_data()`
+
+```{r plot, message=FALSE, warning=FALSE}
+plot(acuna)
+```
+
+### Gathering metrics for many DOIs
+
+For a real world use-case, one might want to get metrics on multiple publications. If so, just read them from a spreadsheet and `llply` through them like the example below.
+
+Install `rplos` (v0.3.6) if you don't have it. See [here](https://github.com/ropensci/rplos) for instructions.
+
+```{r gather1, message=FALSE, warning=FALSE}
+library(rplos)
+dois <- searchplos(q = "*:*", fl = 'id', fq = 'doc_type:full', start = 0, limit = 75)$id
+```
+
+First, let's retrieve the metrics.
+
+```{r gather2, message=FALSE, warning=FALSE}
+library(plyr)
+raw_metrics <- lapply(dois, function(x) altmetrics(doi = x))
+```
+
+Now let's pull the data together.
+
+```{r gather3, message=FALSE, warning=FALSE}
+metric_data <- ldply(raw_metrics, altmetric_data)
+head(metric_data[,c(1:10)])
+```
+
+Finally we save this to a spreadsheet for further analysis/vizualization.
+
+```{r gather4, message=FALSE, warning=FALSE}
+write.csv(metric_data, file = "metric_data.csv")
+```
+
+### Further reading
+* [Metrics: Do metrics matter?](http://www.nature.com/news/2010/100616/full/465860a.html)
+* [The altmetrics manifesto](http://altmetrics.org/manifesto/)
+
+
+<section id="citing">
+
+## Citing
+
+To cite `rAltmetric` in publications use:
+
+<br>
+
+> Karthik Ram (2012). rAltmetric: Retrieves altmerics data for any published paper from altmetric.com. R package version 0.5. https://github.com/ropensci/rAltmetric
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [CC0](http://creativecommons.org/choose/zero/)
+* Report bugs at [our Github repo for rAltmetric](https://github.com/ropensci/rAltmetric/issues?state=open)
+
+[Back to top](#top)

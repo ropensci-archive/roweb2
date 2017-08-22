@@ -1,0 +1,169 @@
+---
+title: rbhl tutorial
+package_version: 0.2.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines)==1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1])>1) more else NULL,
+            x[lines],
+            if (length(x)>lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+})
+knitr::opts_chunk$set(
+  fig.path = "../assets/tutorial-images/rbhl/",
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`rbhl` is an R interface to the Biodiversity Heritage Library.
+
+
+<section id="installation">
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("rbhl")
+```
+
+Or development version from GitHub
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/rbhl")
+```
+
+```{r}
+library("rbhl")
+```
+
+<section id="usage">
+
+## Usage
+
+### Output formats
+
+You can output various formats using the `as` parameter, setting to 'json', 'xml', 'list', or 'table'. Note that not all options are available in all functions due to varying returned data objects.
+
+Raw output, in xml format
+
+```{r authorsearch1, messages=FALSE, warning=FALSE, eval=FALSE}
+bhl_authorsearch(name='dimmock', as='xml')
+```
+
+json format
+
+```{r authorsearch2, messages=FALSE, warning=FALSE}
+bhl_authorsearch(name='dimmock', as='json')
+```
+
+Or get a list
+
+```{r output.lines=10}
+bhl_authorsearch(name='dimmock', as='list')
+```
+
+The default option in most functions is to parse to a data.frame
+
+```{r authorsearch4, messages=FALSE, warning=FALSE}
+bhl_authorsearch(name='dimmock')
+```
+
+### Some examples of function calls
+
+#### Get title metadata
+
+```{r output.lines=10}
+bhl_gettitlemetadata(1726, items = TRUE)
+```
+
+#### Book search
+
+```{r booksearch, messages=FALSE, warning=FALSE}
+bhl_booksearch(title='Selborne', lname='White', volume=2, edition='new', year=1825, collectionid=4, language='eng')
+```
+
+#### Search titles
+
+```{r}
+bhl_titlesearchsimple('husbandry')
+```
+
+#### Get languages
+
+This function gets a list of languages in which materials in BHL have been written.
+
+```{r}
+bhl_getlanguages()
+```
+
+### Use case for BHL data
+
+Here, we'll xxx, then plot the data using `ggplot2`
+
+```{r cache=TRUE}
+res <- bhl_booksearch(title = 'Selborne', lname = 'White', volume = 2, edition = 'new', year = 1825, collectionid = 4, language = 'eng')
+pages <- getpages(res$data$Items[[1]]$ItemID)
+```
+
+Remove `NULL`'s
+
+```{r}
+pages <- Filter(function(x) !is.null(x), pages)
+```
+
+Cleanup text
+
+```{r}
+pages_clean <- lapply(pages, function(x) gsub("\n", "", x))
+```
+
+Examine pages
+
+```{r}
+pages_clean[10:12]
+```
+
+With this text data, you can do text mining of the content to answer cool questions you have.
+
+
+<section id="citing">
+
+## Citing
+
+To cite `rbhl` in publications use:
+
+<br>
+
+> Scott Chamberlain (2015). rbhl: Interface to the 'Biodiversity' 'Heritage' Library. R package
+  version 0.2.0. https://cran.rstudio.com/package=rbhl
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rbhl](https://github.com/ropensci/rbhl/issues?state=open)
+
+[Back to top](#top)

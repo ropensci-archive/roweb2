@@ -1,0 +1,174 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{bold vignette}
+-->
+
+`bold` is an R package to connect to [BOLD Systems](http://www.boldsystems.org/) via their API. Functions in `bold` let you search for sequence data, specimen data, sequence + specimen data, and download raw trace files.
+
+### bold info
+
++ [BOLD home page](http://boldsystems.org/)
++ [BOLD API docs](boldsystems.org/index.php/resources/api)
+
+### Using bold
+
+**Install**
+
+Install `bold` from CRAN
+
+
+```{r eval=FALSE}
+install.packages("bold")
+```
+
+Or install the development version from GitHub
+
+```{r, eval=FALSE}
+devtools::install_github("ropensci/bold")
+```
+
+Load the package
+
+```{r}
+library("bold")
+```
+
+
+### Search for taxonomic names via names
+
+`bold_tax_name` searches for names with names.
+
+```{r cache=TRUE}
+bold_tax_name(name='Diplura')
+```
+
+```{r cache=TRUE}
+bold_tax_name(name=c('Diplura','Osmia'))
+```
+
+
+### Search for taxonomic names via BOLD identifiers
+
+`bold_tax_id` searches for names with BOLD identifiers.
+
+```{r cache=TRUE}
+bold_tax_id(id=88899)
+```
+
+```{r cache=TRUE}
+bold_tax_id(id=c(88899,125295))
+```
+
+
+### Search for sequence data only
+
+The BOLD sequence API gives back sequence data, with a bit of metadata.
+
+The default is to get a list back
+
+```{r cache=TRUE}
+bold_seq(taxon='Coelioxys')[1:2]
+```
+
+You can optionally get back the `httr` response object
+
+```{r cache=TRUE}
+res <- bold_seq(taxon='Coelioxys', response=TRUE)
+res$headers
+```
+
+You can do geographic searches
+
+```{r cache=TRUE}
+bold_seq(geo = "USA")
+```
+
+And you can search by researcher name
+
+```{r cache=TRUE}
+bold_seq(researchers='Thibaud Decaens')[[1]]
+```
+
+by taxon IDs
+
+```{r cache=TRUE}
+bold_seq(ids=c('ACRJP618-11','ACRJP619-11'))
+```
+
+by container (containers include project codes and dataset codes)
+
+```{r cache=TRUE}
+bold_seq(container='ACRJP')[[1]]
+```
+
+by bin (a bin is a _Barcode Index Number_)
+
+```{r cache=TRUE}
+bold_seq(bin='BOLD:AAA5125')[[1]]
+```
+
+And there are more ways to query, check out the docs for `?bold_seq`.
+
+
+### Search for specimen data only
+
+The BOLD specimen API doesn't give back sequences, only specimen data. By default you download `tsv` format data, which is given back to you as a `data.frame`
+
+```{r cache=TRUE}
+res <- bold_specimens(taxon='Osmia')
+head(res[,1:8])
+```
+
+You can optionally get back the data in `XML` format
+
+```{r eval=FALSE}
+bold_specimens(taxon='Osmia', format='xml')
+```
+
+```{r eval=FALSE, results='asis'}
+<?xml version="1.0" encoding="UTF-8"?>
+<bold_records  xsi:noNamespaceSchemaLocation="http://www.boldsystems.org/schemas/BOLDPublic_record.xsd"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <record>
+    <record_id>1470124</record_id>
+    <processid>BOM1525-10</processid>
+    <bin_uri>BOLD:AAN3337</bin_uri>
+    <specimen_identifiers>
+      <sampleid>DHB 1011</sampleid>
+      <catalognum>DHB 1011</catalognum>
+      <fieldnum>DHB1011</fieldnum>
+      <institution_storing>Marjorie Barrick Museum</institution_storing>
+    </specimen_identifiers>
+    <taxonomy>
+```
+
+You can choose to get the `httr` response object back if you'd rather work with the raw data returned from the BOLD API.
+
+```{r}
+res <- bold_specimens(taxon='Osmia', format='xml', response=TRUE)
+res$url
+res$status_code
+res$headers
+```
+
+### Search for specimen plus sequence data
+
+The specimen/sequence combined API gives back specimen and sequence data. Like the specimen API, this one gives by default `tsv` format data, which is given back to you as a `data.frame`. Here, we're setting `sepfasta=TRUE` so that the sequence data is given back as a list, and taken out of the `data.frame` returned so the `data.frame` is more manageable.
+
+```{r cache=TRUE}
+res <- bold_seqspec(taxon='Osmia', sepfasta=TRUE)
+res$fasta[1:2]
+```
+
+Or you can index to a specific sequence like
+
+```{r cache=TRUE}
+res$fasta['GBAH0293-06']
+```
+
+### Get trace files
+
+This function downloads files to your machine - it does not load them into your R session - but prints out where the files are for your information.
+
+```{r cache=TRUE, cache.path="../ignore/"}
+bold_trace(taxon='Osmia', quiet=TRUE)
+```

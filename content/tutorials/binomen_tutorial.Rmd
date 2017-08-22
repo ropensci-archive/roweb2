@@ -1,0 +1,213 @@
+---
+title: binomen tutorial
+package_version: 0.1.0
+---
+
+```{r, eval=TRUE, echo=FALSE}
+library("knitr")
+hook_output <- knitr::knit_hooks$get("output")
+knitr::knit_hooks$set(output = function(x, options) {
+   lines <- options$output.lines
+   if (is.null(lines)) {
+     return(hook_output(x, options))  # pass to default hook
+   }
+   x <- unlist(strsplit(x, "\n"))
+   more <- "..."
+   if (length(lines)==1) {        # first n lines
+     if (length(x) > lines) {
+       # truncate the output, but add ....
+       x <- c(head(x, lines), more)
+     }
+   } else {
+     x <- c(if (abs(lines[1])>1) more else NULL,
+            x[lines],
+            if (length(x)>lines[abs(length(lines))]) more else NULL
+           )
+   }
+   # paste these lines together
+   x <- paste(c(x, ""), collapse = "\n")
+   hook_output(x, options)
+ })
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+`binomen` provides various taxonomic classes for defining a single taxon, multiple taxa, and a taxonomic data.frame
+
+It is sort of a companion to [taxize](https://github.com/ropensci/taxize), where you can get taxonomic data on taxonomic names from the web.
+
+The classes (S3):
+
+* `taxon`
+* `taxonref`
+* `taxonrefs`
+* `binomial`
+* `grouping` (i.e., classification)
+
+The verbs:
+
+* `gethier()` - get hierarchy from a `taxon` class
+* `scatter()` - make each row in taxonomic data.frame (`taxondf`) a separate `taxon` object within a single `taxa` object
+* `assemble()` - make a `taxa` object into a `taxondf` data.frame
+* `pick()` - pick out one or more taxonomic groups
+* `pop()` - pop out (drop) one or more taxonomic groups
+* `span()` - pick a range between two taxonomic groups (inclusive)
+* `strain()` - filter by taxonomic groups, like dplyr's filter
+* `name()` - get the taxon name for each `taxonref` object
+* `uri()` - get the reference uri for each `taxonref` object
+* `rank()` - get the taxonomic rank for each `taxonref` object
+* `id()` - get the reference uri for each `taxonref` object
+
+
+<section id="installation">
+
+## Installation
+
+Install and load `binomen` into the R session. Stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("binomen")
+```
+
+Or development version from Github:
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("ropensci/binomen")
+```
+
+```{r load}
+library('binomen')
+```
+
+<section id="usage">
+
+## Usage
+
+### Make a taxon
+
+Make a taxon object
+
+```{r}
+(obj <- make_taxon(genus="Poa", epithet="annua", authority="L.",
+  family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
+```
+
+Index to various parts of the object
+
+The binomial
+
+```{r}
+obj$binomial
+```
+
+The authority
+
+```{r}
+obj$binomial$authority
+```
+
+The classification
+
+```{r}
+obj$grouping
+```
+
+The family
+
+```{r}
+obj$grouping$family
+```
+
+### Subset taxon objects
+
+Get one or more ranks via `pick()`
+
+```{r}
+obj %>% pick(family)
+obj %>% pick(family, genus)
+```
+
+Drop one or more ranks via `pop()`
+
+```{r}
+obj %>% pop(family)
+obj %>% pop(family, genus)
+```
+
+Get a range of ranks via `span()`
+
+```{r}
+obj %>% span(kingdom, family)
+```
+
+Extract classification as a `data.frame`
+
+```{r}
+gethier(obj)
+```
+
+### Taxonomic data.frame's
+
+Make one
+
+```{r}
+df <- data.frame(order = c('Asterales','Asterales','Fagales','Poales','Poales','Poales'),
+  family = c('Asteraceae','Asteraceae','Fagaceae','Poaceae','Poaceae','Poaceae'),
+  genus = c('Helianthus','Helianthus','Quercus','Poa','Festuca','Holodiscus'),
+  stringsAsFactors = FALSE)
+(df2 <- taxon_df(df))
+```
+
+Parse - get rank order via `pick()`
+
+```{r}
+df2 %>% pick(order)
+```
+
+get ranks order, family, and genus via `pick()`
+
+```{r}
+df2 %>% pick(order, family, genus)
+```
+
+get range of names via `span()`, from rank `X` to rank `Y`
+
+```{r}
+df2 %>% span(family, genus)
+```
+
+Separate each row into a `taxon` class (many `taxon` objects are a `taxa` class)
+
+```{r output.lines=1:20}
+scatter(df2)
+```
+
+And you can re-assemble a data.frame from the output of `scatter()` with `assemble()`
+
+```{r}
+out <- scatter(df2)
+assemble(out)
+```
+
+## Citing
+
+To cite `binomen` in publications use:
+
+<br>
+
+> Scott Chamberlain (2016). binomen: 'Taxonomic' Specification and Parsing Methods. https://github.com/ropensci/binomen
+
+<section id="license_bugs">
+
+## License and bugs
+
+* License: [MIT](http://opensource.org/licenses/MIT)
+* Report bugs at [our Github repo for rnoaa](https://github.com/ropensci/binomen/issues?state=open)
+
+[Back to top](#top)
