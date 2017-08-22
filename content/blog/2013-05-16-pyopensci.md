@@ -7,7 +7,7 @@ authors:
     url: http://about.me/gawbul
 categories:
   - blog
-topics:
+tags:
 - Python
 - pyOpenSci
 - API

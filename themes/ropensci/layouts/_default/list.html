@@ -35,8 +35,8 @@
                             {{ end }}
                         </p><!-- /authors -->
                         <div class="labels">
-                            {{ range $key, $value := .Params.topics }}
-                                <a href="#"><span class="label">{{ $value }}</span></a>
+                            {{ range .Params.tags }}
+                                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                             {{ end }}
                             <br>
                             {{ .ReadingTime }} minute(s)

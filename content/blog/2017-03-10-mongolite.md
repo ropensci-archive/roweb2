@@ -6,7 +6,7 @@ authors:
 categories:
   - blog
 topicid: 626
-topics:
+tags:
 - r
 - ropensci
 - packages

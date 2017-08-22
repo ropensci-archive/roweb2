@@ -7,7 +7,7 @@ authors:
   - name: Ted Hart
 categories:
   - blog
-topics:
+tags:
 - R
 - Conference
 ---

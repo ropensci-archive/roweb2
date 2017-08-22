@@ -16,7 +16,7 @@ authors:
 categories:
   - blog
 topicid: 759
-topics:
+tags:
   - community
   - software
   - unconf

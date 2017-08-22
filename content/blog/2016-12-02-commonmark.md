@@ -7,7 +7,7 @@ authors:
     url: https://ropensci.org/about/
 categories:
   - blog
-topics:
+tags:
 - ropensci
 - packages
 - commonmark
@@ -37,14 +37,14 @@ For this reason many commonmark implementations include 'extensions' to enable f
  - **table** support rendering of tables
  - **strikethough** via `~sometext~` syntax
  - **autolink** automatically turn URLs into hyperlinks
- - **tagfilter** blacklist html topics: `title` `textarea` `style` `xmp` `iframe`
+ - **tagfilter** blacklist html tags: `title` `textarea` `style` `xmp` `iframe`
   `noembed` `noframes` `script` `plaintext`.
 
 These extensions were added by Github to support [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ![roxygenmd](/assets/blog-images/autolink.png)
 
-Note that extensions are not enabled by default. For example to render tables, you need to set the `extensions` parameter to `TRUE` or `"table"`. 
+Note that extensions are not enabled by default. For example to render tables, you need to set the `extensions` parameter to `TRUE` or `"table"`.
 
 ## Markdown and Roxygen
 

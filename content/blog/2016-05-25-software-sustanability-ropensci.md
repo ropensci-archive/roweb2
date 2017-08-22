@@ -7,7 +7,7 @@ authors:
     url: https://twitter.com/danielskatz
 categories:
   - blog
-topics:
+tags:
   - sustainability
   - researchsoftware
   - infrastructure

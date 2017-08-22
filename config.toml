@@ -39,3 +39,7 @@ paginatePath = "page"
     footer = "&copy; The rOpenSci Project"
     leadership = ["Carl Boettiger", "Karthik Ram", "Scott Chamberlain", "Jenny Bryan", "Rich FitzJohn", "Leadership Team", "Core Team"]
     staff = ["Jeroen Ooms", "Stefanie Butland"]
+
+[taxonomies]
+  tag = "tags"
+

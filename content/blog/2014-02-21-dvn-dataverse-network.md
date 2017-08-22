@@ -7,7 +7,7 @@ authors:
     url: http://thomasleeper.com/
 categories:
   - blog
-topics:
+tags:
 - R
 - API
 - reproducibleresearch

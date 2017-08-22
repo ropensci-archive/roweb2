@@ -7,7 +7,7 @@ authors:
 categories:
   - blog
 topicid: 721
-topics:
+tags:
 - R
 - linguistic mapping
 - clld

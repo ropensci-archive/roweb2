@@ -7,7 +7,7 @@ authors:
 categories:
   - blog
 topicid: 796
-topics:
+tags:
 - R
 - taxonomy
 - software

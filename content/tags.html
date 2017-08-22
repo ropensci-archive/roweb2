@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>rOpenSci | Tutorials</title>
+    {{ partial "style-path.html"}}
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
+</head>
+<body>
+{{ partial "header.html" . }}
+
+<!-- begins tutorial section -->
+    <section>
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Tags</h2>
+                </div>
+                <div class="col-8 top-4 bottom-12">
+                    <p>Blog posts organized by tag.</p>
+                </div>
+            </div>
+
+            <div>
+                  <ul id="all-taxonomies">
+                      {{ range $key, $value := .Site.Taxonomies.tags }}
+                      <li> {{ $key }} </li>
+                            <ul style="margin-left: 10px;">
+                            {{ range $value.Pages }}
+                                <li hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
+                            {{ end }}
+                            </ul>
+                      {{ end }}
+                  </ul>
+                <!-- <ul id="all-tags">
+                  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                    <li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+                  {{ end }}
+                </ul> -->
+                <!-- <ul class="tags">
+                  {{ range ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
+                   <li><a href="{{ .Permalink }}">{{ .Title}}</a></li>
+                  {{ end }}
+                </ul> -->
+
+            </div><!-- /table -->
+        </div><!-- /container -->
+    </section>
+    <!-- ends tutorial section -->
+
+{{ partial "footer.html" . }}
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/fh-3.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
+    <script type="text/javascript" src="js/tutorialinit.js"></script>
+
+</body>
+</html>

@@ -7,7 +7,7 @@ authors:
   - name: Karthik Ram
 categories: blog
 topicid: 761
-topics:
+tags:
 - community
 - ropensci
 - interviews

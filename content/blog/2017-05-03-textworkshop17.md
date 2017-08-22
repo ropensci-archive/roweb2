@@ -8,7 +8,7 @@ authors:
 categories:
   - blog
 topicid: 689
-topics:
+tags:
 - R
 - text analysis
 - community

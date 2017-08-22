@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories: blog
 topicid: 742
-topics:
+tags:
 - community
 - ropensci
 - meetings
@@ -17,7 +17,7 @@ Continuing our series of blog posts ([day 1](https://ropensci.org/blog/blog/2017
 
 
 ## `cityquant`
-**Summary:**  The goal with the `cityquant` project was to build a digital dashboard for sustainable cities. 
+**Summary:**  The goal with the `cityquant` project was to build a digital dashboard for sustainable cities.
 
 ![sustain](https://sustainsb.github.io/images/scores_flower-plot_sbcounty.png)
 
@@ -32,14 +32,14 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 ## `notary`
 
-**Summary:** `notary` is actually two things: 
+**Summary:** `notary` is actually two things:
 
 `notary`: An R package for signing and verification of R packages. It has functions for installing and verifying packages, validating GitHub releases, sourcing files with verification, and more.
 
 <!-- ![notary](/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png) -->
 <img src="/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png" width="300">
 
-`r-security-practices`: A [bookdown book](https://ropenscilabs.github.io/r-security-practices/index.html) targeting users, developers, and admins on R security best practices. 
+`r-security-practices`: A [bookdown book](https://ropenscilabs.github.io/r-security-practices/index.html) targeting users, developers, and admins on R security best practices.
 
 ![securitybook](/assets/blog-images/2017-06-08-unconf_recap_4/rsecuritybook.png)
 
@@ -52,7 +52,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 ## `packagemetrics`
 
-**Summary:**  `packagemetrics` is a package for helping you choose which package to use. Their tool collects metrics including CRAN downloads, GitHub stars, whether it's tidyverse compatible, whether it has tests and vignettes, number of contributors, and more! 
+**Summary:**  `packagemetrics` is a package for helping you choose which package to use. Their tool collects metrics including CRAN downloads, GitHub stars, whether it's tidyverse compatible, whether it has tests and vignettes, number of contributors, and more!
 
 This project combined two ideas from our brainstorming stage: [Avoiding redundant / overlapping packages](https://github.com/ropensci/unconf17/issues/78) and [A framework for reproducible tables](https://github.com/ropensci/unconf17/issues/69).
 

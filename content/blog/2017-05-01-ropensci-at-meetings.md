@@ -7,7 +7,7 @@ authors:
 categories:
   - blog
 topicid: 683
-topics:
+tags:
 - ropensci
 - community
 - meetings

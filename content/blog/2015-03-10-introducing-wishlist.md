@@ -7,7 +7,7 @@ authors:
     url: http://ironholds.org
 categories:
   - blog
-topics:
+tags:
 - R
 - ropensci
 - github

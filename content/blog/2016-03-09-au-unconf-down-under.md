@@ -7,7 +7,7 @@ authors:
     url: http://njtierney.com
 categories:
   - blog
-topics:
+tags:
 - R
 - ropensci
 ---

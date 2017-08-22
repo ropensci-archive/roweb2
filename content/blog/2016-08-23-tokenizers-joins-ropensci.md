@@ -7,7 +7,7 @@ authors:
     url: http://lincolnmullen.com
 categories:
   - blog
-topics:
+tags:
 - R
 - natural-language
 - text-analysis

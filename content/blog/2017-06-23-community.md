@@ -7,7 +7,7 @@ authors:
 categories:
   - blog
 topicid: 755
-topics:
+tags:
   - unconf
   - community
   - meetings

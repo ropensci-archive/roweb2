@@ -7,7 +7,7 @@ authors:
 categories:
   - technotes
 topicid: 803
-topics:
+tags:
 - data
 - elastic
 - elasticsearch

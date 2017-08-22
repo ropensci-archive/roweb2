@@ -44,9 +44,9 @@
                     </article>
                 </div>
                 <br>
-                <div class="col-offset-2 col-8 top-4">
-                    {{ range $key, $value := .Params.topics }}
-                        <a href="#"><span class="label">{{ $value }}</span></a>
+                <div class="col-offset-2 col-8 top-4 labels">
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                     {{ end }}
                 </div>
             </div>

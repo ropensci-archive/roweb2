@@ -6,7 +6,7 @@ authors:
   - name: Stefanie Butland
 categories:
   - blog
-topics:
+tags:
 - ropensci
 - community
 - events
@@ -31,7 +31,7 @@ Some notes:
 * Develop and post a CoC whether or not you know of any problems; setting clear expectations is 90% of the work.
 * The CoC has to set expectations for everyone, including the boss (if there is one).
 * One big issue for the Carpentries was whether or not there should be specific lists of prohibited behaviors or protected groups.
-* Because many of our communities cross international boundaries, our CoCs should be accessible in multiple languages. The [Contributor Covenant](http://contributor-covenant.org/) does provide a template CoC in [multiple languages](http://contributor-covenant.org/i18n/). 
+* Because many of our communities cross international boundaries, our CoCs should be accessible in multiple languages. The [Contributor Covenant](http://contributor-covenant.org/) does provide a template CoC in [multiple languages](http://contributor-covenant.org/i18n/).
 * For international communities, what is enforceable or criminal depends on where you are. For example, Canadian laws against hate-speech are not necessarily enforceable in other countries.
 
 ## Adopting and Sharing a Code of Conduct
@@ -40,7 +40,7 @@ With big online communities, you rely on buy-in of lots from people to publicize
 ##Reporting Violations, Consequences and Enforcing a Code of Conduct
 In addition to listing specific common behaviors that are not okay, a code of conduct must include directions for reporting violations and have a clear process for handling complaints. In the [words of the Ada Initiative](https://adainitiative.org/2014/02/18/howto-design-a-code-of-conduct-for-your-community/),
 
-> _Without these elements, a code of conduct isn’t worth the electrons used to display it on your computer screen._  
+> _Without these elements, a code of conduct isn’t worth the electrons used to display it on your computer screen._
 
 Some notes:
 

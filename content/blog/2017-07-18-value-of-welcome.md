@@ -6,7 +6,7 @@ authors:
   - name: Stefanie Butland
 categories: blog
 topicid: 776
-topics:
+tags:
 - community
 - ropensci-team
 - welcome

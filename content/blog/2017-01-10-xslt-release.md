@@ -5,7 +5,7 @@ authors:
   - name: Jeroen Ooms
 categories:
   - blog
-topics:
+tags:
 - ropensci
 - packages
 - xml
@@ -70,16 +70,16 @@ out <- xml_validate(doc, schema)
 # Show the errors
 attr(out, "errors")
 #[1] "Element 'zip': 'ABC95819' is not a valid value of the atomic type 'xs:decimal'."
-#[2] "Element 'quantity': '' is not a valid value of the local atomic type."          
-#[3] "Element 'item': The attribute 'partNum' is required but missing."               
-#[4] "Element 'quantity': '' is not a valid value of the local atomic type." 
+#[2] "Element 'quantity': '' is not a valid value of the local atomic type."
+#[3] "Element 'item': The attribute 'partNum' is required but missing."
+#[4] "Element 'quantity': '' is not a valid value of the local atomic type."
 ```
 
 When implementing an R client for a system with an XML API which also provides a schema, it is good practice to validate your messages before submitting them to the server. Thereby you catch problems with your XML document locally.
 
 ## XML Transformation with XSL
 
-Extensible Stylesheet Language (XSL) Transformation provides a standardized language for converting a certain XML structure into another XML or HTML structure. Usually the original xml document provides the raw data, and the stylesheet contains a template for a HTML page that presents this content. Again, the XSLT document itself is also written in XML. 
+Extensible Stylesheet Language (XSL) Transformation provides a standardized language for converting a certain XML structure into another XML or HTML structure. Usually the original xml document provides the raw data, and the stylesheet contains a template for a HTML page that presents this content. Again, the XSLT document itself is also written in XML.
 
 We have decided to implement this in a separate package called `xslt` because it requires another C library. Try the example from the `xml_xslt` manual page:
 
@@ -89,7 +89,7 @@ doc <- read_xml(system.file("examples/cd_catalog.xml", package = "xslt"))
 style <- read_xml(system.file("examples/cd_catalog.xsl", package = "xslt"))
 html <- xml_xslt(doc, style)
 cat(as.character(html))
-``` 
+```
 
 This example is explained in more detail on [w3schools](http://www.w3schools.com/xml/xsl_transformation.asp).
 

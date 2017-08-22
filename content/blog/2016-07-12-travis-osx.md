@@ -7,7 +7,7 @@ authors:
     url: https://jeroen.github.io
 categories:
   - blog
-topics:
+tags:
   - travis
   - CRAN
   - OSX

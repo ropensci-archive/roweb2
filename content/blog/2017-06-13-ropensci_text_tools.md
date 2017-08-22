@@ -6,7 +6,7 @@ authors:
   - name: Jeroen Ooms
 categories: blog
 topicid: 746
-topics:
+tags:
 - r
 - packages
 - software

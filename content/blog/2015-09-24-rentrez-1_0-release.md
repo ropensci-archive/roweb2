@@ -7,7 +7,7 @@ authors:
     url: http://cartwrig.ht/people/#david-j-winter
 categories:
   - blog
-topics:
+tags:
 - R
 - CRAN
 - rentrez

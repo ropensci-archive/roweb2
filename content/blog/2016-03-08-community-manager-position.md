@@ -6,7 +6,7 @@ authors:
   - name: Core Team
 categories:
   - blog
-topics:
+tags:
 - jobs
 ---
 

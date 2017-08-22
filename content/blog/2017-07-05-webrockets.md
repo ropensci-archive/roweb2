@@ -8,7 +8,7 @@ authors:
     url: http://twitter.com/milesmcbain
 categories:
   - blog
-topics:
+tags:
   - community
   - software
   - unconf

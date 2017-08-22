@@ -6,7 +6,7 @@ authors:
   - name: Stefanie Butland
   - name: Karthik Ram
 categories: blog
-topics:
+tags:
 - community
 - ropensci
 - fellowships

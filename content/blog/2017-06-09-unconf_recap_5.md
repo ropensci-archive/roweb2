@@ -6,7 +6,7 @@ authors:
   - name: Karthik Ram
 categories: blog
 topicid: 743
-topics:
+tags:
 - community
 - ropensci
 - meetings

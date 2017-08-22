@@ -7,7 +7,7 @@ authors:
     url: https://ropensci.org/about/
 categories:
   - blog
-topics:
+tags:
 - ropensci
 - community
 - meetings

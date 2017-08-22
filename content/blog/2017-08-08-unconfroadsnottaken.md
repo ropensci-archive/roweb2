@@ -7,7 +7,7 @@ categories:
 - blog
 topicid: 814
 date: '2017-08-08'
-topics:
+tags:
 - community
 - ropensci
 - meetings

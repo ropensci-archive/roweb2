@@ -10,7 +10,7 @@ authors:
   - name: Will Cornwell
 categories:
   - blog
-topics:
+tags:
 - R
 - reproducibleresearch
 - archiving

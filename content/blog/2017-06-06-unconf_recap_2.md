@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories: blog
 topicid: 741
-topics:
+tags:
 - community
 - ropensci
 - meetings
@@ -17,7 +17,7 @@ Following up on Stefanie's recap of [unconf 17](https://ropensci.org/blog/blog/2
 
 
 ## `checkers`
-**Summary:**  `checkers` is a framework for reviewing analysis projects. It provides automated checks for best practices, using extensions on the goodpractice package. 
+**Summary:**  `checkers` is a framework for reviewing analysis projects. It provides automated checks for best practices, using extensions on the goodpractice package.
 
 ![](/assets/blog-images/2017-06-06-unconf_recap_2/checkers_version_control.png)
 
@@ -51,7 +51,7 @@ p.s. Two of the three (Ben/Gordon) were remote participants.
 
 ![datapackages](/assets/blog-images/2017-06-06-unconf_recap_2/pkg.png)
 
-In addition, the team created a [best practices document for data packages](https://docs.google.com/document/d/1xhJmt0v4p49jpwINNak9N7AMMb5yohTwwNOXH8WzqqQ/edit#heading=h.7qg6st1kgh5x), a Twitter bot [@rstatsdata](https://twitter.com/rstatsdata) that tweets about datasets in R packages on CRAN, and they have plans for [future work](https://github.com/ropenscilabs/data-packages#potential-future-work). 
+In addition, the team created a [best practices document for data packages](https://docs.google.com/document/d/1xhJmt0v4p49jpwINNak9N7AMMb5yohTwwNOXH8WzqqQ/edit#heading=h.7qg6st1kgh5x), a Twitter bot [@rstatsdata](https://twitter.com/rstatsdata) that tweets about datasets in R packages on CRAN, and they have plans for [future work](https://github.com/ropenscilabs/data-packages#potential-future-work).
 
 **Team:** [Jakub Nowosad](https://github.com/Nowosad), [Andy Teucher](https://github.com/ateucher), [Joseph Stachelek](https://github.com/jsta), [Richie Cotton](https://github.com/richierocks), [Claudia Vitolo](https://github.com/cvitolo)
 
@@ -61,7 +61,7 @@ In addition, the team created a [best practices document for data packages](http
 
 ## `exploRingJSON`
 
-**Summary:**  The `exploRingJSON` project includes a [survey of R packages that deal with JSON data](https://github.com/ropenscilabs/exploRingJSON#survey-of-json-affiliated-r-packages), a package (<https://github.com/sctyner/JSOmetaN>) to get high level metadata for JSON data, and a Shiny app to explore JSON. 
+**Summary:**  The `exploRingJSON` project includes a [survey of R packages that deal with JSON data](https://github.com/ropenscilabs/exploRingJSON#survey-of-json-affiliated-r-packages), a package (<https://github.com/sctyner/JSOmetaN>) to get high level metadata for JSON data, and a Shiny app to explore JSON.
 
 ![plot](/assets/blog-images/2017-06-06-unconf_recap_2/applistview.png)
 

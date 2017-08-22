@@ -6,7 +6,7 @@ authors:
   - name: Karthik Ram
 categories:
   - blog
-topics:
+tags:
 - positions
 - postdoc
 - careers

@@ -7,7 +7,7 @@ authors:
 categories:
   - blog
 topicid: 663
-topics:
+tags:
 - r
 - community
 - software

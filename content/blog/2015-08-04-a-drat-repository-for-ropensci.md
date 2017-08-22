@@ -5,7 +5,7 @@ authors:
   - name: Carl Boettiger
 categories:
   - blog
-topics:
+tags:
 - R
 - drat
 - CRAN

@@ -6,7 +6,7 @@ authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
 categories: blog
-topics:
+tags:
 - R
 - community
 - software
@@ -53,7 +53,7 @@ While these methods can be quite helpful to explore single files as an R user, t
 
 ## Transform a bunch of files
 
-At the end of the CHAI data collection, we had more than 250 MicroPEM files. In order to prepare them for further processing we wrote the `batch_convert` function that saves the content of any number of MicroPEM files as two (real!) csv, one with the measurements, one with the settings. 
+At the end of the CHAI data collection, we had more than 250 MicroPEM files. In order to prepare them for further processing we wrote the `batch_convert` function that saves the content of any number of MicroPEM files as two (real!) csv, one with the measurements, one with the settings.
 
 ## Learn about data cleaning
 

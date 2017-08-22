@@ -7,7 +7,7 @@ authors:
     url: http://danielskatz.org
 categories:
   - blog
-topics:
+tags:
 - community
 - sustainability
 ---

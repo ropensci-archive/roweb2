@@ -6,7 +6,7 @@ authors:
   - name: Jeroen Ooms
 categories:
   - blog
-topics:
+tags:
 - R
 - PDF
 - CRAN

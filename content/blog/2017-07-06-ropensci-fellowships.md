@@ -5,7 +5,7 @@ authors:
   - name: Karthik Ram
 categories: blog
 topicid: 764
-topics:
+tags:
 - fellowships
 - ropensci
 - funding

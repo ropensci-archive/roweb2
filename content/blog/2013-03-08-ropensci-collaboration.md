@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories:
   - blog
-topics:
+tags:
 - R
 - ropensci
 - github
