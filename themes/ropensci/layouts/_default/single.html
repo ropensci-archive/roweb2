@@ -20,10 +20,9 @@
                 </div> <!-- /navigation sidebar -->
 
                 <div class="col-offset-2 col-10 top-20">
-                    <small class="meta">{{ .Date.Format "January 2, 2006" }}</small>
                     <h2>{{ .Title }}</h2>
                 </div>
-                <div class="col-offset-2 col-10 top-10">
+                <div class="col-offset-2 col-10 top-5">
                     <p class="authors">
                         {{ range .Params.authors }}
                             {{ if in $.Site.Params.leadership .name }}
@@ -37,8 +36,10 @@
                             {{ end }}
                         {{ end }}
                     </p>
+                    <br>
+                    <small class="meta">{{ .Date.Format "January 2, 2006" }}</small>
                 </div>
-                <div class="col-offset-2 col-8 top-4">
+                <div class="col-offset-2 col-8 top-10">
                     <article>
                     {{ .Content }}
                     </article>
