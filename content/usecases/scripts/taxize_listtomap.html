@@ -1,0 +1,359 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="shortcut icon" href="/assets/flat-ui/images/favicon.ico">
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://ropensci.org/feed.xml" />
+
+        <link rel="stylesheet" href="/assets/flat-ui/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/assets/flat-ui/css/flat-ui.css">
+
+        <link rel="stylesheet" href="/assets/common-files/css/icon-font.css">
+        <link rel="stylesheet" href="/assets/common-files/css/animations.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link href="/assets/css/ss-social/webfonts/ss-social.css" rel="stylesheet" />
+        <link href="/assets/css/ss-standard/webfonts/ss-standard.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/static/css/github.css">
+        <script type="text/javascript" src="//use.typekit.net/djn7rbd.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="/static/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        <title>From a species list to cleaning names to a map of their occurrences</title>
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+<div class="page-wrapper">
+
+<header class="header-10">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="navbar col-sm-12" role="navigation">
+                <div class="navbar-header navlogo">
+                    <button type="button" class="navbar-toggle"></button>
+                    <a class="brand" href="/"><img src="/assets/common-files/img/header/nav_small.png"></a>
+                </div>
+                <div class="collapse navbar-collapse pull-right">
+                    <ul class="nav pull-left">
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/blog/">BLOG</a></li>
+                        <li><a href="/packages/">PACKAGES</a></li>
+                        <li><a href="/community/">COMMUNITY</a></li>
+                        <li><a href="http://discuss.ropensci.org/">DISCUSS</a></li>
+                        <li><a href="/contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<div class="header-background"></div>
+</header>
+   
+<section class="blog-3">
+    <div class="container">
+        <div class="title">
+            <img src="/assets/common-files/img/content/blog_header_logo.png" alt="">
+            <h3>From a species list to cleaning names to a map of their occurrences</h3>
+
+            <div class="submitted">rOpenSci package: <a href="https://github.com/ropensci/taxize">taxize</a></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <p>Load libraries</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;taxize&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Most of us will start out with a species list, something like the one below. Note that each of the names is spelled incorrectly.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>splist <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Helanthus annuus&quot;</span><span class="p">,</span> <span class="s">&quot;Pinos contorta&quot;</span><span class="p">,</span> <span class="s">&quot;Collomia grandiflorra&quot;</span><span class="p">,</span> <span class="s">&quot;Abies magnificaa&quot;</span><span class="p">,</span> 
+    <span class="s">&quot;Rosa california&quot;</span><span class="p">,</span> <span class="s">&quot;Datura wrighti&quot;</span><span class="p">,</span> <span class="s">&quot;Mimulus bicolour&quot;</span><span class="p">,</span> <span class="s">&quot;Nicotiana glauca&quot;</span><span class="p">,</span> 
+    <span class="s">&quot;Maddia sativa&quot;</span><span class="p">,</span> <span class="s">&quot;Bartlettia scapposa&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>There are many ways to resolve taxonomic names in taxize. Of course, the ideal name resolver will do the work behind the scenes for you so that you don&#39;t have to do things like fuzzy matching. There are a few services in taxize like this we can choose from: the Global Names Resolver service from EOL (see function <code>gnr_reso</code>) and the Taxonomic Name Resolution Service from iPlant (see function <code>tnrs</code>). In this case let&#39;s use the function <code>tnrs</code>.</p>
+
+<p>The tnrs function accepts a vector of 1 or more</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>splist_tnrs <span class="o">&lt;-</span> tnrs<span class="p">(</span>query <span class="o">=</span> splist<span class="p">,</span> getpost <span class="o">=</span> <span class="s">&quot;POST&quot;</span><span class="p">,</span> <span class="kn">source</span> <span class="o">=</span> <span class="s">&quot;iPlant_TNRS&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Remove some fields</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="p">(</span>splist_tnrs <span class="o">&lt;-</span> splist_tnrs<span class="p">[,</span> <span class="o">!</span><span class="kp">names</span><span class="p">(</span>splist_tnrs<span class="p">)</span> <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;matchedname&quot;</span><span class="p">,</span> <span class="s">&quot;annotations&quot;</span><span class="p">,</span> 
+    <span class="s">&quot;uri&quot;</span><span class="p">)])</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>##            submittedname         acceptedname    sourceid score
+## 3       Helanthus annuus    Helianthus annuus iPlant_TNRS  0.98
+## 1         Pinos contorta       Pinus contorta iPlant_TNRS  0.96
+## 4  Collomia grandiflorra Collomia grandiflora iPlant_TNRS  0.99
+## 5       Abies magnificaa      Abies magnifica iPlant_TNRS  0.98
+## 10       Rosa california     Rosa californica iPlant_TNRS  0.99
+## 9         Datura wrighti      Datura wrightii iPlant_TNRS  0.98
+## 7       Mimulus bicolour      Mimulus bicolor iPlant_TNRS  0.98
+## 8       Nicotiana glauca     Nicotiana glauca iPlant_TNRS     1
+## 6          Maddia sativa         Madia sativa iPlant_TNRS  0.97
+## 2    Bartlettia scapposa   Bartlettia scaposa iPlant_TNRS  0.98
+</code></pre></div>
+<ul>
+<li>Note the scores. They suggest that there were no perfect matches, but they were all very close, ranging from 0.77 to 0.99 (1 is the highest). Let&#39;s assume the names in the <code>acceptedName</code> column are correct (and they should be).</li>
+</ul>
+
+<p>Here&#39;s our updated species list</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="p">(</span>splist <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>splist_tnrs<span class="o">$</span>acceptedname<span class="p">))</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>##  [1] &quot;Helianthus annuus&quot;    &quot;Pinus contorta&quot;       &quot;Collomia grandiflora&quot;
+##  [4] &quot;Abies magnifica&quot;      &quot;Rosa californica&quot;     &quot;Datura wrightii&quot;     
+##  [7] &quot;Mimulus bicolor&quot;      &quot;Nicotiana glauca&quot;     &quot;Madia sativa&quot;        
+## [10] &quot;Bartlettia scaposa&quot;
+</code></pre></div>
+<p>Another thing we may want to do is collect common names for our taxa.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>tsns <span class="o">&lt;-</span> get_tsn<span class="p">(</span>searchterm <span class="o">=</span> splist<span class="p">,</span> searchtype <span class="o">=</span> <span class="s">&quot;sciname&quot;</span><span class="p">,</span> verbose <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+comnames <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>tsns<span class="p">,</span> getcommonnamesfromtsn<span class="p">)</span>
+</code></pre></div>
+<p>Unfortunately, common names are not standardized like species names, so there are multiple common names for each taxon.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kp">sapply</span><span class="p">(</span>comnames<span class="p">,</span> <span class="kp">length</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>##  [1] 3 3 3 3 3 3 3 3 3 3
+</code></pre></div>
+<p>So let&#39;s just take the first common name for each species</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>comnames_vec <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="kt">c</span><span class="p">,</span> <span class="kp">lapply</span><span class="p">(</span>comnames<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="kp">as.character</span><span class="p">(</span>x<span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="s">&quot;comname&quot;</span><span class="p">])))</span>
+</code></pre></div>
+<p>And we can make a data.frame of our scientific and common names</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="p">(</span>allnames <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>spname <span class="o">=</span> splist<span class="p">,</span> comname <span class="o">=</span> comnames_vec<span class="p">))</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>##                  spname                       comname
+## 1     Helianthus annuus              common sunflower
+## 2        Pinus contorta                lodgepole pine
+## 3  Collomia grandiflora        largeflowered collomia
+## 4       Abies magnifica                    golden fir
+## 5      Rosa californica           California wildrose
+## 6       Datura wrightii            sacred thorn-apple
+## 7       Mimulus bicolor yellow and white monkeyflower
+## 8      Nicotiana glauca                  tree tobacco
+## 9          Madia sativa                 coast tarweed
+## 10   Bartlettia scaposa                Bartlett daisy
+</code></pre></div>
+<p>Another common task is getting the taxonomic tree upstream from your study taxa. We often know what family or order our taxa are in, but it we often don&#39;t know the tribes, subclasses, and superfamilies. taxize provides many avenues to getting classifications. Two of them are accessible via a single function (<code>classification</code>): the Integrated Taxonomic Information System (ITIS) and National Center for Biotechnology Information (NCBI); and via the Catalogue of Life (see function <code>col_classification</code>):</p>
+
+<p>Let&#39;s get classifications from ITIS using Taxonomic Serial Numbers. Note that we could use uBio instead.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>class_list <span class="o">&lt;-</span> classification<span class="p">(</span>tsns<span class="p">)</span>
+</code></pre></div>
+<p>We can attach these names to our allnames data.frame</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;plyr&quot;</span><span class="p">)</span>
+gethiernames <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+    temp <span class="o">&lt;-</span> x<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;rank&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">)]</span>
+    values <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="kp">t</span><span class="p">(</span>temp<span class="p">[,</span> <span class="m">2</span><span class="p">]))</span>
+    <span class="kp">names</span><span class="p">(</span>values<span class="p">)</span> <span class="o">&lt;-</span> temp<span class="p">[,</span> <span class="m">1</span><span class="p">]</span>
+    values
+<span class="p">}</span>
+class_df <span class="o">&lt;-</span> ldply<span class="p">(</span>class_list<span class="p">,</span> gethiernames<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>allnames_df <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>allnames<span class="p">,</span> class_df<span class="p">,</span> by.x <span class="o">=</span> <span class="s">&quot;spname&quot;</span><span class="p">,</span> by.y <span class="o">=</span> <span class="s">&quot;Species&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Now that we have allnames_df, we can start to see some relationships among species simply by their shared taxonomic names.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>allnames_df<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="p">]</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>##               spname        comname    .id Kingdom     Subkingdom
+## 1    Abies magnifica     golden fir 181834 Plantae Viridaeplantae
+## 2 Bartlettia scaposa Bartlett daisy  36822 Plantae Viridaeplantae
+##   Infrakingdom     Division     Subdivision Infradivision         Class
+## 1 Streptophyta Tracheophyta Spermatophytina  Gymnospermae     Pinopsida
+## 2 Streptophyta Tracheophyta Spermatophytina  Angiospermae Magnoliopsida
+##   Superorder     Order     Family      Genus
+## 1       &lt;NA&gt;   Pinales   Pinaceae      Abies
+## 2  Asteranae Asterales Asteraceae Bartlettia
+</code></pre></div>
+<p>Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;rgbif&quot;</span><span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="get-occurences">Get occurences</h3>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>keys <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>allnames<span class="o">$</span>spname<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]),</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> name_backbone<span class="p">(</span>x<span class="p">)</span><span class="o">$</span>speciesKey<span class="p">)</span>
+res <span class="o">&lt;-</span> occ_search<span class="p">(</span>keys<span class="p">,</span> hasCoordinate <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> limit <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="kr">return</span> <span class="o">=</span> <span class="s">&quot;data&quot;</span><span class="p">)</span>
+df <span class="o">&lt;-</span> ldply<span class="p">(</span>res<span class="p">)</span>
+</code></pre></div>
+<h3 id="make-a-map">Make a map</h3>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>gbifmap<span class="p">(</span>df<span class="p">)</span> <span class="o">+</span> 
+  theme_grey<span class="p">(</span>base_size <span class="o">=</span> <span class="m">16</span><span class="p">)</span> <span class="o">+</span>
+  theme<span class="p">(</span>legend.position <span class="o">=</span> <span class="s">&quot;bottom&quot;</span><span class="p">,</span> legend.key <span class="o">=</span> element_blank<span class="p">())</span> <span class="o">+</span> 
+  guides<span class="p">(</span>col <span class="o">=</span> guide_legend<span class="p">(</span>nrow <span class="o">=</span> <span class="m">2</span><span class="p">))</span> 
+</code></pre></div>
+<p><img src="../../assets/usecases-images/unnamed-chunk-16.png" alt="plot of chunk unnamed-chunk-16"> </p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="container">
+<div id="disqus">
+        <!-- Disqus Comments -->
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-2">
+          <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'ropenscience';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+
+
+
+</div>  
+ </div> 
+
+<footer class="footer-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div><a class="brand" href="/">rOpenSci</a></div>
+            </div>
+            <nav>
+                <div class="col-sm-2">
+                    <h6>About</h6>
+                    <ul>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/about/#leadership">Leadership team</a></li>
+                        <li><a href="/about/#advisors">Advisory board</a></li>
+                        <li><a href="/community/#community">rOpenSci Community</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/donate">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h6>Work</h6>
+                    <ul>
+                        <li><a href="/packages/">R Packages</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/tech-notes/">Tech notes</a></li>
+                        <li><a href="/tutorials/">Tutorials</a></li>
+                        <li><a href="/usecases/">Use cases</a></li>
+                        <li><a href="/resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h6>Other</h6>
+                    <ul>
+                        <li><a href="/contact.html">Contact</a></li>
+                         <li><a href="http://discuss.ropensci.org/">rOpensci Discuss</a></li>
+                         <li><a href="/community/events.html">Events</a></li>
+                         <li><a href="/related_links.html">Related links</a></li>
+                        <li><a href="https://github.com/ropensci">GitHub Org</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="col-sm-3">
+                <h6 id="subscribe">Subscribe</h6>
+                 <!-- start form -->
+                <form action="//ropensci.us7.list-manage.com/subscribe/post?u=c5de56320aeac3ee7cc954ec2&amp;id=d78520d99e" method="post" class="validate" target="_blank">
+<!--                 <form action="https://us7.api.mailchimp.com/2.0/lists/subscribe?id=16033&amp;apikey=4e975338e462c738c15b87559f9df4e5-us7" method="post" class="validate" target="_blank"> -->
+                    <div class="input-group">
+                        <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" autocapitalize="off" autocorrect="off" class="form-control" required>
+                        <span class="input-group-btn">
+                        <button class="btn" type="submit" value="go" type="image">
+                            <span class="fui-arrow-right"> </span>
+                        </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- end form -->
+                <div class="social-btns">
+                    <a href="http://gplus.to/ropensci">
+                        <div class="fui-googleplus"></div>
+                        <div class="fui-googleplus"></div>
+                    </a>
+                    <a href="http://twitter.com/ropensci">
+                        <div class="fui-twitter"></div>
+                        <div class="fui-twitter"></div>
+                    </a>
+                    <a href="https://vimeo.com/ropensci">
+                        <div class="fui-vimeo"></div>
+                        <div class="fui-vimeo"></div>
+                    </a>
+
+                </div>
+                <div>
+                    <a href="http://www.numfocus.org/"><img src="/assets/common-files/img/2e5a403b-6ce3-4f08-955f-5706b4a63d5b.png"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row"><p> <a href="http://ropensci.org/feed.xml"><i class="ss-icon">&#xE310;</i></a> &nbsp;Except where otherwise noted, content on this site is licensed under the CC-BY license.</p></div>
+    </div>
+</footer>
+<!-- Here ends the footer -->
+
+
+                <script src="/assets/common-files/js/jquery-1.10.2.min.js"></script>
+            <script src="/assets/common-files/js/jquery.bxslider.min.js"></script>
+            <script src="/assets/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+            <script src="/assets/flat-ui/js/bootstrap.min.js"></script>
+            <script src="/assets/common-files/js/masonry.pkgd.min.js"></script>
+            <script src="/assets/common-files/js/modernizr.custom.js"></script>
+            <script src="/assets/common-files/js/page-transitions.js"></script>
+            <script src="/assets/common-files/js/easing.min.js"></script>
+            <script src="/assets/common-files/js/jquery.svg.js"></script>
+            <script src="/assets/common-files/js/jquery.svganim.js"></script>
+            <script src="/assets/common-files/js/jquery.backgroundvideo.min.js"></script>
+            <script src="/assets/common-files/js/froogaloop.min.js"></script>
+            <script src="/assets/common-files/js/startup-kit.js"></script>
+
+            <script type="text/javascript">
+                $(function () {
+                    $("[rel='tooltip']").tooltip();
+                });
+            </script>
+
+    <!-- Equations using MathJax -->
+
+     <!-- Gauges Analytics -->
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '500ebcf4613f5d79c700001c');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+<!-- Google Analytics and event tracker -->
+<script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-462421-6']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+</script>
+
+<script type="text/javascript">
+function recordOutboundLink(link, category, action) {
+  try {
+    var pageTracker=_gat._getTracker("UA-462421-6");
+    pageTracker._trackEvent(category, action);
+    setTimeout('document.location = "' + link.href + '"', 100)
+  }catch(err){}
+}
+</script>
+
+
+
+        </div>
+    </body>
+</html>

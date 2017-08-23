@@ -1,0 +1,287 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="shortcut icon" href="/assets/flat-ui/images/favicon.ico">
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://ropensci.org/feed.xml" />
+
+        <link rel="stylesheet" href="/assets/flat-ui/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/assets/flat-ui/css/flat-ui.css">
+
+        <link rel="stylesheet" href="/assets/common-files/css/icon-font.css">
+        <link rel="stylesheet" href="/assets/common-files/css/animations.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link href="/assets/css/ss-social/webfonts/ss-social.css" rel="stylesheet" />
+        <link href="/assets/css/ss-standard/webfonts/ss-standard.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/static/css/github.css">
+        <script type="text/javascript" src="//use.typekit.net/djn7rbd.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="/static/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        <title>Downloading World Bank climate data in R</title>
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+<div class="page-wrapper">
+
+<header class="header-10">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="navbar col-sm-12" role="navigation">
+                <div class="navbar-header navlogo">
+                    <button type="button" class="navbar-toggle"></button>
+                    <a class="brand" href="/"><img src="/assets/common-files/img/header/nav_small.png"></a>
+                </div>
+                <div class="collapse navbar-collapse pull-right">
+                    <ul class="nav pull-left">
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/blog/">BLOG</a></li>
+                        <li><a href="/packages/">PACKAGES</a></li>
+                        <li><a href="/community/">COMMUNITY</a></li>
+                        <li><a href="http://discuss.ropensci.org/">DISCUSS</a></li>
+                        <li><a href="/contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<div class="header-background"></div>
+</header>
+   
+<section class="blog-3">
+    <div class="container">
+        <div class="title">
+            <img src="/assets/common-files/img/content/blog_header_logo.png" alt="">
+            <h3>Downloading World Bank climate data in R</h3>
+
+            <div class="submitted">rOpenSci package: <a href="https://github.com/ropensci/rWBclimate">rWBclimate</a></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <p>The package can download data for any of the 13 major climate models, but it also offers provides access to ensemble data derived from all models.  We&#39;ll focus on this for our examples.  Model data is provided both for the past as a backcasting, and for the future.  Output for both only comes in 20 year averages.  Here we&#39;ll plot temperature data for Great Britain for the past as well as two <a href="http://climatesanity.wordpress.com/tag/global-depletion-of-groundwater-resources/">climate scenarios</a>, A2 and B1.</p>
+
+<p>Load the library</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;rWBclimate&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Grab temperature data</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>dat <span class="o">&lt;-</span> get_ensemble_temp<span class="p">(</span><span class="s">&quot;GBR&quot;</span><span class="p">,</span> <span class="s">&quot;annualavg&quot;</span><span class="p">,</span> <span class="m">1900</span><span class="p">,</span> <span class="m">2100</span><span class="p">)</span>
+</code></pre></div>
+<p>Subset to the median percentile</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>dat <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>gbr.dat.t<span class="p">,</span> gbr.dat.t<span class="o">$</span>percentile <span class="o">==</span> <span class="m">50</span><span class="p">)</span>
+dat<span class="o">$</span>data <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="kt">c</span><span class="p">,</span> dat<span class="o">$</span>data<span class="p">)</span>
+</code></pre></div>
+<p>Plot and note the past is the same for each scenario</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>ggplot<span class="p">(</span>dat<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>fromYear<span class="p">,</span>y<span class="o">=</span>data<span class="p">,</span>group<span class="o">=</span>scenario<span class="p">,</span>colour<span class="o">=</span>scenario<span class="p">))</span> <span class="o">+</span>
+ geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">4</span><span class="p">)</span> <span class="o">+</span>
+ geom_path<span class="p">()</span> <span class="o">+</span>
+ xlab<span class="p">(</span><span class="s">&quot;Year&quot;</span><span class="p">)</span> <span class="o">+</span>
+ ylab<span class="p">(</span><span class="s">&quot;Annual Average Temperature in 20 year increments&quot;</span><span class="p">)</span> <span class="o">+</span>
+ theme_grey<span class="p">(</span>base_size <span class="o">=</span> <span class="m">16</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="../../assets/usecases-images/rwb1.png" alt="plot of chunk rwb1"> </p>
+
+<p>As you can see the A2 scenario of unchecked growth predicts a higher annual average temperature.  We can look at the same kind of data except this time examining changes in precipitation.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span></span>dat2 <span class="o">&lt;-</span> get_ensemble_precip<span class="p">(</span><span class="s">&quot;GBR&quot;</span><span class="p">,</span> <span class="s">&quot;annualavg&quot;</span><span class="p">,</span> <span class="m">1900</span><span class="p">,</span> <span class="m">2100</span><span class="p">)</span>
+dat2 <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>dat2<span class="p">,</span> dat2<span class="o">$</span>percentile <span class="o">==</span> <span class="m">50</span><span class="p">)</span>
+dat2<span class="o">$</span>data <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="kt">c</span><span class="p">,</span> dat2<span class="o">$</span>data<span class="p">)</span>
+ggplot<span class="p">(</span>dat2<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> fromYear<span class="p">,</span> y <span class="o">=</span> data<span class="p">,</span> group <span class="o">=</span> scenario<span class="p">,</span> colour <span class="o">=</span> scenario<span class="p">))</span> <span class="o">+</span>
+  geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">4</span><span class="p">)</span> <span class="o">+</span> 
+  geom_path<span class="p">()</span> <span class="o">+</span> 
+  xlab<span class="p">(</span><span class="s">&quot;Year&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  ylab<span class="p">(</span><span class="s">&quot;Annual Average precipitation in mm&quot;</span><span class="p">)</span> <span class="o">+</span>
+  theme_grey<span class="p">(</span>base_size <span class="o">=</span> <span class="m">16</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="../../assets/usecases-images/rwb2.png" alt="plot of chunk rwb2"> </p>
+
+<p>Here the difference between predicted increases in precipitation are less drastic when comparing the two different scenarios.</p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="container">
+<div id="disqus">
+        <!-- Disqus Comments -->
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-2">
+          <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'ropenscience';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+
+
+
+</div>  
+ </div> 
+
+<footer class="footer-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div><a class="brand" href="/">rOpenSci</a></div>
+            </div>
+            <nav>
+                <div class="col-sm-2">
+                    <h6>About</h6>
+                    <ul>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/about/#leadership">Leadership team</a></li>
+                        <li><a href="/about/#advisors">Advisory board</a></li>
+                        <li><a href="/community/#community">rOpenSci Community</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/donate">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h6>Work</h6>
+                    <ul>
+                        <li><a href="/packages/">R Packages</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/tech-notes/">Tech notes</a></li>
+                        <li><a href="/tutorials/">Tutorials</a></li>
+                        <li><a href="/usecases/">Use cases</a></li>
+                        <li><a href="/resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h6>Other</h6>
+                    <ul>
+                        <li><a href="/contact.html">Contact</a></li>
+                         <li><a href="http://discuss.ropensci.org/">rOpensci Discuss</a></li>
+                         <li><a href="/community/events.html">Events</a></li>
+                         <li><a href="/related_links.html">Related links</a></li>
+                        <li><a href="https://github.com/ropensci">GitHub Org</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="col-sm-3">
+                <h6 id="subscribe">Subscribe</h6>
+                 <!-- start form -->
+                <form action="//ropensci.us7.list-manage.com/subscribe/post?u=c5de56320aeac3ee7cc954ec2&amp;id=d78520d99e" method="post" class="validate" target="_blank">
+<!--                 <form action="https://us7.api.mailchimp.com/2.0/lists/subscribe?id=16033&amp;apikey=4e975338e462c738c15b87559f9df4e5-us7" method="post" class="validate" target="_blank"> -->
+                    <div class="input-group">
+                        <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" autocapitalize="off" autocorrect="off" class="form-control" required>
+                        <span class="input-group-btn">
+                        <button class="btn" type="submit" value="go" type="image">
+                            <span class="fui-arrow-right"> </span>
+                        </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- end form -->
+                <div class="social-btns">
+                    <a href="http://gplus.to/ropensci">
+                        <div class="fui-googleplus"></div>
+                        <div class="fui-googleplus"></div>
+                    </a>
+                    <a href="http://twitter.com/ropensci">
+                        <div class="fui-twitter"></div>
+                        <div class="fui-twitter"></div>
+                    </a>
+                    <a href="https://vimeo.com/ropensci">
+                        <div class="fui-vimeo"></div>
+                        <div class="fui-vimeo"></div>
+                    </a>
+
+                </div>
+                <div>
+                    <a href="http://www.numfocus.org/"><img src="/assets/common-files/img/2e5a403b-6ce3-4f08-955f-5706b4a63d5b.png"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row"><p> <a href="http://ropensci.org/feed.xml"><i class="ss-icon">&#xE310;</i></a> &nbsp;Except where otherwise noted, content on this site is licensed under the CC-BY license.</p></div>
+    </div>
+</footer>
+<!-- Here ends the footer -->
+
+
+                <script src="/assets/common-files/js/jquery-1.10.2.min.js"></script>
+            <script src="/assets/common-files/js/jquery.bxslider.min.js"></script>
+            <script src="/assets/common-files/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+            <script src="/assets/flat-ui/js/bootstrap.min.js"></script>
+            <script src="/assets/common-files/js/masonry.pkgd.min.js"></script>
+            <script src="/assets/common-files/js/modernizr.custom.js"></script>
+            <script src="/assets/common-files/js/page-transitions.js"></script>
+            <script src="/assets/common-files/js/easing.min.js"></script>
+            <script src="/assets/common-files/js/jquery.svg.js"></script>
+            <script src="/assets/common-files/js/jquery.svganim.js"></script>
+            <script src="/assets/common-files/js/jquery.backgroundvideo.min.js"></script>
+            <script src="/assets/common-files/js/froogaloop.min.js"></script>
+            <script src="/assets/common-files/js/startup-kit.js"></script>
+
+            <script type="text/javascript">
+                $(function () {
+                    $("[rel='tooltip']").tooltip();
+                });
+            </script>
+
+    <!-- Equations using MathJax -->
+
+     <!-- Gauges Analytics -->
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '500ebcf4613f5d79c700001c');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+<!-- Google Analytics and event tracker -->
+<script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-462421-6']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+</script>
+
+<script type="text/javascript">
+function recordOutboundLink(link, category, action) {
+  try {
+    var pageTracker=_gat._getTracker("UA-462421-6");
+    pageTracker._trackEvent(category, action);
+    setTimeout('document.location = "' + link.href + '"', 100)
+  }catch(err){}
+}
+</script>
+
+
+
+        </div>
+    </body>
+</html>
