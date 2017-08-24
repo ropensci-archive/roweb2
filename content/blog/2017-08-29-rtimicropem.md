@@ -30,9 +30,7 @@ First of all, the output of the device, a file with a ".csv" extension correspon
 Second, since the RTI MicroPEMs are nice devices but also a work-in-progress, we had some problems with the data, such as negative relative humidity. Because of these issues, we decided to write an R package whose three goals were to:
 
 * Transform the output of the device into something more usable.
-
 * Allow the exploration of individual files after a day in the field.
-
 * Document our data cleaning process.
 
 We chose R because everything else in our project, well data processing, documentation and analysis, was to be implemented in R, and because we wanted other teams to be able to use our package.

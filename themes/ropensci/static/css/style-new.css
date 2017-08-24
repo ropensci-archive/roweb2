@@ -592,8 +592,10 @@ q:before, q:after {
   color: #c6deff;
   text-decoration: none;
 }article ul li {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     list-style-type: disc;
+}article ul {
+    margin-bottom: 20px;
 }.hero {
     background: rgba(111, 174, 245, .9);
     color: white;
