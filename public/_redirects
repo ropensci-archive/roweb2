@@ -1,2 +1,2 @@
 /assets/*	https://www.ropensci.org/assets/:splat	200
-
+/blog/blog/*	/blog/:splat
