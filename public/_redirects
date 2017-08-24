@@ -1,2 +1,2 @@
-/assets/*	https://www.ropensci.org/assets/:splat	200
+/assets/*	https://ropensci.github.io/roweb/assets/:splat	200
 /blog/blog/*	/blog/:splat
