@@ -17,7 +17,7 @@ tags:
 
 As you might remember from [my blog post about `ropenaq`](https://ropensci.org/blog/blog/2017/02/21/ropenaq), I work as a data manager and statistician for an [epidemiology project called CHAI](http://www.chaiproject.org/) for Cardio-vascular health effects of air pollution in Telangana, India. One of our interests in CHAI is determining exposure, and sources of exposure, to PM2.5 which are very small particles in the air that have diverse adverse health effects. You can find more details about CHAI [in our recently published protocol paper](https://www.ncbi.nlm.nih.gov/pubmed/28606699). In this blog post that partly corresponds to the content of [my useR! 2017 lightning talk](http://sched.co/AxrS), I'll present a package we wrote for dealing with the output of a scientific device, which might remind you of similar issues in your experimental work.
 
-## Why write the rtimicropem package?
+### Why write the rtimicropem package?
 
 ![](/assets/blog-images/2017-08-29-rtimicropem/Allequipment_Frontview_cropped.jpg)
 
@@ -35,11 +35,11 @@ Second, since the RTI MicroPEMs are nice devices but also a work-in-progress, we
 
 We chose R because everything else in our project, well data processing, documentation and analysis, was to be implemented in R, and because we wanted other teams to be able to use our package.
 
-## Features of `rtimicropem`: transform, explore and learn about data cleaning
+### Features of `rtimicropem`: transform, explore and learn about data cleaning
 
 First things first, our package lives [here](https://github.com/ropensci/rtimicropem) and is [on CRAN](https://cran.r-project.org/web/packages/rtimicropem/index.html). It has a [nice documentation website](http://ropensci.github.io/rtimicropem/) thanks to [`pkgdown`](https://github.com/hadley/pkgdown).
 
-## Transform and explore single files
+### Transform and explore single files
 
 In `rtimicropem` after the use of the `convert_output` function, one gets an object of the R6 class `micropem` class. Its fields include the settings and measurements as two `data.frames`, and it has methods such as `summary` and `plot` for which you see the static output below (no unit on this exploratory plot).
 
@@ -49,15 +49,15 @@ The plot method can also outputs an interactive graph thanks to [`rbokeh`](http:
 
 While these methods can be quite helpful to explore single files as an R user, they don't help non R users a lot. Because we wanted members of our team working in the field to be able to explore and check files with no R knowledge, we created a Shiny app that allows to upload individual files and then look at different tabs, including one with a plot, one with the summary of measurements, etc. This way, it was easy to spot a device failure for instance, and to plan a new measurement session with the corresponding participant.
 
-## Transform a bunch of files
+### Transform a bunch of files
 
 At the end of the CHAI data collection, we had more than 250 MicroPEM files. In order to prepare them for further processing we wrote the `batch_convert` function that saves the content of any number of MicroPEM files as two (real!) csv, one with the measurements, one with the settings.
 
-## Learn about data cleaning
+### Learn about data cleaning
 
 As mentioned previously, we experienced issues with MicroPEM data quality. Although we had heard other teams complain of similar problems, in the literature there were very few details about data cleaning. We decided to gather information from other teams and the manufacturer and to document our own decisions, e.g. remove entire files based on some criteria, in a [vignette of the package](http://ropensci.github.io/rtimicropem/articles/chai_data_cleaning.html). This is our transparent answer to the question "What was your experience with MicroPEMs?" which we get often enough from other scientists interested in PM2.5 exposure.
 
-## Place of rtimicropem in the R package ecosystem
+### Place of rtimicropem in the R package ecosystem
 
 When preparing `rtimicropem` submission to rOpenSci, I started wondering whether one would like to have one R package for each scientific device out there. In our case, having the weird output to deal with, and the lack of a central data issues documentation place, were enough of a motivation. But maybe one could hope that manufacturers of scientific devices would focus a bit more on making the output format analysis-friendly, and that the open documentation of data issues would be language-agnostic and managed by the manufacturers themselves. In the meantime, we're quite proud to have taken the time to create and share our experience with `rtimicropem`, and have already heard back from a few users, including one who found the package via googling "RTI MicroPEM data"! Another argument I in particular have to write R packages for dealing with scientific data is that it might motivate people to learn R, but this is maybe a bit evil.
 
