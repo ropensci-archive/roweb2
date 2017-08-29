@@ -24,13 +24,13 @@
                         <p class="authors">
                             {{ range .Params.authors }}
                                 {{ if in $.Site.Params.leadership .name }}
-                                  <a href="/about/#leadership"> {{ .name }}</a>,
+                                  <a href="/about/#leadership"> {{ .name }}</a> 
                                 {{ else if in $.Site.Params.staff .name }}
-                                  <a href="/about/#staff"> {{ .name }}</a>,
+                                  <a href="/about/#staff"> {{ .name }}</a> 
                                 {{ else if eq .name "Ted Hart" }}
-                                  <a href="/about/#alumni"> {{ .name }}</a>,
+                                  <a href="/about/#alumni"> {{ .name }}</a> 
                                 {{ else }}
-                                  <a href="{{ .url }}" target="_blank"> {{ .name }}</a>,
+                                  <a href="{{ .url }}" target="_blank"> {{ .name }}</a> 
                                 {{ end }}
                             {{ end }}
                         </p><!-- /authors -->
@@ -38,8 +38,9 @@
                             {{ range .Params.tags }}
                                 <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                             {{ end }}
-                            <br>
+                            <br><br>
                             {{ .ReadingTime }} minute(s)
+                            <br><br>
                         </div><!-- /labels -->
                         <p>{{ .Summary }}</p>
                         <a href="{{ .URL | relURL }}">Continue Reading</a>
