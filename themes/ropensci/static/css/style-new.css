@@ -694,7 +694,7 @@ q:before, q:after {
 }.resources .resourcelist li a:not(:last-of-type){
                     margin-left: 40px;
 }.list {
-    padding: 15px 0
+    padding: 15px
 }.list img{
         width: 67%;
 }.community {
