@@ -16,8 +16,8 @@ tags:
 
 You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](https://ropensci.org/packages/) can enable your research, or about our [onboarding](https://github.com/ropensci/onboarding) process for contributing new packages, discuss software [sustainability](https://ropensci.org/blog/blog/2016/05/25/software-sustanability-ropensci) or tell us how we can help you do open and reproducible research.
 
-Where's rOpenSci?
------------------------------------------------------------------
+### Where's rOpenSci?
+
 <table class="table">
 <thead>
 <tr>

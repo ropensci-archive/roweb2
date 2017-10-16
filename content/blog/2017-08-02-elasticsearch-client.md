@@ -25,7 +25,7 @@ tags:
 > sidebar - 'elastic' was picked as a package named before the company now known as Elastic
 changed their name to Elastic.
 
-## What is Elasticsearch?
+### What is Elasticsearch?
 
 If you aren't familiar with Elasticsearch, it is a distributed, RESTful search and analytics engine.
 It's similar to [Solr](https://lucene.apache.org/solr/). It falls in the NoSQL bin of databases, holding data in JSON documents, instead
@@ -34,7 +34,7 @@ You can hold many documents of similar type within a single index. There is powe
 capabilities, including lots of different types of queries that can be done separately
 or combined. And best of all it's super fast.
 
-## Other clients
+### Other clients
 
 The Elastic company maintains some official clients, including the Python client
 [elasticsearch-py](http://elasticsearch-py.readthedocs.io/en/master/), and it's higher
@@ -45,12 +45,12 @@ Python DSL client, called [elasticdsl](https://github.com/ropensci/elasticdsl), 
 a human friendly way to compose Elasticsearch queries.
 
 
-## Vignettes
+### Vignettes
 
 Check out the [elastic introduction vignette](https://cran.rstudio.com/web/packages/elastic/vignettes/elastic_intro.html)
 and the [search vignette](https://cran.rstudio.com/web/packages/elastic/vignettes/search.html) to get started.
 
-## Noteable features
+### Noteable features
 
 * `elastic` has nearly complete coverage of the Elasticsearch HTTP API. If there's
 anything missing you need in this client, let us know! Check out the
@@ -73,7 +73,7 @@ a new feature and not available in previous Elasticsearch versions.
 * Arguably, a noteable feature is that this client has been around nearly 4 years,
 so we've surfaced and squashed many bugs.
 
-## Getting help
+### Getting help
 
 * If you have a bug or a feature request, post it in the repo at <https://github.com/ropensci/elastic/issues>
 * Stackoverflow: Check out combination of the tags `[elasticsearch]` and `[r]` <https://stackoverflow.com/questions/tagged/elasticsearch+r>
@@ -81,9 +81,7 @@ so we've surfaced and squashed many bugs.
 * Post question/problem in the [rOpenSci discussion forum](https://discuss.ropensci.org/)
 * Email me [directly](mailto:myrmecocystus@gmail.com)
 
-<br><br>
-
-## Setup
+### Setup
 
 Install `elastic`
 
@@ -115,10 +113,10 @@ ping()$version$number
 ```
 
 
-## Examples
+### Examples
 
 
-### Initialize a client
+#### Initialize a client
 
 Using `connect()`
 
@@ -141,14 +139,14 @@ for setting transport schema, username, password, and base search path (e.g.,
 
 > See bottom of post about possible changes in connections.
 
-### Get some data
+#### Get some data
 
 Elasticsearch has a bulk load API to load data in fast. The format is pretty weird
 though. It's sort of JSON, but would pass no JSON linter. I include a few data
 sets in `elastic` so it's easy to get up and running, and so when you run examples
 in this package they'll actually run the same way (hopefully).
 
-### Public Library of Science (PLOS) data
+#### Public Library of Science (PLOS) data
 
 A dataset inluded in the `elastic` package is metadata for PLOS scholarly articles.
 Get the file path, then load:
@@ -159,7 +157,7 @@ plosdat <- system.file("examples", "plos_data.json", package = "elastic")
 invisible(docs_bulk(plosdat))
 ```
 
-### Search
+#### Search
 
 The main search function is `Search()`. Running it without any inputs searches
 across all indices - in this case only the `plos` index.
@@ -258,7 +256,7 @@ Search(index = "plos", type = "article", sort = "title", q = "antibody", size = 
 #> [1] "1"
 ```
 
-### Get documents
+#### Get documents
 
 Get document with `id=1`
 
@@ -310,7 +308,7 @@ docs_get(index = 'plos', type = 'article', id = 1, fields = 'id')
 ```
 
 
-### Raw JSON data
+#### Raw JSON data
 
 You can optionally get back raw JSON from many functions by setting parameter `raw=TRUE`.
 
@@ -332,7 +330,7 @@ jsonlite::fromJSON(out)
 #> 2 Correction: Designing Mixed Species Tree Plantations for the Tropics: Balancing Ecological Attributes of Species with Landholder Preferences in the Philippines
 ```
 
-### Aggregation search
+#### Aggregation search
 
 Here, we'll use another dataset that comes with the package on Shakespeare plays.
 
@@ -388,7 +386,7 @@ do.call("rbind.data.frame", res)
 #> 21  65        20
 ```
 
-### Scrolling search - instead of paging
+#### Scrolling search - instead of paging
 
 When you want all the documents, your best bet is likely to be [scrolling search](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html).
 
@@ -445,7 +443,7 @@ vapply(docs[1:10], "[[", "", "text_entry")
 ```
 
 
-### Bulk documents
+#### Bulk documents
 
 You've already seen the bulk docs API in action above. Above though, we were
 using `docs_bulk.character` - where the input is a character string that's a
@@ -477,10 +475,9 @@ Search("diam")$hits$total
 That's pretty easy! This function is used a lot, particularly with data.frame's - so
 we get many questions/feedback on this so it will just keep getting better/faster.
 
-<br><br>
-## TO DO
+### TO DO
 
-### Connections
+#### Connections
 
 We're planning to roll out changes in how you connect to Elasticsearch from `elastic`.
 Right now, you can only connect to one Elasticsearch instance per R session -
@@ -491,14 +488,13 @@ this to instantiate a client and then you either call functions on the client
 Checkout [issue #87](https://github.com/ropensci/elastic/issues/87) to follow
 progress or discuss.
 
-### Move to using crul for http
+#### Move to using crul for http
 
 `crul` is a relatively new R http client - and has async baked in - as well as mocking.
 Development should be easier with it as I can mock requests for test suites, and
 allow users to toggle async more easily.
 
-<br><br>
-## Call to action
+### Call to action
 
 We can use your help! Elasticsearch development moves pretty fast - we'd love this client to
 work with every single Elasticsearch version to the extent possible - and we'd love to

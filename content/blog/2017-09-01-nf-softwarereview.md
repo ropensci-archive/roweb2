@@ -29,7 +29,7 @@ With the community approach came challenges. **How could we ensure the quality o
 
 **We have had great success addressing these challenges via the _peer review_.** We draw elements from a process familiar to our target community – _academic peer review_ – and a practice from the software development world – _production code review_ – to create a system that fosters software quality, ongoing education, and community development.
 
-## An Open Review Process
+### An Open Review Process
 **Production software review** occurs within software development teams, open source or not. Contributions to a software project are reviewed by one or more other team members before incorporation into project source code. Contributions are typically small patches, and review serves as a check on quality, as well as an opportunity for training in team standards.
 
 **In academic peer review**, external reviewers critique a complete product – usually a manuscript – with a very broad mandate to address any areas they see as deficient. Academic review is often anonymous and passing through it gives the product, and the author, a public mark of validation.
@@ -42,7 +42,7 @@ This process is quite iterative. After reviewers post a first round of extensive
 
 We are aware that open systems can have drawbacks. For instance, in traditional academic review, double-blind peer review [can increase representation of female authors](http://www.sciencedirect.com/science/article/pii/S0169534707002704), suggesting bias in non-blind reviews. It is also possible reviewers are less critical in open review. However, we posit that the openness of the review conversation provides a check on review quality and bias; it’s harder to inject unsupported or subjective comments in public and without the cover of anonymity. Ultimately, we believe the ability of authors and reviewers to have direct but public communication improves quality and fairness.
 
-## Guidance and Standards
+### Guidance and Standards
 **rOpenSci provides guidance on reviewing.** This falls into two main categories: **high-level best practices** and **low-level standards**. High-level best practices are general and broadly applicable across languages and applications. These are practices such as “Write re-usable functions rather than repeating the same code,” “Test edge cases,” or “Write documentation for all of your functions.” Because of their general nature, these can be drawn from other sources and not developed from scratch. Our best practices are based on guidance originally developed by [Mozilla Science Lab](https://mozillascience.github.io/codeReview/intro.html).
 
 Low-level standards are specific to a language (in our case, R), applications (data interfaces) and user base (researchers). These include specific items such as naming conventions for functions, best choices of dependencies for certain tasks, and adherence to a code style guide. We have an extensive set of standards for our reviewers to check. These change over time as the R software ecosystem evolves, best practices change, and tooling and educational resources make new methods available to developers.
@@ -51,7 +51,7 @@ Low-level standards are specific to a language (in our case, R), applications (d
 
 **As our standards have become more extensive, we have come to rely more on automated tools.** The R ecosystem, like most languages, has a suite of tools for code linting, function testing, static code analysis and continuous integration. We require authors to use these, and editors run submissions through a suite of tests prior to sending them for review. This frees reviewers from the burden of low-level tasks to focus on high-level critiques where they can add the most value.
 
-## The Reviewer Community
+### The Reviewer Community
 One of the core challenges and rewards of our work has been developing a community of reviewers.
 
 **Reviewing is a high-skill activity.** Reviewers need expertise in the programming methods used in a software package and also the scientific field of its application. (“Find me someone who knows sensory ecology and sparse data structures!”) They need good communications skills and the time and willingness to volunteer. Thankfully, the open-science and open-source worlds are filled with generous, expert people. We have been able to expand our reviewer pool as the pace of submissions and the domains of their applications have grown.
@@ -60,7 +60,7 @@ Developing the reviewer pool requires constant recruitment. Our editors actively
 
 We cultivate our reviewer pool as well as expand it. We bring back reviewers so that they may develop reviewing as a skill, but not so often as to overburden them. We provide guidance and feedback to new recruits. When assigning reviewers to a submission, we aim to pair experienced reviewers with new ones, or reviewers with expertise on a package’s programming methods with those experienced in its field of application. **These reviewers learn from each other, and diversity in perspectives is an advantage**; less experienced developers often provide insight that more experienced ones do not on software usability, API design, and documentation. More experienced developers will more often identify inefficiencies in code, pitfalls due to edge-cases, or suggest alternate implementation approaches.
 
-## Expanding Peer Review for Code
+### Expanding Peer Review for Code
 Code review has been one of rOpenSci’s best initiatives. We build software, build skills, and build community, and the peer review process has been a major catalyst for all three. It has made both the software we develop internally and that we accept from outside contributors more reliable, usable, and maintainable. So **we are working to promote open peer review of code by more organizations** working with scientific software. We helped launch [The Journal of Open Source Software](http://joss.theoj.org/), which uses a version of our review process to provide a developer-friendly publication venue. JOSS’s success has led to a spin-off, the [Journal of Open Source Education](http://jose.theoj.org/), which uses an open, code-review-like processes to provide feedback on curricula and educational materials. We are also developing a pilot program where software papers submitted to a partner academic journal receive a badge for going through rOpenSci review. We are encouraged by other review initiatives like [ReScience](https://rescience.github.io/) and [The Programming Historian](https://programminghistorian.org/). [BioConductor](https://www.bioconductor.org/)’s code reviews, which predate ours by several years, recently switched to an open model.
 
 **If your organization is developing or curating scientific code**, we believe code review, implemented well, can be a great benefit. It can take considerable effort to begin, but **here are some of the key lessons we’ve learned that can help:**
