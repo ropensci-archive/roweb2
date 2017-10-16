@@ -1,6 +1,5 @@
 ---
-name: hunspell-release-20
-layout: post
+slug: "hunspell-release-20"
 title: "Hunspell 2.0: High-Performance Stemmer, Tokenizer, and Spell Checker for R"
 date: 2016-09-12
 authors:

@@ -1,6 +1,5 @@
 ---
-name: ccafs-release
-layout: post
+slug: "ccafs-release"
 title: ccafs - client for CCAFS General Circulation Models data
 date: 2017-03-01
 authors:
