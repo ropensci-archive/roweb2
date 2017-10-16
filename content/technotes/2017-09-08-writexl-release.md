@@ -1,6 +1,5 @@
 ---
-name: writexl-release
-layout: post_discourse
+slug: "writexl-release"
 title: "The writexl package: zero dependency xlsx writer for R"
 date: 2017-09-08
 authors:

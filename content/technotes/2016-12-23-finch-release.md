@@ -1,6 +1,5 @@
 ---
-name: finch-release
-layout: post
+slug: "finch-release"
 title: finch - parse Darwin Core files
 date: 2016-12-23
 authors:

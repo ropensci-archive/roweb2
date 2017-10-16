@@ -1,6 +1,5 @@
 ---
-name: magick-release-03
-layout: post
+slug: "magick-release-03"
 title: "New in Magick 0.3"
 date: 2016-09-08
 authors:
