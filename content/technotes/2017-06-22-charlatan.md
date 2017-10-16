@@ -93,7 +93,7 @@ initialize and then call methods on the them.
 Check out the [package vignette](https://cran.rstudio.com/web/packages/charlatan/vignettes/charlatan_vignette.html) to get started.
 
 
-## setup
+### setup
 
 Install `charlatan`
 
@@ -117,10 +117,10 @@ library(charlatan)
 ```
 
 
-## Examples
+### Examples
 
 
-### high level interface
+#### high level interface
 
 `fraudster` is an interface for all fake data variables (and locales):
 
@@ -139,7 +139,7 @@ x$color_name()
 
 If you want to set locale, do so like `fraudster(locale = "{locale}")`
 
-### locale support
+#### locale support
 
 The locales that are supported vary by data variable. We're adding more
 locales through time, so do check in from time to time - or even better,
@@ -187,7 +187,7 @@ ch_job(locale = "cv_MN")
 ```
 
 
-### generate a dataset
+#### generate a dataset
 
 `ch_generate()` helps you create data.frame's with whatever variables
 you want that `charlatan` supports. Then you're ready to use the
@@ -237,7 +237,7 @@ ch_generate('job', 'phone_number', n = 30)
 ```
 
 
-### Data types
+#### Data types
 
 A sampling of the data types available in `charlatan`:
 
@@ -298,7 +298,7 @@ ch_job(10)
 #> [10] "Information officer"
 ```
 
-### Messy data
+#### Messy data
 
 Real data is messy!  `charlatan` makes it easy to create
 messy data. This is still in the early stages so is not available
@@ -340,7 +340,7 @@ Right now only suffixes and prefixes for names in `en_US` locale
 are supported. Notice above some variation in prefixes and suffixes.
 
 
-## TO DO
+### TO DO
 
 We have lots ot do still. Some of those things include:
 

@@ -19,7 +19,7 @@ A new package [gpg](https://cran.r-project.org/web/packages/gpg/index.html) has 
 
 The package features a beautiful [vignette](https://cran.r-project.org/web/packages/gpg/vignettes/intro.html) to get you started with using GPG in R. Some highlights from the vignette below. 
 
-## Example: encryption
+### Example: encryption
 
 Suppose we want to send an email Glenn Greenwald containing top secret information. His [homepage at the intercept](https://theintercept.com/staff/glenn-greenwald/) shows Greenwalds GPG fingerprint. Let's import his public key:
 
@@ -59,7 +59,7 @@ VQHK9T1ynrRz5IpLpwnBOVxWq6ngNiaIzCcX6SvogiWcUcec55eKsDqxuMWcUPrH
 
 You can safely send this message over any channel (email, twitter, etc). Nobody in the world (not even ourselves) will be able to decipher this message, except for Glenn Greenwald.
 
-## Example: digital signatures
+### Example: digital signatures
 
 GPG is most widely used for digital signatures. For example the [Debian page on CRAN](https://cran.r-project.org/bin/linux/debian/) explains that the backports archives on CRAN are signed with the key of Johannes Ranke with key fingerprint __6212 B7B7 931C 4BB1 6280 BA13 06F9 0DE5 381B A480__. Let’s import this key:
 

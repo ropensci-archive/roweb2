@@ -28,7 +28,7 @@ Data go all the way back to 1901, and are updated daily.
 However, [the data](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/) is not fun to parse,
 warranting an packge to deal with the parsing.
 
-## Installation
+### Installation
 
 
 ```r
@@ -45,7 +45,7 @@ library(isdparser)
 library(dplyr)
 ```
 
-## Parse individual lines
+### Parse individual lines
 
 If you want to parse individual lines, use `isd_parse_line()`
 
@@ -96,7 +96,7 @@ By default you get a tibble back, but you can ask for a list in return instead.
 Parsing by line allows the user to decide how to apply parsing across lines,
 whether it be `lapply` style, or for loop, etc.
 
-## Parse entire files
+### Parse entire files
 
 You can also parse entire ISD files.
 
@@ -179,7 +179,7 @@ There's a parallel option as well, coming in handy with the larger ISD files:
 isd_parse(path, parallel = TRUE)
 ```
 
-## Visualize the data
+### Visualize the data
 
 Make better date + time
 
@@ -207,7 +207,7 @@ ggplot(df[df$temperature < 100,], aes(datetime, temperature)) +
 ![plot of chunk unnamed-chunk-11](/assets/blog-images/2016-11-03-isdparser-release/unnamed-chunk-11-1.png)
 
 
-## Future work
+### Future work
 
 I plan to improve performance via profiling and swapping out slower code for faster,
 as well as possibly dropping down to C++.

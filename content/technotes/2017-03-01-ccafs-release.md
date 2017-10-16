@@ -50,7 +50,7 @@ The workflow with `ccafs` for most users will likely be as follows:
 
 I'll dive into more details below.
 
-## Installation
+### Installation
 
 First, install the package.
 
@@ -66,7 +66,7 @@ Then load `ccafs`
 library("ccafs")
 ```
 
-## Search for data
+### Search for data
 
 Searching CCAF's data holdings is not as easy as it could be as they don't
 provide any programmatic way to do so. However, we provide a way to search
@@ -118,7 +118,7 @@ When using `cc_list_keys()`, you'll get not just `.zip` files that can be
 downloaded, but also directories. So beware that if you're going after grabbing
 "keys" for files that can be downloaded, you're looking for `.zip` files.
 
-## Fetch and read data
+### Fetch and read data
 
 Once you get links from `cc_search()` or "keys" from `cc_list_keys()`, you
 can pass either to `cc_data_fetch()` - which normalizes the input - so it
@@ -168,7 +168,7 @@ plot(dat)
 
 ![plot](/assets/blog-images/2017-03-01-ccafs-release/unnamed-chunk-9-1.png)
 
-## Caching
+### Caching
 
 For a better user experience, we cache files for you. That means
 when we download data, we put the files in a known location. When a
@@ -214,7 +214,7 @@ cc_cache_details(cc_cache_list()[1])
 Be careful with `cc_cache_delete_all()` as you will delete all your cached
 files.
 
-## ccafs software review
+### ccafs software review
 
 I want to touch briefly on the software review for this package. The reviews
 for `ccafs` were great, and I think the package was greatly improved via the
@@ -252,7 +252,7 @@ could use improvement - which all users will greatly benefit from.
 A new vignette (<https://cran.rstudio.com/web/packages/ccafs/vignettes/amazon_s3_keys.html>)
 was added in the review process to explain how to get a "key", a URL for CCAFS data.
 
-## To Do and Feedback
+### To Do and Feedback
 
 There's probably lots of improvements that can be made - I'm looking forward
 to getting feedback from users on any bugs or feature requests. One immediate
