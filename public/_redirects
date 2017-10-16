@@ -1,2 +1,3 @@
 /assets/*	https://ropensci.github.io/roweb/assets/:splat	200
 /blog/blog/*	/blog/:splat
+/blog/technotes/*	/technotes/:splat
