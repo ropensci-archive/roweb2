@@ -33,7 +33,7 @@ To help you with this, [`googleLanguageR`](http://code.markedmondson.me/googleLa
 
 An introduction to the package is below, but you can find out more details at the [`googleLanguageR` website](http://code.markedmondson.me/googleLanguageR/).
 
-## Google's bet
+### Google's bet
 
 Google predicts that machine learning is to be a fundamental feature of business, and so they are looking to become the infrastructure that makes machine learning possible. Metaphorically speaking: If machine learning is electricity, then Google wants to be the pylons carrying it around the country.
 
@@ -49,13 +49,13 @@ Whilst you can create your own machine learning models, for those users who have
 Since they carry complementary outputs that can be used in each other's input, all three of the APIs are included in one package. For example, you can transcribe a recording of someone speaking in Danish, translate that to English and then identify how positive or negative the writer felt about its content (sentiment analysis) then identify the most important concepts and objects within the content (entity analysis).
 
 
-## Motivations
+### Motivations
 
-### Fake news
+#### Fake news
 
 One reason why I started looking at this area was the growth of 'fake news', and its effect on political discourse on social media. I wondered if there was some way to put metrics on how much a news story fuelled one's own bias within your own filter bubble.  The entity API provides a way to perform entity and sentiment analysis at scale on tweets, and by then comparing different users and news sources preferences the hope is to be able to judge how much they are in agreement with your own bias, views and trusted reputation sources.
 
-### Make your own Alexa
+#### Make your own Alexa
 
 Another motivating application is the growth of voice commands that will become the primary way of user interface with technology.  Already, [Google reports up to 20% of search in its app](https://www.thinkwithgoogle.com/data-gallery/detail/google-app-voice-search/) is via voice search.  I'd like to be able to say "R, print me out that report for client X".  A Shiny app that records your voice, uploads to the API then parses the return text into actions gives you a chance to create your very own Alexa-like infrastructure.
 
@@ -65,17 +65,17 @@ Another motivating application is the growth of voice commands that will become 
 
 *The voice activated internet connected speaker, Amazon's Alexa - image from www.amazon.co.uk*
 
-### Translate everything
+#### Translate everything
 
 Finally, I live and work in Denmark.  As Danish is only spoken by less than 6 million people, applications that work in English may not be available in Danish very quickly, if at all.  The API's translation service is the one that made the news in 2016 for ["inventing its own language"](https://research.googleblog.com/2016/09/a-neural-network-for-machine.html), and offers much better English to Danish translations that the free web version and may make services available in Denmark sooner.
 
-## Using the library
+### Using the library
 
 To use these APIs within R, you first need to do a one-time setup to create a Google Project, add a credit card and authenticate which is [detailed on the package website](http://code.markedmondson.me/googleLanguageR/#installation).
 
 After that, you feed in the R objects you want to operate upon.  The [rOpenSci review](https://github.com/ropensci/onboarding/issues/127) helped to ensure that this can scale up easily, so that you can feed in large character vectors which the library will parse and rate limit as required.  The functions also work within [tidyverse](https://www.tidyverse.org/) pipe syntax.
 
-### Speech-to-text
+#### Speech-to-text
 
 The [Cloud Speech API](http://code.markedmondson.me/googleLanguageR/articles/speech.html) is exposed via the [`gl_speech`](http://code.markedmondson.me/googleLanguageR/reference/gl_speech.html) function.
 
@@ -94,7 +94,7 @@ gl_speech(my_audio)
 #1 Hello Mum  0.9227779 <data.frame [19 x 3]>
 ```
 
-### Translation
+#### Translation
 
 The [Cloud Translation API](http://code.markedmondson.me/googleLanguageR/articles/translation.html) lets you translate text via [`gl_translate`](http://code.markedmondson.me/googleLanguageR/reference/gl_translate.html)
 
@@ -122,7 +122,7 @@ gl_translate(translate_me)
 #1 The cat is sitting on the mat                     da Katten sidder på måtten
 ```
 
-### Natural Language Processing
+#### Natural Language Processing
 
 The [Natural Language API](http://code.markedmondson.me/googleLanguageR/articles/nlp.html) reveals the structure and meaning of text, accessible via the [`gl_nlp`](http://code.markedmondson.me/googleLanguageR/reference/gl_nlp.html) function.
 
@@ -186,7 +186,7 @@ str(nlp)
 #  ..$ score    : num -0.6
 ```
 
-## Acknowledgements
+### Acknowledgements
 
 This package is 10 times better due to the efforts of the rOpenSci reviewers [Neal Richardson](http://enpiar.com/) and [Julia Gustavsen](http://www.juliagustavsen.com/), who have whipped the documentation, outputs and test cases into the form they are today in `0.1.0`.  Many thanks to them.
 
