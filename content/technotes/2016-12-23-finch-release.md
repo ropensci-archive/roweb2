@@ -30,7 +30,7 @@ There's a series of functions in `rgbif` to request data in bulk format (see fun
 with `occ_download`), and from this you get a DwC-A file. This is where `finch` comes in:
 it can parse these DwC-A files into something useable inside R.
 
-## Installation
+### Installation
 
 
 ```r
@@ -109,7 +109,7 @@ out$dc
 #> [1] "en"
 ```
 
-## Parse Darwin Core Archive
+### Parse Darwin Core Archive
 
 To parse a Darwin Core Archive like can be gotten from GBIF use `dwca_read()`
 
@@ -227,7 +227,7 @@ names(out$data[[1]])[1:20]
 #> [19] "dateSubmitted"         "description"
 ```
 
-## Using with rgbif
+### Using with rgbif
 
 Now that we have `finch` we can make working with GBIF bulk downloads from R a
 richer experience.
@@ -301,12 +301,12 @@ head(out$data$occurrence.txt)[,1:5]
 But all the rich metadata in the other files. Yay!
 
 
-## Future work
+### Future work
 
 DwC-A files can be very large - This is for sure going to be a pain point for some.
 We'll continue to test and refine on big data files.
 
-## Feedback?
+### Feedback?
 
 We'd love to know what people think about this package.
 

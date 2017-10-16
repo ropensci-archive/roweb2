@@ -17,7 +17,7 @@ tags:
 
 The new rOpenSci [spelling](https://cran.r-project.org/web/packages/spelling/index.html) package provides utilities for spell checking common document formats including latex, markdown, manual pages, and DESCRIPTION files. It also includes tools especially for package authors to automate spell checking of R documentation and vignettes.
 
-## Spell Checking Packages
+### Spell Checking Packages
 
 The main purpose of this package is to quickly find spelling errors in R packages. The `spell_check_package()` function extracts all text from your package manual pages and vignettes, compares it against a language (e.g. en_US or en_GB), and lists potential errors in a nice tidy format:
 
@@ -61,7 +61,7 @@ Updated /Users/jeroen/workspace/writexl/tests/spelling.R
 By default this unit test will never actually fail; it merely displays potential spelling errors at the end of a `R CMD check`. But you can configure it to fail if you'd like, which can be useful to automatically highlight spelling errors on e.g. Travis CI.
 
 
-## Under the Hood
+### Under the Hood
 
 The spelling package builds on [hunspell](https://ropensci.org/blog/technotes/2016/09/12/hunspell-release-20) which has a fully customizable spell checking engine. Most of the code in the spelling package is dedicated to parsing and extracting text from documents before feeding it to the spell checker.
 For example, when spell checking an rmarkdown file, we first extract words from headers and paragraphs (but not urls or R syntax).
