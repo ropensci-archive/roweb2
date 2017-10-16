@@ -1,6 +1,5 @@
 ---
-name: rprofile-david-smith
-layout: post_discourse
+slug: "rprofile-david-smith"
 title: ".rprofile: David Smith"
 date: 2017-10-13
 authors:

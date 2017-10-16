@@ -1,6 +1,5 @@
 ---
-name: nf-softwarereview
-layout: post_discourse_canonical
+slug: "nf-softwarereview"
 title: "How rOpenSci uses Code Review to Promote Reproducible Science"
 date: 2017-09-01
 authors:

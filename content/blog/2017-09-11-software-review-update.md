@@ -1,6 +1,5 @@
 ---
-name: software-review-update
-layout: post_discourse
+slug: "software-review-update"
 title: "rOpenSci Software Review: Always Improving"
 date: 2017-09-11
 authors:

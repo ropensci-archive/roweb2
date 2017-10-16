@@ -1,11 +1,10 @@
 ---
 title: "Accessing patent data with the patentsview package"
-name: patentsview
+slug: "patentsview"
 authors:
   - name: Chris Baker
     url: http://github.com/crew102
 date: '2017-09-19'
-layout: post_discourse
 topicid: 873
 tags:
   - R

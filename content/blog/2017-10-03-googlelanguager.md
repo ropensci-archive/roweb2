@@ -1,7 +1,6 @@
 ---
-name: googlelanguager
+slug: "googlelanguager"
 title: googleLanguageR - Analysing language through the Google Cloud Machine Learning APIs
-layout: post_discourse
 authors:
   - name: Mark Edmondson
     url: http://code.markedmondson.me

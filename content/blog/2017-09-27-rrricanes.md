@@ -1,6 +1,5 @@
 ---
-name: rrricanes
-layout: post_discourse
+slug: "rrricanes"
 title: rrricanes to Access Tropical Cyclone Data
 authors:
   - name: Tim Trice

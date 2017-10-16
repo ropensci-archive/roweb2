@@ -1,6 +1,5 @@
 ---
-name: first-review-experiences
-layout: post_discourse
+slug: "first-review-experiences"
 title: "Experiences as a first time rOpenSci package reviewer"
 date: 2017-09-08
 authors:

@@ -1,6 +1,5 @@
 ---
-name: sholler_plan
-layout: post_discourse
+slug: "sholler_plan"
 title: "Governance, Engagement, and Resistance in the Open Science Movement: A Comparative Study"
 date: 2017-10-06
 authors:
