@@ -19,8 +19,7 @@ tags:
 categories: blog
 ---
 
-Why care about patents?
------------------------
+### Why care about patents?
 
 **1. Patents play a critical role in incentivizing innovation, without
 which we wouldn't have much of the technology we rely on everyday**
@@ -74,8 +73,8 @@ engine](http://patft.uspto.gov/netahtml/PTO/search-adv.htm), or figure
 out a way to download, parse, and model huge XML data dumps. Enter
 PatentsView.
 
-PatentsView and the `patentsview` package
------------------------------------------
+### PatentsView and the `patentsview` package
+
 
 [PatentsView](http://www.patentsview.org/web/#viz/relationships) is one
 of USPTO's new initiatives intended to increase the usability and value
@@ -99,8 +98,7 @@ well as several supporting functions. Full documentation of the package
 can be found on its
 [website](https://ropensci.github.io/patentsview/index.html).
 
-Installation
-------------
+### Installation
 
 You can install the stable version of `patentsview` from CRAN:
 
@@ -112,8 +110,7 @@ Or get the development version from GitHub:
 
     devtools::install_github("ropensci/patentsview")
 
-Getting started
----------------
+### Getting started
 
 The package has one main function, `search_pv()`, that makes it easy to
 send requests to the API. There are two parameters to `search_pv()` that
@@ -122,7 +119,7 @@ you're going to want to think about just about every time you call it -
 data with `query`, and which fields you want to retrieve with
 `fields`. [^2]
 
-### `query`
+#### `query`
 
 Your query has to use the [PatentsView query
 language](http://www.patentsview.org/api/query-language.html), which is
@@ -202,7 +199,7 @@ should be fine. Check out the [writing queries
 vignette](https://ropensci.github.io/patentsview/articles/writing-queries.html)
 for more details.
 
-### `fields`
+#### `fields`
 
 Up until now we have been using the default value for `fields`. This
 results in the API giving us some small set of default fields. Let's see
@@ -279,8 +276,7 @@ these are retrievable:
     #>
     #> total_patent_count = 100,000
 
-Example
--------
+### Example
 
 Let's look at a quick example of pulling and analyzing patent data.
 We'll look at patents from the last ten years that are classified below
@@ -388,8 +384,7 @@ interest, though getting a sense of their hierarchy can be tricky.
 
 ![](/assets/blog-images/2017-09-19-patentsview/unnamed-chunk-10-1.png)
 
-Learning more
--------------
+### Learning more
 
 For analysis examples that go into a little more depth, check out the
 [data applications
@@ -401,8 +396,7 @@ on the site for that as well. To contribute to the package or report an
 issue, check out the [issues page on
 GitHub](https://github.com/ropensci/patentsview/issues).
 
-Acknowledgments
----------------
+### Acknowledgments
 
 I'd like to thank the package's two reviewers, [Paul
 Oldham](https://github.com/poldham) and [Verena

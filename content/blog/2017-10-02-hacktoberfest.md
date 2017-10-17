@@ -16,7 +16,7 @@ One of rOpenSci’s aims is to build capacity of software users and developers a
 
 ![](/assets/blog-images/2017-10-02-hacktoberfest/hacktoberfest-2017.jpg)
 
-## It doesn’t take much to get involved
+### It doesn’t take much to get involved
 
 Beginners to experts. Contributors and package maintainers welcome. You can get involved by applying the label `Hacktoberfest` to issues in your rOpenSci repo (or any project) that are ready for contributors to work on. You can find already-labelled [rOpenSci and ropenscilabs issues here](https://github.com/search?utf8=%E2%9C%93&q=user%3Aropensci+user%3Aropenscilabs+label%3Ahacktoberfest+state%3Aopen+type%3Aissue&type=). A contribution can be anything - fixing typos, improving documentation, writing tests, fixing bugs, or creating new features. Who better to improve a vignette than the person who’s using the package?!
 
@@ -26,6 +26,6 @@ Have a look at this [great discussion on first-timers-only issues](https://githu
 
 Everyone who [signs up](https://hacktoberfest.digitalocean.com/) gets stickers, but make four pull requests between October 1–31 and you get a limited edition Hacktoberfest 2017 t-shirt.
 
-## Spread the word
+### Spread the word
 
 Share this blog post and link to your issue or link to [all the issues](https://github.com/search?utf8=%E2%9C%93&q=user%3Aropensci+user%3Aropenscilabs+label%3Ahacktoberfest+state%3Aopen+type%3Aissue&type=)! #Hacktoberfest #rstats

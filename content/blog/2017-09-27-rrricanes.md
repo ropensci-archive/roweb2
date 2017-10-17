@@ -21,9 +21,9 @@ tags:
 
 
 
-## What is rrricanes
+### What is rrricanes
 
-### Why Write rrricanes?
+#### Why Write rrricanes?
 
 There is a tremendous amount of weather data available on the internet. Much of it is in raw format and not very easy to obtain. Hurricane data is no different. When one thinks of this data they may be inclined to think it is a bunch of map coordinates with some wind values and not much else. A deeper look will reveal structural and forecast data. An even deeper look will find millions of data points from hurricane reconnaissance, computer forecast models, ship and buoy observations, satellite and radar imagery, ...
 
@@ -37,7 +37,7 @@ In this article, I will take you on a lengthy tour of the most important feature
 
 `rrricanes` will not be available in CRAN for quite some time. The current schedule is May 15, 2018 (the "start" of the East Pacific hurricane season). This year is soley for testing under real-time conditions.
 
-### And rrricanesdata
+#### And rrricanesdata
 
 The NHC archives text products dating back to at least 1998 (some earlier years exist but yet to be implemented in this package). Accessing this data is a time-consuming process on any computer. A limit of 4 requests per second is put in place to avoid being banned (or restricted) from the archives. So, if a hurricane has 20 text products you wish to pull and parse, this will take 5 seconds. Most cyclones have more and some, far more.
 
@@ -45,7 +45,7 @@ The NHC archives text products dating back to at least 1998 (some earlier years 
 
 `rrricanesdata` will be updated monthly if an advisory has been issued the previous month. There will be regular monthly updates approximately from May through November - the typical hurricane season. In some cases, a cyclone may develop in the off-season. `rrricanesdata` will be updated on the same schedule.
 
-### ELI5 the Data
+#### ELI5 the Data
 
 This package covers tropical cyclones that have developed in the Atlantic basin (north Atlantic ocean) or East Pacific basin (northeast Pacific east of 140#&deg;W). Central Pacific (140#&deg;W - 180#&deg;W) may be mixed in if listed in the NHC archives.
 
@@ -83,7 +83,7 @@ Every cyclone has a `Key`. However, not all products contain this value (`prblty
 
 Use `Key` to tie datasets together. If `Key` does not exist, you will need to use a combination of `Name` and `Date`, depending on your requirements. Keep in mind that, unless a name is retired, names are recycled every seven years. For example, there are multiple cyclones named Katrina but you may want to isolate on Katrina, 2005.
 
-## Installation
+### Installation
 
 `rrricanes` will not be submitted to CRAN until prior to the hurricane season, 2018. It can be installed via github using `devtools`:
 
@@ -91,7 +91,7 @@ Use `Key` to tie datasets together. If `Key` does not exist, you will need to us
 devtools::install_github("ropensci/rrricanes", build_vignettes = TRUE)
 ```
 
-### Optional Supporting Packages
+#### Optional Supporting Packages
 
 `rrricanesdata` uses a drat repository to host the large, pre-processed datasets.
 
@@ -115,7 +115,7 @@ Linux users may also need to install:
   * `libproj-dev`
   * `libxml2-dev`
 
-## Get a List of Storms
+### Get a List of Storms
 
 We start exploring `rrricanes` by finding a storm (or storms) we wish to analyze. For this, we use `get_storms`. There are two optional parameters:
 
@@ -186,9 +186,9 @@ The variables `Name` and `Link` are the only variables that could potentially ch
 
 For this example we will explore <u>Hurricane Harvey</u>.
 
-## Text Products
+### Text Products
 
-### Current Data
+#### Current Data
 
 Once we have identified the storms we want to retrieve we can begin working on getting the products. In the earlier discussion of the available products, recall I used abbreviations such as `discus`, `fstadv`, etc. These are the terms we will use when obtaining data.
 
@@ -462,7 +462,7 @@ In release 0.2.1, `tidy_fstadv` will be renamed to `tidy_adv`.
 
 One final note on the data: all speed variables are measured in knots, distance variables in nautical miles, and pressure variables in millibars. Functions `knots_to_mph` and `mb_to_in` are available for speed/pressure conversions. Function `nm_to_sm` to convert nautical miles to survey miles will be included in release 0.2.1.
 
-## Archived Data
+#### Archived Data
 
 `rrricanesdata` was built to make it easier to get pre-processed datasets. As mentioned earlier, `rrricanesdata` will be updated the first of every month if any advisory was issued for the previous month. (As I am now writing this portion in September, all of Hurricane Harvey's advisories - the last one issued the morning of August 31 - exist in `rrricanesdata` release 0.0.1.4.)
 
@@ -478,7 +478,7 @@ data(list = data(package = "rrricanesdata")$results[,3])
 
 All core product datasets are available. The dataframes `adv`, `fcst`, `fcst_wr` and `wr` are the dataframes created by `tidy_fstadv`, `tidy_fcst`, `tidy_fcst_wr` and `tidy_wr`, respectively.
 
-## Tracking Charts
+### Tracking Charts
 
 `rrricanes` also comes with helper functions to quickly generate tracking charts. These charts use `rnaturalearthdata` (for high resolution maps, use package `rnaturalearthhires`). These charts are not required - [Bob Rudis demonstrates](https://twitter.com/hrbrmstr/status/900762714477350913) demonstrates succintly - so feel free to experiment.
 
@@ -526,7 +526,7 @@ ep_tracking_chart(color = "black", size = 0.1, fill = "white")
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
-## GIS Data
+### GIS Data
 
 GIS data exists for some cyclones and varies by year. This is a relatively new archive by the NHC and is inconsistent from storm to storm.
 
@@ -556,7 +556,7 @@ Let's go through each of these. First, let's get the `Key` of Hurricane Harvey:
 key <- ds$fstadv %>% pull(Key) %>% first()
 ```
 
-### gis_advisory
+#### gis_advisory
 
 `gis_advisory` returns a dataset package containing past and forecast plot points and lines, a forecast cone (area representing where the cyclone could track), wind radius data and current watches and warnings.
 
@@ -989,7 +989,7 @@ bp +
 
 See [Forecast/Adivsory GIS](https://ropensci.github.io/rrricanes/articles/articles/forecast_advisory.html) on the `rrricanes` website for an example of putting all of this data together in one map.
 
-### gis_prob_storm_surge
+#### gis_prob_storm_surge
 
 We can also plot the probablistic storm surge for given locations. Again, you will need the storm `Key` for this function. There are two additional parameters:
 
@@ -1037,7 +1037,7 @@ So, we have access to a ton of data here. When discussing `gis_advisory`, we wer
 ## [1] "2017-08-25 03:00:00 UTC"
 ```
 
-#### esurge
+##### esurge
 
 Now, let's view all esurge products for date only (exlude time).
 
@@ -1240,7 +1240,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-48-1.png" title="plot of chunk unnamed-chunk-48" alt="plot of chunk unnamed-chunk-48" style="display: block; margin: auto;" />
 
-### gis_windfield
+#### gis_windfield
 
 When possible, there may also be a cyclone wind radius dataset for the current and forecast positions. With this function we can resort back to `Key` and an advisory number.
 
@@ -1306,7 +1306,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-52-1.png" title="plot of chunk unnamed-chunk-52" alt="plot of chunk unnamed-chunk-52" style="display: block; margin: auto;" />
 
-### gis_wsp
+#### gis_wsp
 
 Our last GIS dataset is wind speed probabilities. This dataset is not storm specific nor even basin-specific; you may get results for cyclones halfway across the world.
 
@@ -1440,7 +1440,7 @@ Of course, you can narrow it down further as you see fit.
 
 Do not confuse this GIS dataset with the `wndprb` product or similar `prblty` products; both of which only identify probabilities for given locations.
 
-### gis_latest
+#### gis_latest
 
 For active cyclones, you can retrieve all available GIS datasets using `gis_latest`. Note that, unlike the previous GIS functions, this function will return a list of all GIS dataframes available.
 
@@ -1455,7 +1455,7 @@ Second, I have found this data fluctuates even from minute to minute. Earlier th
 
 Of course, that doesn't mean it is not valuable, and why it has been included. You can easily perform checks for specific data you are looking for. If it doesn't exist, bail and try again in a few minutes.
 
-## Potential Issues Using rrricanes
+### Potential Issues Using rrricanes
 
 I cannot stress enough that `rrricanes` **is not intended for use during emergency situations**, as I myself learned [during Hurricane Harvey](https://twitter.com/timtrice/status/901025869367586816). The package currently relies on the NHC website which, I truly believe, is curated by hand.
 
@@ -1469,7 +1469,7 @@ As I become more aware of potential problems, I will look for workarounds. I wou
 
 I will also post known issues beyond my control (such as NHC website issues) to Twitter using the [#rrricanes hashtag](https://twitter.com/search?f=tweets&vertical=default&q=%23rrricanes&src=typd).
 
-## Future Plans
+### Future Plans
 
 The following data will be added to `rrricanes` as time allows:
 
@@ -1487,7 +1487,7 @@ Some computer forecast models are in the public domain and can certainly be of t
 
 Additionally, data may be added as deemed fitting.
 
-## Contribute
+### Contribute
 
 Anyone is more than welcome to contribute to the package. I would definitely appreciate any help. See [Contributions](https://github.com/ropensci/rrricanes/blob/master/.github/CONTRIBUTING.md) for more information.
 
@@ -1495,7 +1495,7 @@ I would ask that you follow the [Tidyverse style guide](http://style.tidyverse.o
 
 You do not need to submit code in order to be listed as a contributor. If there is a data source (that can legally be scraped) that you feel should be added, please feel free to submit a request. Submitting bug reports and feature requests are all extremely valuable to the success of `rrricanes`.
 
-## Acknowledgments
+### Acknowledgments
 
 I want to thank the [rOpenSci](https://ropensci.org/) community for embracing `rrricanes` and accepting the package into their vast portfolio. This is my first attempt and putting a project into part of a larger community and the lessons learned have been outstanding.
 
