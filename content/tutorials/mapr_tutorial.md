@@ -1,15 +1,13 @@
 ---
 title: mapr tutorial
-package_version: 0.2.0
+package_version: 0.3.4
 ---
 
 
 
 Utilities for 'vizualizing' species occurrence data. Includes functions to 'vizualize' occurrence data from 'spocc', 'rgbif', and other packages. Mapping options included for base R plots, 'ggplot2', and various interactive maps.
 
-<section id="installation">
-
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -32,10 +30,6 @@ library("mapr")
 library("spocc")
 ```
 
-<section id="usage">
-
-## Usage
-
 ### Interactive maps
 
 #### Leaflet.js
@@ -51,7 +45,7 @@ dat <- occ(query = spp, from = 'gbif', has_coords = TRUE, limit = 100)
 map_leaflet(dat)
 ```
 
-![leaflet](../assets/tutorial-images/mapr/leaflet.png)
+![leaflet](/img/tutorial-images/mapr/leaflet.png)
 
 #### Geojson map as a Github gist
 
@@ -65,7 +59,7 @@ dat <- fixnames(dat)
 map_gist(dat, color = c("#976AAE", "#6B944D", "#BD5945"))
 ```
 
-![gist](../assets/tutorial-images/mapr/gist.png)
+![gist](/img/tutorial-images/mapr/gist.png)
 
 ### Static maps
 
@@ -77,10 +71,10 @@ Base plots, or the built in plotting facility in R accessed via `plot()`, is qui
 ```r
 spnames <- c('Accipiter striatus', 'Setophaga caerulescens', 'Spinus tristis')
 out <- occ(query = spnames, from = 'gbif', has_coords = TRUE, limit = 100)
-map_plot(out, cex = 1, pch = 10)
+map_plot(out, size = 1, pch = 10)
 ```
 
-![plot of chunk unnamed-chunk-7](../assets/tutorial-images/mapr/unnamed-chunk-7-1.png)
+![](/img/tutorial-images/mapr/unnamed-chunk-7-1.png)
 
 #### ggplot2
 
@@ -92,9 +86,9 @@ dat <- occ(query = 'Lynx rufus californicus', from = 'gbif', has_coords = TRUE, 
 map_ggplot(dat, map = "usa")
 ```
 
-![plot of chunk unnamed-chunk-8](../assets/tutorial-images/mapr/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-8](/img/tutorial-images/mapr/unnamed-chunk-8-1.png)
 
-### The supported inputs
+### Supported inputs
 
 All functions take the following kinds of inputs:
 
@@ -109,16 +103,12 @@ and longitude (we guess your lat/long columns, starting with the default
 * An object of class `SpatialPoints`
 * An object of class `SpatialPointsDatFrame`
 
-<section id="citing">
+### Citing
 
-## Citing
-
-> Scott Chamberlain (2016). mapr: 'Visualize' Species Occurrence Data. R package version 0.2.0. https://cran.rstudio.com/package=mapr
+> Scott Chamberlain (2017). mapr: 'Visualize' Species Occurrence Data. R package version 0.3.4. https://cran.rstudio.com/package=mapr
 
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for mapr](https://github.com/ropensci/mapr/issues?state=open)
