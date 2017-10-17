@@ -9,7 +9,7 @@ package_version: 0.1.0
 
 You can find the WKT specification in a PDF at [https://portal.opengeospatial.org/files/?artifact_id=25355](https://portal.opengeospatial.org/files/?artifact_id=25355).
 
-### WKT from R stuctures
+#### WKT from R stuctures
 
 There's a family of functions in `wellknown` that make it easy to go from familiar R objects like lists and data.frames to WKT, including:
 
@@ -21,7 +21,7 @@ There's a family of functions in `wellknown` that make it easy to go from famili
 
 The above currently accept (depending on the fxn) `numeric`, `list`, and `data.frame` (and `character` for special case of `EMPTY` WKT objects).
 
-### Geojson to WKT and vice versa
+#### Geojson to WKT and vice versa
 
 `geojson2wkt()` and `wkt2geojson()` cover a subset of the various formats available:
 
@@ -33,17 +33,16 @@ The above currently accept (depending on the fxn) `numeric`, `list`, and `data.f
 * `MultilineString`
 * `Geometrycollection`
 
-#### Geojson to WKT
+**Geojson to WKT**
 
 `geojson2wkt()` converts any geojson as a list to a WKT string (the same format )
 
-#### WKT to Geojson
+**WKT to Geojson**
 
 `wkt2geojson()` converts any WKT string into geojson as a list. This list format for geojson can be used downstream e.g., in the `leaflet` package.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -64,13 +63,12 @@ devtools::install_github("ropensci/wellknown")
 library("wellknown")
 ```
 
-<section id="usage">
 
 ## Usage
 
 ### GeoJSON to WKT
 
-#### Point
+Point
 
 
 ```r
@@ -79,7 +77,7 @@ geojson2wkt(point)
 #> [1] "POINT (116.4000000000000057  45.2000000000000028  11.0999999999999996)"
 ```
 
-#### Multipoint
+Multipoint
 
 
 ```r
@@ -90,7 +88,7 @@ geojson2wkt(mp)
 #> [1] "MULTIPOINT ((100.0000000000000000 3.1010000000000000), (101.0000000000000000 2.1000000000000001), (3.1400000000000001 2.1800000000000002))"
 ```
 
-#### LineString
+LineString
 
 
 ```r
@@ -101,7 +99,7 @@ geojson2wkt(st, fmt = 0)
 #> [1] "LINESTRING (0 0 10, 2 1 20, 4 2 30, 5 4 40)"
 ```
 
-#### Multilinestring
+Multilinestring
 
 
 ```r
@@ -114,7 +112,7 @@ geojson2wkt(multist)
 #> [1] "MULTILINESTRING ((0.0000000000000000 -1.0000000000000000, -2.0000000000000000 -3.0000000000000000, -4.0000000000000000 -5.0000000000000000), (1.6599999999999999 -31023.5000000000000000, 10000.9999000000007072 3.0000000000000000, 100.9000000000000057 1.1000000000000001, 0.0000000000000000 0.0000000000000000))"
 ```
 
-#### Polygon
+Polygon
 
 
 ```r
@@ -127,7 +125,7 @@ geojson2wkt(poly)
 #> [1] "POLYGON ((100.0010000000000048 0.0010000000000000, 101.1234500000000054 0.0010000000000000, 101.0010000000000048 1.0009999999999999, 100.0010000000000048 0.0010000000000000), (100.2009999999999934 0.2010000000000000, 100.8010000000000019 0.2010000000000000, 100.8010000000000019 0.8010000000000000, 100.2009999999999934 0.2010000000000000))"
 ```
 
-#### Multipolygon
+Multipolygon
 
 
 ```r
@@ -140,7 +138,7 @@ geojson2wkt(mpoly, fmt = 1)
 #> [1] "MULTIPOLYGON (((30.0 20.0, 45.0 40.0, 10.0 40.0, 30.0 20.0)), ((15.0 5.0, 40.0 10.0, 10.0 20.0, 5.0 10.0, 15.0 5.0)))"
 ```
 
-#### GeometryCollection
+GeometryCollection
 
 
 ```r
@@ -156,7 +154,7 @@ geojson2wkt(gmcoll, fmt = 0)
 #> [1] "GEOMETRYCOLLECTION (POINT (0 1), LINESTRING (-100 0, -101 -1), MULTIPOINT ((100.000 3.101), (101.0 2.1), (3.14 2.18)))"
 ```
 
-#### Convert json or character objects
+Convert json or character objects
 
 You can convert directly from an object of class `json`, which is output from `jsonlite::toJSON()`.
 
@@ -184,7 +182,7 @@ geojson2wkt(str)
 
 ### WKT to GeoJSON
 
-#### Point
+Point
 
 As a `Feature`
 
@@ -194,14 +192,14 @@ str <- "POINT (-116.4000000000000057 45.2000000000000028)"
 wkt2geojson(str)
 #> $type
 #> [1] "Feature"
-#>
+#> 
 #> $geometry
 #> $geometry$type
 #> [1] "Point"
-#>
+#> 
 #> $geometry$coordinates
-#> [1] "-116.4000000000000057" "45.2000000000000028"
-#>
+#> [1] -116.4   45.2
+#> 
 ...
 ```
 
@@ -212,15 +210,15 @@ Not `Feature`
 wkt2geojson(str, feature = FALSE)
 #> $type
 #> [1] "Point"
-#>
+#> 
 #> $coordinates
-#> [1] "-116.4000000000000057" "45.2000000000000028"
-#>
+#> [1] -116.4   45.2
+#> 
 #> attr(,"class")
 #> [1] "geojson"
 ```
 
-#### Multipoint
+Multipoint
 
 
 ```r
@@ -228,18 +226,18 @@ str <- 'MULTIPOINT ((100.000 3.101), (101.000 2.100), (3.140 2.180))'
 wkt2geojson(str, feature = FALSE)
 #> $type
 #> [1] "MultiPoint"
-#>
+#> 
 #> $coordinates
 #> $coordinates[[1]]
-#> [1] "100.0000000000000000" "3.1010000000000000"
-#>
+#> [1] 100.000   3.101
+#> 
 #> $coordinates[[2]]
-#> [1] "101.0000000000000000" "2.1000000000000001"
-#>
+#> [1] 101.0   2.1
+#> 
 ...
 ```
 
-#### Polygon
+Polygon
 
 
 ```r
@@ -247,18 +245,18 @@ str <- "POLYGON ((100 0.1, 101.1 0.3, 101 0.5, 100 0.1), (103.2 0.2, 104.8 0.2, 
 wkt2geojson(str, feature = FALSE)
 #> $type
 #> [1] "Polygon"
-#>
+#> 
 #> $coordinates
 #> $coordinates[[1]]
 #> $coordinates[[1]][[1]]
-#> [1] "100.0000000000000000" "0.1000000000000000"
-#>
+#> [1] 100.0   0.1
+#> 
 #> $coordinates[[1]][[2]]
-#> [1] "101.0999999999999943" "0.3000000000000000"
+#> [1] 101.1   0.3
 ...
 ```
 
-#### MultiPolygon
+MultiPolygon
 
 
 ```r
@@ -267,32 +265,32 @@ str <- "MULTIPOLYGON (((40 40, 20 45, 45 30, 40 40)),
 wkt2geojson(str, feature = FALSE)
 #> $type
 #> [1] "MultiPolygon"
-#>
+#> 
 #> $coordinates
 #> $coordinates[[1]]
 #> $coordinates[[1]][[1]]
 #> $coordinates[[1]][[1]][[1]]
-#> [1] "40.0000000000000000" "40.0000000000000000"
-#>
+#> [1] 40 40
+#> 
 #> $coordinates[[1]][[1]][[2]]
 ...
 ```
 
-#### Linestring
+Linestring
 
 
 ```r
 wkt2geojson("LINESTRING (0 -1, -2 -3, -4 5)", feature = FALSE)
 #> $type
 #> [1] "LineString"
-#>
+#> 
 #> $coordinates
 #> $coordinates[[1]]
-#> [1] "0.0000000000000000"  "-1.0000000000000000"
-#>
+#> [1]  0 -1
+#> 
 #> $coordinates[[2]]
-#> [1] "-2.0000000000000000" "-3.0000000000000000"
-#>
+#> [1] -2 -3
+#> 
 ...
 ```
 
@@ -320,20 +318,17 @@ lint("MULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)), ((15 5, a b, 10 20, 5 10, 15
 #> [1] FALSE
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `wellknown` in publications use:
 
-<br>
 
 > Scott Chamberlain (2015). wellknown: Convert Between 'WKT' to 'GeoJSON'. R package
   version 0.1.0. https://github.com/ropensci/wellknown
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for wellknown](https://github.com/ropensci/wellknown/issues?state=open)

@@ -1,6 +1,6 @@
 ---
 title: neotoma tutorial
-package_version: 1.6.1
+package_version: 1.7.0
 ---
 
 
@@ -11,9 +11,8 @@ For more information on the package please refer to:
 
 Goring, S., Dawson, A., Simpson, G. L., Ram, K., Graham, R. W., Grimm, E. C., & Williams, J. W.. (2015). neotoma: A Programmatic Interface to the Neotoma Paleoecological Database. *Open Quaternary*, 1(1), Art. 2. DOI: [10.5334/oq.ab](http://doi.org/10.5334/oq.ab)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```r
@@ -33,9 +32,6 @@ devtools::install_github("ropensci/neotoma")
 library("neotoma")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Distribution of sites with Mammoth fossils in Neotoma
 
@@ -46,7 +42,8 @@ Example requires the mapdata package:
 library('mapdata')
 ```
 
-You may use either '%' or '*' as wildcards for search terms:
+You may use either '%' or "*" as wildcards for search terms:
+
 
 
 ```r
@@ -79,7 +76,7 @@ map('world',
 points(site.locs$long, site.locs$lat, pch=19, cex=0.5, col='red')
 ```
 
-![plot of chunk unnamed-chunk-8](../assets/tutorial-images/neotoma/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-8](/img/tutorial-images/neotoma/unnamed-chunk-8-1.png)
 
 ### Proportion of publications/year for Neotoma datasets
 
@@ -88,7 +85,7 @@ points(site.locs$long, site.locs$lat, pch=19, cex=0.5, col='red')
 library('ggplot2')
 library('plyr')
 pubs <- get_publication()
-#> The API call was successful, you have returned  6592 records.
+#> The API call was successful, you have returned  7178 records.
 pub.years <- ldply(pubs, "[[", "meta")
 ggplot(pub.years, aes(x = year)) +
      stat_bin(aes(y = ..density..*100, position = 'dodge'), binwidth = 1) +
@@ -100,23 +97,23 @@ ggplot(pub.years, aes(x = year)) +
        breaks = seq(min(pub.years$year, na.rm = TRUE), 2014, by = 20))
 ```
 
-![plot of chunk unnamed-chunk-9](../assets/tutorial-images/neotoma/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-9](/img/tutorial-images/neotoma/unnamed-chunk-9-1.png)
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `neotoma` in publications use:
 
 <br>
 
-> John Harrison (2016). neotoma: R Bindings for Selenium WebDriver. R
-  package version 1.4.0. https://cran.rstudio.com/package=neotoma
+> Goring, S., Dawson, A., Simpson, G. L., Ram, K., Graham, R. W.,
+  Grimm, E. C., & Williams, J. W.. (2015). neotoma: A Programmatic
+  Interface to the Neotoma Paleoecological Database, 1(1), Art. 2. DOI:
+  http://doi.org/10.5334/oq.ab
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for neotoma](https://github.com/ropensci/neotoma/issues?state=open)

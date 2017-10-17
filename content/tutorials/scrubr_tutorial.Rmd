@@ -5,7 +5,7 @@ package_version: 0.1.1
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/scrubr/",
+  fig.path = "img/tutorial-images/scrubr/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -18,9 +18,8 @@ of it like `dplyr` but specifically for occurrence data. It includes functionali
 cleaning based on various aspects of spatial coordinates, unlikely values due to political
 centroids, taxonomic names, and more.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable `scrubr` version from CRAN
 
@@ -38,7 +37,6 @@ devtools::install_github("ropenscilabs/scrubr")
 library("scrubr")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -167,9 +165,8 @@ attr(df, "tax_no_epithet")
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `scrubr` in publications use:
 
@@ -178,9 +175,8 @@ To cite `scrubr` in publications use:
 > Scott Chamberlain (2016). scrubr: Clean Biological Occurrence Records. R package version 0.1.1.
 https://github.com/ropenscilabs/scrubr
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for scrubr](https://github.com/ropenscilabs/scrubr/issues?state=open)

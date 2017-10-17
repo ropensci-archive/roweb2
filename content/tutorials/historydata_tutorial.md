@@ -7,9 +7,8 @@ package_version: 0.1
 
 Datasets for Historians
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```r
@@ -29,9 +28,8 @@ devtools::install_github("ropensci/historydata")
 library("historydata")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
 List all the datasets in the package with their documentation:
 
@@ -45,14 +43,11 @@ Which opens help in GUI in Rstudio/R.app, or list within R
 
 ```r
 ls("package:historydata")
-#>  [1] "catholic_dioceses"      "dijon_prices"
-#>  [3] "dijon_prices_wide"      "early_colleges"
-#>  [5] "judges_appointments"    "judges_people"
-#>  [7] "methodists"             "naval_promotions"
-#>  [9] "paulist_missions"       "presbyterians"
-#> [11] "quasi_war"              "sarna"
-#> [13] "tudors"                 "us_cities_pop"
-#> [15] "us_national_population" "us_state_populations"
+#>  [1] "catholic_dioceses"      "early_colleges"        
+#>  [3] "judges_appointments"    "judges_people"         
+#>  [5] "naval_promotions"       "paulist_missions"      
+#>  [7] "sarna"                  "tudors"                
+#>  [9] "us_national_population" "us_state_populations"
 ```
 
 To load a dataset, e.g, the dataset on Roman Catholic dioceses in the United States, Canada, and Mexico
@@ -67,9 +62,7 @@ Peek at the dataset
 
 ```r
 head(catholic_dioceses)
-#> # A tibble: 6 × 6
 #>                      diocese  rite      lat      long   event       date
-#>                        <chr> <chr>    <dbl>     <dbl>  <fctr>     <dttm>
 #> 1        Baltimore, Maryland Latin 39.29038 -76.61219 erected 1789-04-06
 #> 2     New Orleans, Louisiana Latin 29.95107 -90.07153 erected 1793-04-25
 #> 3      Boston, Massachusetts Latin 42.35843 -71.05977 erected 1808-04-08
@@ -88,24 +81,32 @@ data("judges_people")
 
 ```r
 head(judges_people)
-#> # A tibble: 6 × 13
 #>   judge_id name_first name_middle name_last name_suffix birth_date
-#>      <int>      <chr>       <chr>     <chr>       <chr>      <int>
 #> 1     3419     Ronnie        <NA>    Abrams        <NA>       1968
 #> 2        1    Matthew          T.   Abruzzo        <NA>       1889
 #> 3        2     Marcus      Wilson   Acheson        <NA>       1828
 #> 4        3    William       Marsh     Acker         Jr.       1927
 #> 5        4     Harold      Arnold  Ackerman        <NA>       1928
 #> 6        5      James       Waldo  Ackerman        <NA>       1926
-#> # ... with 7 more variables: birthplace_city <chr>,
-#> #   birthplace_state <chr>, death_date <int>, death_city <chr>,
-#> #   death_state <chr>, gender <chr>, race <chr>
+#>   birthplace_city birthplace_state death_date  death_city death_state
+#> 1        New York               NY         NA        <NA>        <NA>
+#> 2        Brooklyn               NY       1971     Potomac          MD
+#> 3      Washington               PA       1906  Pittsburgh          PA
+#> 4      Birmingham               AL         NA        <NA>        <NA>
+#> 5          Newark               NJ       2009 West Orange          NJ
+#> 6    Jacksonville               FL       1984 Springfield          IL
+#>   gender  race
+#> 1      F White
+#> 2      M White
+#> 3      M White
+#> 4      M White
+#> 5      M White
+#> 6      M White
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `historydata` in publications use:
 
@@ -114,9 +115,8 @@ To cite `historydata` in publications use:
 > Lincoln Mullen (2014). historydata: Data Sets for Historians. R package version 0.1.
   https://cran.rstudio.com/package=historydata
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for historydata](https://github.com/ropensci/historydata/issues?state=open)

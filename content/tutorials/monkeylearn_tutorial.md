@@ -1,6 +1,6 @@
 ---
 title: monkeylearn tutorial
-package_version: 0.1.0
+package_version: 0.1.3
 ---
 
 
@@ -13,11 +13,15 @@ To get an API key for MonkeyLearn, register at http://monkeylearn.com/. Note tha
 
 Both functions of the package will conveniently look for your API key using `Sys.getenv("MONKEYLEARN_KEY")` so if your API key is an environment variable called "MONKEYLEARN_KEY" you don't need to input it manually.
 
-<section id="installation">
 
-## Installation
+### Installation
 
-Not yet on CRAN
+CRAN version
+
+
+```r
+install.packages("monkeylearn")
+```
 
 Development version from GitHub
 
@@ -31,11 +35,6 @@ devtools::install_github("ropenscilabs/monkeylearn")
 ```r
 library("monkeylearn")
 ```
-
-<section id="usage">
-
-## Usage
-
 
 
 ### Extract
@@ -66,14 +65,14 @@ attr(output, "headers")
 ```
 
 ```
-#>           allow     content.type                          date
-#> 1 POST, OPTIONS application/json Tue, 06 Sep 2016 19:40:16 GMT
-#>         server           vary x.query.limit.limit x.query.limit.remaining
-#> 1 nginx/1.10.1 Accept, Cookie               50000                   49980
-#>   x.query.limit.request.queries content.length connection
-#> 1                             1            406 keep-alive
-#>                           text_md5
-#> 1 95132b831aa7a4ba1a666b93490b3c9c
+#> # A tibble: 1 x 11
+#>         server                          date     content.type
+#>         <fctr>                        <fctr>           <fctr>
+#> 1 nginx/1.11.5 Tue, 17 Oct 2017 16:38:10 GMT application/json
+#> # ... with 8 more variables: transfer.encoding <fctr>, connection <fctr>,
+#> #   x.query.limit.limit <fctr>, x.query.limit.remaining <fctr>,
+#> #   x.query.limit.request.queries <fctr>, allow <fctr>,
+#> #   content.encoding <fctr>, text_md5 <list>
 ```
 
 ### Parameters
@@ -102,10 +101,10 @@ output
 ```
 
 ```
-#>   relevance count positions_in_text                      keyword
-#> 1     0.978     3     164, 341, 568                  Wall Street
-#> 2     0.652     2          181, 389               Silicon Valley
-#> 3     0.543     0                   million-dollar stock options
+#>   count relevance positions_in_text                      keyword
+#> 1     3     0.978     164, 341, 568                  Wall Street
+#> 2     2     0.652          181, 389               Silicon Valley
+#> 3     0     0.543                   million-dollar stock options
 #>                           text_md5
 #> 1 c52e4d898bf4009ba347820c86275973
 #> 2 c52e4d898bf4009ba347820c86275973
@@ -120,8 +119,8 @@ output2
 ```
 
 ```
-#>   relevance count positions_in_text     keyword
-#> 1     0.978     3     164, 341, 568 Wall Street
+#>   count relevance positions_in_text     keyword
+#> 1     3     0.978     164, 341, 568 Wall Street
 #>                           text_md5
 #> 1 c52e4d898bf4009ba347820c86275973
 ```
@@ -131,14 +130,14 @@ attr(output2, "headers")
 ```
 
 ```
-#>           allow     content.type                          date
-#> 1 POST, OPTIONS application/json Tue, 06 Sep 2016 19:40:17 GMT
-#>         server           vary x.query.limit.limit x.query.limit.remaining
-#> 1 nginx/1.10.1 Accept, Cookie               50000                   49978
-#>   x.query.limit.request.queries content.length connection
-#> 1                             1            114 keep-alive
-#>                           text_md5
-#> 1 c52e4d898bf4009ba347820c86275973
+#> # A tibble: 1 x 11
+#>         server                          date     content.type
+#>         <fctr>                        <fctr>           <fctr>
+#> 1 nginx/1.11.5 Tue, 17 Oct 2017 16:38:10 GMT application/json
+#> # ... with 8 more variables: transfer.encoding <fctr>, connection <fctr>,
+#> #   x.query.limit.limit <fctr>, x.query.limit.remaining <fctr>,
+#> #   x.query.limit.request.queries <fctr>, allow <fctr>,
+#> #   content.encoding <fctr>, text_md5 <list>
 ```
 
 ### How to find extractors?
@@ -168,17 +167,17 @@ output
 ```
 
 ```
-#>    relevance count positions_in_text                      keyword
-#> 1      0.978     3     164, 339, 560                  Wall Street
-#> 2      0.652     2          181, 386               Silicon Valley
-#> 3      0.543     1               456 million-dollar stock options
-#> 4      0.543     1                11      Goldman Sachs employees
-#> 5      0.543     1                80      University faculty club
-#> 6      0.543     1                43         recent Tuesday night
-#> 7      0.543     1               689 difficult technical problems
-#> 8      0.435     2          898, 919                    thousands
-#> 9      0.435     2          796, 816                         type
-#> 10     0.435     2          848, 872                     hundreds
+#>    count relevance positions_in_text                      keyword
+#> 1      3     0.978     164, 339, 560                  Wall Street
+#> 2      2     0.652          181, 386               Silicon Valley
+#> 3      1     0.543               456 million-dollar stock options
+#> 4      1     0.543                11      Goldman Sachs employees
+#> 5      1     0.543                80      University faculty club
+#> 6      1     0.543                43         recent Tuesday night
+#> 7      1     0.543               689 difficult technical problems
+#> 8      2     0.435          898, 919                    thousands
+#> 9      2     0.435          796, 816                         type
+#> 10     2     0.435          848, 872                     hundreds
 #>                            text_md5
 #> 1  06674f3b0fc7a6135c0afb3e8b5f87f1
 #> 2  06674f3b0fc7a6135c0afb3e8b5f87f1
@@ -206,12 +205,12 @@ output
 ```
 
 ```
-#>         links     phones  ips prices   times           emails
-#> 1 example.com 15555 9876 NULL    $10 10:00am john@example.com
-#> 2 example.com 16655 9876 NULL        10:00am mary@example.com
-#>   bitcoin_addresses     dates ipv6s hex_colors        credit_cards
-#> 1              NULL April 16,  NULL       NULL 4242-4242-4242-4242
-#> 2              NULL April 16,  NULL       NULL 4242-4232-4242-4242
+#>       dates       links     phones ipv6s hex_colors  ips
+#> 1 April 16, example.com 15555 9876  NULL       NULL NULL
+#> 2 April 16, example.com 16655 9876  NULL       NULL NULL
+#>          credit_cards prices   times           emails bitcoin_addresses
+#> 1 4242-4242-4242-4242    $10 10:00am john@example.com              NULL
+#> 2 4242-4232-4242-4242        10:00am mary@example.com              NULL
 #>                           text_md5
 #> 1 8c2b65bfca064616356c6a2cae2f5519
 #> 2 c97eba30f94868ba6b7c3d250f59133a
@@ -232,20 +231,16 @@ monkeylearn_classify(request,
 ```
 
 ```
-#>   category_id probability                      label
-#> 1       65976       0.851                       Pets
-#> 2       66008       0.239                       Fish
-#> 3       66013       0.792                  Fish Food
-#> 4       67618       0.702                Cell Phones
-#> 5       67639       0.484              Family Mobile
-#> 6       67641       0.547 Family Mobile Starter Kits
-#>                           text_md5
-#> 1 f4837d7e5dfdcd3775b3d890a320dc89
-#> 2 f4837d7e5dfdcd3775b3d890a320dc89
-#> 3 f4837d7e5dfdcd3775b3d890a320dc89
-#> 4 af5c621a49a008f6e6a0d5ad47f2e1f4
-#> 5 af5c621a49a008f6e6a0d5ad47f2e1f4
-#> 6 af5c621a49a008f6e6a0d5ad47f2e1f4
+#> # A tibble: 6 x 4
+#>   category_id probability              label
+#>         <int>       <dbl>              <chr>
+#> 1    18313097       0.130               Pets
+#> 2    18313108       0.239               Dogs
+#> 3    18313113       0.082           Dog Food
+#> 4    18314739       0.113        Cell Phones
+#> 5    18314740       0.186        Accessories
+#> 6    18314741       0.094 Cases & Protectors
+#> # ... with 1 more variables: text_md5 <chr>
 ```
 
 #### How to find classifiers?
@@ -258,20 +253,20 @@ monkeylearn_classifiers(private = FALSE)
 ```
 
 ```
-#> # A tibble: 153 × 19
-#>    classifier_id                                                   name
-#>            <chr>                                                  <chr>
-#> 1    cl_8ya8StrL                     Customer Support - Emails - German
-#> 2    cl_cq6e5oEq Tweets - Offensive and hate speech detection - English
-#> 3    cl_YygsUUkN                                        Founder Names 2
-#> 4    cl_UXdsVBzj           Smart Restaurant Reviews Sentiments Analysis
-#> 5    cl_bwxdJMHE                                               Spam Ham
-#> 6    cl_xG46wHyZ                                     Good News (German)
-#> 7    cl_2MXugh99                             GMS-Hotel-Reviews-Analysis
-#> 8    cl_mEcCuEcG                                     Emotions in Tweets
-#> 9    cl_MUsRyHwV        Bownty - EN NATIONAL category classifier (v2.1)
-#> 10   cl_5pzHfLSv           Bownty - EN LOCAL category classifier (v2.1)
-#> # ... with 143 more rows, and 17 more variables: description <chr>,
+#> # A tibble: 41 x 19
+#>    classifier_id                                              name
+#>            <chr>                                             <chr>
+#>  1   cl_sGdE8hD9              NPS SaaS Product Feedback Classifier
+#>  2   cl_T7XMb74S                           IAB Taxonomy Classifier
+#>  3   cl_nLW3yR6m      Telcos -  Customer Support Ticket Classifier
+#>  4   cl_4LqLD7cN  Telcos - Customer Complaint Classifier (Twitter)
+#>  5   cl_rtdVEb8p            Telcos - Sentiment analysis (Facebook)
+#>  6   cl_szya8upj Telcos - Customer Complaint Classifier (Facebook)
+#>  7   cl_uEzzFRHh          Telcos - Needs Help Detection (Facebook)
+#>  8   cl_zSDSt8QP                Outbound Sales Response Classifier
+#>  9   cl_nuBGDNiN                Startup News - Industry Classifier
+#> 10   cl_GhPhiVYE     E-commerce Customer Support Ticket Classifier
+#> # ... with 31 more rows, and 17 more variables: description <chr>,
 #> #   train_state <chr>, train_job_id <lgl>, language <chr>,
 #> #   ngram_range <chr>, use_stemmer <lgl>, stop_words <chr>,
 #> #   max_features <int>, strip_stopwords <lgl>, is_multilabel <lgl>,
@@ -304,13 +299,14 @@ monkeylearn_classify(request,
 ```
 
 ```
-#>   category_id probability      label                         text_md5
-#> 1       64494       0.994     Italic e8d671fbd9d74e6fc58e6d5a34025534
-#> 2       64495       0.993 Catalan-ca e8d671fbd9d74e6fc58e6d5a34025534
-#> 3       64483       0.360   Germanic af5c621a49a008f6e6a0d5ad47f2e1f4
-#> 4       64486       0.759 English-en af5c621a49a008f6e6a0d5ad47f2e1f4
-#> 5       64494       0.562     Italic d3b4ce291cfb147a8246f71e0534c7c8
-#> 6       64496       0.994  French-fr d3b4ce291cfb147a8246f71e0534c7c8
+#> # A tibble: 5 x 4
+#>   category_id probability         label                         text_md5
+#>         <int>       <dbl>         <chr>                            <chr>
+#> 1     2324978       1.000        Italic e8d671fbd9d74e6fc58e6d5a34025534
+#> 2     2324979       1.000    Catalan-ca e8d671fbd9d74e6fc58e6d5a34025534
+#> 3     2325016       0.686 Vietnamese-vi af5c621a49a008f6e6a0d5ad47f2e1f4
+#> 4     2324978       1.000        Italic d3b4ce291cfb147a8246f71e0534c7c8
+#> 5     2324980       1.000     French-fr d3b4ce291cfb147a8246f71e0534c7c8
 ```
 
 * [Profanity and abuse detection](https://app.monkeylearn.com/categorizer/projects/cl_KFXhoTdt/tab/main-tab), `classifier_id = "cl_KFXhoTdt"`.
@@ -325,9 +321,11 @@ monkeylearn_classify(request,
 ```
 
 ```
+#> # A tibble: 2 x 4
 #>   category_id probability     label                         text_md5
-#> 1      103768       0.827     clean 641e443d9485034d30fec6c36d67d4cd
-#> 2      103767       1.000 profanity 2b9e3eb08b256277e4c2b3dfcc8d5c75
+#>         <int>       <dbl>     <chr>                            <chr>
+#> 1    22375077       0.803     clean 641e443d9485034d30fec6c36d67d4cd
+#> 2    22375076       0.997 profanity 2b9e3eb08b256277e4c2b3dfcc8d5c75
 ```
 
 * [General topic classifier](https://app.monkeylearn.com/categorizer/projects/cl_5icAVzKR/tab/), `classifier_id = "cl_5icAVzKR"`.
@@ -342,18 +340,15 @@ monkeylearn_classify(request,
 ```
 
 ```
+#> # A tibble: 5 x 4
 #>   category_id probability                label
+#>         <int>       <dbl>                <chr>
 #> 1       64600       0.894              Animals
 #> 2       64608       0.649              Mammals
 #> 3       64611       0.869         Land Mammals
 #> 4       64638       0.240 Computers & Internet
 #> 5       64640       0.252             Internet
-#>                           text_md5
-#> 1 309e318e5676605efae126b5191c1028
-#> 2 309e318e5676605efae126b5191c1028
-#> 3 309e318e5676605efae126b5191c1028
-#> 4 ee6bbcd0f530265a50ac49d8ccf0462b
-#> 5 ee6bbcd0f530265a50ac49d8ccf0462b
+#> # ... with 1 more variables: text_md5 <chr>
 ```
 
 ### Check the number of remaining calls
@@ -363,16 +358,16 @@ After each call to a function you can check how many calls to the API you can st
 
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Maëlle Salmon (2016). monkeylearn: Access to the Monkeylearn API for text classifiers and extractors. R package version 0.1.0. https://github.com/ropenscilabs/monkeylearn
+> Maëlle Salmon (2017). monkeylearn: Accesses the Monkeylearn API for
+  Text Classifiers and Extractors. R package version 0.1.3.
+  https://CRAN.R-project.org/package=monkeylearn
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for monkeylearn](https://github.com/ropenscilabs/monkeylearn/issues?state=open)

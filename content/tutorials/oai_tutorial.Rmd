@@ -1,15 +1,16 @@
 ---
 title: oai vignette
-package_version: 0.2.0
+package_version: 0.2.2
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/oai/",
+	fig.path = "img//utorial-images/oai/",
 	warning = FALSE,
 	message = FALSE,
 	comment = "#>"
 )
+library("oai", quietly = TRUE)
 ```
 
 A general purpose client to work with any 'OAI-PMH' service. The 'OAI-PMH' protocol is described at [http://www.openarchives.org/OAI/openarchivesprotocol.html](http://www.openarchives.org/OAI/openarchivesprotocol.html). The main functions follow the OAI-PMH verbs:
@@ -21,7 +22,7 @@ A general purpose client to work with any 'OAI-PMH' service. The 'OAI-PMH' proto
 * `ListRecords`
 * `ListSets`
 
-<section id="installation">
+### Installation
 
 You can install from CRAN
 
@@ -36,9 +37,6 @@ install.packages("devtools")
 devtools::install_github("ropensci/oai")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Identify
 
@@ -114,18 +112,16 @@ get_records(c("oai:biodiversitylibrary.org:item/7", "oai:biodiversitylibrary.org
             url = "http://www.biodiversitylibrary.org/oai")
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 > Scott Chamberlain and Michal Bojanowski (2016). oai: General Purpose 'Oai-PMH' Services Client. R package
-  version 0.2.0. https://github.com/ropensci/oai
+  version 0.2.2. https://github.com/ropensci/oai
 
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for oai](https://github.com/ropensci/oai/issues?state=open)

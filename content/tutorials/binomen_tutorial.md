@@ -32,9 +32,7 @@ The verbs:
 * `id()` - get the reference uri for each `taxonref` object
 
 
-<section id="installation">
-
-## Installation
+### Installation
 
 Install and load `binomen` into the R session. Stable version from CRAN
 
@@ -56,11 +54,9 @@ devtools::install_github("ropensci/binomen")
 library('binomen')
 ```
 
-<section id="usage">
+### Usage
 
-## Usage
-
-### Make a taxon
+#### Make a taxon
 
 Make a taxon object
 
@@ -70,7 +66,7 @@ Make a taxon object
   family='Poaceae', clazz='Poales', kingdom='Plantae', variety='annua'))
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping:
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     family: Poaceae
@@ -128,7 +124,7 @@ obj$grouping$family
 #>   uri: none
 ```
 
-### Subset taxon objects
+#### Subset taxon objects
 
 Get one or more ranks via `pick()`
 
@@ -137,12 +133,12 @@ Get one or more ranks via `pick()`
 obj %>% pick(family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping:
+#>   grouping: 
 #>     family: Poaceae
 obj %>% pick(family, genus)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping:
+#>   grouping: 
 #>     family: Poaceae
 #>     genus: Poa
 ```
@@ -154,7 +150,7 @@ Drop one or more ranks via `pop()`
 obj %>% pop(family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping:
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     genus: Poa
@@ -163,7 +159,7 @@ obj %>% pop(family)
 obj %>% pop(family, genus)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping:
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     species: Poa annua
@@ -177,7 +173,7 @@ Get a range of ranks via `span()`
 obj %>% span(kingdom, family)
 #> <taxon>
 #>   binomial: Poa annua
-#>   grouping:
+#>   grouping: 
 #>     kingdom: Plantae
 #>     clazz: Poales
 #>     family: Poaceae
@@ -197,7 +193,7 @@ gethier(obj)
 #> 6 variety     annua
 ```
 
-### Taxonomic data.frame's
+#### Taxonomic data.frame's
 
 Make one
 
@@ -267,21 +263,21 @@ scatter(df2)
 #> [[1]]
 #> <taxon>
 #>   binomial: Helianthus none
-#>   grouping:
+#>   grouping: 
 #>     order: Asterales
 #>     family: Asteraceae
 #>     genus: Helianthus
 #>     species: Helianthus none
-#>
+#> 
 #> [[2]]
 #> <taxon>
 #>   binomial: Helianthus none
-#>   grouping:
+#>   grouping: 
 #>     order: Asterales
 #>     family: Asteraceae
 #>     genus: Helianthus
 #>     species: Helianthus none
-#>
+#> 
 #> [[3]]
 #> <taxon>
 ...
@@ -302,17 +298,13 @@ assemble(out)
 #> 6    Poales    Poaceae Holodiscus Holodiscus none
 ```
 
-## Citing
+### Citing
 
 To cite `binomen` in publications use:
 
-<br>
-
 > Scott Chamberlain (2016). binomen: 'Taxonomic' Specification and Parsing Methods. https://github.com/ropensci/binomen
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rnoaa](https://github.com/ropensci/binomen/issues?state=open)

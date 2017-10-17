@@ -1,11 +1,11 @@
 ---
 title: monkeylearn tutorial
-package_version: 0.1.0
+package_version: 0.1.3
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/monkeylearn/",
+	fig.path = "img/tutorial-images/monkeylearn/",
   comment = "#>",
   warning = FALSE,
   message = FALSE
@@ -20,11 +20,14 @@ To get an API key for MonkeyLearn, register at http://monkeylearn.com/. Note tha
 
 Both functions of the package will conveniently look for your API key using `Sys.getenv("MONKEYLEARN_KEY")` so if your API key is an environment variable called "MONKEYLEARN_KEY" you don't need to input it manually.
 
-<section id="installation">
 
-## Installation
+### Installation
 
-Not yet on CRAN
+CRAN version
+
+```{r eval=FALSE}
+install.packages("monkeylearn")
+```
 
 Development version from GitHub
 
@@ -36,11 +39,6 @@ devtools::install_github("ropenscilabs/monkeylearn")
 ```{r}
 library("monkeylearn")
 ```
-
-<section id="usage">
-
-## Usage
-
 
 
 ### Extract
@@ -200,16 +198,16 @@ After each call to a function you can check how many calls to the API you can st
 
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Maëlle Salmon (2016). monkeylearn: Access to the Monkeylearn API for text classifiers and extractors. R package version 0.1.0. https://github.com/ropenscilabs/monkeylearn
+> Maëlle Salmon (2017). monkeylearn: Accesses the Monkeylearn API for
+  Text Classifiers and Extractors. R package version 0.1.3.
+  https://CRAN.R-project.org/package=monkeylearn
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for monkeylearn](https://github.com/ropenscilabs/monkeylearn/issues?state=open)

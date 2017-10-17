@@ -5,7 +5,7 @@ package_version: 0.2
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rfisheries/",
+  fig.path = "img/tutorial-images/rfisheries/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -17,9 +17,8 @@ This package provides programmatic access to the [openfisheries](http://openfish
 
 Open Fisheries is a platform that aggregates global fishery data and currently offers global fish capture landings from 1950 onwards (more data coming soon). Read more about that effort [here](http://openfisheries.org/about).
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```{r eval=FALSE}
@@ -33,9 +32,8 @@ if (!require("devtools")) install.packages("devtools")
 devtools::install_github("ropensci/rfisheries")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
 Package currently provides three basic functions. Landings data can be obtained by calling `landings()`
 
@@ -109,9 +107,8 @@ ggplot(results, aes(year, catch, group = country, color = country)) +
 Similarly you can get landings data for multiple species. As the API evolves, we'll update the package.
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rfisheries` in publications use:
 
@@ -119,9 +116,8 @@ To cite `rfisheries` in publications use:
 
 > Karthik Ram, Carl Boettiger and Andrew Dyck (2016). rfisheries: 'Programmatic Interface to the 'openfisheries.org' API'. R package version 0.2. https://github.com/ropensci/rfisheries
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rfisheries](https://github.com/ropensci/rfisheries/issues?state=open)

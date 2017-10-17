@@ -1,6 +1,6 @@
 ---
 title: jqr tutorial
-package_version: 0.2.0
+package_version: 1.0.0
 ---
 
 
@@ -11,7 +11,7 @@ You can convert JSON into an R list or other R data structure, and proceed with 
 
 If you already familiar with `jq` by using it on the command line you can use the exact same commands with `jqr`. If you've never used `jq`, `jqr` makes `jq` easy to learn with a domain specific language - and you can learn the actual `jq` syntax as you go and apply it on the command line outside of R.
 
-## NSE vs. SE
+**NSE vs. SE**
 
 Many functions in `jqr` have NSE (non-standard evaluation) as well as SE (standard evaluation) versions, where the NSE version for sorting an array is `sortj()` whereas the SE version is `sortj_()`. Some functions only have one version, and behave under SE rules.
 
@@ -19,11 +19,11 @@ When you pass JSON into a function as the first parameter (like `ad('["a","b","c
 
 When piping JSON to DSL functions `jq()` is executed on the last DSL function used.
 
-## jqr API
+**jqr API**
 
 There's low and high level (or DSL [domain specific language]) interfaces in `jqr`.
 
-### jqr low level interface
+**jqr low level interface**
 
 The low level and high level interfaces are unified via the function `jq()`. You can access the low leve interface by using `jq()` directly, passing a JSON string as the first parameter, the program (query) as the second, and [the flags](https://stedolan.github.io/jq/manual/#Invokingjq) as the third (by default no flags are passed).
 
@@ -38,7 +38,7 @@ For example, a JSON string could be `'{"a": 7, "b": 4}'`, and the program could 
 
 The program passed is exactly the same as you'd pass on the command line. Because this is a  simple replication of the command line in R, there is a higher level interface, or DSL, to make it easier to use `jq`. Nonetheless, the low level interface is important as some `jq` veterans may not want to deal with a DSL, and you may need to drop down to the low level interface if the DSL doesn't work for some reason.
 
-### jqr DSL
+**jqr DSL**
 
 The `jqr` DSL uses a suite of functions to construct queries that are executed internally with `jq()` after the last piped command. We use some logic to determine whether the function call is the last in a series of pipes, and if so, we run `jq()` on the JSON string and program/query passed.
 
@@ -102,9 +102,8 @@ You don't have to use pipes - they are optional. Though they do make things easi
 * Format strings
   * `at` - Format strings and escaping
 
-<section id="installation">
 
-## Installation
+### Installation
 
 stable version
 
@@ -127,11 +126,12 @@ Load `jqr`
 library("jqr")
 ```
 
-<section id="usage">
 
 ## Usage
 
-### Utility functions
+**Utility functions**
+
+<br>
 
 Peek
 
@@ -166,7 +166,7 @@ combine(x)
 #> }
 ```
 
-### index
+**index**
 
 
 ```r
@@ -184,7 +184,7 @@ x %>% index()
 #> ]
 ```
 
-### sort
+**sort**
 
 Note the function name is `sortj` to avoid collision with `base::sort`. In addition, a
 number of other functions in this package that conflict with base R functions have a
@@ -214,7 +214,7 @@ sort in reverse order
 #> ]
 ```
 
-### join
+**join**
 
 
 ```r
@@ -224,7 +224,7 @@ sort in reverse order
 #> "a; b,c,d; e"
 ```
 
-### starts- and ends-with
+**starts- and ends-with**
 
 
 ```r
@@ -250,7 +250,7 @@ sort in reverse order
 #> ]
 ```
 
-### contains
+**contains**
 
 
 ```r
@@ -258,7 +258,7 @@ sort in reverse order
 #> true
 ```
 
-### unique
+**unique**
 
 
 ```r
@@ -271,7 +271,7 @@ sort in reverse order
 #> ]
 ```
 
-### data types
+**data types**
 
 Get type information for each element
 
@@ -307,7 +307,7 @@ Select elements by type
 #> false
 ```
 
-### keys
+**keys**
 
 Get keys
 
@@ -354,7 +354,7 @@ str3 %>% haskey(1,2)
 #> ]
 ```
 
-### select
+**select**
 
 Select variables by name, and rename
 
@@ -373,51 +373,10 @@ More complicated `select()`, using the included dataset `githubcommits`
 githubcommits %>%
   index() %>%
   select(sha = .sha, name = .commit.committer.name)
-#> [
-#>     {
-#>         "sha": [
-#>             "110e009996e1359d25b8e99e71f83b96e5870790"
-#>         ],
-#>         "name": [
-#>             "Nicolas Williams"
-#>         ]
-#>     },
-#>     {
-#>         "sha": [
-#>             "7b6a018dff623a4f13f6bcd52c7c56d9b4a4165f"
-#>         ],
-#>         "name": [
-#>             "Nicolas Williams"
-#>         ]
-#>     },
-#>     {
-#>         "sha": [
-#>             "a50e548cc5313c187483bc8fb1b95e1798e8ef65"
-#>         ],
-#>         "name": [
-#>             "Nicolas Williams"
-#>         ]
-#>     },
-#>     {
-#>         "sha": [
-#>             "4b258f7d31b34ff5d45fba431169e7fd4c995283"
-#>         ],
-#>         "name": [
-#>             "Nicolas Williams"
-#>         ]
-#>     },
-#>     {
-#>         "sha": [
-#>             "d1cb8ee0ad3ddf03a37394bfa899cfd3ddd007c5"
-#>         ],
-#>         "name": [
-#>             "Nicolas Williams"
-#>         ]
-#>     }
-#> ]
+#> Error in eval(lhs, parent, parent): object 'githubcommits' not found
 ```
 
-### maths
+**maths**
 
 Maths comparisons
 
@@ -467,7 +426,7 @@ Maths comparisons
 #> ]
 ```
 
-### sqrt
+**sqrt**
 
 
 ```r
@@ -475,7 +434,7 @@ Maths comparisons
 #> 3
 ```
 
-### floor
+**floor**
 
 
 ```r
@@ -483,7 +442,7 @@ Maths comparisons
 #> 3
 ```
 
-### find minimum
+**find minimum**
 
 
 ```r
@@ -506,7 +465,7 @@ Maths comparisons
 #> }
 ```
 
-### find maximum
+**find maximum**
 
 
 ```r
@@ -530,20 +489,19 @@ Maths comparisons
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `jqr` in publications use:
 
 <br>
 
-> Rich FitzJohn, Scott Chamberlain, Stefan Milton Bache and Stephen Dolan. jqr: Client for 'jq', a
-  JSON Processor. R package version 0.2.0. https://github.com/ropensci/jqr
+> Rich FitzJohn, Jeroen Ooms, Scott Chamberlain and Stefan Milton Bache
+  (2017). jqr: Client for 'jq', a 'JSON' Processor. R package version
+  1.0.0. https://CRAN.R-project.org/package=jqr
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for jqr](https://github.com/ropensci/jqr/issues?state=open)

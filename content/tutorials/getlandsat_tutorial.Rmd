@@ -5,7 +5,7 @@ package_version: 0.1.0
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/getlandsat/",
+	fig.path = "img/tutorial-images/getlandsat/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -17,9 +17,8 @@ knitr::opts_chunk$set(
 
 Potential users are probably anyone from scientists asking questions about biodiversity or land use change, to software developers creating tools for users to vizualize their data.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -37,10 +36,6 @@ devtools::install_github("ropenscilabs/getlandsat")
 ```{r}
 library("getlandsat")
 ```
-
-<section id="usage">
-
-## Usage
 
 
 ```{r echo=FALSE}
@@ -65,7 +60,7 @@ lsat_scene_files(x = res$download_url[1])
 Returns path to the image
 
 ```{r}
-lsat_image(x = "LC80101172015002LGN00_B5.TIF")
+lsat_image("LC80101172015002LGN00_B5.TIF")
 ```
 
 Another one
@@ -97,18 +92,16 @@ plot(img)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 > Scott Chamberlain (2016). getlandsat: Get Landsat 8 Data
   from Amazon Pulic Data Sets. R package version 0.1.0.
   https://cran.rstudio.com/package=getlandsat
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for getlandsat](https://github.com/ropenscilabs/getlandsat/issues?state=open)

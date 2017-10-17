@@ -1,15 +1,14 @@
 ---
 title: textreuse tutorial
-package_version: 0.1.3
+package_version: 0.1.4
 ---
 
 
 
 Tools for measuring similarity among documents and detecting passages which have been reused. Implements shingled n-gram, skip n-gram, and other tokenizers; similarity/dissimilarity functions; pairwise comparisons; minhash and locality sensitive hashing algorithms; and a version of the Smith-Waterman local alignment algorithm suitable for natural language.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable `textreuse` version from CRAN
 
@@ -30,7 +29,6 @@ devtools::install_github("ropensci/textreuse")
 library("textreuse")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -63,20 +61,20 @@ doc <- TextReuseTextDocument(file = file, meta = list("publisher" = "ATS"),
                              keep_tokens = TRUE)
 doc
 #> TextReuseTextDocument
-#> file : /Library/Frameworks/R.framework/Versions/3.3/Resources/library/textreuse/extdata/ats/remember00palm.txt
-#> hash_func : hash_string
-#> id : remember00palm
-#> publisher : ATS
-#> tokenizer : tokenize_ngrams
-#> content : Remember
-#> By
-#> Rat Palmer.
-#> Boston:
-#>
-#> THE AMERICAN TRACT SOCI]
-#>
-#> Depositories, 28 Cornhill, Boston ; and 13 Biblb House,
-#> Astor Place, New York.
+#> file : /Library/Frameworks/R.framework/Versions/3.4/Resources/library/textreuse/extdata/ats/remember00palm.txt 
+#> hash_func : hash_string 
+#> id : remember00palm 
+#> publisher : ATS 
+#> tokenizer : tokenize_ngrams 
+#> content : Remember 
+#> By 
+#> Rat Palmer. 
+#> Boston: 
+#> 
+#> THE AMERICAN TRACT SOCI] 
+#> 
+#> Depositories, 28 Cornhill, Boston ; and 13 Biblb House, 
+#> Astor Place, New York. 
 #> Entered, according to Act of Congress, in the year 1865
 ```
 
@@ -86,28 +84,28 @@ We can see details of the document with accessor functions. These are derived fr
 ```r
 meta(doc)
 #> $file
-#> [1] "/Library/Frameworks/R.framework/Versions/3.3/Resources/library/textreuse/extdata/ats/remember00palm.txt"
-#>
+#> [1] "/Library/Frameworks/R.framework/Versions/3.4/Resources/library/textreuse/extdata/ats/remember00palm.txt"
+#> 
 #> $hash_func
 #> [1] "hash_string"
-#>
+#> 
 #> $id
 #> [1] "remember00palm"
-#>
+#> 
 #> $publisher
 #> [1] "ATS"
-#>
+#> 
 #> $tokenizer
 #> [1] "tokenize_ngrams"
 meta(doc, "id")
 #> [1] "remember00palm"
 meta(doc, "date") <- 1865
 head(tokens(doc))
-#> [1] "remember by rat palmer boston"
-#> [2] "by rat palmer boston the"
-#> [3] "rat palmer boston the american"
-#> [4] "palmer boston the american tract"
-#> [5] "boston the american tract soci"
+#> [1] "remember by rat palmer boston"       
+#> [2] "by rat palmer boston the"            
+#> [3] "rat palmer boston the american"      
+#> [4] "palmer boston the american tract"    
+#> [5] "boston the american tract soci"      
 #> [6] "the american tract soci depositories"
 head(hashes(doc))
 #> [1]   -96275747 -1721204321   707361410  -626087009  -532862870   141807655
@@ -134,8 +132,8 @@ corpus <- TextReuseCorpus(dir = dir, tokenizer = tokenize_ngrams, n = 5,
                           progress = FALSE)
 corpus
 #> TextReuseCorpus
-#> Number of documents: 8
-#> hash_func : hash_string
+#> Number of documents: 8 
+#> hash_func : hash_string 
 #> tokenizer : tokenize_ngrams
 ```
 
@@ -144,31 +142,31 @@ The names of the items in a `TextReuseCorpus` are the IDs of the documents. You 
 
 ```r
 names(corpus)
-#> [1] "calltounconv00baxt"        "gospeltruth00whit"
+#> [1] "calltounconv00baxt"        "gospeltruth00whit"        
 #> [3] "lifeofrevrichard00baxt"    "memoirjamesbrai00ricegoog"
-#> [5] "practicalthought00nev"     "remember00palm"
+#> [5] "practicalthought00nev"     "remember00palm"           
 #> [7] "remembermeorholy00palm"    "thoughtsonpopery00nevi"
 corpus[["remember00palm"]]
 #> TextReuseTextDocument
-#> file : /Library/Frameworks/R.framework/Versions/3.3/Resources/library/textreuse/extdata/ats/remember00palm.txt
-#> hash_func : hash_string
-#> id : remember00palm
-#> minhash_func :
-#> tokenizer : tokenize_ngrams
-#> content : Remember
-#> By
-#> Rat Palmer.
-#> Boston:
-#>
-#> THE AMERICAN TRACT SOCI]
-#>
-#> Depositories, 28 Cornhill, Boston ; and 13 Biblb House,
-#> Astor Place, New York.
+#> file : /Library/Frameworks/R.framework/Versions/3.4/Resources/library/textreuse/extdata/ats/remember00palm.txt 
+#> hash_func : hash_string 
+#> id : remember00palm 
+#> minhash_func : 
+#> tokenizer : tokenize_ngrams 
+#> content : Remember 
+#> By 
+#> Rat Palmer. 
+#> Boston: 
+#> 
+#> THE AMERICAN TRACT SOCI] 
+#> 
+#> Depositories, 28 Cornhill, Boston ; and 13 Biblb House, 
+#> Astor Place, New York. 
 #> Entered, according to Act of Congress, in the year 1865
 corpus[c("calltounconv00baxt", "lifeofrevrichard00baxt")]
 #> TextReuseCorpus
-#> Number of documents: 2
-#> hash_func : hash_string
+#> Number of documents: 2 
+#> hash_func : hash_string 
 #> tokenizer : tokenize_ngrams
 ```
 
@@ -177,13 +175,13 @@ Accessor functions such as `meta()`, `tokens()`, `hashes()`, and `wordcount()` h
 
 ```r
 wordcount(corpus)
-#>        calltounconv00baxt         gospeltruth00whit
-#>                    134616                     16593
-#>    lifeofrevrichard00baxt memoirjamesbrai00ricegoog
-#>                     44283                    131939
-#>     practicalthought00nev            remember00palm
-#>                    124544                     11399
-#>    remembermeorholy00palm    thoughtsonpopery00nevi
+#>        calltounconv00baxt         gospeltruth00whit 
+#>                    134616                     16593 
+#>    lifeofrevrichard00baxt memoirjamesbrai00ricegoog 
+#>                     44283                    131939 
+#>     practicalthought00nev            remember00palm 
+#>                    124544                     11399 
+#>    remembermeorholy00palm    thoughtsonpopery00nevi 
 #>                     11532                     64758
 ```
 
@@ -200,25 +198,25 @@ The textreuse package provides a number of tokenizers.
 text <- "How many roads must a man walk down\nBefore you'll call him a man?"
 
 tokenize_words(text)
-#>  [1] "how"    "many"   "roads"  "must"   "a"      "man"    "walk"
+#>  [1] "how"    "many"   "roads"  "must"   "a"      "man"    "walk"  
 #>  [8] "down"   "before" "you'll" "call"   "him"    "a"      "man"
 tokenize_sentences(text)
 #> [1] "how many roads must a man walk down"
 #> [2] "before you ll call him a man"
 tokenize_ngrams(text, n = 3)
-#>  [1] "how many roads"     "many roads must"    "roads must a"
-#>  [4] "must a man"         "a man walk"         "man walk down"
+#>  [1] "how many roads"     "many roads must"    "roads must a"      
+#>  [4] "must a man"         "a man walk"         "man walk down"     
 #>  [7] "walk down before"   "down before you'll" "before you'll call"
 #> [10] "you'll call him"    "call him a"         "him a man"
 tokenize_skip_ngrams(text, n = 3, k = 2)
-#>  [1] "how must walk"      "many a down"        "roads man before"
-#>  [4] "must walk you'll"   "a down call"        "man before him"
-#>  [7] "walk you'll a"      "down call man"      "how roads a"
-#> [10] "many must man"      "roads a walk"       "must man down"
-#> [13] "a walk before"      "man down you'll"    "walk before call"
-#> [16] "down you'll him"    "before call a"      "you'll him man"
-#> [19] "how many roads"     "many roads must"    "roads must a"
-#> [22] "must a man"         "a man walk"         "man walk down"
+#>  [1] "how must walk"      "many a down"        "roads man before"  
+#>  [4] "must walk you'll"   "a down call"        "man before him"    
+#>  [7] "walk you'll a"      "down call man"      "how roads a"       
+#> [10] "many must man"      "roads a walk"       "must man down"     
+#> [13] "a walk before"      "man down you'll"    "walk before call"  
+#> [16] "down you'll him"    "before call a"      "you'll him man"    
+#> [19] "how many roads"     "many roads must"    "roads must a"      
+#> [22] "must a man"         "a man walk"         "man walk down"     
 #> [25] "walk down before"   "down before you'll" "before you'll call"
 #> [28] "you'll call him"    "call him a"         "him a man"
 ```
@@ -241,7 +239,7 @@ tokenize_lines <- function(string) {
 }
 
 tokenize_lines(poem)
-#> [1] "Roses are red"      "Violets are blue"   "I like using R"
+#> [1] "Roses are red"      "Violets are blue"   "I like using R"    
 #> [4] "And you should too"
 ```
 
@@ -286,20 +284,19 @@ See the documentation for `?similarity-functions` for details on what is measure
 You can write your own similarity functions, which should accept two sets or bags, `a` and `b`, should work on both character and numeric vectors, since they are used with either tokens or hashes of tokens, and should return a single numeric score for the comparison. You will need to implement a method for the `TextReuseTextDocument` class.
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `textreuse` in publications use:
 
 <br>
 
->  Lincoln Mullen (2016). textreuse: Detect Text Reuse and Document Similarity. R package version 0.1.3.
-https://github.com/ropensci/textreuse
+>  Lincoln Mullen (2016). textreuse: Detect Text Reuse and Document
+  Similarity. R package version 0.1.4.
+  https://CRAN.R-project.org/package=textreuse
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for textreuse](https://github.com/ropensci/textreuse/issues?state=open)

@@ -1,11 +1,11 @@
 ---
 title: bold tutorial
-package_version: 0.2.0
+package_version: 0.5.0
 ---
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path="../assets/tutorial-images/bold/",
+	fig.path="img/tutorial-images/bold/",
 	comment = "#>",
 	collapse = TRUE,
 	warning = FALSE,
@@ -18,11 +18,10 @@ knitr::opts_chunk$set(
 __`bold` info__
 
 + [BOLD home page](http://boldsystems.org/)
-+ [BOLD API docs](boldsystems.org/index.php/resources/api)
++ [BOLD API docs](http://v4.boldsystems.org/index.php/api_home)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 You can install the stable version from CRAN
 
@@ -46,11 +45,10 @@ Then load the package into the R sesssion
 library("bold")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
-### Search for taxonomic names via names
+#### Search for taxonomic names via names
 
 `bold_tax_name` searches for names with names.
 
@@ -63,7 +61,7 @@ bold_tax_name(name = c('Diplura', 'Osmia'))
 ```
 
 
-### Search for taxonomic names via BOLD identifiers
+#### Search for taxonomic names via BOLD identifiers
 
 `bold_tax_id` searches for names with BOLD identifiers.
 
@@ -76,7 +74,7 @@ bold_tax_id(id = c(88899, 125295))
 ```
 
 
-### Search for sequence data only
+#### Search for sequence data only
 
 The BOLD sequence API gives back sequence data, with a bit of metadata.
 
@@ -126,7 +124,7 @@ bold_seq(bin = 'BOLD:AAA5125')[[1]]
 And there are more ways to query, check out the docs for `?bold_seq`.
 
 
-### Search for specimen data only
+#### Search for specimen data only
 
 The BOLD specimen API doesn't give back sequences, only specimen data. By default you download `tsv` format data, which is given back to you as a `data.frame`
 
@@ -166,7 +164,7 @@ res$status_code
 res$headers
 ```
 
-### Search for specimen plus sequence data
+#### Search for specimen plus sequence data
 
 The specimen/sequence combined API gives back specimen and sequence data. Like the specimen API, this one gives by default `tsv` format data, which is given back to you as a `data.frame`. Here, we're setting `sepfasta=TRUE` so that the sequence data is given back as a list, and taken out of the `data.frame` returned so the `data.frame` is more manageable.
 
@@ -181,7 +179,7 @@ Or you can index to a specific sequence like
 res$fasta['GBAH0293-06']
 ```
 
-### Get trace files
+#### Get trace files
 
 This function downloads files to your machine - it does not load them into your R session - but prints out where the files are for your information.
 
@@ -202,21 +200,15 @@ bold_trace(taxon='Osmia', quiet=TRUE)
 ```
 
 
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `bold` in publications use:
 
-<br>
+> Scott Chamberlain (2017). bold: Interface to Bold Systems API. R package version 0.5.0. https://github.com/ropensci/bold
 
-> Scott Chamberlain (2016). bold: Interface to Bold Systems API. R package version 0.3.5. https://github.com/ropensci/bold
-
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
-* Report bugs at [our Github repo for bold](https://github.com/ropensci/bold/issues?state=open)
+* Report bugs at [our GitHub repo for bold](https://github.com/ropensci/bold/issues?state=open)
 
 [Back to top](#top)

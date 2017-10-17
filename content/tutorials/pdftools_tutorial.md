@@ -1,6 +1,6 @@
 ---
 title: pdftools vignette
-package_version: 0.5
+package_version: 1.4
 ---
 
 
@@ -9,9 +9,8 @@ Scientific articles are typically locked away in PDF format, a format designed p
 
 The pdftools slightly overlaps with the Rpoppler package by Kurt Hornik. The main motivation behind developing pdftools was that Rpoppler depends on glib, which does not work well on Mac and Windows. The pdftools package uses the poppler c++ interface together with Rcpp, which results in a lighter and more portable implementation.
 
-<section id="installation">
 
-<a href="https://cran.rstudio.com/web/packages/pdftools/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/pdftools"><span class="label label-info">github</span></a>
+### Installation
 
 On Windows and Mac the binary packages can be installed directly from CRAN:
 
@@ -26,29 +25,11 @@ Installation on Linux requires the poppler development library. On Debian/Ubuntu
 sudo apt-get install libpoppler-cpp-dev
 ```
 
-On Fedora or CentOS:
-
-```
-sudo yum install poppler-cpp-devel
-```
-
 If you want to install the package from source on Mac OS-X you need brew:
 
 ```
 brew install poppler
 ```
-
-Development version from GitHub
-
-
-```r
-install.packages("devtools")
-devtools::install_github("ropensci/pdftools")
-```
-
-<section id="usage">
-
-## Usage
 
 
 ```r
@@ -60,7 +41,6 @@ library("pdftools")
 The `?pdftools` manual page shows a brief overview of the main utilities. The most important function is `pdf_text` which returns a character vector of length equal to the number of pages in the pdf. Each string in the vector contains a plain text version of the text on that page.
 
 ```r
-library(pdftools)
 download.file("http://arxiv.org/pdf/1403.2805.pdf", "1403.2805.pdf", mode = "wb")
 txt <- pdf_text("1403.2805.pdf")
 
@@ -123,18 +103,16 @@ cat(txt[19])
 Pdftools usually does a decent job in retaining the positioning of table elements when converting from pdf to text. But the output is still very dependent on the formatting of the original pdf table, which makes it very difficult to write a generic table extractor. But with a little creativity you might be able to parse the table data from the text output of a given paper.
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Jeroen Ooms (2016). pdftools: Extract Text and Data from PDF
-  Documents. R package version 0.5.
-  https://cran.rstudio.com/package=pdftools
+> Jeroen Ooms (2017). pdftools: Text Extraction, Rendering and
+  Converting of PDF Documents. R package version 1.4.
+  https://CRAN.R-project.org/package=pdftools
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for pdftools](https://github.com/ropensci/pdftools/issues?state=open)

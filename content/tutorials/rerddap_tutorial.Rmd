@@ -1,6 +1,6 @@
 ---
 title: rerddap tutorial
-package_version: 0.3.4
+package_version: 0.4.2
 ---
 
 ```{r echo=FALSE}
@@ -30,7 +30,7 @@ knitr::knit_hooks$set(output = function(x, options) {
  })
 
 knitr::opts_chunk$set(
-  fig.path="../assets/tutorial-images/rerddap/",
+  fig.path="img/tutorial-images/rerddap/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -54,9 +54,8 @@ When you use `griddap()` or `tabledap()` functions, we construct a MD5 hash from
 
 You can get a data.frame of ERDDAP servers using the function `servers()`. Most I think serve some kind of NOAA data, but there are a few that aren't NOAA data.  If you know of more ERDDAP servers, send a pull request, or let us know.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -74,9 +73,6 @@ devtools::install_github("ropensci/rerddap")
 library("rerddap")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Search
 
@@ -95,7 +91,7 @@ ed_search(query = 'size', which = "grid")
 Then you can get information on a single dataset
 
 ```{r output.lines=1:10}
-info('whoi_62d0_9d64_c8ff')
+info('erdCalCOFIlrvsiz')
 ```
 
 ### griddap (gridded) data
@@ -137,40 +133,38 @@ res$data
 ### tabledap (tabular) data
 
 ```{r output.lines=1:10}
-(out <- info('erdCalCOFIfshsiz'))
+(out <- info('erdCalCOFIlrvsiz'))
 ```
 
 ```{r}
-(dat <- tabledap(out, 'time>=2001-07-07', 'time<=2001-07-10', fields = c('longitude', 'latitude', 'fish_size', 'itis_tsn', 'scientific_name')))
+(dat <- tabledap(out, 'time>=2011-01-01', 'time<=2011-12-31', fields = c('longitude', 'latitude', 'larvae_size', 'scientific_name')))
 ```
 
 Since both `griddap()` and `tabledap()` give back data.frame's, it's easy to do downstream manipulation. For example, we can use `dplyr` to filter, summarize, group, and sort:
 
 ```{r}
 library("dplyr")
-dat$fish_size <- as.numeric(dat$fish_size)
-tbl_df(dat) %>%
-  filter(fish_size > 30) %>%
+dat$larvae_size <- as.numeric(dat$larvae_size)
+dat %>%
   group_by(scientific_name) %>%
-  summarise(mean_size = mean(fish_size)) %>%
+  summarise(mean_size = mean(larvae_size)) %>%
   arrange(desc(mean_size))
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rerddap` in publications use:
 
 <br>
 
->  Scott Chamberlain (2016). rerddap: General Purpose Client for 'ERDDAP' Servers. R
-  package version 0.3.4. https://github.com/ropensci/rerddap
+> Scott Chamberlain (2017). rerddap: General Purpose Client for
+  'ERDDAP' Servers. R package version 0.4.2.
+  https://CRAN.R-project.org/package=rerddap
 
-<section id="license_bugs">
 
-## License and bugs
+##E License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rerddap](https://github.com/ropensci/rerddap/issues?state=open)

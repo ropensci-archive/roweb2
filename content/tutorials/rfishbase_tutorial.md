@@ -1,6 +1,6 @@
 ---
 title: rfishbase tutorial
-package_version: 2.1.1
+package_version: 2.1.2
 ---
 
 
@@ -12,9 +12,8 @@ The new `rfishbase` package queries this API directly rather than the FishBase.o
 In having access to much more data, the new `rfishbase` can be difficult to navigate.  We have provided several helper functions for users to discover which tables they need, as illustrated below.  Unfortunately, FishBase.org lacks detailed documentation of all of the tables and fields contained in it's database.  For the most part, table and column names are self-documenting, but details are often missing which can create a puzzle for researchers trying to figure out precisely what data is provided in a given column. To address this challenge, we have created a crowd-sourced collection of documentation that can be queried from the API to provide more detailed descriptions.
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```r
@@ -36,7 +35,6 @@ devtools::install_github("ropensci/rfishbase")
 library("rfishbase")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -65,7 +63,7 @@ Another typical use case is in wanting to collect information about all species 
 ```r
 fish <- species_list(Genus = "Labroides")
 fish
-#> [1] "Labroides bicolor"       "Labroides dimidiatus"
+#> [1] "Labroides bicolor"       "Labroides dimidiatus"   
 #> [3] "Labroides pectoralis"    "Labroides phthirophagus"
 #> [5] "Labroides rubrolabiatus"
 ```
@@ -76,10 +74,10 @@ fish
 ```r
 fish <- common_to_sci("trout")
 fish
-#> [1] "Salmo trutta"               "Oncorhynchus mykiss"
+#> [1] "Salmo trutta"               "Oncorhynchus mykiss"       
 #> [3] "Salvelinus fontinalis"      "Salvelinus alpinus alpinus"
-#> [5] "Lethrinus miniatus"         "Salvelinus malma"
-#> [7] "Plectropomus leopardus"     "Schizothorax richardsonii"
+#> [5] "Lethrinus miniatus"         "Salvelinus malma"          
+#> [7] "Plectropomus leopardus"     "Schizothorax richardsonii" 
 #> [9] "Arripis truttacea"
 ```
 
@@ -167,7 +165,7 @@ The FishBase team has also created the SeaLifeBase project, which seeks to provi
 
 
 ```r
-options(FISHBASE_API = "http://fishbase.ropensci.org/sealifebase")
+options(FISHBASE_API = "https://fishbase.ropensci.org/sealifebase")
 kingcrab <- common_to_sci("king crab")
 kingcrab
 ```
@@ -179,21 +177,22 @@ ecology(kingcrab)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rfishbase` in publications use:
 
 <br>
 
-> C. Boettiger, D. T. Lang and P. C. Wainwright. "rfishbase: exploring, manipulating and
-  visualizing FishBase data from R". In: _Journal of Fish Biology_ 81.6 (Nov. 2012), pp.
-  2030-2039. DOI: 10.1111/j.1095-8649.2012.03464.x
+> C. Boettiger, D. T. Lang and P. C. Wainwright. "rfishbase: exploring,
+  manipulating and visualizing FishBase data from R". In: _Journal of
+  Fish Biology_ 81.6 (Nov. 2012), pp. 2030-2039. DOI:
+  10.1111/j.1095-8649.2012.03464.x
 
-<section id="license_bugs">
+> Carl Boettiger, Scott Chamberlain, Duncan Temple Lang, Peter Wainwright (2017). R Interface to 'FishBase'. R package version 2.1.2. https://CRAN.R-project.org/package=rfishbase
 
-## License and bugs
+
+### License and bugs
 
 * License: [CC0](https://creativecommons.org/share-your-work/public-domain/cc0)
 * Report bugs at [our Github repo for rfishbase](https://github.com/ropensci/rfishbase/issues?state=open)

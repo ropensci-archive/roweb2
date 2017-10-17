@@ -1,9 +1,7 @@
 ---
 title: aRxiv tutorial
-package_version: 0.5.10
+package_version: 0.5.16
 ---
-
-
 
 [arXiv](http://arxiv.org) is a repository of electronic preprints for
 computer science, mathematics, physics, quantitative biology,
@@ -16,9 +14,7 @@ Note that the arXiv API _does not_ require an API key.
 
 
 
-<section id="installation">
-
-## Installation
+### Installation
 
 
 ```r
@@ -33,11 +29,9 @@ install.packages("devtools")
 devtools::install_github("ropensci/aRxiv")
 ```
 
-<section id="usage">
+### Usage
 
-## Usage
-
-### Basic use
+**Basic use**
 
 Use `arxiv_search()` to search [arXiv](http://arxiv.org),
 `arxiv_count()` to get a simple count of manuscripts matching a
@@ -61,7 +55,7 @@ arxiv_count('au:"Peter Hall"')
 ```
 
 ```
-## [1] 53
+## [1] 56
 ```
 
 The `au:` part indicates to search the author field; we use double
@@ -94,10 +88,10 @@ attr(rec, "total_results")
 ```
 
 ```
-## [1] 53
+## [1] 56
 ```
 
-The following will get us all 53
+The following will get us all 56
 records.
 
 
@@ -181,7 +175,7 @@ strings. If it is a vector, the elements are pasted together with
 `id_list` may be a vector of character strings or a single
 comma-separated character string.
 
-#### Search terms
+**Search terms**
 
 Generally, one would ignore `id_list` and focus on forming the `query`
 argument. The aRxiv package includes a dataset `query_terms` that
@@ -216,7 +210,7 @@ arxiv_count('au:Peter au:Hall')
 ```
 
 ```
-## [1] 17385
+## [1] 20400
 ```
 
 ```r
@@ -224,7 +218,7 @@ arxiv_count('au:Peter OR au:Hall')
 ```
 
 ```
-## [1] 17385
+## [1] 20400
 ```
 
 ```r
@@ -232,7 +226,7 @@ arxiv_count('au:Peter AND au:Hall')
 ```
 
 ```
-## [1] 79
+## [1] 92
 ```
 
 ```r
@@ -240,7 +234,7 @@ arxiv_count('au:Hall ANDNOT au:Peter')
 ```
 
 ```
-## [1] 1500
+## [1] 1723
 ```
 
 It appears that in the author field (and many other fields) you must
@@ -260,7 +254,7 @@ arxiv_count('au:P AND au:Hall')
 ```
 
 ```
-## [1] 701
+## [1] 825
 ```
 
 ```r
@@ -268,10 +262,10 @@ arxiv_count('au:"P Hall"')
 ```
 
 ```
-## [1] 39
+## [1] 40
 ```
 
-#### Subject classifications
+**Subject classifications**
 
 arXiv has a set of 127 subject classifications,
 searchable with the prefix `cat:`. The aRxiv package contains a
@@ -309,7 +303,7 @@ arxiv_count('cat:stat.AP')
 ```
 
 ```
-## [1] 4505
+## [1] 5999
 ```
 
 ```r
@@ -317,10 +311,10 @@ arxiv_count('cat:stat*')
 ```
 
 ```
-## [1] 24353
+## [1] 33888
 ```
 
-#### Dates and ranges of dates
+**Dates and ranges of dates**
 
 The terms `submittedDate` (date/time of first submission) and
 `lastUpdatedDate` (date/time of last revision) are particularly
@@ -367,7 +361,7 @@ arxiv_count('submittedDate:[2007 TO 2008]')
 ## [1] 55749
 ```
 
-### Search results
+**Search results**
 
 The output of `arxiv_search()` is a data frame with the following
 columns.
@@ -379,10 +373,10 @@ names(res)
 ```
 
 ```
-##  [1] "id"               "submitted"        "updated"
-##  [4] "title"            "abstract"         "authors"
-##  [7] "affiliations"     "link_abstract"    "link_pdf"
-## [10] "link_doi"         "comment"          "journal_ref"
+##  [1] "id"               "submitted"        "updated"         
+##  [4] "title"            "abstract"         "authors"         
+##  [7] "affiliations"     "link_abstract"    "link_pdf"        
+## [10] "link_doi"         "comment"          "journal_ref"     
 ## [13] "doi"              "primary_category" "categories"
 ```
 
@@ -417,11 +411,11 @@ arxiv_count("14J60")
 ```
 
 ```
-## [1] 430
+## [1] 490
 ```
 
 
-### Sorting results
+**Sorting results**
 
 The `arxiv_search()` function has two arguments for sorting the results,
 `sort_by` (taking values `"submitted"`, `"updated"`, or
@@ -446,7 +440,7 @@ res$updated
 
 ### Technical details
 
-#### Metadata limitations
+**Metadata limitations**
 
 The [arXiv metadata](http://arxiv.org/help/prep) has a number of
 limitations, the key issue being that it is author-supplied and so not
@@ -470,7 +464,7 @@ Subject classifications are provided by the authors and may be
 incomplete or inappropriate.
 
 
-#### Limit time between search requests
+**Limit time between search requests**
 
 Care should be taken to avoid multiple requests to the arXiv API in a
 short period of time. The
@@ -495,7 +489,7 @@ options(aRxiv_delay=1)
 package). You may be locked out from the arXiv API.
 
 
-#### Limit number of items returned
+**Limit number of items returned**
 
 The arXiv API returns only complete records (including the entire
 abstracts); searches returning large numbers of records can be very
@@ -520,7 +514,7 @@ records, `arxiv_search()` uses an R option, `aRxiv_toomany` (with a
 default of 15,000), and refuses to attempt a search that will return
 results above that limit.
 
-#### Make requests in batches
+**Make requests in batches**
 
 Even for searches that return a moderate number of records (say
 2,000), it may be best to make the requests in batches: Use a smaller
@@ -534,20 +528,15 @@ than `batchsize` records to be returned by each, and then the results
 are combined.
 
 
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `aRxiv` in publications use:
-
-<br>
 
 > Karthik Ram and Karl Broman (2015). aRxiv: Interface to the arXiv API. R package version 0.5.10.
   https://cran.rstudio.com/package=aRxiv
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for aRxiv](https://github.com/ropensci/aRxiv/issues?state=open)

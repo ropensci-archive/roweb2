@@ -1,11 +1,11 @@
 ---
 title: rnaturalearth tutorial
-package_version: 0.0.0.9000
+package_version: 0.1.0
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/rnaturalearth/",
+	fig.path = "img/tutorial-images/rnaturalearth/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -30,9 +30,14 @@ This vignette is an introduction to [rnaturalearth](https://github.com/ropenscil
 This vignette uses `sp::plot` as a simple, quick way to show how different data can be accessed.`rnaturalearth` is designed to provide data allowing creation of more elaborate maps in other visualisation packages (e.g. `ggplot2`, `tmap` and `choroplethr`).
 
 
-<section id="installation">
 
-## Installation
+### Installation
+
+CRAN version
+
+```{r eval=FALSE}
+install.packages("rnaturalearth")
+```
 
 Development version from GitHub
 
@@ -46,7 +51,6 @@ library("rnaturalearth")
 library("sp")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -110,17 +114,16 @@ rivers110 <- ne_download(scale = 110, type = 'rivers_lake_centerlines', category
 sp::plot(rivers110, col = 'blue')
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Andy South 2016. rnaturalearth: World Map Data from Natural Earth. R
-  package version 0.0.0.9000. https://github.com/ropenscilabs/rnaturalearth
+> Andy South (2017). rnaturalearth: World Map Data from Natural Earth.
+  R package version 0.1.0.
+  https://CRAN.R-project.org/package=rnaturalearth
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for rnaturalearth](https://github.com/ropenscilabs/rnaturalearth/issues?state=open)

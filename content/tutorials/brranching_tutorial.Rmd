@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  fig.path = "../assets/tutorial-images/brranching/",
+  fig.path = "img/tutorial-images/brranching/",
   fig.width = 6,
   fig.height = 4,
   fig.cap = ""
@@ -18,9 +18,8 @@ knitr::opts_chunk$set(
 
 R client to fetch phylogenies from many places. Right now we only fetch phylogenies from [Phylomatic](http://phylodiversity.net/phylomatic/), but we'd like to add more sources down the road.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Install and load `brranching` into the R session. Stable version from CRAN
 
@@ -41,11 +40,11 @@ library('brranching')
 
 <section id="usage">
 
-## Usage
+### Usage
 
-### Phylomatic
+#### Phylomatic
 
-#### Use the web service
+**Use the web service**
 
 ```{r}
 taxa <- c("Poa annua", "Phlox diffusa", "Helianthus annuus")
@@ -62,7 +61,7 @@ out <- phylomatic(taxa = spp, get = "POST")
 plot(out, show.tip.label = FALSE)
 ```
 
-#### Use Phylomatic locally
+**Use Phylomatic locally**
 
 Phylomatic is written in `Awk`, and the code can be downloaded to run locally on your own machine.
 This approach is for the more adventurous user. The benefit of using Phylomatic locally is
@@ -89,7 +88,7 @@ Then we can plot just as above using the `phylomatic()` function
 plot(tree, no.margin = TRUE)
 ```
 
-## Citing
+### Citing
 
 To cite `brranching` in publications use:
 
@@ -97,9 +96,7 @@ To cite `brranching` in publications use:
 
 > Scott Chamberlain (2016). brranching: Fetch 'Phylogenies' from Many Sources. R package version 0.2.0. https://github.com/ropensci/brranching
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rnoaa](https://github.com/ropensci/brranching/issues?state=open)

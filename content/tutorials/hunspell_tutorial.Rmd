@@ -1,11 +1,10 @@
 ---
 title: hunspell tutorial
-package_version: 1.4.3
+package_version: 2.6
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/hunspell/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -25,9 +24,8 @@ See also these blog posts about `hunspell`:
 - [Hunspell: Spell Checker and Text Parser for R](https://www.opencpu.org/posts/hunspell-release/)
 - [Stemming and Spell Checking in R](https://www.opencpu.org/posts/hunspell-1-2/)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("hunspell")
@@ -44,9 +42,6 @@ devtools::install_github("ropensci/hunspell")
 library("hunspell")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Check individual words
 
@@ -78,20 +73,18 @@ hunspell_stem(words)
 hunspell_analyze(words)
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `hunspell` in publications use:
 
 <br>
 
-> Jeroen Ooms (2016). hunspell: Morphological Analysis and Spell Checker
-  for R. R package version 1.4.3. https://cran.rstudio.com/package=hunspell
+> Jeroen Ooms (2017). hunspell: High-Performance Stemmer, Tokenizer,
+  and Spell Checker for R. R package version 2.6. https://CRAN.R-project.org/package=hunspell
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for hunspell](https://github.com/ropensci/hunspell/issues?state=open)

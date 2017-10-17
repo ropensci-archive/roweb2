@@ -5,22 +5,19 @@ package_version: 0.1
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path="../assets/tutorial-images/historydata/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
   fig.width=6,
-  fig.height=4,
-  cache=TRUE
+  fig.height=4
 )
 ```
 
 Datasets for Historians
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("historydata")
@@ -37,9 +34,8 @@ devtools::install_github("ropensci/historydata")
 library("historydata")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
 List all the datasets in the package with their documentation:
 
@@ -76,9 +72,8 @@ head(judges_people)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `historydata` in publications use:
 
@@ -87,9 +82,8 @@ To cite `historydata` in publications use:
 > Lincoln Mullen (2014). historydata: Data Sets for Historians. R package version 0.1.
   https://cran.rstudio.com/package=historydata
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for historydata](https://github.com/ropensci/historydata/issues?state=open)

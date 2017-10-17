@@ -1,11 +1,11 @@
 ---
 title: rentrez tutorial
-package_version: 1.0.2
+package_version: 1.1.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path="../assets/tutorial-images/rentrez/",
+	fig.path="img/tutorial-images/rentrez/",
 	warning=FALSE,
 	comment="#>"
 )
@@ -37,9 +37,8 @@ short). This package provides functions to use that API, allowing users to
 gather and combine data from multiple NCBI databases in the comfort of an R
 session or script.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```{r eval=FALSE}
@@ -60,7 +59,6 @@ library("rentrez")
 ```
 
 
-<section id="usage">
 
 ### Getting started with the rentrez
 
@@ -198,7 +196,7 @@ of available terms or any given data base with `entrez_db_searchable()`
 entrez_db_searchable("sra")
 ```
 
-####Precise queries using MeSH terms
+#### Precise queries using MeSH terms
 
 In addition to the search terms described above, the NCBI allows searches using
 [Medical Subject Heading (MeSH)](http://www.ncbi.nlm.nih.gov/mesh) terms. These
@@ -249,7 +247,7 @@ type are connected to  other records within the NCBI or to external data
 sources. The function `entrez_link()` allows users to discover these links
 between records.
 
-####My god, it's full of links
+#### My god, it's full of links
 
 To get an idea of the degree to which records in the NCBI are cross-linked we
 can find all NCBI data associated with a single gene (in this case the
@@ -437,105 +435,6 @@ date_and_cite <- extract_from_esummary(multi_summs, c("pubdate", "pmcrefcount", 
 knitr::kable(head(t(date_and_cite)), row.names=FALSE)
 ```
 
-###Fetching full records: `entrez_fetch()`
-
-As useful as the summary records are, sometimes they just don't have the
-information that you need. If you want a complete representation of a record you
-can use `entrez_fetch`, using the argument `rettype` to specify the format you'd
-like the record in.
-
-####Fetch DNA sequences in fasta format
-
-Let's extend the example given in the `entrez_link()` section about finding
-transcript for a given gene. This time we will fetch cDNA sequences of those
-transcripts.We can start by repeating the steps in the earlier example
-to get nucleotide IDs for refseq transcripts of two genes:
-
-```{r, transcript_ids}
-gene_ids <- c(351, 11647)
-linked_seq_ids <- entrez_link(dbfrom="gene", id=gene_ids, db="nuccore")
-linked_transripts <- linked_seq_ids$links$gene_nuccore_refseqrna
-head(linked_transripts)
-```
-
-Now we can get our sequences with `entrez_fetch`, setting `rettype` to "fasta"
-(the list of formats available for [each database is give in this table](http://www.ncbi.nlm.nih.gov/books/NBK25499/table/chapter4.T._valid_values_of__retmode_and/)):
-
-```{r fetch_fasta}
-all_recs <- entrez_fetch(db="nuccore", id=linked_transripts, rettype="fasta")
-class(all_recs)
-nchar(all_recs)
-```
-
-Congratulations, now you have a really huge character vector! Rather than
-printing all those thousands of bases we can take a peak at the top of the file:
-
-```{r, peak}
-cat(strwrap(substr(all_recs, 1, 500)), sep="\n")
-```
-
-If we wanted to use these sequences in some other application we could write them
-to file:
-
-```r
-write(all_recs, file="my_transcripts.fasta")
-```
-
-Alternatively, if you want to use them  within an R session
-we could write them to a  temporary file then read that. In this case I'm using `read.dna()` from the
-pylogenetics package ape (but not executing the code block in this vignette, so
-you don't have to install that package):
-
-```r
-temp <- tempfile()
-write(all_recs, temp)
-parsed_recs <- ape::read.dna(all_recs, temp)
-```
-
-####Fetch a parsed XML document
-
-Most of the NCBI's databases can return records in XML format. In additional to
-downloading the text-representation of these files, `entrez_fetch()` can return
-objects parsed by the `XML` package. As an example, we can check out the  Taxonomy
-database's record for (did I mention they are amazing....) _Tetrahymena
-thermophila_, specifying we want the result to be parsed by setting
-`parsed=TRUE`:
-
-```{r, Tt_tax}
-Tt <- entrez_search(db="taxonomy", term="(Tetrahymena thermophila[ORGN]) AND Species[RANK]")
-tax_rec <- entrez_fetch(db="taxonomy", id=Tt$ids, rettype="xml", parsed=TRUE)
-class(tax_rec)
-```
-
-The package XML (which you have if you have installed `rentrez`) provides
-functions to get information from these files. For relatively simple records
-like this one you can use `XML::xmlToList`:
-
-```{r, Tt_list}
-tax_list <- XML::xmlToList(tax_rec)
-tax_list$Taxon$GeneticCode
-```
-
-For more complex records, which generate deeply-nested lists, you can use
-[XPath expressions](https://en.wikipedia.org/wiki/XPath) along with the function
-`XML::xpathSApply` or the extraction operatord `[` and `[[` to extract specific parts of the
-file. For instance, we can get the scientific name of each taxon in _T.
-thermophila_'s lineage by specifying a path through the XML
-
-```{r, Tt_path}
-tt_lineage <- tax_rec["//LineageEx/Taxon/ScientificName"]
-tt_lineage[1:4]
-```
-
-As the name suggests, `XML::xpathSApply()` is a counterpart of base R's
-`sapply`, and can be used to apply a function to
-nodes in an XML object. A particularly useful function to apply is `XML::xmlValue`,
-which returns the content of the node:
-
-```{r, Tt_apply}
-XML::xpathSApply(tax_rec, "//LineageEx/Taxon/ScientificName", XML::xmlValue)
-```
-There are a few more complex examples of using `XPath` [on the rentrez wiki](https://github.com/ropensci/rentrez/wiki)
 
 <a name="web_history"></a>
 
@@ -638,28 +537,18 @@ for( seq_start in seq(1,200,50)){
 }
 ```
 
-###What next ?
 
-This tutorial has introduced you to the core functions of `rentrez`, there are
-almost limitless ways that you could put them together. [Check out the wiki](https://github.com/ropensci/rentrez/wiki)
-for more specific examples, and be sure to read the inline-documentation for
-each function. If you run into problem with rentrez, or just need help with the
-package and `Eutils` please contact us by opening an issue at the [github
-repository](https://github.com/ropensci/rentrez/issues)
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `rentrez` in publications use:
 
 <br>
 
-> David Winter (2016). rentrez: Entrez in R. R package version 1.0.2. https://github.com/ropensci/rentrez
+> David Winter (2017). rentrez: Entrez in R. R package version 1.1.0.
+  https://CRAN.R-project.org/package=rentrez
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rentrez](https://github.com/ropensci/rentrez/issues?state=open)

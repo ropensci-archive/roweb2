@@ -5,7 +5,7 @@ package_version: 0.7.0
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/antweb/",
+  fig.path = "img/tutorial-images/antweb/",
   comment = "#>",
 	warning = FALSE,
 	message = FALSE
@@ -14,9 +14,8 @@ knitr::opts_chunk$set(
 
 [AntWeb](http://www.antweb.org/) is a repository that boasts a wealth of natural history data, digital images, and specimen records on ant species from a large community of museum curators.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("AntWeb")
@@ -29,12 +28,10 @@ library("devtools")
 install_github("ropensci/AntWeb")
 ```
 
-<section id="usage">
-
-## Usage
+### Usage
 
 
-### Searching through the database
+#### Searching through the database
 
 As with most of our packages, there are several ways to search through an API. In the case of AntWeb, you can search by a genus or full species name or by other taxonomic ranks like sub-phylum.
 
@@ -73,7 +70,7 @@ This will search for data on a 2 km radius around that latitude/longitude
 data_by_loc <- aw_coords(coord = "37.76,-122.45", r = 2)
 ```
 
-### Mapping ant specimen data
+#### Mapping ant specimen data
 
 As with the previous ecoengine package, you can also visualize location data for any set of species. Adding `georeferenced = TRUE` to a data retrieval call will filter out any data points without location information. Once retrieved the data are mapped with the open source [Leaflet.js](http://leafletjs.com/) and pushed to your default browser. Maps and associated `geoJSON` files are also saved to a location specified (or defaults to your `/tmp` folder). This feature is only available on the development version on GitHub (`0.5.2` or greater; see above on how to install) and will be available from CRAN in version `0.6`
 
@@ -84,19 +81,13 @@ aw_map(acd)
 
 ![](../assets/tutorial-images/antweb/leafletmap.png)
 
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `AntWeb` in publications use:
 
-<br>
-
 > 'Karthik Ram' (2014). AntWeb: programmatic interface to the AntWeb. R package version 0.6.1. http://CRAN.R-project.org/package=AntWeb
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [CC0](http://creativecommons.org/choose/zero/)
 * Report bugs at [our Github repo for AntWeb](https://github.com/AntWeb/issues?state=open)

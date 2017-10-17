@@ -1,6 +1,6 @@
 ---
 title: rbhl tutorial
-package_version: 0.2.0
+package_version: 0.8.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
@@ -28,7 +28,7 @@ knitr::knit_hooks$set(output = function(x, options) {
    hook_output(x, options)
 })
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rbhl/",
+  fig.path = "img/tutorial-images/rbhl/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -39,9 +39,7 @@ knitr::opts_chunk$set(
 `rbhl` is an R interface to the Biodiversity Heritage Library.
 
 
-<section id="installation">
-
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("rbhl")
@@ -57,8 +55,6 @@ devtools::install_github("ropensci/rbhl")
 ```{r}
 library("rbhl")
 ```
-
-<section id="usage">
 
 ## Usage
 
@@ -118,50 +114,17 @@ This function gets a list of languages in which materials in BHL have been writt
 bhl_getlanguages()
 ```
 
-### Use case for BHL data
-
-Here, we'll xxx, then plot the data using `ggplot2`
-
-```{r cache=TRUE}
-res <- bhl_booksearch(title = 'Selborne', lname = 'White', volume = 2, edition = 'new', year = 1825, collectionid = 4, language = 'eng')
-pages <- getpages(res$data$Items[[1]]$ItemID)
-```
-
-Remove `NULL`'s
-
-```{r}
-pages <- Filter(function(x) !is.null(x), pages)
-```
-
-Cleanup text
-
-```{r}
-pages_clean <- lapply(pages, function(x) gsub("\n", "", x))
-```
-
-Examine pages
-
-```{r}
-pages_clean[10:12]
-```
-
-With this text data, you can do text mining of the content to answer cool questions you have.
-
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `rbhl` in publications use:
 
 <br>
 
-> Scott Chamberlain (2015). rbhl: Interface to the 'Biodiversity' 'Heritage' Library. R package
-  version 0.2.0. https://cran.rstudio.com/package=rbhl
+> Scott Chamberlain (2017). rbhl: Interface to the 'Biodiversity'
+  'Heritage' Library. R package version 0.8.0.
+  https://CRAN.R-project.org/package=rbhl
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rbhl](https://github.com/ropensci/rbhl/issues?state=open)

@@ -9,7 +9,7 @@ package_version: 0.1.0
 
 [etcd API docs](https://github.com/coreos/etcd/blob/master/Documentation/v2/api.md)
 
-## Installing etcd
+**Installing etcd**
 
 See the [etcd Github repo](https://github.com/coreos/etcd#etcd) for help on installing `etcd`.
 
@@ -17,7 +17,7 @@ There are various ways to install it, and they depend on your operating sytsem.
 
 You can install via `homebrew`, install from source, and via Docker.
 
-## Start etcd
+**Start etcd**
 
 at the command line
 
@@ -27,9 +27,8 @@ etcd
 
 > how to start etcd may differ depending on your setup
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -51,11 +50,10 @@ devtools::install_github("ropensci/etseed")
 library("etseed")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
-### Make a client
+**Make a client**
 
 First task when using this package is to initialize a client
 with the `etcd()` function. it's a wrapper around an R6 class.
@@ -74,19 +72,19 @@ with the `etcd()` function. it's a wrapper around an R6 class.
 Default settings in `etcd()` connect you to `localhost`, and port `2379`,
 using etcd API version 2, with an `http` scheme.
 
-### Get version
+**Get version**
 
 
 ```r
 client$version()
 #> $etcdserver
-#> [1] "3.0.9"
-#>
+#> [1] "3.2.9"
+#> 
 #> $etcdcluster
-#> [1] "3.0.0"
+#> [1] "3.2.0"
 ```
 
-### Create a directory
+**Create a directory**
 
 
 
@@ -95,22 +93,22 @@ client$version()
 client$create("/neighbor", dir = TRUE)
 #> $action
 #> [1] "set"
-#>
+#> 
 #> $node
 #> $node$key
 #> [1] "/neighbor"
-#>
+#> 
 #> $node$dir
 #> [1] TRUE
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 219
-#>
+#> [1] 6480
+#> 
 #> $node$createdIndex
-#> [1] 219
+#> [1] 6480
 ```
 
-### Create a key
+**Create a key**
 
 
 
@@ -119,19 +117,19 @@ client$create("/neighbor", dir = TRUE)
 client$create(key = "/mykey", value = "this is awesome")
 #> $action
 #> [1] "set"
-#>
+#> 
 #> $node
 #> $node$key
 #> [1] "/mykey"
-#>
+#> 
 #> $node$value
 #> [1] "this is awesome"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 220
-#>
+#> [1] 6482
+#> 
 #> $node$createdIndex
-#> [1] 220
+#> [1] 6482
 ```
 
 
@@ -143,25 +141,25 @@ Use `ttl` parameter to make it dissappear after `x` seconds
 client$create(key = "/stuff", value = "tables", ttl = 5)
 #> $action
 #> [1] "set"
-#>
+#> 
 #> $node
 #> $node$key
 #> [1] "/stuff"
-#>
+#> 
 #> $node$value
 #> [1] "tables"
-#>
+#> 
 #> $node$expiration
-#> [1] "2016-10-13T23:27:23.974782735Z"
-#>
+#> [1] "2017-10-17T00:19:35.356961171Z"
+#> 
 #> $node$ttl
 #> [1] 5
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 221
-#>
+#> [1] 6483
+#> 
 #> $node$createdIndex
-#> [1] 221
+#> [1] 6483
 ```
 
 And the key will be gone after 5 seconds, see:
@@ -173,7 +171,7 @@ client$key("/stuff")
 #>   client error: (404) Not Found
 ```
 
-### Update a key
+**Update a key**
 
 
 
@@ -184,19 +182,19 @@ Create a key
 client$create(key = "/foo", value = "bar")
 #> $action
 #> [1] "set"
-#>
+#> 
 #> $node
 #> $node$key
 #> [1] "/foo"
-#>
+#> 
 #> $node$value
 #> [1] "bar"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 222
-#>
+#> [1] 6485
+#> 
 #> $node$createdIndex
-#> [1] 222
+#> [1] 6485
 ```
 
 Then update the key
@@ -206,55 +204,55 @@ Then update the key
 client$update(key = "/foo", value = "bar stool")
 #> $action
 #> [1] "set"
-#>
+#> 
 #> $node
 #> $node$key
 #> [1] "/foo"
-#>
+#> 
 #> $node$value
 #> [1] "bar stool"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 223
-#>
+#> [1] 6486
+#> 
 #> $node$createdIndex
-#> [1] 223
-#>
-#>
+#> [1] 6486
+#> 
+#> 
 #> $prevNode
 #> $prevNode$key
 #> [1] "/foo"
-#>
+#> 
 #> $prevNode$value
 #> [1] "bar"
-#>
+#> 
 #> $prevNode$modifiedIndex
-#> [1] 222
-#>
+#> [1] 6485
+#> 
 #> $prevNode$createdIndex
-#> [1] 222
+#> [1] 6485
 ```
 
-### Create in-order keys
+**Create in-order keys**
 
 
 ```r
 client$create_inorder("/queue", "thing1")
 #> $action
 #> [1] "create"
-#>
+#> 
 #> $node
 #> $node$key
-#> [1] "/queue/00000000000000000224"
-#>
+#> [1] "/queue/00000000000000006487"
+#> 
 #> $node$value
 #> [1] "thing1"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 224
-#>
+#> [1] 6487
+#> 
 #> $node$createdIndex
-#> [1] 224
+#> [1] 6487
 ```
 
 
@@ -262,19 +260,19 @@ client$create_inorder("/queue", "thing1")
 client$create_inorder("/queue", "thing2")
 #> $action
 #> [1] "create"
-#>
+#> 
 #> $node
 #> $node$key
-#> [1] "/queue/00000000000000000225"
-#>
+#> [1] "/queue/00000000000000006488"
+#> 
 #> $node$value
 #> [1] "thing2"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 225
-#>
+#> [1] 6488
+#> 
 #> $node$createdIndex
-#> [1] 225
+#> [1] 6488
 ```
 
 
@@ -282,171 +280,169 @@ client$create_inorder("/queue", "thing2")
 client$create_inorder("/queue", "thing3")
 #> $action
 #> [1] "create"
-#>
+#> 
 #> $node
 #> $node$key
-#> [1] "/queue/00000000000000000226"
-#>
+#> [1] "/queue/00000000000000006489"
+#> 
 #> $node$value
 #> [1] "thing3"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 226
-#>
+#> [1] 6489
+#> 
 #> $node$createdIndex
-#> [1] 226
+#> [1] 6489
 ```
 
-### List keys
+**List keys**
 
 
 ```r
 client$keys()
 #> $action
 #> [1] "get"
-#>
+#> 
 #> $node
 #> $node$dir
 #> [1] TRUE
-#>
+#> 
 #> $node$nodes
 #> $node$nodes[[1]]
 #> $node$nodes[[1]]$key
-#> [1] "/apylsnuqk"
-#>
-#> $node$nodes[[1]]$dir
-#> [1] TRUE
-#>
+#> [1] "/mykey"
+#> 
+#> $node$nodes[[1]]$value
+#> [1] "this is awesome"
+#> 
 #> $node$nodes[[1]]$modifiedIndex
-#> [1] 207
-#>
+#> [1] 6482
+#> 
 #> $node$nodes[[1]]$createdIndex
-#> [1] 207
-#>
-#>
+#> [1] 6482
+#> 
+#> 
 #> $node$nodes[[2]]
 #> $node$nodes[[2]]$key
-#> [1] "/neighbor"
-#>
-#> $node$nodes[[2]]$dir
-#> [1] TRUE
-#>
+#> [1] "/foo"
+#> 
+#> $node$nodes[[2]]$value
+#> [1] "bar stool"
+#> 
 #> $node$nodes[[2]]$modifiedIndex
-#> [1] 219
-#>
+#> [1] 6486
+#> 
 #> $node$nodes[[2]]$createdIndex
-#> [1] 219
-#>
-#>
+#> [1] 6486
+#> 
+#> 
 #> $node$nodes[[3]]
 #> $node$nodes[[3]]$key
-#> [1] "/foo"
-#>
+#> [1] "/spnacziur"
+#> 
 #> $node$nodes[[3]]$value
-#> [1] "bar stool"
-#>
+#> [1] "saturn cow and moon cheese"
+#> 
 #> $node$nodes[[3]]$modifiedIndex
-#> [1] 223
-#>
+#> [1] 6452
+#> 
 #> $node$nodes[[3]]$createdIndex
-#> [1] 223
-#>
-#>
+#> [1] 6452
+#> 
+#> 
 #> $node$nodes[[4]]
 #> $node$nodes[[4]]$key
-#> [1] "/eorgswujl"
-#>
-#> $node$nodes[[4]]$value
-#> [1] "saturn cow and moon cheese"
-#>
+#> [1] "/neighbor"
+#> 
+#> $node$nodes[[4]]$dir
+#> [1] TRUE
+#> 
 #> $node$nodes[[4]]$modifiedIndex
-#> [1] 213
-#>
+#> [1] 6480
+#> 
 #> $node$nodes[[4]]$createdIndex
-#> [1] 213
-#>
-#>
+#> [1] 6480
+#> 
+#> 
 #> $node$nodes[[5]]
 #> $node$nodes[[5]]$key
-#> [1] "/mykey"
-#>
-#> $node$nodes[[5]]$value
-#> [1] "this is awesome"
-#>
+#> [1] "/bgkalixcd"
+#> 
+#> $node$nodes[[5]]$dir
+#> [1] TRUE
+#> 
 #> $node$nodes[[5]]$modifiedIndex
-#> [1] 220
-#>
+#> [1] 6446
+#> 
 #> $node$nodes[[5]]$createdIndex
-#> [1] 220
-#>
-#>
+#> [1] 6446
+#> 
+#> 
 #> $node$nodes[[6]]
 #> $node$nodes[[6]]$key
 #> [1] "/stuff"
-#>
+#> 
 #> $node$nodes[[6]]$value
 #> [1] "tables"
-#>
+#> 
 #> $node$nodes[[6]]$expiration
-#> [1] "2016-10-13T23:27:23.974782735Z"
-#>
+#> [1] "2017-10-17T00:19:35.356961171Z"
+#> 
 #> $node$nodes[[6]]$ttl
 #> [1] 5
-#>
+#> 
 #> $node$nodes[[6]]$modifiedIndex
-#> [1] 221
-#>
+#> [1] 6483
+#> 
 #> $node$nodes[[6]]$createdIndex
-#> [1] 221
-#>
-#>
+#> [1] 6483
+#> 
+#> 
 #> $node$nodes[[7]]
 #> $node$nodes[[7]]$key
 #> [1] "/queue"
-#>
+#> 
 #> $node$nodes[[7]]$dir
 #> [1] TRUE
-#>
+#> 
 #> $node$nodes[[7]]$modifiedIndex
-#> [1] 224
-#>
+#> [1] 6463
+#> 
 #> $node$nodes[[7]]$createdIndex
-#> [1] 224
+#> [1] 6463
 ```
 
-### List a key
+**List a key**
 
 
 ```r
 client$key("/mykey")
 #> $action
 #> [1] "get"
-#>
+#> 
 #> $node
 #> $node$key
 #> [1] "/mykey"
-#>
+#> 
 #> $node$value
 #> [1] "this is awesome"
-#>
+#> 
 #> $node$modifiedIndex
-#> [1] 220
-#>
+#> [1] 6482
+#> 
 #> $node$createdIndex
-#> [1] 220
+#> [1] 6482
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain (2016). etseed: Client for 'etcd', a 'Key-value' Database. R package version 0.1.0. https://CRAN.R-project.org/package=etseed
+> Scott Chamberlain (2016). etseed: Client for 'etcd', a 'Key-value' Database. R package version 0.1.0. https://cran.rstudio.com/package=etseed
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for etseed](https://github.com/ropensci/etseed/issues?state=open)

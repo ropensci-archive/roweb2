@@ -1,11 +1,11 @@
 ---
 title: originr tutorial
-package_version: 0.1.0
+package_version: 0.2.0
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/originr/",
+	fig.path = "img/tutorial-images/originr/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -24,9 +24,8 @@ Data sources:
 * Integrated Taxonomic Information Service [http://www.itis.gov/](http://www.itis.gov/)
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -45,7 +44,6 @@ devtools::install_github("ropenscilabs/originr")
 library("originr")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -90,17 +88,15 @@ flora_europaea("Lavandula stoechas")
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 > Scott Chamberlain and Ignasi Bartomeus (2016). originr: Fetch Species
-  Origin Data from the Web. R package version 0.1.0. https://cran.rstudio.com/package=originr
+  Origin Data from the Web. R package version 0.2.0. https://cran.rstudio.com/package=originr
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for originr](https://github.com/ropenscilabs/originr/issues?state=open)

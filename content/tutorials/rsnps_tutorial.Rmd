@@ -1,18 +1,17 @@
 ---
 title: rsnps tutorial
-package_version: 0.1.6
+package_version: 0.2.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rsnps/",
+  fig.path = "img/tutorial-images/rsnps/",
   comment = "#>"
 )
 ```
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -31,13 +30,10 @@ devtools::install_github("ropensci/rsnps")
 library("rsnps")
 ```
 
-<section id="usage">
 
-## Usage
+### OpenSNP data
 
-## OpenSNP data
-
-### All Genotypes
+#### All Genotypes
 
 Get genotype data for all users at a particular SNP
 
@@ -50,7 +46,7 @@ allgensnp('rs7412', df=TRUE)[1:10,]
 ```
 
 
-### All Phenotypes
+#### All Phenotypes
 
 Get all phenotypes, their variations, and how many users have data available for a given phenotype
 
@@ -84,7 +80,7 @@ Get data.frame for _mouth size_ and _SAT Writing_
 datalist[c("mouth size","SAT Writing")]
 ```
 
-### Annotations
+#### Annotations
 
 Get just the metadata
 
@@ -110,7 +106,7 @@ Get all annotations
 annotations(snp = 'rs7903146', output = 'all')[1:5,]
 ```
 
-### Download
+#### Download
 
 Download genotype data for a user from 23andme or other repo. (not evaluated in this example)
 
@@ -120,7 +116,7 @@ head( data[[1]] )
 fetch_genotypes(url = data[[1]][1,"genotypes.download_url"], rows=15)
 ```
 
-### Genotype user data
+#### Genotype user data
 
 Genotype data for one or multiple users
 
@@ -136,7 +132,7 @@ genotypes('rs9939609', userid='1,6,8', df=TRUE)
 genotypes('rs9939609', userid='1-2', df=FALSE)
 ```
 
-### Phenotype user data
+#### Phenotype user data
 
 Get phenotype data for one or multiple users
 
@@ -154,7 +150,7 @@ out <- phenotypes(userid='1-8', df=TRUE)
 lapply(out, head)
 ```
 
-### All known variations
+#### All known variations
 
 Get all known variations and all users sharing that phenotype for one phenotype(-ID).
 
@@ -170,24 +166,17 @@ phenotypes_byid(phenotypeid=12, return_ = 'knownvars')
 phenotypes_byid(phenotypeid=12, return_ = 'users')[1:10,]
 ```
 
-### OpenSNP users
+#### OpenSNP users
 
 ```{r}
 data <- users(df=FALSE)
 data[1:2]
 ```
 
-## NCBI SNP data
+### NCBI SNP data
 
-### LDSearch
 
-Search for SNPs in Linkage Disequilibrium with a set of SNPs
-
-```{r}
-LDSearch("rs420358")
-```
-
-### dbSNP
+#### dbSNP
 
 Query NCBI's dbSNP for information on a set of SNPs
 
@@ -198,19 +187,19 @@ snps <- c("rs332", "rs420358", "rs1837253", "rs1209415715", "rs111068718")
 NCBI_snp_query(snps)
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rsnps` in publications use:
 
 <br>
 
-> Scott Chamberlain and Kevin Ushey (2014). rsnps: Get SNP (Single-Nucleotide Polymorphism) data on the web. R package version 0.1.6 https://github.com/ropensci/rsnps
+> Scott Chamberlain, Kevin Ushey and Hao Zhu (2016). rsnps: Get 'SNP'
+  ('Single-Nucleotide' 'Polymorphism') Data on the Web. R package
+  version 0.2.0. https://CRAN.R-project.org/package=rsnps
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rsnps](https://github.com/ropensci/rsnps/issues?state=open)

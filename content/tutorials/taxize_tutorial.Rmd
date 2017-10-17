@@ -1,11 +1,11 @@
 ---
 title: taxize tutorial
-package_version: 0.7.5
+package_version: 0.9.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/taxize/",
+  fig.path = "img/tutorial-images/taxize/",
   comment = "#>",
   warning = FALSE,
   message = FALSE
@@ -14,11 +14,8 @@ knitr::opts_chunk$set(
 
 `taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases availab on the web.
 
-********************
 
-<section id="installation">
-
-## Installation
+### Installation
 
 First, install and load `taxize` into the R session.
 
@@ -37,11 +34,10 @@ devtools::install_github("ropensci/taxize")
 library("taxize")
 ```
 
-<section id="usage">
 
 ## Usage
 
-## Resolve taxonomic name
+### Resolve taxonomic name
 
 This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the [Encyclopedia of Life][eol]. Here, we are searching for two misspelled names:
 
@@ -60,7 +56,7 @@ mynames <- c("Helianthus annuus ssp. jaegeri", "Helianthus annuus ssp. lenticula
 lapply(tsn, itis_acceptname)
 ```
 
-## Retrieve higher taxonomic names
+### Retrieve higher taxonomic names
 
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
@@ -81,7 +77,7 @@ tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
 
 I may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
 
-## Interactive name selection
+### Interactive name selection
 
 As mentioned most databases use a numeric code to reference a species. A general workflow in taxize is: Retrieve Code for the queried species and then use this code to query more data/information.
 
@@ -132,7 +128,7 @@ That's a lot of data, so we can get only certain rows back
 get_nbnid_("Poa annua", rows = 1:10)
 ```
 
-## Coerce numerics/alphanumerics to taxon IDs
+### Coerce numerics/alphanumerics to taxon IDs
 
 We've also introduced in `v0.5` the ability to coerce numerics and alphanumerics to taxonomic ID classes that are usually only retrieved via `get_*()` functions.
 
@@ -152,7 +148,7 @@ system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
 ```
 
-## What taxa are downstream of my taxon of interest?
+### What taxa are downstream of my taxon of interest?
 
 If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa, both for the [Catalogue of Life (CoL)][col] and the [Integrated Taxonomic Information System][itis]. Here is a short example using the CoL in which we want to find all the species within the genus *Apis* (honey bees).
 
@@ -166,7 +162,7 @@ We can also request data from ITIS
 downstream("Apis", downto = "Species", db = "itis")
 ```
 
-## Direct children
+### Direct children
 
 You may sometimes only want the direct children. We got you covered on that front, with methods for ITIS, NCBI, and Catalogue of Life. For example, let's get direct children (species in this case) of the bee genus _Apis_ using COL data:
 
@@ -180,7 +176,7 @@ The direct children (genera in this case) of _Pinaceae_ using NCBI data:
 children("Pinaceae", db = "ncbi")
 ```
 
-## Get NCBI ID from GenBank Ids
+### Get NCBI ID from GenBank Ids
 
 With accession numbers
 
@@ -194,34 +190,8 @@ With gi numbers
 genbank2uid(id = 62689767)
 ```
 
-## Matching species tables with different taxonomic resolution
 
-Biologist often need to match different sets of data tied to species. For example, trait-based approaches are a promising tool in ecology. One problem is that abundance data must be matched with trait databases. These two data tables may contain species information on different taxonomic levels and possibly data must be aggregated to a joint taxonomic level, so that the data can be merged. taxize can help in this data-cleaning step, providing a reproducible workflow:
-
-We can use the mentioned `classification`-function to retrieve the taxonomic hierarchy and then search the hierarchies up- and downwards for matches. Here is an example to match a species with names on three different taxonomic levels.
-
-```{r tax_match, cache=FALSE, tidy=FALSE, message=FALSE}
-A <- "gammarus roeseli"
-
-B1 <- "gammarus roeseli"
-B2 <- "gammarus"
-B3 <- "gammaridae"
-
-A_clas <- classification(A, db = 'ncbi')
-B1_clas <- classification(B1, db = 'ncbi')
-B2_clas <- classification(B2, db = 'ncbi')
-B3_clas <- classification(B3, db = 'ncbi')
-
-B1[match(A, B1)]
-A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B2]
-A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
-```
-
-If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `taxize` in publications use:
 
@@ -229,11 +199,13 @@ To cite `taxize` in publications use:
 
 > Scott Chamberlain and Eduard Szocs (2013). taxize - taxonomic search and retrieval in R. F1000Research, 2:191. URL: http://f1000research.com/articles/2-191/v2.
 
-> Scott Chamberlain, Eduard Szocs, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, Zachary Foster, and James O'Donnell (2016) taxize: Taxonomic information from around the web. R package version 0.7.5. https://github.com/ropensci/taxize
+> Scott Chamberlain, Eduard Szocs, Carl Boettiger, Karthik Ram, Ignasi
+  Bartomeus, John Baumgartner, Zachary Foster, James O'Donnell, and
+  Jari Oksanen (2017). taxize: Taxonomic information from around the web. R package
+  version 0.9.0. https://github.com/ropensci/taxize
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for taxize](https://github.com/ropensci/taxize/issues?state=open)

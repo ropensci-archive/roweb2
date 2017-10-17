@@ -46,7 +46,7 @@ tree <- phylomatic(taxa = taxa, get = 'POST')
 plot(tree, no.margin = TRUE)
 ```
 
-![](../assets/tutorial-images/brranching/unnamed-chunk-4-1.png)
+![](/img/tutorial-images/brranching/unnamed-chunk-4-1.png)
 
 You can pass in up to about 5000 names. We can use `taxize` to get a random set of plant species names.
 
@@ -58,7 +58,7 @@ out <- phylomatic(taxa = spp, get = "POST")
 plot(out, show.tip.label = FALSE)
 ```
 
-![](../assets/tutorial-images/brranching/unnamed-chunk-5-1.png)
+![](/img/tutorial-images/brranching/unnamed-chunk-5-1.png)
 
 #### Use Phylomatic locally
 
@@ -98,7 +98,7 @@ Then we can plot just as above using the `phylomatic()` function
 plot(tree, no.margin = TRUE)
 ```
 
-![](../assets/tutorial-images/brranching/unnamed-chunk-7-1.png)
+![](/img/tutorial-images/brranching/unnamed-chunk-7-1.png)
 
 ## Citing
 

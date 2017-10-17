@@ -1,6 +1,6 @@
 ---
 title: lawn tutorial
-package_version: 0.1.7
+package_version: 0.4.2
 ---
 
 ```{r echo=FALSE}
@@ -19,9 +19,7 @@ knitr::opts_chunk$set(
 
 There is an additional helper function (see `view()`) in this package to help visualize data with interactive maps via the `leaflet` package ([https://github.com/rstudio/leaflet](https://github.com/rstudio/leaflet)). Note that `leaflet` is not required to install `lawn` - it's in Suggests, not Imports or Depends.
 
-<section id="installation">
-
-## Installation
+### Installation
 
 If installing `leaflet`
 
@@ -45,10 +43,6 @@ devtools::install_github("ropensci/lawn")
 library("lawn")
 ```
 
-<section id="usage">
-
-## Usage
-
 ### Make some geojson data
 
 Point
@@ -68,24 +62,6 @@ rings <- list(list(
   c(-2.275543, 53.464547)
 ))
 lawn_polygon(rings)
-```
-
-### count
-
-Count number of points within polygons
-
-```{r}
-lawn_count(polygons = lawn_data$polygons_count, points = lawn_data$points_count)
-```
-
-### average
-
-Average value of a field for a set of points within a set of polygons
-
-```{r}
-lawn_average(polygons = lawn_data$polygons_average,
-             points = lawn_data$points_average,
-             field = 'population')
 ```
 
 ### distance
@@ -281,20 +257,17 @@ lawn_sample(lawn_data$points_average, 2) %>% view()
 ![map2](../assets/tutorial-images/lawn/map2.png)
 
 
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `lawn` in publications use:
 
 <br>
 
-> Scott Chamberlain and Jeff Hollister (2016). lawn: R Client for Turf.js for Geospatial
-  Analysis. R package version 0.1.7. https://github.com/ropensci/lawn
+> Scott Chamberlain and Jeff Hollister (NA). lawn: Client for 'Turfjs'
+  for 'Geospatial' Analysis. R package version 0.4.1.9110.
+  https://github.com/ropensci/lawn
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for lawn](https://github.com/ropensci/lawn/issues?state=open)

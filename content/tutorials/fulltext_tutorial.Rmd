@@ -1,12 +1,11 @@
 ---
 title: fulltext vignette
-package_version: 0.1.6
+package_version: 0.1.8
 ---
 
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/fulltext/",
 	warning = FALSE,
 	message = FALSE,
 	comment = "#>"
@@ -21,7 +20,7 @@ knitr::opts_chunk$set(
 * Text - if needed, get text from pdfs/etc.
 * Extract - pull out the bits of articles that you want
 
-<section id="installation">
+### Installation
 
 You can install from CRAN
 
@@ -43,9 +42,10 @@ library("fulltext")
 ```
 
 
-<section id="usage">
 
-## Search for articles
+### Usage
+
+#### Search for articles
 
 Search for the term _ecology_ in PLOS journals.
 
@@ -59,7 +59,7 @@ Each publisher/search-engine has a slot with metadata and data
 res1$plos
 ```
 
-## Get full text
+#### Get full text
 
 Using the results from `ft_search()` we can grab full text of some articles
 
@@ -80,7 +80,7 @@ library("xml2")
 xml2::read_xml(out$plos$data$data$`10.1371/journal.pone.0059813`)
 ```
 
-## Extract text from pdfs
+#### Extract text from pdfs
 
 Ideally for text mining you have access to XML or other text based formats. However, sometimes you only have access to PDFs. In this case you want to extract text from PDFs. `fulltext` can help with that.
 
@@ -114,7 +114,7 @@ res2$arxiv$data$data[[1]]$data
 #> ..."
 ```
 
-## Extract text chunks
+#### Extract text chunks
 
 We have a few functions to help you pull out certain parts of an article. For example, perhaps you want to get just the authors from your articles, or just the abstracts.
 
@@ -144,17 +144,15 @@ x %>% chunks(c("doi", "history")) %>% tabularize()
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Chamberlain Scott (2016). fulltext: Full Text of Scholarly Articles Across Many Data Sources. R package version 0.1.6. https://github.com/ropensci/fulltext
-
+> Chamberlain Scott (2016). fulltext: Full Text of Scholarly Articles Across Many Data Sources. R package version 0.1.8. https://github.com/ropensci/fulltext
 
 
-<section id="license_bugs">
 
-## License and bugs
+
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for fulltext](https://github.com/ropensci/fulltext/issues?state=open)

@@ -1,6 +1,6 @@
 ---
 title: originr tutorial
-package_version: 0.1.0
+package_version: 0.2.0
 ---
 
 
@@ -16,9 +16,8 @@ Data sources:
 * Integrated Taxonomic Information Service [http://www.itis.gov/](http://www.itis.gov/)
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -40,7 +39,6 @@ devtools::install_github("ropenscilabs/originr")
 library("originr")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -92,25 +90,25 @@ gisd(sp)
 #> $`Carpobrotus edulis`
 #> $`Carpobrotus edulis`$species
 #> [1] "Carpobrotus edulis"
-#>
+#> 
 #> $`Carpobrotus edulis`$alien_range
-#>  [1] "albania"          "argentina"        "australia"
-#>  [4] "bermuda"          "chile"            "croatia"
-#>  [7] "france"           "french polynesia" "germany"
-#> [10] "gibraltar"        "greece"           "guernsey"
-#> [13] "ireland"          "italy"            "malta"
-#> [16] "mexico"           "new zealand"      "pitcairn"
-#> [19] "portugal"         "saint helena"     "spain"
-#> [22] "tunisia"          "united kingdom"   "united states"
-#>
+#>  [1] "albania"          "argentina"        "australia"       
+#>  [4] "bermuda"          "chile"            "croatia"         
+#>  [7] "france"           "french polynesia" "germany"         
+#> [10] "gibraltar"        "greece"           "guernsey"        
+#> [13] "ireland"          "italy"            "malta"           
+#> [16] "mexico"           "new zealand"      "pitcairn"        
+#> [19] "portugal"         "saint helena"     "spain"           
+#> [22] "tunisia"          "united kingdom"   "united states"   
+#> 
 #> $`Carpobrotus edulis`$native_range
 #> character(0)
-#>
-#>
+#> 
+#> 
 #> $`Rosmarinus officinalis`
 #> $`Rosmarinus officinalis`$species
 #> [1] "Rosmarinus officinalis"
-#>
+#> 
 #> $`Rosmarinus officinalis`$status
 #> [1] "Not in GISD"
 ```
@@ -121,35 +119,33 @@ gisd(sp)
 ```r
 flora_europaea("Lavandula stoechas")
 #> $native
-#>  [1] "Islas_Baleares" "Corse"          "Kriti"          "France"
-#>  [5] "Greece"         "Spain"          "Italy"          "Portugal"
-#>  [9] "Sardegna"       "Sicilia"        "Turkey"
-#>
+#>  [1] "Islas_Baleares" "Corse"          "Kriti"          "France"        
+#>  [5] "Greece"         "Spain"          "Italy"          "Portugal"      
+#>  [9] "Sardegna"       "Sicilia"        "Turkey"        
+#> 
 #> $exotic
 #> [1] NA
-#>
+#> 
 #> $status_doubtful
 #> [1] NA
-#>
+#> 
 #> $occurrence_doubtful
 #> [1] NA
-#>
+#> 
 #> $extinct
 #> [1] NA
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 > Scott Chamberlain and Ignasi Bartomeus (2016). originr: Fetch Species
-  Origin Data from the Web. R package version 0.1.0. https://cran.rstudio.com/package=originr
+  Origin Data from the Web. R package version 0.2.0. https://cran.rstudio.com/package=originr
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for originr](https://github.com/ropenscilabs/originr/issues?state=open)

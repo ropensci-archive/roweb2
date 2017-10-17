@@ -1,11 +1,11 @@
 ---
 title: rvertnet tutorial
-package_version: 0.4.4
+package_version: 0.6.2
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-      fig.path="../assets/tutorial-images/rvertnet/",
+      fig.path="img/tutorial-images/rvertnet/",
       comment = "#>",
       warning = FALSE,
       message = FALSE
@@ -16,9 +16,8 @@ knitr::opts_chunk$set(
 
 This package retrieves data, makes maps, and summarizes data from VertNet, with functions for searching by many parameters, including taxonomic names, places, dates, and more. In addition, there is an interface for conducting spatially delimited searches, and another for requesting large datasets via email.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 You can install the stable version from CRAN:
 
@@ -37,7 +36,6 @@ devtools::install_github("ropensci/rvertnet")
 library('rvertnet')
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -134,21 +132,19 @@ In the previous examples, we've suppressed messages for more concise output, but
 res <- searchbyterm(class = "Aves", state = "California", limit = 10, verbose = TRUE)
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rvertnet` in publications use:
 
 <br>
 
->  Scott Chamberlain, Chris Ray and Vijay Barve (2016). rvertnet: Search
-  VertNet, a Database of Vertebrate Specimen Records. R package version
-  0.4.4. https://github.com/ropensci/rvertnet
+> Scott Chamberlain, Chris Ray and Vijay Barve (2017). rvertnet: Search
+  'Vertnet', a 'Database' of Vertebrate Specimen Records. R package
+  version 0.6.2. https://CRAN.R-project.org/package=rvertnet
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rvertnet](https://github.com/ropensci/rvertnet/issues?state=open)
