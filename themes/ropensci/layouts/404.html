@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>rOpenSci 404</title>
-    <link rel="stylesheet" type="text/css" href="/css/style-new.css" /> <!-- stylesheet imports -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
+    <link rel="stylesheet" type="text/css" href="/css/style-new.css" />
+    <!-- stylesheet imports -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- this one is super important for mobile devices -->
 </head>
+
 <body>
-{{ partial "header.html" . }}
-
-<section id="main">
-  <div>
-   <h1 id="title">{{ .Title }}</h1>
-  </div>
-</section>
-
-{{ partial "footer.html" . }}
-<!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag -->
-<script type="text/javascript" src="/js/calinit.js"></script>
-<script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-
+    {{ partial "header.html" . }}
+    <section id="main">
+        <div>
+            <!-- <h1 id="title">{{ .Title }}</h1> -->
+            <div class="middle-container">
+                <div class="row center">
+                    <div class="col-8">
+                        <h2>Missing page</h2> Unfortulately the requested page does not exist. Please go to the <a href="https://ropensci.org">home page.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ partial "footer.html" . }}
+    <!-- Loads calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag -->
+    <script type="text/javascript" src="/js/calinit.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 </body>
+
 </html>
