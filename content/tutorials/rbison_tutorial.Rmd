@@ -1,11 +1,11 @@
 ---
 title: rbison tutorial
-package_version: 0.4.8
+package_version: 0.5.4
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path="../assets/tutorial-images/rbison/",
+	fig.path="img/tutorial-images/rbison/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -22,17 +22,13 @@ BISON has occurrence data for the US only.
 
 BISON is a node of the Global Biodiversity Information Facility (GBIF) - i.e., you can get data that's available in BISON via GBIF instead if you want.
 
-********************
 
-### Info
+## Info
 
 See [http://bison.usgs.ornl.gov/doc/api.jsp](http://bison.usgs.ornl.gov/doc/api.jsp) for API docs for the BISON API.
 
-********************
 
-<section id="installation">
-
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("rbison")
@@ -49,13 +45,12 @@ devtools::install_github("ropensci/rbison")
 library("rbison")
 ```
 
-<section id="usage">
 
 ## Usage
 
 Notice that the function `bisonmap` automagically selects the map extent to plot for you, being one of the contiguous lower 48 states, or the lower 48 plus AK and HI, or a global map. If some or all points outside the US, a global map is drawn, and throws a warning. You may want to make sure the occurrence lat/long coordinates are correct.
 
-## Get data
+### Get data
 
 ```{r one}
 out <- bison(species = "Helianthus annuus", count = 10)
@@ -73,7 +68,7 @@ Map occurrences
 head(out$counties)
 ```
 
-## All points within the US (including AK and HI)
+### All points within the US (including AK and HI)
 
 Get data
 
@@ -93,7 +88,7 @@ Map occurrences
 bisonmap(out, tomap="state")
 ```
 
-## All points within the contiguous 48 states
+### All points within the contiguous 48 states
 
 Get data
 
@@ -113,7 +108,7 @@ Map occurrences
 bisonmap(out, tomap="points")
 ```
 
-## Plot county or state
+### Plot county or state
 
 With any data returned from a `bison` call, you can choose to plot county or state level data
 
@@ -129,9 +124,9 @@ States - using last data call for Aquila
 bisonmap(out, tomap="state")
 ```
 
-## Constrain search with county IDs or bounding boxes
+### Constrain search with county IDs or bounding boxes
 
-### Constrain search to a certain county.
+#### Constrain search to a certain county.
 
 Check out [this site](http://www.epa.gov/enviro/html/codes/state.html) to get state and county fips codes. Fips codes are like so: First two digits are the state code - last three are the county code. For example the *06* in  06037 is the state of California, and the *037* is the Los Angeles county.
 
@@ -175,7 +170,7 @@ head(out$points)
 bison(species="Helianthus annuus", county = "Los")
 ```
 
-### Constrain search to a amorphous area.
+#### Constrain search to a amorphous area.
 
 Check out the Wikipedia page [here](http://en.wikipedia.org/wiki/Well-known_text) for an in depth look at the options, terminology, etc.
 
@@ -195,7 +190,7 @@ The data
 out$points
 ```
 
-### Constrain search to a certain aoibbox.
+#### Constrain search to a certain aoibbox.
 
 An aoibbox uses the format minx, miny, maxx, maxy.
 
@@ -216,19 +211,19 @@ head(out$points)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rbison` in publications use:
 
 <br>
 
-> Scott Chamberlain (2015). rbison: R interface to the USGS BISON API. R package version 0.4.8 http://CRAN.R-project.org/package=rbison
+> Scott Chamberlain (2017). rbison: Interface to the 'USGS' 'BISON'
+  'API'. R package version 0.5.4.
+  https://CRAN.R-project.org/package=rbison
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rbison](https://github.com/ropensci/rbison/issues?state=open)

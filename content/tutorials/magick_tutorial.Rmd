@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 library(knitr)
 "print.magick-image" <- function(x, ...){
   ext <- ifelse(length(x), tolower(image_info(x[1])$format), "gif")
-  tmp <- tempfile(fileext = paste0(".", ext))
+  tmp <- tempfile(tmpdir = "img/tutorial-images/magick", fileext = paste0(".", ext))
   image_write(x, path = tmp)
   knitr::include_graphics(tmp)
 }

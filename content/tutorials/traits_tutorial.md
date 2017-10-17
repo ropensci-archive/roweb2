@@ -1,13 +1,12 @@
 ---
 title: traits tutorial
-package_version: 0.2.0
+package_version: 0.3.0
 ---
 
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Install and load `traits` into the R session. Stable version from CRAN
 
@@ -29,7 +28,6 @@ devtools::install_github("ropensci/traits")
 library("traits")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -43,30 +41,31 @@ Get trait data for Willow (_Salix_ spp.)
 ```
 
 ```
-#> Source: local data frame [14 x 31]
-#>
+#> # A tibble: 14 x 36
 #>    access_level       author checked citation_id citation_year  city
-#>           (int)        (chr)   (int)       (int)         (int) (chr)
-#> 1             4       Merilo       1         430          2005 Saare
-#> 2             4       Merilo       1         430          2005 Saare
-#> 3             4       Merilo       1         430          2005 Saare
-#> 4             4       Merilo       1         430          2005 Saare
-#> 5             4 Wullschleger       1          51          1993    NA
-#> 6             4       Merilo       1         430          2005 Saare
-#> 7             4       Merilo       1         430          2005 Saare
-#> 8             4       Merilo       1         430          2005 Saare
-#> 9             4       Merilo       1         430          2005 Saare
+#>  *        <int>        <chr>   <int>       <int>         <int> <chr>
+#>  1            4 Wullschleger       1          51          1993  <NA>
+#>  2            4         Wang       1         381          2010  <NA>
+#>  3            4       Merilo       1         430          2005 Saare
+#>  4            4       Merilo       1         430          2005 Saare
+#>  5            4       Merilo       1         430          2005 Saare
+#>  6            4       Merilo       1         430          2005 Saare
+#>  7            4       Merilo       1         430          2005 Saare
+#>  8            4       Merilo       1         430          2005 Saare
+#>  9            4       Merilo       1         430          2005 Saare
 #> 10            4       Merilo       1         430          2005 Saare
 #> 11            4       Merilo       1         430          2005 Saare
 #> 12            4       Merilo       1         430          2005 Saare
 #> 13            4       Merilo       1         430          2005 Saare
-#> 14            4         Wang       1         381          2010    NA
-#> Variables not shown: commonname (chr), cultivar_id (int), date (chr),
-#>   dateloc (chr), genus (chr), id (int), lat (dbl), lon (dbl), mean (dbl),
-#>   month (dbl), n (int), notes (chr), result_type (chr), scientificname
-#>   (chr), site_id (int), sitename (chr), species_id (int), stat (dbl),
-#>   statname (chr), trait (chr), trait_description (chr), treatment (chr),
-#>   treatment_id (int), units (chr), year (dbl)
+#> 14            4       Merilo       1         430          2005 Saare
+#> # ... with 30 more variables: commonname <chr>, cultivar <chr>,
+#> #   cultivar_id <int>, date <chr>, dateloc <chr>, entity <lgl>,
+#> #   genus <chr>, id <int>, lat <dbl>, lon <dbl>, mean <dbl>,
+#> #   method_name <lgl>, month <int>, n <int>, notes <chr>, raw_date <chr>,
+#> #   result_type <chr>, scientificname <chr>, site_id <int>,
+#> #   sitename <chr>, species_id <int>, stat <dbl>, statname <chr>,
+#> #   time <chr>, trait <chr>, trait_description <chr>, treatment <chr>,
+#> #   treatment_id <int>, units <chr>, year <int>
 ```
 
 ```r
@@ -89,15 +88,8 @@ salix %>%
 ```
 
 ```
-#> Source: local data frame [4 x 6]
-#> Groups: scientificname [?]
-#>
-#>                    scientificname trait  mean   min   max     n
-#>                             (chr) (chr) (dbl) (dbl) (dbl) (int)
-#> 1                           Salix Vcmax 65.00 65.00 65.00     1
-#> 2                Salix dasyclados Vcmax 46.08 34.30 56.68     4
-#> 3 Salix sachalinensis × miyabeana Vcmax 79.28 79.28 79.28     1
-#> 4                 Salix viminalis Vcmax 43.04 19.99 61.29     8
+#>    mean   min   max  n
+#> 1 48.06 19.99 79.28 14
 ```
 
 ### NCBI sequence data
@@ -130,86 +122,24 @@ head(out)
 
 ```
 #>        taxon length
-#> 1 Umbra limi    169
-#> 2 Umbra limi    412
-#> 3 Umbra limi    315
-#> 4 Umbra limi    200
-#> 5 Umbra limi    333
-#> 6 Umbra limi    242
-#>                                                                                              gene_desc
-#> 1                                         Umbra limi mitochondrial gene for 12S rRNA, partial sequence
-#> 2 Umbra limi tRNA-Glu gene, partial sequence; and cytochrome b (CYTB) gene, partial cds; mitochondrial
-#> 3                                   Umbra limi 16S ribosomal RNA gene, partial sequence; mitochondrial
-#> 4                                   Umbra limi 16S ribosomal RNA gene, partial sequence; mitochondrial
-#> 5                                   Umbra limi 16S ribosomal RNA gene, partial sequence; mitochondrial
-#> 6                                   Umbra limi 12S ribosomal RNA gene, partial sequence; mitochondrial
-#>     acc_no     gi_no
-#> 1 LC021016 985564997
-#> 2 KM523322 725542537
-#> 3 KM435059 725542420
-#> 4 KM434991 725542361
-#> 5 KM282516 725542294
-#> 6 KM282453 725542240
-```
-
-### GISD invasive species data
-
-> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
-
-
-```r
-sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
-g_invasive(sp)
-```
-
-```
-#>                  species status
-#> 1     Carpobrotus edulis     ;
-#> 2 Rosmarinus officinalis     ;
-```
-
-Or as simplified output
-
-
-```r
-g_invasive(sp, simplify = TRUE)
-```
-
-```
-#>                  species   status
-#> 1     Carpobrotus edulis Invasive
-#> 2 Rosmarinus officinalis Invasive
-```
-
-### EOL invasive species data
-
-> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
-
-
-```r
-eol_invasive_('Brassica oleracea', dataset = 'gisd')
-```
-
-```
-#>       searched_name              name eol_object_id   db
-#> 1 Brassica oleracea Brassica oleracea           NaN gisd
-```
-
-Another example, with more species, and from
-
-
-```r
-eol_invasive_(c('Lymantria dispar','Cygnus olor',
-                'Hydrilla verticillata','Pinus concolor'),
-              dataset = 'i3n')
-```
-
-```
-#>           searched_name                  name eol_object_id  db
-#> 1      Lymantria dispar      Lymantria dispar           NaN i3n
-#> 2           Cygnus olor           Cygnus olor           NaN i3n
-#> 3 Hydrilla verticillata Hydrilla verticillata           NaN i3n
-#> 4        Pinus concolor        Pinus concolor           NaN i3n
+#> 1 Umbra limi    761
+#> 2 Umbra limi    765
+#> 3 Umbra limi    764
+#> 4 Umbra limi    743
+#> 5 Umbra limi    758
+#>                                                                                          gene_desc
+#> 1                                  Umbra limi voucher NXG2012264 rhodopsin (Rho) gene, partial cds
+#> 2                                   Umbra limi voucher NXG201250 rhodopsin (Rho) gene, partial cds
+#> 3                                  Umbra limi voucher NXG2012183 rhodopsin (Rho) gene, partial cds
+#> 4                                   Umbra limi voucher NXG201252 rhodopsin (Rho) gene, partial cds
+#> 5                                  Umbra limi voucher NXG2012231 rhodopsin (Rho) gene, partial cds
+#>     acc_no      gi_no
+#> 1 KX146134 1049488959
+#> 2 KX146015 1049488721
+#> 3 KX145969 1049488629
+#> 4 KX145777 1049488245
+#> 5 KX145759 1049488209
+#>  [ reached getOption("max.print") -- omitted 1 row ]
 ```
 
 ### EOL's Traitbank data
@@ -217,34 +147,15 @@ eol_invasive_(c('Lymantria dispar','Cygnus olor',
 Note that EOL's Traitbank does not allow us to search by trait.
 The only interface we have is to search by taxon page ID.
 
-Searching for _Potus flavus_, page id `328067`
+Searching for _Potus flavus_, page id `328574`
 
 
 ```r
-res <- traitbank(pageid = 328067)
+res <- traitbank(pageid = 328574)
 res$graph %>%
   select(dwc.measurementtype,
          dwc.measurementvalue) %>%
   filter(!is.na(dwc.measurementvalue))
-```
-
-```
-#> Source: local data frame [77 x 2]
-#>
-#>                                         dwc.measurementtype
-#>                                                       (chr)
-#> 1  http://www.owl-ontologies.com/unnamed.owl#Metabolic_rate
-#> 2                          http://iucn.org/population_trend
-#> 3                      http://rs.tdwg.org/dwc/terms/habitat
-#> 4                 http://purl.obolibrary.org/obo/VT_0001661
-#> 5                http://eol.org/schema/terms/LittersPerYear
-#> 6                 http://purl.obolibrary.org/obo/VT_0001933
-#> 7            http://eol.org/schema/terms/InterBirthInterval
-#> 8            http://semanticscience.org/resource/SIO_000319
-#> 9            http://semanticscience.org/resource/SIO_000318
-#> 10           http://semanticscience.org/resource/SIO_000318
-#> ..                                                      ...
-#> Variables not shown: dwc.measurementvalue (chr)
 ```
 
 ### Coral
@@ -257,21 +168,20 @@ coral_species()
 ```
 
 ```
-#> Source: local data frame [1,548 x 2]
-#>
+#> # A tibble: 1,548 x 2
 #>                          name    id
-#>                         (chr) (chr)
-#> 1         Acanthastrea brevis     3
-#> 2       Acanthastrea echinata     4
-#> 3      Acanthastrea hemprichi     6
-#> 4  Acanthastrea ishigakiensis     8
-#> 5      Acanthastrea regularis    12
-#> 6   Acanthastrea rotundoflora    13
-#> 7    Acanthastrea subechinata    14
-#> 8      Acropora abrolhosensis    16
-#> 9       Acropora abrotanoides    17
+#>                         <chr> <chr>
+#>  1        Acanthastrea brevis     3
+#>  2      Acanthastrea echinata     4
+#>  3     Acanthastrea hemprichi     6
+#>  4 Acanthastrea ishigakiensis     8
+#>  5     Acanthastrea regularis    12
+#>  6  Acanthastrea rotundoflora    13
+#>  7   Acanthastrea subechinata    14
+#>  8     Acropora abrolhosensis    16
+#>  9      Acropora abrotanoides    17
 #> 10           Acropora aculeus    18
-#> ..                        ...   ...
+#> # ... with 1,538 more rows
 ```
 
 Get data by taxon
@@ -282,27 +192,26 @@ coral_taxa(80)
 ```
 
 ```
-#> Source: local data frame [3,540 x 25]
-#>
+#> # A tibble: 3,540 x 25
 #>    observation_id access user_id specie_id         specie_name location_id
-#>             (int)  (int)   (int)     (int)               (chr)       (int)
-#> 1          157133      1      10        80 Acropora hyacinthus           1
-#> 2          156961      1      14        80 Acropora hyacinthus         409
-#> 3            5781      1       1        80 Acropora hyacinthus           1
-#> 4          156610      1       2        80 Acropora hyacinthus         500
-#> 5          158118      1      10        80 Acropora hyacinthus         409
-#> 6          119211      1      49        80 Acropora hyacinthus           1
-#> 7          158211      1      10        80 Acropora hyacinthus         413
-#> 8           90294      1      15        80 Acropora hyacinthus         341
-#> 9           90294      1      15        80 Acropora hyacinthus         341
+#>             <int>  <int>   <int>     <int>               <chr>       <int>
+#>  1         157133      1      10        80 Acropora hyacinthus           1
+#>  2         156961      1      14        80 Acropora hyacinthus         409
+#>  3           5781      1       1        80 Acropora hyacinthus           1
+#>  4         156610      1       2        80 Acropora hyacinthus         500
+#>  5         158118      1      10        80 Acropora hyacinthus         409
+#>  6         119211      1      49        80 Acropora hyacinthus           1
+#>  7         158211      1      10        80 Acropora hyacinthus         413
+#>  8          90294      1      15        80 Acropora hyacinthus         341
+#>  9          90294      1      15        80 Acropora hyacinthus         341
 #> 10          90294      1      15        80 Acropora hyacinthus         341
-#> ..            ...    ...     ...       ...                 ...         ...
-#> Variables not shown: location_name (chr), latitude (dbl), longitude (dbl),
-#>   resource_id (int), resource_secondary_id (int), measurement_id (int),
-#>   trait_id (int), trait_name (chr), standard_id (int), standard_unit
-#>   (chr), methodology_id (int), methodology_name (chr), value (chr),
-#>   value_type (chr), precision (dbl), precision_type (chr), precision_upper
-#>   (dbl), replicates (int), notes (chr)
+#> # ... with 3,530 more rows, and 19 more variables: location_name <chr>,
+#> #   latitude <dbl>, longitude <dbl>, resource_id <int>,
+#> #   resource_secondary_id <int>, measurement_id <int>, trait_id <int>,
+#> #   trait_name <chr>, standard_id <int>, standard_unit <chr>,
+#> #   methodology_id <int>, methodology_name <chr>, value <chr>,
+#> #   value_type <chr>, precision <dbl>, precision_type <chr>,
+#> #   precision_upper <dbl>, replicates <int>, notes <chr>
 ```
 
 Get data by trait
@@ -313,132 +222,15 @@ coral_traits(105)
 ```
 
 ```
-#> Source: local data frame [0 x 25]
-#>
-#> Variables not shown: observation_id (lgl), access (lgl), user_id (lgl),
-#>   specie_id (lgl), specie_name (lgl), location_id (lgl), location_name
-#>   (lgl), latitude (lgl), longitude (lgl), resource_id (lgl),
-#>   resource_secondary_id (lgl), measurement_id (lgl), trait_id (lgl),
-#>   trait_name (lgl), standard_id (lgl), standard_unit (lgl), methodology_id
-#>   (lgl), methodology_name (lgl), value (lgl), value_type (lgl), precision
-#>   (lgl), precision_type (lgl), precision_upper (lgl), replicates (lgl),
-#>   notes (lgl)
-```
-
-### Flora Europaea
-
-
-```r
-sp <- c("Lavandula stoechas", "Carpobrotus edulis",
-        "Rhododendron ponticum", "Alkanna lutea", "Anchusa arvensis")
-sapply(sp, fe_native, simplify = FALSE)
-```
-
-```
-#> $`Lavandula stoechas`
-#> $`Lavandula stoechas`$native
-#>  [1] "Islas_Baleares" "Corse"          "Kriti"          "France"
-#>  [5] "Greece"         "Spain"          "Italy"          "Portugal"
-#>  [9] "Sardegna"       "Sicilia"        "Turkey"
-#>
-#> $`Lavandula stoechas`$exotic
-#> [1] NA
-#>
-#> $`Lavandula stoechas`$status_doubtful
-#> [1] NA
-#>
-#> $`Lavandula stoechas`$occurrence_doubtful
-#> [1] NA
-#>
-#> $`Lavandula stoechas`$extinct
-#> [1] NA
-#>
-#>
-#> $`Carpobrotus edulis`
-#> $`Carpobrotus edulis`$native
-#> [1] NA
-#>
-#> $`Carpobrotus edulis`$exotic
-#>  [1] "Albania"        "Azores"         "Belgium"        "Islas_Baleares"
-#>  [5] "Britain"        "Corse"          "France"         "Greece"
-#>  [9] "Ireland"        "Spain"          "Italy"          "Portugal"
-#> [13] "Sicilia"
-#>
-#> $`Carpobrotus edulis`$status_doubtful
-#> [1] NA
-#>
-#> $`Carpobrotus edulis`$occurrence_doubtful
-#> [1] NA
-#>
-#> $`Carpobrotus edulis`$extinct
-#> [1] NA
-#>
-#>
-#> $`Rhododendron ponticum`
-#> $`Rhododendron ponticum`$native
-#> [1] "Bulgaria" "Spain"    "Portugal" "Turkey"
-#>
-#> $`Rhododendron ponticum`$exotic
-#> [1] "Belgium" "Britain" "France"  "Ireland"
-#>
-#> $`Rhododendron ponticum`$status_doubtful
-#> [1] NA
-#>
-#> $`Rhododendron ponticum`$occurrence_doubtful
-#> [1] NA
-#>
-#> $`Rhododendron ponticum`$extinct
-#> [1] NA
-#>
-#>
-#> $`Alkanna lutea`
-#> $`Alkanna lutea`$native
-#> [1] "Islas_Baleares" "Corse"          "France"         "Spain"
-#> [5] "Italy"          "Sardegna"
-#>
-#> $`Alkanna lutea`$exotic
-#> [1] NA
-#>
-#> $`Alkanna lutea`$status_doubtful
-#> [1] NA
-#>
-#> $`Alkanna lutea`$occurrence_doubtful
-#> [1] "Portugal"
-#>
-#> $`Alkanna lutea`$extinct
-#> [1] NA
-#>
-#>
-#> $`Anchusa arvensis`
-#> $`Anchusa arvensis`$native
-#>  [1] "Albania"                    "Austria"
-#>  [3] "Belgium"                    "Islas_Baleares"
-#>  [5] "Britain"                    "Bulgaria"
-#>  [7] "Corse"                      "Czechoslovakia"
-#>  [9] "Denmark"                    "Finland"
-#> [11] "France"                     "Germany"
-#> [13] "Greece"                     "Switzerland"
-#> [15] "Netherlands"                "Spain"
-#> [17] "Hungary"                    "Italy"
-#> [19] "Jugoslavia"                 "Portugal"
-#> [21] "Norway"                     "Poland"
-#> [23] "Romania"                    "USSR"
-#> [25] "USSR_Northern_Division"     "USSR_Baltic_Division"
-#> [27] "USSR_Central_Division"      "USSR_South_western"
-#> [29] "USSR_Krym"                  "USSRSouth_eastern_Division"
-#> [31] "Sicilia"                    "Sweden"
-#>
-#> $`Anchusa arvensis`$exotic
-#> [1] "Faroer"
-#>
-#> $`Anchusa arvensis`$status_doubtful
-#> [1] "Ireland"  "Sardegna"
-#>
-#> $`Anchusa arvensis`$occurrence_doubtful
-#> [1] NA
-#>
-#> $`Anchusa arvensis`$extinct
-#> [1] NA
+#> # A tibble: 0 x 25
+#> # ... with 25 variables: observation_id <lgl>, access <lgl>,
+#> #   user_id <lgl>, specie_id <lgl>, specie_name <lgl>, location_id <lgl>,
+#> #   location_name <lgl>, latitude <lgl>, longitude <lgl>,
+#> #   resource_id <lgl>, resource_secondary_id <lgl>, measurement_id <lgl>,
+#> #   trait_id <lgl>, trait_name <lgl>, standard_id <lgl>,
+#> #   standard_unit <lgl>, methodology_id <lgl>, methodology_name <lgl>,
+#> #   value <lgl>, value_type <lgl>, precision <lgl>, precision_type <lgl>,
+#> #   precision_upper <lgl>, replicates <lgl>, notes <lgl>
 ```
 
 ### Birdlife International
@@ -475,90 +267,39 @@ birdlife_threats(22721692)
 #> 1 22721692                                Agriculture & aquaculture
 #> 2 22721692                                Agriculture & aquaculture
 #> 3 22721692                                  Biological resource use
-#> 4 22721692                               Energy production & mining
-#> 5 22721692 Invasive and other problematic species, genes & diseases
-#> 6 22721692                     Residential & commercial development
-#>                                                                                  threat2
-#> 1                            Annual & perennial non-timber crops / Agro-industry farming
-#> 2                             Annual & perennial non-timber crops / Small-holder farming
-#> 3 Logging & wood harvesting / Unintentional effects: (subsistence/small scale) [harvest]
-#> 4                                                                     Mining & quarrying
-#> 5                                                    Problematic native species/diseases
-#> 6                                                                  Housing & urban areas
-#>                                      stresses  timing scope
-#> 1 Ecosystem degradation, Ecosystem conversion Ongoing  <NA>
-#> 2 Ecosystem degradation, Ecosystem conversion Ongoing  <NA>
-#> 3                       Ecosystem degradation Ongoing  <NA>
-#> 4 Ecosystem degradation, Ecosystem conversion Ongoing  <NA>
-#> 5                           Species mortality Ongoing  <NA>
-#> 6 Ecosystem degradation, Ecosystem conversion Ongoing  <NA>
-#>            severity impact
-#> 1 Majority (50-90%)     NA
-#> 2 Majority (50-90%)     NA
-#> 3 Majority (50-90%)     NA
-#> 4 Majority (50-90%)     NA
-#> 5        Minority (     NA
-#> 6        Minority (     NA
+#>                               threat2
+#> 1 Annual & perennial non-timber crops
+#> 2 Annual & perennial non-timber crops
+#> 3           Logging & wood harvesting
+#>                                      stresses
+#> 1 Ecosystem degradation, Ecosystem conversion
+#> 2 Ecosystem degradation, Ecosystem conversion
+#> 3                       Ecosystem degradation
+#>                                                     timing
+#> 1                                Agriculture & aquaculture
+#> 2                                Agriculture & aquaculture
+#> 3                                  Biological resource use
+#>                                 scope severity  impact
+#> 1 Annual & perennial non-timber crops  Ongoing Ongoing
+#> 2 Annual & perennial non-timber crops  Ongoing Ongoing
+#> 3           Logging & wood harvesting  Ongoing Ongoing
+#>  [ reached getOption("max.print") -- omitted 3 rows ]
 ```
 
-### Nativity
 
-> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
-
-
-```r
-sp <- c("Lavandula stoechas", "Carpobrotus edulis", "Rhododendron ponticum",
-      "Alkanna lutea", "Anchusa arvensis")
-```
-
-Native in the continental USA?
-
-
-```r
-sapply(sp, is_native, where = "Continental US", region = "america")
-```
-
-```
-#>        Lavandula stoechas   Carpobrotus edulis   Rhododendron ponticum
-#> name   "Lavandula stoechas" "Carpobrotus edulis" "Rhododendron ponticum"
-#> origin "Introduced"         "Introduced"         "species not in itis"
-#>        Alkanna lutea         Anchusa arvensis
-#> name   "Alkanna lutea"       "Anchusa arvensis"
-#> origin "species not in itis" "Introduced"
-```
-
-Native on Islas Baleares?
-
-
-```r
-sapply(sp, is_native, where = "Islas_Baleares", region = "europe")
-```
-
-```
-#>        Lavandula stoechas   Carpobrotus edulis
-#> name   "Lavandula stoechas" "Carpobrotus edulis"
-#> origin "Native"             "Introduced"
-#>        Rhododendron ponticum                         Alkanna lutea
-#> name   "Rhododendron ponticum"                       "Alkanna lutea"
-#> origin "Species not present in your selected region" "Native"
-#>        Anchusa arvensis
-#> name   "Anchusa arvensis"
-#> origin "Native"
-```
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `traits` in publications use:
 
 <br>
 
-> Scott Chamberlain, Zachary Foster, Ignasi Bartomeus, David LeBauer, and David Harris (2015). traits: Species Trait Data from Around the Web. R package version 0.2.0. https://github.com/ropensci/traits
+> Scott Chamberlain, Zachary Foster, Ignasi Bartomeus, David LeBauer
+  and David Harris (2017). traits: Species Trait Data from Around the
+  Web. R package version 0.3.0.
+  https://CRAN.R-project.org/package=traits
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for traits](https://github.com/ropensci/traits/issues?state=open)

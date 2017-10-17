@@ -1,6 +1,6 @@
 ---
 title: rcrossref tutorial
-package_version: 0.5.2
+package_version: 0.7.0
 ---
 
 ```{r, echo=FALSE}
@@ -13,9 +13,8 @@ knitr::opts_chunk$set(
 ```
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("rcrossref")
@@ -31,11 +30,10 @@ devtools::install_github("ropensci/rcrossref")
 library("rcrossref")
 ```
 
-<section id="usage">
 
 ## Usage
 
-## Citation search
+### Citation search
 
 CrossRef's [DOI Content Negotiation](http://www.crosscite.org/cn/) service, where you can citations back in various formats, including `apa`
 
@@ -61,7 +59,7 @@ cat(cr_cn(dois = "10.1126/science.169.3946.635", format = "bibtex"))
 cr_cn(dois = "10.6084/m9.figshare.97218", format = "bibentry")
 ```
 
-## Citation count
+### Citation count
 
 Citation count, using OpenURL
 
@@ -69,53 +67,53 @@ Citation count, using OpenURL
 cr_citation_count(doi="10.1371/journal.pone.0042793")
 ```
 
-## Search Crossref metadata API
+### Search Crossref metadata API
 
 There are two functions that use an older Crossre API: `cr_search()` and `cr_search_free()`. You can of course use them, but the newer Crossref API available through various functions (`cr_agency()`, `cr_fundref()`, `cr_journals()`, `cr_licenses()`, `cr_members()`, `cr_prefixes()`, and `cr_works()`) is more powerful and will recieve more support going forward. The following functions (of the newer set just mentioend) all use the [CrossRef API](https://github.com/CrossRef/rest-api-doc/blob/master/rest_api.md).
 
-### Look up funder information
+#### Funders
 
 ```{r}
-cr_fundref(query="NSF")
+cr_funders(query="NSF")
 ```
 
-### Check the DOI minting agency
+#### Check the DOI minting agency
 
 ```{r}
 cr_agency(dois = '10.13039/100000001')
 ```
 
-### Search works (i.e., articles, books, etc.)
+#### Search works
 
 ```{r}
 cr_works(filter=c(has_orcid=TRUE, from_pub_date='2004-04-04'), limit=1)
 ```
 
-### Search journals
+#### Search journals
 
 ```{r}
 cr_journals(issn=c('1803-2427','2326-4225'))
 ```
 
-### Search license information
+#### Search license information
 
 ```{r}
 cr_licenses(query = 'elsevier')
 ```
 
-### Search based on DOI prefixes
+#### Search based on DOI prefixes
 
 ```{r}
 cr_prefixes(prefixes=c('10.1016','10.1371','10.1023','10.4176','10.1093'))
 ```
 
-### Search CrossRef members
+#### Search CrossRef members
 
 ```{r}
 cr_members(query='ecology', limit = 5)
 ```
 
-### Get N random DOIs
+#### Get N random DOIs
 
 `cr_r()` uses the function `cr_works()` internally.
 
@@ -129,44 +127,18 @@ You can pass in the number of DOIs you want back (default is 10)
 cr_r(2)
 ```
 
-### The older functions and API
-
-Search by author
-
-```{r}
-cr_search(query = c("renear", "palmer"), rows = 3, sort = "year")[1:2,-6]
-```
-
-Search by DOI
-
-```{r}
-cr_search(doi = "10.1890/10-0340.1")[,-6]
-```
-
-Free search
-
-```{r}
-queries <- c("Piwowar sharing data PLOS one", "Priem Scientometrics 2.0 social web",
-  "William Gunn A Crosstalk Between Myeloma Cells",
- "karthik ram Metapopulation dynamics override local limits")
-cr_search_free(queries)[,-4]
-```
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `rcrossref` in publications use:
 
 <br>
 
-> Scott Chamberlain, Carl Boettiger, Ted Hart, and Karthik Ram (2016). rcrossref:
-  R Client for Various CrossRef APIs. R package version 0.5.2
-  https://github.com/ropensci/rcrossref
+> Scott Chamberlain, Carl Boettiger, Ted Hart and Karthik Ram (2017).
+  rcrossref: Client for Various 'CrossRef' 'APIs'. R package version
+  0.7.0. https://CRAN.R-project.org/package=rcrossref
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rcrossref](https://github.com/ropensci/rcrossref/issues?state=open)

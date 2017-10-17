@@ -1,13 +1,12 @@
 ---
 title: rnoaa tutorial
-package_version: 0.5.2
+package_version: 0.7.0
 ---
 
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Install and load `rnoaa` into the R session. Stable version from CRAN
 
@@ -30,13 +29,10 @@ library('plyr')
 library('rnoaa')
 ```
 
-<section id="usage">
 
-## Usage
+### National Climatic Data Center (NCDC) data
 
-## National Climatic Data Center (NCDC) data
-
-### Get info on a station by specifying a datasetid, locationid, and stationid
+#### Get info on a station by specifying a datasetid, locationid, and stationid
 
 
 ```r
@@ -49,7 +45,7 @@ ncdc_stations(datasetid='GHCND', locationid='FIPS:12017', stationid='GHCND:USC00
 #>
 #> $data
 #>   elevation    mindate    maxdate latitude                  name
-#> 1      12.2 1899-02-01 2016-04-30  28.8029 INVERNESS 3 SE, FL US
+#> 1      12.2 1899-02-01 2017-10-13  28.8029 INVERNESS 3 SE, FL US
 #>   datacoverage                id elevationUnit longitude
 #> 1            1 GHCND:USC00084289        METERS  -82.3126
 #>
@@ -57,7 +53,7 @@ ncdc_stations(datasetid='GHCND', locationid='FIPS:12017', stationid='GHCND:USC00
 #> [1] "ncdc_stations"
 ```
 
-### Search for data and get a data.frame
+#### Search for data and get a data.frame
 
 
 ```r
@@ -100,7 +96,7 @@ out$data
 #> 25 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:RMW00040710   863    C
 ```
 
-### Plot data, super simple, but it's a start
+#### Plot data, super simple, but it's a start
 
 
 ```r
@@ -108,13 +104,13 @@ out <- ncdc(datasetid='NORMAL_DLY', stationid='GHCND:USW00014895', datatypeid='d
 ncdc_plot(out)
 ```
 
-![plot of chunk six](../assets/tutorial-images/rnoaa/six-1.png)
+![plot of chunk six](/img/tutorial-images/rnoaa/six-1.png)
 
 Note that the x-axis tick text is not readable, but see futher down in tutorial for how to adjust that.
 
-### More on plotting
+#### More on plotting
 
-#### Example 1
+##### Example 1
 
 Search for data first, then plot
 
@@ -130,7 +126,7 @@ Default plot
 ncdc_plot(out)
 ```
 
-![plot of chunk unnamed-chunk-5](../assets/tutorial-images/rnoaa/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-5](/img/tutorial-images/rnoaa/unnamed-chunk-5-1.png)
 
 Create 14 day breaks
 
@@ -139,11 +135,7 @@ Create 14 day breaks
 ncdc_plot(out, breaks="14 days")
 ```
 
-```
-#> Error: Invalid input: time_trans works with objects of class POSIXct only
-```
-
-![plot of chunk unnamed-chunk-6](../assets/tutorial-images/rnoaa/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-6](/img/tutorial-images/rnoaa/unnamed-chunk-6-1.png)
 
 One month breaks
 
@@ -152,35 +144,27 @@ One month breaks
 ncdc_plot(out, breaks="1 month", dateformat="%d/%m")
 ```
 
-```
-#> Error: Invalid input: time_trans works with objects of class POSIXct only
-```
+![plot of chunk unnamed-chunk-7](/img/tutorial-images/rnoaa/unnamed-chunk-7-1.png)
 
-![plot of chunk unnamed-chunk-7](../assets/tutorial-images/rnoaa/unnamed-chunk-7-1.png)
-
-#### Example 2
+##### Example 2
 
 Search for data
 
 
 ```r
-out2 <- ncdc(datasetid='GHCND', stationid='GHCND:USW00014895', datatypeid='PRCP', startdate = '2010-05-01', enddate = '2010-05-03', limit=100)
+out2 <- ncdc(datasetid='GHCND', stationid='GHCND:USW00014895', datatypeid='PRCP', startdate = '2010-05-01', enddate = '2010-10-31', limit=500)
 ```
 
 Make a plot, with 6 hour breaks, and date format with only hour
 
 
 ```r
-ncdc_plot(out2, breaks="6 hours", dateformat="%H")
+ncdc_plot(out2, breaks = "1 month", dateformat = "%d/%m")
 ```
 
-```
-#> Error: Invalid input: time_trans works with objects of class POSIXct only
-```
+![plot of chunk unnamed-chunk-9](/img/tutorial-images/rnoaa/unnamed-chunk-9-1.png)
 
-![plot of chunk unnamed-chunk-9](../assets/tutorial-images/rnoaa/unnamed-chunk-9-1.png)
-
-### Combine many calls to noaa function
+#### Combine many calls to noaa function
 
 Search for two sets of data
 
@@ -240,7 +224,7 @@ Then plot - the default passing in the combined plot plots the data together. In
 ncdc_plot(df)
 ```
 
-![plot of chunk unnamed-chunk-12](../assets/tutorial-images/rnoaa/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-12](/img/tutorial-images/rnoaa/unnamed-chunk-12-1.png)
 
 But we can pass in each separately, which uses `facet_wrap` in `ggplot2` to plot each set of data in its own panel.
 
@@ -249,20 +233,16 @@ But we can pass in each separately, which uses `facet_wrap` in `ggplot2` to plot
 ncdc_plot(out1, out2, breaks="45 days")
 ```
 
-```
-#> Error: Invalid input: time_trans works with objects of class POSIXct only
-```
+![plot of chunk unnamed-chunk-13](/img/tutorial-images/rnoaa/unnamed-chunk-13-1.png)
 
-![plot of chunk unnamed-chunk-13](../assets/tutorial-images/rnoaa/unnamed-chunk-13-1.png)
-
-## ERDDAP data
+### ERDDAP data
 
 > ERDDAP data is now avialable through the `rerddap` package
 
 
-## Severe Weather Data Inventory (SWDI) data
+### Severe Weather Data Inventory (SWDI) data
 
-### Search for nx3tvs data from 5 May 2006 to 6 May 2006
+#### Search for nx3tvs data from 5 May 2006 to 6 May 2006
 
 
 ```r
@@ -275,7 +255,7 @@ swdi(dataset='nx3tvs', startdate='20060505', enddate='20060506')
 #> numeric(0)
 #>
 #> $meta$totalTimeInSeconds
-#> [1] 0.038
+#> [1] 0.012
 #>
 #>
 #> $data
@@ -364,7 +344,7 @@ swdi(dataset='nx3tvs', startdate='20060505', enddate='20060506')
 #> [1] "swdi"
 ```
 
-### Use an id
+#### Use an id
 
 
 ```r
@@ -378,7 +358,7 @@ list(out$meta, head(out$data), head(out$shape))
 #> numeric(0)
 #>
 #> [[1]]$totalTimeInSeconds
-#> [1] 0.475
+#> [1] 0.051
 #>
 #>
 #> [[2]]
@@ -407,7 +387,7 @@ list(out$meta, head(out$data), head(out$shape))
 #> 6 POLYGON ((-101.6 33.32, -101.57 33.31, -101.57 33.51, -101.65 33.51, -101.66 33.5, -101.75 33.5, -101.77 33.49, -101.84 33.49, -101.84 33.32, -101.6 33.32))
 ```
 
-### Get all 'plsr' within the bounding box (-91,30,-90,31)
+#### Get all 'plsr' within the bounding box (-91,30,-90,31)
 
 
 ```r
@@ -420,7 +400,7 @@ swdi(dataset='plsr', startdate='20060505', enddate='20060510', bbox=c(-91,30,-90
 #> numeric(0)
 #>
 #> $meta$totalTimeInSeconds
-#> [1] 0.001
+#> [1] 0
 #>
 #>
 #> $data
@@ -450,9 +430,9 @@ swdi(dataset='plsr', startdate='20060505', enddate='20060510', bbox=c(-91,30,-90
 ```
 
 
-## Sea ice data
+### Sea ice data
 
-### Map all years for April only for North pole
+#### Map all years for April only for North pole
 
 
 ```r
@@ -470,11 +450,11 @@ ggplot(df, aes(long, lat, group=group)) +
 ![seaice](../assets/tutorial-images/rnoaa/seaice.png)
 
 
-## IBTrACS storm data
+### IBTrACS storm data
 
 Get NOAA wind storm tabular data, metadata, or shp files from International Best Track Archive for Climate Stewardship (IBTrACS). See http://www.ncdc.noaa.gov/ibtracs/index.php?name=numbering for more.
 
-### Metadata
+#### Metadata
 
 There are two datasets stored in the package. By default `storm_meta()` gives metadata describing columns of the datasets returned.
 
@@ -524,7 +504,7 @@ head( storm_meta("storm_names") )
 #> 6 1848011S16057   NOT NAMED(td9636)
 ```
 
-### Tabular data
+#### Tabular data
 
 You can get tabular data for basins, storms, or years, (or all data). `storm_data()` and the next function `storm_shp()` figure out what files to get, and gets them from an ftp server, and saves them to your machine. Do let us know if you have any problems with paths on your machine, and we'll fix 'em. The result from `storm_data()` is a `dplyr`-like data.frame with a easy summary that makes large datasets easy to view.
 
@@ -557,9 +537,9 @@ storm_data(year=1941)
 #>      (dbl), td9636_lat (dbl), td9636_lon (dbl), td9636_grade (dbl), td9636_wind (dbl),
 ```
 
-## Buoy data
+### Buoy data
 
-## Find out what buoys are available in a dataset
+#### Find out what buoys are available in a dataset
 
 
 ```r
@@ -583,7 +563,7 @@ head(buoys(dataset = "cwind"))
 #> 6 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41009/catalog.html
 ```
 
-## Get buoy data
+#### Get buoy data
 
 With `buoy` you can get data for a particular dataset, buoy id, year, and datatype.
 
@@ -613,23 +593,17 @@ buoy(dataset = 'cwind', buoyid = 41001, year = 2008, datatype = "cc")
 ```
 
 
-## More data
-
-There are more NOAA data sources in `noaa`. Check out the various vignettes in the package.
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `rnoaa` in publications use:
 
 <br>
 
-> Scott Chamberlain, Adam Erickson, Nicholas Potter, Joseph Stachelek, Karthik Ram and Hart Edmund (2016). rnoaa: NOAA climate data from R. R package version 0.5.2. https://github.com/ropensci/rnoaa
+> Scott Chamberlain (2017). rnoaa: 'NOAA' Weather Data from R. R
+  package version 0.7.0. https://CRAN.R-project.org/package=rnoaa
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rnoaa](https://github.com/ropensci/rnoaa/issues?state=open)

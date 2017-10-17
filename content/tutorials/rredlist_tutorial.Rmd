@@ -1,11 +1,11 @@
 ---
 title: rredlist tutorial
-package_version: 0.2.2
+package_version: 0.4.0
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rredlist/",
+  fig.path = "img/tutorial-images/rredlist/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -40,9 +40,8 @@ level API only does the HTTP request, and gives back JSON without doing any
 more parsing. The low level functions DO have an underscore on the end
 of the function name, e.g., `rl_search_`
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable `rredlist` version from CRAN
 
@@ -60,7 +59,6 @@ devtools::install_github("ropenscilabs/rredlist")
 library("rredlist")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -112,20 +110,18 @@ library("jqr")
 rl_search_('Fratercula arctica') %>% dot()
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rredlist` in publications use:
 
 <br>
 
-> Scott Chamberlain (2016). rredlist: 'IUCN' Red List Client. R package version 0.1.0.
-https://github.com/ropenscilabs/rredlist
+> Scott Chamberlain (2017). rredlist: 'IUCN' Red List Client. R package
+  version 0.4.0. https://CRAN.R-project.org/package=rredlist
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rredlist](https://github.com/ropenscilabs/rredlist/issues?state=open)

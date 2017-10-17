@@ -1,12 +1,12 @@
 ---
 title: ritis vignette
-package_version: 0.5.0
+package_version: 0.6.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 library(knitr)
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/ritis/",
+	fig.path = "img/tutorial-images/ritis/",
 	warning = FALSE,
 	message = FALSE,
 	comment = "#>"
@@ -18,9 +18,8 @@ An interface to the Integrated Taxonomic Information System (ITIS)
 API methods (<http://www.itis.gov/ws_description.html>), as well as the
 Solr web service (<http://www.itis.gov/solr_documentation.html>).
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("ritis")
@@ -33,7 +32,6 @@ install.packages("devtools")
 devtools::install_github("ropensci/ritis")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -98,17 +96,16 @@ hierarchy_full(tsn = 37906)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain (2016). ritis: Integrated Taxonomic Information System Client. R
-  package version 0.5.0. https://github.com/ropensci/ritis
+> Scott Chamberlain (2017). ritis: Integrated Taxonomic Information
+  System Client. R package version 0.6.0.
+  https://CRAN.R-project.org/package=ritis
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for ritis](https://github.com/ropensci/ritis/issues?state=open)

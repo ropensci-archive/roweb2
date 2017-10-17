@@ -1,11 +1,11 @@
 ---
 title: rotl tutorial
-package_version: 3.0.0
+package_version: 3.0.3
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rotl/",
+  fig.path = "img/tutorial-images/rotl/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -171,8 +171,9 @@ To cite `rotl` in publications use:
 
 <br>
 
-> Francois Michonneau, Joseph Brown and David Winter (2016). rotl: Interface to the 'Open Tree of
-  Life' API. R package version 3.0.0. https://cran.rstudio.com/package=rotl
+> Michonneau, F., Brown, J. W. and Winter, D. J. (2016), rotl: an R
+  package to interact with the Open Tree of Life data.  Methods Ecol
+  Evol. 7(12):1476-1481. doi:10.1111/2041-210X.12593
 
 <section id="license_bugs">
 

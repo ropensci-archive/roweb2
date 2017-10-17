@@ -1,6 +1,6 @@
 ---
 title: rotl tutorial
-package_version: 3.0.0
+package_version: 3.0.3
 ---
 
 
@@ -90,12 +90,12 @@ intended:
 
 
 
-|search_string |unique_name                |approximate_match |ott_id  |is_synonym |flags |number_matches |
-|:-------------|:--------------------------|:-----------------|:-------|:----------|:-----|:--------------|
-|hyla          |Hyla                       |FALSE             |1062216 |FALSE      |      |1              |
-|salmo         |Salmo                      |FALSE             |982359  |FALSE      |      |1              |
-|diadema       |Diadema (genus in Holozoa) |FALSE             |631176  |FALSE      |      |2              |
-|nautilus      |Nautilus                   |FALSE             |616358  |FALSE      |      |1              |
+|search_string |unique_name                    |approximate_match |ott_id  |is_synonym |flags |number_matches |
+|:-------------|:------------------------------|:-----------------|:-------|:----------|:-----|:--------------|
+|hyla          |Hyla                           |FALSE             |1062216 |FALSE      |      |1              |
+|salmo         |Salmo                          |FALSE             |982359  |FALSE      |      |1              |
+|diadema       |Diadema (genus in Nucletmycea) |FALSE             |4930522 |FALSE      |      |5              |
+|nautilus      |Nautilus                       |FALSE             |616358  |FALSE      |      |1              |
 
 
 
@@ -131,7 +131,7 @@ my_tree <- tol_induced_subtree(ott_ids = resolved_names$ott_id)
 plot(my_tree, no.margin=TRUE)
 ```
 
-![plot of chunk unnamed-chunk-7](../assets/tutorial-images/rotl/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](/img/tutorial-images/rotl/unnamed-chunk-7-1.png)
 
 ### Get tree for a particular taxonomic group
 
@@ -146,7 +146,7 @@ mono_tree <- tol_subtree(ott_id = mono_id$ott_id[1])
 plot(mono_tree)
 ```
 
-![plot of chunk unnamed-chunk-8](../assets/tutorial-images/rotl/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-8](/img/tutorial-images/rotl/unnamed-chunk-8-1.png)
 
 
 ### Find trees from studies focused on my favourite taxa
@@ -191,8 +191,9 @@ To cite `rotl` in publications use:
 
 <br>
 
-> Francois Michonneau, Joseph Brown and David Winter (2016). rotl: Interface to the 'Open Tree of
-  Life' API. R package version 3.0.0. https://cran.rstudio.com/package=rotl
+> Michonneau, F., Brown, J. W. and Winter, D. J. (2016), rotl: an R
+  package to interact with the Open Tree of Life data.  Methods Ecol
+  Evol. 7(12):1476-1481. doi:10.1111/2041-210X.12593
 
 <section id="license_bugs">
 

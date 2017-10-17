@@ -1,11 +1,11 @@
 ---
 title: traits tutorial
-package_version: 0.2.0
+package_version: 0.3.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rnoaa/",
+  fig.path = "img/tutorial-images/rnoaa/",
   fig.width = 6,
   fig.height = 4,
   comment = "#>",
@@ -14,9 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Install and load `traits` into the R session. Stable version from CRAN
 
@@ -35,7 +34,6 @@ devtools::install_github("ropensci/traits")
 library("traits")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -77,46 +75,15 @@ out <- ncbi_searcher(taxa = "Umbra limi", seqrange = "1:2000")
 head(out)
 ```
 
-### GISD invasive species data
-
-> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
-
-```{r}
-sp <- c("Carpobrotus edulis", "Rosmarinus officinalis")
-g_invasive(sp)
-```
-
-Or as simplified output
-
-```{r}
-g_invasive(sp, simplify = TRUE)
-```
-
-### EOL invasive species data
-
-> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
-
-```{r}
-eol_invasive_('Brassica oleracea', dataset = 'gisd')
-```
-
-Another example, with more species, and from
-
-```{r}
-eol_invasive_(c('Lymantria dispar','Cygnus olor',
-                'Hydrilla verticillata','Pinus concolor'),
-              dataset = 'i3n')
-```
-
 ### EOL's Traitbank data
 
 Note that EOL's Traitbank does not allow us to search by trait.
 The only interface we have is to search by taxon page ID.
 
-Searching for _Potus flavus_, page id `328067`
+Searching for _Potus flavus_, page id `328574`
 
-```{r cache=FALSE}
-res <- traitbank(pageid = 328067)
+```{r eval=FALSE}
+res <- traitbank(pageid = 328574)
 res$graph %>%
   select(dwc.measurementtype,
          dwc.measurementvalue) %>%
@@ -143,14 +110,6 @@ Get data by trait
 coral_traits(105)
 ```
 
-### Flora Europaea
-
-```{r}
-sp <- c("Lavandula stoechas", "Carpobrotus edulis",
-        "Rhododendron ponticum", "Alkanna lutea", "Anchusa arvensis")
-sapply(sp, fe_native, simplify = FALSE)
-```
-
 ### Birdlife International
 
 Habitat data
@@ -165,40 +124,20 @@ Threats data
 birdlife_threats(22721692)
 ```
 
-### Nativity
 
-> NOTE: we're moving all functions having to do with where species are native/invasive to a new package [https://github.com/ropenscilabs/originr](https://github.com/ropenscilabs/originr)
-
-```{r}
-sp <- c("Lavandula stoechas", "Carpobrotus edulis", "Rhododendron ponticum",
-      "Alkanna lutea", "Anchusa arvensis")
-```
-
-Native in the continental USA?
-
-```{r}
-sapply(sp, is_native, where = "Continental US", region = "america")
-```
-
-Native on Islas Baleares?
-
-```{r}
-sapply(sp, is_native, where = "Islas_Baleares", region = "europe")
-```
-
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `traits` in publications use:
 
 <br>
 
-> Scott Chamberlain, Zachary Foster, Ignasi Bartomeus, David LeBauer, and David Harris (2015). traits: Species Trait Data from Around the Web. R package version 0.2.0. https://github.com/ropensci/traits
+> Scott Chamberlain, Zachary Foster, Ignasi Bartomeus, David LeBauer
+  and David Harris (2017). traits: Species Trait Data from Around the
+  Web. R package version 0.3.0.
+  https://CRAN.R-project.org/package=traits
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for traits](https://github.com/ropensci/traits/issues?state=open)

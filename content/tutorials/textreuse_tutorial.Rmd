@@ -1,11 +1,11 @@
 ---
 title: textreuse tutorial
-package_version: 0.1.3
+package_version: 0.1.4
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/textreuse/",
+  fig.path = "img/tutorial-images/textreuse/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -15,9 +15,8 @@ knitr::opts_chunk$set(
 
 Tools for measuring similarity among documents and detecting passages which have been reused. Implements shingled n-gram, skip n-gram, and other tokenizers; similarity/dissimilarity functions; pairwise comparisons; minhash and locality sensitive hashing algorithms; and a version of the Smith-Waterman local alignment algorithm suitable for natural language.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable `textreuse` version from CRAN
 
@@ -35,7 +34,6 @@ devtools::install_github("ropensci/textreuse")
 library("textreuse")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -175,20 +173,19 @@ See the documentation for `?similarity-functions` for details on what is measure
 You can write your own similarity functions, which should accept two sets or bags, `a` and `b`, should work on both character and numeric vectors, since they are used with either tokens or hashes of tokens, and should return a single numeric score for the comparison. You will need to implement a method for the `TextReuseTextDocument` class.
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `textreuse` in publications use:
 
 <br>
 
->  Lincoln Mullen (2016). textreuse: Detect Text Reuse and Document Similarity. R package version 0.1.3.
-https://github.com/ropensci/textreuse
+>  Lincoln Mullen (2016). textreuse: Detect Text Reuse and Document
+  Similarity. R package version 0.1.4.
+  https://CRAN.R-project.org/package=textreuse
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for textreuse](https://github.com/ropensci/textreuse/issues?state=open)

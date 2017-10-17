@@ -1,11 +1,11 @@
 ---
 title: pangaear tutorial
-package_version: 0.2.0
+package_version: 0.3.0
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/pangaear/",
+  fig.path = "img/tutorial-images/pangaear/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -15,9 +15,8 @@ knitr::opts_chunk$set(
 
 Tools to interact with the [Pangaea Database](https:// www.pangaea.de), including functions for searching for data, fetching datasets by dataset ID, and working with the Pangaea OAI-PMH service.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable `pangaear` version from CRAN
 
@@ -35,9 +34,6 @@ devtools::install_github("ropensci/pangaear")
 library("pangaear")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Search for data
 
@@ -100,20 +96,19 @@ pg_get_record(identifier = "oai:pangaea.de:doi:10.1594/PANGAEA.788382")
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `pangaear` in publications use:
 
 <br>
 
-> Scott Chamberlain, Kara Woo, Andrew MacDonald, Naupaka Zimmerman and Gavin Simpson (2016). pangaear:
-  Client for the 'Pangaea' Database. R package version 0.2.0. https://github.com/ropensci/pangaear
+> Scott Chamberlain, Kara Woo, Andrew MacDonald, Naupaka Zimmerman and
+  Gavin Simpson (2017). pangaear: Client for the 'Pangaea' Database. R
+  package version 0.3.0. https://CRAN.R-project.org/package=pangaear
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for pangaear](https://github.com/ropensci/pangaear/issues?state=open)

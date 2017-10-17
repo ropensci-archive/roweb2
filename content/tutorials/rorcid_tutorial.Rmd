@@ -1,11 +1,11 @@
 ---
 title: rorcid tutorial
-package_version: 0.2.2
+package_version: 0.3.0
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/rorcid/",
+  fig.path = "img/tutorial-images/rorcid/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -15,9 +15,8 @@ knitr::opts_chunk$set(
 
 `rorcid` is an R programmatic interface to the Orcid public API. `rorcid` is not a product developed or distributed by ORCID®.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable `rorcid` version from CRAN
 
@@ -35,7 +34,6 @@ devtools::install_github("ropensci/rorcid")
 library("rorcid")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -176,20 +174,18 @@ orcid_doi(dois=dois, fuzzy = TRUE)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rorcid` in publications use:
 
 <br>
 
-> Scott Chamberlain (2016). rorcid: Interface to the 'Orcid.org' 'API'. R package version 0.2.2.
-https://github.com/ropensci/rorcid
+> Scott Chamberlain (2016). rorcid: Interface to the 'Orcid.org' 'API'.
+  R package version 0.3.0. https://CRAN.R-project.org/package=rorcid
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rorcid](https://github.com/ropensci/rorcid/issues?state=open)

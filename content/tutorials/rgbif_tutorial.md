@@ -1,6 +1,6 @@
 ---
 title: rgbif tutorial
-package_version: 0.9.8
+package_version: 0.9.9
 ---
 
 
@@ -55,7 +55,7 @@ All georeferenced records in GBIF
 
 ```r
 occ_count(georeferenced=TRUE)
-#> [1] 772606983
+#> [1] 772524989
 ```
 
 Records from Denmark
@@ -64,7 +64,7 @@ Records from Denmark
 ```r
 denmark_code <- isocodes[grep("Denmark", isocodes$name), "code"]
 occ_count(country=denmark_code)
-#> [1] 11372132
+#> [1] 11372130
 ```
 
 Number of records in a particular dataset
@@ -80,7 +80,7 @@ All records from 2012
 
 ```r
 occ_count(year=2012)
-#> [1] 44688337
+#> [1] 44688340
 ```
 
 Records for a particular dataset, and only for preserved specimens
@@ -99,8 +99,7 @@ Get possible values to be used in taxonomic rank arguments in functions
 ```r
 taxrank()
 #> [1] "kingdom"       "phylum"        "class"         "order"
-#> [5] "family"        "genus"         "species"       "subspecies"
-#> [9] "infraspecific"
+#> [5] "family"        "genus"         "species"       "infraspecific"
 ```
 
 `name_lookup()` does full text search of name usages covering the scientific and vernacular name, the species description, distribution and the entire classification across all name usages of all or some checklists. Results are ordered by relevance as this search usually returns a lot of results.
@@ -135,17 +134,17 @@ head(out$data)
 #>       <int>          <chr>                                <chr>  <int>
 #> 1 114079693       Mammalia bd0a2b6d-69d1-4650-8bb1-829c8f92035f    359
 #> 2 123227024       Mammalia 90d9e8a6-0ce1-472d-b682-3451095dbc5a    359
-#> 3 100371916       Mammalia 16c3f9cb-4b19-4553-ac8e-ebb90003aa02    359
-#> 4 116807520       Mammalia 88f4e35a-bdf8-4aa2-9a1b-56401d4eed15    359
-#> 5 134858082       Mammalia 69c3d481-f867-4e34-a068-dcd79213b4b9    359
-#> 6 134907682       Mammalia ad93ccba-1051-46b7-a219-b153a1718d74    359
+#> 3 115498126       Mammalia fe51a93b-a7f8-48ec-99c8-7c347716e8d3    359
+#> 4 127776750       Mammalia 5b3a293b-04e5-4ad7-992f-cb016fcf166a    359
+#> 5 100375341       Mammalia 16c3f9cb-4b19-4553-ac8e-ebb90003aa02    359
+#> 6 133364782       Mammalia 7ddf754f-d193-4cc9-b351-99906754a03b    359
 #> # ... with 24 more variables: parentKey <int>, parent <chr>,
 #> #   canonicalName <chr>, nameType <chr>, taxonomicStatus <chr>,
 #> #   origin <chr>, numDescendants <int>, numOccurrences <int>,
 #> #   taxonID <chr>, habitats <chr>, nomenclaturalStatus <lgl>,
-#> #   threatStatuses <lgl>, synonym <lgl>, authorship <chr>, classKey <int>,
-#> #   rank <chr>, extinct <lgl>, class <chr>, kingdom <chr>, phylum <chr>,
-#> #   kingdomKey <int>, phylumKey <int>, constituentKey <chr>,
+#> #   threatStatuses <lgl>, synonym <lgl>, authorship <chr>, kingdom <chr>,
+#> #   phylum <chr>, kingdomKey <int>, phylumKey <int>, classKey <int>,
+#> #   rank <chr>, class <chr>, extinct <lgl>, constituentKey <chr>,
 #> #   publishedIn <chr>
 ```
 
@@ -170,15 +169,25 @@ out$hierarchies[1:2]
 
 ```r
 out$names[2]
-#> $`100375341`
-#>   vernacularName language
-#> 1     Säugetiere      deu
-#> 2    Triconodont      cat
-#> 3   Triconodonta      ces
-#> 4   Triconodonta      nld
-#> 5   Triconodonta      por
-#> 6   Trykonodonty      pol
-#> 7   Триконодонты      rus
+#> $`359`
+#>    vernacularName language
+#> 1      zoogdieren      nld
+#> 2         Mammals      eng
+#> 3          mammal      eng
+#> 4         mammals
+#> 5        däggdjur      swe
+#> 6         mammals      eng
+#> 7      mammifères      fra
+#> 8        pattedyr      nno
+#> 9        pattedyr      nob
+#> 10         sogdyr      nno
+#> 11        spendyr      nno
+#> 12     zoogdieren      nld
+#> 13         Ссавці      ukr
+#> 14           哺乳      jpn
+#> 15        mammals      eng
+#> 16    mammifÃ¨res      fra
+#> 17      mamÃ­fero      por
 ```
 
 Search for a genus
@@ -191,10 +200,10 @@ head(name_lookup(query='Cnaemidophorus', rank="genus", return="data"))
 #>       <int>          <chr>                                <chr>   <int>
 #> 1 133063907 Cnaemidophorus 4cec8fef-f129-4966-89b7-4f8439aba058 1858636
 #> 2 134031474 Cnaemidophorus 23905003-5ee5-4326-b1bb-3a2fd6250df3 1858636
-#> 3 135425153 Cnaemidophorus d16563e0-e718-45a9-a20f-3e9fc20613da 1858636
-#> 4 135332978 Cnaemidophorus cbb6498e-8927-405a-916b-576d00a6289b 1858636
-#> 5 133419671 Cnaemidophorus 7ddf754f-d193-4cc9-b351-99906754a03b 1858636
-#> 6 135314362 Cnaemidophorus 16c3f9cb-4b19-4553-ac8e-ebb90003aa02 1858636
+#> 3 133419671 Cnaemidophorus 7ddf754f-d193-4cc9-b351-99906754a03b 1858636
+#> 4 135314362 Cnaemidophorus 16c3f9cb-4b19-4553-ac8e-ebb90003aa02 1858636
+#> 5 135332978 Cnaemidophorus cbb6498e-8927-405a-916b-576d00a6289b 1858636
+#> 6 135447727 Cnaemidophorus d16563e0-e718-45a9-a20f-3e9fc20613da 1858636
 #> # ... with 30 more variables: parentKey <int>, parent <chr>, phylum <chr>,
 #> #   order <chr>, family <chr>, genus <chr>, phylumKey <int>,
 #> #   classKey <int>, orderKey <int>, familyKey <int>, genusKey <int>,
@@ -216,17 +225,17 @@ head(name_lookup(query='mammalia', return = 'data'))
 #>       <int>          <chr>                                <chr>  <int>
 #> 1 114079693       Mammalia bd0a2b6d-69d1-4650-8bb1-829c8f92035f    359
 #> 2 123227024       Mammalia 90d9e8a6-0ce1-472d-b682-3451095dbc5a    359
-#> 3 100371916       Mammalia 16c3f9cb-4b19-4553-ac8e-ebb90003aa02    359
-#> 4 116807520       Mammalia 88f4e35a-bdf8-4aa2-9a1b-56401d4eed15    359
-#> 5 134858082       Mammalia 69c3d481-f867-4e34-a068-dcd79213b4b9    359
-#> 6 134907682       Mammalia ad93ccba-1051-46b7-a219-b153a1718d74    359
+#> 3 115498126       Mammalia fe51a93b-a7f8-48ec-99c8-7c347716e8d3    359
+#> 4 127776750       Mammalia 5b3a293b-04e5-4ad7-992f-cb016fcf166a    359
+#> 5 100375341       Mammalia 16c3f9cb-4b19-4553-ac8e-ebb90003aa02    359
+#> 6 133364782       Mammalia 7ddf754f-d193-4cc9-b351-99906754a03b    359
 #> # ... with 24 more variables: parentKey <int>, parent <chr>,
 #> #   canonicalName <chr>, nameType <chr>, taxonomicStatus <chr>,
 #> #   origin <chr>, numDescendants <int>, numOccurrences <int>,
 #> #   taxonID <chr>, habitats <chr>, nomenclaturalStatus <lgl>,
-#> #   threatStatuses <lgl>, synonym <lgl>, authorship <chr>, classKey <int>,
-#> #   rank <chr>, extinct <lgl>, class <chr>, kingdom <chr>, phylum <chr>,
-#> #   kingdomKey <int>, phylumKey <int>, constituentKey <chr>,
+#> #   threatStatuses <lgl>, synonym <lgl>, authorship <chr>, kingdom <chr>,
+#> #   phylum <chr>, kingdomKey <int>, phylumKey <int>, classKey <int>,
+#> #   rank <chr>, class <chr>, extinct <lgl>, constituentKey <chr>,
 #> #   publishedIn <chr>
 ```
 
@@ -243,7 +252,7 @@ head(name_lookup(query = 'Helianthus annuus', rank="species", return = 'data'))
 #> 3 114910965 Helianthus annuus ee2aac07-de9a-47a2-b828-37430d537633
 #> 4 134843454 Helianthus annuus 29d2d5a6-db22-4abd-b784-9ab2f9757c3c
 #> 5 127670355 Helianthus annuus 41c06f1a-23da-4445-b859-ec3a8a03b0e2
-#> 6 134856103 Helianthus annuus 278c9199-be97-4fd0-9c6c-6c46c4e2369e
+#> 6 103340289 Helianthus annuus fab88965-e69d-4491-a04d-e3198b626e52
 #> # ... with 39 more variables: constituentKey <chr>, nubKey <int>,
 #> #   parentKey <int>, parent <chr>, kingdom <chr>, phylum <chr>,
 #> #   order <chr>, family <chr>, genus <chr>, species <chr>,
@@ -369,32 +378,60 @@ Just data
 
 
 ```r
-occ_get(key=766766824, return='data')
-#> Error: Not Found
+occ_get(key=240713150, return='data')
+#>       name       key decimalLatitude decimalLongitude             issues
+#> 1 Pelosina 240713150        -77.5667          163.583 bri,cdround,gass84
 ```
 
 Just taxonomic hierarchy
 
 
 ```r
-occ_get(key=766766824, return='hier')
-#> Error: Not Found
+occ_get(key=240713150, return='hier')
+#>            name     key    rank
+#> 1     Chromista       4 kingdom
+#> 2  Foraminifera 8376456  phylum
+#> 3  Monothalamea 7882876   class
+#> 4  Astrorhizida 8142878   order
+#> 5 Astrorhizidae 7747923  family
+#> 6      Pelosina 7822114   genus
 ```
 
 All data, or leave return parameter blank
 
 
 ```r
-occ_get(key=766766824, return='all')
-#> Error: Not Found
+occ_get(key=240713150, return='all')
+#> $hierarchy
+#>            name     key    rank
+#> 1     Chromista       4 kingdom
+#> 2  Foraminifera 8376456  phylum
+#> 3  Monothalamea 7882876   class
+#> 4  Astrorhizida 8142878   order
+#> 5 Astrorhizidae 7747923  family
+#> 6      Pelosina 7822114   genus
+#>
+#> $media
+#> list()
+#>
+#> $data
+#>       name       key decimalLatitude decimalLongitude             issues
+#> 1 Pelosina 240713150        -77.5667          163.583 bri,cdround,gass84
 ```
 
 Get many occurrences. `occ_get` is vectorized
 
 
 ```r
-occ_get(key=c(766766824, 101010, 240713150, 855998194), return='data')
-#> Error: Not Found
+occ_get(key=c(101010, 240713150, 855998194), return='data')
+#>                   name       key decimalLatitude decimalLongitude
+#> 1 Platydoras armatulus    101010              NA               NA
+#> 2             Pelosina 240713150       -77.56670        163.58299
+#> 3     Sciurus vulgaris 855998194        58.40677         12.04386
+#>                 issues
+#> 1
+#> 2   bri,cdround,gass84
+#> 3 cdround,gass84,rdatm
 ```
 
 
@@ -631,7 +668,7 @@ gbifmap(dat)
 
 To cite `rgbif` in publications use:
 
-Scott Chamberlain, Carl Boettiger, Karthik Ram, Vijay Barve and Dan Mcglinn (2016). rgbif: Interface to the Global Biodiversity Information Facility API. R package version 0.9.3 https://github.com/ropensci/rgbif
+> Scott Chamberlain, Carl Boettiger, Karthik Ram, Vijay Barve and Dan Mcglinn (2016). rgbif: Interface to the Global Biodiversity Information Facility API. R package version 0.9.3 https://github.com/ropensci/rgbif
 
 
 ### License and bugs

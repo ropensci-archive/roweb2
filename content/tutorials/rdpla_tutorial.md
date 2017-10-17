@@ -1,6 +1,6 @@
 ---
 title: rdpla tutorial
-package_version: 0.1.0
+package_version: 0.2.0
 ---
 
 
@@ -31,9 +31,8 @@ representation of the grouping of a set of items. collections are available in t
 Note that you can only run examples/vignette/tests if you have an API key. See below for an example of how
 to get an API key.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -55,7 +54,6 @@ devtools::install_github("ropensci/rdpla")
 library("rdpla")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -82,20 +80,20 @@ Basic search
 ```r
 dpla_items(q="fruit", page_size=5, fields=c("provider","creator"))
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1 27437     0        5
+#> 1 42020     0        5
 #>
 #> $data
-#> # A tibble: 5 × 2
-#>                        provider                         creator
-#>                           <chr>                           <chr>
-#> 1 Mountain West Digital Library                      no content
-#> 2 Mountain West Digital Library                      no content
-#> 3 Mountain West Digital Library                      no content
-#> 4  Empire State Digital Network                  Preyer, Emilie
-#> 5   The New York Public Library Anderson, Alexander (1775-1870)
+#> # A tibble: 5 x 2
+#>                        provider    creator
+#>                           <chr>      <chr>
+#> 1 Mountain West Digital Library no content
+#> 2 Mountain West Digital Library no content
+#> 3 Mountain West Digital Library no content
+#> 4 Mountain West Digital Library no content
+#> 5 Mountain West Digital Library no content
 #>
 #> $facets
 #> list()
@@ -107,24 +105,24 @@ Limit fields returned
 ```r
 dpla_items(q="fruit", page_size = 10, fields=c("publisher","format"))
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1 27437     0       10
+#> 1 42020     0       10
 #>
 #> $data
-#> # A tibble: 10 × 2
+#> # A tibble: 10 x 2
 #>        format  publisher
 #>         <chr>      <chr>
-#> 1  no content no content
-#> 2  no content no content
-#> 3  no content no content
-#> 4  no content no content
-#> 5  no content no content
-#> 6  no content no content
-#> 7  no content no content
-#> 8  no content no content
-#> 9  no content no content
+#>  1 no content no content
+#>  2 no content no content
+#>  3 no content no content
+#>  4 no content no content
+#>  5 no content no content
+#>  6 no content no content
+#>  7 no content no content
+#>  8 no content no content
+#>  9 no content no content
 #> 10 no content no content
 #>
 #> $facets
@@ -137,13 +135,13 @@ Limit records returned
 ```r
 dpla_items(q="fruit", page_size=2, fields=c("provider","title"))
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1 27413     0        2
+#> 1 42020     0        2
 #>
 #> $data
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>   title                      provider
 #>   <chr>                         <chr>
 #> 1 Fruit Mountain West Digital Library
@@ -159,25 +157,25 @@ Search by date
 ```r
 dpla_items(q="science", date_before=1900, page_size=10, fields=c("id","date"))
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1 51044     0       10
+#> 1 57981     0       10
 #>
 #> $data
-#> # A tibble: 10 × 2
-#>                                  id      date
-#>                               <chr>     <chr>
-#> 1  8b2dba3d4947cc97de111425cd43d3e6     1883-
-#> 2  7a8afa97e5805d66ab044e6a71d70b5f      1851
-#> 3  e7c3b499f627d21910b4ebb4282f0bdc      1880
-#> 4  afbea811bc274aac4a049828941c86e9      1880
-#> 5  4786d787da0ac9f126e5daf9a32f16b7      1886
-#> 6  9f79e6f53dfd2f31a17d756a90f22e0b      1883
-#> 7  855407956475c37b086fa7603aa29038      1880
-#> 8  bf656dc0ab243d29eba122387fbc0950 1881-1882
-#> 9  3bc189a6c3061bd9c2005e67150d4b5a      1880
-#> 10 2289f4cbee338d3ee22472084399d0c1     1880-
+#> # A tibble: 10 x 2
+#>                                  id  date
+#>                               <chr> <chr>
+#>  1 e0f460c6d710c125c7ba6d5186b076e4  1896
+#>  2 fd0710105d8a7a49b87d956364289d7d  1891
+#>  3 e3f11047a57f18f8a21baf5d6ff3c4dd  1886
+#>  4 cf718498ee3b9886da35a43566a6a121  1887
+#>  5 e8f0ed10dbdcd0ffd6f504e1892515da  1885
+#>  6 db59f79180d11c22117cd49f728a1f19  1880
+#>  7 d8421296829e9e8e041e2841118a4651  1890
+#>  8 1ddac8df735b31b13f0032a7b8293abf  1890
+#>  9 dd7e219e625ba0609d9062182029a78c  1880
+#> 10 8177b82cc0542e1895fe92718e6c93da  1892
 #>
 #> $facets
 #> list()
@@ -189,13 +187,13 @@ Search on specific fields
 ```r
 dpla_items(description="obituaries", page_size=2, fields="description")
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1 50678     0        2
+#> 1 51276     0        2
 #>
 #> $data
-#> # A tibble: 2 × 1
+#> # A tibble: 2 x 1
 #>                          description
 #>                                <chr>
 #> 1              Obituaries of members
@@ -209,17 +207,17 @@ dpla_items(description="obituaries", page_size=2, fields="description")
 ```r
 dpla_items(subject="yodeling", page_size=2, fields="subject")
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1    53     0        2
+#> 1    54     0        2
 #>
 #> $data
-#> # A tibble: 2 × 1
-#>                                                     subject
-#>                                                       <chr>
-#> 1 Yodeling--Austria;Musicians--Austria;Restaurants--Austria
-#> 2  Yodeling--Austria;Musicians--Austria;Gamehouses--Austria
+#> # A tibble: 2 x 1
+#>                                                    subject
+#>                                                      <chr>
+#> 1 Yodeling--Austria;Musicians--Austria;Gamehouses--Austria
+#> 2 Yodeling--Austria;Musicians--Austria;Gamehouses--Austria
 #>
 #> $facets
 #> list()
@@ -229,13 +227,13 @@ dpla_items(subject="yodeling", page_size=2, fields="subject")
 ```r
 dpla_items(provider="HathiTrust", page_size=2, fields="provider")
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>     found start returned
 #>     <int> <int>    <int>
-#> 1 2583580     0        2
+#> 1 2673588     0        2
 #>
 #> $data
-#> # A tibble: 2 × 1
+#> # A tibble: 2 x 1
 #>     provider
 #>        <chr>
 #> 1 HathiTrust
@@ -251,17 +249,17 @@ Spatial search, across all spatial fields
 ```r
 dpla_items(sp='Boston', page_size=2, fields=c("id","provider"))
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   found start returned
 #>   <int> <int>    <int>
-#> 1 76380     0        2
+#> 1 64121     0        2
 #>
 #> $data
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>                                 id                provider
 #>                              <chr>                   <chr>
-#> 1 c6791046ceb3a0425f78a083a5370a13 Smithsonian Institution
-#> 2 1542004b196587885a5150650a5451ec Smithsonian Institution
+#> 1 41aa36a38d69f5247529505a55528b5d Smithsonian Institution
+#> 2 337556aaa3096bd77e462d898b70c9d7 Smithsonian Institution
 #>
 #> $facets
 #> list()
@@ -273,17 +271,17 @@ Spatial search, by states
 ```r
 dpla_items(sp_state='Massachusetts OR Hawaii', page_size=2, fields=c("id","provider"))
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>    found start returned
 #>    <int> <int>    <int>
-#> 1 182526     0        2
+#> 1 203299     0        2
 #>
 #> $data
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>                                 id
 #>                              <chr>
-#> 1 b6f7914260c69876dd81037d353cdcc2
-#> 2 97feb7d7f98eb76c6713a6435ab9a0cd
+#> 1 3d3fba16636ab5211a10ff0b0bf44ae6
+#> 2 8e2e5f685b4dd0af109fb32fb3db7f1c
 #> # ... with 1 more variables: provider <chr>
 #>
 #> $facets
@@ -297,49 +295,49 @@ Faceted search
 dpla_items(facets=c("sourceResource.spatial.state","sourceResource.spatial.country"),
       page_size=0, facet_size=5)
 #> $meta
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>      found start returned
 #>      <int> <int>    <int>
-#> 1 14295447     0        0
+#> 1 17857065     0        0
 #>
 #> $data
-#> # A tibble: 0 × 0
+#> # A tibble: 0 x 0
 #>
 #> $facets
 #> $facets$sourceResource.spatial.state
 #> $facets$sourceResource.spatial.state$meta
-#> # A tibble: 1 × 4
+#> # A tibble: 1 x 4
 #>    type   total  missing   other
 #>   <chr>   <int>    <int>   <int>
-#> 1 terms 4121038 10639842 2258803
+#> 1 terms 6586777 12065850 3837491
 #>
 #> $facets$sourceResource.spatial.state$data
-#> # A tibble: 5 × 2
-#>            term  count
-#>           <chr>  <int>
-#> 1         Texas 782164
-#> 2       Georgia 405982
-#> 3    California 266113
-#> 4          Utah 231153
-#> 5 Massachusetts 176823
+#> # A tibble: 5 x 2
+#>         term  count
+#>        <chr>  <int>
+#> 1      Texas 900822
+#> 2 California 652773
+#> 3    Georgia 508989
+#> 4   New York 486016
+#> 5       Utah 200686
 #>
 #>
 #> $facets$sourceResource.spatial.country
 #> $facets$sourceResource.spatial.country$meta
-#> # A tibble: 1 × 4
-#>    type   total missing  other
-#>   <chr>   <int>   <int>  <int>
-#> 1 terms 4708405 9824001 775417
+#> # A tibble: 1 x 4
+#>    type   total  missing   other
+#>   <chr>   <int>    <int>   <int>
+#> 1 terms 8248758 10554280 2095768
 #>
 #> $facets$sourceResource.spatial.country$data
-#> # A tibble: 5 × 2
-#>             term   count
-#>            <chr>   <int>
-#> 1  United States 3626513
-#> 2 United Kingdom   97938
-#> 3         France   92119
-#> 4         Canada   68004
-#> 5         Mexico   48414
+#> # A tibble: 5 x 2
+#>            term   count
+#>           <chr>   <int>
+#> 1 United States 5512055
+#> 2        Russia  178623
+#> 3        Mexico  171047
+#> 4        France  147943
+#> 5        Poland  143322
 ```
 
 ### Search - collections
@@ -350,17 +348,17 @@ Search for collections with the words _university of texas_
 ```r
 dpla_collections(q="university of texas", page_size=2)
 #> $meta
-#> # A tibble: 1 × 2
+#> # A tibble: 1 x 2
 #>   found returned
 #>   <int>    <int>
 #> 1    18        2
 #>
 #> $data
-#> # A tibble: 2 × 14
-#>                               `_rev`                  ingestDate
-#>                                <chr>                       <chr>
-#> 1 8-cc2336d5b5de70f8dc8755de6512885e 2016-09-07T19:29:23.186302Z
-#> 2 9-84614c78c8cf6a37c74eba979a5eb3cf 2016-09-07T19:29:21.233010Z
+#> # A tibble: 2 x 14
+#>                                `_rev`                  ingestDate
+#>                                 <chr>                       <chr>
+#> 1 14-bb5f3466c0a1e579974ef94d49a5cc85 2017-10-04T02:42:01.229088Z
+#> 2 15-339f2d764716ad98af19a1f4e975e597 2017-10-04T02:41:52.940499Z
 #> # ... with 12 more variables: `@context` <chr>, id <chr>, title <chr>,
 #> #   `_id` <chr>, description <chr>, `@type` <chr>, ingestType <chr>,
 #> #   `@id` <chr>, ingestionSequence <int>, score <dbl>,
@@ -373,21 +371,22 @@ You can also search in the `title` and `description` fields
 ```r
 dpla_collections(description="east")
 #> $meta
-#> # A tibble: 1 × 2
+#> # A tibble: 1 x 2
 #>   found returned
 #>   <int>    <int>
 #> 1     3       10
 #>
 #> $data
-#> # A tibble: 3 × 14
-#>                                `_rev`                  ingestDate                           `@context`
-#>                                 <chr>                       <chr>                                <chr>
-#> 1  6-7283e1d42b01b1944637bec58a42b070 2016-09-22T05:27:22.447683Z http://dp.la/api/collections/context
-#> 2 11-db94de89ceb4e5ffe12cd9f041709795 2016-09-13T16:14:45.744176Z http://dp.la/api/collections/context
-#> 3  1-edfcbe6eb4befaeab389b4534046f3d6 2016-09-13T16:14:41.053522Z http://dp.la/api/collections/context
-#> # ... with 11 more variables: id <chr>, title <chr>, `_id` <chr>, description <chr>, `@type` <chr>,
-#> #   ingestType <chr>, `@id` <chr>, ingestionSequence <int>, score <dbl>, validation_message <lgl>,
-#> #   valid_after_enrich <lgl>
+#> # A tibble: 3 x 14
+#>                                `_rev`                  ingestDate
+#>                                 <chr>                       <chr>
+#> 1 10-3902841b19a1e2ff9f7d0f50e341b084 2017-08-22T23:08:25.766144Z
+#> 2  5-9ca83dafb7bcf7087fd561c754e0a509 2017-10-06T20:16:03.681488Z
+#> 3  5-48301bd7615558ed90013b3765ead2e5 2017-10-06T20:15:56.314996Z
+#> # ... with 12 more variables: `@context` <chr>, id <chr>, title <chr>,
+#> #   `_id` <chr>, description <chr>, `@type` <chr>, ingestType <chr>,
+#> #   `@id` <chr>, ingestionSequence <int>, score <dbl>,
+#> #   validation_message <lgl>, valid_after_enrich <lgl>
 ```
 
 ### Visualize
@@ -407,19 +406,19 @@ ggplot(out$facets$sourceResource.spatial.state$data, aes(reorder(term, count), c
   labs(x="State", y="Records")
 ```
 
-![plot of chunk unnamed-chunk-18](../assets/tutorial-images/rdpla/unnamed-chunk-18-1.png)
+![plot of chunk unnamed-chunk-18](/img/tutorial-images/rdpla/unnamed-chunk-18-1.png)
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain (2016). rdpla: Client for the Digital Public Library of America ('DPLA'). R package version 0.1.0. https://github.com/ropensci/rdpla
+> Scott Chamberlain (2017). rdpla: Client for the Digital Public
+  Library of America ('DPLA'). R package version 0.2.0.
+  https://CRAN.R-project.org/package=rdpla
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for rdpla](https://github.com/ropensci/rdpla/issues?state=open)

@@ -37,9 +37,8 @@ is, start it up.
 You can interact with your CouchDB databases as well in your browser. Navigate to http://localhost:5984/_utils
 
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -58,7 +57,6 @@ devtools::install_github("ropensci/sofa")
 library("sofa")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -151,16 +149,14 @@ db_query(x, dbname = "cats",
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 > Scott Chamberlain (2016). sofa: Connector to 'CouchDB'. R package version 0.2.0. https://github.com/ropensci/sofa
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for sofa](https://github.com/ropensci/sofa/issues?state=open)

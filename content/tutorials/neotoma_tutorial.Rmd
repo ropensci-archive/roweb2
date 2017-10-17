@@ -1,11 +1,11 @@
 ---
 title: neotoma tutorial
-package_version: 1.6.1
+package_version: 1.7.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
 knitr::opts_chunk$set(
-  fig.path = "../assets/tutorial-images/neotoma/",
+  fig.path = "img/tutorial-images/neotoma/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -19,9 +19,8 @@ For more information on the package please refer to:
 
 Goring, S., Dawson, A., Simpson, G. L., Ram, K., Graham, R. W., Grimm, E. C., & Williams, J. W.. (2015). neotoma: A Programmatic Interface to the Neotoma Paleoecological Database. *Open Quaternary*, 1(1), Art. 2. DOI: [10.5334/oq.ab](http://doi.org/10.5334/oq.ab)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("neotoma")
@@ -38,9 +37,6 @@ devtools::install_github("ropensci/neotoma")
 library("neotoma")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Distribution of sites with Mammoth fossils in Neotoma
 
@@ -50,7 +46,8 @@ Example requires the mapdata package:
 library('mapdata')
 ```
 
-You may use either '%' or '*' as wildcards for search terms:
+You may use either '%' or "*" as wildcards for search terms:
+
 
 ```{r}
 test <- get_dataset(taxonname='Mammuthus*')
@@ -98,20 +95,20 @@ ggplot(pub.years, aes(x = year)) +
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `neotoma` in publications use:
 
 <br>
 
-> John Harrison (2016). neotoma: R Bindings for Selenium WebDriver. R
-  package version 1.4.0. https://cran.rstudio.com/package=neotoma
+> Goring, S., Dawson, A., Simpson, G. L., Ram, K., Graham, R. W.,
+  Grimm, E. C., & Williams, J. W.. (2015). neotoma: A Programmatic
+  Interface to the Neotoma Paleoecological Database, 1(1), Art. 2. DOI:
+  http://doi.org/10.5334/oq.ab
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for neotoma](https://github.com/ropensci/neotoma/issues?state=open)

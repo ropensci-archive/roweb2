@@ -41,7 +41,7 @@ knitr::opts_chunk$set(
 
 You can find the WKT specification in a PDF at [https://portal.opengeospatial.org/files/?artifact_id=25355](https://portal.opengeospatial.org/files/?artifact_id=25355).
 
-### WKT from R stuctures
+#### WKT from R stuctures
 
 There's a family of functions in `wellknown` that make it easy to go from familiar R objects like lists and data.frames to WKT, including:
 
@@ -53,7 +53,7 @@ There's a family of functions in `wellknown` that make it easy to go from famili
 
 The above currently accept (depending on the fxn) `numeric`, `list`, and `data.frame` (and `character` for special case of `EMPTY` WKT objects).
 
-### Geojson to WKT and vice versa
+#### Geojson to WKT and vice versa
 
 `geojson2wkt()` and `wkt2geojson()` cover a subset of the various formats available:
 
@@ -73,7 +73,6 @@ The above currently accept (depending on the fxn) `numeric`, `list`, and `data.f
 
 `wkt2geojson()` converts any WKT string into geojson as a list. This list format for geojson can be used downstream e.g., in the `leaflet` package.
 
-<section id="installation">
 
 ### Installation
 
@@ -93,11 +92,10 @@ devtools::install_github("ropensci/wellknown")
 library("wellknown")
 ```
 
-<section id="usage">
 
-### Usage
+## Usage
 
-**GeoJSON to WKT**
+### GeoJSON to WKT
 
 Point
 
@@ -191,7 +189,7 @@ str <- '{"type":["LineString"],"coordinates":[[0,0,10],[2,1,20],[4,2,30],[5,4,40
 geojson2wkt(str)
 ```
 
-**WKT to GeoJSON**
+### WKT to GeoJSON
 
 Point
 

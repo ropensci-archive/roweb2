@@ -1,6 +1,6 @@
 ---
 title: rnaturalearth tutorial
-package_version: 0.0.0.9000
+package_version: 0.1.0
 ---
 
 
@@ -22,9 +22,15 @@ This vignette is an introduction to [rnaturalearth](https://github.com/ropenscil
 This vignette uses `sp::plot` as a simple, quick way to show how different data can be accessed.`rnaturalearth` is designed to provide data allowing creation of more elaborate maps in other visualisation packages (e.g. `ggplot2`, `tmap` and `choroplethr`).
 
 
-<section id="installation">
 
-## Installation
+### Installation
+
+CRAN version
+
+
+```r
+install.packages("rnaturalearth")
+```
 
 Development version from GitHub
 
@@ -40,7 +46,6 @@ library("rnaturalearth")
 library("sp")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -60,7 +65,7 @@ World at small scale (low resolution)
 sp::plot(ne_countries(type = 'countries', scale = 'small'))
 ```
 
-![plot of chunk unnamed-chunk-4](../assets/tutorial-images/rnaturalearth/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-5](/img/tutorial-images/rnaturalearth/unnamed-chunk-5-1.png)
 
 Countries, UK undivided
 
@@ -69,7 +74,7 @@ Countries, UK undivided
 sp::plot(ne_countries(country = 'united kingdom', type='countries'))
 ```
 
-![plot of chunk unnamed-chunk-5](../assets/tutorial-images/rnaturalearth/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-6](/img/tutorial-images/rnaturalearth/unnamed-chunk-6-1.png)
 
 `map_units`, UK divided into England, Scotland, Wales and Northern Ireland
 
@@ -78,7 +83,7 @@ sp::plot(ne_countries(country = 'united kingdom', type='countries'))
 sp::plot(ne_countries(country = 'united kingdom', type='map_units'))
 ```
 
-![plot of chunk unnamed-chunk-6](../assets/tutorial-images/rnaturalearth/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-7](/img/tutorial-images/rnaturalearth/unnamed-chunk-7-1.png)
 
 Countries, small scale
 
@@ -87,7 +92,7 @@ Countries, small scale
 sp::plot(ne_countries(country = 'united kingdom', scale = 'small'))
 ```
 
-![plot of chunk unnamed-chunk-7](../assets/tutorial-images/rnaturalearth/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-8](/img/tutorial-images/rnaturalearth/unnamed-chunk-8-1.png)
 
 Countries, medium scale
 
@@ -96,7 +101,7 @@ Countries, medium scale
 sp::plot(ne_countries(country = 'united kingdom', scale = 'medium'))
 ```
 
-![plot of chunk unnamed-chunk-8](../assets/tutorial-images/rnaturalearth/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-9](/img/tutorial-images/rnaturalearth/unnamed-chunk-9-1.png)
 
 Coastline of the world subsetting of coastline is not possible because the Natural Earth data are not attributed in that way
 
@@ -105,7 +110,7 @@ Coastline of the world subsetting of coastline is not possible because the Natur
 sp::plot(ne_coastline())
 ```
 
-![plot of chunk unnamed-chunk-9](../assets/tutorial-images/rnaturalearth/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-10](/img/tutorial-images/rnaturalearth/unnamed-chunk-10-1.png)
 
 ### 2. Downloading other Natural Earth vectors with ne_download().
 
@@ -123,17 +128,16 @@ rivers110 <- ne_download(scale = 110, type = 'rivers_lake_centerlines', category
 sp::plot(rivers110, col = 'blue')
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Andy South 2016. rnaturalearth: World Map Data from Natural Earth. R
-  package version 0.0.0.9000. https://github.com/ropenscilabs/rnaturalearth
+> Andy South (2017). rnaturalearth: World Map Data from Natural Earth.
+  R package version 0.1.0.
+  https://CRAN.R-project.org/package=rnaturalearth
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for rnaturalearth](https://github.com/ropenscilabs/rnaturalearth/issues?state=open)

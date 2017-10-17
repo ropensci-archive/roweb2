@@ -18,9 +18,8 @@ knitr::opts_chunk$set(
 * OAI-PMH. Documentation for the DataCite OAI-PMH is available [here](http://oai.datacite.org/). [Documentation for OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html)
 * REST API. [Docs](http://search.datacite.org/help.html). [Metadata schema](http://schema.datacite.org/). [Solr config file](https://github.com/datacite/search/blob/master/src/main/resources/solrconfig.xml)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 ```{r eval=FALSE}
 install.packages("rdatacite")
@@ -37,7 +36,6 @@ devtools::install_github("ropensci/rdatacite")
 library("rdatacite")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -108,9 +106,8 @@ dc_mlt(q = "ecology", mlt.fl = 'title', mlt.count = 2, fl = 'doi')
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `rdatacite` in publications use:
 
@@ -119,9 +116,8 @@ To cite `rdatacite` in publications use:
 > Scott Chamberlain (2016). rdatacite: 'DataCite' Client for 'OAI-PMH'
   Methods and their Search 'API'. R package version 0.1.0. https://cran.rstudio.com/package=rdatacite
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rdatacite](https://github.com/ropensci/rdatacite/issues?state=open)

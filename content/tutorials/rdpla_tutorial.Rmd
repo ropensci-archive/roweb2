@@ -1,11 +1,11 @@
 ---
 title: rdpla tutorial
-package_version: 0.1.0
+package_version: 0.2.0
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/rdpla/",
+	fig.path = "img/tutorial-images/rdpla/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -39,9 +39,8 @@ representation of the grouping of a set of items. collections are available in t
 Note that you can only run examples/vignette/tests if you have an API key. See below for an example of how
 to get an API key.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -60,7 +59,6 @@ devtools::install_github("ropensci/rdpla")
 library("rdpla")
 ```
 
-<section id="usage">
 
 ## Usage
 
@@ -168,16 +166,16 @@ ggplot(out$facets$sourceResource.spatial.state$data, aes(reorder(term, count), c
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain (2016). rdpla: Client for the Digital Public Library of America ('DPLA'). R package version 0.1.0. https://github.com/ropensci/rdpla
+> Scott Chamberlain (2017). rdpla: Client for the Digital Public
+  Library of America ('DPLA'). R package version 0.2.0.
+  https://CRAN.R-project.org/package=rdpla
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for rdpla](https://github.com/ropensci/rdpla/issues?state=open)
