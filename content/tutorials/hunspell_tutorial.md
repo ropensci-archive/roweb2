@@ -1,6 +1,6 @@
 ---
 title: hunspell tutorial
-package_version: 1.4.3
+package_version: 2.6
 ---
 
 
@@ -16,9 +16,8 @@ See also these blog posts about `hunspell`:
 - [Hunspell: Spell Checker and Text Parser for R](https://www.opencpu.org/posts/hunspell-release/)
 - [Stemming and Spell Checking in R](https://www.opencpu.org/posts/hunspell-1-2/)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```r
@@ -38,9 +37,6 @@ devtools::install_github("ropensci/hunspell")
 library("hunspell")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Check individual words
 
@@ -71,10 +67,10 @@ print(bad[[1]])
 hunspell_suggest(bad[[1]])
 #> [[1]]
 #> [1] "necessary"    "necessarily"  "necessaries"  "recessionary"
-#> [5] "accessory"    "incarcerate"
-#>
+#> [5] "accessory"    "incarcerate" 
+#> 
 #> [[2]]
-#> [1] "language"  "Langeland" "Lagrange"  "Lange"     "gaugeable" "linkage"
+#> [1] "language"  "Langeland" "Lagrange"  "Lange"     "gaugeable" "linkage"  
 #> [7] "Langland"
 ```
 
@@ -86,61 +82,59 @@ words <- c("love", "loving", "lovingly", "loved", "lover", "lovely", "love")
 hunspell_stem(words)
 #> [[1]]
 #> [1] "love"
-#>
+#> 
 #> [[2]]
-#> [1] "loving" "love"
-#>
+#> [1] "loving" "love"  
+#> 
 #> [[3]]
 #> [1] "lovingly"
-#>
+#> 
 #> [[4]]
-#> [1] "loved" "love"
-#>
+#> [1] "loved" "love" 
+#> 
 #> [[5]]
-#> [1] "lover" "love"
-#>
+#> [1] "lover" "love" 
+#> 
 #> [[6]]
-#> [1] "lovely" "love"
-#>
+#> [1] "lovely" "love"  
+#> 
 #> [[7]]
 #> [1] "love"
 hunspell_analyze(words)
 #> [[1]]
 #> [1] " st:love"
-#>
+#> 
 #> [[2]]
 #> [1] " st:loving"    " st:love fl:G"
-#>
+#> 
 #> [[3]]
 #> [1] " st:lovingly"
-#>
+#> 
 #> [[4]]
 #> [1] " st:loved"     " st:love fl:D"
-#>
+#> 
 #> [[5]]
 #> [1] " st:lover"     " st:love fl:R"
-#>
+#> 
 #> [[6]]
 #> [1] " st:lovely"    " st:love fl:Y"
-#>
+#> 
 #> [[7]]
 #> [1] " st:love"
 ```
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `hunspell` in publications use:
 
 <br>
 
-> Jeroen Ooms (2016). hunspell: Morphological Analysis and Spell Checker
-  for R. R package version 1.4.3. https://cran.rstudio.com/package=hunspell
+> Jeroen Ooms (2017). hunspell: High-Performance Stemmer, Tokenizer,
+  and Spell Checker for R. R package version 2.6. https://CRAN.R-project.org/package=hunspell
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for hunspell](https://github.com/ropensci/hunspell/issues?state=open)

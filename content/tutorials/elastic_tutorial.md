@@ -1,15 +1,14 @@
 ---
 title: elastic tutorial
-package_version: 0.6.0
+package_version: 0.8.0
 ---
 
 
 
 `elastic` is an R client for [Elasticsearch](https://www.elastic.co/products/elasticsearch). This tutorial is an introduction to the package.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 You can install from CRAN
 
@@ -33,26 +32,27 @@ Then load the package
 library("elastic")
 ```
 
-<section id="usage">
+### Elasticsearch
 
-## Elasticsearch info
+**Elasticsearch info**
 
 + [Elasticsearch home page](https://www.elastic.co/products/elasticsearch)
 + [API docs](http://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 
-## Install Elasticsearch
+**Install Elasticsearch**
 
 * [Elasticsearch installation help](http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html)
 
 __Unix (linux/osx)__
 
-Replace `2.3.2` with the version you are working with.
+Replace `5.6.0` with the version you are working with.
 
-+ Download zip or tar file from Elasticsearch [see here for download](https://www.elastic.co/downloads/elasticsearch), e.g., `curl -L -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.2.tar.gz`
-+ Uncompress it: `tar -xvf elasticsearch-2.3.2.tar.gz`
-+ Move it: `sudo mv elasticsearch-2.3.2 /usr/local`
++ Download zip or tar file from Elasticsearch [see here for download](https://www.elastic.co/downloads), e.g., `curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.tar.gz`
++ Extract: `tar -zxvf elasticsearch-5.6.0.tar.gz`
++ Move it: `sudo mv elasticsearch-5.6.0 /usr/local`
 + Navigate to /usr/local: `cd /usr/local`
-+ Add shortcut: `sudo ln -s elasticsearch-2.3.2 elasticsearch`
++ Delete symlinked `elasticsearch` directory: `rm -rf elasticsearch`
++ Add shortcut: `sudo ln -s elasticsearch-5.6.0 elasticsearch` (replace version with your version)
 
 On OSX, you can install via Homebrew: `brew install elasticsearch`
 
@@ -60,7 +60,7 @@ __Windows__
 
 Windows users can follow the above, but unzip the zip file instead of uncompressing the tar file.
 
-## Start Elasticsearch
+**Start Elasticsearch**
 
 * Navigate to elasticsearch: `cd /usr/local/elasticsearch`
 * Start elasticsearch: `bin/elasticsearch`
@@ -69,7 +69,7 @@ I create a little bash shortcut called `es` that does both of the above commands
 
 __Note:__ Windows users should run the `elasticsearch.bat` file
 
-## Initialize connection
+**Initialize connection**
 
 The function `connect()` is used before doing anything else to set the connection details to your remote or local elasticsearch store. The details created by `connect()` are written to your options for the current session, and are used by `elastic` functions.
 
@@ -81,28 +81,23 @@ connect()
 ```
 #> transport:  http
 #> host:       127.0.0.1
-#> port:      9200
+#> port:       9200
+#> path:       NULL
+#> username:   NULL
+#> password:   <secret>
+#> errors:     simple
 #> headers (names):  NULL
-#> username:  NULL
-#> password:  NULL
-#> errors:    simple
-#> Elasticsearch (ES) details:
-#>    name:                    Ningal
-#>    ES version:              2.3.1
-#>    ES version timestamp:    2016-04-04T12:25:05Z
-#>    ES build hash:           bd980929010aef404e7cb0843e61d0665269fc39
-#>    lucene version:          5.5.0
 ```
 
 On package load, your base url and port are set to `http://127.0.0.1` and `9200`, respectively. You can of course override these settings per session or for all sessions.
 
-## Get some data
+**Get some data**
 
 Elasticsearch has a bulk load API to load data in fast. The format is pretty weird though. It's sort of JSON, but would pass no JSON linter. I include a few data sets in `elastic` so it's easy to get up and running, and so when you run examples in this package they'll actually run the same way (hopefully).
 
 I have prepared a non-exported function useful for preparing the weird format that Elasticsearch wants for bulk data loads (see below). See `elastic:::make_bulk_plos` and `elastic:::make_bulk_gbif`.
 
-### Shakespeare data
+**Shakespeare data**
 
 Elasticsearch provides some data on Shakespeare plays. I've provided a subset of this data in this package. Get the path for the file specific to your machine:
 
@@ -125,7 +120,7 @@ curl -XGET http://www.elasticsearch.org/guide/en/kibana/current/snippets/shakesp
 curl -XPUT localhost:9200/_bulk --data-binary @shakespeare.json
 ```
 
-### Public Library of Science (PLOS) data
+**Public Library of Science (PLOS) data**
 
 A dataset inluded in the `elastic` package is metadata for PLOS scholarly articles. Get the file path, then load:
 
@@ -135,29 +130,11 @@ plosdat <- system.file("examples", "plos_data.json", package = "elastic")
 docs_bulk(plosdat)
 ```
 
-### Global Biodiversity Information Facility (GBIF) data
-
-A dataset inluded in the `elastic` package is data for GBIF species occurrence records. Get the file path, then load:
-
-
-```r
-gbifdat <- system.file("examples", "gbif_data.json", package = "elastic")
-docs_bulk(gbifdat)
-```
-
-GBIF geo data with a coordinates element to allow `geo_shape` queries
-
-
-```r
-gbifgeo <- system.file("examples", "gbif_geo.json", package = "elastic")
-docs_bulk(gbifgeo)
-```
-
-### More data sets
+**More data sets**
 
 There are more datasets formatted for bulk loading in the `ropensci/elastic_data` GitHub repository. Find it at [https://github.com/ropensci/elastic_data](https://github.com/ropensci/elastic_data)
 
-## Search
+### Search
 
 Search the `plos` index and only return 1 result
 
@@ -188,11 +165,11 @@ Search(index="plos", size=1)$hits$hits
 #> [1] "Phospholipase C-β4 Is Essential for the Progression of the Normal Sleep Sequence and Ultradian Body Temperature Rhythms in Mice"
 ```
 
-Search the `plos` index, and the `article` document type, sort by title, and query for _antibody_, limit to 1 result
+Search the `plos` index, and the `article` document type, and query for _antibody_, limit to 1 result
 
 
 ```r
-Search(index="plos", type="article", sort="title", q="antibody", size=1)$hits$hits
+Search(index="plos", type="article", q="antibody", size=1)$hits$hits
 ```
 
 ```
@@ -207,7 +184,7 @@ Search(index="plos", type="article", sort="title", q="antibody", size=1)$hits$hi
 #> [1] "568"
 #>
 #> [[1]]$`_score`
-#> NULL
+#> [1] 4.165291
 #>
 #> [[1]]$`_source`
 #> [[1]]$`_source`$id
@@ -215,86 +192,10 @@ Search(index="plos", type="article", sort="title", q="antibody", size=1)$hits$hi
 #>
 #> [[1]]$`_source`$title
 #> [1] "Evaluation of 131I-Anti-Angiotensin II Type 1 Receptor Monoclonal Antibody as a Reporter for Hepatocellular Carcinoma"
-#>
-#>
-#> [[1]]$sort
-#> [[1]]$sort[[1]]
-#> [1] "1"
 ```
 
-## URL based search
 
-A new function in `v0.4` is `Search_uri()`, where the search is defined entirely in the URL itself.
-This is especially useful for cases in which `POST` requests are forbidden, e.g, on a server that
-prevents `POST` requests for security reasons (which the function `Search()` uses)
-
-Basic search
-
-
-```r
-Search_uri(index = "plos", size = 1)$hits$hits
-```
-
-```
-#> [[1]]
-#> [[1]]$`_index`
-#> [1] "plos"
-#>
-#> [[1]]$`_type`
-#> [1] "article"
-#>
-#> [[1]]$`_id`
-#> [1] "0"
-#>
-#> [[1]]$`_score`
-#> [1] 1
-#>
-#> [[1]]$`_source`
-#> [[1]]$`_source`$id
-#> [1] "10.1371/journal.pone.0007737"
-#>
-#> [[1]]$`_source`$title
-#> [1] "Phospholipase C-β4 Is Essential for the Progression of the Normal Sleep Sequence and Ultradian Body Temperature Rhythms in Mice"
-```
-
-Sorting
-
-
-```r
-res <- Search_uri(index = "shakespeare", type = "act", sort = "speaker:desc", fields = 'speaker')
-sapply(res$hits$hits, "[[", c("fields", "speaker"))
-```
-
-```
-#> [[1]]
-#> [1] "ARCHBISHOP OF YORK"
-#>
-#> [[2]]
-#> [1] "VERNON"
-#>
-#> [[3]]
-#> [1] "PLANTAGENET"
-#>
-#> [[4]]
-#> [1] "PETO"
-#>
-#> [[5]]
-#> [1] "KING HENRY IV"
-#>
-#> [[6]]
-#> [1] "HOTSPUR"
-#>
-#> [[7]]
-#> [1] "FALSTAFF"
-#>
-#> [[8]]
-#> [1] "CHARLES"
-#>
-#> [[9]]
-#> [1] ""
-```
-
-### A bool query
+#### A bool query
 
 
 ```r
@@ -310,24 +211,38 @@ sapply(Search(index="shakespeare", body=mmatch)$hits$hits, function(x) x$`_sourc
 ```
 
 ```
-#>  [1]  6  7  7  7  7  8  9 10  7  8
+#> [[1]]
+#> NULL
+#>
+#> [[2]]
+#> [1] 6
+#>
+#> [[3]]
+#> [1] 7
+#>
+#> [[4]]
+#> [1] 7
+#>
+#> [[5]]
+#> [1] 7
+#>
+#> [[6]]
+#> [1] 8
+#>
+#> [[7]]
+#> [1] 8
+#>
+#> [[8]]
+#> [1] 9
+#>
+#> [[9]]
+#> [1] 9
+#>
+#> [[10]]
+#> [1] 10
 ```
 
-### Fuzzy query
-
-Fuzzy query on numerics
-
-
-```r
-fuzzy <- list(query = list(fuzzy = list(speech_number = list(value = 7, fuzziness = 4))))
-Search(index="shakespeare", body=fuzzy)$hits$total
-```
-
-```
-#> [1] 1499
-```
-
-### Range query
+#### Range query
 
 With numeric
 
@@ -353,7 +268,7 @@ Search('gbif', body=body)$hits$total
 #> [1] 899
 ```
 
-### More-like-this query (more_like_this can be shortened to mlt)
+#### More-like-this query (more_like_this can be shortened to mlt)
 
 
 ```r
@@ -374,7 +289,7 @@ Search('plos', body=body)$hits$total
 #> [1] 488
 ```
 
-### Highlighting
+#### Highlighting
 
 
 ```r
@@ -414,28 +329,8 @@ sapply(out$hits$hits, function(x) x$highlight$title[[1]])[8:10]
 #> NULL
 ```
 
-### Scrolling search - instead of paging
 
-
-```r
-Search('shakespeare', q="a*")$hits$total
-```
-
-```
-#> [1] 2747
-```
-
-```r
-res <- Search(index = 'shakespeare', q="a*", scroll="1m")
-res <- Search(index = 'shakespeare', q="a*", scroll="1m", search_type = "scan")
-length(scroll(scroll_id = res$`_scroll_id`)$hits$hits)
-```
-
-```
-#> [1] 50
-```
-
-## Bulk load from R objects
+### Bulk load from R objects
 
 A new feature in `v0.4` is loading data into Elasticsearch via the bulk API (faster than via the
 normal route) from R objects (data.frame, or list). E.g.:
@@ -453,10 +348,10 @@ Search(index = "diam")$hits$total
 ```
 
 ```
-#> [1] 158140
+#> [1] 159698
 ```
 
-## Get documents
+### Get documents
 
 Get document with `id=1`
 
@@ -511,14 +406,9 @@ docs_get(index='plos', type='article', id=1, fields='id')
 #>
 #> $found
 #> [1] TRUE
-#>
-#> $fields
-#> $fields$id
-#> $fields$id[[1]]
-#> [1] "10.1371/journal.pone.0098602"
 ```
 
-## Get multiple documents at once
+#### Get multiple documents at once
 
 Same index and type, different document ids
 
@@ -609,7 +499,7 @@ docs_mget(index_type_id=list(c("plos","article",1), c("gbif","record",1)))$docs[
 #> [1] "Population Genetic Structure of a Sandstone Specialist and a Generalist Heath Species at Two Levels of Sandstone Patchiness across the Strait of Gibraltar"
 ```
 
-## Raw JSON data
+### Raw JSON data
 
 You can optionally get back raw `json` from `Search()`, `docs_get()`, and `docs_mget()` setting parameter `raw=TRUE`.
 
@@ -645,18 +535,14 @@ jsonlite::fromJSON(out)
 
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain (2016). elastic: General Purpose Interface to Elasticsearch. R package version 0.6.0.
-  http://cran.rstudio.com/package=elastic
-
+> Scott Chamberlain (2017). elastic: General Purpose Interface to Elasticsearch. R package version 0.8.0.
+  https://cran.rstudio.com/package=elastic
 
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for elastic](https://github.com/ropensci/elastic/issues?state=open)

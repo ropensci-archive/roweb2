@@ -7,9 +7,8 @@ package_version: 0.5.1
 
 `gender` encodes gender based on names and dates of birth using historical datasets. By using these datasets instead of lists of male and female names, this package is able to more accurately guess the gender of a name, and it is able to report the probability that a name was male or female.
 
-<section id="installation">
 
-## Installation
+### Installation
 
 
 ```r
@@ -28,9 +27,8 @@ devtools::install_github("ropensci/gender")
 library("gender")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
 A common problem for researchers who work with data, especially historians, is that a dataset has a list of people with names but does not identify the gender of the person. Since first names often indicate gender, it should be possible to predict gender using names. However, the gender associated with names can change over time. To illustrate, take the names Madison, Hillary, Jordan, and Monroe. For babies born in the United States, those predominant gender associated with those names has changed over time.
 
@@ -40,7 +38,7 @@ Predicting gender from names requires a fundamentally historical method. The `ge
 
 This vignette offers a brief guide to the `gender` package. For a fuller historical explanation and a sample case study using the package, please see our journal article: Cameron Blevins and Lincoln Mullen, "Jane, John ... Leslie? A Historical Method for Algorithmic Gender Prediction," _Digital Humanities Quarterly_ (forthcoming 2015).
 
-### Basic usage
+#### Basic usage
 
 The main function in this package is `gender()`. That function lets you choose a dataset and pass in a set of names and a birth year or range of birth years. The result is always a data frame that includes a prediction of the gender of the name and the relative proportions between male and female. For example:
 
@@ -48,17 +46,15 @@ The main function in this package is `gender()`. That function lets you choose a
 ```r
 library(gender)
 gender(c("Madison", "Hillary"), years = 1940, method = "demo")
-#> Source: local data frame [2 x 6]
-#>
+#> # A tibble: 2 x 6
 #>      name proportion_male proportion_female gender year_min year_max
-#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#>     <chr>           <dbl>             <dbl>  <chr>    <dbl>    <dbl>
 #> 1 Hillary               1                 0   male     1940     1940
 #> 2 Madison               1                 0   male     1940     1940
 gender(c("Madison", "Hillary"), years = 2000, method = "demo")
-#> Source: local data frame [2 x 6]
-#>
+#> # A tibble: 2 x 6
 #>      name proportion_male proportion_female gender year_min year_max
-#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#>     <chr>           <dbl>             <dbl>  <chr>    <dbl>    <dbl>
 #> 1 Hillary          0.0000            1.0000 female     2000     2000
 #> 2 Madison          0.0069            0.9931 female     2000     2000
 ```
@@ -100,7 +96,7 @@ Just Sweden in the 1879:
 gender("Hilde", years = c(1879), method = "napp", countries = "Sweden")
 ```
 
-### Which dataset should you use?
+#### Which dataset should you use?
 
 Each method is associated with a dataset suitable for a particular time and place.
 
@@ -108,7 +104,7 @@ Each method is associated with a dataset suitable for a particular time and plac
 - `method = "ssa"`: United States from 1930 to 2012. Drawn from Social Security Administration data.
 - `method = "napp"`: Any combination of Canada, the United Kingdom, Germany, Iceland, Norway, and Sweden from the years 1758 to 1910, though the nineteenth-century data is likely more reliable than the eighteenth-century data.
 
-### Description of the datasets
+#### Description of the datasets
 
 U.S. Census data is provided by [IPUMS USA](https://usa.ipums.org/usa/) from the Minnesota Population Center, University of Minnesota. The IPUMS data includes 1% and 5% samples from the Census returns. The Census, taken decennially, includes respondent's birth dates and gender. With the gender package, it is possible to use this dataset for years between 1789 and 1930. The dataset includes approximately 339,967 unique names.
 
@@ -116,7 +112,7 @@ U.S. Social Security Administration data was collected from applicants to Social
 
 The [North Atlantic Population Project](https://www.nappdata.org/napp/) provides data for Canada, the United Kingdom, Germany, Iceland, Norway, and Sweden for years between 1758 and 1910, based on census microdata from those countries.
 
-### Working with data frames of names
+#### Working with data frames of names
 
 Most often you have a dataset and you want to predict gender for multiple names. Consider this sample dataset.
 
@@ -134,10 +130,9 @@ demo_df <- data_frame(first_names = demo_names,
                       max_years = demo_years + 3)
 
 demo_df
-#> Source: local data frame [7 x 5]
-#>
+#> # A tibble: 7 x 5
 #>   first_names last_names years min_years max_years
-#>         (chr)      (chr) (dbl)     (dbl)     (dbl)
+#>         <chr>      <chr> <dbl>     <dbl>     <dbl>
 #> 1       Susan          A  1930      1927      1933
 #> 2       Susan          B  2000      1997      2003
 #> 3     Madison          C  1930      1927      1933
@@ -156,10 +151,9 @@ We can pass this data frame to the `gender_df()` function, specifying the method
 results <- gender_df(demo_df, name_col = "first_names", year_col = "years",
                      method = "demo")
 results
-#> Source: local data frame [6 x 6]
-#>
+#> # A tibble: 6 x 6
 #>      name proportion_male proportion_female gender year_min year_max
-#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#> *   <chr>           <dbl>             <dbl>  <chr>    <dbl>    <dbl>
 #> 1 Hillary          1.0000            0.0000   male     1930     1930
 #> 2 Madison          1.0000            0.0000   male     1930     1930
 #> 3   Susan          0.0000            1.0000 female     1930     1930
@@ -174,10 +168,9 @@ Notice that in our original data frame there were two Hillarys (`Hillary E` and 
 ```r
 demo_df %>%
   left_join(results, by = c("first_names" = "name", "years" = "year_min"))
-#> Source: local data frame [7 x 9]
-#>
+#> # A tibble: 7 x 9
 #>   first_names last_names years min_years max_years proportion_male
-#>         (chr)      (chr) (dbl)     (dbl)     (dbl)           (dbl)
+#>         <chr>      <chr> <dbl>     <dbl>     <dbl>           <dbl>
 #> 1       Susan          A  1930      1927      1933          0.0000
 #> 2       Susan          B  2000      1997      2003          0.0000
 #> 3     Madison          C  1930      1927      1933          1.0000
@@ -185,7 +178,8 @@ demo_df %>%
 #> 5     Hillary          E  1930      1927      1933          1.0000
 #> 6     Hillary          F  2000      1997      2003          0.0000
 #> 7     Hillary          G  1930      1927      1933          1.0000
-#> Variables not shown: proportion_female (dbl), gender (chr), year_max (dbl)
+#> # ... with 3 more variables: proportion_female <dbl>, gender <chr>,
+#> #   year_max <dbl>
 ```
 
 We can also use `gender_df()` to predict gender a range of years by passing it the names of columns with minimum and maximum years of the range to be used for each person. As in the previous example, only unique combinations of first names and ranges of years will be calculated.
@@ -194,10 +188,9 @@ We can also use `gender_df()` to predict gender a range of years by passing it t
 ```r
 gender_df(demo_df, name_col = "first_names",
           year_col = c("min_years", "max_years"), method = "demo")
-#> Source: local data frame [6 x 6]
-#>
+#> # A tibble: 6 x 6
 #>      name proportion_male proportion_female gender year_min year_max
-#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#> *   <chr>           <dbl>             <dbl>  <chr>    <dbl>    <dbl>
 #> 1 Hillary          1.0000            0.0000   male     1927     1933
 #> 2 Madison          1.0000            0.0000   male     1927     1933
 #> 3   Susan          0.0028            0.9972 female     1927     1933
@@ -206,7 +199,7 @@ gender_df(demo_df, name_col = "first_names",
 #> 6   Susan          0.0000            1.0000 female     1997     2003
 ```
 
-### Working with dplyr
+#### Working with dplyr
 
 The `gender_df()` function is simply a wrapper around a [dplyr](https://cran.r-project.org/package=dplyr) data manipulation chain. Should you wish, you can  use dplyr's `do()` function to run the `gender()` function on each name and birth year (i.e., each row). This will result in a dataframe containing a column of dataframes. Another call to `do()` and `bind_rows()` will create a the single data frame that we expect.
 
@@ -219,9 +212,10 @@ demo_df %>%
   do(bind_rows(.$results))
 #> Source: local data frame [6 x 6]
 #> Groups: <by row>
-#>
+#> 
+#> # A tibble: 6 x 6
 #>      name proportion_male proportion_female gender year_min year_max
-#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#> *   <chr>           <dbl>             <dbl>  <chr>    <dbl>    <dbl>
 #> 1   Susan          0.0000            1.0000 female     1930     1930
 #> 2   Susan          0.0000            1.0000 female     2000     2000
 #> 3 Madison          1.0000            0.0000   male     1930     1930
@@ -241,9 +235,10 @@ demo_df %>%
   do(bind_rows(.$results))
 #> Source: local data frame [6 x 6]
 #> Groups: <by row>
-#>
+#> 
+#> # A tibble: 6 x 6
 #>      name proportion_male proportion_female gender year_min year_max
-#>     (chr)           (dbl)             (dbl)  (chr)    (dbl)    (dbl)
+#> *   <chr>           <dbl>             <dbl>  <chr>    <dbl>    <dbl>
 #> 1 Hillary          1.0000            0.0000   male     1930     1930
 #> 2 Madison          1.0000            0.0000   male     1930     1930
 #> 3   Susan          0.0000            1.0000 female     1930     1930
@@ -254,9 +249,8 @@ demo_df %>%
 
 These results can then be joined back into your original dataset.
 
-<section id="citing">
 
-## Citing
+### Citing
 
 To cite `gender` in publications use:
 
@@ -266,9 +260,8 @@ To cite `gender` in publications use:
   Historical Data. R package version 0.5.1
   https://github.com/ropensci/gender
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for gender](https://github.com/ropensci/gender/issues?state=open)

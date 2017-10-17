@@ -42,9 +42,7 @@ from the Open Knowledge Foundation.
 
 It is meant to be as general as possible, allowing you to work with any CKAN instance.
 
-<section id="installation">
-
-## Installation
+### Installation
 
 Install and load `ckanr` into the R session. Stable version from CRAN
 
@@ -63,9 +61,7 @@ devtools::install_github("ropensci/ckanr")
 library('ckanr')
 ```
 
-<section id="usage">
-
-## Usage
+### Usage
 
 Note: the default base CKAN URL is set to [http://data.techno-science.ca/](http://data.techno-science.ca/). You can change this using `ckanr_setup()`, or change the URL using the `url`
 parameter in each function call.
@@ -81,25 +77,25 @@ ckanr_setup(url = "http://data.techno-science.ca/")
 ckanr_setup(url = "http://data.techno-science.ca/", key = "my-ckan-api-key")
 ```
 
-### Changes
+#### Changes
 
 ```{r}
 changes(limit = 2, as = "table")[, 1:4]
 ```
 
-### List datasets
+#### List datasets
 
 ```{r output.lines=1:10}
 package_list(as = "table")
 ```
 
-### List tags
+#### List tags
 
 ```{r}
 tag_list('aviation', as = 'table')
 ```
 
-### Show tags
+#### Show tags
 
 Subset for readme brevity
 
@@ -107,13 +103,13 @@ Subset for readme brevity
 tag_show('Aviation')
 ```
 
-### List groups
+#### List groups
 
 ```{r}
 group_list(as = 'table')[, 1:3]
 ```
 
-### Show groups
+#### Show groups
 
 Subset for readme brevity
 
@@ -121,28 +117,28 @@ Subset for readme brevity
 group_show('communications', as = 'table')$users
 ```
 
-### Show a package
+#### Show a package
 
 ```{r}
 package_show('34d60b13-1fd5-430e-b0ec-c8bc7f4841cf', as = 'table')$resources[, 1:10]
 ```
 
-### Search for packages
+#### Search for packages
 
 ```{r}
 out <- package_search(q = '*:*', rows = 2, as = "table")$results
 out[, !names(out) %in% 'resources'][, 1:10]
 ```
 
-### Search for resources
+#### Search for resources
 
 ```{r}
 resource_search(q = 'name:data', limit = 2, as = 'table')
 ```
 
-### Example of using a different CKAN API
+#### Example of using a different CKAN API
 
-#### The UK Natural History Museum
+**The UK Natural History Museum**
 
 Website: [http://data.nhm.ac.uk/](http://data.nhm.ac.uk/)
 
@@ -182,7 +178,7 @@ _show_
 package_show(id = "56e711e6-c847-4f99-915a-6894bb5c5dea", as = "table")
 ```
 
-## Citing
+### Citing
 
 To cite `ckanr` in publications use:
 
@@ -190,9 +186,7 @@ To cite `ckanr` in publications use:
 
 > Scott Chamberlain, Imanuel Costigan, Wush Wu, Florian Mayer (2016). ckanr: Client for the Comprehensive Knowledge Archive Network ('CKAN') 'API'. R package version 0.1.0. https://github.com/ropensci/ckanr
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rnoaa](https://github.com/ropensci/ckanr/issues?state=open)

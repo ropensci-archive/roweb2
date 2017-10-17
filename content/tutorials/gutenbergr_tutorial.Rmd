@@ -1,11 +1,10 @@
 ---
 title: gutenbergr tutorial
-package_version: 0.1.2
+package_version: 0.1.3
 ---
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/gutenbergr/",
   comment = "#>",
   collapse = TRUE,
   warning = FALSE,
@@ -21,9 +20,8 @@ The gutenbergr package helps you download and process public domain works from t
   * `gutenberg_authors` contains information about each author, such as aliases and birth/death year
   * `gutenberg_subjects` contains pairings of works with Library of Congress subjects and topics
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -42,9 +40,6 @@ devtools::install_github("ropenscilabs/gutenbergr")
 library("gutenbergr")
 ```
 
-<section id="usage">
-
-## Usage
 
 ### Project Gutenberg Metadata
 
@@ -156,18 +151,16 @@ word_counts
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> David Robinson (2016). gutenbergr: Download and Process Public Domain Works
-  from Project Gutenberg. R package version 0.1.2.
+> David Robinson (2017). gutenbergr: Download and Process Public Domain Works
+  from Project Gutenberg. R package version 0.1.3.
   https://cran.rstudio.com/package=gutenbergr
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [GPL-2](https://opensource.org/licenses/GPL-2.0)
 * Report bugs at [our GitHub repo for gutenbergr](https://github.com/ropenscilabs/gutenbergr/issues?state=open)

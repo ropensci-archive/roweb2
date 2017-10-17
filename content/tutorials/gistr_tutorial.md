@@ -1,12 +1,12 @@
 ---
 title: gistr vignette
-package_version: 0.3.6
+package_version: 0.4.0
 ---
 
 
 
 
-<section id="installation">
+### Installation
 
 You can install from CRAN
 
@@ -23,14 +23,13 @@ install.packages("devtools")
 devtools::install_github("ropensci/gistr")
 ```
 
-<section id="usage">
 
 
 ```r
 library("gistr")
 ```
 
-## Authentication
+### Authentication
 
 There are two ways to authorise gistr to work with your GitHub account:
 
@@ -46,7 +45,7 @@ Using the `gist_auth()` function you can authenticate seperately first, or if yo
 gist_auth()
 ```
 
-## Workflow
+### Workflow
 
 In `gistr` you can use pipes, introduced perhaps first in R in the package `magrittr`, to pass outputs from one function to another. If you have used `dplyr` with pipes you can see the difference, and perhaps the utility, of this workflow over the traditional workflow in R. You can use a non-piping or a piping workflow with `gistr`. Examples below use a mix of both workflows. Here is an example of a piping wofklow (with some explanation):
 
@@ -75,7 +74,7 @@ Or you could string them all together in one line (but it's rather difficult to 
 update(add_files(gists(what = "minepublic")[[1]], file))
 ```
 
-## Rate limit information
+**Rate limit information**
 
 
 ```r
@@ -84,12 +83,12 @@ rate_limit()
 
 ```
 #> Rate limit: 5000
-#> Remaining:  4969
-#> Resets in:  54 minutes
+#> Remaining:  4958
+#> Resets in:  43 minutes
 ```
 
 
-## List gists
+**List gists**
 
 Limiting to a few results here to keep it brief
 
@@ -100,21 +99,21 @@ gists(per_page = 2)
 
 ```
 #> [[1]]
-#> <gist>0fe9a473301a32ff1194
-#>   URL: https://gist.github.com/0fe9a473301a32ff1194
-#>   Description: Solution to level 13 in Untrusted: http://alex.nisnevich.com/untrusted/
+#> <gist>8c421b44f6be14d299102d5c84558e15
+#>   URL: https://gist.github.com/8c421b44f6be14d299102d5c84558e15
+#>   Description: Break on unsatisfiable constraints and send to wtfautolayout
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:20Z / 2015-12-29T18:08:23Z
-#>   Files: untrusted-lvl13-solution.js
-#>   Truncated?: FALSE
-#>
+#>   Created/Edited: 2017-10-17T01:25:47Z / 2017-10-17T01:25:48Z
+#>   Files: .lldbinit, break_unsatisfiable.py
+#>   Truncated?: FALSE, FALSE
+#> 
 #> [[2]]
-#> <gist>3440aac8fbdc75a2128d
-#>   URL: https://gist.github.com/3440aac8fbdc75a2128d
-#>   Description: Bootstrap Customizer Config
+#> <gist>db12d6afe01568f7348c2d4d96bf3ef8
+#>   URL: https://gist.github.com/db12d6afe01568f7348c2d4d96bf3ef8
+#>   Description: Dockerized SQL Server
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:18Z / 2015-12-29T18:08:18Z
-#>   Files: config.json
+#>   Created/Edited: 2017-10-17T01:25:45Z / 2017-10-17T01:25:45Z
+#>   Files: sql-docker.sh
 #>   Truncated?: FALSE
 ```
 
@@ -127,21 +126,21 @@ gists(since = '2014-05-26T00:00:00Z', per_page = 2)
 
 ```
 #> [[1]]
-#> <gist>0fe9a473301a32ff1194
-#>   URL: https://gist.github.com/0fe9a473301a32ff1194
-#>   Description: Solution to level 13 in Untrusted: http://alex.nisnevich.com/untrusted/
+#> <gist>8c421b44f6be14d299102d5c84558e15
+#>   URL: https://gist.github.com/8c421b44f6be14d299102d5c84558e15
+#>   Description: Break on unsatisfiable constraints and send to wtfautolayout
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:20Z / 2015-12-29T18:08:23Z
-#>   Files: untrusted-lvl13-solution.js
-#>   Truncated?: FALSE
-#>
+#>   Created/Edited: 2017-10-17T01:25:47Z / 2017-10-17T01:25:48Z
+#>   Files: .lldbinit, break_unsatisfiable.py
+#>   Truncated?: FALSE, FALSE
+#> 
 #> [[2]]
-#> <gist>3440aac8fbdc75a2128d
-#>   URL: https://gist.github.com/3440aac8fbdc75a2128d
-#>   Description: Bootstrap Customizer Config
+#> <gist>db12d6afe01568f7348c2d4d96bf3ef8
+#>   URL: https://gist.github.com/db12d6afe01568f7348c2d4d96bf3ef8
+#>   Description: Dockerized SQL Server
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:18Z / 2015-12-29T18:08:18Z
-#>   Files: config.json
+#>   Created/Edited: 2017-10-17T01:25:45Z / 2017-10-17T01:25:45Z
+#>   Files: sql-docker.sh
 #>   Truncated?: FALSE
 ```
 
@@ -154,26 +153,26 @@ gists('minepublic', per_page = 2)
 
 ```
 #> [[1]]
-#> <gist>2bf190ff233eb7bd93c9
-#>   URL: https://gist.github.com/2bf190ff233eb7bd93c9
-#>   Description:
+#> <gist>4d2e89ea344632392bcd20b784dc88d8
+#>   URL: https://gist.github.com/4d2e89ea344632392bcd20b784dc88d8
+#>   Description: 
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:07:36Z / 2015-12-29T18:07:39Z
-#>   Files: alm.md, code.R
-#>   Truncated?: FALSE, FALSE
-#>
-#> [[2]]
-#> <gist>43e063cb28d5008ca4f4
-#>   URL: https://gist.github.com/43e063cb28d5008ca4f4
-#>   Description: a new cool gist
-#>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:07:36Z / 2015-12-29T18:07:36Z
-#>   Files: stuff.md
+#>   Created/Edited: 2017-10-16T06:32:52Z / 2017-10-16T06:32:52Z
+#>   Files: pleiades304c3d27174e.geojson
 #>   Truncated?: FALSE
+#> 
+#> [[2]]
+#> <gist>39d17a26cbc558117fc2dde0f445f155
+#>   URL: https://gist.github.com/39d17a26cbc558117fc2dde0f445f155
+#>   Description: gist gist gist
+#>   Public: TRUE
+#>   Created/Edited: 2017-10-16T05:58:14Z / 2017-10-16T05:58:15Z
+#>   Files: stuff.md, zoo.json
+#>   Truncated?: FALSE, FALSE
 ```
 
 
-## List a single gist
+**List a single gist**
 
 
 ```r
@@ -183,14 +182,14 @@ gist(id = 'f1403260eb92f5dfa7e1')
 ```
 #> <gist>f1403260eb92f5dfa7e1
 #>   URL: https://gist.github.com/f1403260eb92f5dfa7e1
-#>   Description: Querying bitly from R
+#>   Description: Querying bitly from R 
 #>   Public: TRUE
 #>   Created/Edited: 2014-10-15T20:40:12Z / 2015-08-29T14:07:43Z
 #>   Files: bitly_r.md
 #>   Truncated?: FALSE
 ```
 
-## Create gist
+**Create gist**
 
 You can pass in files
 
@@ -212,11 +211,11 @@ gist_create(files = stuffpath, description = 'a new cool gist', browse = FALSE)
 ```
 
 ```
-#> <gist>2cd13b61a065f532e411
-#>   URL: https://gist.github.com/2cd13b61a065f532e411
+#> <gist>db689b9cbdb0dcbb08576449f04047cb
+#>   URL: https://gist.github.com/db689b9cbdb0dcbb08576449f04047cb
 #>   Description: a new cool gist
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:25Z / 2015-12-29T18:08:25Z
+#>   Created/Edited: 2017-10-17T01:25:57Z / 2017-10-17T01:25:57Z
 #>   Files: stuff.md
 #>   Truncated?: FALSE
 ```
@@ -235,11 +234,11 @@ numbers
 ```
 
 ```
-#> <gist>c2342ea46463d7a832ab
-#>   URL: https://gist.github.com/c2342ea46463d7a832ab
-#>   Description:
+#> <gist>cd0a9dd3e163f48f50164efafcb794b3
+#>   URL: https://gist.github.com/cd0a9dd3e163f48f50164efafcb794b3
+#>   Description: 
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:25Z / 2015-12-29T18:08:25Z
+#>   Created/Edited: 2017-10-17T01:25:58Z / 2017-10-17T01:25:58Z
 #>   Files: code.R
 #>   Truncated?: FALSE
 ```
@@ -274,7 +273,7 @@ x <- letters
 #>   Files: file81720d1ceff.md
 ```
 
-## knit code from file path, code block, or gist file
+**knit code from file path, code block, or gist file**
 
 knit a local file
 
@@ -285,11 +284,11 @@ run(file, knitopts = list(quiet = TRUE)) %>% gist_create(browse = FALSE)
 ```
 
 ```
-#> <gist>c63969de315b857cd0f1
-#>   URL: https://gist.github.com/c63969de315b857cd0f1
-#>   Description:
+#> <gist>ddb81aee4a0d081568da0c742446d7c9
+#>   URL: https://gist.github.com/ddb81aee4a0d081568da0c742446d7c9
+#>   Description: 
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:25Z / 2015-12-29T18:08:25Z
+#>   Created/Edited: 2017-10-17T01:26:00Z / 2017-10-17T01:26:00Z
 #>   Files: stuff.md
 #>   Truncated?: FALSE
 ```
@@ -313,7 +312,7 @@ knit a file from a gist, has to get file first (result not shown)
 gists('minepublic')[[1]] %>% run() %>% update()
 ```
 
-## List commits on a gist
+**List commits on a gist**
 
 
 ```r
@@ -323,13 +322,13 @@ gists()[[1]] %>% commits()
 ```
 #> [[1]]
 #> <commit>
-#>   Version: 05d0fcb55d5ad1fc292ecd5eb0f31195d66acd3d
+#>   Version: a47b69d043bb4beb979d100e4c0407f737ad180d
 #>   User: sckott
-#>   Commited: 2015-12-29T18:08:25Z
+#>   Commited: 2017-10-17T01:25:57Z
 #>   Commits [total, additions, deletions]: [5,5,0]
 ```
 
-## Star a gist
+**Star a gist**
 
 Star
 
@@ -343,7 +342,7 @@ gist('485d4edfb1e1912bb9f4') %>% star()
 #>   URL: https://gist.github.com/485d4edfb1e1912bb9f4
 #>   Description: rentrez release blog post
 #>   Public: TRUE
-#>   Created/Edited: 2015-09-23T02:26:19Z / 2015-09-23T02:55:27Z
+#>   Created/Edited: 2015-09-23T02:26:19Z / 2015-12-29T18:08:27Z
 #>   Files: rentrez_1.Rmd, rentrez_1.md
 #>   Truncated?: FALSE, FALSE
 ```
@@ -360,12 +359,12 @@ gist('485d4edfb1e1912bb9f4') %>% unstar()
 #>   URL: https://gist.github.com/485d4edfb1e1912bb9f4
 #>   Description: rentrez release blog post
 #>   Public: TRUE
-#>   Created/Edited: 2015-09-23T02:26:19Z / 2015-09-23T02:55:27Z
+#>   Created/Edited: 2015-09-23T02:26:19Z / 2017-10-17T01:26:03Z
 #>   Files: rentrez_1.Rmd, rentrez_1.md
 #>   Truncated?: FALSE, FALSE
 ```
 
-## Update a gist
+**Update a gist**
 
 Add files
 
@@ -384,11 +383,11 @@ gists(what = "minepublic")[[1]] %>%
 ```
 
 ```
-#> <gist>c2342ea46463d7a832ab
-#>   URL: https://gist.github.com/c2342ea46463d7a832ab
-#>   Description:
+#> <gist>cd0a9dd3e163f48f50164efafcb794b3
+#>   URL: https://gist.github.com/cd0a9dd3e163f48f50164efafcb794b3
+#>   Description: 
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:25Z / 2015-12-29T18:08:27Z
+#>   Created/Edited: 2017-10-17T01:25:58Z / 2017-10-17T01:26:04Z
 #>   Files: alm.md, code.R
 #>   Truncated?: FALSE, FALSE
 ```
@@ -403,16 +402,16 @@ gists(what = "minepublic")[[1]] %>%
 ```
 
 ```
-#> <gist>c2342ea46463d7a832ab
-#>   URL: https://gist.github.com/c2342ea46463d7a832ab
-#>   Description:
+#> <gist>cd0a9dd3e163f48f50164efafcb794b3
+#>   URL: https://gist.github.com/cd0a9dd3e163f48f50164efafcb794b3
+#>   Description: 
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:25Z / 2015-12-29T18:08:28Z
+#>   Created/Edited: 2017-10-17T01:25:58Z / 2017-10-17T01:26:05Z
 #>   Files: code.R
 #>   Truncated?: FALSE
 ```
 
-## Open a gist in your default browser
+**Open a gist in your default browser**
 
 
 ```r
@@ -421,7 +420,7 @@ gists()[[1]] %>% browse()
 
 > Opens the gist in your default browser
 
-## Get embed script
+**Get embed script**
 
 
 ```r
@@ -429,10 +428,10 @@ gists()[[1]] %>% embed()
 ```
 
 ```
-#> [1] "<script src=\"https://gist.github.com/sckott/c2342ea46463d7a832ab.js\"></script>"
+#> [1] "<script src=\"https://gist.github.com/carllhw/dc8ee3885d8a43b887fce1ae7fe3bb1f.js\"></script>"
 ```
 
-### List forks
+**List forks**
 
 Returns a list of `gist` objects, just like `gists()`
 
@@ -447,21 +446,21 @@ gist(id = '1642874') %>% forks(per_page = 2)
 #>   URL: https://gist.github.com/1642989
 #>   Description: Spline Transition
 #>   Public: TRUE
-#>   Created/Edited: 2012-01-19T21:45:20Z / 2015-12-14T15:38:21Z
-#>   Files:
-#>   Truncated?:
-#>
+#>   Created/Edited: 2012-01-19T21:45:20Z / 2017-06-29T02:55:47Z
+#>   Files: 
+#>   Truncated?: 
+#> 
 #> [[2]]
 #> <gist>1643051
 #>   URL: https://gist.github.com/1643051
 #>   Description: Line Transition (Broken)
 #>   Public: TRUE
-#>   Created/Edited: 2012-01-19T21:51:30Z / 2015-10-30T21:37:35Z
-#>   Files:
+#>   Created/Edited: 2012-01-19T21:51:30Z / 2016-12-01T07:19:06Z
+#>   Files: 
 #>   Truncated?:
 ```
 
-## Fork a gist
+**Fork a gist**
 
 Returns a `gist` object
 
@@ -472,18 +471,18 @@ g <- gists()
 ```
 
 ```
-#> <gist>4ee6bbeb3c49bdd41138
-#>   URL: https://gist.github.com/4ee6bbeb3c49bdd41138
-#>   Description: Bootstrap Customizer Config
+#> <gist>31efdee731df890039c49d816ff886aa
+#>   URL: https://gist.github.com/31efdee731df890039c49d816ff886aa
+#>   Description: 
 #>   Public: TRUE
-#>   Created/Edited: 2015-12-29T18:08:29Z / 2015-12-29T18:08:29Z
-#>   Files: config.json
+#>   Created/Edited: 2017-10-17T01:26:12Z / 2017-10-17T01:26:12Z
+#>   Files: brlog.trunk.20171017-102108
 #>   Truncated?: FALSE
 ```
 
 
 
-## Example use case
+### Example use case
 
 _Working with the Mapzen Pelias geocoding API_
 
@@ -506,21 +505,17 @@ gist_create(code = json, filename = "pelias_test.geojson")
 
 And here's that gist: [https://gist.github.com/sckott/017214637bcfeb198070](https://gist.github.com/sckott/017214637bcfeb198070)
 
-![img](../assets/tutorial-images/gistr/gistr_ss.png)
-
-
-<section id="citing">
-
-## Citing
-
-> Ramnath Vaidyanathan, Karthik Ram and Scott Chamberlain (2015). gistr: Work with
-  GitHub Gists from R. R package version 0.3.6. https://github.com/ropensci/gistr
+![img](/img/tutorial-images/gistr/gistr_ss.png)
 
 
 
-<section id="license_bugs">
+### Citing
 
-## License and bugs
+> Scott Chamberlain, Ramnath Vaidyanathan and Karthik Ram (2017).
+  gistr: Work with 'GitHub' 'Gists'. R package version 0.4.0. https://github.com/ropensci/gistr
+
+
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for gistr](https://github.com/ropensci/gistr/issues?state=open)

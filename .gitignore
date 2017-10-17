@@ -6,3 +6,6 @@ package.json
 postcss.json
 package-lock.json
 test.pdf
+content/assets/
+content/tutorials/cache/
+content/tutorials/img/

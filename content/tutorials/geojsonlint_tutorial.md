@@ -1,6 +1,6 @@
 ---
 title: geojsonlint tutorial
-package_version: 0.1.0
+package_version: 0.2.0
 ---
 
 
@@ -14,9 +14,8 @@ Package API:
 * `geojson_validate()` - [is-my-json-valid JS library](https://www.npmjs.com/package/is-my-json-valid) using a GeoJSON
 schema from [https://github.com/SchemaStore/schemastore](https://github.com/SchemaStore/schemastore)
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -38,11 +37,10 @@ devtools::install_github("ropenscilabs/geojsonlint")
 library("geojsonlint")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
-### Good GeoJSON
+**Good GeoJSON**
 
 geojsonlint.com web service
 
@@ -68,7 +66,7 @@ geojson_validate(x = '{"type": "Point", "coordinates": [-100, 80]}')
 #> [1] TRUE
 ```
 
-### Bad GeoJSON
+**Bad GeoJSON**
 
 geojsonlint.com web service
 
@@ -94,7 +92,7 @@ geojson_validate('{ "type": "FeatureCollection" }')
 #> [1] FALSE
 ```
 
-### Bad GeoJSON - with reason for failure
+**Bad GeoJSON - with reason for failure**
 
 geojsonlint.com web service
 
@@ -129,7 +127,7 @@ geojson_validate('{ "type": "FeatureCollection" }', verbose = TRUE)
 #> 1  data no (or more than one) schemas match
 ```
 
-### Bad GeoJSON - stop on validation failure
+**Bad GeoJSON - stop on validation failure**
 
 geojsonlint.com web service
 
@@ -159,17 +157,15 @@ geojson_validate('{ "type": "FeatureCollection" }', error = TRUE)
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain and Andy Teucher (2016). geojsonlint: Tools for Validating
-  'GeoJSON'. R package version 0.1.0 https://cran.rstudio.com/package=geojsonlint
+> Scott Chamberlain and Andy Teucher (2017). geojsonlint: Tools for Validating
+  'GeoJSON'. R package version 0.2.0 https://cran.rstudio.com/package=geojsonlint
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for geojsonlint](https://github.com/ropenscilabs/geojsonlint/issues?state=open)

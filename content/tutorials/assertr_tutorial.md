@@ -1,6 +1,6 @@
 ---
 title: assertr tutorial
-package_version: 1.0.2
+package_version: 2.0.2.2
 ---
 
 
@@ -25,9 +25,7 @@ be used with the `magrittr`/`dplyr` piping mechanism but the examples in this
 vignette will use them to enhance clarity.
 
 
-<section id="installation">
-
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -49,20 +47,13 @@ devtools::install_github("ropenscilabs/assertr")
 library("assertr")
 ```
 
-<section id="usage">
-
-## Usage
-
-
-
-### concrete data errors
+#### concrete data errors
 
 Let’s say, for example, that the R’s built-in car dataset, `mtcars`, was not
 built-in but rather procured from an external source that was known for making
 errors in data entry or coding.
 
 In particular, the mtcars dataset looks like this:
-
 
 ```r
 head(mtcars)
@@ -100,7 +91,7 @@ library(dplyr)
 our.data %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>     cyl  avg.mpg
 #>   <dbl>    <dbl>
 #> 1     4 26.66364
@@ -113,7 +104,7 @@ This indicates that the average miles per gallon for a 8 cylinder car is a lowly
 like that are extremely easy to miss because it doesn't cause an error, and the
 results look reasonable.
 
-### enter assertr
+#### enter assertr
 
 To combat this, we might want to use assertr's `verify` function to make sure
 that `mpg` is a positive number:
@@ -126,7 +117,8 @@ our.data %>%
   verify(mpg >= 0) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> Error in verify(., mpg >= 0): verification failed! (1 failure)
+#> verification [mpg >= 0] failed! (1 failure)
+#> Error: assertr stopped execution
 ```
 
 If we had done this, we would have caught this data error.
@@ -145,8 +137,10 @@ our.data %>%
   assert(within_bounds(0,Inf), mpg) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> Error:
-#> Vector 'mpg' violates assertion 'within_bounds' 1 time (value [-18.7] at index 5)
+#> Column 'mpg' violates assertion 'within_bounds(0, Inf)' 1 time
+#>   index value
+#> 1     5 -18.7
+#> Error: assertr stopped execution
 ```
 
 The `assert` function takes a data frame, a predicate function, and an arbitrary
@@ -162,16 +156,33 @@ are *greater* than zero (except `mpg`):
 
 
 ```r
+library(assertr)
+
 our.data %>%
   assert(within_bounds(0,Inf, include.lower=FALSE), -mpg) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> Error:
-#> Vector 'vs' violates assertion 'within_bounds' 18 times (e.g. [0] at index 1)
-#> Vector 'am' violates assertion 'within_bounds' 19 times (e.g. [0] at index 4)
+#> Column 'vs' violates assertion 'within_bounds(0, Inf, include.lower = FALSE)' 18 times
+#>   index value
+#> 1     1     0
+#> 2     2     0
+#> 3     5     0
+#> 4     7     0
+#> 5    12     0
+#>   [omitted 13 rows]
+#>
+#> Column 'am' violates assertion 'within_bounds(0, Inf, include.lower = FALSE)' 19 times
+#>   index value
+#> 1     4     0
+#> 2     5     0
+#> 3     6     0
+#> 4     7     0
+#> 5     8     0
+#>   [omitted 14 rows]
+#> Error: assertr stopped execution
 ```
 
-### verify vs. assert
+#### verify vs. assert
 
 The first noticable difference between `verify` and `assert` is that `verify`
 takes an expression, and `assert` takes a predicate and columns to apply it to.
@@ -197,16 +208,17 @@ dat %>%
 This is a powerful advantage over `assert`... but `assert` has one more
 advantage of its own that we heretofore ignored.
 
-### assertr's predicates
+#### assertr's predicates
 
 `assertr`'s predicates, both built-in and custom, make `assert` very powerful.
-The three predicates that are built in to `assertr` are
+The predicates that are built in to `assertr` are
 
 - `not_na` - that checks if an element is not NA
 - `within_bounds` - that returns a predicate function that checks if a numeric
 value falls within the bounds supplied, and
 - `in_set` - that returns a predicate function that checks if an element is
 a member of the set supplied.
+- `is_uniq` - that checks to see if each element appears only once
 
 We've already seen `within_bounds` in action... let's use the `in_set` function
 to make sure that there are only 0s and 1s (automatic and manual, respectively)
@@ -235,7 +247,7 @@ read.csv("a-dataset.csv") %>%
 
 Rad!
 
-### custom predicates
+#### custom predicates
 
 A convenient feature of `assertr` is that it makes the construction of custom
 predicate functions easy.
@@ -281,7 +293,7 @@ read.csv("another-dataset.csv") %>%
 Neat-o!
 
 
-### enter `insist` and predicate 'generators'
+#### enter `insist` and predicate 'generators'
 
 Very often, there is a need to dynamically determine the predicate function
 to be used based on the vector being checked.
@@ -315,7 +327,7 @@ mtcars %>%
   insist(within_n_sds(3), mpg) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>     cyl  avg.mpg
 #>   <dbl>    <dbl>
 #> 1     4 26.66364
@@ -323,7 +335,7 @@ mtcars %>%
 #> 3     8 15.10000
 ```
 
-Notice what happens when we drop that z-score to 2 stardard deviations
+Notice what happens when we drop that z-score to 2 standard deviations
 from the mean
 
 
@@ -332,12 +344,15 @@ mtcars %>%
   insist(within_n_sds(2), mpg) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> Error:
-#> Vector 'mpg' violates assertion 'within_n_sds' 2 times (e.g. [32.4] at index 18)
+#> Column 'mpg' violates assertion 'within_n_sds(2)' 2 times
+#>   index value
+#> 1    18  32.4
+#> 2    20  33.9
+#> Error: assertr stopped execution
 ```
 
 Execution of the pipeline was halted. But now we know exactly which data point
-(and column) violated the predicate that `within_n_sds(3)(mtcars$mpg)`
+violated the predicate that `within_n_sds(2)(mtcars$mpg)`
 returned.
 
 Now that's an efficient car!
@@ -353,7 +368,7 @@ mtcars %>%
   insist(within_n_sds(10), mpg:carb) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>     cyl  avg.mpg
 #>   <dbl>    <dbl>
 #> 1     4 26.66364
@@ -397,9 +412,9 @@ within_n_mads(1)(example.vector)(example.vector)
 Tubular!
 
 
-### row-wise assertions and row reduction functions
+#### row-wise assertions and row reduction functions
 
-As cool as it's been so far, this still isn't enough to consitute a complete
+As cool as it's been so far, this still isn't enough to constitute a complete
 grammar of data integrity checking. To see why, check out the following
 small example data set:
 
@@ -440,7 +455,7 @@ mistake is by plotting the data set.
 plot(example.data$x, example.data$y, xlab="", ylab="")
 ```
 
-![plot of chunk unnamed-chunk-24](../assets/tutorial-images/assertr/unnamed-chunk-24-1.png)
+![plot of chunk unnamed-chunk-24](/img/tutorial-images/assertr/unnamed-chunk-24-1.png)
 
 Ok, so all the `y`s are roughly 10 times the `x`s except the outlying data
 point.
@@ -472,7 +487,7 @@ maha_dist(example.data)
 maha_dist(example.data) %>% hist(main="", xlab="")
 ```
 
-![plot of chunk unnamed-chunk-25](../assets/tutorial-images/assertr/unnamed-chunk-25-1.png)
+![plot of chunk unnamed-chunk-25](/img/tutorial-images/assertr/unnamed-chunk-25-1.png)
 
 There's no question here as to whether there's an anomalous entry! But how do
 you check for this sort of thing using `assertr` constructs?
@@ -492,16 +507,20 @@ an example of it in use
 
 ```r
 example.data %>%
-  insist_rows(maha_dist, within_n_mads(3), everything())
-#> Error: Data frame row reduction violates predicate 'within_n_mads' 1 time (at row number 5)
+  insist_rows(maha_dist, within_n_mads(3), dplyr::everything())
+#> Data frame row reduction 'maha_dist' violates predicate 'within_n_mads(3)' 1 time
+#>   rownumber
+#> 1         5
+#> Error: assertr stopped execution
 ```
 
 Check that out! To be clear, this function is running the supplied data frame
 through the `maha_dist` function which returns a value for each row
 corresponding to its mahalanobis distance. (The whole data frame is used because
-we used the `everything()` selection function.) Then, `within_n_mads(3)` computes
-on that vector and returns a bounds checking predicate. The bounds checking predicate
-checks to see that all mahalanobis distances are within 3 median absolute deviations
+we used the `everything()` selection function from the `dplyr` package.)
+Then, `within_n_mads(3)` computes on that vector and returns a bounds
+checking predicate. The bounds checking predicate checks to see that all
+mahalanobis distances are within 3 median absolute deviations
 of each other. They are not, and the pipeline errors out.
 
 This is probably the most powerful construct in `assertr`--it can find a whole
@@ -526,9 +545,9 @@ head(iris)
 iris %>% maha_dist %>% hist(main="", xlab="")
 ```
 
-![plot of chunk unnamed-chunk-27](../assets/tutorial-images/assertr/unnamed-chunk-27-1.png)
+![plot of chunk unnamed-chunk-27](/img/tutorial-images/assertr/unnamed-chunk-27-1.png)
 
-Looks ok, but what happens when we accidently enter a row as a different
+Looks ok, but what happens when we accidentally enter a row as a different
 species...
 
 
@@ -542,7 +561,7 @@ mistake[149,5] <- "setosa"
 mistake %>% maha_dist %>% hist(main="", xlab="")
 ```
 
-![plot of chunk unnamed-chunk-28](../assets/tutorial-images/assertr/unnamed-chunk-28-1.png)
+![plot of chunk unnamed-chunk-28](/img/tutorial-images/assertr/unnamed-chunk-28-1.png)
 
 ```r
 
@@ -555,8 +574,11 @@ checker...
 
 
 ```r
-mistake %>% insist_rows(maha_dist, within_n_mads(7), everything())
-#> Error: Data frame row reduction violates predicate 'within_n_mads' 1 time (at row number 149)
+mistake %>% insist_rows(maha_dist, within_n_mads(7), dplyr::everything())
+#> Data frame row reduction 'maha_dist' violates predicate 'within_n_mads(7)' 1 time
+#>   rownumber
+#> 1       149
+#> Error: assertr stopped execution
 ```
 
 `insist` and `insist_rows` are both similar in that they both take predicate
@@ -581,22 +603,67 @@ ensuring that no element is higher than 2...
 
 ```r
 read.csv("another-dataset.csv") %>%
-  assert_rows(num_row_NAs, within_bounds(0,2), everything()) %>%
+  assert_rows(num_row_NAs, within_bounds(0,2), dplyr::everything()) %>%
   ...
 ```
 
 `assert_rows` can be used for anomaly detection as well. A future version of
 `assertr` may contain a cosine distance row reduction function. Since all
-cosine distances are contrained from -1 to 1, it is easy to use a non-dynamic
+cosine distances are constained from -1 to 1, it is easy to use a non-dynamic
 predicate to disallow certain values.
 
 
-### combining chains of assertions
+#### success and error functions
+
+The behavior of functions like `assert`, `assert_rows`,
+`insist`, `insist_rows`, `verify` when the assertion
+passes or fails is configurable via the `success_fun`
+and `error_fun` parameters, respectively.
+
+The `success_fun` parameter takes a function that takes
+the data passed to the assertion function as a parameter. You can
+write your own success handler function, but there are two
+provided by this package:
+
+  * `success_continue` - just returns the data that was passed into the
+    assertion function (this is default)
+
+  * `success_logical` - returns TRUE
+
+The `error_fun` parameter takes a function that takes
+the data passed to the assertion function as a parameter. You can
+write your own error handler function, but there are a few
+provided by this package:
+
+  * `error_stop` - Prints a summary of the errors and
+                            halts execution (default)
+
+  * `error_report` - Prints *all* the information available
+                              about the errors and halts execution.
+
+  * `error_append` - Attaches the errors to a special
+   attribute of `data` and returns the data. This is chiefly
+   to allow assertr errors to be accumulated in a pipeline so that
+   all assertions can have a chance to be checked and so that all
+   the errors can be displayed at the end of the chain.
+
+  * `error_logical` - returns FALSE
+
+  * `just_warn` - Prints a summary of the errors but does
+   not halt execution, it just issues a warning.
+
+  * `warn_report` - Prints all the information available
+  about the errors but does not halt execution, it just issues a warning.
+
+
+
+#### combining chains of assertions
 
 Let's say that as part of an automated pipeline that grabs mtcars from an
 untrusted source and finds the average miles per gallon for each number of
 engine cylinders, we want to perform the following checks...
 
+- that it has the columns "mpg", "vs", and "am"
 - that the dataset contains more than 10 observations
 - that the column for 'miles per gallon' (mpg) is a positive number
 - that the column for 'miles per gallon' (mpg) does not contain a
@@ -609,13 +676,14 @@ This could be written thusly:
 
 ```r
 mtcars %>%
+  verify(has_all_names("mpg", "vs", "am")) %>%
   verify(nrow(mtcars) > 10) %>%
   verify(mpg > 0) %>%
   insist(within_n_sds(4), mpg) %>%
   assert(in_set(0,1), am, vs) %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>     cyl  avg.mpg
 #>   <dbl>    <dbl>
 #> 1     4 26.66364
@@ -623,48 +691,255 @@ mtcars %>%
 #> 3     8 15.10000
 ```
 
-Ew, there are four lines of assertions before the real fun starts. We can
-make look much better by abstracting out all the assertions:
+In an assertr chain with default options, `assert`, `assert_rows`,
+`insist`, `insist_rows`, and `verify` will stop at the
+first assertion that yields an error and not go on to process the
+assertions further down in the chain. For some needs, this is sensible
+behavior. There are times, however, when we might like to get a report
+of all assertion violations. For example, one might want to write an R
+program to download some dataset from the internet and get a detailed
+report of all deviations from expectation.
+
+The best thing to do for this use case, is to use the `chain_start`,
+and `chain_end` functions at the beginning and end of a chain of
+assertr assertions. When `chain_start` gets called with data, the
+data gets a special tag that tells the assertr assertions that follow
+to override their `success_fun` and `error_fun` values and
+replace them with `success_continue` (which passes the data along
+if the test passes) and `error_append` (which we've just discussed).
+After all relevant verifications, `chain_end` will receive the
+data (possibly with accumulated error messages attached) and, by default,
+print a report of all the errors that have been found since the start of
+the chain.
+
+Let's see it in action!
 
 
 ```r
-
-check_me <- . %>%
+mtcars %>%
+  chain_start %>%
   verify(nrow(mtcars) > 10) %>%
   verify(mpg > 0) %>%
   insist(within_n_sds(4), mpg) %>%
-  assert(in_set(0,1), am, vs)
-
-mtcars %>%
-  check_me %>%
+  assert(in_set(0,1), am, vs) %>%
+  chain_end %>%
   group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>     cyl  avg.mpg
 #>   <dbl>    <dbl>
 #> 1     4 26.66364
 #> 2     6 19.74286
 #> 3     8 15.10000
+```
+
+Now *all* assertions will be checked and reported.
+
+Tip: we can make this whole thing look a lot better by abstracting out
+all the assertions:
+
+
+```r
+check_me <- . %>%
+  chain_start %>%
+  verify(nrow(mtcars) > 10) %>%
+  verify(mpg > 0) %>%
+  insist(within_n_sds(4), mpg) %>%
+  assert(in_set(0,1), am, vs)
+  chain_end
+
+mtcars %>%
+  check_me %>%
+  group_by(cyl) %>%
+  summarise(avg.mpg=mean(mpg))
 ```
 
 Awesome! Now we can add an arbitrary number of assertions, as the need arises,
 without touching the real logic.
 
 
-<section id="citing">
 
-## Citing
+#### advanced: send email reports using custom error functions
 
-> Tony Fischetti (2016). assertr: Assertive Programming for R Analysis Pipelines. R package version
-  1.0.2. https://cran.rstudio.com/package=assertr
+One particularly cool application of `assertr` is to use it as a data integrity
+checker for frequently updated data sources. A script can download new data as
+it becomes available, and then run `assertr` checks on it. This makes `assertr`
+into a sort of "continuous integration" tool (but for data,
+not code.)
+
+In an unsupervised "continuous integration" environment, you need a way to
+discover that the assertions failed. In CI-as-a-service in the software world,
+failed automated checks often send an email of reporting the maintainer of a
+botched build; why not bring that functionality to `assertr`?!
+
+As we learned in the last sections, all assertion verbs in `assertr`
+support a custom error function. `chain_end` similarly supports custom
+error functions. By default, this is `error_stop` (or `error_report` in the
+case of `chain_end`) which prints a summary of the errors and halts execution.
+
+You can specify your own, though, to hijack this behavior and redirect
+flow-of-control wherever you want.
+
+Your custom error function must take, as its first argument,
+a list of `assertr_error` S3 objects. The second argument must be the
+`data.frame` that the verb is computing on. Every error function must
+take this because there may be some other errors that are attached to the
+`data.frame`'s `assertr_errors` attribute leftover from other previous
+assertions.
+
+Below we are going to build a function that takes a list of `assertr_errors`,
+gets a string representation of the errors and emails it to someone before
+halting execution. We will use the `mailR` package to send the mail.
 
 
-<section id="license_bugs">
+```r
 
-## License and bugs
+library(mailR)
+
+email_me <- function(list_of_errors, data=NULL, ...){
+  # we are checking to see if there are any errors that
+  # are still attached to the data.frame
+  if(!is.null(data) && !is.null(attr(data, "assertr_errors")))
+    errors <- append(attr(data, "assertr_errors"), errors)
+
+  num.of.errors <- length(list_of_errors)
+
+  preface <- sprintf("There %s %d error%s:\n",
+                     ifelse(num.of.errors==1,"is", "are"),
+                     num.of.errors,
+                     ifelse(num.of.errors==1,"", "s"))
+
+  # all `assertr_error` S3 objects have `print` and `summary` methods
+  # here, we will call `print` on all of the errors since `print`
+  # will give us the complete/unabridged error report
+  error_string <- capture.output(tmp <- lapply(list_of_errors,
+                                               function(x){
+                                                 cat("\n- ");
+                                                 print(x);
+                                                 return();}))
+  error_string <- c(preface, error_string)
+  error_string <- error_string %>% paste0(collapse="\n")
+
+  send.mail(from="assertr@gmail.com", to="YOU@gmail.com",
+            subject="error from assertr", body=error_string,
+            smtp = list(host.name="aspmx.l.google.com", port=25),
+            authenticate = FALSE, send=TRUE)
+  stop("assertr stopped execution", call.=FALSE)
+}
+
+questionable_mtcars %>%
+  chain_start %>%
+  verify(nrow(.) > 10) %>%
+  insist(within_n_sds(4), mpg) %>%
+  # ...
+  chain_end(error_fun=email.me)
+```
+
+(this particular `send.mail` formulation will only work for gmail
+recipients; see the `mailR` documentation for more information)
+
+Now you'll get notified of <s>any</s> all failed assertions via email. Groovy!
+
+
+#### advanced: creating your own predicate generators for `insist`
+
+`assertr` is build with robustness, correctness, and extensibility in mind.
+Just like `assertr` makes it easy to create your own custom predicates, so
+too does this package make it easy to create your own custom predicate
+generators.
+
+Okay... so its, perhaps, not _easy_ because predicate generators by nature
+are functions that return functions. But it's possible!
+
+Let's say you wanted to create a predicate generator that checks if all
+elements of a vector are within 3 times the vector's interquartile range from
+the median. We need to create a function that looks like this
+
+
+```r
+within_3_iqrs <- function(a_vector){
+  the_median <- median(a_vector)
+  the_iqr <- IQR(a_vector)
+  within_bounds((the_median-the_iqr*3), (the_median+the_iqr*3))
+}
+```
+
+Now, we can use it on `mpg` from `mtcars` like so:
+
+
+```r
+mtcars %>%
+  insist(within_3_iqrs, mpg) %>%
+  group_by(cyl) %>%
+  summarise(avg.mpg=mean(mpg))
+#> # A tibble: 3 x 2
+#>     cyl  avg.mpg
+#>   <dbl>    <dbl>
+#> 1     4 26.66364
+#> 2     6 19.74286
+#> 3     8 15.10000
+```
+
+There are two problems with this, though...
+
+1. We may want to abstract this so that we can supply an arbitrary number
+of IQRs to create the bounds with
+2. We lose the ability to choose what optional arguments (if any) that we
+give to the returned `within_bounds` predicate.
+
+Now we have to write a function that returns a function that returns
+a function...
+
+
+```r
+within_n_iqrs <- function(n, ...){
+  function(a_vector){
+    the_median <- median(a_vector)
+    the_iqr <- IQR(a_vector)
+    within_bounds((the_median-the_iqr*n), (the_median+the_iqr*n), ...)
+  }
+}
+```
+
+Much better! Now, if we want to check that every `mpg` from `mtcars` is
+within 5 IQRs of the median and *not allow NA values* we can do so like this:
+
+
+```r
+mtcars %>%
+  insist(within_n_iqrs(5), mpg) %>%
+  group_by(cyl) %>%
+  summarise(avg.mpg=mean(mpg))
+#> # A tibble: 3 x 2
+#>     cyl  avg.mpg
+#>   <dbl>    <dbl>
+#> 1     4 26.66364
+#> 2     6 19.74286
+#> 3     8 15.10000
+```
+
+Super!
+
+
+#### advanced: programming with assertion functions
+
+These assertion functions use the [tidyeval](https://rpubs.com/hadley/dplyr-programming) framework.  In the past,
+programming in a tidyverse-like setting was accomplished through
+standard evaluation versions of verbs, which used functions postfixed
+with an underscore: `insist_` instead of `insist`, for example.  However,
+when tidyeval was made popular with `dplyr` 0.7.0, this usage became deprecated,
+and therefore underscore-postfixed functions are no longer part of `assertr`.
+
+
+### Citing
+
+> Tony Fischetti (2017). assertr: Assertive Programming for R Analysis Pipelines. R package version
+  2.0.2.2. https://cran.rstudio.com/package=assertr
+
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
-* Report bugs at [our GitHub repo for assertr](https://github.com/ropenscilabs/assertr/issues?state=open)
+* Report bugs at [our GitHub repo for assertr](https://github.com/ropensci/assertr/issues?state=open)
 
 
 [Back to top](#top)

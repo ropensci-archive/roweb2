@@ -1,6 +1,6 @@
 ---
 title: lawn tutorial
-package_version: 0.1.7
+package_version: 0.4.2
 ---
 
 
@@ -11,9 +11,7 @@ package_version: 0.1.7
 
 There is an additional helper function (see `view()`) in this package to help visualize data with interactive maps via the `leaflet` package ([https://github.com/rstudio/leaflet](https://github.com/rstudio/leaflet)). Note that `leaflet` is not required to install `lawn` - it's in Suggests, not Imports or Depends.
 
-<section id="installation">
-
-## Installation
+### Installation
 
 If installing `leaflet`
 
@@ -40,10 +38,6 @@ devtools::install_github("ropensci/lawn")
 ```r
 library("lawn")
 ```
-
-<section id="usage">
-
-## Usage
 
 ### Make some geojson data
 
@@ -73,36 +67,6 @@ lawn_polygon(rings)
 #> <Polygon>
 #>   Bounding box: -2.3 53.5 -2.2 53.5
 #>   No. points: 5
-#>   Properties: NULL
-```
-
-### count
-
-Count number of points within polygons
-
-
-```r
-lawn_count(polygons = lawn_data$polygons_count, points = lawn_data$points_count)
-#> <FeatureCollection>
-#>   Bounding box: -112.1 46.6 -112.0 46.6
-#>   No. features: 2
-#>   No. points: 20
-#>   Properties: NULL
-```
-
-### average
-
-Average value of a field for a set of points within a set of polygons
-
-
-```r
-lawn_average(polygons = lawn_data$polygons_average,
-             points = lawn_data$points_average,
-             field = 'population')
-#> <FeatureCollection>
-#>   Bounding box: 10.7 59.9 10.9 59.9
-#>   No. features: 2
-#>   No. points: 20
 #>   Properties: NULL
 ```
 
@@ -144,7 +108,7 @@ lawn_distance(from, to)
 ```r
 lawn_random(n = 2)
 #> <FeatureCollection>
-#>   Bounding box: -143.7 -70.6 178.1 16.5
+#>   Bounding box: 107.2 -43.0 120.1 76.6
 #>   No. features: 2
 #>   No. points: 4
 #>   Properties: NULL
@@ -154,7 +118,7 @@ lawn_random(n = 2)
 ```r
 lawn_random(n = 5)
 #> <FeatureCollection>
-#>   Bounding box: -114.0 -89.5 54.5 -21.1
+#>   Bounding box: -87.8 -59.7 179.3 67.0
 #>   No. features: 5
 #>   No. points: 10
 #>   Properties: NULL
@@ -167,7 +131,7 @@ Positions
 
 ```r
 gr_position()
-#> [1] -114.45746   55.92978
+#> [1] 10.277207 -2.040502
 ```
 
 Points
@@ -176,7 +140,7 @@ Points
 ```r
 gr_point(2)
 #> <FeatureCollection>
-#>   Bounding box: -106.3 -27.0 30.5 41.6
+#>   Bounding box: -146.1 63.4 87.6 74.3
 #>   No. features: 2
 #>   No. points: 4
 #>   Properties: NULL
@@ -188,7 +152,7 @@ Polygons
 ```r
 gr_polygon(n = 1, vertices = 5, max_radial_length = 5)
 #> <FeatureCollection>
-#>   Bounding box: -148.7 25.9 -141.9 28.9
+#>   Bounding box: -0.6 42.2 3.6 44.6
 #>   No. features: 1
 #>   No. points: 12
 #>   Properties: NULL
@@ -204,7 +168,9 @@ lawn_sample(dat, 1)
 #>   Bounding box: 10.7 59.9 10.7 59.9
 #>   No. features: 1
 #>   No. points: 2
-#>   Properties: NULL
+#>   Properties: 
+#>   population
+#> 1        100
 ```
 
 
@@ -214,7 +180,10 @@ lawn_sample(dat, 2)
 #>   Bounding box: 10.7 59.9 10.7 59.9
 #>   No. features: 2
 #>   No. points: 4
-#>   Properties: NULL
+#>   Properties: 
+#>   population
+#> 1        100
+#> 2        600
 ```
 
 
@@ -224,7 +193,11 @@ lawn_sample(dat, 3)
 #>   Bounding box: 10.7 59.9 10.8 59.9
 #>   No. features: 3
 #>   No. points: 6
-#>   Properties: NULL
+#>   Properties: 
+#>   population
+#> 1        100
+#> 2        200
+#> 3        300
 ```
 
 ### extent
@@ -266,9 +239,9 @@ dat <- '{
    }
 }'
 lawn_buffer(dat, 1, "miles")
-#> <FeatureCollection>
+#> <Feature>
+#>   Type: Polygon
 #>   Bounding box: -112.1 46.6 -112.0 46.6
-#>   No. features: 1
 #>   No. points: 74
 #>   Properties: NULL
 ```
@@ -365,20 +338,17 @@ lawn_sample(lawn_data$points_average, 2) %>% view()
 ![map2](../assets/tutorial-images/lawn/map2.png)
 
 
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `lawn` in publications use:
 
 <br>
 
-> Scott Chamberlain and Jeff Hollister (2016). lawn: R Client for Turf.js for Geospatial
-  Analysis. R package version 0.1.7. https://github.com/ropensci/lawn
+> Scott Chamberlain and Jeff Hollister (NA). lawn: Client for 'Turfjs'
+  for 'Geospatial' Analysis. R package version 0.4.1.9110.
+  https://github.com/ropensci/lawn
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for lawn](https://github.com/ropensci/lawn/issues?state=open)

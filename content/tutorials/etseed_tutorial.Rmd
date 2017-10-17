@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 [etcd API docs](https://github.com/coreos/etcd/blob/master/Documentation/v2/api.md)
 
-## Installing etcd
+**Installing etcd**
 
 See the [etcd Github repo](https://github.com/coreos/etcd#etcd) for help on installing `etcd`.
 
@@ -24,7 +24,7 @@ There are various ways to install it, and they depend on your operating sytsem.
 
 You can install via `homebrew`, install from source, and via Docker.
 
-## Start etcd
+**Start etcd**
 
 at the command line
 
@@ -34,9 +34,8 @@ etcd
 
 > how to start etcd may differ depending on your setup
 
-<section id="installation">
 
-## Installation
+### Installation
 
 Stable version from CRAN
 
@@ -55,11 +54,10 @@ devtools::install_github("ropensci/etseed")
 library("etseed")
 ```
 
-<section id="usage">
 
-## Usage
+### Usage
 
-### Make a client
+**Make a client**
 
 First task when using this package is to initialize a client
 with the `etcd()` function. it's a wrapper around an R6 class.
@@ -71,13 +69,13 @@ with the `etcd()` function. it's a wrapper around an R6 class.
 Default settings in `etcd()` connect you to `localhost`, and port `2379`,
 using etcd API version 2, with an `http` scheme.
 
-### Get version
+**Get version**
 
 ```{r}
 client$version()
 ```
 
-### Create a directory
+**Create a directory**
 
 ```{r echo=FALSE, results='hide'}
 out <- tryCatch(client$key("/neighbor"), error=function(e) e)
@@ -89,13 +87,13 @@ Sys.sleep(3)
 client$create("/neighbor", dir = TRUE)
 ```
 
-### Create a key
+**Create a key**
 
 ```{r echo=FALSE, results='hide'}
 out <- tryCatch(client$key("/mykey"), error=function(e) e)
-if (!is(out, "http_error")) client$delete("/mykey")
+if (!inherits(out, "simpleError")) client$delete("/mykey")
 out <- tryCatch(client$key("/stuff"), error=function(e) e)
-if (!is(out, "http_error")) client$delete("/stuff")
+if (!inherits(out, "simpleError")) client$delete("/stuff")
 ```
 
 ```{r}
@@ -120,11 +118,11 @@ client$key("/stuff")
 #>   client error: (404) Not Found
 ```
 
-### Update a key
+**Update a key**
 
 ```{r echo=FALSE, results='hide'}
 out <- tryCatch(client$key("/foo"), error=function(e) e)
-if (!is(out, "http_error")) client$delete("/foo")
+if (!inherits(out, "simpleError")) client$delete("/foo")
 ```
 
 Create a key
@@ -139,7 +137,7 @@ Then update the key
 client$update(key = "/foo", value = "bar stool")
 ```
 
-### Create in-order keys
+**Create in-order keys**
 
 ```{r}
 client$create_inorder("/queue", "thing1")
@@ -153,29 +151,27 @@ client$create_inorder("/queue", "thing2")
 client$create_inorder("/queue", "thing3")
 ```
 
-### List keys
+**List keys**
 
 ```{r output.lines = 1:10}
 client$keys()
 ```
 
-### List a key
+**List a key**
 
 ```{r}
 client$key("/mykey")
 ```
 
 
-<section id="citing">
 
-## Citing
+### Citing
 
-> Scott Chamberlain (2016). etseed: Client for 'etcd', a 'Key-value' Database. R package version 0.1.0. https://CRAN.R-project.org/package=etseed
+> Scott Chamberlain (2016). etseed: Client for 'etcd', a 'Key-value' Database. R package version 0.1.0. https://cran.rstudio.com/package=etseed
 
 
-<section id="license_bugs">
 
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our GitHub repo for etseed](https://github.com/ropensci/etseed/issues?state=open)

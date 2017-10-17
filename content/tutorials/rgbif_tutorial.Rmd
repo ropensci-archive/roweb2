@@ -1,11 +1,11 @@
 ---
 title: rgbif tutorial
-package_version: 0.9.3
+package_version: 0.9.8
 ---
 
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(
-	fig.path = "../assets/tutorial-images/rgbif/",
+	fig.path = "img/tutorial-images/rgbif/",
 	fig.width = 6,
 	fig.height = 4,
 	comment = "#>",
@@ -19,21 +19,17 @@ Seach and retrieve data from the Global Biodiverity Information Facilty (GBIF)
 
 `rgbif` is an R package to search and retrieve data from the Global Biodiverity Information Facilty (GBIF). `rgbif` wraps R code around the [GBIF API](http://www.gbif.org/developer/summary) to allow you to talk to GBIF from R.
 
-********************
+### Installation
 
-<section id="installation">
+Install from CRAN
 
-## Installation
-
-Install `rgbif` from CRAN for more stable version
-
-```{r eval=FALSE}
+```{r install, eval=FALSE}
 install.packages("rgbif")
 ```
 
-Or from Github for the development version
+Or install the development version from GitHub
 
-```{r eval=FALSE}
+```{r installgh, eval=FALSE}
 devtools::install_github("ropensci/rgbif")
 ```
 
@@ -43,13 +39,7 @@ Load rgbif
 library("rgbif")
 ```
 
-********************
-
-<section id="usage">
-
-## Usage
-
-## Number of occurrences
+### Number of occurrences
 
 Search by type of record, all observational in this case
 
@@ -94,7 +84,7 @@ Records for a particular dataset, and only for preserved specimens
 occ_count(datasetKey='e707e6da-e143-445d-b41d-529c4a777e8b', basisOfRecord='OBSERVATION')
 ```
 
-## Search for taxon names
+### Search for taxon names
 
 Get possible values to be used in taxonomic rank arguments in functions
 
@@ -173,7 +163,7 @@ head( name_suggest(q='Puma concolor') )
 ```
 
 
-## Single occurrence records
+### Single occurrence records
 
 Get data for a single occurrence. Note that data is returned as a list, with slots for metadata and data, or as a hierarchy, or just data.
 
@@ -202,7 +192,7 @@ occ_get(key=c(766766824, 101010, 240713150, 855998194), return='data')
 ```
 
 
-## Search for occurrences
+### Search for occurrences
 
 By default `occ_search()` returns a `dplyr` like output summary in which the data printed expands based on how much data is returned, and the size of your window. You can search by scientific name:
 
@@ -238,9 +228,7 @@ occ_search(taxonKey=keys, limit=5)
 ```
 
 
-********************
-
-## Maps
+### Maps
 
 Static map using the ggplot2 package. Make a map of *Puma concolor* occurrences.
 
@@ -250,20 +238,16 @@ dat <- occ_search(taxonKey=key, return='data', limit=300)
 gbifmap(dat)
 ```
 
+[gbifapi]: http://www.gbif.org/developer/summary
 
-<section id="citing">
-
-## Citing
+### Citing
 
 To cite `rgbif` in publications use:
 
-<br>
+Scott Chamberlain, Carl Boettiger, Karthik Ram, Vijay Barve and Dan Mcglinn (2016). rgbif: Interface to the Global Biodiversity Information Facility API. R package version 0.9.3 https://github.com/ropensci/rgbif
 
-> Scott Chamberlain, Carl Boettiger, Karthik Ram, Vijay Barve and Dan Mcglinn (2016). rgbif: Interface to the Global Biodiversity Information Facility API. R package version 0.9.3 https://github.com/ropensci/rgbif
 
-<section id="license_bugs">
-
-## License and bugs
+### License and bugs
 
 * License: [MIT](http://opensource.org/licenses/MIT)
 * Report bugs at [our Github repo for rgbif](https://github.com/ropensci/rgbif/issues?state=open)
