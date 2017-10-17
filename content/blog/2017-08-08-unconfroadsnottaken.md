@@ -58,7 +58,7 @@ This year wasn't just our biggest unconf ever, it was the biggest in terms of pr
 
 <br><br>
 
-## It's Your Turn
+### It's Your Turn
 Interested in pursuing one of these ideas? Pick up on the discussion in the project's [GitHub repo] and the friendly people there will welcome your contributions!
 
   [many projects]: https://ropensci.org/blog/blog/2017/06/08/unconf_recap_4

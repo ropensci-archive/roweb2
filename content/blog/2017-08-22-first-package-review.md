@@ -26,7 +26,7 @@ Barring the destruction of someone else's hard work and/or an entire organizatio
 
 So, step one (for me) was: confess my inadequacies and seek advice. It turns out that much of the advice vis-à-vis _how to review a package_ is baked right into the documents. The [reviewer template](https://github.com/ropensci/onboarding/blob/master/reviewer_template.md) is a great trail map, the utility of which is fleshed out in the [rOpenSci Package Reviewing Guide](https://github.com/ropensci/onboarding/blob/master/reviewing_guide.md). Giving these a thorough read, and perusing a recommended review or two (links in the reviewing guide) will probably have you raring to go. But, if you're feeling particularly neurotic (as I almost always am), the rOpenSci [onboarding editors](https://github.com/ropensci/onboarding#-editors-and-reviewers) and larger community are endless founts of wisdom and resources.
 
-## `visdat` 📦👀
+### `visdat` 📦👀
 
 I knew nothing about [Nicholas Tierney](https://github.com/njtierney)'s [`visdat`](http://visdat.njtierney.com/) package prior to receiving my [invitation to review](https://github.com/ropensci/onboarding/issues/87#issuecomment-270428584) it. So the first (coding-y) thing I did was play around with it in the same way I do for other cool R packages I encounter. This is a totally unstructured mish-mash of running examples, putting my own data in, and seeing what happens. In addition to being amusing, it's a good way to sort of "ground-truth" the package's mission, and make sure there isn't some super helpful feature that's going unsung.
 
@@ -39,7 +39,7 @@ If you're _not_ familiar with `visdat`, it "provides a quick way for the user to
 
 The latter question is key, and, while I don't have data to back this up, can be a sort of "silent" usability failure when left unexamined. Someone who tinkers with a package, but finds it confusing doesn't necessarily stop to give feedback. There's also a pseudo _curse-of-knowledge_ component. While messages and warnings are easily parsed, suppressed, dealt with, and/or dismissed by the veteran R user/programmer, unexpected, brightly-coloured text can easily scream _Oh my gosh you broke it all!!_ to those with less experience.
 
-## Myriad lessons learned 💡
+### Myriad lessons learned 💡
 
 I can't speak for Nick per the utility or lack thereof of my review (you can see [his take here](https://ropensci.org/blog/blog/2017/08/22/visdat), but I _can_ vouch for the package-reviewing experience as a means of methodically inspecting the innards of an R package. Methodical is really the operative word here. Though _"read the docs,"_ or _"look at the code"_ sounds straight-forward enough, it's not always easy to coax oneself into going through the task piece-by-piece without an end goal in mind. While a desire to contribute to open-source software is noble enough (and is how I _personaly_ ended up involved in this process-- with some help/coaxing from [Noam Ross](https://twitter.com/noamross)), it's also an abstraction that can leave one feeling overwhelmed, and not knowing where to begin.[^3]
 

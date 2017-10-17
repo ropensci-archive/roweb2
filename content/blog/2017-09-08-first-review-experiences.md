@@ -65,8 +65,7 @@ At the beginning I had an issue with `goodpractice::gp()` but Maelle Salmon
 In the rest of this article you can read what I gained personally from doing a
 review.
 
-Contributing to the open source community
------------------------------------------
+### Contributing to the open source community
 
 When people think about contributing to the open source community, the
 first thought is about creating a new R package or contributing to one
@@ -86,8 +85,7 @@ testing. I had a great feeling when I finished the review, since I had
 helped improve an already amazing R package a little bit more.
 
 
-Reviewing helps improve your own coding style
------------------------------------------------
+### Reviewing helps improve your own coding style
 
 When I write R code I usually try to do it in the best way possible.
 [Google's R Style Guide](https://google.github.io/styleguide/Rguide.xml)
@@ -116,8 +114,7 @@ https://github.com/ropensci/patentsview/blob/c03e1ab2537873d7a9b76025b0072953efb
 Functions like `paste0_stop` and `paste0_message` make the rest of the
 code a lot easier to read.
 
-Good start for writing your own packages
-----------------------------------------
+### Good start for writing your own packages
 
 When reviewing an R package, you check the code like a really observant
 user. I noticed many things that you usually don't care about when using
@@ -126,8 +123,7 @@ examples are, and also how well unit tests cover the code. I think that
 reviewing a few good packages can prepare you very well for writing your
 own packages.
 
-Do you want to contribute to rOpenSci yourself?
------------------------------------------------
+### Do you want to contribute to rOpenSci yourself?
 
 If I motivated you to become an rOpenSci reviewer, please sign up! Here
 is a list of useful things if you want to become an rOpenSci reviewer
