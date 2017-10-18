@@ -55,7 +55,7 @@ brew install hugo
 
 Then run `hugo serve` in the repo directory to start a local server on [http://localhost:1313](http://localhost:1313)
 
-## Compiling CSS
+### Compiling CSS
 
 CSS is defined in a series of `pcss` files that you need to compile into CSS when modified.
 You need a specific postcss stack defined in [package.json](themes/ropensci/static/package.json).
@@ -69,7 +69,7 @@ npm run css
 
 Don't modify the CSS file directly because the changes will get overwritten on the next run.
 
-## Legacy redirects
+### Legacy redirects
 
 The [\_redirects](public/_redirects) file is used to proxy or redirect content from the old website. Try to make sure existing hyperlinks to `ropensci.org` will keep working. Currently we have:
 
