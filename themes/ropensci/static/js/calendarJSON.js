@@ -4,28 +4,20 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': 'Numfocus Summit',
-      'dateStart': 'October 10 2017',
-      'dateEnd': 'October 11 2017',
-      'description': 'Numfocus opens source projects meeting',
-      'location': 'Austin, TX',
-      'attendees': 'Karthik & Stefanie'
+      'title': 'Moore Sloan Data Science Summit',
+      'dateStart': 'November 05 2017',
+      'dateEnd': 'November 08 2017',
+      'description': 'Data Science summit for UC Berkeley, NYU, and UW',
+      'location': 'New Orleans, LA',
+      'attendees': 'Karthik'
     },
     {
-      'title': 'Some workshop',
-      'dateStart': 'August 20 2017, 8:00 ',
-      'dateEnd': 'August 26 2017, 19:00',
-      'description': 'Some sample text here',
-      'location': '255 Steel St, CA',
-      'attendees': 'example author'
-    },
-    {
-      'title': 'Community Call',
-      'dateStart': 'August 20 2017, 8:00 ',
-      'dateEnd': 'August 20 2017, 19:00',
-      'description': 'Some sample text here',
-      'location': '255 Steel St, CA',
-      'attendees': 'example author'
+      'title': 'New Zealand eScience conference',
+      'dateStart': 'February 12 2018, 8:00 ',
+      'dateEnd': 'February 14 2018, 19:00',
+      'description': 'The eResearch Outlook: Impact, Sustainability and Excellence',
+      'location': 'Queenstown, NZ',
+      'attendees': 'Karthik Ram'
     }
   ]
 }
