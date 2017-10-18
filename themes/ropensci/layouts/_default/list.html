@@ -24,9 +24,8 @@
 
                {{ range $paginator.Pages }}
                     <div class="excerpt">
-                        <!-- <small class="meta">{{ .Date.Format "January 2, 2006" }}</small> -->
-                        <div style="font-size: 16px; color: #5B617A; margin-bottom: 15px;">{{ .Date.Format "January 2, 2006" }}</div>
                         <h3>{{ .Title }}</h3>
+                        <div style="font-size: 16px; color: #5B617A; margin-top: 10px; margin-bottom: 10px;">{{ .Date.Format "January 2, 2006" }}</div>
                         <p class="authors">
                             {{ range .Params.authors }}
                                 {{ if in $.Site.Params.leadership .name }}
