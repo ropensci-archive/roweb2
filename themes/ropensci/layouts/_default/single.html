@@ -21,12 +21,12 @@
             </div>
             <div class="row">
                 <div class="col-offset-2 col-8 top-20">
-                    <h2>{{ .Title }}</h2>
+                    <h2 style="text-align: center;">{{ .Title }}</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-offset-2 col-8">
-                    <p class="authors">
+                <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
+                    <p class="authors" style="text-align: center;">
                         {{ range .Params.authors }}
                             {{ if in $.Site.Params.leadership .name }}
                               <a href="/about/#leadership"> {{ .name }} </a>&nbsp;
@@ -40,7 +40,7 @@
                         {{ end }}
                     </p>
                     <br>
-                    <small class="meta">{{ .Date.Format "January 2, 2006" }}</small>
+                    <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Date.Format "January 2, 2006" }}</div>
                 </div>
                 <div class="col-offset-2 col-8 top-2">
                     {{ .Content }}
