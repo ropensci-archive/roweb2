@@ -1,6 +1,7 @@
 ---
 slug: "ropensci-fellowships"
 title: "Announcing the rOpenSci Fellowships Program"
+date: 2017-07-06
 authors:
   - name: Karthik Ram
 categories: blog
