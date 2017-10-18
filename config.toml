@@ -12,7 +12,7 @@ paginatePath = "page"
 
 [permalinks]
     blog = "/blog/:year/:month/:day/:slug/"
-    note = "/note/:year/:month/:day/:slug/"
+    technotes = "/technotes/:year/:month/:day/:slug/"
 
 [[menu.main]]
     name = "Home"
