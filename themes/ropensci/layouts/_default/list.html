@@ -16,7 +16,12 @@
     <article>
         <div class="container top-20">
             <div class="row">
-                <div class="col-7 col-offset-2 bottom-20 maintext">
+                <div class="col-8 col-offset-2 bottom-20 maintext">
+
+                {{ if le $paginator.PageNumber 1 }}
+                <p> This is our main blog. Package updates and software announcements are posted in <a href="/technotes">Tech Notes.</a> </p>
+                {{ end }}
+
                {{ range $paginator.Pages }}
                     <div class="excerpt">
                         <small class="meta">{{ .Date.Format "January 2, 2006" }}</small>
