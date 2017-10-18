@@ -24,3 +24,13 @@ npm install .
 npm run css
 ```
 
+Don't modify the CSS file directly because the changes will get overwritten on the next run.
+
+## Legacy redirects
+
+The [\_redirects](public/_redirects) file is used to proxy or redirect content from the old website. Try to make sure existing hyperlinks to `ropensci.org` will keep working. Currently we have:
+
+ - `/blog/blog/...` redirects to `/blog/...`
+ - `/blog/technotes/...` redirects to `/technotes/...`
+ - `/assets/...` is proxied by the server to github pages branch of the [old website](https://github.com/ropensci/roweb/tree/gh-pages/assets)
+ - The RSS feeds `/feed.xml` redirect to the new location `/index.xml`.
