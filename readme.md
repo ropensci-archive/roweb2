@@ -16,7 +16,11 @@ To contribute a blog post (🙏):
 
 Once you've finished your blog post, you can preview locally using Hugo. See the [technical notes](https://github.com/ropensci/roweb2#technical-stuff-) section for installation instructions. 
 
-4. Send a pull request from your fork. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.
+4. Send a pull request from your fork. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
+  
+![](https://i.imgur.com/HYcQyB4.png)
+![](https://i.imgur.com/0deI0d3.png)
+
 5. Tag a rOpenSci staff member to review your PR (@stefaniebutland, @sckott, or @karthik)
 
 
