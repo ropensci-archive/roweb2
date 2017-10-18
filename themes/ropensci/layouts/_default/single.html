@@ -29,11 +29,11 @@
                 <p class="authors" style="text-align: center;">
                     {{ range .Params.authors }}
                         {{ if in $.Site.Params.leadership .name }}
-                          <a href="/about/#leadership"> {{ .name }} </a>&nbsp;
+                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
                         {{ else if in $.Site.Params.staff .name }}
-                          <a href="/about/#staff"> {{ .name }} </a>&nbsp;
+                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
                         {{ else if eq .name "Ted Hart" }}
-                          <a href="/about/#alumni"> {{ .name }} </a>&nbsp;
+                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
                         {{ else }}
                           <a href="{{ .url }}" target="_blank"> {{ .name }} </a>&nbsp;
                         {{ end }}
