@@ -17,7 +17,7 @@ var calendar = {
       'dateEnd': 'February 14 2018, 19:00',
       'description': 'The eResearch Outlook: Impact, Sustainability and Excellence',
       'location': 'Queenstown, NZ',
-      'attendees': 'Karthik Ram'
+      'attendees': 'Karthik'
     }
   ]
 }
