@@ -500,6 +500,9 @@ q:before, q:after {
     font-weight: normal;
     font-style: normal;
 
+}i.ropensci-icons {
+    font-family: "ropensci";
+    font-style: normal;
 }[data-icon]:before {
     font-family: "ropensci" !important;
     content: attr(data-icon);
