@@ -8,6 +8,7 @@ authors:
     url: http://dirk.eddelbuettel.com/
 categories:
   - blog
+date: 2014-10-23
 tags:
 - R
 - reproducibleresearch

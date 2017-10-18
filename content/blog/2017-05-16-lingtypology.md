@@ -1,6 +1,7 @@
 ---
 slug: "lingtypology"
 title: Easy linguistic mapping with lingtypology
+date: 2017-05-16
 authors:
   - name: George Moroz
     url: https://www.hse.ru/en/org/persons/103489498#teaching

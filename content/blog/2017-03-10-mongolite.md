@@ -6,6 +6,7 @@ authors:
 categories:
   - blog
 topicid: 626
+date: 2017-03-10
 tags:
 - r
 - ropensci

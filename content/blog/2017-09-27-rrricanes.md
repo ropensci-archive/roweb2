@@ -6,6 +6,7 @@ authors:
     url: http://timtrice.net/
 categories:
   - blog
+date: 2017-09-27
 topicid: 887
 tags:
   - R

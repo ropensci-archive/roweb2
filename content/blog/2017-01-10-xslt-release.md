@@ -5,6 +5,7 @@ authors:
   - name: Jeroen Ooms
 categories:
   - blog
+date: 2017-01-10
 tags:
 - ropensci
 - packages
