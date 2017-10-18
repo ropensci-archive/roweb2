@@ -411,7 +411,7 @@ q:before, q:after {
 }p strong{
         font-weight: 700;
 }p em{
-        font-weight: italic;
+        font-style: italic;
 }p img{
         width: 100%;
 }a {
