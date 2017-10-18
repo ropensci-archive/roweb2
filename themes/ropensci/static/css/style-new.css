@@ -1126,8 +1126,9 @@ q:before, q:after {
 }code {
     background: #f3f7ff;
 }pre {
+    border-radius: 5px;
     background-color: #2b303b;
-    padding: 1rem;
+    padding: 0.6rem;
     margin-bottom: 20px;
     overflow-x: scroll
 }pre code{
