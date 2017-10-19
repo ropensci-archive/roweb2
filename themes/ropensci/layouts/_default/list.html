@@ -24,7 +24,7 @@
 
                {{ range $paginator.Pages }}
                     <div class="excerpt">
-                        <a href="{{ .URL | relURL }}"><h3>{{ .Title }}</h3></a>
+                        <a href="{{ .URL | relURL }}"><h2>{{ .Title }}</h2></a>
                         
                         <p class="authors">
                             {{ range .Params.authors }}
