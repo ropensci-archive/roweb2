@@ -27,7 +27,7 @@ There is no problem in science quite as frustrating as *other peoples' data*. Wh
 
 What can we do about such data other than extract it by hand? One answer is rely on [`tabulizer`](https://github.com/ropensci/tabulizer) a package I submitted to rOpenSci that reduces some and often all of the hassle of extracting tabular data locked inside PDFs.
 
-# What is `tabulizer`?
+## What is `tabulizer`?
 
 `tabulizer` provides R bindings to [the tabula-java library](https://github.com/tabulapdf/tabula-java), the open-source java library that powers [Tabula](http://tabula.technology/) (source code on [GitHub](https://github.com/tabulapdf/tabula)). What this means is that `tabulizer` relies directly on the underlying java classes that power Tabula without the need for system calls or the need to explicitly install Tabula on your system. (A potential downside is the need to handle intricacies of rJava - R's interface to Java, which I discuss in depth below.)
 
@@ -61,7 +61,7 @@ This should work. If not, set `verbose = TRUE` in `ghit::install_github()` to id
 
 If none of these steps work, scroll through [the GitHub issues page](https://github.com/ropensci/tabulizer/issues?utf8=%E2%9C%93&q=is%3Aissue) for anyone experiencing a similar problem and, if not resolved in any of those discussions, feel free to open an issue on GitHub describing your problem including the fully verbose output of `install_github()` and your `sessionInfo()`.
 
-# Unlocking elections data with `tabulizer`
+## Unlocking elections data with `tabulizer`
 
 Elections data are the bread and butter of a lot of quantitative political science research. Many researchers in my field need to know how many citizens voted and for whom in order to make sense of campaigns, election integrity, partisanship, and so forth. Yet a substantial amount of election-related data is locked in government-produced PDFs. Worse, national, state, and local governments have little to no standardization in the formatting of elections data, meaning even if one could figure out a computational strategy for extracting one kind of data about elections in one year from one state, that computational strategy would likely be useless in the same state in another year or in any other state. Elections provide a fantastic and highly visible example of "open" government data that's not really open or usable at all.
 
@@ -317,11 +317,11 @@ rasterImage(thispng, 0, 0, d[1], d[2])
 
 And, lastly, the `split_pdf()` and `merge_pdf()` functions can extract specific pages from a PDF or merge multiple PDFs together. Those functions should find multiple uses cases beyond the challenges of working with other peoples' data.
 
-# Conclusion
+## Conclusion
 
 `tabulizer` can't solve all your PDF problems. More likely than not you'll at some point encounter a PDF that contains scanned tables or tables that tabula-java's algorithms can't identify well. But for a wide array of well-formatted PDF tables, `tabulizer` should provide a much simpler and much faster initial extraction of data than attempting to transcribe their contents manually.
 
-## Contribute
+### Contribute
 
 As always, the [issue tracker](https://github.com/ropensci/tabulizer/issues) on Github is open for suggestions, bug reports, and package support. [Pull requests](https://github.com/ropensci/tabulizer/pulls) are always welcome.
 
@@ -341,6 +341,6 @@ To more advanced topics that more experienced developers - especially those with
 
 Help of any kind on these issues will be very useful for getting the package ready for CRAN release!
 
-## Acknowledgments
+### Acknowledgments
 
 Many, many thanks to the Tabula team who have done considerable work to make the tabula-java library on which `tabulizer` depends. I also want to express considerable thanks to [David Gohel](https://github.com/davidgohel) and [Lincoln Mullen](https://github.com/lmullen) for their feedback during the [rOpenSci onboarding process](https://github.com/ropensci/onboarding/issues/42), which resulted in numerous improvements to the package and its usability, not least of which is the interactive shiny widget. Thanks, too, to [Scott Chamberlain](https://github.com/sckott) for overseeing the review process and to the whole of rOpenSci for their support of the R community.

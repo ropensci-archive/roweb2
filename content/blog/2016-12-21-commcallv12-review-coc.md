@@ -18,11 +18,11 @@ Three guest speakers shared different perspectives. Dr Pauline Barmby talked abo
 
 From the talks and discussion it became clear that there are three key components to codes of conduct:
 
-1. drafting
-2. adopting and sharing
-3. reporting and enforcing
+* drafting
+* adopting and sharing
+* reporting and enforcing
 
-## Drafting a Code of Conduct
+### Drafting a Code of Conduct
 
 Once a group of interested people digs into the work of drafting a CoC, the process can seem like it's going on forever, especially if you try to incorporate "everyone's" feedback. The CoC cannot be a living document. It's most important to produce something good and perhaps revisit it each year. There seemed to be a consensus that a small committee of key stakeholders should draft the CoC. For his own lab, Titus drafted and posted it without fanfare, but has already seen [unanticipated benefits](http://ivory.idyll.org/blog/2016-notes-on-lab-coc.html).
 
@@ -34,10 +34,12 @@ Some notes:
 * Because many of our communities cross international boundaries, our CoCs should be accessible in multiple languages. The [Contributor Covenant](http://contributor-covenant.org/) does provide a template CoC in [multiple languages](http://contributor-covenant.org/i18n/).
 * For international communities, what is enforceable or criminal depends on where you are. For example, Canadian laws against hate-speech are not necessarily enforceable in other countries.
 
-## Adopting and Sharing a Code of Conduct
+### Adopting and Sharing a Code of Conduct
+
 With big online communities, you rely on buy-in of lots from people to publicize and enforce your CoC and set the tone for your community. When a small group has developed the CoC, it's important to have your leaders and key contributors be open and vocal about their top-down endorsement. In this way, community members without power in the organization can see they will be supported. Overtly showing kindness and pointing to the CoC tends to filter out people who don’t want to be subject to its enforcement.
 
-##Reporting Violations, Consequences and Enforcing a Code of Conduct
+### Reporting Violations, Consequences and Enforcing a Code of Conduct
+
 In addition to listing specific common behaviors that are not okay, a code of conduct must include directions for reporting violations and have a clear process for handling complaints. In the [words of the Ada Initiative](https://adainitiative.org/2014/02/18/howto-design-a-code-of-conduct-for-your-community/),
 
 > _Without these elements, a code of conduct isn’t worth the electrons used to display it on your computer screen._
@@ -54,11 +56,11 @@ In an academic research environment, there is a huge grey area between dealing w
 
 One tricky area of enforcement is around online conversations in discussion forums or in GitHub issues where people sometimes say things they shouldn’t. Safia made the excellent point that it helps to leave a comment on the issue because it will remain visible online. Saying something like “we're willing to help, but we don’t tolerate this kind of communication” means newcomers can see that bad behavior is addressed and not tolerated. This is also critical to maintain or rebuild trust from community members. If you're a GitHub admin you could choose to implement a time-based ban as a consequence. In this situation, recognition of a violation is easy, but there is a big enforcement challenge when that person is a significant contributor. This is where it is critical to have a strong enforcement board and a good structure for raising a violation through the ranks depending on its severity.
 
-## We Have Work To Do
+### We Have Work To Do
 rOpenSci currently has CoCs for [our events](http://unconf16.ropensci.org/coc.html), for [software onboarding](https://github.com/ropensci/onboarding/blob/master/policies.md/#code-of-conduct), and for many of our [individual packages](https://github.com/ropensci/taxize/blob/master/CONDUCT.md) (working on having this for all our packages!). We'll take what we learned in this Community Call to develop a more comprehensive CoC, make sure it's easily findable and that consequences of violations are enforceable. [Let us know](https://ropensci.org/contact.html) if you'd like to get involved.
 
-Resources
----
+### Resources
+
 * [Video](https://vimeo.com/196503807) of our Dec 15, 2016 Community Call
 
 * C. Titus Brown's [Laboratory Code of Conduct](http://ivory.idyll.org/lab/coc.html) and [notes on developing it](http://ivory.idyll.org/blog/2016-notes-on-lab-coc.html), including why he did it and what use it's been.
@@ -71,8 +73,8 @@ Resources
 
 * A template [code of conduct](https://github.com/confcodeofconduct/confcodeofconduct.com), in multiple languages
 
-Speaker bios
----
+### Speaker bios
+
 [**Pauline Barmby**](https://nearby-galaxies.github.io/people/) is an Associate Professor in Physics and Astronomy and Associate Dean of Graduate and Post Doctoral Studies at Western University. Her research focuses on nearby galaxies and [her blog](http://pbarmby.github.io/) contains musings about astrophysics, science teaching, computing, and perhaps knitting, curling, and science fiction. Pauline is the head of Data/Software Carpentry's code of conduct committee and will talk about their experiences in refining their code to ensure it has enforceable consequences.
 Pauline on [GitHub](https://github.com/PBarmby)
 

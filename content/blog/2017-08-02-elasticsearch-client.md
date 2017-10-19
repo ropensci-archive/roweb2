@@ -488,6 +488,8 @@ this to instantiate a client and then you either call functions on the client
 Checkout [issue #87](https://github.com/ropensci/elastic/issues/87) to follow
 progress or discuss.
 
+<br>
+
 #### Move to using crul for http
 
 `crul` is a relatively new R http client - and has async baked in - as well as mocking.

@@ -39,7 +39,7 @@ submissions to [our suite of R packages](https://ropensci.org/packages/). Here
 we'll outline how our system works, and what we've learned from our authors and
 reviewers.
 
-# Our System
+## Our System
 
 rOpenSci's package review process owes much to the experiments of others
 (such as [Marian Petre](http://mcs.open.ac.uk/mp8/) and the [Mozilla Science Lab](https://mozillascience.org/code-review-for-science-what-we-learned)),
@@ -73,7 +73,7 @@ open-source, so "time to publication" has not been a concern. Packages that
 require significant revisions can just remain on hold until authors incorporate
 such changes and update the discussion thread.
 
-# Some lessons learned
+## Some lessons learned
 
 So far, we've received 16 packages. Of these, only 1 was rejected due to lack
 of fit. 11 were reviewed, 6 of which were accepted, and 5 are awaiting changes
@@ -162,7 +162,7 @@ the value of review* through this process.
 
 [^RefC]: Also, "RefClasses are the devil", said one reviewer.  Interpret that as you may.
 
-# Questions and ideas for the future.
+## Questions and ideas for the future
 
 - *Scaling and reviewer incentives.* Like academic paper review or contributing
 to free open-source projects, our package review is a volunteer activity.

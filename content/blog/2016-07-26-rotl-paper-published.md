@@ -32,8 +32,7 @@ it wraps in detail. Rather than rehash the information here, we will use
 this post to briefly introduce the goals of the package and thank some
 of the people that helped it come to be.
 
-What data does Open Tree have and how can `rotl` help you get it?
------------------------------------------------------------------
+### What data does Open Tree have and how can `rotl` help you get it?
 
 The [Open Tree of Life](http://www.opentreeoflife.org/) combines
 knowledge from thousands of scientific studies to produce a single
@@ -47,8 +46,7 @@ import the results into their R sessions. The imported data can then be
 used with the growing ecosystem of packages for phylogenetic and
 comparative biology in R.
 
-A small example
----------------
+### A small example
 
 Using `rotl` to get a tree for a set of names is usually a two step
 process. You need to start by matching the set of names you have to
@@ -93,8 +91,7 @@ analysis](https://cran.rstudio.com/web/packages/rotl/vignettes/meta-analysis.htm
 vignette](https://cran.rstudio.com/web/packages/rotl/vignettes/how-to-use-rotl.html)
 provides and introduction to the package and includes an FAQ.
 
-Thanks
-------
+### Thanks
 
 We'd like to thank the Open Tree project for providing such an amazing
 resource, and  for producing a powerful and well-documented API. `rotl` was
