@@ -27,7 +27,7 @@
   {{ range (where .Data.Pages "Section" "!=" "") }}
 
   <div class="col-10"><p><a href="{{ .URL }}">{{ .Title }}</a></p></div>
-  <div class="col-2" style="text-align:right;"><span class="date">{{ .Date.Format "January 2, 2006" }}</span></div>
+  <div class="col-2 lighter" style="text-align:right;"><small class="date">{{ .Date.Format "January 2, 2006" | upper }}</small></div>
 
 
   {{ end }}

@@ -41,7 +41,7 @@
 
                             <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
                         </p>
-                        <p class="blog-summary" style="font-style: italic; text-align: justify;">{{ .Summary }}</p><!-- /authors -->
+                        <p class="lighter" style="font-style: italic; text-align: justify;">{{ .Summary }}</p><!-- /authors -->
                         <div class="labels">
                             {{ range .Params.tags }}
                                 <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
