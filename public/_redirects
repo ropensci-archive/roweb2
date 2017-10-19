@@ -3,3 +3,4 @@
 /blog/technotes/*	/technotes/:splat
 /feed.xml	/index.xml
 /feed.R.xml	/index.xml
+/tech-notes /technotes
