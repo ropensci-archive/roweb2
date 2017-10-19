@@ -1,5 +1,5 @@
 ---
-slug: "reproducible-research-still-a-challenge"
+slug: "reproducibility"
 title: Reproducible research is still a challenge
 date: 2014-06-09
 authors:

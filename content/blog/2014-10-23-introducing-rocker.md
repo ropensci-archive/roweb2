@@ -1,5 +1,5 @@
 ---
-slug: "docker"
+slug: "introducing-rocker"
 title: "Introducing Rocker: Docker for R"
 authors:
   - name: Carl Boettiger

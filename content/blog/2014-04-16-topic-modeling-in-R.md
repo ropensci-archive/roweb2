@@ -1,5 +1,5 @@
 ---
-slug: "Topic-modeling-with-elife-abstracts"
+slug: "topic-modeling-in-R"
 title: "Topic modeling in R"
 authors:
   - name: Carson Sievert
