@@ -1,6 +1,6 @@
 ---
 date: 2017-06-30
-slug: "postdoc-dan-sholler"
+slug: "postdoc_dan_sholler"
 title: "Introducing our Postdoctoral Fellow, Dr. Dan Sholler"
 authors:
   - name: Stefanie Butland
