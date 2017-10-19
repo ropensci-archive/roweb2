@@ -39,7 +39,7 @@ It will be interesting to see how people use `fauxpas`. It may be that
 users really like being able to handle individual HTTP conditions separately,
 or it may be that most users simply want a general purpose handler.
 
-### Installation
+## Installation
 
 
 ```r
@@ -51,7 +51,7 @@ install.packages("fauxpas")
 library("fauxpas")
 ```
 
-### Generic http condition handler
+## Generic http condition handler
 
 `Error()` is the most generic handler in `fuaxpas`
 
@@ -100,7 +100,7 @@ x$do(res)
 ```
 
 
-### HTTP* R6 methods
+## HTTP* R6 methods
 
 In addition to `Error()`, there's a method for every HTTP code - they start with 
 `HTTP`, followed by the http code name. For example, `HTTPBadGateway` for 
@@ -143,7 +143,7 @@ x$do_verbose(res)
 ```
 
 
-### http* methods
+## http* methods
 
 There's a series of simpler to use functions for every http condition that wrap
 the above `HTTP*` methods that follow the form `http*`, where the `*` is the 
@@ -183,7 +183,7 @@ http(res, behavior = "message")
 ```
 
 
-### Custom templates
+## Custom templates
 
 The default way that conditions are handled is with the template:
 
@@ -222,9 +222,9 @@ http418(res, message_template = "{{status}}\n  --> {{reason}}")
 
 
 
-### Future work
+## Future work
 
-#### Even more customizeable messages
+### Even more customizeable messages
 
 Right now, you can use a hack to customize the `do_verbose()` method to replace
 the `mssg` string (which holds the verbose explanation of the HTTP condition 
@@ -236,11 +236,11 @@ similar) and the HTTP name (`Bad Request`).
 I'm going to make this easier, so you don't have to replace the verbose HTTP
 condition explanation, so you can still expose that if you want.
 
-#### Support RCurl
+### Support RCurl
 
 I hope to support `RCurl` at some point.
 
-### Feedback?
+## Feedback?
 
 I'd love to know what people think about this package. 
 

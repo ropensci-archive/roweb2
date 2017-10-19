@@ -18,7 +18,7 @@ We have started working on a new rOpenSci package called [writexl](https://githu
 
 The major benefit of writexl over other packages is that it is completely written in C and has absolutely zero dependencies. No Java, Perl or Rtools are required.
 
-### Getting Started
+## Getting Started
 
 The `write_xlsx` function writes a data frame to an xlsx file. You can test that data roundtrips properly by reading it back using the readxl package. Columns containing dates and factors get automatically coerced to character strings.
 
@@ -54,7 +54,7 @@ microbenchmark(
 ```
 
 
-### Roadmap
+## Roadmap
 
 The initial version of writexl implements the most important functionality for R users: exporting data frames. However the underlying [libxlsxwriter](https://libxlsxwriter.github.io/) library actually provides far more sophisticated functionality such as custom formatting, writing complex objects, formulas, etc.
 

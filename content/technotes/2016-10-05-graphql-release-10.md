@@ -19,7 +19,7 @@ graphql2json("{ field(complex: { a: { b: [ $var ] } }) }")
 
 A syntax parser is perhaps not super useful to most end-users, but can be used to validate graphql queries or implement a GraphQL API in R. We hope to add more related functionality later on.
 
-### What is GraphQL
+## What is GraphQL
 
 From the [GraphQL website](http://graphql.org):
 

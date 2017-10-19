@@ -13,7 +13,7 @@ tags:
 - r
 ---
 
-**charlatan** makes fake data.
+> **charlatan** makes fake data.
 
 Excited to annonunce a new package called `charlatan`. While perusing
 packages from other programming languages, I saw a neat Python library
@@ -26,8 +26,7 @@ called `faker`.
 [Ruby's faker](https://rubygems.org/gems/faker). It appears that the PHP
 library was the original - nice work PHP.
 
-
-### Use cases
+## Use cases
 
 What could you do with this package? Here's some use cases:
 
@@ -45,7 +44,7 @@ assign to fake scholarly artifacts
 sequence data
 
 
-### Features
+## Features
 
 * Language support: A huge selling point of `charlatan` is language support.
 Of course for some data types (numbers), languages don't come into play, but
@@ -63,7 +62,7 @@ as possible.
 user doesn’t have to do the extra step of putting vectors together)
 
 
-### Status
+## Status
 
 We have not ported every variable, or every language yet in those variables.
 We have added some variables to `charlatan` that are not in `faker` (e.g.,
@@ -71,7 +70,7 @@ taxonomy, gene sequences). Check out the [issues](https://github.com/ropensci/ch
 to follow progress.
 
 
-### Package API
+## Package API
 
 * `ch_generate`: generate a data.frame with fake data
 * `fraudster`: single interface to all fake data methods
@@ -81,19 +80,18 @@ to use and provide easy way to make many instances of a thing.
 * Low level interfaces: All of these are R6 objects that a user can
 initialize and then call methods on the them.
 
-
-### Other R work in this space:
+## Other R work in this space:
 
 * [generator](https://github.com/paulhendricks/generator)
 * [fakeR](https://cran.rstudio.com/web/packages/fakeR/)
 * [randNames](https://github.com/karthik/randNames)
 
-### Vignette
+## Vignette
 
 Check out the [package vignette](https://cran.rstudio.com/web/packages/charlatan/vignettes/charlatan_vignette.html) to get started.
 
 
-### setup
+## setup
 
 Install `charlatan`
 
@@ -116,11 +114,10 @@ devtools::install_github("ropensci/charlatan")
 library(charlatan)
 ```
 
+## Examples
 
-### Examples
 
-
-#### high level interface
+### high level interface
 
 `fraudster` is an interface for all fake data variables (and locales):
 
@@ -139,7 +136,7 @@ x$color_name()
 
 If you want to set locale, do so like `fraudster(locale = "{locale}")`
 
-#### locale support
+### locale support
 
 The locales that are supported vary by data variable. We're adding more
 locales through time, so do check in from time to time - or even better,
@@ -187,7 +184,7 @@ ch_job(locale = "cv_MN")
 ```
 
 
-#### generate a dataset
+### generate a dataset
 
 `ch_generate()` helps you create data.frame's with whatever variables
 you want that `charlatan` supports. Then you're ready to use the
@@ -237,7 +234,7 @@ ch_generate('job', 'phone_number', n = 30)
 ```
 
 
-#### Data types
+### Data types
 
 A sampling of the data types available in `charlatan`:
 
@@ -298,7 +295,7 @@ ch_job(10)
 #> [10] "Information officer"
 ```
 
-#### Messy data
+### Messy data
 
 Real data is messy!  `charlatan` makes it easy to create
 messy data. This is still in the early stages so is not available

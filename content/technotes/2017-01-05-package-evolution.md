@@ -15,11 +15,11 @@ Making packages is a great way to organize R code, whether it’s a set of scrip
 
 As you develop packages there's a number of issues that don't often get much air time. I'll cover some of them here.
 
-### Philosophy of changes
+## Philosophy of changes
 
 Everyone's free to have their own opinion about how freely parameters/functions/etc. are changed in a library - rules about package changes are not enforced by CRAN or otherwise. Generally, as a library gets more mature, changes to user facing methods (i.e., exported functions in an R package) should become very rare. Libraries that are depended on by many other libraries are likely to be more careful, and should be, about changes. 
 
-### Parameters: changing parameter names
+## Parameters: changing parameter names
 
 Sometimes parameter names must be changed for clarity, or some other reason. 
 
@@ -55,7 +55,7 @@ foo_bar(x = 5)
 
 Be aware of the parameter `...`. If your function has `...`, and you have already removed a parameter (lets call it `z`), a user may have older code that uses `z`. When they pass in `z`, it's not a parameter in the function definition, and will likely be silently ignored - not what you want. So do make sure to always check for removed parameters moving forward since you can't force users to upgrade.
 
-### Functions: changing function names
+## Functions: changing function names
 
 If you must change a function name, do it gradually, as with any package changes. 
 
@@ -106,7 +106,7 @@ After users have used the package version for a while (with both `foo` and `bar`
 bar <- function(x) x + 1
 ```
 
-### Functions: deprecate & defunct
+## Functions: deprecate & defunct
 
 To remove a function from a package (let's say your package name is `helloworld`), I use the following protocol:
 
@@ -193,6 +193,6 @@ NULL
 
 This creates a man page that users can access like `?helloworld-defunct` and they'll see in the documentation index. Add any functions to this page as needed. You'll likely want to keep this man page indefinitely.
 
-### Others?
+## Others?
 
 What are some other less discussed aspects of how to make changes in your packages? 
