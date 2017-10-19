@@ -38,9 +38,8 @@
                           <a href="{{ .url }}" target="_blank"> {{ .name }} </a>&nbsp;
                         {{ end }}
                     {{ end }}
+                    <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
                 </p>
-                <br>
-                <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Date.Format "January 2, 2006" }}</div>
             </div>
             <div class="col-offset-2 col-8 top-2">
                 {{ .Content }}
