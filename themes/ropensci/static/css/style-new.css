@@ -2120,6 +2120,8 @@ q:before, q:after {
 }.excerpt h2{
 		font-size: 2.2em;
 		margin-bottom: 0.2em;
+}.excerpt p.blog-summary{
+		color: #7b869d;
 }.excerpt a{
 		text-decoration: none;
 }
