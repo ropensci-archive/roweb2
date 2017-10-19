@@ -19,13 +19,13 @@
                 <div class="col-8 col-offset-2 bottom-20 maintext">
 
                 {{ if le $paginator.PageNumber 1 }}
-                <p> This is our main blog. Package updates and software announcements are posted in <a href="/technotes">Tech Notes.</a> </p>
+                <!--<p> This is our main blog. Package updates and software announcements are posted in <a href="/technotes">Tech Notes.</a> </p>-->
                 {{ end }}
 
                {{ range $paginator.Pages }}
                     <div class="excerpt">
-                        <h3>{{ .Title }}</h3>
-                        <div style="font-size: 16px; color: #5B617A; margin-top: 10px; margin-bottom: 10px;">{{ .Date.Format "January 2, 2006" }}</div>
+                        <a href="{{ .URL | relURL }}"><h3>{{ .Title }}</h3></a>
+                        
                         <p class="authors">
                             {{ range .Params.authors }}
                                 {{ if in $.Site.Params.leadership .name }}
@@ -38,17 +38,15 @@
                                   <a href="{{ .url }}" target="_blank"> {{ .name }}</a>
                                 {{ end }}
                             {{ end }}
-                        </p><!-- /authors -->
+
+                            <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
+                        </p>
+                        <p style="font-style: italic; text-align: justify;">{{ .Summary }}</p><!-- /authors -->
                         <div class="labels">
                             {{ range .Params.tags }}
                                 <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                             {{ end }}
-                            <br><br>
-                            <!-- {{ .ReadingTime }} minute(s) -->
-                            <br><br>
                         </div><!-- /labels -->
-                        <p>{{ .Summary }}</p>
-                        <a href="{{ .URL | relURL }}">Continue Reading</a>
                     </div><!-- /excerpt -->
                 {{ end }}
                 </div><!-- /maintext -->
