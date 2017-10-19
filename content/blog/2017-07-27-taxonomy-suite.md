@@ -58,7 +58,7 @@ We have an ever-growing suite of packages that enable users to:
 * Embed their taxonomic names in R classes that enable powerful downstream manipulations
 * Leverage dozens of taxonomic data sources
 
-The packgages:
+The packages:
 
 * `taxize` - taxonomic data from many sources
 * `taxizedb` - work with taxonomic SQL databases locally
@@ -72,14 +72,24 @@ The packgages:
 <br><br>
 
 For each package below, there are 2-3 badges. One for whether the package is on CRAN
-or not (<span class="label label-warning">cran</span> if on CRAN, <span class="label label-default">cran</span>
-if not), a link to source on GitHub (<span class="label label-info">github</span>), and another for when the package is community contributed (<span class="label label-success">community</span>).
+<br>
+<span class="label" style="background-color:#F1C312; color:white">cran</span>
+<br>
+a link to source on GitHub
+<br>
+<span class="label" style="background-color:#3598DB; color:white">github</span>
+<br>
+and another for when the package is community contributed:
+
+<span class="label" style="background-color:#19B698; color:white">community</span>
 
 For each package we show a very brief example - all packages have much more functionality - check them out on CRAN or GitHub.
 
 ## taxize
 
-<a href="https://cran.rstudio.com/web/packages/taxize/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/taxize"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/taxize/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/taxize"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 This was our first package for taxonomy. It is a one stop shop for lots of different taxonomic data sources online, including NCBI, ITIS, GBIF, EOL, IUCN, and more - up to 22 data sources now.
 
@@ -143,7 +153,9 @@ head(rbind(clazz))
 
 ## taxizedb
 
-<a href="https://cran.rstudio.com/web/packages/taxizedb/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/taxizedb"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/taxizedb/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/taxizedb"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `taxizedb` is a relatively new package. We just released a new version (`v0.1.4`) about one month ago, with fixes for the new `dplyr` version.
 
@@ -222,7 +234,9 @@ tbl(src, sql("select * from taxonomic_units limit 10"))
 
 ## taxa
 
-<a href="https://cran.rstudio.com/web/packages/taxa/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/taxa"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/taxa/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/taxa"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `taxa` is our newest entry (hit CRAN just a few weeks ago) into the taxonomic R package space. It defines taxonomic classes for R, and basic, but powerful manipulations on those classes.
 
@@ -319,7 +333,9 @@ filter_taxa(ex_taxmap, startsWith(taxon_names, "t"))
 
 ## wikitaxa
 
-<a href="https://cran.rstudio.com/web/packages/wikitaxa/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/wikitaxa"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/wikitaxa/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/wikitaxa"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `wikitaxa` is a client that allows you to get taxonomic data from four different Wiki-* sites:
 
@@ -417,7 +433,9 @@ res$classification
 
 ## ritis
 
-<a href="https://cran.rstudio.com/web/packages/ritis/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/ritis"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/ritis/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/ritis"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `ritis` is a client for ITIS (Integrated Taxonomic Information Service), part of [USGS](https://www.usgs.gov/).
 
@@ -487,7 +505,9 @@ hierarchy_down(res[1,]$tsn)
 
 ## worrms
 
-<a href="https://cran.rstudio.com/web/packages/worrms/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/worrms"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/worrms/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/worrms"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `worrms` is a client for working with data from World Register of Marine Species (WoRMS).
 
@@ -535,7 +555,9 @@ wm_synonyms(id = xx$AphiaID)
 
 ## pegax
 
-<span class="label label-default">cran</span> <a href="https://github.com/ropenscilabs/pegax"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://github.com/ropensci/pegax"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `pegax` aims to be a powerful taxonomic name parser for R. This package started at [#runconf17](http://unconf17.ropensci.org/) - was made possible because the talented [Oliver Keyes](https://github.com/Ironholds/) created a [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar) package for R: [piton](https://github.com/Ironholds/piton)
 
@@ -583,7 +605,9 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 
 ### rotl
 
-<a href="https://cran.rstudio.com/web/packages/rotl/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/rotl"><span class="label label-info">github</span></a> <span class="label label-success">community</span>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/rotl/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/rotl"><span class="label" style="background-color:#3598DB">github</span></a> <span class="label" style="background-color:#19B698">community</span>
+</div>
 
 `rotl` is maintained by [Francois Michonneau](https://github.com/fmichonneau), [Joseph Brown](https://github.com/josephwb), and [David Winter](https://github.com/dwinter), and is a package to interact with the [Open Tree of Life (OTL)](https://opentreeoflife.org/). OTL main purpose is perhaps about phylogeny data, but they do have a taxonomy they maintain, and `rotl` has functions that let you access that taxonomic data.
 
@@ -591,7 +615,9 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 
 ### rredlist
 
-<a href="https://cran.rstudio.com/web/packages/rredlist/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/rredlist"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/rredlist/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/rredlist"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `rredlist` is an interface to the [IUCN Redlist of Threatened Species](http://www.iucnredlist.org/),
 
@@ -602,7 +628,9 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 
 ### bold
 
-<a href="https://cran.rstudio.com/web/packages/bold/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/bold"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/bold/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/bold"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `bold` is an interface to the [IUCN Redlist of Threatened Species](http://www.iucnredlist.org/),
 
@@ -613,7 +641,9 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 
 ### rgbif
 
-<a href="https://cran.rstudio.com/web/packages/rgbif/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/rgbif"><span class="label label-info">github</span></a>
+<div class="labels">
+<a href="https://cran.rstudio.com/web/packages/rgbif/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/rgbif"><span class="label" style="background-color:#3598DB">github</span></a>
+</div>
 
 `rgbif` is an interface to the [Global Biodiversity Information Facility](http://www.gbif.org/), the largest provider of free and open access biodiversity data.
 

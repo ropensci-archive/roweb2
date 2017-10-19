@@ -38,7 +38,8 @@ Most software maintainers do a good job with how to install and how to give feed
 
 This is where Katie comes in! She's been going through [rOpenSci repositories](https://github.com/ropensci) on GitHub, improving the high level description of the software and then sending pull requests with changes to the README's.
 
-Check out Katie's [GitHub activity for rOpenSci related work](https://github.com/search?p=1&q=is%3Apr+involves%3Akatieroserice+user%3Aropensci&type=Issues).
+Check out Katie's [GitHub activity for rOpenSci related work](https://github.com/search?p=1&q=is%3Apr+involves%3Akatieroserice+user%3Aropensci&type=Issues)
+
 
 ### Diana
 
@@ -47,6 +48,8 @@ Check out Katie's [GitHub activity for rOpenSci related work](https://github.com
 Diana is just getting started. She'll be working on documentation and maintenance.
 
 In addition, she'll be working on an R package that will make it easy to make [cheatsheets](https://github.com/ropensci/cheatsheets) for packages from simple markdown templates - no editing powerpoint or keynote files needed!
+
+<br>
 
 ### Steven
 
