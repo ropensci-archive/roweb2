@@ -1,5 +1,5 @@
 ---
-slug: "hemlsley-trust-funding"
+slug: "helmsley-trust-funding"
 title: rOpenSci Announces $2.9M Award from the Helmsley Charitable Trust
 date: 2015-11-19
 authors:
