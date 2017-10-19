@@ -740,7 +740,7 @@ q:before, q:after {
                 text-transform: capitalize;
                 padding: 5px 0;
 }article p{
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         display: inline-block;
 }article section{
         margin-bottom: 60px;
@@ -1189,7 +1189,12 @@ q:before, q:after {
 .hljs-selector-tag {
     color:#b48ead
 }.hljs {
-    display:block;overflow-x:auto;background:#2b303b;color:#c0c5ce;padding:0.5em
+    display: block;
+    background: #2b303b;
+    color: #c0c5ce;
+    padding: 0.5em;
+}.hljs:active {
+    overflow-x: auto;
 }.hljs-emphasis {
     font-style:italic
 }.hljs-strong {
@@ -2096,4 +2101,19 @@ q:before, q:after {
 		list-style-type: decimal;
 }.footnotes ol li{
 			margin-bottom: 0.5em;
+}.blog-post {
+}.blog-post h1{
+		font-size: 2.6em;
+}.blog-post h2{
+		font-size: 1.8em;
+		margin-bottom: 0.4em;
+}.blog-post h3{
+		font-size: 1.6em;
+		margin-bottom: 0.3em;
+}.blog-post h4{
+		font-size: 1.4em;
+		margin-bottom: 0.2em;
+}.blog-post h5{
+		font-size: 1.2em;
+		margin-bottom: 0.2em;
 }

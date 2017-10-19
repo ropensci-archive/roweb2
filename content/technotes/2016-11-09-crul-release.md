@@ -27,7 +27,7 @@ mock HTTP requests. You don't have to use mocking in test suites of course.
 `crul` is not meant to replace other HTTP R libraries, but rather to make it
 easy to integrate mocking.
 
-### Installation
+## Installation
 
 
 ```r
@@ -43,7 +43,7 @@ If binaries aren't available, try from source:
 library(crul)
 ```
 
-### The client
+## The client
 
 `HttpClient` is where to start
 
@@ -84,7 +84,7 @@ x$headers
 #> [1] "hello world"
 ```
 
-### Make a request
+## Make a request
 
 The client object created above has http methods that you can call,
 and pass paths to, as well as query parameters, body values, and any other
@@ -212,9 +212,9 @@ jsonlite::fromJSON(res$parse())
 #> [1] "https://httpbin.org/get"
 ```
 
-### Future work
+## Future work
 
-#### Mocking
+### Mocking
 
 `crul` doesn't currently have mocking ability, but I am working right now on
 getting the first version of [webmockr][webmockr] on
@@ -227,7 +227,7 @@ I actually started `vcr` first, but realized that I needed to go back and
 build `webmockr` first. So once `webmockr` is up on CRAN, I'll work on getting
 `vcr` on CRAN as well.
 
-#### Errors
+### Errors
 
 Another package I've been working on, [fauxpas][fauxpas], is meant to be a
 general purpose HTTP errors package, and work with any HTTP R library.

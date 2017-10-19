@@ -15,7 +15,7 @@ Whether you are an environmental scientist, a pollution expert or just concerned
 
 [![UK-AIR monitoring stations](/assets/blog-images/rdefra-stations.png)](https://github.com/ropenscilabs/rdefra)
 
-### Installation
+## Installation
 
 The stable version of the package is available from CRAN:
 

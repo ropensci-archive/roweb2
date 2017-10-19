@@ -13,7 +13,7 @@ tags:
 
 A new version of the ropensci [magick](https://cran.r-project.org/package=magick) package has been released to CRAN. Magick is a package for Advanced Image-Processing in R. It wraps the ImageMagick STL which is perhaps the most comprehensive open-source image processing library available today. Our [original announcement](https://ropensci.org/blog/2016/08/23/z-magick-release) has more details.
 
-### New features
+## New features
 
 This new version now includes a beautiful [vignette](https://cloud.r-project.org/web/packages/magick/vignettes/intro.html) which gives an overview of the main functionality to get you started! It lists the various formats, transformations, effects, operations and much more.
 
@@ -21,7 +21,7 @@ This new version now includes a beautiful [vignette](https://cloud.r-project.org
 
 The vignette also explains how to use magick with [raster graphics](https://cloud.r-project.org/web/packages/magick/vignettes/intro.html#raster_graphics). This new functionality makes it possible to overlay images on R's graphics device.
 
-### Installing and Updating
+## Installing and Updating
 
 The package is most easily installed from CRAN:
 

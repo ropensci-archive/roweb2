@@ -32,25 +32,9 @@ Currently, the package enables extraction from six datasets:
 
 `FedData` is designed with the large-scale geographic information system (GIS) use-case in mind: cases where the use of dynamic web-services is impractical due to the scale (spatial and/or temporal) of analysis. It functions primarily as a means of downloading tiled or otherwise spatially-defined datasets; additionally, it can preprocess those datasets by extracting data within an area of interest (AoI), defined spatially. It relies heavily on the [`sp`](https://cran.r-project.org/package=sp), [`raster`](https://cran.r-project.org/package=raster), and [`rgdal`](https://cran.r-project.org/package=rgdal) packages.
 
-### Acknowledgements
+## Examples
 
-
-`FedData` is a product of SKOPE ([Synthesizing Knowledge of Past Environments](http://www.openskope.org)) and the [Village Ecodynamics Project](http://veparchaeology.org/).
-
-`FedData` was reviewed for [rOpenSci](https://ropensci.org) by [@jooolia](https://github.com/jooolia), with [@sckott](https://github.com/sckott) as onboarding editor, and was greatly improved as a result.
-
-### TODO
-
-**The current CRAN version of `FedData`, v2.4.6, will (hopefully) be the final CRAN release of `FedData` 2. `FedData` 3 will be released in the coming months, but some code built on `FedData` 2 will not be compatible with FedData 3.**
-
-`FedData` was initially developed prior to widespread use of modern web mapping services and RESTful APIs by many Federal data-holders. Future releases of `FedData` will limit data transfer by utilizing server-side geospatial and data queries. We will also implement [`dplyr`](https://github.com/hadley/dplyr) verbs, tidy data structures, ([`magrittr`](https://github.com/tidyverse/magrittr)) piping, functional programming using [`purrr`](https://github.com/hadley/purrr), simple features for spatial data from [`sf`](https://github.com/edzer/sfr), and local data storage in OGC-compliant data formats (probably GeoJSON and NetCDF). I am also aiming for 100% testing coverage.
-
-All that being said, much of the functionality of the `FedData` package could be spun off into more domain-specific packages. For example, ITRDB download functions could be part of the [`dplR`](https://r-forge.r-project.org/projects/dplr/) dendrochronology package; concepts/functions having to do with the GHCN data integrated into [`rnoaa`](https://github.com/ropensci/rnoaa); and Daymet concepts integrated into [`daymetr`](https://github.com/khufkens/daymetr). I welcome any and all suggestions about how to improve the utility of FedData; please [submit an issue](https://github.com/ropensci/FedData/issues).
-
-### Examples
-
-
-#### Load `FedData` and define a study area
+Load `FedData` and define a study area
 
 ``` r
 # FedData Tester
@@ -63,7 +47,7 @@ vepPolygon <- polygon_from_extent(raster::extent(672800, 740000, 4102000, 417000
                                   proj4string = "+proj=utm +datum=NAD83 +zone=12")
 ```
 
-#### Get and plot the National Elevation Dataset for the study area
+Get and plot the National Elevation Dataset for the study area
 
 ``` r
 # Get the NED (USA ONLY)
@@ -76,7 +60,7 @@ raster::plot(NED)
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-6-1.png)
 
-#### Get and plot the Daymet dataset for the study area
+Get and plot the Daymet dataset for the study area
 
 ``` r
 # Get the DAYMET (North America only)
@@ -91,7 +75,7 @@ raster::plot(DAYMET$tmax$X1985.10.23)
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-7-1.png)
 
-#### Get and plot the daily GHCN precipitation data for the study area
+Get and plot the daily GHCN precipitation data for the study area
 
 ``` r
 # Get the daily GHCN data (GLOBAL)
@@ -113,7 +97,7 @@ legend('bottomleft',
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-8-1.png)
 
-#### Get and plot the daily GHCN temperature data for the study area
+Get and plot the daily GHCN temperature data for the study area
 
 ``` r
 # Elements for which you require the same data
@@ -137,7 +121,7 @@ legend('bottomleft',
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-9-1.png)
 
-#### Get and plot the National Hydrography Dataset for the study area
+Get and plot the National Hydrography Dataset for the study area
 
 ``` r
 # Get the NHD (USA ONLY)
@@ -154,7 +138,7 @@ NHD %>%
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-10-1.png)
 
-#### Get and plot the NRCS SSURGO data for the study area
+Get and plot the NRCS SSURGO data for the study area
 
 ``` r
 # Get the NRCS SSURGO data (USA ONLY)
@@ -172,7 +156,7 @@ plot(SSURGO.VEPIIN$spatial,
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-11-1.png)
 
-#### Get and plot the NRCS SSURGO data for particular soil survey areas
+Get and plot the NRCS SSURGO data for particular soil survey areas
 
 ``` r
 # Or, download by Soil Survey Area names
@@ -195,7 +179,7 @@ plot(SSURGO.areas.CO675,
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-12-1.png)
 
-#### Get and plot the ITRDB chronology locations in the study area
+Get and plot the ITRDB chronology locations in the study area
 
 ``` r
 # Get the ITRDB records
@@ -214,3 +198,21 @@ legend('bottomleft',
 ```
 
 ![](https://github.com/ropensci/FedData/raw/master/inst/image/README-unnamed-chunk-13-1.png)
+
+
+
+## TODO
+
+**The current CRAN version of `FedData`, v2.4.6, will (hopefully) be the final CRAN release of `FedData` 2. `FedData` 3 will be released in the coming months, but some code built on `FedData` 2 will not be compatible with FedData 3.**
+
+`FedData` was initially developed prior to widespread use of modern web mapping services and RESTful APIs by many Federal data-holders. Future releases of `FedData` will limit data transfer by utilizing server-side geospatial and data queries. We will also implement [`dplyr`](https://github.com/hadley/dplyr) verbs, tidy data structures, ([`magrittr`](https://github.com/tidyverse/magrittr)) piping, functional programming using [`purrr`](https://github.com/hadley/purrr), simple features for spatial data from [`sf`](https://github.com/edzer/sfr), and local data storage in OGC-compliant data formats (probably GeoJSON and NetCDF). I am also aiming for 100% testing coverage.
+
+All that being said, much of the functionality of the `FedData` package could be spun off into more domain-specific packages. For example, ITRDB download functions could be part of the [`dplR`](https://r-forge.r-project.org/projects/dplr/) dendrochronology package; concepts/functions having to do with the GHCN data integrated into [`rnoaa`](https://github.com/ropensci/rnoaa); and Daymet concepts integrated into [`daymetr`](https://github.com/khufkens/daymetr). I welcome any and all suggestions about how to improve the utility of FedData; please [submit an issue](https://github.com/ropensci/FedData/issues).
+
+
+## Acknowledgements
+
+
+`FedData` is a product of SKOPE ([Synthesizing Knowledge of Past Environments](http://www.openskope.org)) and the [Village Ecodynamics Project](http://veparchaeology.org/).
+
+`FedData` was reviewed for [rOpenSci](https://ropensci.org) by [@jooolia](https://github.com/jooolia), with [@sckott](https://github.com/sckott) as onboarding editor, and was greatly improved as a result.
