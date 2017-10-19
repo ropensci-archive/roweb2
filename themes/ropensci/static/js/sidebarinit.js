@@ -1,8 +1,4 @@
 $(document).ready(function(){
-    var sticky = new Waypoint.Sticky({
-        element: $('.sidebar')[0],
-        wrapper: false
-    })
     createMenu()
     initClosingPanel()
 })
