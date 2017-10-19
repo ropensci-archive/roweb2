@@ -25,6 +25,17 @@
         }
     }
 
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        opacity: .8;
+        left:0 ;
+        &.autoSidebar {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
     h1 {
         font-size: 3rem;
     }
@@ -83,6 +94,17 @@
     .row {
         text-align: center;
         justify-content: center;
+    }
+
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        opacity: .8;
+        left:0 ;
+        &.autoSidebar {
+            padding: 0;
+            margin: 0;
+        }
     }
 
     #footer {
@@ -178,6 +200,17 @@
         margin-top: 6vh;
     }
 
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        opacity: .8;
+        left:0 ;
+        &.autoSidebar {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
     #footer {
         text-align: left;
         & img[src$=".svg"] {
@@ -256,36 +289,24 @@
         height: 120vh;
     }
 
-    @for $i from 1 to 4 {
-        .col-$i { 
-            flex-basis: 50%;
-            max-width: 50%;
-            box-sizing: border-box;
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        opacity: .8;
+        left:0 ;
+        &.autoSidebar {
+            padding: 0;
+            margin: 0;
         }
     }
 
-    @for $i from 5 to 6 {
-        .col-$i { 
-            flex-basis: 90%;
-            max-width: 90%;
-            box-sizing: border-box;
+    #footer {
+        & .icon {
+            width: 28%;
+            &:before {
+                font-size: 1rem;
+            }
         }
     }
-
-    @for $i from 7 to 12 {
-        .col-$i { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-    }
-
-    @for $i from 1 to 12 {
-        .col-offset-$i {
-            margin-left: 0;
-        }
-    }
-
-    
 
 }
