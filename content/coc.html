@@ -1,56 +1,52 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>rOpenSci | Code of Conduct</title>
-{{ partial "style-path.html"}}
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
-</head>
-<body>
-{{ partial "header.html" . }}
 
-    <section>
+<head>
+    <title>rOpenSci | Package Use Cases</title>
+    {{ partial "style-path.html"}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- this one is super important for mobile devices -->
+</head>
+
+<body>
+    {{ partial "header.html" . }}
+    <!-- begins donate section -->
+    <section class="donateonline">
         <div class="container">
-            <div class="row">
-                <div class="col-offset-2 col-10 top-20">
+            <div class="row center">
+                <div class="col-8 top-20">
                     <h2>Code of Conduct</h2>
                 </div>
-                <div class=" col-offset-2 col-8 top-4">
-                    <article>
-
-                        <ul>
-                            <li>We are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, disability, ethnicity, religion, or similar personal characteristic.
-                            </li>
-                            <li>Please avoid using overtly sexual nicknames or other nicknames that might detract from a friendly, safe and welcoming environment for all.
-                            </li>
-                            <li>Please be kind and courteous. There's no need to be mean or rude.
-                            </li>
-                            <li>Respect that people have differences of opinion and that every design or implementation choice carries a trade-off and numerous costs. There is seldom a right answer.
-                            </li>
-                            <li>Please keep unstructured critique to a minimum. If you have solid ideas you want to experiment with, make a fork and see how it works.
-                            </li>
-                            <li>We will exclude you from interaction if you insult, demean or harass anyone. That is not welcome behavior. We interpret the term "harassment" as including the definition in the <a href="http://citizencodeofconduct.org/">Citizen Code of Conduct</a>; if you have any lack of clarity about what might be included in that concept, please read their definition. In particular, we don't tolerate behavior that excludes people in socially marginalized groups.
-                            </li>
-                            <li>Private harassment is also unacceptable. No matter who you are, if you feel you have been or are being harassed or made uncomfortable by a community member, please contact us at <a href="mailto:info@ropensci.org">info@ropensci.org</a>  immediately with a capture (log, photo, email) of the harassment if possible.  Whether you're a regular contributor or a newcomer, we  care about making this community a safe place for you and we've got your back.
-                            </li>
-                            <li>Likewise, any spamming, trolling, flaming, baiting or other attention-stealing behavior are not welcome.
-                            </li>
-                            <li>Avoid the use of personal pronouns in code comments or documentation. There is no need to address persons when explaining code (e.g. "When the developer")
-                            </li>
-                        </ul>
-
-                        <p><em>This CoC adapted from the <a href="https://github.com/iojs/io.js/blob/v1.x/CONTRIBUTING.md#code-of-conduct" target="_blank">io.js CoC</a>, adapted from <a href="https://github.com/rust-lang/rust/wiki/Note-development-policy#conduct" target="_blank">Rust's 
-                            CoC</a>.
-                        </em></p>
-                    </article>
+            </div>
+            <div class="row center">
+                <div class="col-8 top-4">
+                    <p class="bodybig">rOpenSci is committed to providing a welcoming and harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices. We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks, workshops, parties, Twitter and other online media. Unconf participants violating these rules may be sanctioned or expelled from the event at the discretion of the conference organizers.</p>
+                    <p class="bodybig">This code of conduct applies to all participants, including rOpenSci staff and leadership and applies to all modes of interaction, both in-person and online, including Unconf GitHub project repos and rOpenSci GitHub, the rOpenSci discussion forum, Slack channels and Twitter.</p>
+                    <p><b>rOpenSci unconf participants agree to:</b></p>
                 </div>
             </div>
+            <div class="row center">
+                <div class="col-8 top-4 coc">
+                    
+                    <ul>
+                        <li>Be considerate in speech and actions, and actively seek to acknowledge and respect the boundaries of fellow attendees.</li>
+                        <li>Refrain from demeaning, discriminatory, or harassing behavior and speech. Harassment includes, but is not limited to: deliberate intimidation; stalking; unwanted photography or recording; sustained or willful disruption of talks or other events; inappropriate physical contact; use of sexual or discriminatory imagery, comments, or jokes; and unwelcome sexual attention. If you feel that someone has harassed you or otherwise treated you inappropriately, please alert any member of the project team in person.</li>
+                        <li>Take care of each other. Alert a member of the project team if you notice a dangerous situation, someone in distress, or violations of this code of conduct, even if they seem inconsequential.</li>
+                    </ul>
+                    <br>
+                    <p>If any attendee or project participant engages in harassing behavior, the project staff may take any lawful action we deem appropriate, including but not limited to warning the offender or asking the offender to leave the event/project. (If you feel you have been unfairly accused of violating this code of conduct, you should contact the project team with a concise description of your grievance.)</p>
+                    <p>We welcome your <a href="http://ropensci.org/contact.html" title="rOpenSci - Contact">feedback</a> on this and every other aspect of rOpenSci's events, and we thank you for working with us to make it a safe, enjoyable, and friendly experience for everyone who participates.</p>
+                    <p>Parts of above text <i>is licensed CC BY-SA 4.0. Credit to <a href="http://srccon.org/">SRCCON</a>. Also inspired by <a href="https://adainitiative.org/2014/02/howto-design-a-code-of-conduct-for-your-community/">the Ada Initiative&rsquo;s &ldquo;how to design a code of conduct for your community.&rdquo;</i></a>
+                    </p><br><br><br>
+                </div>
+            </div>
+        </div>
 
         </div>
-    </section><!-- /contact -->
+    </section>
 
-{{ partial "footer.html" . }}
-
+    {{ partial "footer.html" . }}
 </body>
+
 </html>
