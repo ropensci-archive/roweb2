@@ -2136,6 +2136,8 @@ q:before, q:after {
 }/*Alert box below */.alert {
   color: #34495e;
   padding: 18px 45px 14px 30px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   text-shadow: none;
   background-color: #f9f8f3;
   border: 2px solid #ebece8;
