@@ -1,5 +1,5 @@
 ---
-slug: "ropensci_down_under"
+slug: "au-unconf-down-under"
 title: Australian rOpenSci Unconference
 date: 2016-03-09
 authors:

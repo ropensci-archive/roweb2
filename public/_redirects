@@ -1,5 +1,11 @@
 /assets/*	https://ropensci.github.io/roweb/assets/:splat	200
 /blog/blog/*	/blog/:splat
+/blog/pt/*	/blog/:splat
 /blog/technotes/*	/technotes/:splat
 /feed.xml	/index.xml
 /feed.R.xml	/index.xml
+/tech-notes /technotes
+/blog-pt	/blog
+/tutorials/taxize.html	/tutorials/taxize_tutorial
+/ambassadors /
+/blog/2015/11/19/hemlsley-trust-funding/ /blog/2015/11/19/helmsley-trust-funding/

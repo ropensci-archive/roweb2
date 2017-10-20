@@ -1,5 +1,5 @@
 ---
-slug: "new-postdoc-position"
+slug: "postdoc-position"
 title: Postdoctoral Scholar – Sustainable Software and Reproducible Research
 date: 2016-09-07
 authors:

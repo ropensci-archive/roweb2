@@ -1,5 +1,5 @@
 ---
-slug: "Programmatic-interface-to-data-from-the-Berkeley-natural-history-museum"
+slug: "ecoengine"
 title: Introducing the ecoengine package
 date: 2014-01-30
 authors:

@@ -1,5 +1,5 @@
 ---
-slug: "ropenhack-report"
+slug: "ropenhack"
 title: rOpenHack report
 date: 2014-05-14
 authors:

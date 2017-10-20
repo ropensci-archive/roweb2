@@ -4,6 +4,14 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
+      'title': 'OzUnconference',
+      'dateStart': 'October 26 2017',
+      'dateEnd': 'October 27 2017',
+      'description': 'Australian satellite of rOpenSci unconf',
+      'location': 'Melbourne, AU',
+      'attendees': 'Nick Tierney'
+    },
+    {
       'title': 'Moore Sloan Data Science Summit',
       'dateStart': 'November 05 2017',
       'dateEnd': 'November 08 2017',
@@ -13,8 +21,8 @@ var calendar = {
     },
     {
       'title': 'New Zealand eScience conference',
-      'dateStart': 'February 12 2018, 8:00 ',
-      'dateEnd': 'February 14 2018, 19:00',
+      'dateStart': 'February 12 2018',
+      'dateEnd': 'February 14 2018',
       'description': 'The eResearch Outlook: Impact, Sustainability and Excellence',
       'location': 'Queenstown, NZ',
       'attendees': 'Karthik'

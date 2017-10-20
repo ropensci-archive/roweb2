@@ -1,5 +1,5 @@
 ---
-slug: "open-tree-hackathon"
+slug: "open-tree-of-life-hackathon"
 title: rOpenSci at NESCent Open Tree of Life Hackathon
 date: 2014-08-15
 authors:

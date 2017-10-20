@@ -1,5 +1,5 @@
 ---
-slug: "xml-schema"
+slug: "xslt-release"
 title: "Using xml schema and xslt in R"
 authors:
   - name: Jeroen Ooms
