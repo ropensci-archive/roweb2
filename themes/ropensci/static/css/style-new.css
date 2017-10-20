@@ -724,17 +724,22 @@ q:before, q:after {
         color: #dde1e8;
 }article {
 }article .autoSidebar{
+        margin:0;
+        padding: 0;
 }article .autoSidebar a{
             display: block;
             color: #333E50;
             border-bottom: 1px solid #e8edf7;
+}article .autoSidebar ul{
+            margin: 0;
+            padding: 0;
 }article .autoSidebar li{
             list-style-type: none;
             font-size: .8rem;
             font-weight: 600;
             border: 0;
             margin: 0;
-            padding: 5px 0;
+            padding: 5px 15px;
             text-transform: uppercase;
 }article .autoSidebar li.h4{
                 font-weight: 500;
@@ -794,23 +799,16 @@ q:before, q:after {
                 display: inline-block;
                 margin-left: 5px;
 }.sidebar {
-    text-align: right;
-    padding-right: 20px
-}.sidebar.stuck{
-        position: fixed;
-        top: 0;
-        width: 200px;
-        left: 18.7%;
-}.sidebar.stuck ~ .maintext{
-            margin-left: 16.6667%;
-}.sidebar.stuck ~ .excerpt{
-            margin-left: 16.6667%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    float: left;
+    background: white;
 }.subnav {
     text-align: right;
     padding-right: 20px;
     box-sizing: border-box
 }.subnav.stuck{
-        position: fixed;
         top: 0;
         width: 100%;
         padding: 0 20px 0 40px;
@@ -832,8 +830,6 @@ q:before, q:after {
 }.subnav.stuck li a{
                 display: block;
                 padding: 15px 15px 15px 0;
-}.subnav.stuck ~ .maintext{
-            margin-left: 41.77%;
 }.subnav ul{
         width: 100%;
 }.subnav li{
@@ -1224,6 +1220,10 @@ q:before, q:after {
                 margin: 0;
   }
 
+    .sidebar {
+        display: none;
+    }
+
     h1 {
         font-size: 3rem;
     }
@@ -1456,6 +1456,10 @@ q:before, q:after {
                 justify-content: center;
     }
 
+    .sidebar {
+        display: none;
+    }
+
     #footer {
         text-align: left
     }
@@ -1636,6 +1640,10 @@ q:before, q:after {
         margin-top: 6vh;
     }
 
+    .sidebar {
+        display: none;
+    }
+
     #footer {
         text-align: left
     }
@@ -1797,104 +1805,21 @@ q:before, q:after {
     .hero {
         height: 120vh;
     }
-        .col-1 { 
-            flex-basis: 50%;
-            max-width: 50%;
-            box-sizing: border-box;
-        }
-        .col-2 { 
-            flex-basis: 50%;
-            max-width: 50%;
-            box-sizing: border-box;
-        }
-        .col-3 { 
-            flex-basis: 50%;
-            max-width: 50%;
-            box-sizing: border-box;
-        }
-        .col-4 { 
-            flex-basis: 50%;
-            max-width: 50%;
-            box-sizing: border-box;
-        }
-        .col-5 { 
-            flex-basis: 90%;
-            max-width: 90%;
-            box-sizing: border-box;
-        }
-        .col-6 { 
-            flex-basis: 90%;
-            max-width: 90%;
-            box-sizing: border-box;
-        }
-        .col-7 { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .col-8 { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .col-9 { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .col-10 { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .col-11 { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .col-12 { 
-            flex-basis: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .col-offset-1 {
-            margin-left: 0;
-        }
-        .col-offset-2 {
-            margin-left: 0;
-        }
-        .col-offset-3 {
-            margin-left: 0;
-        }
-        .col-offset-4 {
-            margin-left: 0;
-        }
-        .col-offset-5 {
-            margin-left: 0;
-        }
-        .col-offset-6 {
-            margin-left: 0;
-        }
-        .col-offset-7 {
-            margin-left: 0;
-        }
-        .col-offset-8 {
-            margin-left: 0;
-        }
-        .col-offset-9 {
-            margin-left: 0;
-        }
-        .col-offset-10 {
-            margin-left: 0;
-        }
-        .col-offset-11 {
-            margin-left: 0;
-        }
-        .col-offset-12 {
-            margin-left: 0;
-        }
 
-    
+    .sidebar {
+        display: none;
+    }
+
+    #footer {
+    }
+
+    #footer .icon{
+            width: 28%;
+  }
+
+    #footer .icon:before{
+                font-size: 1rem;
+  }
 
 }.slideshow {
 }.slideshow:after{ 

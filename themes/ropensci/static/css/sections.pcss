@@ -210,10 +210,16 @@ article ul {
 
 article {
     & .autoSidebar {
+        margin:0;
+        padding: 0;
         & a {
             display: block;
             color: var(--main);
             border-bottom: 1px solid var(--form_border);
+        }
+        & ul {
+            margin: 0;
+            padding: 0;
         }
         & li {
             list-style-type: none;
@@ -221,7 +227,7 @@ article {
             font-weight: 600;
             border: 0;
             margin: 0;
-            padding: 5px 0;
+            padding: 5px 15px;
             text-transform: uppercase;
             &.h4 {
                 font-weight: 500;
@@ -305,20 +311,11 @@ article {
 }
 
 .sidebar {
-    text-align: right;
-    padding-right: 20px;
-    &.stuck {
-        position: fixed;
-        top: 0;
-        width: 200px;
-        left: 18.7%;
-        & ~ .maintext {
-            margin-left: 16.6667%;
-        }
-        & ~ .excerpt {
-            margin-left: 16.6667%;
-        }
-    }
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    float: left;
+    background: white;
 }
 
 .subnav {
@@ -326,7 +323,6 @@ article {
     padding-right: 20px;
     box-sizing: border-box;
     &.stuck {
-        position: fixed;
         top: 0;
         width: 100%;
         padding: 0 20px 0 40px;
@@ -353,9 +349,6 @@ article {
                 display: block;
                 padding: 15px 15px 15px 0;
             }
-        }
-        & ~ .maintext {
-            margin-left: 41.77%;
         }
     }
     & ul {
