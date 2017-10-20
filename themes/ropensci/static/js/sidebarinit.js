@@ -3,15 +3,6 @@ $(document).ready(function(){
     initClosingPanel()
 })
 function createMenu() {
-    /*
-    ul
-     ' li.h3 Pu
-       li.h4 pusauria
-       li.h4 puniverse
-       li.h3 gato
-       li.h4 tonto
-       li.h4 lobo'
-    */
     var $ul = $('<ul />')
 
     $('h3').each(function() {
