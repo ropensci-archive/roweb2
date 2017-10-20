@@ -47,7 +47,7 @@ q:before, q:after {
     /*--main: #7b869d;*/
 }@charset "UTF-8";/* Grid */.container {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 98%;
 }.row{
     box-sizing:border-box;
     display:-webkit-box;
@@ -1271,7 +1271,7 @@ q:before, q:after {
                 justify-content: space-between;
     }
 
-}@media screen and (orientation: portrait) and (max-width: 736px) {
+}@media screen and (max-width: 736px) {
         .top-1 {
             margin-top: 2px;
         }
@@ -1581,7 +1581,7 @@ q:before, q:after {
             margin-left: 0;
         }
 
-}@media screen and (orientation: portrait) and (max-width: 320px) {
+}@media screen and (max-width: 320px) {
     :root {
         font-size: 16px;
     }

@@ -72,7 +72,7 @@
 
 }
 
-@media screen and (orientation: portrait) and (max-width: 736px) {
+@media screen and (max-width: 736px) {
 
     @for $i from 1 to 20 {
         .top-$i {
@@ -165,7 +165,7 @@
 }
 
 @custom-media --mPortrait (max-width: 320px);
-@media screen and (orientation: portrait) and (--mPortrait) {
+@media screen and (--mPortrait) {
     :root {
         font-size: 16px;
     }
