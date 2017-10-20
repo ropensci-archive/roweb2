@@ -507,8 +507,29 @@
     <!-- jQuery and jQuery UI loading for easing -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- For some reason, it refuses to load script from file, so i moved it here and fixed -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var back = $('.back')
+            var next = $('.next')
+            var contents = $('.content')
+            var x = $(window).scrollLeft();
+
+            next.click(function(){
+                contents.animate({
+                    scrollLeft: '+=305'
+                }, 400, 'easeOutQuad')
+            })
+
+            back.click(function(){
+                contents.animate({
+                    scrollLeft: '-=305'
+                }, 400, 'easeOutQuad')
+            })
+        })
+    </script>
     <!-- initialize scroll click buttons functionality -->
-    <script type="text/javascript" src="scrollerinit.js"></script>
     <!-- Loads scroll-snap polyfill -->
     <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/scroll-snap-polyfill.js"></script>
 </body>

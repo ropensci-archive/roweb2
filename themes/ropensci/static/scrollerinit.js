@@ -4,7 +4,7 @@ $(document).ready(function(){
     var contents = $('.content')
     var x = $(window).scrollLeft();
 
-    next.click(function(delta){
+    next.click(function(){
         contents.animate({
             scrollLeft: '+=305'
         }, 400, 'easeOutQuad')
