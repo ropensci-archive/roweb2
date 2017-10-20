@@ -3,14 +3,18 @@
   width: device-width;
 }
 
-@media screen and (max-width: 950px) {
-    .container {
-        width: 96%;
-    }
-
-    .row {
+@media screen and (orientation: portrait) {
+    .center-m {
         text-align: center;
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .container {
+        width: 98%;
+        margin: 0 auto;
     }
 
     form.filter {
@@ -42,26 +46,28 @@
         font-size: 2rem
     }
 
-    @for $i from 1 to 4 {
-        .col-$i { 
-            flex-basis: 50%;
+    #footer {
+        text-align: left;
+        & img[src$='.svg'] {
             max-width: 50%;
-            box-sizing: border-box;
+            width: 50%;
+        }
+        & .row {
+            text-align: left;
+            justify-content: start;
         }
     }
 
-    @for $i from 5 to 6 {
-        .col-$i { 
-            flex-basis: 90%;
-            max-width: 90%;
-            box-sizing: border-box;
+    #upcoming-events {
+        & th, & td {
+            &:nth-child(4), &:last-child{
+                display: none;
+            }
         }
     }
 
-    @for $i from 1 to 12 {
-        .col-offset-$i {
-            margin-left: 0;
-        }
+    .between {
+        justify-content: space-between;
     }
 
 }
@@ -94,10 +100,6 @@
         padding: 0 10px;
     }
 
-    .row {
-        text-align: center;
-        justify-content: center;
-    }
 
     .sidebar {
         display: none;
@@ -190,10 +192,7 @@
             width: 100%;
         }
     }
-    .row {
-        text-align: center;
-        justify-content: center;
-    }
+
 
     .list {
         width: 50%;
