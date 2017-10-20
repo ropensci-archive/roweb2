@@ -48,6 +48,7 @@ q:before, q:after {
 }@charset "UTF-8";/* Grid */.container {
     margin: 0 auto;
     max-width: 98%;
+    width: 1200px;
 }.row{
     box-sizing:border-box;
     display:-webkit-box;
