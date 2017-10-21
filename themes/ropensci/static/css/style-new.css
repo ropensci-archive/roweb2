@@ -429,11 +429,13 @@ q:before, q:after {
         text-decoration: underline;
         margin-top: 20px;
 }blockquote {
-    border-left: 2px solid #edf1f8;
+    border-left: 2px solid #3d98ff;
     font-style: italic;
     padding-left: 20px;
     box-sizing: border-box;
-    margin: 7px 0;
+    margin: 7px 0 7px 2rem;
+    font-size: 1.15rem;
+    color: #3d98ff;
 
 }.regular {
     padding-left: 15px;
