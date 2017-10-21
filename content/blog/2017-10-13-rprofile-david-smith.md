@@ -92,7 +92,7 @@ KO: Yeah, I know what you mean. Are you happy to have sort of moved away from th
 
 DS: I am in the sense of -- it was different being in a startup where being a product manager was more like being the shepherd of an entire product ecosystem, whereas in a big company the product manager is a lot more focused and inherently so, a lot more narrow. I happen to prefer the bigger picture I guess.
 
-> <h3>Honestly, I kind of focus from the point of view of what interests me personally. Which doesn’t sound very community oriented at all… but it’s an exercise in empathy.</h3>
+> Honestly, I kind of focus from the point of view of what interests me personally. Which doesn’t sound very community oriented at all… but it’s an exercise in empathy.
 
 
 KO: What’s your process for deciding what things you talk about and bring to the community?
@@ -111,7 +111,7 @@ KO: How much of your day is just spent exploring?
 
 DS: A lot of it. I spend about half of any given day reading. It takes a long time, but every now and then you find this really cool stuff.
 
-> <h3>It’s one thing to be able to do really cool stuff in R or any other language, but until you can distill that down into something that other people consume, it’s going to be hard to sell yourself.</h3>
+> It’s one thing to be able to do really cool stuff in R or any other language, but until you can distill that down into something that other people consume, it’s going to be hard to sell yourself.
 
 
 KO: Do you have any last nuggets of wisdom for people starting out their careers in R?
