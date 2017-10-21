@@ -43,7 +43,7 @@ KO: How has that transition gone, is there a Revolution team inside of Microsoft
 
 DS: It’s been more spread out. It got split up into the engineering people and the marketing people, sales people all got distributed around. When I first went to Microsoft I started off in the engineering group doing product management. But I was also doing the community role, and it just wasn’t a very good fit just time-wise, between doing community stuff and doing code or product management. So then I switched to a different group called the Ecosystem team, and so now I’m 100% focused on community within a group that’s focused on the ecosystem in general.
 
-> <h3>The one piece of advice I could give anyone starting out in their careers is - write what you do, write it in public, and make it so that other people can reproduce what you did.</h3>
+> The one piece of advice I could give anyone starting out in their careers is - write what you do, write it in public, and make it so that other people can reproduce what you did.
 
 
 KO: What does it mean to be 100% community focused, do you do a lot of training?
