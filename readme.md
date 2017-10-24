@@ -1,15 +1,14 @@
 ![logo](https://i.imgur.com/jNpQMPW.png)
-# rOpenSci.org
+# rOpenSci website
 
-Welcome to the new (October 2017) website for the rOpenSci project. Our old [website](https://github.com/ropensci/roweb) is now archived and all new content should be added to this repository. For any issues with the site including typos or rendering issues, please file an issue or send a pull-request. The site automatically deploys once pull requests are merged.
+Welcome to the new (October 2017) website for the rOpenSci project. Our old [website](https://github.com/ropensci/roweb) is now archived and all new content should be added to this repository. For any issues with the site including typos or rendering issues, please file an [issue](https://github.com/ropensci/roweb2/issues) or send a pull-request. The site automatically deploys once pull requests are merged.
 
 __TOC__
 
-- How to contribute a blog post
-- Previewing the site locally
-- Rendering issues and non-content fixes
--Acknowledgements
-
+- [How to contribute a blog post](https://github.com/ropensci/roweb2#contributing-a-blog-post)
+- [Previewing the site locally](https://github.com/ropensci/roweb2#installing-hugo-for-local-preview)
+- [Rendering issues and non-content fixes](https://github.com/ropensci/roweb2#updating-page-templates) 
+- [Acknowledgements](https://github.com/ropensci/roweb2#acknowledgements)
 
 ### Contributing a blog post
 
@@ -78,11 +77,11 @@ For other website issues and updates, see [advanced-theming](advanced-theming.md
 
 ## Acknowledgements
 
-The rOpenSci project is a fiscally sponsored project of [NumFocus Inc](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by various public and private grants.
+The rOpenSci project is a fiscally sponsored project of [NumFocus Inc](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by grants from various public and private institutions and from donations. 
 
 ![](https://i.imgur.com/zlWonsc.png)
 
-Contents of this website are CC-BY unless otherwise noted. All fonts are licensed for use on this domain and may require a separate license to use elsewhere.
+![](ccby.png) Contents of this website are licensed as CC-BY **unless otherwise noted**. All fonts are licensed for use on this domain and may require a separate license to use elsewhere.
 
-![](ccby.png)
+
 
