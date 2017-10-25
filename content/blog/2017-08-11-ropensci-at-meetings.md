@@ -24,7 +24,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 <thead>
 <tr>
 	<th style="text-align:left;">When</th>
-	<th style="text-align:left;"><a href="https://ropensci.org/about/#leadership">Who</a></th>
+	<th style="text-align:left;"><a href="https://ropensci.org/about/#team">Who</a></th>
 	<th style="text-align:left;">Where</th>
 	<th style="text-align:left;">What</th>
 </tr>
