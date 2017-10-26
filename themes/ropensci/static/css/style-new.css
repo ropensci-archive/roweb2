@@ -1851,20 +1851,16 @@ q:before, q:after {
     background-image: url(../img/community-scroll/c3.jpg);
     -webkit-animation-delay: 12s;
             animation-delay: 12s; 
-}.slideshow li:nth-child(3) span { 
-    background-image: url(../img/community-scroll/c4.jpg);
-    -webkit-animation-delay: 12s;
-            animation-delay: 12s; 
 }.slideshow li:nth-child(4) span { 
-    background-image: url(../img/community-scroll/c5.jpg);
+    background-image: url(../img/community-scroll/c4.jpg);
     -webkit-animation-delay: 18s;
             animation-delay: 18s; 
 }.slideshow li:nth-child(5) span { 
-    background-image: url(../img/community-scroll/c6.jpg);
+    background-image: url(../img/community-scroll/c5.jpg);
     -webkit-animation-delay: 24s;
             animation-delay: 24s; 
 }.slideshow li:nth-child(6) span { 
-    background-image: url(../img/community-scroll/c7.jpg);
+    background-image: url(../img/community-scroll/c6.jpg);
     -webkit-animation-delay: 30s;
             animation-delay: 30s; 
 }.slideshow li:nth-child(2) div { 
