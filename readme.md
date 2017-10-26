@@ -1,7 +1,7 @@
 ![logo](https://i.imgur.com/jNpQMPW.png)
 # rOpenSci website
 
-Welcome to the new (October 2017) website for the rOpenSci project. Our old [website](https://github.com/ropensci/roweb) is now archived and all new content should be added to this repository. For any issues with the site including typos or rendering issues, please file an [issue](https://github.com/ropensci/roweb2/issues) or send a pull-request. The site automatically deploys once pull requests are merged.
+Welcome to the new (October 2017) website for the rOpenSci project. Our old website ([repo](https://github.com/ropensci/roweb), [site](http://legacy.ropensci.org/)) is now archived and all new content should be added to this repository. For any issues with the site including typos or rendering issues, please file an [issue](https://github.com/ropensci/roweb2/issues) or send a pull-request. The site automatically deploys once pull requests are merged.
 
 __TOC__
 
