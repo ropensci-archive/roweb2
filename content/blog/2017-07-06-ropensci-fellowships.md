@@ -36,7 +36,7 @@ Our first fellowship was awarded to [Dr. Nick Golding](https://ropensci.org/blog
 
 ## Fellowship selection committee
 
-* [**Karthik Ram**](https://ropensci.org/about/#leadership), Committee Chair
+* [**Karthik Ram**](https://ropensci.org/about/#team), Committee Chair
 Karthik is a co-founder of rOpenSci and the project lead. Karthik is also a fellow at the Berkeley Institute for Data Science and the Berkeley Initiative in Global Change Biology at UC Berkeley. Prior to joining Berkeley, he earned his PhD in ecology & evolution from the University of California, Davis. Karthik's interests are focused on reproducible research, especially as it applies to global change. Much of his recent work focuses on building tools and services around open data and growing diverse data science communities.
 
 * [**Mine Cetinkaya-Rundel**](http://www2.stat.duke.edu/~mc301/), Duke University
