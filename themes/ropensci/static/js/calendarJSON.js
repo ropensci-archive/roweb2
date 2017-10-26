@@ -4,28 +4,60 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': 'OzUnconference',
-      'dateStart': 'October 26 2017',
-      'dateEnd': 'October 27 2017',
+      'title': '<a href="http://ozunconf17.ropensci.org/" target="_blank">OzUnconference</a>',
+      'dateStart': 'Oct 26',
+      'dateEnd': '27, 2017',
       'description': 'Australian satellite of rOpenSci unconf',
       'location': 'Melbourne, AU',
       'attendees': 'Nick Tierney'
     },
     {
       'title': 'Moore Sloan Data Science Summit',
-      'dateStart': 'November 05 2017',
-      'dateEnd': 'November 08 2017',
+      'dateStart': 'Nov 05',
+      'dateEnd': '08 2017',
       'description': 'Data Science summit for UC Berkeley, NYU, and UW',
       'location': 'New Orleans, LA',
-      'attendees': 'Karthik'
+      'attendees': 'Karthik Ram'
     },
     {
-      'title': 'New Zealand eScience conference',
-      'dateStart': 'February 12 2018',
-      'dateEnd': 'February 14 2018',
+      'title': '<a href="http://phenoscape.org/" target="_blank">Phenoscape Hackathon</a>',
+      'dateStart': 'Nov 7',
+      'dateEnd': '10, 2017',
+      'description': '',
+      'location': 'Durham, NC',
+      'attendees': 'Scott Chamberlain'
+    },
+    {
+      'title': '<a href="https://www.aaas.org/cefp/meet-our-fellows" target="_blank">AAAS Community Engagement Fellows meeting</a>',
+      'dateStart': 'Dec 7',
+      'dateEnd': '10, 2017',
+      'description': '',
+      'location': 'Washington, DC',
+      'attendees': 'Stefanie Butland'
+    },
+    {
+      'title': '<a href="http://www.stats.org.nz/events-archive/2017-nzsa-conference" target="_blank">IASC-ARS/NZSA Conference</a>',
+      'dateStart': 'Dec 10',
+      'dateEnd': '14, 2017',
+      'description': '',
+      'location': 'Auckland, NZ',
+      'attendees': 'Jenny Bryan'
+    },
+    {
+      'title': '<a href="http://www.britishecologicalsociety.org/events/annual-meeting-2017/workshop-submissions/" target="_blank">Workshop: Developing R Packages for Accessing, Synthesizing and Analysing Ecological Data</a>',
+      'dateStart': 'Dec 11, 2017',
+      'dateEnd': '',
+      'description': '',
+      'location': 'Ghent, BE',
+      'attendees': 'Nick Golding'
+    },
+    {
+      'title': '<a href="http://eresearch2018.org.nz/" target="_blank">eResearch New Zealand</a>',
+      'dateStart': 'Feb 12',
+      'dateEnd': '14, 2018',
       'description': 'The eResearch Outlook: Impact, Sustainability and Excellence',
       'location': 'Queenstown, NZ',
-      'attendees': 'Karthik'
+      'attendees': 'Karthik Ram'
     }
   ]
 }
