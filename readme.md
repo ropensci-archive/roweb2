@@ -47,14 +47,18 @@ tags:
 
 ![](https://i.imgur.com/sJlnKwG.png)
 
-Once you've drafted your blog post, you can preview locally using Hugo. See [technical notes](https://github.com/ropensci/roweb2#technical-stuff-) section for installation instructions. 
+5. If your blog post has any images (or other assets), create a folder under `themes/ropensci/static/img/blog-images/` with the pattern `<DATE-SLUG>` (e.g. `2017-10-10-bikedata`) and place them there. To reference any of these objects in your post,  use `/img/blog-images/<DATE-SLUG>/name-of-image.png`. If the paths are correct, you should see the preview render correctly (see next step).
 
-4. Send a pull request from your fork. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
+6. Once you've drafted your blog post, you can preview locally using Hugo or skip to the next step to preview on the pull request. See [technical notes](https://github.com/ropensci/roweb2#technical-stuff-) section for installation instructions if you wish to preview locally. 
+
+7. Send a pull request from your fork. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
   
 ![](https://i.imgur.com/HYcQyB4.png)
 ![](https://i.imgur.com/0deI0d3.png)
 
-5. Tag a rOpenSci staff member to review your PR (@stefaniebutland, @sckott, @jeroen, or @karthik)
+8. Tag a rOpenSci staff member to review your pull request (@stefaniebutland, @sckott, @jeroen, or @karthik)
+
+
 
 ### Installation requirements
 
