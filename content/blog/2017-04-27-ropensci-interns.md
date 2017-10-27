@@ -12,7 +12,7 @@ tags:
 - ropensci
 ---
 
-There's a lot of work that goes in to making software: the code that does the thing itself, unit testing, examples, tutorials, documentation, and support. rOpenSci software is created and maintained both by our [staff](https://ropensci.org/about/#staff) and by our (awesome) community. In keeping with our aim to build capacity of software users and developers, three interns from our academic home at [UC Berkeley](https://bids.berkeley.edu/research) are now working with us as well. Our interns are mentored by [Carl Boettiger](https://ropensci.org/about/#leadership), [Scott Chamberlain](https://ropensci.org/about/#leadership), and [Karthik Ram](https://ropensci.org/about/#leadership) and they will receive academic credit and/or pay for their work.
+There's a lot of work that goes in to making software: the code that does the thing itself, unit testing, examples, tutorials, documentation, and support. rOpenSci software is created and maintained both by our [staff](https://ropensci.org/about/#staff) and by our (awesome) community. In keeping with our aim to build capacity of software users and developers, three interns from our academic home at [UC Berkeley](https://bids.berkeley.edu/research) are now working with us as well. Our interns are mentored by [Carl Boettiger](https://ropensci.org/about/#team), [Scott Chamberlain](https://ropensci.org/about/#team), and [Karthik Ram](https://ropensci.org/about/#team) and they will receive academic credit and/or pay for their work.
 
 ## The interns
 

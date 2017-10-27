@@ -40,7 +40,7 @@ Alicia Answers Miles' Questions
 ### Q1: What motivated you to apply for \#runconf17 and then to work on `webrockets`?
 
 I first learned about rOpenSci last summer, while doing an internship at
-Genentech. [Jenny Bryan](https://ropensci.org/about/#leadership) came to
+Genentech. [Jenny Bryan](https://ropensci.org/about/#team) came to
 give a seminar and also participated in a "women in computing" group
 discussion during her visit. During that discussion, she talked about
 how she thought organizations like rOpenSci that are [welcoming and
@@ -137,7 +137,7 @@ Wow. That's hard. I mean there's the little known but dedicated scene
 inhabited by the R Karaoke People group, the fact that there exists
 someone who takes more unadulterated joy in streaming sensor data than
 me (hey Bob!), the hypnotic power of sing song southern accents,
-[Karthik](https://ropensci.org/about/#leadership)'s magic Dolittle-level
+[Karthik](https://ropensci.org/about/#team)'s magic Dolittle-level
 powers over dogs...
 
 But my absolute favorite thing learned would be aspects of all these
