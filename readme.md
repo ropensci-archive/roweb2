@@ -81,7 +81,7 @@ For other website issues and updates, see [advanced-theming](advanced-theming.md
 
 ## Acknowledgements
 
-The rOpenSci project is a fiscally sponsored project of [NumFocus Inc](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by grants from various public and private institutions and from donations. 
+The rOpenSci project is a fiscally sponsored project of [NumFocus Inc](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by grants from various public and private institutions and from [donations](https://ropensci.org/donate/). 
 
 ![](https://i.imgur.com/zlWonsc.png)
 
