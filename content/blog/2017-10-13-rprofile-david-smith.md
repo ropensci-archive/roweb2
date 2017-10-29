@@ -2,6 +2,7 @@
 slug: "rprofile-david-smith"
 title: ".rprofile: David Smith"
 date: 2017-10-13
+preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
@@ -13,19 +14,11 @@ tags:
 - interviews
 ---
 
-<div class="alert alert-info" role="alert">
-In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project.
-</div>
-
-<br>
-
-<img src="/assets/blog-images/2017-10-13-rprofile_david_smith/david-smith.jpg" alt="David Smith, R Community Lead at Microsoft" style="text-align: left; margin: 0px 20px; width: 250px;">
-
+<img src="/assets/blog-images/2017-10-13-rprofile_david_smith/david-smith.jpg" alt="David Smith, R Community Lead at Microsoft" style="margin: 0px 20px; width: 250px;" align="left">
 _David Smith is a Blogger and Community Lead at Microsoft. I had the chance to interview David last May at rOpenSci unconf17. We spoke about his career, the process of working remote within a team, community development/outreach and his personal methods for discovering great content to share and write about._
 
 ---
 
-<br>
 
 KO: What is your name, job title, and how long have you been using R?
 
