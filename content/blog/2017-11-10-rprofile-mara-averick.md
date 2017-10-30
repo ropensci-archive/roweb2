@@ -2,6 +2,7 @@
 slug: rprofile-mara-averick
 title: ".rprofile: Mara Averick"
 date: 2017-11-10
+preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
@@ -12,12 +13,6 @@ tags:
 - community
 - interviews
 ---
-
-<div class="alert alert-info" role="alert">
-In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project.
-</div>
-
-<br>
 
 <img src="/img/blog-images/2017-11-10-rprofile-mara-averick/mara_averick.png" alt="Mara Averick, Data Nerd At Large" align="left" style="margin: 0px 20px", width="250px">
 
