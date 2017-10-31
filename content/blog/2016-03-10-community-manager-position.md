@@ -34,7 +34,7 @@ What we're looking for in our community manager:
 The position comes with a competitive salary and benefits and is based at the [Berkeley Institute for Data Science](http://bids.berkeley.edu/) at UC Berkeley. Remote work is also an option for the right candidate.
 
 **About Us**
-We're a [team of four](http://ropensci.org/about/#staff), with a five person [leadership team](http://ropensci.org/about/#leadership), and an [advisory board](http://ropensci.org/about/#advisors). We're a grant funded organization based within UC Berkeley. We have [a large community](http://ropensci.org/community/#community) of contributors, and a much larger community of users. Our tools are focused around the R language, but we promote open science/open source widely.
+We're a [team of four](http://ropensci.org/about/#staff), with a five person [leadership team](http://ropensci.org/about/#team), and an [advisory board](http://ropensci.org/about/#team). We're a grant funded organization based within UC Berkeley. We have [a large community](http://ropensci.org/community/#community) of contributors, and a much larger community of users. Our tools are focused around the R language, but we promote open science/open source widely.
 
 **Apply**
 Informal questions and inquiries welcome at `jobs at ropensci org`. And if you're ready, [go ahead and apply!](https://hrw-vip-prod.is.berkeley.edu/psc/JOBSPROD/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_CE.GBL?Page=HRS_CE_JOB_DTL&Action=A&JobOpeningId=21279&SiteId=1&PostingSeq=1)
