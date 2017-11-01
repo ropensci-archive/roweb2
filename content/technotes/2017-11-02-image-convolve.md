@@ -7,6 +7,7 @@ authors:
   - name: Thomas Lin Pedersen
     url: https://www.data-imaginist.com/
 categories: technotes
+topicid: 941
 tags:
 - R
 - packages
@@ -14,7 +15,7 @@ tags:
 - images
 ---
 
-Release 1.4 of the [magick package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) introduces 
+Release 1.4 of the [magick package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) introduces
 a new feature called [image convolution](https://e.n.wikipedia.org/wiki/Kernel_(image_processing)#Convolution) that
 was requested by Thomas L. Pedersen. In this post we explain what this is all about.
 
@@ -48,7 +49,7 @@ image_append(c(img, img_blurred))
 
 ## Standard Kernels
 
-Many operations in `magick`  such as blurring, sharpening, and edge detection are 
+Many operations in `magick`  such as blurring, sharpening, and edge detection are
 actually special cases of image convolution. The benefit of explicitly using
 `image_convolve()` is more control. For example, we can blur an image and then blend
 it together with the original image in one step by mixing a blurring kernel with the
@@ -62,11 +63,11 @@ img %>% image_convolve('Gaussian:0x5', scaling = '60,40%')
 
 The above requires a bit of explanation. ImageMagick defines several common
 [standard kernels](http://www.imagemagick.org/Usage/convolve/) such as the
-gaussian kernel. Most of the standard kernels take one or more parameters, 
+gaussian kernel. Most of the standard kernels take one or more parameters,
 e.g. the example above used a gaussian kernel with 0 *radius* and 5 *sigma*.
 
 In addition, `scaling` argument defines the magnitude of the kernel, and possibly
-how much of the original picture should be mixed in. Here we mix 60% of the 
+how much of the original picture should be mixed in. Here we mix 60% of the
 blurring with 40% of the original picture in order to get a diffused lightning effect.
 
 ## Edge Detection
@@ -80,10 +81,10 @@ img %>% image_convolve('Sobel') %>% image_negate()
 ```
 
 ![edges](https://i.imgur.com/i8ndfCu.gif)
- 
-Something less apparent is that the result of the edge detection is truncated. 
+
+Something less apparent is that the result of the edge detection is truncated.
 Edge detection kernels can result in negative color values which get truncated to zero.
-To combat this it is possible to add a `bias` to the result. Often you'll end up with 
+To combat this it is possible to add a `bias` to the result. Often you'll end up with
 scaling the kernel to 50% and adding 50% bias to move the midpoint of the result to 50%
 grey:
 
@@ -96,7 +97,7 @@ img %>% image_convolve('Sobel', scaling = '50%', bias = '50%')
 ## Sharpening
 
 ImageMagick has many more edge detection kernels, some of which are insensitive to
-the direction of the edge. To emulate a classic high-pass filter from photoshop use 
+the direction of the edge. To emulate a classic high-pass filter from photoshop use
 [difference of gaussians](https://en.wikipedia.org/wiki/Difference_of_Gaussians) kernel:
 
 ```{r}
