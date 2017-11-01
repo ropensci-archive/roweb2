@@ -29,15 +29,17 @@
                         
                         <p class="authors">
                             {{ range .Params.authors }}
+                                &nbsp;
                                 {{ if in $.Site.Params.leadership .name }}
-                                  <a href="/about/#team"> {{ .name }}</a>
+                                  <a href="/about/#team">{{ .name }}</a>
                                 {{ else if in $.Site.Params.staff .name }}
-                                  <a href="/about/#team"> {{ .name }}</a>
+                                  <a href="/about/#team">{{ .name }}</a>
                                 {{ else if eq .name "Ted Hart" }}
-                                  <a href="/about/#team"> {{ .name }}</a>
+                                  <a href="/about/#team">{{ .name }}</a>
                                 {{ else }}
-                                  <a href="{{ .url }}" target="_blank"> {{ .name }}</a>
+                                  <a href="{{ .url }}" target="_blank">{{ .name }}</a>
                                 {{ end }}
+                                &nbsp; |
                             {{ end }}
 
                             <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
