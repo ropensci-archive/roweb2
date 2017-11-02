@@ -2150,6 +2150,12 @@ q:before, q:after {
 }.blog-post h5{
 		font-size: 1.2em;
 		margin-top: 0.1em;
+}p.authors {
+}p.authors a.social{
+    color: #5c677e;
+}p.authors a.social:hover{
+    color: #fa8d44;
+    text-decoration: none;
 }.excerpt {
 }.excerpt h2{
 		font-size: 2.2em;

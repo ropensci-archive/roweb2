@@ -39,6 +39,11 @@
                         {{ else }}
                           <a href="{{ .url }}" target="_blank">{{ .name }}</a>
                         {{ end }}
+                        {{ if .twitter }}
+                        <a href="https://twitter.com/{{.twitter}}" class="social" alt="twitter" target="_blank">
+                           <sup><i class="ropensci-icons">o</i></sup>
+                        </a>
+                        {{ end }}
                         &nbsp; |
                     {{ end }}
                     <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>

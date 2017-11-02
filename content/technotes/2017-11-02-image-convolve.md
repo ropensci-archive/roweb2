@@ -16,7 +16,7 @@ tags:
 ---
 
 Release 1.4 of the [magick package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) introduces
-a new feature called [image convolution](https://e.n.wikipedia.org/wiki/Kernel_(image_processing)#Convolution) that
+a new feature called [image convolution](https://en.wikipedia.org/wiki/Kernel_(image_processing)#Convolution) that
 was requested by Thomas L. Pedersen. In this post we explain what this is all about.
 
 ## Kernel Matrix
