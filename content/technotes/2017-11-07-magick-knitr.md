@@ -6,6 +6,7 @@ authors:
   - name: Jeroen Ooms
 categories: technotes
 cover: "https://i.imgur.com/tTFk7ig.jpg"
+topicid: 947
 tags:
 - R
 - packages
@@ -25,7 +26,7 @@ Also the magick [intro vignette](https://cran.r-project.org/web/packages/magick/
 
 ## Magick in Knitr / RMarkdown Documents
 
-Magick 1.5 is now fully compatible with knitr. To embed magick images in your rmarkdown report, simply use standard code chunk syntax in your `Rmd` file. No special options or packages are required; the image automatically appears in your documents when printed! 
+Magick 1.5 is now fully compatible with knitr. To embed magick images in your rmarkdown report, simply use standard code chunk syntax in your `Rmd` file. No special options or packages are required; the image automatically appears in your documents when printed!
 
 ```{r}
 # Example from our post last week
@@ -38,7 +39,7 @@ image_read('logo:') %>%
 ![fig1](https://i.imgur.com/PhwCJ4k.gif)
 
 You can also combine this with the magick graphics device to post process or animate your plots and figures directly in knitr. Again no special packages or system dependencies are required.
-  
+
 ```{r}
 # Produce graphic
 fig <- image_graph(width = 800, height = 600, res = 96)
@@ -70,8 +71,8 @@ Same works for animation with `image_animate()`; the figure shows automatically 
 image_read("https://jeroen.github.io/images/banana.gif") %>%
   image_apply( function(banana){
     image_composite(fig, banana, offset = "+200+200")
-  }) %>% 
-  image_resize("50%") %>% 
+  }) %>%
+  image_resize("50%") %>%
   image_animate()
 ```
 
@@ -92,7 +93,7 @@ output$img <- renderImage({
       image_blur(input$blur, input$blur) %>%
       image_rotate(input$rotation) %>%
       image_write(tempfile(fileext='jpg'), format = 'jpg')
-  
+
   # Return a list
   list(src = tmpfile, contentType = "image/jpeg")
 })
