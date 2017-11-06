@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://ozunconf17.ropensci.org/" target="_blank">OzUnconference</a>',
-      'dateStart': 'Oct 26',
-      'dateEnd': '27, 2017',
-      'description': 'Australian satellite of rOpenSci unconf',
-      'location': 'Melbourne, AU',
-      'attendees': 'Nick Tierney'
-    },
-    {
       'title': 'Moore Sloan Data Science Summit',
       'dateStart': 'Nov 05',
       'dateEnd': '08 2017',
