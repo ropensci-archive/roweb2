@@ -15,6 +15,8 @@ __TOC__
 
 To contribute a blog post (🙏):
 
+See [editorial suggestions](https://github.com/ropensci/roweb2#blog-post-editorial-suggestions) below
+
 1. Fork the repo
 2. Create a new file in `/content/blog/YEAR-MONTH-DAY-short-slug.md`
 3. Your post must include YAML in this format:
@@ -51,14 +53,23 @@ tags:
 
 6. Once you've drafted your blog post, you can preview locally using Hugo or skip to the next step to preview on the pull request. See [technical notes](https://github.com/ropensci/roweb2/blob/master/readme.md#installation-requirements) section for installation instructions if you wish to preview locally. 
 
-7. Send a pull request from your fork. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
+7. Send a pull request from your fork one week prior to the post date to allow time for review. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
   
 ![](https://i.imgur.com/HYcQyB4.png)
 ![](https://i.imgur.com/0deI0d3.png)
 
 8. Tag a rOpenSci staff member to review your pull request (@stefaniebutland, @sckott, @jeroen, or @karthik)
 
+#### Blog post editorial suggestions
 
+For a post about your reviewed and onboarded package you should:
+- give some narrative on motivation for creating the package
+- acknowledge reviewers by name with links to their GitHub or Twitter
+- acknowledge other contributors, if any
+- consider ending by pointing to open issues that readers might work on
+- include YAML tags `review`, `community` and tags that were topic labels in your package review
+- browse [other tags](https://ropensci.org/tags/)
+- browse other posts about onboarded packages with tag '[review](https://ropensci.org/tags/review/)'
 
 ### Installation requirements
 
