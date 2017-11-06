@@ -5,6 +5,7 @@ date: 2017-11-07
 authors:
   - name: Jeroen Ooms
 categories: technotes
+cover: "https://i.imgur.com/tTFk7ig.jpg"
 tags:
 - R
 - packages
@@ -21,8 +22,6 @@ stopifnot(packageVersion('magick') >= 1.5)
 
 
 Also the magick [intro vignette](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) has been updated in this version to cover the latest features available in the package.
-
-
 
 ## Magick in Knitr / RMarkdown Documents
 
