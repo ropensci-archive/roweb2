@@ -78,11 +78,11 @@ image_read("https://jeroen.github.io/images/banana.gif") %>%
 ![fig4](https://i.imgur.com/mi67gjt.gif)
 
 
-The magick vignette [source code](https://raw.githubusercontent.com/ropensci/magick/master/vignettes/intro.Rmd) is itself writte in Rmarkdown, so it's great example to see this in action. Try rendering it in RStudio to see how easy it is!
+The magick vignette [source code](https://raw.githubusercontent.com/ropensci/magick/master/vignettes/intro.Rmd) is itself written in Rmarkdown, so it's great example to see this in action. Try rendering it in RStudio to see how easy it is!
 
 ## Magick in Shiny Apps
 
-While we're at it, several people had asked how to use magick images in shiny apps. The easiest way is to write the image to a `tempfile()` within the `renderImage()` callback function For example the server part could look like this:
+While we're at it, several people had asked how to use magick images in shiny apps. The easiest way is to write the image to a `tempfile()` within the `renderImage()` callback function. For example the server part could look like this:
 
 ```r
 output$img <- renderImage({
