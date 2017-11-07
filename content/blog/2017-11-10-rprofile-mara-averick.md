@@ -57,7 +57,7 @@ KO: What happened after you went to this conference? Was it awesome, did it insp
 
 MA: Yeah so, I was the stats person at the company I was working at. And I didn’t realize there was all this really awesome work being done with really rigorous evaluation that wasn’t necessarily federal grant proposal stuff.  So I was really inspired by that and started learning more about what other people were doing, some of it in R, some of it not. I kept in touch with some of the people from that conference. And then NBA Twitter is also a thing it turns out, and NBA, R/Statistics is also a really big thing so that was kind of what pulled me in. And it was really fun. A lot of interesting projects and people that I work with were all through that [Twitter] which still surprises me - that I can read a book and tell the author something and they care? It’s weird.
 
-> <h3>I like to make arbitrary rules for myself, one of the things is I don’t tweet stuff that I haven’t read.</h3>
+> I like to make arbitrary rules for myself, one of the things is I don’t tweet stuff that I haven’t read.
 
 KO: Everyone loves your twitter account. How do you find and curate the things you end up posting about?
 
@@ -99,7 +99,7 @@ KO: So you don’t have daily stand-ups or anything.
 
 MA: No, no. I could probably benefit from that, but my goal is never to be 100% remote. After I went to that first data conference, I felt like being around all these people who are so much smarter than I am, and know so much more than I do is intimidating, but I also learned so much. And I learned so many things I was doing, not wrong, but inefficiently. I still learn about 80 things I’m doing inefficiently every day.
 
-> <h3>My goal right now - stop holding on to all of my projects that are not as done as I want them to be, and will never be done.</h3>
+> My goal right now - stop holding on to all of my projects that are not as done as I want them to be, and will never be done.
 
 KO: Do you have set beginnings and endings to projects? How many projects are you juggling at a given time?
 
@@ -117,7 +117,7 @@ KO: It’s impressive how much you post and not just that, but it’s really evi
 
 MA: I mean it’s totally selfish, don’t get me wrong. But I’m super glad that it’s helpful to other people too. It gives me so much anxiety to think that people might think I know how to do all the things that I post, which I don’t, that’s why I had to read them - but even when I read them, sometimes I don’t know. The R community is pretty awesome, at least the parts of it that I know; which is not universally true of any community of any group of scientists. R Twitter is super-super helpful. And that was evident really quickly, at least to me.
 
-> <h3>My plea to everyone who has a blog is to put their Twitter handle somewhere on it.</h3>
+> My plea to everyone who has a blog is to put their Twitter handle somewhere on it.
 
 KO: What are some of your favorite things on the internet? Blogs, Twitter Accounts, Podcasts…
 
