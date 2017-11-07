@@ -7,11 +7,12 @@ authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
 categories: blog
-topicid: 921
+topicid:
 tags:
 - R
 - community
 - interviews
+- rprofile
 ---
 
 <img src="/img/blog-images/2017-11-10-rprofile-mara-averick/mara_averick.png" alt="Mara Averick, Data Nerd At Large" align="left" style="margin: 0px 20px", width="250px">
