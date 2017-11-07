@@ -23,7 +23,7 @@ _Mara Averick is a non-profit data nerd, NBA stats junkie, and most recently, ti
 
 <br>
 
-KO: What is your name, job title, and how long have you been using R?
+KO: What is your name, job title, and how long have you been using R? [Note: This interview took place in May 2017. Mara joined RStudio as their tidyverse developer advocate in November 2017.]
 
 MA: My name is Mara Averick, I do consulting, data science, I just say “data nerd at large” because I’ve seen those Venn diagrams and I’m definitely not a data scientist. I used R in high school for fantasy basketball. I graduated from high school in 2003, and then in college used SPSS, and I didn’t use R for a long time. And then I was working with a company that does grant proposals for non-profits, doing all of the demand- and outcome-analysis and it all was in Excel and I thought, we could do better - R might also be helpful for this. It turns out there’s a package for American Community Survey data in R ([acs](https://cran.r-project.org/web/packages/acs/index.html )), so that was how I got back into R.
 
