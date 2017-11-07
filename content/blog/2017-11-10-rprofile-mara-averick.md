@@ -69,7 +69,7 @@ MA: Totally.
 
 KO: Whoa that’s awesome.
 
-MA: I’ve also never not finished a book in my life. It’s one of my rules, I’m I’m really strict about it.
+MA: I’ve also never not finished a book in my life. It’s one of my rules, I’m really strict about it.
 
 KO: That’s a lot of pressure!
 
