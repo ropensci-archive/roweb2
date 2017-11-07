@@ -12,6 +12,7 @@ tags:
 - R
 - community
 - interviews
+- rprofile
 ---
 
 <img src="/assets/blog-images/2017-10-13-rprofile_david_smith/david-smith.jpg" alt="David Smith, R Community Lead at Microsoft" style="margin: 0px 20px; width: 250px;" align="left">
