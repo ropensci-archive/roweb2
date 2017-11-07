@@ -17,7 +17,7 @@ tags:
 
 <img src="/img/blog-images/2017-11-10-rprofile-mara-averick/mara_averick.png" alt="Mara Averick, Data Nerd At Large" align="left" style="margin: 0px 20px", width="250px">
 
-_Mara Averick is a non-profit data nerd and NBA stats junkie. She is the voice behind two very popular Twitter accounts, @dataandme and @batpigandme. Mara and I discussed sports analytics, how attending a cool conference can change the approach to your career, and how she uses Twitter as a mechanism for self-imposed forced learning._
+_Mara Averick is a non-profit data nerd, NBA stats junkie, and most recently, tidyverse developer advocate at RStudio. She is the voice behind two very popular Twitter accounts, @dataandme and @batpigandme. Mara and I discussed sports analytics, how attending a cool conference can change the approach to your career, and how she uses Twitter as a mechanism for self-imposed forced learning._
 
 ---
 
