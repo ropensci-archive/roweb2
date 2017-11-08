@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories:
   - technotes
-topicid:
+topicid: 953
 tags:
 - data
 - solr
@@ -17,17 +17,13 @@ tags:
 
 
 
-Nearly 4 years ago I wrote on this blog about an R package [solr][solrpkg] for working with the database [Solr][solr]. Since then we've created a refresh of that package in the [solrium][] package. Since `solrium` first hit CRAN about two years ago, users have raised a number of issues that required breaking changes. Thus, this blog post about a major version bump in `solrium`.
+Nearly 4 years ago I wrote on this blog about an R package [solr][solrpkg] for working with the database [Solr][solr]. Since then we've created a refresh of that package in the [solrium][] package. Since `solrium` first hit CRAN about two years ago, users have raised a number of issues that required breaking changes. Thus, this blog post is about a major version bump in `solrium`.
 
 <br>
 
 ## What is Solr?
 
-Solr is a "search platform" - a NoSQL database - data is organized by so called documents that are xml/json/etc blobs of text. Documents are nested within either collections or cores (depending on the mode you start Solr in).
-
-Solr makes it easy to search for documents, with a huge variety of parameters, and a number of different data formats (json/xml/csv).
-
-Solr is similar to [Elasticsearch][es] (see our Elasticsearch client [elastic][]) - and was around before it. Solr in my opinion is harder to setup than Elasticsearch. Both have very nice APIs though.
+Solr is a "search platform" - a NoSQL database - data is organized by so called documents that are xml/json/etc blobs of text. Documents are nested within either collections or cores (depending on the mode you start Solr in). Solr makes it easy to search for documents, with a huge variety of parameters, and a number of different data formats (json/xml/csv). Solr is similar to [Elasticsearch][es] (see our Elasticsearch client [elastic][]) - and was around before it. Solr in my opinion is harder to setup than Elasticsearch, but I don't claim to be an expert on either.
 
 <br>
 
@@ -85,7 +81,7 @@ By default, `SolrClient$new()` sets connections details for a Solr instance that
 ```
 #> <Solr Client>
 #>   host: 127.0.0.1
-#>   path:
+#>   path: 
 #>   port: 8983
 #>   scheme: http
 #>   errors: simple
@@ -103,34 +99,34 @@ conn$ping("gettingstarted")
 #> $responseHeader
 #> $responseHeader$zkConnected
 #> [1] TRUE
-#>
+#> 
 #> $responseHeader$status
 #> [1] 0
-#>
+#> 
 #> $responseHeader$QTime
-#> [1] 1
-#>
+#> [1] 163
+#> 
 #> $responseHeader$params
 #> $responseHeader$params$q
 #> [1] "{!lucene}*:*"
-#>
+#> 
 #> $responseHeader$params$distrib
 #> [1] "false"
-#>
+#> 
 #> $responseHeader$params$df
 #> [1] "_text_"
-#>
+#> 
 #> $responseHeader$params$rows
 #> [1] "10"
-#>
+#> 
 #> $responseHeader$params$wt
 #> [1] "json"
-#>
+#> 
 #> $responseHeader$params$echoParams
 #> [1] "all"
-#>
-#>
-#>
+#> 
+#> 
+#> 
 #> $status
 #> [1] "OK"
 ```
@@ -214,7 +210,7 @@ Two functions were added: `update_atomic_json` and `update_atomic_xml` for JSON 
 
 `solr_search` and `solr_all` in `v1` gain attributes that include `numFound`, `start`, and `maxScore`. That is, you can get to these three values after data is returned. Note that some Solr instances may not return all three values.
 
-For example, let's use the Public Library of Science Solr search instance:
+For example, let's use the Public Library of Science Solr search instance at <http://api.plos.org/search>:
 
 
 ```r
@@ -233,7 +229,7 @@ Get attributes
 
 ```r
 attr(res, "numFound")
-#> [1] 1902265
+#> [1] 1902279
 attr(res, "start")
 #> [1] 0
 attr(res, "maxScore")
