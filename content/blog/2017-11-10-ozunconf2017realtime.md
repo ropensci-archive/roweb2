@@ -1,6 +1,6 @@
 ---
 slug: "realtime"
-title: "2017 rOpenSci ozunconf :: Reflections and the `realtime` Package"
+title: "2017 rOpenSci ozunconf :: Reflections and the realtime Package"
 date: 2017-11-10
 authors:
   - name: Jonathan Carroll
@@ -76,7 +76,7 @@ The example we ended up with reads the live-feed of Twitter posts under a given 
 
 Overall I was amazed at the progress we made over just two days. Starting from a silly idea/demo, we built a package which can plot realtime data, and can even serve up some data to be plotted. I have no expectations that this will be the way of the future, but it's been a fantastic learning experience for me (and hopefully others too). It's highlighted that there's ways to achieve realtime plots, even if we've used a library built for drawing rather than one built for plotting per se. 
 
-It's even inspired an offshoot using `leaflet` as the canvas, in the form of R packages [tRainspotting](https://github.com/ropenscilabs/tRainspotting) which shows realtime data on New South Wales public transport:
+It's even inspired offshoots in the form of R packages [tRainspotting](https://github.com/ropenscilabs/tRainspotting) which shows realtime data on New South Wales public transport using `leaflet` as the canvas:
 
 ![](/img/blog-images/2017-11-10-realtime/tRainspotting.png)
 
