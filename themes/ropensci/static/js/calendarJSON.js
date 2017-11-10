@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': 'Moore Sloan Data Science Summit',
-      'dateStart': 'Nov 05',
-      'dateEnd': '08 2017',
-      'description': 'Data Science summit for UC Berkeley, NYU, and UW',
-      'location': 'New Orleans, LA',
-      'attendees': 'Karthik Ram'
-    },
-    {
       'title': '<a href="http://phenoscape.org/" target="_blank">Phenoscape Hackathon</a>',
       'dateStart': 'Nov 7',
       'dateEnd': '10, 2017',
