@@ -6,7 +6,7 @@ preface: "I’m participating in the <a href="https://www.aaas.org/cefp/about" t
 authors:
   - name: Stefanie Butland
 categories: blog
-topicid: 
+topicid:
 tags:
 - R
 - community
@@ -23,7 +23,7 @@ It’s called an “unconference” because there is no schedule set before the 
 
 ### 1. Have a code of conduct
 
-Having a [code of conduct(https://ropensci.org/blog/blog/2016/12/21/commcallv12-review-coc) that the organizers promote in the welcome goes a long way to creating a welcoming and safe environment and preventing violations in the first place.
+Having a [code of conduct](https://ropensci.org/blog/blog/2016/12/21/commcallv12-review-coc) that the organizers promote in the welcome goes a long way to creating a welcoming and safe environment and preventing violations in the first place.
 
 ### 2. Host online discussion of project ideas before the unconference
 
@@ -59,4 +59,4 @@ Community managers do a lot of “emotional work”. In all of this, my #1 key t
 
 Additional Resources
 1. [All together now: Event formats for more practical sessions](https://socialinsilico.wordpress.com/2014/11/07/all-together-now-event-formats-for-more-practical-sessions/)
-2. Citation. Ten Simple Rules for Organizing an Unconference(https://doi.org/10.1371/journal.pcbi.1003905)
+2. Citation. [Ten Simple Rules for Organizing an Unconference](https://doi.org/10.1371/journal.pcbi.1003905)
