@@ -2,7 +2,7 @@
 slug: "unconf-sixtips"
 title: "Six tips for running a successful unconference"
 date: 2017-11-17
-preface: "I’m participating in the AAAS Community Engagement Fellows Program (CEFP), funded by the Alfred P. Sloan Foundation. The inaugural cohort of Fellows is made up of 17 community managers working in a wide range of scientific communities. This is cross-posted from the Trellis blog as part of a series of reflections that the CEFP Fellows are sharing."
+preface: "I’m participating in the AAAS Community Engagement Fellows Program, funded by the Alfred P. Sloan Foundation. The inaugural cohort of Fellows comprises 17 community managers working in a wide range of scientific communities. This is cross-posted from the Trellis blog as part of a series of reflections the Fellows are sharing."
 authors:
   - name: Stefanie Butland
 categories: blog
@@ -68,5 +68,6 @@ Community managers do a lot of “emotional work”. In all of this, my #1 key t
 
 **Additional Resources**
 
+- [AAAS Community Engagement Fellows Program](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/)
 - [All together now: Event formats for more practical sessions](https://socialinsilico.wordpress.com/2014/11/07/all-together-now-event-formats-for-more-practical-sessions/)
-- Citation. [Ten Simple Rules for Organizing an Unconference](https://doi.org/10.1371/journal.pcbi.1003905)
+- Budd A, Dinkel H, Corpas M, Fuller JC, Rubinat L, Devos DP, et al. (2015) Ten Simple Rules for Organizing an Unconference. PLoS Comput Biol11(1): e1003905. https://doi.org/10.1371/journal.pcbi.1003905
