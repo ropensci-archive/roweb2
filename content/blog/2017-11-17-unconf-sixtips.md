@@ -2,6 +2,7 @@
 slug: "unconf-sixtips"
 title: "Six tips for running a successful unconference"
 date: 2017-11-17
+preface: "I’m participating in the AAAS Community Engagement Fellows Program (CEFP), funded by the Alfred P. Sloan Foundation. The inaugural cohort of Fellows is made up of 17 community managers working in a wide range of scientific communities. This is cross-posted from the Trellis blog as part of a series of reflections that the CEFP Fellows are sharing."
 authors:
   - name: Stefanie Butland
 categories: blog
