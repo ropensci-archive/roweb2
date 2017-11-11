@@ -16,7 +16,8 @@ tags:
 ---
 
 
-<img src="/img/blog-images/2017-11-17-unconf-sixtips/IMG.png" alt="Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa">
+<img src="/img/blog-images/2017-11-17-unconf-sixtips/ropensci-unconf17-community-nistara-randawa.jpg" alt="Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa">
+_Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa_
 
 In May 2017, I helped run a wildly successful “unconference” that had a huge positive impact on the community I serve. rOpenSci is a non-profit initiative enabling open and reproducible research by creating technical infrastructure in the form of staff- and community-contributed software tools in the R programming language that lower barriers to working with scientific data sources on the web, and creating social infrastructure through a welcoming and diverse community of software users and developers. Our 4th annual unconference brought together 70 people to hack on projects they dreamed up and to give them opportunities to meet and work together in person. One third of the participants had attended before, and two thirds were first-timers, selected from an open call for applications. We paid all costs up front for anyone who requested this in order to lower barriers to participation.
 
