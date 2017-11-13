@@ -5,8 +5,8 @@ var calendar = {
   'eventList': [
     {
       'title': '<a href="http://phenoscape.org/" target="_blank">Phenoscape Hackathon</a>',
-      'dateStart': 'Nov 7',
-      'dateEnd': '10, 2017',
+      'dateStart': 'Dec 11',
+      'dateEnd': '14, 2017',
       'description': '',
       'location': 'Durham, NC',
       'attendees': 'Scott Chamberlain'
@@ -33,7 +33,7 @@ var calendar = {
       'dateEnd': '',
       'description': '',
       'location': 'Ghent, BE',
-      'attendees': 'Nick Golding'
+      'attendees': 'Nick Golding, Maëlle Salmon'
     },
     {
       'title': '<a href="http://eresearch2018.org.nz/" target="_blank">eResearch New Zealand</a>',
