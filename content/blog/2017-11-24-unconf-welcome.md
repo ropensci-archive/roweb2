@@ -26,43 +26,43 @@ A challenge of this year’s unconference was the fact that we were inviting 70 
 
 So I sent this email to 45 first-time participants:
 
-<img src="/img/blog-images/2017-11-17-unconf-sixtips/ropensci-unconf17-community-nistara-randawa.jpg" alt="Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa">
+<img src="/img/blog-images/2017-11-24-unconf-welcome/pre-unconf-email.png" alt="pre-unconf-email">
 
 Arranging meetings is one of my least favorite activities, but the free [Calendly tool](https://calendly.com/) made this process relatively painless. When a person clicks on the calendar link in the email above, it reveals only times that I am available in my Google Calendar, the time slot they choose shows up in my calendar, and I receive a confirmation email indicating who booked a meeting with me. In my busiest week, I had 19 meetings, but that meant the bulk of them were done!
 
 To make the meeting time most effective I followed AAAS-CEFP program director [Lou Woodley’s](https://twitter.com/LouWoodley) model for onboarding our AAAS CEFP cohort by sending a set of questions to be answered in advance. I took the model to the next level by creating a free [Google Form](https://www.google.ca/forms/about/) questionnaire so that all answers were automatically collected and could be viewed per individual or collectively, and automatically exported to a spreadsheet.
 
-<img src="/img/blog-images/2017-11-17-unconf-sixtips/ropensci-unconf17-community-nistara-randawa.jpg" alt="Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa">
+<img src="/img/blog-images/2017-11-24-unconf-welcome/pre-unconf-google-form.png" alt="pre-unconf-google-form">
 
 Questions included:
 
 1. List three things you hope to get from the unconference
 
-e.g., “connect with people working in a similar domain”, “learn about best practices in data science with R” , or “develop a new package that does X”
+e.g., “_connect with people working in a similar domain_”, “_learn about best practices in data science with R_” , or “_develop a new package that does X_”
 
 2. List three things you hope to contribute to the unconference
 
-e.g. “expertise or experience in X”, “mentoring skills”, “write all the docs!”
+e.g. “_expertise or experience in X_”, “_mentoring skills_”, “_write all the docs!_”
 
 3. Have you had any previous interactions with the rOpenSci community?
 
-e.g. “I read the rOpenSci blog”, or “I submitted software for rOpenSci open peer review”
+e.g. “_I read the rOpenSci blog_”, or “_I submitted software for rOpenSci open peer review_”
 
 4. Do you have any concerns about your readiness to participate?
 
-e.g. “I’ve never developed an R package” or “How do I decide what project to work on?”
+e.g. “_I’ve never developed an R package_” or “_How do I decide what project to work on?_”
 
 5. Would you be interested in writing a blog post about your unconference project or your unconference experience?
 
 6. Do you  have a preferred working style or anything you would like to let us know about how you work best?
 
-e.g. “I’m an introvert who likes to take my lunch alone sometimes to recover from group activities – it doesn’t mean I’m not having fun.” or “I know I have a tendency to dominate in group discussions – it’s totally fine to ask me to step back and let others contribute. I won’t be offended.”
+e.g. “_I’m an introvert who likes to take my lunch alone sometimes to recover from group activities – it doesn’t mean I’m not having fun._” or “_I know I have a tendency to dominate in group discussions – it’s totally fine to ask me to step back and let others contribute. I won’t be offended._”
 
 These questions encouraged participants to reflect in advance. The example answer snippets we provided gave them ideas from which to seed their answers and in some cases gave them permission to show some vulnerability. Individual’s answers gave me cues for things to address in our chat and freed both of us to spend our time talking about the most important issues.
 
 The answers to the question “List three things you hope to get from the unconf” were so heartening:
 
-<img src="/img/blog-images/2017-11-17-unconf-sixtips/ropensci-unconf17-community-nistara-randawa.jpg" alt="Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa">
+<img src="/img/blog-images/2017-11-24-unconf-welcome/unconf-three-things.png" alt="unconf-three-things">
 
 Beautiful, but in a different way, were answers to the question, “Do you have any concerns about your readiness to participate?”. People said things like: “I’m somewhat nervous about the whole thing, probably impostor syndrome is somewhat in play”; “Overwhelmed at the number of projects already, and feeling seriously outclassed by all the geniuses present”; “It’s intimidating for sure to be around all the awesome people I see on Twitter doing awesome things, and I’m afraid I won’t be able to contribute as much or as well as them”. These responses prompted me to reassure people that they were 100% qualified to participate, and opened an opportunity to listen to and address specific concerns.
 
