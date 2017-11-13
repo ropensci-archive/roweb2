@@ -28,7 +28,7 @@ When the call for nominations came around this year it was an easy decision. I d
 
 As it happened, I had been playing around with a bit of code, purely out of interest and hoping to learn how [`htmlwidgets`](https://www.htmlwidgets.org/) work. The idea I had was to make a classic graphic equaliser visualisation like this
 
-![](/img/blog-images/2017-11-10-realtime/graphiceq.gif)
+![](/img/blog-images/2017-11-14-realtime/graphiceq.gif)
 
 using R.
 
@@ -36,7 +36,7 @@ This presents several challenges; how can I get live audio into R, and how fast 
 
 I searched for a graphic equaliser javascript library to work with and didn't find much that aligned with what I had in my head. Eventually I stumbled on [`p5.js`](https://p5js.org/) and its examples page which has an [audio-input plot with a live demo](https://p5js.org/examples/sound-frequency-spectrum.html). It's a frequency spectrum, but I figured that's just a bit of binning away from what I need. Running the example there looks like
 
-![](/img/blog-images/2017-11-10-realtime/p5sound_optimised.gif)
+![](/img/blog-images/2017-11-14-realtime/p5sound_optimised.gif)
 
 This seemed to be worth a go. I managed to follow enough of [this tutorial](https://www.htmlwidgets.org/develop_intro.html) to have the library called from R. I modified the javascript canvas code to look a little more familiar, and the first iteration of `geom_realtime()` was born
 
@@ -50,21 +50,21 @@ As it tends to work out, we had a great mix of people with different experience 
 
 I shared my demo script and we deconstructed the pieces. We dug into the inner workings of the `p5` package and started determining which parts we could siphon off to meet our own needs. One of the aspects that we wanted to figure out was how to simulate realtime data. This could be useful both for testing, and also in the situation where one might want to 're-cast' some time-coded data. We were thankful that [Jackson Kowk](https://github.com/kcf-jackson) had gone deep-dive into `websockets` and pretty soon (surprisingly soon, perhaps; within the first day) we had examples of (albeit, constructed) real-time (every 100ms) data streaming from a server and being plotted at-speed
 
-![](/img/blog-images/2017-11-10-realtime/realtime_runif_optimised.gif)
+![](/img/blog-images/2017-11-14-realtime/realtime_runif_optimised.gif)
 
 Best of all, running the plot code didn't tie up the session; it uses a listener written into the `javascript` so it just waits for input on a particular port.
 
 With the core goal well underway, people started branching out into aspects they found most interesting. We had some people work on finding and connecting actual data sources, such as the bitcoin exchange rate
 
-![](/img/blog-images/2017-11-10-realtime/realtime_btc_optimised.gif)
+![](/img/blog-images/2017-11-14-realtime/realtime_btc_optimised.gif)
 
 and a live-stream of binary-encoded data from the [Australian National University (ANU) Quantum Random Numbers Server](http://qrng.anu.edu.au/index.php)
 
-![](/img/blog-images/2017-11-10-realtime/realtime_bin_optimised.gif)
+![](/img/blog-images/2017-11-14-realtime/realtime_bin_optimised.gif)
 
 Others formalised the code so that it can be piped into different 'themes', and retain the `p5` structure for adding more components
 
-![](/img/blog-images/2017-11-10-realtime/realtime_bw.png)
+![](/img/blog-images/2017-11-14-realtime/realtime_bw.png)
 
 These were still toy examples of course, but they highlight what's possible. They were each constructed using an offshoot of the `p5` package whereby the `javascript` is re-written to include various features each time the plot is generated.
 
@@ -72,13 +72,13 @@ Another route we took is to use the direct `javascript` binding API with factory
 
 The example we ended up with reads the live-feed of Twitter posts under a given hashtag, computes a sentiment analysis on the words with R, and live-plots the result:
 
-![](/img/blog-images/2017-11-10-realtime/auspol.gif)
+![](/img/blog-images/2017-11-14-realtime/auspol.gif)
 
 Overall I was amazed at the progress we made over just two days. Starting from a silly idea/demo, we built a package which can plot realtime data, and can even serve up some data to be plotted. I have no expectations that this will be the way of the future, but it's been a fantastic learning experience for me (and hopefully others too). It's highlighted that there's ways to achieve realtime plots, even if we've used a library built for drawing rather than one built for plotting per se. 
 
 It's even inspired offshoots in the form of some R packages;  [`tRainspotting`](https://github.com/ropenscilabs/tRainspotting) which shows realtime data on New South Wales public transport using `leaflet` as the canvas
 
-![](/img/blog-images/2017-11-10-realtime/tRainspotting.png)
+![](/img/blog-images/2017-11-14-realtime/tRainspotting.png)
 
 and [`jsReact`](https://github.com/kcf-jackson/jsReact/) which explores the interaction between R and Javascript
 
