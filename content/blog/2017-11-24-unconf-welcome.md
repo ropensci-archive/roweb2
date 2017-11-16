@@ -15,10 +15,6 @@ tags:
 - welcome
 ---
 
-
-<img src="/img/blog-images/2017-11-17-unconf-sixtips/ropensci-unconf17-community-nistara-randawa.jpg" alt="Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa">
-_Attendees at the May 2017 rOpenSci unconference. Photo credit: Nistara Randhawa_
-
 I’ve raved about the value of [extending a personalized welcome](https://ropensci.org/blog/2017/07/18/value-of-welcome/) to new community members and I recently shared [six tips for running a successful hackathon-flavoured unconference](https://ropensci.org/blog/2017-11-17-unconf-sixtips). Building on these, I’d like to share the specific approach and (free!) tools I used to help prepare new rOpenSci community members to be productive at our [unconference](http://unconf17.ropensci.org/). My approach was inspired directly by my [AAAS Community Engagement Fellowship Program](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/) (AAAS-CEFP) training. Specifically, 1) one mentor said that the most successful conference they ever ran involved having one-to-one meetings with all participants prior to the event, and 2) prior to our in-person AAAS-CEFP training, we completed an intake questionnaire that forced us to consider things like “what do you hope to get out of this” and “what do you hope to contribute”.
 
 
@@ -34,29 +30,30 @@ To make the meeting time most effective I followed AAAS-CEFP program director [L
 
 <img src="/img/blog-images/2017-11-24-unconf-welcome/pre-unconf-google-form.png" alt="pre-unconf-google-form">
 
-Questions included:
+**Questions included:**
 
 1. List three things you hope to get from the unconference
 
-e.g., _connect with people working in a similar domain_, _learn about best practices in data science with R_, or _develop a new package that does X_
+  - Examples: _connect with people working in a similar domain_, _learn about best practices in data science with R_, or _develop a new package that does X_
 
 2. List three things you hope to contribute to the unconference
 
-e.g. “_expertise or experience in X_”, “_mentoring skills_”, “_write all the docs!_”
+  - Examples: _expertise or experience in X_, _mentoring skills_, _write all the docs!_
 
 3. Have you had any previous interactions with the rOpenSci community?
 
-e.g. “_I read the rOpenSci blog_”, or “_I submitted software for rOpenSci open peer review_”
+  - Examples: _I read the rOpenSci blog_, or _I submitted software for rOpenSci open peer review_
 
 4. Do you have any concerns about your readiness to participate?
 
-e.g. “_I’ve never developed an R package_” or “_How do I decide what project to work on?_”
+  - Examples: _I’ve never developed an R package_ or _How do I decide what project to work on?_
 
 5. Would you be interested in writing a blog post about your unconference project or your unconference experience?
 
 6. Do you  have a preferred working style or anything you would like to let us know about how you work best?
 
-e.g. “_I’m an introvert who likes to take my lunch alone sometimes to recover from group activities – it doesn’t mean I’m not having fun._” or “_I know I have a tendency to dominate in group discussions – it’s totally fine to ask me to step back and let others contribute. I won’t be offended._”
+  - Examples: _I’m an introvert who likes to take my lunch alone sometimes to recover from group activities – it doesn’t mean I’m not having fun._ or _I know I have a tendency to dominate in group discussions – it’s totally fine to ask me to step back and let others contribute. I won’t be offended._
+
 
 These questions encouraged participants to reflect in advance. The example answer snippets we provided gave them ideas from which to seed their answers and in some cases gave them permission to show some vulnerability. Individual’s answers gave me cues for things to address in our chat and freed both of us to spend our time talking about the most important issues.
 
