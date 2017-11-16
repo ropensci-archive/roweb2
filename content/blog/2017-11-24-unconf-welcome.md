@@ -38,7 +38,7 @@ Questions included:
 
 1. List three things you hope to get from the unconference
 
-e.g., “_connect with people working in a similar domain_”, “_learn about best practices in data science with R_” , or “_develop a new package that does X_”
+e.g., _connect with people working in a similar domain_, _learn about best practices in data science with R_, or _develop a new package that does X_
 
 2. List three things you hope to contribute to the unconference
 
@@ -64,7 +64,7 @@ The answers to the question “List three things you hope to get from the unconf
 
 <img src="/img/blog-images/2017-11-24-unconf-welcome/unconf-three-things.png" alt="unconf-three-things">
 
-Beautiful, but in a different way, were answers to the question, “Do you have any concerns about your readiness to participate?”. People said things like: “I’m somewhat nervous about the whole thing, probably impostor syndrome is somewhat in play”; “Overwhelmed at the number of projects already, and feeling seriously outclassed by all the geniuses present”; “It’s intimidating for sure to be around all the awesome people I see on Twitter doing awesome things, and I’m afraid I won’t be able to contribute as much or as well as them”. These responses prompted me to reassure people that they were 100% qualified to participate, and opened an opportunity to listen to and address specific concerns.
+Beautiful, but in a different way, were answers to the question, “Do you have any concerns about your readiness to participate?”. People expressed real concerns about impostor syndrome, their perceived ability to contribute "as much or as well" as others, and feeling "outclassed by all the geniuses present". These responses prompted me to reassure people that they were 100% qualified to participate, and opened an opportunity to listen to and address specific concerns.
 
 To conduct the pre-unconference chats, I used video conferencing via [appear.in](https://appear.in/), a free, browser-based application that does not require plugins or user accounts. Rather than being exhausted from these calls, I felt energized and optimistic and I experienced many direct positive outcomes. These conversations enabled me to prime people to connect on day-one of the unconference with others with similar interests or from related work sectors. Frequently, I noticed that immediately after our conversation, first-time participants would join the online discussion of existing project ideas, or they themselves proposed new ideas. My conversations with two first-time participants led directly to their proposing community-focussed projects - a [group discussion](https://github.com/ropensci/unconf17/issues/63) and a new [blog series of interviews](https://github.com/ropensci/unconf17/issues/64)!
 
