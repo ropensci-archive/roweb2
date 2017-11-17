@@ -1,10 +1,9 @@
 ---
 slug: "ropensci-changes"
-title: "Changes: easy git-based version control from R"
+title: "changes: easy Git-based version control from R"
 date: 2017-11-16
 authors:
-  - name: Anikó B. Tóth
-  - name: Nick Golding
+  - name: Anikó B. Tóth (with edits from Nick Golding)
 categories: blog
 topicid: ###
 tags:
@@ -14,45 +13,92 @@ tags:
   - unconf
   - australia
   - r
-  - git
+  - Git
   - versioncontrol
 ---
 
-Have you ever had trouble with git?  How about convincing others to use git? Yeah, we have too. Git is a tool designed for version control in development, and it is immensely powerful. It didn’t actually dawn on me quite how amazing git is until I spent a weekend in Melbourne with a group of git whizzes using git to write a package targeted toward git beginners. 
+Are you new to version control and always running into trouble with Git?
+Or are you a seasoned user, haunted by the traumas of learning Git and reliving them whilst trying to teach it to others?
+Yeah, us too.
 
-Unfortunately, just like many a programming framework, git can often be a teensy bit (read: extremely, prohibitively) intimidating, especially for beginners. It’s one of those platforms that makes your life a million times better once you know how to use it, but if you’re trying to teach yourself the basics using the internet, or—heaven forbid—trying to untangle yourself from some git-branch tangle that you’ve unwittingly become snarled in… (definitely done that one…) well, let’s just say using your knuckles to break a brick wall can sometimes seem preferable. Just ask the git whizzes. They laugh, because they’ve been there, done that. 
+Git is a version control tool designed for software development, and it is immensely powerful. It didn’t actually dawn on me quite how amazing Git is until I spent a weekend in Melbourne with a group of Git whizzes using Git to write a package targeted toward Git beginners. 
 
-The funny thing is, there really aren’t that many commands or that much syntax that you have to learn to be reasonably proficient at git. After browsing through the available project ideas and settling into teams, a group of eight of us made a list of the commands that we use on a daily basis, and the list came to about a dozen. We looked up our git histories and compiled a git vocabulary, which came out to less than 50 commands, including combination commands. 
+Unfortunately, just like many a programming framework, Git can often be a teensy bit (read: extremely, prohibitively) intimidating, especially for beginners who don't need all of Git's numerous and baffling features.
+It’s one of those platforms that makes your life a million times better once you know how to use it, but if you’re trying to teach yourself the basics using the internet, or—heaven forbid—trying to untangle yourself from some Git-branch tangle that you’ve unwittingly become snarled in… (definitely done that one…) well, let’s just say using your knuckles to break a brick wall can sometimes seem preferable.
+Just ask the Git whizzes.
+They laugh, because they’ve been there, done that. 
 
-As [Nick Golding](https://github.com/goldingn) so shrewdly recognized in the lead up to this year’s unconference, the real obstacles for new git users are (a) the scary, scary terminal window and (b) the fact that git terminology was apparently chosen by randomly opening a verb dictionary and blindly pointing to a spot on the page. (Ok, I’m exaggerating, but the point is that the terminology is pretty confusing). We decided to address these two problems by making a package that uses the R console and reimagining the version control vocabulary. As a bonus, we decided to simplify the git workflow. Somewhat ironically, nine people worked for two days on a dozen branches, using github to seamlessly merge our workflows. It was wonderful to see how so many people’s various talents can be combined to make something that no group members could have done all on their own. 
+The funny thing is, doing basic version control in Git only requires a few commands.
+After browsing through the available project ideas and settling into teams, a group of eight of us made a list of the commands that we use on a daily basis, and the list came to about a dozen.
+We looked up our Git histories and compiled a Git vocabulary, which came out to less than 50 commands, including combination commands. 
 
-Enter, `changes` ( [repo](https://github.com/ropenscilabs/ozrepro), [site](https://ropenscilabs.github.io/ozrepro/) – made using [pkgdown](https://github.com/hadley/pkgdown)), the new R package that implements version control with a few simple commands. It uses git and R packages [git2r](https://cran.r-project.org/web/packages/git2r/index.html) and [githug](https://github.com/jennybc/githug) under the hood, but new users don’t need to know any git to begin using version control with changes. Best of all, it works seamlessly with regular git if you think you’re ready to expand your horizons. Here is an overview of some of the ways we’ve made it easy to use:
+As [Nick Golding](https://github.com/goldingn) so shrewdly recognized in the lead up to this year’s unconference, the real obstacles for new Git users are (a) the scary, scary terminal window and (b) the fact that Git terminology was apparently chosen by randomly opening a verb dictionary and blindly pointing to a spot on the page.
+(Ok, I’m exaggerating, but the point is that the terminology is pretty confusing).
+We decided to address these two problems by making a package that uses the R console and reimagining the version control vocabulary and workflow for people who are new to version control and only need some of its many features.
 
-1.	Easy terminology!  Git init has been replaced with `create_repo()`. 
-`Changes()` handles diff and status. 
-`Timeline()` replaces git log. 
-All of the steps involved in git commit have been compressed into `record()`. 
-`Go_to()` replaces git checkout.
+Somewhat ironically, nine people worked for two days on a dozen branches, using Git and GitHub to seamlessly merge our workflows.
+It was wonderful to see how so many people’s various talents can be combined to make something that no group members could have done all on their own. 
 
-2.	It’s visual: `timeline()` prints a lovely visual representation of your past commits without any scary jargon. We plan to implement a plotted [interactive??!] version of this function as well. 
+Enter, `changes` ( [repo](https://github.com/ropenscilabs/ozrepro), [website](https://ropenscilabs.github.io/ozrepro/) – made using [pkgdown](https://github.com/hadley/pkgdown)), our new R package to do version control with a few simple commands.
+It uses Git and [Git2r](https://cran.r-project.org/web/packages/Git2r/index.html) under the hood, but new users don’t need to know any Git to begin using version control with changes.
+Best of all, it works seamlessly with regular Git. So if a user thinks they're ready to expand their horizons they can start using git commands via the [Githug](https://GitHub.com/jennybc/Githug) package, RStudio's git interface, or on the command line.
 
-3.	Automatic reminders encourage you to commit changes every hour, though you can always change the time interval to 30 minutes with `remind_me(30)`. 
+Here is an overview of some of the ways we’ve made simple version control easy with changes:
 
-4.	Easy to `ignore()` files and change your mind about ignoring files, `unignore()`. 
+##### Simple terminology
+changes uses simple and deliberately un-git-like terminology:
 
-5.	No branches. After an involved debate, we decided to get rid of branches within or package. Instead, you can easily jump between past records using `go_to()`. If you want to work from a previous record (e.g. the way you would use a branch), changes simply appends a new copy of the chosen record at the top of your timeline, and…Voilà! Linear workflow. 
+  * You start a new version control project with `create_repo()`, which is like `git init` but it can set up a nice project directory structure for you, automatically ignoring things like output folders.
+  * All of the steps involved in commiting edits have been compressed into one function: `record()`. All files that aren't ignored will be committed, so users don't need to know the difference between tracking, staging and committing files. 
+  * It's easy to set which files to omit from version control with `ignore()`, and to change your mind with `unignore()`. 
+  * `changes()` lets you know which files have changed since the last record, like a hybrid of `git status` and `git diff`.
+  * You can look back in history with `timeline()` (a simplified version of `git log`), `go_to()` a previous record (like `git checkout`), and `scrub()` any unwanted changes since the last record (like `git reset --hard`).
 
-6.	Simplified collaboration with `sync()`, which handles git fetch, merge, and push. [not yet implemented??]
+##### It's linear
+After an long discussion, we decided that changes won't provide an interface to Git branches (at least not yet), as the merge conflicts it leads to are one of the scariest things about version control for beginners.
+With linear version control, users can can easily `go_to()` a past record with a version number, rather than unfamiliar [shas](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). These numbers appear in the a lovely visual representation of their `timeline()`:
 
-7.	Intuitive defaults. New repositories are created with a default .gitignore file that flags obvious things like data files in .csv format. `Changes()` and `record()` default to showing and committing all of your changes since the last commit, no arguments required!
+          (1) initial commit
+           |  2017-11-18 02:55
+           |
+          (2) set up project structure
+           |  2017-11-18 02:55
+           |
+          (3) added stuff to readme
+              2017-11-18 02:55
 
-Future developments that will make it even better:
+If you want to roll your project back to a previous record, you can `retrieve()` it, and changes will simply append that record at the top of your timeline (storing all the later records, just in case).
 
-1.	Automatic installation of git – no fiddling in the terminal
-2.	Option to view git code that is being called by changes if you want to use changes to learn git. 
-3.	Added flexibility – we are working on adding functionality to handle simple deviations from the defaults, such as recording changes to only one file, or all files except specified files.
+##### Readable messages and automatic reminders
+Some of Git's messages and helpfiles are totally cryptic to all but the most hardened computer scientists.
+Having been confronted with our fair share of [`detached HEAD`](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)s and offers to [`update remote refs along with associated objects`](https://git-scm.com/docs/git-push), we were keen to make sure all the error messages and helpfiles in changes are as intuitive and understandable as possible.
 
-I have only recently started using git and github, and this year’s [rOpenSci ozunconf](https://ozunconf17.ropensci.org/) was a big eye-opener for me, in several ways. Beyond finally understanding to power of proper version control, I met a group of wonderful people dedicated to participating in the R community. Now as it turns out, R users take the word “community” very seriously. Each and every person I met during the event was open and friendly. Each person had ideas for attracting new users to R, making it easier to learn, making methods and data more readily available, and creating innovative new functionality. Even before the workshop began, dozens of ideas for advancement circulated on [GitHub Issues](https://github.com/ropensci/ozunconf17/issues). Throughout the conference, it was a pleasure to be a part of the ongoing conversation and dialogue about growing and improving the R community. That’s right, you can delete any lingering ‘introverted computer geek’ stereotypes you might still be harbouring in a cobwebbed attic of your mind. In today’s day and age, programming is as much about helping each other, communicating, learning, and networking as it is about solving problems. And building the community is a group effort. 
+It can also be hard to get into the swing of recording edits, so changes will give you reminders to encourage you to use `record()` regularly. You can change the time interval for reminders, or switch them off, using `remind_me()`. 
 
-R users come from all sorts of backgrounds, but I was gratified to see scientists and researchers well-represented at the unconference. Gone are the days when I need to feel like the ugly duckling for being the only R user in my biology lab!  If you still find yourself isolated, join the blooming online R users community, or any one of a number of meetups and clubs that are popping up everywhere. I have dipped my toe in those waters, and boy am I glad I did! 
+####
 
+We made a lot of progress in two days, but there's plenty more we're planning to add soon:
+
+1. Simplified access to GitHub with a `sync()` command to automagically handle most uses of `git fetch`, `git merge`, and `git push`.
+2. A Git training-wheels mode, so that people who want to move use Git can view the Git commands changes is using under the hood. 
+3. Added flexibility – we are working on adding functionality to handle simple deviations from the defaults, such as recording changes only to named files, or to all except some excluded files.
+
+We'd be really keen to hear your suggestions too, so please let us know your ideas via the [changes issue tracker](https://github.com/ropenscilabs/changes/issues)!
+
+###
+
+I have only recently started using Git and GitHub, and this year’s [rOpenSci ozunconf](https://ozunconf17.ropensci.org/) was a big eye-opener for me, in several ways.
+Beyond finally understanding to power of proper version control, I met a group of wonderful people dedicated to participating in the R community.
+Now as it turns out, R users take the word “community” very seriously.
+Each and every person I met during the event was open and friendly.
+Each person had ideas for attracting new users to R, making it easier to learn, making methods and data more readily available, and creating innovative new functionality.
+Even before the workshop began, dozens of ideas for advancement circulated on [GitHub Issues](https://github.com/ropensci/ozunconf17/issues).
+Throughout the conference, it was a pleasure to be a part of the ongoing conversation and dialogue about growing and improving the R community.
+That’s right, you can delete any lingering ‘introverted computer geek’ stereotypes you might still be harbouring in a cobwebbed attic of your mind.
+In today’s day and age, programming is as much about helping each other, communicating, learning, and networking as it is about solving problems.
+And building the community is a group effort. 
+
+R users come from all sorts of backgrounds, but I was gratified to see scientists and researchers well-represented at the unconference.
+Gone are the days when I need to feel like the ugly duckling for being the only R user in my biology lab!
+If you still find yourself isolated, join the blooming online R users community, or any one of a number of meetups and clubs that are popping up everywhere.
+I have dipped my toe in those waters, and boy am I glad I did! 
