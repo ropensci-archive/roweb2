@@ -46,7 +46,7 @@
             <div class="col-offset-2 col-8 top-2">
 
                 {{ if .Params.preface }}
-                <div class="alert alert-info" role="alert">{{ .Params.preface }}</div>
+                <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
                 {{ end }}
 
                 {{ .Content }}
