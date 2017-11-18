@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://ropensci.org/"
 # languageCode = "en-us"
 title = "rOpenSci - open tools for open science"
 theme = "ropensci"
@@ -9,6 +9,7 @@ footnotereturnlinkcontents = "↩"
 
 paginate = 5
 paginatePath = "page"
+rssLimit = 20
 
 [permalinks]
     blog = "/blog/:year/:month/:day/:slug/"

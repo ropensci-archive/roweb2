@@ -1,3 +1,6 @@
+[build]
+  command = "hugo -F"
+
 [context.production.environment]
   HUGO_VERSION = "0.30"
 

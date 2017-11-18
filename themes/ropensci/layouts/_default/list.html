@@ -6,6 +6,7 @@
     {{ partial "style-path.html" }}
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
     <script src="https://use.fontawesome.com/3d3fe91f65.js"></script>
+{{ partial "ga.html" . }}
 </head>
 <body>
 {{ partial "header.html" . }}
@@ -14,7 +15,7 @@
 {{ $paginator := .Paginator }}
 
     <article>
-        <div class="container top-20">
+        <div class="container">
             <div class="row">
                 <div class="col-8 col-offset-2 top-10 bottom-10 maintext">
 
@@ -28,20 +29,24 @@
                         
                         <p class="authors">
                             {{ range .Params.authors }}
+                                &nbsp;
                                 {{ if in $.Site.Params.leadership .name }}
-                                  <a href="/about/#team"> {{ .name }}</a>
+                                  <a href="/about/#team">{{ .name }}</a>
                                 {{ else if in $.Site.Params.staff .name }}
-                                  <a href="/about/#team"> {{ .name }}</a>
+                                  <a href="/about/#team">{{ .name }}</a>
                                 {{ else if eq .name "Ted Hart" }}
-                                  <a href="/about/#team"> {{ .name }}</a>
+                                  <a href="/about/#team">{{ .name }}</a>
                                 {{ else }}
-                                  <a href="{{ .url }}" target="_blank"> {{ .name }}</a>
+                                  <a href="{{ .url }}" target="_blank">{{ .name }}</a>
                                 {{ end }}
+                                &nbsp; |
                             {{ end }}
 
                             <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
                         </p>
-                        <p class="lighter" style="font-style: italic; text-align: justify;">{{ .Summary }}</p><!-- /authors -->
+                        <div class="lighter" style="font-style: italic; text-align: justify;">
+                            <p>{{ .Summary }}</p>
+                        </div>
                         <div class="labels">
                             {{ range .Params.tags }}
                                 <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>

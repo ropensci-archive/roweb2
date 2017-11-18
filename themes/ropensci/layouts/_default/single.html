@@ -8,6 +8,7 @@
     {{ partial "style-path.html" }}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+{{ partial "ga.html" . }}
 </head>
 <body>
 {{ partial "header.html" . }}
@@ -43,6 +44,11 @@
                 <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Date.Format "January 2, 2006" }}</div>
             </div>
             <div class="col-offset-2 col-8 top-2">
+
+                {{ if .Params.preface }}
+                <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
+                {{ end }}
+
                 {{ .Content }}
             </div>
             <br>

@@ -1854,20 +1854,16 @@ q:before, q:after {
     background-image: url(../img/community-scroll/c3.jpg);
     -webkit-animation-delay: 12s;
             animation-delay: 12s; 
-}.slideshow li:nth-child(3) span { 
-    background-image: url(../img/community-scroll/c4.jpg);
-    -webkit-animation-delay: 12s;
-            animation-delay: 12s; 
 }.slideshow li:nth-child(4) span { 
-    background-image: url(../img/community-scroll/c5.jpg);
+    background-image: url(../img/community-scroll/c4.jpg);
     -webkit-animation-delay: 18s;
             animation-delay: 18s; 
 }.slideshow li:nth-child(5) span { 
-    background-image: url(../img/community-scroll/c6.jpg);
+    background-image: url(../img/community-scroll/c5.jpg);
     -webkit-animation-delay: 24s;
             animation-delay: 24s; 
 }.slideshow li:nth-child(6) span { 
-    background-image: url(../img/community-scroll/c7.jpg);
+    background-image: url(../img/community-scroll/c6.jpg);
     -webkit-animation-delay: 30s;
             animation-delay: 30s; 
 }.slideshow li:nth-child(2) div { 
@@ -2147,16 +2143,22 @@ q:before, q:after {
 		font-size: 2.6em;
 }.blog-post h2{
 		font-size: 1.8em;
-		margin-bottom: 0.4em;
+		margin-top: 0.3em;
 }.blog-post h3{
 		font-size: 1.6em;
-		margin-bottom: 0.3em;
+		margin-top: 0.3em;
 }.blog-post h4{
 		font-size: 1.4em;
-		margin-bottom: 0.2em;
+		margin-top: 0.2em;
 }.blog-post h5{
 		font-size: 1.2em;
-		margin-bottom: 0.2em;
+		margin-top: 0.1em;
+}p.authors {
+}p.authors a.social{
+    color: #5c677e;
+}p.authors a.social:hover{
+    color: #fa8d44;
+    text-decoration: none;
 }.excerpt {
 }.excerpt h2{
 		font-size: 2.2em;

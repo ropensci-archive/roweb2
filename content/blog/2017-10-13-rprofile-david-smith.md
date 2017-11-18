@@ -2,6 +2,7 @@
 slug: "rprofile-david-smith"
 title: ".rprofile: David Smith"
 date: 2017-10-13
+preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
@@ -11,21 +12,14 @@ tags:
 - R
 - community
 - interviews
+- rprofile
 ---
 
-<div class="alert alert-info" role="alert">
-In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project.
-</div>
-
-<br>
-
-<img src="/assets/blog-images/2017-10-13-rprofile_david_smith/david-smith.jpg" alt="David Smith, R Community Lead at Microsoft" style="text-align: left; margin: 0px 20px; width: 250px;">
-
+<img src="/assets/blog-images/2017-10-13-rprofile_david_smith/david-smith.jpg" alt="David Smith, R Community Lead at Microsoft" style="margin: 0px 20px; width: 250px;" align="left">
 _David Smith is a Blogger and Community Lead at Microsoft. I had the chance to interview David last May at rOpenSci unconf17. We spoke about his career, the process of working remote within a team, community development/outreach and his personal methods for discovering great content to share and write about._
 
 ---
 
-<br>
 
 KO: What is your name, job title, and how long have you been using R?
 
@@ -43,7 +37,7 @@ KO: How has that transition gone, is there a Revolution team inside of Microsoft
 
 DS: It’s been more spread out. It got split up into the engineering people and the marketing people, sales people all got distributed around. When I first went to Microsoft I started off in the engineering group doing product management. But I was also doing the community role, and it just wasn’t a very good fit just time-wise, between doing community stuff and doing code or product management. So then I switched to a different group called the Ecosystem team, and so now I’m 100% focused on community within a group that’s focused on the ecosystem in general.
 
-> <h3>The one piece of advice I could give anyone starting out in their careers is - write what you do, write it in public, and make it so that other people can reproduce what you did.</h3>
+> The one piece of advice I could give anyone starting out in their careers is - write what you do, write it in public, and make it so that other people can reproduce what you did.
 
 
 KO: What does it mean to be 100% community focused, do you do a lot of training?
@@ -92,7 +86,7 @@ KO: Yeah, I know what you mean. Are you happy to have sort of moved away from th
 
 DS: I am in the sense of -- it was different being in a startup where being a product manager was more like being the shepherd of an entire product ecosystem, whereas in a big company the product manager is a lot more focused and inherently so, a lot more narrow. I happen to prefer the bigger picture I guess.
 
-> <h3>Honestly, I kind of focus from the point of view of what interests me personally. Which doesn’t sound very community oriented at all… but it’s an exercise in empathy.</h3>
+> Honestly, I kind of focus from the point of view of what interests me personally. Which doesn’t sound very community oriented at all… but it’s an exercise in empathy.
 
 
 KO: What’s your process for deciding what things you talk about and bring to the community?
@@ -111,7 +105,7 @@ KO: How much of your day is just spent exploring?
 
 DS: A lot of it. I spend about half of any given day reading. It takes a long time, but every now and then you find this really cool stuff.
 
-> <h3>It’s one thing to be able to do really cool stuff in R or any other language, but until you can distill that down into something that other people consume, it’s going to be hard to sell yourself.</h3>
+> It’s one thing to be able to do really cool stuff in R or any other language, but until you can distill that down into something that other people consume, it’s going to be hard to sell yourself.
 
 
 KO: Do you have any last nuggets of wisdom for people starting out their careers in R?

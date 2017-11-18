@@ -6,6 +6,7 @@
 {{ partial "style-path.html"}}<!-- stylesheet imports -->
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    {{ partial "ga.html" . }}
 </head>
 <body>
 {{ partial "header.html" . }}
@@ -186,7 +187,8 @@
 <!-- Loads `calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
 <script type="text/javascript" src="/js/calendarJSON.js"></script>
 <script type="text/javascript" src="/js/calinit.js"></script>
+<script type="text/javascript" src="/js/scrollanimate.js"></script>
 
-
+</script>
 </body>
 </html>

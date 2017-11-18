@@ -14,7 +14,7 @@ $(document).ready( function () {
                 return '<a href="' + row.url + '">' + row.name + '</a>';
             }},
             { "data": function(row, type, set, meta){
-                return '<a href="#" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
+                return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
             }},
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.description);

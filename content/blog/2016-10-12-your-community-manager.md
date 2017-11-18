@@ -39,7 +39,7 @@ Soon, in this blog, I’ll introduce you to our first rOpenSci Fellowship recipi
 
 In the short term, I’ll be doing a lot of lurking, connecting, listening to and chatting with many of you to gain an appreciation of what you need to be successful in doing open and reproducible research and working with the core team to address those needs. I’ll be learning how the community talks about rOpenSci and thus, how to represent rOpenSci in all its richness.
 
-Big thanks go to the [Helmsley Foundation](https://ropensci.org/blog/blog/2015/11/19/hemlsley-trust-funding) for funding this position and to [Jenny Bryan](https://ropensci.org/about/#leadership) for enticing me by saying that the rOpenSci community has her “A+++ five-star rating”.
+Big thanks go to the [Helmsley Foundation](https://ropensci.org/blog/blog/2015/11/19/hemlsley-trust-funding) for funding this position and to [Jenny Bryan](https://ropensci.org/about/#team) for enticing me by saying that the rOpenSci community has her “A+++ five-star rating”.
 
 Talk to Me
 ------
