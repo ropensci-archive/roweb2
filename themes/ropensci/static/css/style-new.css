@@ -407,6 +407,9 @@ q:before, q:after {
     text-align: left
 }article ul{
         margin-left: 1.15rem;
+}ol {
+    margin-left: 1.15rem;
+    list-style-type: decimal;
 }p {
     font-size: inherit;
     line-height: 1.6rem
