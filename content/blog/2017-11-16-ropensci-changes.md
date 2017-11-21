@@ -1,9 +1,12 @@
 ---
 slug: "ropensci-changes"
 title: "changes: easy Git-based version control from R"
-date: 2017-11-16
+date: 2017-11-28
 authors:
-  - name: Anikó B. Tóth (with edits from Nick Golding)
+- name: Anikó B. Tóth
+url:https://github.com/anikobtoth
+- name: Nick Golding
+url: https://twitter.com/_NickGolding_
 categories: blog
 topicid: ###
 tags:
@@ -21,7 +24,7 @@ Are you new to version control and always running into trouble with Git?
 Or are you a seasoned user, haunted by the traumas of learning Git and reliving them whilst trying to teach it to others?
 Yeah, us too.
 
-Git is a version control tool designed for software development, and it is immensely powerful. It didn’t actually dawn on me quite how amazing Git is until I spent a weekend in Melbourne with a group of Git whizzes using Git to write a package targeted toward Git beginners. 
+Git is a version control tool designed for software development, and it is immensely powerful. It didn’t actually dawn on me quite how amazing Git is until I spent a weekend in Melbourne with a group of Git whizzes using Git to write a package targeted toward Git beginners. Whew, talk about total Git immersion! I was taking part in the 2017 [rOpenSci ozunconf](https://ozunconf17.ropensci.org/), in which forty-odd  developers, scientists, researchers, nerds, teachers, starving students, cat ladies, and R users of all descriptions form teams to create new R packages fulfilling some new and useful function. Many of the groups used Git for their collaborative workflows all weekend.
 
 Unfortunately, just like many a programming framework, Git can often be a teensy bit (read: extremely, prohibitively) intimidating, especially for beginners who don't need all of Git's numerous and baffling features.
 It’s one of those platforms that makes your life a million times better once you know how to use it, but if you’re trying to teach yourself the basics using the internet, or—heaven forbid—trying to untangle yourself from some Git-branch tangle that you’ve unwittingly become snarled in… (definitely done that one…) well, let’s just say using your knuckles to break a brick wall can sometimes seem preferable.
