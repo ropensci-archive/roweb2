@@ -4,7 +4,7 @@ title: "changes: easy Git-based version control from R"
 date: 2017-11-28
 authors:
 - name: Anikó B. Tóth
-url:https://github.com/anikobtoth
+url: https://github.com/anikobtoth
 - name: Nick Golding
 url: https://twitter.com/_NickGolding_
 categories: blog
@@ -23,6 +23,8 @@ tags:
 Are you new to version control and always running into trouble with Git?
 Or are you a seasoned user, haunted by the traumas of learning Git and reliving them whilst trying to teach it to others?
 Yeah, us too.
+
+![](/themes/ropensci/static/img/blog-images/2017-11-28-ropensci-changes/monkeys.jpg)
 
 Git is a version control tool designed for software development, and it is extraordinarily powerful. It didn’t actually dawn on me quite how amazing Git is until I spent a weekend in Melbourne with a group of Git whizzes using Git to write a package targeted toward Git beginners. Whew, talk about total Git immersion! I was taking part in the 2017 [rOpenSci ozunconf](https://ozunconf17.ropensci.org/), in which forty-odd  developers, scientists, researchers, nerds, teachers, starving students, cat ladies, and R users of all descriptions form teams to create new R packages fulfilling some new and useful function. Many of the groups used Git for their collaborative workflows all weekend.
 
