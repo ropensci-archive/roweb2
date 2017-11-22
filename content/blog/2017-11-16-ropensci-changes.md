@@ -24,7 +24,7 @@ Are you new to version control and always running into trouble with Git?
 Or are you a seasoned user, haunted by the traumas of learning Git and reliving them whilst trying to teach it to others?
 Yeah, us too.
 
-![](/themes/ropensci/static/img/blog-images/2017-11-28-ropensci-changes/monkeys.jpg)
+![](/img/blog-images/2017-11-28-ropensci-changes/monkeys.jpg)
 
 Git is a version control tool designed for software development, and it is extraordinarily powerful. It didn’t actually dawn on me quite how amazing Git is until I spent a weekend in Melbourne with a group of Git whizzes using Git to write a package targeted toward Git beginners. Whew, talk about total Git immersion! I was taking part in the 2017 [rOpenSci ozunconf](https://ozunconf17.ropensci.org/), in which forty-odd  developers, scientists, researchers, nerds, teachers, starving students, cat ladies, and R users of all descriptions form teams to create new R packages fulfilling some new and useful function. Many of the groups used Git for their collaborative workflows all weekend.
 
@@ -50,7 +50,7 @@ Best of all, it works seamlessly with regular Git. So if a user thinks they're r
 
 Here is an overview of some of the ways we’ve made simple version control easy with `changes`:
 
-### Simple terminology
+#### Simple terminology
 `changes` uses simple and deliberately un-git-like terminology:
 
   * You start a new version control project with `create_repo()`, which is like `git init` but it can set up a nice project directory structure for you, automatically ignoring things like output folders.
@@ -59,7 +59,7 @@ Here is an overview of some of the ways we’ve made simple version control easy
   * `changes()` lets you know which files have changed since the last record, like a hybrid of `git status` and `git diff`.
   * You can look back in history with `timeline()` (a simplified version of `git log`), `go_to()` a previous record (like `git checkout`), and `scrub()` any unwanted changes since the last record (like `git reset --hard`).
 
-### It's linear
+#### It's linear
 After a long discussion, we decided that changes won't provide an interface to Git branches (at least not yet), as the merge conflicts it leads to are one of the scariest things about version control for beginners.
 With linear version control, users can can easily `go_to()` a past record with a version number, rather than unfamiliar [shas](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). These numbers appear in the a lovely visual representation of their `timeline()`:
 
@@ -74,13 +74,13 @@ With linear version control, users can can easily `go_to()` a past record with a
 
 If you want to roll your project back to a previous record, you can `retrieve()` it, and changes will simply append that record at the top of your timeline (storing all the later records, just in case).
 
-### Readable messages and automatic reminders
+#### Readable messages and automatic reminders
 Some of Git's messages and helpfiles are totally cryptic to all but the most hardened computer scientists.
 Having been confronted with our fair share of [`detached HEAD`](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)s and offers to [`update remote refs along with associated objects`](https://git-scm.com/docs/git-push), we were keen to make sure all the error messages and helpfiles in changes are as intuitive and understandable as possible.
 
 It can also be hard to get into the swing of recording edits, so changes will give you reminders to encourage you to use `record()` regularly. You can change the time interval for reminders, or switch them off, using `remind_me()`. 
 
-
+#### Coming soon
 We made a lot of progress in two days, but there's plenty more we're planning to add soon:
 
 1. Simplified access to GitHub with a `sync()` command to automagically handle most uses of `git fetch`, `git merge`, and `git push`.
@@ -89,7 +89,7 @@ We made a lot of progress in two days, but there's plenty more we're planning to
 
 We'd be really keen to hear your suggestions too, so please let us know your ideas via the [changes issue tracker](https://github.com/ropenscilabs/changes/issues)!
 
-###
+
 
 I have only recently started using Git and GitHub, and this year’s [rOpenSci ozunconf](https://ozunconf17.ropensci.org/) was a big eye-opener for me, in several ways.
 Beyond finally understanding to power of proper version control, I met a group of wonderful people dedicated to participating in the R community.
