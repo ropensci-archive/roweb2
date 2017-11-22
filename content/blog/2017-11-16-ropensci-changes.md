@@ -51,7 +51,7 @@ Best of all, it works seamlessly with regular Git. So if a user thinks they're r
 Here is an overview of some of the ways we’ve made simple version control easy with `changes`:
 
 #### Simple terminology
-`changes` uses simple and deliberately un-git-like terminology:
+It uses simple and deliberately un-git-like terminology:
 
   * You start a new version control project with `create_repo()`, which is like `git init` but it can set up a nice project directory structure for you, automatically ignoring things like output folders.
   * All of the steps involved in commiting edits have been compressed into one function: `record()`. All files that aren't ignored will be committed, so users don't need to know the difference between tracking, staging and committing files. 
