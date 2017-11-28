@@ -8,10 +8,9 @@ authors:
 - name: Nick Golding
   url: https://twitter.com/_NickGolding_
 categories: blog
-topicid: ###
+topicid: 980
 tags:
   - community
-  - ropensci
   - meetings
   - unconf
   - australia
@@ -44,8 +43,8 @@ We decided to address these two problems by making a package that uses the R con
 Somewhat ironically, nine people worked for two days on a dozen branches, using Git and GitHub to seamlessly merge our workflows.
 It was wonderful to see how so many people’s various talents can be combined to make something that no group members could have done all on their own. 
 
-Enter, `changes` ( [repo](https://github.com/ropenscilabs/ozrepro), [website](https://ropenscilabs.github.io/ozrepro/) – made using [pkgdown](https://github.com/hadley/pkgdown)), our new R package to do version control with a few simple commands.
-It uses Git and [Git2r](https://cran.r-project.org/web/packages/Git2r/index.html) under the hood, but new users don’t need to know any Git to begin using version control with `changes`.
+Enter, `changes` ( [repo](https://github.com/ropenscilabs/ozrepro), [website](https://ropenscilabs.github.io/changes/) – made using [pkgdown](https://github.com/hadley/pkgdown)), our new R package to do version control with a few simple commands.
+It uses Git and [Git2r](https://cran.r-project.org/web/packages/git2r/index.html) under the hood, but new users don’t need to know any Git to begin using version control with `changes`.
 Best of all, it works seamlessly with regular Git. So if a user thinks they're ready to expand their horizons they can start using git commands via the [Githug](https://GitHub.com/jennybc/Githug) package, RStudio's git interface, or on the command line.
 
 Here is an overview of some of the ways we’ve made simple version control easy with `changes`:
@@ -61,7 +60,7 @@ It uses simple and deliberately un-git-like terminology:
 
 #### It's linear
 After a long discussion, we decided that changes won't provide an interface to Git branches (at least not yet), as the merge conflicts it leads to are one of the scariest things about version control for beginners.
-With linear version control, users can can easily `go_to()` a past record with a version number, rather than unfamiliar [shas](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). These numbers appear in the a lovely visual representation of their `timeline()`:
+With linear version control, users can can easily `go_to()` a past record with a version number, rather than unfamiliar [SHA's](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). These numbers appear in the a lovely visual representation of their `timeline()`:
 
           (1) initial commit
            |  2017-11-18 02:55
