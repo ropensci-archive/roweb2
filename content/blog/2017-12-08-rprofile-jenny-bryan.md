@@ -74,8 +74,6 @@ I don’t know how this all would have worked out if the conventional academic s
 
 The reinvigoration that coincided with switching emphasis also coincided with the reinvigoration that comes from the kids becoming more independent. It does eventually happen! There are some very tough years - they’re not dark years, they’re happy years but the tension between all the things you want to do is unbelievable because you will not do all of them. You cannot do it all.
 
-**Rapid Fire Question Section**
-
 KO: What are your favorite tools for managing your workflow?
 
 JB: In terms of working with R I’ve completely standardized on working with RStudio. Before that I was an Emacs-ESS zealot and I still have more accumulated years in that sphere. But once RStudio really existed and was viable, I started teaching with it. I hate doing R one way when I’m in front of students and another when I’m alone. It got very confusing and mixing up the keyboard shortcuts would create chaos. So now I’ve fully embraced RStudio and have never looked back.
