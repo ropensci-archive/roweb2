@@ -2,7 +2,7 @@
 slug: rprofile-jenny-bryan
 title: ".rprofile: Jenny Bryan"
 date: 2017-12-08
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
@@ -44,7 +44,7 @@ JB: I finally in some sense gave myself permission to start teaching what I thou
 
 KO: Can you talk about your transition into working for RStudio and what that will look like on a day-to-day basis?
 
-JB: In many ways it looks a lot like my life already did because I had, especially in the last two to three years, decided if I want to work on R packages or on exposition, I’m going to do that. That’s what I think tenure is for! So I had decided to stop worrying about how to sell myself in a framework set up to reward traditional work in statistical methodology. That freed up a lot of mental energy, to pursue these other activities, unapologetically. Which lead to other opportunities, such as RStudio.I was already working mostly from home. The Statistics department is by no means a negative environment for me, but the internet helped me find virtual colleagues around the globe who really share my interests. The physical comfort of home is very appealing. RStudio is also very light on meetings, which is a beautiful thing.
+JB: In many ways it looks a lot like my life already did because I had, especially in the last two to three years, decided if I want to work on R packages or on exposition, I’m going to do that. That’s what I think tenure is for! So I had decided to stop worrying about how to sell myself in a framework set up to reward traditional work in statistical methodology. That freed up a lot of mental energy, to pursue these other activities, unapologetically. Which lead to other opportunities, such as RStudio. I was already working mostly from home. The Statistics department is by no means a negative environment for me, but the internet helped me find virtual colleagues around the globe who really share my interests. The physical comfort of home is very appealing. RStudio is also very light on meetings, which is a beautiful thing.
 
 KO: What is your team like at RStudio? How many projects are you juggling at any given time? Do you have an idea of what you want to accomplish while you’re there?
 
@@ -52,7 +52,7 @@ JB: The person I interact with most is Hadley [Wickham] and he now has a team of
 
 KO: Do you have a well defined road map at this point on the team?
 
-JB: I’ve been on that team since January and before that we had queued up [readxl](http://readxl.tidyverse.org/) as a good project for me. It was also overdue for maintenance! I was already a “Spreadsheet Lady”, very familiar with the underlying objects, and with the problem space. It was a good opportunity for me to write compiled code which I hadn’t done in a really long time. I had never written C++ so it was a way to kill at least three birds with one stone. So that was an easy selection for the first thing to work on. And even before that was done, it was clear that going back and doing another project in the Google arena make sense. We knew we would do some work with interns. Wrapping the Google Drive API was going to be useful (in general and for a future update of [googlesheets](https://github.com/jennybc/googlesheets)) and I knew our [intern] Lucy [McGowan](http://www.lucymcgowan.com/) would be a great person to work with on it.
+JB: I’ve been on that team since January and before that we had queued up [readxl](http://readxl.tidyverse.org/) as a good project for me. It was also overdue for maintenance! I was already a “Spreadsheet Lady”, very familiar with the underlying objects, and with the problem space. It was a good opportunity for me to write compiled code which I hadn’t done in a really long time. I had never written C++ so it was a way to kill at least three birds with one stone. So that was an easy selection for the first thing to work on. And even before that was done, it was clear that going back and doing another project in the Google arena made sense. We knew we would do some work with interns. Wrapping the Google Drive API was going to be useful (in general and for a future update of [googlesheets](https://github.com/jennybc/googlesheets)) and I knew our [intern] [Lucy McGowan](http://www.lucymcgowan.com/) would be a great person to work with on it.
 
 So no, there’s not some detailed 18-month roadmap stretching ahead of me. I think it will cycle between doing something that’s mine or new and doing maintenance on something that already exists. I also continue to do a lot of exposition, training, and speaking.
 
