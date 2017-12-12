@@ -12,14 +12,6 @@ var calendar = {
       'attendees': 'Jenny Bryan'
     },
     {
-      'title': '<a href="https://methodsblog.wordpress.com/2017/11/16/hackathon-challenges/" target="_blank">Workshop: Developing R Packages for Accessing, Synthesizing and Analysing Ecological Data</a>',
-      'dateStart': 'Dec 11, 2017',
-      'dateEnd': '',
-      'description': 'Collab with rOpenSci, <a href="http://www.britishecologicalsociety.org/membership-community/special-interest-groups/quantitative-ecology/" target="_blank"> BES</a>, <a href="https://akcomputationalecology.wordpress.com/" target="_blank">GfÖ</a> and <a href="http://www.necov.org/" target="_blank">NecoV</a>',
-      'location': 'Ghent, BE',
-      'attendees': 'Nick Golding, Maëlle Salmon'
-    },
-    {
       'title': '<a href="http://phenoscape.org/" target="_blank">Phenoscape Hackathon</a>',
       'dateStart': 'Dec 11',
       'dateEnd': '14, 2017',
