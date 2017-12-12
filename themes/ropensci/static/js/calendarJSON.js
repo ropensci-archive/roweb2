@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="https://www.aaas.org/cefp/meet-our-fellows" target="_blank">AAAS Community Engagement Fellows meeting</a>',
-      'dateStart': 'Dec 7',
-      'dateEnd': '10, 2017',
-      'description': '',
-      'location': 'Washington, DC',
-      'attendees': 'Stefanie Butland'
-    },
-    {
       'title': '<a href="http://www.stats.org.nz/events-archive/2017-nzsa-conference" target="_blank">IASC-ARS/NZSA Conference</a>',
       'dateStart': 'Dec 10',
       'dateEnd': '14, 2017',
