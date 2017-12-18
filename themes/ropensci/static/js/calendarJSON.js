@@ -4,22 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://www.stats.org.nz/events-archive/2017-nzsa-conference" target="_blank">IASC-ARS/NZSA Conference</a>',
-      'dateStart': 'Dec 10',
-      'dateEnd': '14, 2017',
-      'description': '',
-      'location': 'Auckland, NZ',
-      'attendees': 'Jenny Bryan'
-    },
-    {
-      'title': '<a href="http://phenoscape.org/" target="_blank">Phenoscape Hackathon</a>',
-      'dateStart': 'Dec 11',
-      'dateEnd': '14, 2017',
-      'description': '',
-      'location': 'Durham, NC',
-      'attendees': 'Scott Chamberlain'
-    },
-    {
       'title': '<a href="http://communitycalls.ropensci.org/" target="_blank">rOpenSci Community Call</a>',
       'dateStart': 'Jan 31, 2017',
       'dateEnd': '',
