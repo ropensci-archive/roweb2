@@ -5,10 +5,10 @@ var calendar = {
   'eventList': [
     {
       'title': '<a href="http://communitycalls.ropensci.org/" target="_blank">rOpenSci Community Call</a>',
-      'dateStart': 'Jan 31, 2017',
+      'dateStart': 'Jan 30, 2018',
       'dateEnd': '',
       'description': 'Speaker: <a href="https://ropensci.org/blog/2016/12/12/ropensci-fellowship-zoon/">Nick Golding</a>, rOpenSci Fellow',
-      'location': 'webinar link TBD',
+      'location': '<a href="http://communitycalls.ropensci.org/" target="_blank">webinar</a>',
       'attendees': 'free, open to all'
     },
     {
@@ -18,6 +18,14 @@ var calendar = {
       'description': 'The eResearch Outlook: Impact, Sustainability and Excellence',
       'location': 'Queenstown, NZ',
       'attendees': 'Karthik Ram'
+    },
+    {
+      'title': '<a href="https://www.atsdr.cdc.gov/" target="_blank">CDC/ATSDR</a> R users group',
+      'dateStart': 'Feb 22, 2018',
+      'dateEnd': '',
+      'description': 'Scott talks about rOpenSci to CDC Agency for Toxic Substances and Disease Registry R users group',
+      'location': 'webinar (private)',
+      'attendees': 'Scott Chamberlain'
     }
   ]
 }
