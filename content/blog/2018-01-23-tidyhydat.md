@@ -34,7 +34,8 @@ One of the best things about learning R is that no matter your skill level, ther
 `tidyhydat` is a new rOpenSci R package that provides a standard method of accessing [Environment and Climate Change Canada's](https://www.canada.ca/en/environment-climate-change.html) [Water Survey of Canada](https://wateroffice.ec.gc.ca/index_e.html) data sources (WSC) using a consistent and easy to use interface that employs [tidy data principles](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html). I developed the package because I was repeating the [same steps](https://twitter.com/drob/status/611885584584441856?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2Ftinyheero.github.io%2Fjekyll%2Fupdate%2F2015%2F07%2F26%2Fmaking-your-first-R-package.html) to [import and tidy](http://r4ds.had.co.nz/explore-intro.html) Water Survey of Canada data in R. Many useRs will read this post and think "I’d know how to do that". To you I tip my hat. To those who read this and think "huh, never knew that", you are the target audience. In this post, I'll focus on 5 things that I learned  during the `tidyhydat` rOpenSci review, provide a brief introduction on how the package works and provide an example use case. 
 
 ## Installation
-![](../../themes/ropensci/static/img/blog-images/2018-01-23-tidyhydat/tidyhydat_large.png)<!-- -->
+<img src="../../themes/ropensci/static/img/blog-images/2018-01-23-tidyhydat/tidyhydat_large.png" alt="Drawing" style="width: 200px;"/>
+
 `tidyhydat` can be installed from CRAN by the usual manner:
 
 ```r
