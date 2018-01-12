@@ -40,11 +40,11 @@ KR: I enjoyed it, but I had a very nervous advisor who tried to steer me clear o
 
 KO: That’s awesome. I still get that a lot - especially in DC, people will come up to me and say, why are you wasting your time with Apache projects, companies put hundreds of millions of dollars into developing these non-open source tools, why are Apache projects better?  
 
-KR: Yeah, I think open source is great because it does come with built-in community and I’m not as active in other language communities at the moment, but I do see this quite a bit.
+KR: Yeah, I think open source is great because it does come with built-in community. I’m not as active in other language communities at the moment, but I do see this quite a bit.
 
 KO: How much of your work week now is spent actively using R?
 
-KR: That’s kind of a tricky question because I'm the project lead for the [rOpenSci project](https://ropensci.org/) which means that I spend a lot of time just managing people and projects. I don’t get to just write a lot of R code, for me it comes in waves. I’m hoping that for the next few weeks I’ll be doing nothing but coding on my couch. But for the last month I’ve been teaching a lot of R. I spent an average of 4 hours a day on R before other distractions kick in.
+KR: That’s kind of a tricky question because I'm the project lead for the [rOpenSci project](https://ropensci.org/) which means that I spend a lot of time just managing people and projects. I don’t get to just write a lot of R code, for me it comes in waves. I’m hoping that for the next few weeks I’ll be doing nothing but coding on my couch. But for the last month I’ve been teaching a lot of R. I spent an average of 4 hours a day on R before other distractions kicked in.
 
 KO: You’re teaching it at the university, and you’re going into summer [This interview was conducted in May], how are you going to spend your summer?  
 
@@ -64,11 +64,11 @@ KR: Not really. I’ve been a consistent runner for the past 10 years. I used to
 
 KO: Marathons, or shorter distance?
 
-KR: I do half-marathons, I get tired of training for marathons. But I love trail running. And I live in the beautiful Berkeley Hills so I can walk out of my house and be on a trails. I can see the entire Bay for much of my run.
+KR: I do half-marathons, I get tired of training for marathons. But I love trail running. And I live in the beautiful Berkeley Hills so I can walk out of my house and be on a trail. I can see the entire Bay for much of my run.
 
 KO: How long has the rOpenSci project been going? How did it get started?
 
-KR: We're six years old this fall. rOpenSci started in summer 2011 when I was still a postdoc. I have just spent several months of 14 hour days running experiments on mites and finally had a break to process data. I was using this time to package some scripts I had written to streamline my work. This was around the time that Scott [Chamberlain], Carl [Boettiger] and I were talking about scientific APIs on Twitter. Before long we decided to combine forces, named the project and here we are.
+KR: We're six years old this fall. rOpenSci started in summer 2011 when I was still a postdoc. I had just spent several months of 14 hour days running experiments on mites and finally had a break to process data. I was using this time to package some scripts I had written to streamline my work. This was around the time that Scott [Chamberlain], Carl [Boettiger] and I were talking about scientific APIs on Twitter. Before long we decided to combine forces, named the project and here we are.
 
 KO: How much of your time is spent devoted to rOpenSci vs. your day job?
 
@@ -96,6 +96,6 @@ KR: Unfortunately, I have no good answer to this. It's very project specific and
 
 KO: What advice do you have for people who want to get involved in more things? There must have been a point in your life when you weren’t involved in all these things. How do you choose paths to go down?  
 
-KR: Early on I said yes to everything and ended up terribly over committed. There are people who thrive on heavy context switching and I am definitely not of them. You have to feel it out, walk into the pool and find where the deep end is, and decide where you want to be. That’s a good thing to figure out, but once you know yourself, hold yourself to that.   
+KR: Early on I said yes to everything and ended up terribly over committed. There are people who thrive on heavy context switching and I am definitely not one of them. You have to feel it out, walk into the pool and find where the deep end is, and decide where you want to be. That’s a hard thing to figure out, but once you know yourself, hold yourself to that.   
 
 The other bit of advice I have is that people are generally open to talking to you. So don't be shy about reaching out to people you want advice from. One of the things I love about [rOpenSci] unconf is that it demystifies folks like [Hadley Wickham](http://hadley.nz/) and others of that caliber. He’s just a dude who likes cocktails and coding and is very friendly and approachable. Once you chat with people here about your work, you realize that you belong and that you can do this. I want more people to feel part of the community.
