@@ -31,9 +31,12 @@ output:
 
 One of the best things about learning R is that no matter your skill level, there is always someone who can benefit from your experience. Topics in R ranging from complicated machine learning approaches to calculating a mean all find their relevant audiences. This is particularly true when writing R packages. With an ever evolving R package development landscape (R, GitHub, external data, CRAN, continuous integration, users), there is a strong possibility that you will be taken into regions of the R world that you never knew existed. More experienced developers may not get stuck in these regions and therefore not think to shine a light on them. It is the objective of this post to explore some of those regions in the R world that were [highlighted for me when the `tidyhydat` package was reviewed by rOpenSci](https://github.com/ropensci/onboarding/issues/152). 
 
+<p align="center">
+ <img src="./img/blog-images/2018-01-16-tidyhydat/tidyhydat_large.png" alt="Drawing" style="width: 200px;"/>
+</p>
+
 `tidyhydat` is a new rOpenSci R package that provides a standard method of accessing [Environment and Climate Change Canada's](https://www.canada.ca/en/environment-climate-change.html) [Water Survey of Canada](https://wateroffice.ec.gc.ca/index_e.html) data sources (WSC) using a consistent and easy to use interface that employs [tidy data principles](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html). I developed the package because I was repeating the [same steps](https://twitter.com/drob/status/611885584584441856?ref_src=twsrc%5Etfw&ref_url=http%3A%2F%2Ftinyheero.github.io%2Fjekyll%2Fupdate%2F2015%2F07%2F26%2Fmaking-your-first-R-package.html) to [import and tidy](http://r4ds.had.co.nz/explore-intro.html) WSC data in R. Many useRs will read this post and think "I’d know how to do that". To you I tip my hat. To those who read this and think "huh, never knew that", you are the target audience. In this post, I'll focus on 5 things that I learned  during the `tidyhydat` rOpenSci review, provide a brief introduction on how the package works and provide an example use case. 
 
-<img src="./img/blog-images/2018-01-16-tidyhydat/tidyhydat_large.png" alt="Drawing" style="width: 150px;"/>
 
 `tidyhydat` can be installed from CRAN by the usual manner:
 
@@ -58,7 +61,7 @@ The single biggest feature of `tidyhydat` that caused the most headaches and lea
 download_hydat()
 ```
 
-Well, at least it does now. Previously, I had devised some convoluted solution that involved downloading the data to a specific directory then setting that directory in your `.Renviron` file. That is when one of the reviewers suggested the wonderfully simple `rappirs` package. As is so often the case, my internal dialogue of "wow, this is a cool package!" was followed by "and of course Hadley Wickham wrote it". (Author's note: *does he sleep?*). Here is the description of the `rappdirs` package:
+Well, at least it does now. Previously, I had devised some convoluted solution that involved downloading the data to a specific directory then setting that directory in your `.Renviron` file. That is when one of the reviewers suggested the wonderfully simple `rappirs` package. As is so often the case, my internal dialogue of "wow, this is a cool package!" was followed by "and of course Hadley Wickham wrote it". (Author's note: *does he sleep?*). Here is the description of the [`rappdirs`](https://CRAN.R-project.org/package=rappdirs) package:
 
 > An easy way to determine which directories on the users computer you should use to save data, caches and logs.
 
@@ -164,7 +167,7 @@ cor_df <- daily_flows_boxed %>%
 ```
 
 ## igraph munging
-At this point we need to begin using the [igraph](https://CRAN.R-project.org/package=igraph) package for network analysis. Our first step is to make a graph for all the correlations then construct a subgraph for only the `08MH024` station:
+At this point we need to begin using the [`igraph`](https://CRAN.R-project.org/package=igraph) package for network analysis. Our first step is to make a graph for all the correlations then construct a subgraph for only the `08MH024` station:
 
 ```r
 ## Convert to an igraph object for plotting
@@ -175,7 +178,7 @@ graph_sub <- subgraph.edges(graph_correlation, E(graph_correlation)[inc('08MH024
 ```
 
 ## Create plot
-Finally, our last step is to plot each point in a spatially accurate manner and apply the results from the igraph object. The plotting step graphs the station location against satellite imagery using [the ggmap](https://CRAN.R-project.org/package=ggmap) and [ggraph](https://CRAN.R-project.org/package=ggraph) packages and connect stations with coloured lines that reflect the strength of the correlation:
+Finally, our last step is to plot each point in a spatially accurate manner and apply the results from the igraph object. The plotting step graphs the station location against satellite imagery using the [`ggmap`](https://CRAN.R-project.org/package=ggmap) and [`ggraph`](https://CRAN.R-project.org/package=ggraph) packages and connect stations with coloured lines that reflect the strength of the correlation:
 
 ```r
 ## Get the lat long data, isolate the coordinates and rename to x and y
