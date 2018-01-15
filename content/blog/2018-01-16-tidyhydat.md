@@ -69,14 +69,14 @@ This is exactly what I needed. Via `rappdirs::user_data_dir()` I was able to spe
 
 ## 3. Prefix-style function naming
 
-In addition to interacting with HYDAT, `tidyhydat` also provides a series of functions to import real-time hydrometric data into R. Initially, to distinguish real-time functions from those that access HYDAT, I employed a confusing scheme where HYDAT functions were capitalized (`DLY_FLOWS`) and real-time data functions were presented as lowercase (`download_realtime`). Luckily another helpful suggestion by a reviewer was to employ **consistent prefix-style naming** rather than capitalization to accomplish this. Along with a slight function name change, `DLY_FLOWS()` became `hy_daily_flows()`. This small change actually solves several problems at once:
+In addition to interacting with HYDAT, `tidyhydat` also provides a series of functions to import real-time hydrometric data into R. Initially, to distinguish real-time functions from those that access HYDAT, I employed a confusing scheme where HYDAT functions were capitalized (`DLY_FLOWS`) and real-time data functions were presented as lowercase (`download_realtime`). Luckily another helpful suggestion by a reviewer was to employ consistent prefix-style naming rather than capitalization to accomplish this. Along with a slight function name change, `DLY_FLOWS()` became `hy_daily_flows()`. This small change actually solves several problems at once:
 
 - Prefixes act as sort of a package specific namespace helping to avoid any conflicts with other packages.
 - Prefixes facilitate auto-completion because users only have to type `hy_` (+ TAB) at which point they can choose the function they would like to use. 
 - Enable a user to immediately know if a function accesses HYDAT. This unified interface provides clarity and consistency.
 
 ## 4. Vignettes that use external data on CRAN
-One reviewer suggested that a vignette which worked through a complete analysis may be useful to a new user. This was a great idea. One problem: Since the package was destined for CRAN it needed to meet all the associated requirements. With respect to long-form documentation CRAN does not build vignettes and only makes sure they are actually runnable; it uses what you've built locally. To run through an example analysis, I needed to access the HYDAT database which is not shipped to CRAN. [This discussion](https://community.rstudio.com/t/precompiling-vignette-with-devtools/1583/6) provided a delightfully simple solution to my problem. The solution involved setting a [global knitr option](https://raw.githubusercontent.com/ropensci/tidyhydat/master/vignettes/tidyhydat_an_introduction.Rmd) for `eval` as TRUE or FALSE depending on the presence of an environment variable. Locally when I build the vignettes, the environment variable is present so `eval=TRUE`. On CRAN, the environment variable is absent for `eval=FALSE`. Therefore the [vignette code becomes runnable](https://cran.r-project.org/web/packages/tidyhydat/vignettes/tidyhydat_example_analysis.html) on CRAN.
+One reviewer suggested that a vignette which worked through a complete analysis may be useful to a new user. This was a great idea. One problem: Since the package was destined for CRAN it needed to meet all the associated requirements. With respect to long-form documentation CRAN does not build vignettes and only makes sure they are actually runnable; it uses what you've built locally. To run through an example analysis, I needed to access the HYDAT database which is not shipped to CRAN. [This discussion](https://community.rstudio.com/t/precompiling-vignette-with-devtools/1583/6) provided a delightfully simple solution to my problem. The solution involved setting a [global knitr option](https://raw.githubusercontent.com/ropensci/tidyhydat/master/vignettes/tidyhydat_an_introduction.Rmd) for `eval` as TRUE or FALSE depending on the presence of an environment variable. Locally when I build the vignettes, the environment variable is present so `eval=TRUE`. On CRAN, the environment variable is absent for `eval=FALSE`. Therefore the [vignette code becomes runnable](https://cran.r-project.org/web/packages/tidyhydat/vignettes/tidyhydat_an_introduction.html) on CRAN.
 
 ## 5. An exercise in reproducible science.
 `tidyhydat` was originally developed to save time accessing data. Instead of frequently opening database connections, making approximately the same query, forgetting to close the database connection, trying to reopen it, cursing R and generally blaming all the wrong people, I developed a package.  However, after using the package it has become clear that it has a much deeper and useful feature &mdash; it is a tool that facilitates reproducible science and can provide reproducible workflows that support science-based decisions around water flow. It is now possible to set up code-based workflows that are re-runnable with more current data, different stations or regions over a range of time scales. The importance of this cannot be overstated and will be the focus of the remainder of this post. 
@@ -85,11 +85,11 @@ One reviewer suggested that a vignette which worked through a complete analysis 
 To illustrate a reproducible workflow facilitated by `tidyhydat` and made possible by the capabilities of R, we can ask a simple question related to a hydrometric station: how unique is this station compared to others in the same watershed? In this example we will consider the FRASER RIVER AT MISSION station. Records extend over many years and we can compare an overlapping record using correlation to develop a measure of **uniqueness** for this station. But first we need to engage in some preamble:
 
 ## Required packages
-A portion of the package audience is likely those with little or no experience in R so an example of the type of analysis possible with `tidyhydat` is helpful. For our purposes here, we need to install a whole other slew of packages. The packages needed for this analysis mostly fall into either the `tidyverse` collection of packages or the `igraph` family of packages. These packages can be installed using:    
+A portion of the package audience is likely those with little or no experience in R so an example of the type of analysis possible with `tidyhydat` is helpful. For our purposes here, we need to install a whole other slew of packages. The packages needed for this analysis mostly fall into either the `tidyverse` collection of packages or the `igraph` family of packages. Several of these packages (`dplyr`, `tidyr`) were already installed alongside `tidyhydat`. The remaining packages can be installed using:    
 
 
 ```r
-install.packages(c("dplyr","tidyr","purrr","corrr","igraph","ggraph","ggmap"))
+install.packages(c("purrr","corrr","igraph","ggraph","ggmap"))
 ```
 
 then load the required packages:
@@ -116,6 +116,10 @@ daily_flows_boxed <- hy_stations() %>%
 ```
 
 
+```r
+daily_flows_boxed
+```
+
 ```
 ##  [1] "08MH001" "08MH002" "08MH005" "08MH006" "08MH016" "08MH024" "08MH029"
 ##  [8] "08MH035" "08MH056" "08MH076" "08MH090" "08MH098" "08MH103" "08MH126"
@@ -134,6 +138,10 @@ daily_flows_boxed <- hy_stations() %>%
   hy_daily_flows()
 ```
 
+
+```r
+daily_flows_boxed
+```
 
 ```
 ## # A tibble: 320,307 x 5
