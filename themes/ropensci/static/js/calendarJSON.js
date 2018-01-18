@@ -27,5 +27,21 @@ var calendar = {
       'location': 'webinar (private)',
       'attendees': 'Scott Chamberlain'
     }
+    {
+      'title': 'rOpenSci meetup',
+      'dateStart': 'Mar 12, 2018',
+      'dateEnd': '5:30PM',
+      'description': 'presentations, short demos, networking',
+      'location': 'Vancouver BC',
+      'attendees': '<a href="https://ropensci.org/about/#team">rOpenSci team</a>'
+    }
+    {
+      'title': 'rOpenSci unconf18',
+      'dateStart': 'May 21',
+      'dateEnd': '22, 2018',
+      'description': 'annual unconference',
+      'location': 'Seattle WA',
+      'attendees': 'rOpenSci team, invited participants'
+    }    
   ]
 }
