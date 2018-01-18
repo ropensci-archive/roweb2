@@ -26,7 +26,7 @@ var calendar = {
       'description': 'Scott talks about rOpenSci to CDC Agency for Toxic Substances and Disease Registry R users group',
       'location': 'webinar (private)',
       'attendees': 'Scott Chamberlain'
-    }
+    },
     {
       'title': 'rOpenSci meetup',
       'dateStart': 'Mar 12, 2018',
@@ -34,7 +34,7 @@ var calendar = {
       'description': 'presentations, short demos, networking',
       'location': 'Vancouver BC',
       'attendees': '<a href="https://ropensci.org/about/#team">rOpenSci team</a>'
-    }
+    },
     {
       'title': 'rOpenSci unconf18',
       'dateStart': 'May 21',
