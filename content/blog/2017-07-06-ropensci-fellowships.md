@@ -31,7 +31,7 @@ Our first fellowship was awarded to [Dr. Nick Golding](https://ropensci.org/blog
 1. Fellows must be affiliated with a research institution.
 2. You must have Principal Investigator (PI) status at your institution to receive funds from this fellowship. If you do not have PI status, or do not expect to have PI status by the time these funds are disbursed, you will need to collaborate with someone who can fulfill this role. For this stage of the application, you will only need to list your status and if necessary, the name of person who will serve as your PI. We will request a formal letter of support in a later round.
 3. Fellowship recipients must strive to spend all funds within a year of the start date. While we are able to accommodate extensions for exceptional circumstances, we strongly prefer to support projects that are scoped well enough to be completed within one year.
-4. Funds can only be used to support personnel and travel. We do not allow purchase of equipment, or computing services. A detailed budget will be required in the final round.
+4. Funds can only be used to support personnel and travel. We do not allow purchase of equipment, or computing services. A detailed budget will be required in the final round (IDC capped at 10%).
 5. Funds cannot be used to organize conferences or hackathons.
 
 ## Fellowship selection committee
