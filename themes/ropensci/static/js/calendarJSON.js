@@ -20,6 +20,14 @@ var calendar = {
       'attendees': 'Karthik Ram'
     },
     {
+      'title': '<a href="https://www.meetup.com/rladies-auckland/" target="_blank">R-Ladies Auckland</a> Meetup',
+      'dateStart': 'Feb 20, 2018',
+      'dateEnd': '',
+      'description': 'Karthik Ram speaks to R-Ladies Auckland',
+      'location': 'Auckland, NZ',
+      'attendees': 'Karthik Ram'
+    },
+    {
       'title': '<a href="https://www.atsdr.cdc.gov/" target="_blank">CDC/ATSDR</a> R users group',
       'dateStart': 'Feb 22, 2018',
       'dateEnd': '',
