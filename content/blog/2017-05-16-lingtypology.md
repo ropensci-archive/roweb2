@@ -191,16 +191,20 @@ Sometimes it is a good idea to add some additional information (e.g. language af
 How to say _moon_ in different Sign Languages for example? In order to show this on a map, first of all we need to create a dataframe with links to videos:
 
 ```r
-sign_df <- data.frame(languages = c("American Sign Language", "Russian Sign Language", "French Sign Language"),
-                      popup = c("https://goo.gl/La2Oab", "https://goo.gl/lYVYbx", "https://goo.gl/YRsqva"))
+sign_df <- data.frame(languages = c("American Sign Language",
+                                    "Russian Sign Language",
+                                    "French Sign Language"),
+                      popup = c("https://goo.gl/La2Oab",
+                                "https://goo.gl/lYVYbx",
+                                "https://goo.gl/YRsqva"))
 ```
 
 Then we need to change the links to HTML codes:
 
 ```r
 sign_df$popup <- paste0("<video width='200' height='150' controls> <source src='",
-                  as.character(sign_df$popup),
-                  "' type='video/mp4'></video>")
+                        as.character(sign_df$popup),
+                        "' type='video/mp4'></video>")
 ```
 
 Now we can create a map:
