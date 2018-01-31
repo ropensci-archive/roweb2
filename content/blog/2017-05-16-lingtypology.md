@@ -7,7 +7,7 @@ authors:
     url: https://www.hse.ru/en/org/persons/103489498#teaching
 date: 2017-05-16
 categories: blog
-topicid: 2925
+topicid: 721
 tags:
 - R
 - lingtypology
