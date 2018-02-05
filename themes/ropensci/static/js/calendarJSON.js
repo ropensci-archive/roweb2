@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://communitycalls.ropensci.org/" target="_blank">rOpenSci Community Call</a>',
-      'dateStart': 'Jan 30, 2018',
-      'dateEnd': '',
-      'description': 'Speaker: <a href="https://ropensci.org/blog/2016/12/12/ropensci-fellowship-zoon/">Nick Golding</a>, rOpenSci Fellow',
-      'location': '<a href="http://communitycalls.ropensci.org/" target="_blank">webinar</a>',
-      'attendees': 'free, open to all'
-    },
-    {
       'title': '<a href="http://eresearch2018.org.nz/" target="_blank">eResearch New Zealand</a>',
       'dateStart': 'Feb 12',
       'dateEnd': '14, 2018',
