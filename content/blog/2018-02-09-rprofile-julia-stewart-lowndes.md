@@ -5,7 +5,7 @@ date: 2018-02-09
 preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted by Sean Kross and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Sean Kross
-    url:
+    url: seankross.com
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
 categories: blog
@@ -18,7 +18,7 @@ tags:
 ---
 
 <img src="/img/blog-images/2018-02-09-rprofile-julia-stewart-lowndes/lowndes_profile.jpg" alt="Julia Stewart Lowndes" style="margin: 0px 20px; width: 250px;" align="left">
-_Julia Stewart Lowndes is._
+_Julia Stewart Lowndes is the Science Program Lead for the Ocean Health Index and works at the National Center for Ecological Analysis and Synthesis. She and Sean Kross discussed open data science, the importance of sharing best practices in reproducibility, and how to manage expectations around solving computational problems in research._
 
 ---
 
