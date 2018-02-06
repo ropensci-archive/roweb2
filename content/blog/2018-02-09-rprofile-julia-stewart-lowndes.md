@@ -18,7 +18,7 @@ tags:
 ---
 
 <img src="/img/blog-images/2018-02-09-rprofile-julia-stewart-lowndes/lowndes_profile.jpg" alt="Julia Stewart Lowndes" style="margin: 0px 20px; width: 250px;" align="left">
-_Julia Stewart Lowndes is the Science Program Lead for the Ocean Health Index and works at the National Center for Ecological Analysis and Synthesis. She and Sean Kross discussed open data science, the importance of sharing best practices in reproducibility, and how to manage expectations around solving computational problems in research._
+_Dr. Julia Stewart Lowndes is the Science Program Lead for the Ocean Health Index and works at the National Center for Ecological Analysis and Synthesis. She and Sean Kross discussed how data science, open science, and community can help reproducibility in research._
 
 ---
 
