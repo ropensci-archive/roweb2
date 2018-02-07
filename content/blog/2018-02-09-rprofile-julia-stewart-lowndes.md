@@ -18,7 +18,7 @@ tags:
 ---
 
 <img src="/img/blog-images/2018-02-09-rprofile-julia-stewart-lowndes/lowndes_profile.jpg" alt="Julia Stewart Lowndes" style="margin: 0px 20px; width: 250px;" align="left">
-_Dr. Julia Stewart Lowndes is the Science Program Lead for the Ocean Health Index and works at the National Center for Ecological Analysis and Synthesis. She and Sean Kross discussed how data science, open science, and community can help reproducibility in research._
+_Dr. Julia Stewart Lowndes [@juliesquid on Twitter] is the Science Program Lead for the Ocean Health Index and works at the National Center for Ecological Analysis and Synthesis. She and Sean Kross discussed how data science, open science, and community can help reproducibility in research._
 
 ---
 
@@ -26,9 +26,9 @@ _Dr. Julia Stewart Lowndes is the Science Program Lead for the Ocean Health Inde
 
 [This interview occurred at the 2017 rOpenSci unconference]
 
-SK: I’m Sean Kross, I’m the CTO of the [Johns Hopkins Data Science Lab](http://jhudatascience.org/). Today I’m interviewing Julia Stewart Lowndes. Julia, what is your current preferred job title?
+SK: I’m [Sean Kross](https://twitter.com/seankross), I’m the CTO of the [Johns Hopkins Data Science Lab](http://jhudatascience.org/). Today I’m interviewing Julia Stewart Lowndes. Julia, what is your current preferred job title?
 
-JSL: I’m calling myself a marine data scientist - I’m the Science Program Lead for the [Ocean Health Index](http://www.oceanhealthindex.org/).
+JSL: I’m calling myself a marine data scientist - I’m the Science Program Lead for the [Ocean Health Index](http://www.ohi-science.org/).
 
 SK: How many years have you been working with R?
 
