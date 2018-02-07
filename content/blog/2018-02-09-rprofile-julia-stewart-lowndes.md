@@ -26,7 +26,7 @@ _Dr. Julia Stewart Lowndes is the Science Program Lead for the Ocean Health Inde
 
 [This interview occurred at the 2017 rOpenSci unconference]
 
-SK: I’m Sean Kross, I’m the CTO of the [Johns Hopkins Data Science Lab](http://jhudatascience.org/). Today I’m interviewing Julia Stewart Lowndes. What is your current preferred job title?
+SK: I’m Sean Kross, I’m the CTO of the [Johns Hopkins Data Science Lab](http://jhudatascience.org/). Today I’m interviewing Julia Stewart Lowndes. Julia, what is your current preferred job title?
 
 JSL: I’m calling myself a marine data scientist - I’m the Science Program Lead for the [Ocean Health Index](http://www.oceanhealthindex.org/).
 
@@ -40,13 +40,13 @@ JSL: I probably spend 20 or 30 hours a week in RStudio, so not just coding in R 
 
 SK: What other technologies are part of your workflow?
 
-JSL: Right now my workflow is R, RStudio, git, Github for the most part.
+JSL: Right now my workflow is R, RStudio, git, GitHub for the most part.
 
-SK: You said that you work with a team, I imagine that there are different technical challenges with that. Do you collaborate with your team in Github?
+SK: You work with a team, and I imagine that there are different technical challenges with that. Do you collaborate with your team in GitHub?
 
-JSL: I work at NCEAS, which is the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu/) at the University of California Santa Barbara. There are kind of concentric circles within our team but our core workflow is that everyone is working with RStudio and Github to some degree – even those who aren’t coding in R everyday.
+JSL: I work at NCEAS, which is the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu/) at the University of California Santa Barbara. There are kind of concentric circles within our team but our core workflow is that everyone is working with RStudio and GitHub to some degree – even those who aren’t coding in R everyday.
 
-SK: Do you use public or private Github repositories?
+SK: Do you use public or private GitHub repositories?
 
 JSL: Most of our repositories are public. But we have one private repository just for Issues, and we use that as an email equivalent so that we can have discussions that are archivable.
 
@@ -64,7 +64,7 @@ JSL: Well, [R for Data Science by Hadley Wickham and Garrett Grolemund](http://r
 
 SK: Have you written any books?
 
-JSL: I’m writing a bookdown right now. It’s for the Ocean Health Index, we essentially enable government and academic groups to measure how healthy their oceans are. We give them a GitHub repository populated with starter files and scripts and they tailor it with their own data and priorities using our R package. So my book is about how to use our software, but it’s also how to use R, RStudio and Github. (Editor’s Note: since the interview this has been split into two books: [Introduction to Open Data Science](http://ohi-science.org/data-science-training/) and [Ocean Health Index Toolbox Training](http://ohi-science.org/toolbox-training/).)
+JSL: I’m writing a bookdown right now. It’s for the Ocean Health Index, we essentially enable government and academic groups to measure how healthy their oceans are. We give them a GitHub repository populated with starter files and scripts and they tailor it with their own data and priorities using our R package. So my book is about how to use our software, but it’s also how to use R, RStudio and GitHub. (Editor’s Note: since the interview this has been split into two books: [Introduction to Open Data Science](http://ohi-science.org/data-science-training/) and [Ocean Health Index Toolbox Training](http://ohi-science.org/toolbox-training/).)
 
 The [Nature paper I wrote](https://www.nature.com/articles/s41559-017-0160) was part of this realization that I’m putting a lot of effort into teaching people how to use our Ocean Health Index methods, but in that process I’m actually teaching them good data science practices. The stuff I’m teaching is not specific to the Ocean Health Index, so I wanted to try to hit a broader audience. (Editor’s Note: ["Our path to better science in less time using open data science tools"](https://www.nature.com/articles/s41559-017-0160) (Lowndes et al. 2017; Nature Ecology & Evolution) was published the week before the rOpenSci #unconf17)
 
