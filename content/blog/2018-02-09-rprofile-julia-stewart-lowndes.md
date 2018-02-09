@@ -5,11 +5,11 @@ date: 2018-02-09
 preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted by Sean Kross and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Sean Kross
-    url: seankross.com
+    url: http://seankross.com
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
 categories: blog
-topicid:
+topicid: 1060
 tags:
 - R
 - community
