@@ -1,0 +1,65 @@
+---
+slug: ode-to-testing
+title: "An Ode to Testing: my first review"
+package_version: 0.2.2.9000
+authors:
+  - name: Charles T. Gray
+    url: https://github.com/softloud
+date: 2018-02-27
+categories: blog
+topicid: 
+tags:
+  - r
+  - beginner
+  - community
+  - software
+  - review
+  - package
+  - data-access
+  - weathercan
+---
+
+To give you an idea of where I am in my `R` developer germination, I'd just started reading about [testing](http://r-pkgs.had.co.nz/tests.html) when I received an email from @rOpenSci inviting me to review the [`weathercan`](http://steffilazerte.github.io/weathercan/) package. 
+Many of us in the `R` community feel like [imposters](https://en.wikipedia.org/wiki/Impostor_syndrome) when it comes to software development. In fact, as a statistician, it was a surprise to me when I was recently called a developer. In terms of  formal computer science training, I took one subject in first year, the appropriately initialised *OOF*. I am almost always befuddled by regexes on the rare occasions I come across them.
+
+However, through undertaking this review, which began with the revelation that I'm not alone in thinking, ["What if I have absolutely nothing to say other than, yes, this is, in fact a package?!"](https://ropensci.org/blog/2017/08/22/first-package-review/), I have come to see that all `R` users are `R` family (aw). No doubt these are well worn cobblestones that I judder my bicycle along. Despite this, it felt like a unique journey given my current fascination with testing. 
+
+Now I think any `R` user can be a reviewer. That is, surely there's something to be said for having someone who's relatively uninitiated take your package for a whirl, at the very least. We all want our packages to be usable by all data science folk, not just advanced programmers. 
+
+I was delighted that the [`testthat`](https://cran.r-project.org/web/packages/testthat/README.html) package was part of the recommended reviewer workflow, as well as novel [`devtools`](https://github.com/hadley/devtools) functions. Reading the [rOpenSci package guide](https://github.com/ropensci/onboarding/blob/master/packaging_guide.md) was a veritable font of good tips for someone who has only just begun building their first packages. 
+
+In this context, *testing* refers to a reproducible and more systematic approach to the kind of ad hoc console testing we all do when writing functions. Does it output expected results? For a variety of inputs? Does it fail as it should when passed something it shouldn't be?       
+
+It all seemed straightforward when I was reading about it, but sitting down to write tests for functions I hadn't looked at in a while was a daunting proposition. In a review, however, you're considering other people's functions and the questions that spring to mind are so much more obvious in an objective setting. For starters, do the tests cover all functions?  
+
+I must admit to holding out actually looking at the test code, I wanted to get a feel for the syntax first and have a try myself. So, when I did pop the hood on the tests directory, I appreciated it more. Looking at the tests written for this package, it is clear [@steffilazerte](https://github.com/steffilazerte) is a good ways past reading the testing chapter for the first time. The tests sounded like this.
+
+```{r passion}
+
+```
+
+<iframe src="https://open.spotify.com/embed/track/0kPhDUZe8IdoFVC6e24CnC" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+So, I dragged my feet a bit on the review, largely because the more I read the more I had to revisit testing on my own packages. Thinking about someone else's tests made me want to explore what it was like to write a function along with its associated tests, *at the same time*. 
+
+I'm half-way through my doctorate in statistics. Up until now my until now, my analyses have been horrible `R` script files. Sometimes I'd source functions from other files but then worry they were broken. It sounded like this.
+
+```{r orchestra fail, fig.align='center', echo = FALSE}
+# Not sure this works, but it's centred.
+# vembedr::embed_youtube("https://www.youtube.com/embed/sOUsbtUrXHk") %>%
+#   htmltools::div(class = "vembedr") %>%
+#   htmltools::div(align = "center")
+
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sOUsbtUrXHk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+A wise man ([@njtierney](https://github.com/njtierney)) recently said to me that statisticians can learn a lot from the development community, and he was not wrong. Writing functions with documentation and tests felt like this.
+
+```{r theory of everything, fig.align='center', echo = FALSE}
+
+```
+<iframe src="https://open.spotify.com/embed/track/1Wd7EwZcoAfCAEi9FF6G6b" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+Not only do I know where everything is, but I can also trust that the functions work the way I intended in the documentation using testing. No longer will Current Charles be cursing Past Charles for her inscrutable code!
+  
