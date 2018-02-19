@@ -3,6 +3,7 @@ var calendar = {
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
   'eventList': [
+    <!--
     {
       'title': '<a href="http://eresearch2018.org.nz/" target="_blank">eResearch New Zealand</a>',
       'dateStart': 'Feb 12',
@@ -11,6 +12,7 @@ var calendar = {
       'location': 'Queenstown, NZ',
       'attendees': 'Karthik Ram'
     },
+    -->
     {
       'title': '<a href="https://www.meetup.com/rladies-auckland/" target="_blank">R-Ladies Auckland</a> Meetup',
       'dateStart': 'Feb 20, 2018',
