@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://eresearch2018.org.nz/" target="_blank">eResearch New Zealand</a>',
-      'dateStart': 'Feb 12',
-      'dateEnd': '14, 2018',
-      'description': 'The eResearch Outlook: Impact, Sustainability and Excellence',
-      'location': 'Queenstown, NZ',
-      'attendees': 'Karthik Ram'
-    },
-    {
       'title': '<a href="https://www.meetup.com/rladies-auckland/" target="_blank">R-Ladies Auckland</a> Meetup',
       'dateStart': 'Feb 20, 2018',
       'dateEnd': '',
