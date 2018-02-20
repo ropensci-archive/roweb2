@@ -88,7 +88,7 @@ library(webmockr)
 After loading `webmockr`
 
 ```r
-libraray(webmockr)
+library(webmockr)
 ```
 
 `webmockr` is loaded but not "turned on". At this point `webmockr` doesn't 
@@ -261,7 +261,7 @@ stub_request("get", "https://httpbin.org/get") %>%
 Up until now the stubs we've created have only set what to match on, but
 have not set what to return. With `to_return` you can set response headers,
 response body, and response HTTP status code. You don't match requests 
-on these three things, but rather they determine what's returne in the 
+on these three things, but rather they determine what's returned in the 
 response. 
 
 Here, we'll state that we want an HTTP status of 418 returned:

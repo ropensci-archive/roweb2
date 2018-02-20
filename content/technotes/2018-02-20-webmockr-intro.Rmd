@@ -91,7 +91,7 @@ library(webmockr)
 After loading `webmockr`
 
 ```r
-libraray(webmockr)
+library(webmockr)
 ```
 
 `webmockr` is loaded but not "turned on". At this point `webmockr` doesn't 
