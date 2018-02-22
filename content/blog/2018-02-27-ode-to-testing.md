@@ -35,7 +35,7 @@ It all seemed straightforward when I was reading about it, but sitting down to w
 
 I must admit to holding out actually looking at the test code, I wanted to get a feel for the syntax first and have a try myself. So, when I did pop the hood on the tests directory, I appreciated it more. Looking at the tests written for this package, it is clear [@steffilazerte](https://github.com/steffilazerte) is a good ways past reading the testing chapter for the first time. 
 
-In a previous existence, I worked as a musician for almost two decades. Everything in my life has a soundtrack, and code is no exception. Looking through @steffilazerte's tests, I heard this. My counterpoint lecturer said this is the single greatest piece of [polyphony](https://en.wikipedia.org/wiki/Polyphony) (more than one melody at the same time).
+In a previous existence, I worked as a [musician](http://choosemaths.org.au/charles-gray/) for almost two decades. Everything in my life has a soundtrack, and code is no exception. Looking through @steffilazerte's tests, I heard this. My counterpoint lecturer said this is the single greatest piece of [polyphony](https://en.wikipedia.org/wiki/Polyphony) (more than one melody at the same time).
 
 ```{r passion}
 
