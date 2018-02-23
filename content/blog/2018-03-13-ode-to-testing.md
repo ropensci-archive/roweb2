@@ -19,7 +19,7 @@ tags:
 ---
 
 
-To give you an idea of where I am in my `R` developer germination, I'd just started reading about [testing](http://r-pkgs.had.co.nz/tests.html) when I received an email from [@rOpenSci](https://ropensci.org/) inviting me to review the [`weathercan`](http://steffilazerte.github.io/weathercan/) package. Many of us in the `R` community feel like [imposters](https://en.wikipedia.org/wiki/Impostor_syndrome) when it comes to software development. In fact, as a statistician, it was a surprise to me when I was recently called a developer. 
+To give you an idea of where I am in my `R` developer germination, I'd just started reading about [testing](http://r-pkgs.had.co.nz/tests.html) when I received an email from [@rOpenSci](https://ropensci.org/) inviting me to review the [`weathercan`](https://github.com/ropensci/weathercan) package. Many of us in the `R` community feel like [imposters](https://en.wikipedia.org/wiki/Impostor_syndrome) when it comes to software development. In fact, as a statistician, it was a surprise to me when I was recently called a developer. 
 
 In terms of  formal computer science training, I took one subject in first year, with the appropriate [initialism](https://www.quickanddirtytips.com/education/grammar/abbreviations-acronyms-and-initialisms) *OOF*. Ostensibly, this was to school me in Object Oriented Fundamentals, but mostly educated me in just how much one guy can pontificate about doubles and floats. I am almost always befuddled by regexes on the rare occasions I come across them.
 
