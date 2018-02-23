@@ -18,7 +18,7 @@ rOpenSci is a non-profit initiative that promotes open and reproducible research
 ### What
 - **Introduction to [rOpenSci](https://ropensci.org/)**
   - Karthik Ram: [Web](http://inundata.org/), [GitHub](https://github.com/karthik), [Twitter](https://Twitter.com/_inundata)
-- **Scholarly text and metadata**
+- **Leveraging scholarly text and metadata**
   - Scott Chamberlain: [Web](https://scottchamberlain.info/), [GitHub](https://github.com/sckott), [Twitter](https://Twitter.com/sckottie)
 - **Ideas for improving image processing in R for editing, graphics, medical, spatial and vision applications**
   - Jeroen Ooms: [GitHub](https://github.com/jeroen), [Twitter](https://Twitter.com/opencpu)
