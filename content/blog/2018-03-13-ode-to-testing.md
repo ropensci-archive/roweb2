@@ -72,7 +72,7 @@ Sometimes I'd source functions from other files but then worry they were broken.
 
 A wise man ([@njtierney](https://github.com/njtierney)) recently said to me that statisticians can learn a lot from the development community, and he was not wrong.
 
-In the past, if I came back to code after a couple of months I'd be plagued by anxiety when using a function. Is this the latest itertion? In which script file did I leave the latest iteration lying around? Does every other script file call the latest version?
+In the past, if I came back to code after a couple of months I'd be plagued by anxiety when using a function. Is this the latest iteration? In which script file did I leave the latest iteration lying around? Does every other script file call the latest version?
 
 Writing functions with documentation and tests *at the same time* felt like this.
 
