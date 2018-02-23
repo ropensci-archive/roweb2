@@ -4,7 +4,7 @@ title: An Ode to Testing, my first review
 authors:
   - name: Charles T. Gray
     url: https://github.com/softloud
-date: 2018-02-27
+date: 2018-03-13
 categories: blog
 topicid: 
 tags:
