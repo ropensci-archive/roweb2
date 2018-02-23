@@ -37,10 +37,6 @@ I must admit to holding out actually looking at the test code, I wanted to get a
 
 In a previous existence, I worked as a [musician](http://choosemaths.org.au/charles-gray/) for almost two decades. Everything in my life has a soundtrack, and code is no exception. Looking through @steffilazerte's tests, I heard this. My counterpoint lecturer said this is the single greatest piece of [polyphony](https://en.wikipedia.org/wiki/Polyphony) (more than one melody at the same time).
 
-```{r passion}
-
-```
-
 <center>
 <iframe src="https://open.spotify.com/embed/track/0kPhDUZe8IdoFVC6e24CnC" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 </center>
@@ -54,16 +50,7 @@ I'm half-way through my doctorate in statistics, coming through from a maths bac
 width=40%}
 </center>
 
-
 Sometimes I'd source functions from other files but then worry they were broken. I heard this.
-
-```{r orchestra fail, fig.align='center', echo = FALSE}
-# Not sure this works, but it's centred.
-# vembedr::embed_youtube("https://www.youtube.com/embed/sOUsbtUrXHk") %>%
-#   htmltools::div(class = "vembedr") %>%
-#   htmltools::div(align = "center")
-
-```
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sOUsbtUrXHk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
@@ -76,14 +63,9 @@ In the past, if I came back to code after a couple of months I'd be plagued by a
 
 Writing functions with documentation and tests *at the same time* felt like this.
 
-```{r theory of everything, fig.align='center', echo = FALSE}
-
-```
-
 <center>
 <iframe src="https://open.spotify.com/embed/track/1Wd7EwZcoAfCAEi9FF6G6b" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 </center>
-
 
 Now, not only do I know where everything is, but I can also trust that the functions work the way I intended in the documentation using testing. No longer will Current Charles be cursing Past Charles for her inscrutable code!
   
