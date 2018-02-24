@@ -72,10 +72,10 @@ Writing functions with documentation and tests *at the same time* feels like thi
 Now, not only do I know where everything is, but I can also trust that the functions work the way I intended in the documentation using testing. No longer will Current Charles be cursing Past Charles for her inscrutable code!
 
 <center>
-<img src= "http://overwatch.wikia.com/wiki/D.Va?file=Dva_portrait.png" style = "width: 400px"
-alt = "D.Va portrait. http://overwatch.wikia.com/wiki/D.Va?file=Dva_portrait.png" >
+<img src= "https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" style = "width: 400px"
+alt = "D.Va portrait. https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" >
 <br>
-<div style="font-size: 1em"> [Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](http://overwatch.wikia.com/wiki/D.Va)</div>
+<div style="font-size: 1em"> [Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](http://overwatch.gamepedia.com/com.Va)</div>
 </center>
 
   
