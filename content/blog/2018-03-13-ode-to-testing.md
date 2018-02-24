@@ -49,7 +49,7 @@ I'm half-way through my doctorate in statistics, coming through from a maths bac
 <img src= "/img/blog-images/2018-03-13-ode-to-testing/Towering_Pillar_of_Hats.png" style = "width: 400px"
 alt = "A Towering Pillar of Hats. https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png" >
 <br>
-<div style="font-size: 1em"> [A Towering Pillar of Hats](https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png")</div>
+<div style="font-size: 1em"> [A Towering Pillar of Hats](https://wiki.teamfortress.com/wiki/Towering_Pillar_of_Hats")</div>
 </center>
 
 Sometimes I'd source functions from other files but then worry they were broken. I heard this.
