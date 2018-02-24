@@ -45,15 +45,11 @@ So, I dragged my feet a bit on the review, largely because the more I read the m
 
 I'm half-way through my doctorate in statistics, coming through from a maths background. So, up until now, my analyses have been horrible [towering pillars](https://wiki.teamfortress.com/wiki/Towering_Pillar_of_Hats) of  `R` script files which sourced functions from each other. 
 
-```{r }
-
-magick::image_read("https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png")
-
-```
-
 <center>
-![A towering pillar of hats](https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png){
-width=40%}
+<img src= "/img/blog-images/2018-03-13-ode-to-testing/Towering_Pillar_of_Hats.png" style = "width: 400px"
+alt = "A Towering Pillar of Hats. https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png" >
+<br>
+<div style="font-size: 1em">_A Towering Pillar of Hats. https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png"_</div>
 </center>
 
 Sometimes I'd source functions from other files but then worry they were broken. I heard this.
