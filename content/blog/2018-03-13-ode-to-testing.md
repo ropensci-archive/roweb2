@@ -45,9 +45,9 @@ So, I dragged my feet a bit on the review, largely because the more I read the m
 
 I'm half-way through my doctorate in statistics, coming through from a maths background. So, up until now, my analyses have been horrible [towering pillars](https://wiki.teamfortress.com/wiki/Towering_Pillar_of_Hats) of  `R` script files which sourced functions from each other. 
 
-```{r, echo = F}
+```{r }
 
-image_read("https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png")
+magick::image_read("https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png")
 
 ```
 
