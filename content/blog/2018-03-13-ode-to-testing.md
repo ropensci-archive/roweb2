@@ -75,7 +75,7 @@ Now, not only do I know where everything is, but I can also trust that the funct
 <img src= "https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" style = "width: 400px"
 alt = "D.Va portrait. https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" >
 <br>
-<div style="font-size: 1em"> [Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](http://overwatch.gamepedia.com/com.Va)</div>
+<div style="font-size: 1em"> [Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](http://overwatch.gamepedia.com/com/D.Va)</div>
 </center>
 
   
