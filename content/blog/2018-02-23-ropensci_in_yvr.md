@@ -40,7 +40,7 @@ Monday, March 12, 2018. Talks, demos, Q&A, 5:30-7:30. Networking & snacks till 9
 ### Where
 Ground floor lecture theatre, BC Cancer Research Centre, 675 West 10th Avenue.
 
-<div><a href="https://goo.gl/maps/DV8BNvxT8Ay"><img src="/img/blog-images/2018-02-23-ropensci-in-yvr/map_ropensci_yvr.png"/></a></div>
+<div><a href="https://goo.gl/maps/DV8BNvxT8Ay"><img src="/img/blog-images/2018-02-23-ropensci-in-yvr/map_ropensci_yvr.png" width="600"/></a></div>
 
 
 
