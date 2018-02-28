@@ -1,11 +1,11 @@
 ---
 slug: "rentrez paper" 
 title: A rentrez paper, and how to use the NCBI's new API keys 
-package_version 1.2.1
+package_version: 1.2.1
 authors:
     - name David Winter
     - url david-winter.info
-date: 2018-03-08
+date: 2018-03-02
 catergories: blog
 tags:
     - r 
@@ -55,7 +55,7 @@ lucky to have this code included in rOpenSci at an early stage. Being part of
 the wider project made sure `rentrez` kept pace with the best-practices for code 
 and documentation developed by the R community and got the package out to a wider 
 audience than would have otherwise been possible. I am thankful to everyone who has
-filed an issue or contributed code to the `rentrez`. I also have to
+filed an issue or contributed code to `rentrez`. I also have to
 single out Scott Chamberlain, who has done a great deal to make sure the code 
 meets community standards and is useful to as many people as possible.
 
@@ -71,14 +71,14 @@ key](https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-uti
 that will allow them to make up to 10 requests per second (non-registered users are limited
 to 3 requests per second per IP address). As of the latest release, `rentrez` 
 supports the use of these access keys while enforcing the appropriate rate limits. 
-For one-off cases, this is as simple as adding the `api_key` argument to given 
+For one-off cases, this is as simple as adding the `api_key` argument to a given 
 function call. 
 
 ```r
 prot_links <- entrez_link(db="protein", dbfrom="gene", id=93100, api_key ="ABCD123")
 ```
 
-It most cases you will want to use your API for each of several calls to the
+It most cases you will want to use your key for each of several calls to the
 NCBI. `rentrez` makes this easy by allowing you to set an environment variable
 ,`ENTREZ_KEY`. Once this value is set to your key `rentrez` will use it for all
 requests to the NCBI. To set the value for a single R session you can use the
