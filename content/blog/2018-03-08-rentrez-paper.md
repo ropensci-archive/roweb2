@@ -5,7 +5,7 @@ package_version 1.2.1
 authors:
     - name David Winter
     - url david-winter.info
-date: 2018-03-02
+date: 2018-03-08
 catergories: blog
 tags:
     - r 
