@@ -5,7 +5,7 @@ package_version: 1.2.1
 authors:
     - name: David Winter
     - url: https://david-winter.info
-date: 2018-03-02
+date: 2018-03-08
 categories: blog
 topicid:
 tags:
@@ -27,7 +27,7 @@ the most of the huge datasets made available from the NCBI.
 It's now been more than six years since I [started cleaning up my research
 code](https://github.com/ropensci/rentrez/commit/67c504b61534b77f5ecaad73761ada1435a9e211)
 in the hope of developing a package that might be useful to others. So, it's nice to finally
-be able to type `r citation(package="rentrez")` and see a formal citation for
+be able to type `citation(package="rentrez")` and see a formal citation for
 the work that's gone into the project:
 
 ```r
@@ -80,8 +80,8 @@ prot_links <- entrez_link(db="protein", dbfrom="gene", id=93100, api_key ="ABCD1
 ```
 
 It most cases you will want to use your key for each of several calls to the
-NCBI. `rentrez` makes this easy by allowing you to set an environment variable
-,`ENTREZ_KEY`. Once this value is set to your key `rentrez` will use it for all
+NCBI. `rentrez` makes this easy by allowing you to set an environment variable,
+`ENTREZ_KEY`. Once this value is set to your key `rentrez` will use it for all
 requests to the NCBI. To set the value for a single R session you can use the
 function `set_entrez_key()`. Here we set the value and confirm it is now
 available as an environment variable.
@@ -94,8 +94,8 @@ Sys.getenv("ENTREZ_KEY")
 ```
 ## [1] "ABCD123"
 ```
-If you use `rentrez` often you should edit your `.Renviron` file (see `r
-help(Startup)` for a description of this file) to include your key. Doing so will
+If you use `rentrez` often you should edit your `.Renviron` file (see 
+`help(Startup)` for a description of this file) to include your key. Doing so will
 mean all requests you send will take advantage of your API key. Here's the line
 to add:
 
@@ -108,7 +108,7 @@ to make up to ten requests per second.
 
 ## Bugs and use-cases please!
 
-The publication of the  _R Journal_ is not the end of development for `rentrez`.
+The publication in the  _R Journal_ is not the end of development for `rentrez`.
 Though the package is now feature-complete and stable, I am very keen to make sure
 it keeps pace with the API it wraps and squash any bugs that might arise. I also 
 appreciate use-cases that demonstrate how the package can take advantage of NCBI
