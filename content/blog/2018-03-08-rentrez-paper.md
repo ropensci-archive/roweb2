@@ -6,7 +6,8 @@ authors:
     - name David Winter
     - url david-winter.info
 date: 2018-03-02
-catergories: blog
+categories: blog
+topicid:
 tags:
     - r 
     - community 
