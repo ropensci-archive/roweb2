@@ -475,7 +475,7 @@ I hope these examples will help guide you in the many ways in which you can inte
 
 I would also highly recommend documenting the process by which you join your data. This makes it easy for you to keep track of what you've done and makes your work reproducible.
 
-You can easily document this process by keeping an R script with all the coding steps and then using the "Knit" button in RStudio (or use [`Rmarkdown`](https://rmarkdown.rstudio.com) directly). If you like a more polished document, consider using `roxygen` comments `#'` rather than regular R comments `#` directly in your R script. `roxygen` comments allow you to write your comments in Markdown which is then converted to regular or marked up text in the html/pdf file. Your .R script would look something like this:
+You can easily document this process by keeping an R script with all the coding steps and then using the "Knit" button in RStudio (or use [`Rmarkdown`](https://rmarkdown.rstudio.com) directly). If you like a more polished document, consider using `roxygen` comments `#'` rather than regular R comments `#` directly in your R script. `roxygen` comments allow you to write your comments in Markdown which is then converted to regular or marked up text in the html/pdf file. Your .R script would look something like this (including `devtools::session_info()` at the end spits out information on your version of R and any packages loaded):
 
     #' # Setup
     library(weathercan)
@@ -490,6 +490,9 @@ You can easily document this process by keeping an R script with all the coding 
     ggplot(data = w, aes(x = time, y = temp)) +
       geom_point() +
       geom_line()
+      
+    #' # Session Info
+    devtools::session_info()
 
 Acknowledgements
 ----------------
