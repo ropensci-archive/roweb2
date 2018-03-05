@@ -465,32 +465,10 @@ I hope these examples will help guide you in the many ways in which you can inte
 
 -   Make sure your data is summarized to the appropriate level first (i.e. don't try to merge hourly data with yearly data)
 -   Make sure you join data by the correct columns (i.e. include your index columns as well as the appropriate time/date column)
--   Often, you'll need to make an intermediate, `index`, data frame in which you link sites or observations to a `station_id`, this can then be used to link specific weather observations to your other measurements
+-   Often, you'll need to make intermediate data frames in which you link weather stations to sites or observations
 -   For spatial data, make sure your two data sets have the same CRS, and consider the `st_join()` function from the [`sf` package](http://r-spatial.github.io/sf/) to join them
 -   Make it easier on yourself by using [`tidyverse`](https://tidyverse.org), specifically the packages `dplyr` and `tidyr` ([R for Data Science](http://r4ds.had.co.nz) is a great reference)
-
-### A note about reproducibility
-
-I would also highly recommend documenting the process by which you join your data. This makes it easy for you to keep track of what you've done and makes your work reproducible.
-
-You can easily document this process by keeping an R script with all the coding steps and then using the "Knit" button in RStudio (or use [`Rmarkdown`](https://rmarkdown.rstudio.com) directly). If you like a more polished document, consider using `roxygen` comments `#'` rather than regular R comments `#` directly in your R script. `roxygen` comments allow you to write your comments in Markdown which is then converted to regular or marked up text in the html/pdf file. Your .R script would look something like this (including `devtools::session_info()` at the end spits out information on your version of R and any packages loaded):
-
-    #' # Setup
-    library(weathercan)
-    library(dplyr)
-    library(ggplot2)
-
-    #' # Data
-    w <- weather_dl(station_ids = "42203", start = "2018-01-01")
-
-    #' # Figures
-    #+ fig.width = 10, dpi = 200
-    ggplot(data = w, aes(x = time, y = temp)) +
-      geom_point() +
-      geom_line()
-      
-    #' # Session Info
-    devtools::session_info()
+-   Document the process by which you join your data. This makes it easy for you to keep track of what you've done and makes your work reproducible (consider using the "Knit" button in RStudio as a shortcut for making reports)
 
 Acknowledgements
 ----------------
