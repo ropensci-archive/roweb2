@@ -5,7 +5,7 @@ package_version: 0.2.5
 authors:
   - name: Steffi LaZerte
     url: http://steffilazerte.ca
-date: 2018-03-02
+date: 2018-03-06
 categories: blog
 topicid: 000
 tags:
@@ -25,13 +25,11 @@ output:
     preserve_yaml: true
 ---
 
-I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org) data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck.
+I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org) data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck. This is one of the reasons why, when I designed [`weathercan`](http://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward.
 
-This is one of the reasons why, when I designed [`weathercan`](http://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward. `weathercan` is an R package designed to make it easy to access historical weather data from [Environment and Climate Change Canada (ECCC)](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html). It downloads, combines, cleans, and transforms the data from multiple stations and across long time frames. So when you access ECCC data, you get everything in one dataset. Nifty, eh?
+`weathercan` is an R package designed to make it easy to access historical weather data from [Environment and Climate Change Canada (ECCC)](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html). It downloads, combines, cleans, and transforms the data from multiple stations and across long time frames. So when you access ECCC data, you get everything in one dataset. Nifty, eh?
 
-However, there is a certain point at which the user has to take matters into their own hands. Although downloading data with `weathercan` is fairly straight forward, weather data often needs to be integrated into other data sets. Depending on the other data this can be a tricky step. You may want to combine `weathercan` data with other types of measurements (e.g., river water samples on a specific day), or summarize and join it with data on other scales (e.g. temporal or spatial).
-
-Integrating `weathercan` data can be straightforward, but often it's a bit convoluted. That's why I'm going to walk you through some different ways of integrating weather data from `weathercan` with other data sets.
+However, there is a certain point at which the user has to take matters into their own hands. Although downloading data with `weathercan` is fairly straight forward, weather data often needs to be integrated into other data sets. You may want to combine `weathercan` data with other types of measurements (e.g., river water samples on a specific day), or summarize and join it with data on other scales (e.g. temporal or spatial). Depending on the other data this can be a tricky step. That's why I'm going to walk you through some different ways of integrating weather data from `weathercan` with other data sets.
 
 We'll also be using several other R packages to do this, so why don't we load them right now:
 
@@ -53,52 +51,50 @@ library(mapview)
 
 Well, I've told you it's easy to get data from `weathercan`, so let's start by doing so. For example, if you wanted to download weather data for all of Manitoba, Canada since the New Year, you have only three steps:
 
-1.  Load the package:
+1) Load the package:
 
-    ``` r
-    library(weathercan)
-    ```
+``` r
+library(weathercan)
+```
 
-2.  Look at the built in `stations` data set to find the specific stations you're interested in (you can also use the `stations_search()` function). Here, we'll use the [`dplyr`](http://dplyr.tidyverse.org/) package (part of [`tidyverse`](https://www.tidyverse.org)) to `filter()` stations to only those in the province of Manitoba, at daily intervals, and which have an end date of at least 2018 (which likely means it's still operational). Note that we'll also be removing some columns (`prov`, `climate_id`, `WMO_id`, `TC_id`) just for clarity.
+2) Look at the built in `stations` data set to find the specific stations you're interested in (you can also use the `stations_search()` function). Here, we'll use the [`dplyr`](http://dplyr.tidyverse.org/) package (part of [`tidyverse`](https://www.tidyverse.org)) to `filter()` stations to only those in the province of Manitoba, at daily intervals, and which have an end date of at least 2018 (which likely means it's still operational). Note that we'll also be removing some columns (`prov`, `climate_id`, `WMO_id`, `TC_id`) just for clarity.
 
-    ``` r
-    mb <- filter(stations, 
-                 prov == "MB",
-                 interval == "day",
-                 end >= 2018) %>%
-      select(-prov, -climate_id, -WMO_id, -TC_id)
-    mb
-    ```
+``` r
+mb <- filter(stations, 
+             prov == "MB",
+             interval == "day",
+             end >= 2018) %>%
+  select(-prov, -climate_id, -WMO_id, -TC_id)
+mb
+```
 
-        ## # A tibble: 70 x 8
-        ##    station_name         station_id   lat    lon  elev interval start   end
-        ##    <chr>                <fct>      <dbl>  <dbl> <dbl> <chr>    <int> <int>
-        ##  1 BALDUR               3463        49.3 - 99.3   450 day       1962  2018
-        ##  2 BRANDON A            50821       49.9 -100.0   409 day       2012  2018
-        ##  3 BRANDON RCS          49909       49.9 -100.0   409 day       2012  2018
-        ##  4 CARBERRY CS          27741       49.9 - 99.4   384 day       1994  2018
-        ##  5 CYPRESS RIVER RCS    48128       49.6 - 99.1   374 day       2009  2018
-        ##  6 ELKHORN 2 EAST       3460        49.9 -101     498 day       1987  2018
-        ##  7 PORTAGE ROMANCE      45987       50.0 - 98.3   262 day       2007  2018
-        ##  8 PORTAGE LA PRAIRIE … 3519        50.0 - 98.3   259 day       1970  2018
-        ##  9 PORTAGE SOUTHPORT    10884       49.9 - 98.3   273 day       1992  2018
-        ## 10 ROBLIN               27119       51.2 -101     540 day       1996  2018
-        ## # ... with 60 more rows
+    ## # A tibble: 70 x 8
+    ##    station_name         station_id   lat    lon  elev interval start   end
+    ##    <chr>                <fct>      <dbl>  <dbl> <dbl> <chr>    <int> <int>
+    ##  1 BALDUR               3463        49.3 - 99.3   450 day       1962  2018
+    ##  2 BRANDON A            50821       49.9 -100.0   409 day       2012  2018
+    ##  3 BRANDON RCS          49909       49.9 -100.0   409 day       2012  2018
+    ##  4 CARBERRY CS          27741       49.9 - 99.4   384 day       1994  2018
+    ##  5 CYPRESS RIVER RCS    48128       49.6 - 99.1   374 day       2009  2018
+    ##  6 ELKHORN 2 EAST       3460        49.9 -101     498 day       1987  2018
+    ##  7 PORTAGE ROMANCE      45987       50.0 - 98.3   262 day       2007  2018
+    ##  8 PORTAGE LA PRAIRIE … 3519        50.0 - 98.3   259 day       1970  2018
+    ##  9 PORTAGE SOUTHPORT    10884       49.9 - 98.3   273 day       1992  2018
+    ## 10 ROBLIN               27119       51.2 -101     540 day       1996  2018
+    ## # ... with 60 more rows
 
-3.  Download all the data from the start of the year for these stations
+3) Download all the data from the start of the year for these stations
 
-    ``` r
-    mb_weather_all <- weather_dl(station_ids = mb$station_id, 
-                                 start = "2018-01-01", 
-                                 interval = "day", quiet = TRUE)
-    ```
+``` r
+mb_weather_all <- weather_dl(station_ids = mb$station_id, 
+                             start = "2018-01-01", 
+                             interval = "day", quiet = TRUE)
+```
 
 A simple example
 ----------------
 
 Where things get tricky are in the specific use cases. For example, what if you have multiple sites and multiple days for which you want a measure of temperature and precipitation?
-
-We'll be using pipes (`%>%`) throughout our examples, so checkout the [chapter on Pipes in R for Data Science](http://r4ds.had.co.nz/pipes.html) if you need a refresher or introduction.
 
 The first step is to figure out which weather stations you want to use. These will probably be the ones closest to your sites and which have the appropriate data.
 
@@ -106,17 +102,17 @@ Let's assume you have two sites and the following measurements made on specific 
 
 ``` r
 stream <- tribble(~ site,     ~ lat,      ~ lon,       ~ date, ~ water_temp,
-                     "A", 49.688211, -97.116088, "2018-01-12",          4.5,
-                     "A", 49.688211, -97.116088, "2018-01-20",          4.7,
-                     "A", 49.688211, -97.116088, "2018-01-21",          4.9,
-                     "A", 49.688211, -97.116088, "2018-01-30",          5.0,
-                     "A", 49.688211, -97.116088, "2018-02-17",          3.8,
-                     "B", 49.267330, -97.327142, "2018-01-13",          2.1,
-                     "B", 49.267330, -97.327142, "2018-01-22",          4.1,
-                     "B", 49.267330, -97.327142, "2018-01-23",          3.7,
-                     "B", 49.267330, -97.327142, "2018-01-31",          2.3,
-                     "B", 49.267330, -97.327142, "2018-02-18",          4.1,
-                     "B", 49.267330, -97.327142, "2018-02-20",          4.6) %>%
+                    "A", 49.688211, -97.116088, "2018-01-12",          4.5,
+                    "A", 49.688211, -97.116088, "2018-01-20",          4.7,
+                    "A", 49.688211, -97.116088, "2018-01-21",          4.9,
+                    "A", 49.688211, -97.116088, "2018-01-30",          5.0,
+                    "A", 49.688211, -97.116088, "2018-02-17",          3.8,
+                    "B", 49.267330, -97.327142, "2018-01-13",          2.1,
+                    "B", 49.267330, -97.327142, "2018-01-22",          4.1,
+                    "B", 49.267330, -97.327142, "2018-01-23",          3.7,
+                    "B", 49.267330, -97.327142, "2018-01-31",          2.3,
+                    "B", 49.267330, -97.327142, "2018-02-18",          4.1,
+                    "B", 49.267330, -97.327142, "2018-02-20",          4.6) %>%
   mutate(date = as.Date(date))
 stream
 ```
@@ -172,7 +168,7 @@ siteB
     ## 1 EMERSON AUTO 48068       49.0 -97.2   242 day       2009  2018     30.4
     ## 2 GRETNA (AUT) 3605        49.0 -97.6   253 day       1885  2018     31.4
 
-We have a selection of stations for each site that are all about the same distance away. Before we chose any we should make sure they have the data we're interested in.
+We have a selection of stations for each site that are all about the same distance away. Before we choose any we should make sure they have the data we're interested in.
 
 Above, we already downloaded all the data for Manitoba in this date range (`mb_weather`), so we can `select()` the types of data we want and then `filter()` to the specific `station_id`s we're interested in. We can then use the `naniar` package to easily visualize any missing data from these stations:
 
@@ -193,7 +189,7 @@ mb_weather %>%
 ```
 
 <center>
-<img src = "/img/blog-images/2018-03-13-weathercan/naniarA-1.png" style = "width: 80%">
+<img src = "/img/blog-images/2018-03-06-weathercan/naniarA-1.png" style = "width: 80%">
 </center>
 <p>
 ``` r
@@ -205,10 +201,10 @@ mb_weather %>%
 ```
 
 <center>
-<img src = "/img/blog-images/2018-03-13-weathercan/naniarB-1.png" style = "width: 80%">
+<img src = "/img/blog-images/2018-03-06-weathercan/naniarB-1.png" style = "width: 80%">
 </center>
 <p>
-No station has much snow data, unles we're willing to lose all temperature data. For site A, it definitely looks like station id 28051 has the most complete data (temperature and precipitation, at least). Site B we can use either station.
+No station has much snow data, unless we're willing to lose all temperature data. For site A, it definitely looks like station id 28051 has the most complete data (temperature and precipitation, at least). Site B we can use either station.
 
 **Note:** Factors other than distance may also play a role in deciding on a station, such as habitat type, elevation, etc. Depending on what you hope to achieve, you may want to consider these when choosing a station.
 
@@ -265,7 +261,7 @@ And there you have it! We have neatly combined `weathercan` data from the neares
 Linear interpolation
 --------------------
 
-Sometimes you have data at the same scale as the `weathercan` data, but inbetween the sampling points. An example of this is data documenting visits to bird feeders by birds outfitted with RFID tags (radio-frequency identification). When a bird with a tag sits on the perch of a feeder, their presence is recorded. We can access this data from [Thompson Rivers University](https://www.tru.ca/) using the [`feedr`](http://github.com/animalnexus/feedr) package:
+Sometimes you have data at the same scale as the `weathercan` data, but in between the sampling points. An example of this is data documenting visits to bird feeders by birds outfitted with RFID tags (radio-frequency identification). When a bird with a tag sits on the perch of a feeder, their presence is recorded. This data is available through the [animalnexus project](http://animalnexus.ca) hosted at [Thompson Rivers University](https://www.tru.ca/). We can use the [`feedr`](http://github.com/animalnexus/feedr) package to access it:
 
 ``` r
 f <- dl_data(start = "2017-01-06", end = "2017-01-10")
@@ -362,7 +358,7 @@ ggplot(data = f_temp[1:25,], aes(x = time, y = temp)) +
 ```
 
 <center>
-<img src = "/img/blog-images/2018-03-13-weathercan/interpolate-1.png" style = "width: 100%">
+<img src = "/img/blog-images/2018-03-06-weathercan/interpolate-1.png" style = "width: 100%">
 </center>
 <p>
 `weather_interp` simply draws a line between the two temperature points and figures out the corresponding intermediate temperature based on the linear function.
@@ -452,10 +448,10 @@ Finally, we can plot this as a map using `mapview`. In this manner all the data 
 mapview(MB, zcol = "mean_temp", legend = TRUE)
 ```
 
-![](../../themes/ropensci/static/img/blog-images/2018-03-13-weathercan/mapview-1.png)
+![](../../themes/ropensci/static/img/blog-images/2018-03-06-weathercan/mapview-1.png)
 
 <center>
-<img src = "/img/blog-images/2018-03-13-weathercan/mapview-1.png" style = "width:80%">
+<img src = "/img/blog-images/2018-03-06-weathercan/mapview-1.png" style = "width:80%">
 </center>
 <p>
 Surprisingly Churchill, MB (the north-eastern, green area) was almost balmy compared to south-western Manitoba!
@@ -463,7 +459,7 @@ Surprisingly Churchill, MB (the north-eastern, green area) was almost balmy comp
 Combining data in general
 -------------------------
 
-I hope these examples will help guide you in the many ways in which you can integrate `weathercan` data into other data sets. There are many different types of data to integrate, but generally, the same principals apply to merging `weathercan` data as to merging all data:
+I hope these examples will help guide you in the many ways in which you can integrate `weathercan` data into other data sets. There are many different types of data to integrate, but generally, the same principles apply to merging `weathercan` data as to merging all data:
 
 -   Make sure your data is summarized to the appropriate level first (i.e. don't try to merge hourly data with yearly data)
 -   Make sure you join data by the correct columns (i.e. include your index columns as well as the appropriate time/date column)
