@@ -91,12 +91,10 @@ mb_weather_all <- weather_dl(station_ids = mb$station_id,
                              interval = "day", quiet = TRUE)
 ```
 
-A simple example
-----------------
+Finding local weather
+---------------------
 
-Where things get tricky are in the specific use cases. For example, what if you have multiple sites and multiple days for which you want a measure of temperature and precipitation?
-
-The first step is to figure out which weather stations you want to use. These will probably be the ones closest to your sites and which have the appropriate data.
+A common scenario is when you have observations or measurements taken at several different sites across different dates and you want to match these to local weather data. Perhaps you want to control for changes in ambient temperature, or perhaps you're interested in how precipitation affects your measurements. Here, we'll go through an example of how to combine weather data with stream data measured from multiple nearby sites. In this example, by adding local temperature data to our data set we could then go on to explore the relationship between air and water temperature across sites.
 
 Let's assume you have two sites and the following measurements made on specific dates:
 
@@ -132,7 +130,9 @@ stream
     ## 10 B      49.3 -97.3 2018-02-18       4.10
     ## 11 B      49.3 -97.3 2018-02-20       4.60
 
-We can use the `stations_search()` function with the `coords` argument to find the closest ECCC climate station to these sites
+The first step is to figure out which weather stations you want to use. These will probably be the ones closest to your sites and which have the appropriate data.
+
+We can use the `stations_search()` function with the `coords` argument to find the closest ECCC climate station to these sites.
 
 First, site A:
 
@@ -204,7 +204,7 @@ mb_weather %>%
 <img src = "/img/blog-images/2018-03-06-weathercan/naniarB-1.png" style = "width: 80%">
 </center>
 <p>
-No station has much snow data, unless we're willing to lose all temperature data. For site A, it definitely looks like station id 28051 has the most complete data (temperature and precipitation, at least). Site B we can use either station.
+Except for station 43185, no station has much snow data. However, while 43185 has snow, it doesn't have any temperature data. So, for site A, unless we're willing to lose all temperature data, it definitely looks like station 28051 has the most complete data (temperature and precipitation, at least). Neither station at site B has snow data, but both have full temperature data sets, so we can use either station.
 
 **Note:** Factors other than distance may also play a role in deciding on a station, such as habitat type, elevation, etc. Depending on what you hope to achieve, you may want to consider these when choosing a station.
 
