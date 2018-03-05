@@ -258,10 +258,14 @@ glimpse(stream) # Alternative way of looking at data with many columns
 
 And there you have it! We have neatly combined `weathercan` data from the nearest, most complete stations, with our `stream` data. If you'd like to learn more about joining data, check out the [R for Data Science chapter on Relational Data](http://r4ds.had.co.nz/relational-data.html).
 
-Linear interpolation
---------------------
+Small temporal scales
+---------------------
 
-Sometimes you have data at the same scale as the `weathercan` data, but in between the sampling points. An example of this is data documenting visits to bird feeders by birds outfitted with RFID tags (radio-frequency identification). When a bird with a tag sits on the perch of a feeder, their presence is recorded. This data is available through the [animalnexus project](http://animalnexus.ca) hosted at [Thompson Rivers University](https://www.tru.ca/). We can use the [`feedr`](http://github.com/animalnexus/feedr) package to access it:
+In the previous example, we had daily measurements and daily weather data, so it was pretty straightforward to line them up. However, ECCC data's smallest scale is hourly, but sometimes you have measurements recorded at shorter intervals. To line these data up, you either have to combine your measurements so they reflect a larger scale (e.g., average or sum your measurements), or interpolate the `weathercan` data so they reflect a smaller scale.
+
+In this example, we'll use linear interpolation to assign temperature measurements to bird feeding activity (measured over seconds and minutes). This would allow us to control for potential effects of temperature on winter foraging behaviour without losing the fine-scale resolution of our data.
+
+For foraging data, we'll use bird visits to feeders recorded through RFID (radio-frequency identification). When a bird with an RFID tag sits on the perch of a feeder with an RFID logger, their presence is recorded. This data is available through the [animalnexus project](http://animalnexus.ca) hosted at [Thompson Rivers University](https://www.tru.ca/). We can use the [`feedr`](http://github.com/animalnexus/feedr) package to access it:
 
 ``` r
 f <- dl_data(start = "2017-01-06", end = "2017-01-10")
@@ -283,11 +287,9 @@ head(f)
     ## 5 AHY   U Kamloops, BC -120.3658 50.67057
     ## 6 AHY   U Kamloops, BC -120.3658 50.67057
 
-Each observation reflects a moment when the bird in question was detected by an RFID-enabled feeder. These observations are on the scale of seconds to minutes, but our temperature data is hourly.
+Each observation reflects a moment when the bird in question was detected at a feeder.
 
-We can use linear interpolation on our temperature data to line up temperature with these observations.
-
-First let's find the nearest weather station for the same date range:
+First, let's find the nearest weather station for the same date range:
 
 ``` r
 stations_search(coords = f[1, c("lat", "lon")], interval = "hour") %>%
@@ -361,7 +363,7 @@ ggplot(data = f_temp[1:25,], aes(x = time, y = temp)) +
 <img src = "/img/blog-images/2018-03-06-weathercan/interpolate-1.png" style = "width: 100%">
 </center>
 <p>
-`weather_interp` simply draws a line between the two temperature points and figures out the corresponding intermediate temperature based on the linear function.
+`weather_interp` draws a line between the two temperature points and figures out the corresponding intermediate temperature based on the linear function. You can think of this as a weighted average temperature, where the temperature is weighted towards the closest measurement in time.
 
 Different spatial scales
 ------------------------
