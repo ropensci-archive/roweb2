@@ -365,12 +365,12 @@ ggplot(data = f_temp[1:25,], aes(x = time, y = temp)) +
 <p>
 `weather_interp` draws a line between the two temperature points and figures out the corresponding intermediate temperature based on the linear function. You can think of this as a weighted average temperature, where the temperature is weighted towards the closest measurement in time.
 
-Different spatial scales
-------------------------
+Wide geographic scales
+----------------------
 
-The final example we'll go over concerns spatial data. While the `weathercan` data is spatial, it only reflects spatial *points*. You may wish to average over regions or plot these points on a map.
+While the `weathercan` data is spatial, it only reflects spatial *points*. You may wish to average over regions or plot these points on a map, which would allow you to look at your data in a different, more visual manner, and to use it in more spatially explicit analyses.
 
-Using the [`sf`](http://r-spatial.github.io/sf/) and [`mapview`](https://r-spatial.github.io/mapview/) packages, we can look at average station temperature across different ecological regions in Manitoba on New Year's Day, 2018.
+In this final example we will use the [`sf`](http://r-spatial.github.io/sf/) and [`mapview`](https://r-spatial.github.io/mapview/) packages to visualize average temperature across different ecological regions in Manitoba on New Year's Day, 2018.
 
 First, we'll need to download and unzip the ecological area shape file from the [Province of Manitoba website](http://mli2.gov.mb.ca/environment/shp_zip_files/env_ecological_areas_py_shp.zip).
 
@@ -422,7 +422,7 @@ Next, we'll want to make our `weathercan` data compatible with the ecological da
 
 -   First filter to only include Jan 1st 2018
 -   Convert to spatial data using the lat/lon for each station
--   Finally convert to the same CRS as the ecological data
+-   Finally convert to the same coordinate reference system (CRS) as the ecological data
 
 ``` r
 mb_spatial <- mb_weather %>%
