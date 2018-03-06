@@ -25,11 +25,11 @@ output:
     preserve_yaml: true
 ---
 
-I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org) data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck. This is one of the reasons why, when I designed [`weathercan`](http://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward.
+I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org), data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck. This is one of the reasons why, when I designed [`weathercan`](http://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward.
 
-`weathercan` is an R package designed to make it easy to access historical weather data from [Environment and Climate Change Canada (ECCC)](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html). It downloads, combines, cleans, and transforms the data from multiple stations and across long time frames. So when you access ECCC data, you get everything in one dataset. Nifty, eh?
+`weathercan` is an R package designed to make it easy to access historical weather data from [Environment and Climate Change Canada (ECCC)](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html). It downloads, combines, cleans, and transforms the data from multiple weather stations and across long time frames. So when you access ECCC data, you get everything in one dataset. Nifty, eh?
 
-However, there is a certain point at which the user has to take matters into their own hands. Although downloading data with `weathercan` is fairly straight forward, weather data often needs to be integrated into other data sets. You may want to combine `weathercan` data with other types of measurements (e.g., river water samples on a specific day), or summarize and join it with data on other scales (e.g. temporal or spatial). Depending on the other data this can be a tricky step. That's why I'm going to walk you through some different ways of integrating weather data from `weathercan` with other data sets.
+Although downloading data with `weathercan` is fairly straight forward, weather data often needs to be integrated into other data sets. You may want to combine `weathercan` data with other types of measurements (e.g., river water samples on a specific day), or summarize and join it with data on other scales (e.g. temporal or spatial). Depending on the other data this can be a tricky step. That's why I'm going to walk you through some different ways of integrating weather data from `weathercan` with other data sets.
 
 We'll also be using several other R packages to do this, so why don't we load them right now:
 
@@ -57,7 +57,7 @@ Well, I've told you it's easy to get data from `weathercan`, so let's start by d
 library(weathercan)
 ```
 
-2) Look at the built in `stations` data set to find the specific stations you're interested in (you can also use the `stations_search()` function). Here, we'll use the [`dplyr`](http://dplyr.tidyverse.org/) package (part of [`tidyverse`](https://www.tidyverse.org)) to `filter()` stations to only those in the province of Manitoba, at daily intervals, and which have an end date of at least 2018 (which likely means it's still operational). Note that we'll also be removing some columns (`prov`, `climate_id`, `WMO_id`, `TC_id`) just for clarity.
+2) Look at the built in `stations` data set to find the specific stations you're interested in (you can also use the `stations_search()` function). Here, we'll use the [`dplyr`](http://dplyr.tidyverse.org/) package (part of [`tidyverse`](https://www.tidyverse.org)) to `filter()` stations to only those in the province of Manitoba, which record data at daily intervals, and which have an end date of 2018 or later (which likely means it's still operational at the date of writing this post). Note that we'll also be removing some columns (`prov`, `climate_id`, `WMO_id`, `TC_id`) just for clarity.
 
 ``` r
 mb <- filter(stations, 
@@ -94,9 +94,9 @@ mb_weather_all <- weather_dl(station_ids = mb$station_id,
 Finding local weather
 ---------------------
 
-A common scenario is when you have observations or measurements taken at several different sites across different dates and you want to match these to local weather data. Perhaps you want to control for changes in ambient temperature, or perhaps you're interested in how precipitation affects your measurements. Here, we'll go through an example of how to combine weather data with stream data measured from multiple nearby sites. In this example, by adding local temperature data to our data set we could then go on to explore the relationship between air and water temperature across sites.
+A common scenario is when you have other, non-weather, observations or measurements taken at several different sites across different dates and you want to match these to local weather data. Perhaps you want to control for changes in ambient temperature, or perhaps you're interested in how precipitation affects your measurements. Here, we'll go through an example of how to combine weather data with stream data measured from multiple nearby sites. In this example, by adding local temperature data to our data set we could then go on to explore the relationship between air and water temperature across sites.
 
-Let's assume you have two sites and the following measurements made on specific dates:
+Let's assume you have two stream sites and the following stream temperature measurements made on specific dates:
 
 ``` r
 stream <- tribble(~ site,     ~ lat,      ~ lon,       ~ date, ~ water_temp,
@@ -458,8 +458,8 @@ mapview(MB, zcol = "mean_temp", legend = TRUE)
 <p>
 Surprisingly Churchill, MB (the north-eastern, green area) was almost balmy compared to south-western Manitoba!
 
-Combining data in general
--------------------------
+General tips for combining data
+-------------------------------
 
 I hope these examples will help guide you in the many ways in which you can integrate `weathercan` data into other data sets. There are many different types of data to integrate, but generally, the same principles apply to merging `weathercan` data as to merging all data:
 
@@ -473,4 +473,4 @@ I hope these examples will help guide you in the many ways in which you can inte
 Acknowledgements
 ----------------
 
-Over the course of this `weathercan` journey I've had some valuable assistance. In particular, [Sam Albers](https://github.com/boshek) has been a wonderful contributor to `weathercan` on code as well as with advice and suggestions for how to take the package to the next level. rOpenSci Reviewers [Joe Thorley](https://github.com/joethorley) and [Charles T. Gray](https://github.com/softloud), and editor [Scott Chamberlain](https://github.com/sckott) supplied wonderful comments and suggestions that were greatly appreciated.
+Over the course of this `weathercan` journey I've had some valuable assistance. In particular, [Sam Albers](https://github.com/boshek) has been a wonderful contributor to `weathercan` on code as well as with advice and suggestions for how to take the package to the next level. rOpenSci Reviewers [Joe Thorley](https://github.com/joethorley) and [Charles T. Gray](https://github.com/softloud), and editor [Scott Chamberlain](https://github.com/sckott) supplied wonderful [comments and suggestions](https://github.com/ropensci/onboarding/issues/160) that were greatly appreciated.
