@@ -93,7 +93,7 @@ appear in journals all the way across the biological sciences.
 
 The _R Journal_ article describes some more typical uses of `rentrez`, and also
 describes some of decisions that went into the design of the package. If this
-example has whetted your appetite, ten please check out the article of the
+example has whetted your appetite, then please check out the article of the
 package documentation.
 
 ## Thanks 
