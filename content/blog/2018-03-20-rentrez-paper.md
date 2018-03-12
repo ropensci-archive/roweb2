@@ -85,6 +85,8 @@ ggplot(journal_freq, aes(reorder(journal, n.papers), n.papers)) +
     ggtitle("Venues for papers describing R Packages in 2017") 
 ```
 
+![Dot plot: destination of papers describing R packages in 2017](/2018-03-20-rentrez-paper/journal_dot_plot.png)
+
 So, it looks like _Bioinformatics_, _BMC Bionformatics_ and _Molecular Ecology
 Resources_ are popular destinations for papers describing R packages, but these
 appear in journals all the way across the biological sciences.
