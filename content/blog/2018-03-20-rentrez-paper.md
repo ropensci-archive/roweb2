@@ -85,7 +85,7 @@ ggplot(journal_freq, aes(reorder(journal, n.papers), n.papers)) +
     ggtitle("Venues for papers describing R Packages in 2017") 
 ```
 
-![Dot plot: destination of papers describing R packages in 2017](/2018-03-20-rentrez-paper/journal_dot_plot.png)
+![Dot plot: destination of papers describing R packages in 2017](/img/blog-images/2018-03-20-rentrez-paper/journal_dot_plot.png)
 
 So, it looks like _Bioinformatics_, _BMC Bionformatics_ and _Molecular Ecology
 Resources_ are popular destinations for papers describing R packages, but these
@@ -98,33 +98,7 @@ package documentation.
 
 ## Thanks 
 
-It's now been more than six years since I [started cleaning up my research
-code](https://github.com/ropensci/rentrez/commit/67c504b61534b77f5ecaad73761ada1435a9e211)
-in the hope of developing a package that might be useful to others. So, it's nice to finally
-be able to type `citation(package="rentrez")` and see a formal citation for
-the work that's gone into the project:
-
-```
-To cite rentrez in publications use:
-
-  Winter, D. J. (2017) rentrez: an R package for the NCBI eUtils API
-  The R Journal 9(2):520-526
-
-A BibTeX entry for LaTeX users is
-
-  @Article{,
-    title = {{rentrez}: an R package for the NCBI eUtils API},
-    author = {David J. Winter},
-    journal = {The R Journal},
-    year = {2017},
-    volume = {9},
-    issue = {2},
-    pages = {520--526},
-  }
-
-```
-
-More importantly, the publication of this paper gives me a chance to thank the
+The publication of this paper gives me a chance to thank the
 many people that have helped make `rentrez` into a useful package. I was very
 lucky to have this code included in rOpenSci at an early stage. Being part of
 the wider project made sure `rentrez` kept pace with the best-practices for code 
@@ -134,7 +108,7 @@ filed an issue or contributed code to `rentrez`. I also have to
 single out Scott Chamberlain, who has done a great deal to make sure the code 
 meets community standards and is useful to as many people as possible.
 
-I also want to take a moment to thank the editorial board of _The R Journal_ for## API keys for eUtils
+## API keys for eUtils
 
 To celebrate the publication of this paper I am going to speed up `rentrez` by a
 factor of three! 
