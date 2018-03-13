@@ -6,7 +6,7 @@ authors:
     url: https://github.com/softloud
 date: 2018-03-13
 categories: blog
-topicid: 
+topicid: 1093
 tags:
   - r
   - beginner
@@ -21,7 +21,7 @@ tags:
 
 To give you an idea of where I am in my `R` developer germination, I'd just started reading about [testing](http://r-pkgs.had.co.nz/tests.html) when I received an email from [@rOpenSci](https://ropensci.org/) inviting me to review the [`weathercan`](https://github.com/ropensci/weathercan) package. Many of us in the `R` community feel like [imposters](https://en.wikipedia.org/wiki/Impostor_syndrome) when it comes to software development. In fact, as a statistician, it was a surprise to me when I was recently called a developer. 
 
-In terms of  formal computer science training, I took one subject in first year, with the appropriate [initialism](https://www.quickanddirtytips.com/education/grammar/abbreviations-acronyms-and-initialisms) *OOF*. Ostensibly, this was to school me in Object Oriented Fundamentals, but mostly educated me in just how much one person can pontificate about doubles and floats. I am almost always befuddled by regexes on the rare occasions I come across them [^1].
+In terms of  formal computer science training, I took one subject in first year, with the appropriate [initialism](https://www.quickanddirtytips.com/education/grammar/abbreviations-acronyms-and-initialisms) *OOF*. Ostensibly, this was to school me in Object Oriented Fundamentals, but mostly educated me in just how much one person can pontificate about doubles and floats. I am almost always befuddled by regexes on the rare occasions I come across them.
 
 However, through undertaking this review, which began with the revelation that I'm not alone in thinking, ["What if I have absolutely nothing to say other than, yes, this is, in fact a package?!"](https://ropensci.org/blog/2017/08/22/first-package-review/), I have come to see that all `R` users are `R` family (aw). No doubt these are well worn cobblestones that I judder my bicycle along. Despite this, it felt like a unique journey given my current fascination with testing. 
 
@@ -77,5 +77,3 @@ alt = "D.Va portrait. https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwa
 <br>
 <div style="font-size: 1em"> [Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](https://en.wikipedia.org/wiki/D.Va)</div>
 </center>
-
-[^1]: For example, I'm sure there is a good and worthy reason as to why it says **error embedding** at the bottom of the page, but for the life of me I couldn't figure out why. 
