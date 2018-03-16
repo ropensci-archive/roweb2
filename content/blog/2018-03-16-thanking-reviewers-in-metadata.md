@@ -1,20 +1,20 @@
 ---
+slug: "thanking-reviewers-in-metadata"
+title: 'Thanking Your Reviewers: Gratitude through Semantic Metadata'
+date: '2018-03-16'
 authors:
-  - group: The rOpenSci Editorial Board
   - name: Noam Ross
+    url: http://twitter.com/noamross
   - name: Maëlle Salmon
   - name: Karthik Ram
   - name: Scott Chamberlain
 categories: blog
-date: '2018-03-16'
-layout: 'post\_discourse'
-name: thanking-reviewers-in-metadata
+topicid: 4444
 tags:
 - community
 - ropensci
 - onboarding
 - metadata
-title: 'Thanking Your Reviewers: Gratitude through Semantic Metadata'
 ---
 
 At rOpenSci, our [R package peer review process] relies on the the hard work of many volunteer reviewers.  These community members donate their [time] and expertise to improving the quality of  rOpenSci packages and helping drive best practices into scientific software.  
@@ -39,7 +39,7 @@ Under 3.4.4, you get this:
 
 What's that little `"rev"` that shows up, third from right? It's the official inclusion of "Reviewer" as an R package author role! 🎉 
 
-These three-letter codes come from the [MARC (Machine-Readable Cataloging) terms] vocabulary, a standard set of authorship types originally created for some of the first computerized library systems. R uses these codes to distinguish between different types of package authors. You may be familiar with some of these terms that show up in `DESCRIPTION` files, like so:
+These three-letter codes come from the [MARC (Machine-Readable Cataloging) terms][marc] vocabulary, a standard set of authorship types originally created for some of the first computerized library systems. R uses these codes to distinguish between different types of package authors. You may be familiar with some of these terms that show up in `DESCRIPTION` files, like so:
 
 ```
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"), 
@@ -56,7 +56,7 @@ While there are many more[^2] MARC relator terms, R only allows the a small set 
 
 [^2]: Found [here](https://www.loc.gov/marc/relators/relaterm.html) or as a handy data frame with descriptions in `utils:::MARC_relator_db`
 
-We believe peer reviewers make an imporant contribution the quality of published software. That's why last year we requested R-Core add `"rev"` (Reviewer), to the list of allowed contributor types. And Lo and Behold, Kurt Hornik made the [change] on our behalf[^3]. Now in the release version of R.
+We believe peer reviewers make an imporant contribution the quality of published software. That's why last year we requested R-Core add `"rev"` (Reviewer), to the list of allowed contributor types. And Lo and Behold, Kurt Hornik made the [change] on our behalf [^3]. Now in the release version of R.
 
 [^3]: R-core also added `"fnd"` (Funder) in R 3.4.3.
 
@@ -93,6 +93,7 @@ c(
            comment = "Agrees with Maëlle about the intro.")
   )
 ```
+
 [time]: https://ropensci.org/blog/2016/03/28/software-review/#review-takes-a-lot-of-time
 
 [R package peer review process]: https://ropensci.org/blog/2017/09/01/nf-softwarereview/
@@ -101,7 +102,7 @@ c(
 
 [package DESCRIPTION files]: https://github.com/search?utf8=%E2%9C%93&q=user%3Acran+filename%3ADESCRIPTION+person+role+rev+ropensci&type=Code
 
-[MARC (Machine-Readable Cataloging) terms]: (https://en.wikipedia.org/wiki/MARC_standards)
+[marc]: https://en.wikipedia.org/wiki/MARC_standards
 
 [transitive credit]: https://openresearchsoftware.metajnl.com/articles/10.5334/jors.be/
 

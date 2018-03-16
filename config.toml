@@ -38,7 +38,7 @@ rssLimit = 20
 [params]
     description = "rOpenSci - Open Tools for Open Science"
     footer = "&copy; The rOpenSci Project"
-    leadership = ["Carl Boettiger", "Karthik Ram", "Scott Chamberlain", "Jenny Bryan", "Rich FitzJohn", "Leadership Team", "Core Team"]
+    leadership = ["Carl Boettiger", "Karthik Ram", "Scott Chamberlain", "Jenny Bryan", "Rich FitzJohn", "Maëlle Salmon", "Maelle Salmon", "Leadership Team", "Core Team"]
     staff = ["Jeroen Ooms", "Stefanie Butland"]
 
 [taxonomies]
