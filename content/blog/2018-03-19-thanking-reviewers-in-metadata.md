@@ -6,7 +6,7 @@ authors:
   - name: Karthik Ram
   - name: Scott Chamberlain
 categories: blog
-date: '2018-03-11'
+date: '2018-03-16'
 layout: 'post\_discourse'
 name: thanking-reviewers-in-metadata
 tags:
@@ -21,7 +21,7 @@ At rOpenSci, our [R package peer review process] relies on the the hard work of 
 
 Our _open_ review process, where reviews and reviewers are public, means that one benefit for reviewers is that they can get credit for their reviews.  We want reviewers to see as much benefit as possible, and for their contribtions to be recorded as part of the intellectual trail of academic work, so we have been working at reviews visible and discoverable.
 
-That is why we are very excited about a tiny change in last week's release of R 3.4.4.
+That is why we are very excited about a tiny change in yesterday's release of R 3.4.4.
 
 If your are running R 3.4.3, and type `utils:::MARC_relator_db_codes_used_with_R` into the console, you get this:
 
