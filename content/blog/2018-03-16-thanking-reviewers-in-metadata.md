@@ -19,7 +19,7 @@ tags:
 
 At rOpenSci, our [R package peer review process] relies on the the hard work of many volunteer reviewers.  These community members donate their [time] and expertise to improving the quality of  rOpenSci packages and helping drive best practices into scientific software.  
 
-Our _open_ review process, where reviews and reviewers are public, means that one benefit for reviewers is that they can get credit for their reviews.  We want reviewers to see as much benefit as possible, and for their contributions to be recorded as part of the intellectual trail of academic work, so we have been working at reviews visible and discoverable.
+Our _open_ review process, where reviews and reviewers are public, means that one benefit for reviewers is that they can get credit for their reviews.  We want reviewers to see as much benefit as possible, and for their contributions to be recorded as part of the intellectual trail of academic work, so we have been working at making reviews visible and discoverable.
 
 That is why we are very excited about a tiny change in yesterday's release of R 3.4.4.
 
@@ -56,13 +56,13 @@ While there are many more[^2] MARC relator terms, R only allows the a small set 
 
 [^2]: Found [here](https://www.loc.gov/marc/relators/relaterm.html) or as a handy data frame with descriptions in `utils:::MARC_relator_db`
 
-We believe peer reviewers make an imporant contribution the quality of published software. That's why last year we requested R-Core add `"rev"` (Reviewer), to the list of allowed contributor types. And Lo and Behold, Kurt Hornik made the [change] on our behalf [^3]. Now in the release version of R.
+We believe peer reviewers make an imporant contribution the quality of published software. That's why last year we requested R-Core add `"rev"` (Reviewer), to the list of allowed contributor types. And Lo and Behold, Kurt Hornik made the [change] on our behalf [^3]. It is now in the release version of R.
 
 [^3]: R-core also added `"fnd"` (Funder) in R 3.4.3.
 
 Since CRAN uses the development version of R to check and build packages, the option has actually been available on CRAN for a while. A trickle of authors have been already been awknowledging peer-reviewers in this way by in their [package DESCRIPTION files].
 
-We hope to see adoption of reviewer acknowledgement in package metadata beyond rOpenSci.  It can be adopted by authors who submit to [JSS], [JOSS], or any journal or process where reviewers make significant comments on software code or documentation.  For non-R software, we're [working on] including reviewers in [codemeta], a cross-language software metadata standard.
+We hope to see adoption of reviewer acknowledgements in software metadata beyond rOpenSci.  It can be adopted by authors who submit to [JSS], [JOSS], or any journal or process where reviewers make significant comments on software code or documentation.  For non-R software, we're [working on] including reviewers in [codemeta], a cross-language software metadata standard.
 
 A few notes about how this development relates specifically to rOpenSci's peer-review process:
 
@@ -73,7 +73,7 @@ A few notes about how this development relates specifically to rOpenSci's peer-r
 -   Finally, if you do include reviewers in this way, we think it's best practice to include information linking back to the review, like so:
 
     ```
-    person("Bea", "Hernández", role_ = "rev",
+    person("Bea", "Hernández", role = "rev",
            comment = "Bea reviewed the package for rOpenSci, see 
                       https://github.com/ropensci/onboarding/issues/116")
     ```
