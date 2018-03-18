@@ -20,7 +20,7 @@ tags:
 
 I am happy to say that the latest issue of _The R Journal_ [includes a paper
 describing rentrez](https://journal.r-project.org/archive/2017/RJ-2017-058/index.html), 
-the R package data from the National Center for Biotechnology Information
+the rOpenSci package for retrieving data from the National Center for Biotechnology Information
 (NCBI).
 
 [The NCBI](https://www.ncbi.nlm.nih.gov/) is one of the most important sources of biological data. The centre
@@ -36,13 +36,15 @@ The paper and the [package vignette](https://cran.r-project.org/web/packages/ren
 both describe typical usages of `rentrez`. I though it might be fun to use this 
 post to find out where papers describing R packages are published these days.
 Although PubMed only covers journals in the biological sciences, searching that
-databse will at least give us an idea of which journals like to publish these
+database will at least give us an idea of which journals like to publish these
 sorts of papers. Here we use the `entrez_search` and  `entrez_summary` functions 
 to get some  information on all of the papers published in 2017 with the term 
 'R package' in their title:
 
 
 ```r
+library(rentrez)
+
 pkg_search <- entrez_search(db="pubmed", 
                             term="(R Package[TITLE]) AND (2017[PDAT])", 
                             use_history=TRUE)
@@ -74,6 +76,8 @@ to isolate the 'source' of each paper, then use `table` to count up the frequenc
 of each journal.
 
 ```r
+library(ggplot2)
+
 journals <- extract_from_esummary(pkg_summs, "source")
 journal_freq <- as.data.frame(table(journals, dnn="journal"), responseName="n.papers")
 ggplot(journal_freq, aes(reorder(journal, n.papers), n.papers)) + 
@@ -93,8 +97,8 @@ appear in journals all the way across the biological sciences.
 
 The _R Journal_ article describes some more typical uses of `rentrez`, and also
 describes some of decisions that went into the design of the package. If this
-example has whetted your appetite, then please check out the article of the
-package documentation.
+example has whetted your appetite, then please check out the article or the
+[package documentation](https://cran.r-project.org/package=rentrez).
 
 ## Thanks 
 
