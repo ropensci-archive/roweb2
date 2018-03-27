@@ -5,6 +5,7 @@ package_version: 0.2.0
 author:
   name: Amanda Dobbyn
   url: dobb.ae
+date: 2018-03-23
 output:
   html_document:
     keep_md: true
@@ -24,14 +25,19 @@ tags:
 
 
 ```{r setup, include=FALSE}
+library(here)
 knitr::opts_chunk$set(echo = TRUE)
 # devtools::install_github("ropensci/monkeylearn", ref = "dev")
 
-knitr::opts_knit$set(root.dir=normalizePath("../../themes/ropensci/static"))  # TODO: remove this path
+# knitr::opts_knit$set(root.dir=normalizePath("../../themes/ropensci/static"))  # TODO: remove this path
+knitr::opts_chunk$set(root.dir=normalizePath(here("themes/ropensci/static")))
+knitr::opts_chunk$set(root.dir=normalizePath(here("themes/ropensci/static"))) 
 ```
 
 ```{r}
 getwd()
+fs::dir_ls(here("themes/ropensci/static/img/blog-images/2018-03-22-monkeydo"))
+here()
 ```
 
 
@@ -53,7 +59,8 @@ A quick `install.packages("monkeylearn")` and creation of an API key later it st
 
 <br>
 
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height: 450px"> -->
+### TODO: change image file paths to remove `../../themes/ropensci/static/`
+<img src = "../../themes/ropensci/static/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height: 450px">
 
 <br>
 
@@ -143,7 +150,7 @@ This classification job was intended to be run every night, and with an unknown 
 
 Now that I'm starting to think 
 
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif" style="margin-left: 10%"> -->
+<img src = "../../themes/ropensci/static/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif" style="margin-left: 10%">
 
 I'm just about at the point where I have to start making myself useful.
 
@@ -226,6 +233,10 @@ I prefer named PRs as it gives a quick overview over opened PRs. While cross ref
   <a href="https://twitter.com/thomasp85/status/970941530709155841?ref_src=twsrc%5Etfw">March 6, 2018</a>
 </blockquote>
 
+<div style="display:none;"> 
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 
 <!-- <blockquote class="twitter-tweet" data-lang="en"> -->
 <!--     <p lang="en" dir="ltr"> -->
@@ -285,7 +296,16 @@ My work on the monkeylearn package so far has been rewarding to say the least. I
 
 Maëlle's been a fantastic mentor through and through, providing guidance in at least four languages -- English, [French](https://twitter.com/ma_salmon/status/971992354763649024), R, and emoji, despite the time difference and `r emo::ji("baby")`(!). I couldn't be more stoked for future collaborations. *On y va*!
 
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/onward.gif" style="margin-left: 10%"> -->
+<img src = "../../themes/ropensci/static/img/blog-images/2018-03-22-monkeydo/onward.gif" style="margin-left: 10%">
+
+
+<br>
+
+
+```{r}
+devtools::session_info()
+```
+
 
 
 [^1]: Custom, to a point. As of this writing, two types of classifier models you can create use either Naive Bayes or Support Vector Machines, though you can specify other parameters such as `use_stemmer` and `strip_stopwords`.
@@ -296,14 +316,3 @@ Maëlle's been a fantastic mentor through and through, providing guidance in at 
 
 [^4]: Keywords in commits don't automatically close issues until they're merged into master, and since we were working off of dev for quite a long time, if we relied on keywords to automatically close issues our Open issues list wouldn't accurately reflect the issues that we actually still had to address. Would be cool for GitHub to allow flags like maybe "fixes #33 --dev" could close issue #33 when the PR with that phrase in the commit was merged into dev. 
 
-<br>
-
-
-```{r}
-devtools::session_info()
-```
-
-
-<div style="display:none;"> 
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<div>
