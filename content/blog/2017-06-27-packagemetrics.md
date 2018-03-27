@@ -156,7 +156,7 @@ This data about table-related packages can be turned tranformed with the **forma
 ![](https://i.imgur.com/reQfEOo.png)
 
 
-As to the case study in expert user review: the start of a review of a selection of table-making packages can be found [here](http://htmlpreview.github.io/?https://github.com/ropenscilabs/packagemetrics/blob/master/inst/doc/tableGallery.html).
+As to the case study in expert user review: the start of a review of a selection of table-making packages can be found [here](https://htmlpreview.github.io/?https://github.com/ropenscilabs/packagemetrics/blob/master/inst/examples/tableGallery.html).
 
 
 ## A small step on a long journey
