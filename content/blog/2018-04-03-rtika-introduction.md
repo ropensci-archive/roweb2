@@ -69,7 +69,7 @@ Parsing files is a common concern for many communities, including journalism [^2
 -   Executable programs and libraries
 -   Crypto formats
 
-I am blown away by the hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others [^3]. Tika began as a common back-end for search engines and to reduce duplicated effort. It first part of Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr [^1]. Now, Tika is a back-end for R. The `rtika` package is an R interface to the Tika project.
+I am blown away by the hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others [^3]. Tika began as a common back-end for search engines and to reduce duplicated effort. It first part of Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr [^1]. Now, Tika is a back-end for R with the `rtika` package.
 
 Motivation
 ----------
