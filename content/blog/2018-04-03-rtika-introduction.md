@@ -5,7 +5,7 @@ package_version: 0.1.7
 authors:
   - name: Sasha Goodman
     url: https://github.com/ropensci/rtika
-date: 2018-04-03
+date: 2018-04-17
 categories: blog
 topicid: 
 tags:
@@ -19,14 +19,13 @@ tags:
 - text-mining
 - data-extraction
 - archiving
-- parser
-- excel
 - metadata
 - tesseract
 - text
 - pdf
 - xml
 - word
+- excel
 ---
 
 The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" [^1]. The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.
@@ -74,21 +73,7 @@ I am blown away by the hours spent on the included parsers, such as Apache `PDFB
 Motivation
 ----------
 
-This package came together when parsing a hundred thousand Word documents in a governmental archive:
-
-``` r
-# A big batch from a government database
-batch <-  file.path(normalizePath('~/leginfo'), 
-                    list.files(path = normalizePath('~/leginfo'), 
-                    pattern = '^BILL_ANALYSIS_TBL_',
-                    recursive = TRUE))
-
-# Over a hundred thousand Word documents
-length(batch)
-#> [1] 117748
-```
-
-The files did not have a file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension.
+This package came together when parsing a hundred thousand Word documents in a governmental archive. The files did not have a file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension.
 
 ``` r
 # The older Word .doc versions are at the top, and newer .docx are at the end.
@@ -100,14 +85,11 @@ Some documents parsed with the `antiword` package.
 
 ``` r
 library('antiword')
-library('magrittr')
-
-sample_size <- 2000
 
 timing <- system.time(
   
   text <- 
-    batch[1:sample_size] %>%
+    batch[1:2000] %>%
     lapply(antiword)
   
 )
@@ -124,7 +106,6 @@ However, the files farther into the batch were in the new Word format, and `anti
 last_file <- length(batch)
 tryCatch(antiword(batch[last_file]), error = function(x){x})
 #> <simpleError: System call to 'antiword' failed (1): /Users/sasha/leginfo/2017/BILL_ANALYSIS_TBL_9999.lob is not a Word Document.
-#> >
 ```
 
 Fortunately, I remembered Apache Tika. Five years earlier, Tika helped parse files from the Internet Archive, and handled whatever format I threw at it. Back then, I put together a R package for myself and a few colleagues. It was outdated.
@@ -137,7 +118,7 @@ library('rtika')
 timing <- system.time(
   
   text <- 
-    batch[1:sample_size] %>%
+    batch[1:2000] %>%
     tika_text(threads=1)
   
 )
@@ -183,10 +164,7 @@ The first archive I parsed with Tika was a website retrieved from the Wayback Ma
 In the following example, the function `wayback_machine_downloader()` gets documents from '<http://www3.epa.gov/climatechange/Downloads>' between January 20th, 2016 and January 20th, 2017.
 
 ``` r
-# Historical files are available from the Internet Archive
-# Please see: https://github.com/hartator/wayback-machine-downloader
-library('processx')
-
+# Wayback downloader image: https://github.com/hartator/wayback-machine-downloader
 wayback_machine_downloader <- function(input, 
     args = character(),
     download_dir = tempfile('wayback_machine_download_',getwd()) ) {
@@ -206,7 +184,6 @@ wayback_machine_downloader <- function(input,
                                    recursive = TRUE))
 }
 
-
 # download over 200 MB of documents given --from and --to dates
 batch <- wayback_machine_downloader(
   'http://www3.epa.gov/climatechange/Downloads', 
@@ -214,7 +191,7 @@ batch <- wayback_machine_downloader(
                              '--to','20170120'),
                     download_dir='~/wayback_machine_downloader')
 
-# turn the arcive into more easily parsable XHTML objects
+# get more easily parsable XHTML objects
 html <-
     batch %>% 
     tika_html() %>%
@@ -255,17 +232,12 @@ links <-
     lapply(xml2::xml_find_all, '//a') %>%
     lapply(xml2::xml_attr, 'href')
 
-sample(links[[6]],10)
+sample(links[[6]],5)
 #>  [1] "www.epa.gov/climatechange/endangerment.html"                  
 #>  [2] "https://www.uea.ac.uk/mac/comm/media/press/2009/nov/CRUupdate"
 #>  [3] "mailto:ghgendangerment@epa.gov"                               
 #>  [4] "https://www.uea.ac.uk/mac/comm/media/press/2009/nov/CRUupdate"
 #>  [5] "http://www.epa.gov/climatechange/endangerment.html"           
-#>  [6] "http://www.regulations.gov"                                   
-#>  [7] "http://www.globalchange.gov/publications/reports/ipcc-reports"
-#>  [8] "http://cait.wri.org"                                          
-#>  [9] "http://www.epa.gov/climatechange/endangerment.html"           
-#> [10] "http://www.regulations.gov"
 ```
 
 Some files are compressed, and Tika automatically uncompressed and parsers those. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette [^12].
@@ -313,5 +285,3 @@ For researchers who work with lots of text, this is a golden age. There is so mu
 [^12]: Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://ropensci.github.io/rtika/articles/rtika_introduction.html>.
 
 [^13]: Smith, Ray. 2007. “An Overview of the Tesseract Ocr Engine.” In *Document Analysis and Recognition, 2007. Icdar 2007. Ninth International Conference on*, 2:629–33. IEEE.
-
-
