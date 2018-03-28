@@ -29,15 +29,9 @@ library(here)
 knitr::opts_chunk$set(echo = TRUE)
 # devtools::install_github("ropensci/monkeylearn", ref = "dev")
 
-# knitr::opts_knit$set(root.dir=normalizePath("../../themes/ropensci/static"))  # TODO: remove this path
+# knitr::opts_knit$set(root.dir=normalizePath(""))  # TODO: remove this path
 knitr::opts_chunk$set(root.dir=normalizePath(here("themes/ropensci/static")))
 knitr::opts_chunk$set(root.dir=normalizePath(here("themes/ropensci/static"))) 
-```
-
-```{r}
-getwd()
-fs::dir_ls(here("themes/ropensci/static/img/blog-images/2018-03-22-monkeydo"))
-here()
 ```
 
 
@@ -59,8 +53,7 @@ A quick `install.packages("monkeylearn")` and creation of an API key later it st
 
 <br>
 
-### TODO: change image file paths to remove `../../themes/ropensci/static/`
-<img src = "../../themes/ropensci/static/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height: 450px">
+<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height: 450px"> -->
 
 <br>
 
@@ -79,7 +72,7 @@ texts <- c(
     "When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.",
     "I'm not an ambiturner. I can't turn left.")
 
-(texts_out <- monkeylearn_classify(texts) %>% knitr::kable())
+(texts_out <- monkeylearn_classify(texts))
 ```
 
 This works great if you don't care about classifying your inputs independently of one another. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle's fantastic [Guardian Experience post](http://www.masalmon.eu/2017/10/02/guardian-experience/)!) In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately.
@@ -92,7 +85,7 @@ My first approach to this problem was to simply treat each text as a separate ca
 
 
 ```{r initial_workaround}
-initial_workaround <- function(df, col) {
+initial_workaround <- function(df, col, verbose = FALSE) {
   
   quo_col <- enquo(col)
   
@@ -102,8 +95,14 @@ initial_workaround <- function(df, col) {
     )
   
   for (i in 1:nrow(df)) {
-    this_text <- df %>% select(!!quo_col) %>% slice(i) %>% as_vector()
-    this_classification <- monkeylearn_classify(this_text) %>% select(-text_md5) %>% list()
+    this_text <- df %>% 
+      select(!!quo_col) %>% 
+      slice(i) %>% as_vector()
+    
+    this_classification <- 
+      monkeylearn_classify(this_text, verbose = verbose) %>% 
+      select(-text_md5) %>% list()
+    
     out[i, ]$tags <- this_classification
   }
 
@@ -122,14 +121,14 @@ And now we'll run the workaround:
 ```{r}
 initial_out <- initial_workaround(texts_df, texts)
 
-initial_out %>% knitr::kable()
+initial_out
 ```
 
 
 We see that this retains the 1:1 relationship between input and output, but still allows the output list-col to be unnested. 
 
 ```{r}
-(initial_out %>% unnest() %>% knitr::kable())
+(initial_out %>% unnest())
 ```
 
 
@@ -140,7 +139,7 @@ But, the catch: this approach was quite slow. The real bottleneck here isn't the
   microbenchmark::microbenchmark(times = 10, unit = "s"))
 ```
 
-It was clear that if classifying `r nrow(texts_df)` inputs was going to take `r median(benchmark$time)` seconds, even classifying my relatively small data was going to take a looong time `r emo::ji("see_no_evil")`. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of `write_rds(out[i, ], glue::glue("some_directory/{i}.rds"))`) so that I wouldn't have to rely on the function successfully finishing execution in one run. Still, I didn't like my options.
+It was clear that if classifying `r nrow(texts_df)` inputs was going to take `r median(benchmark$time)` seconds, even classifying my relatively small data was going to take a looong time, like on the order of `r median(benchmark$time)/nrow(texts_df)*70000/60/60/24 %>% round(digits = 0)` days, just for the first batch of data `r emo::ji("see_no_evil")`. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of `write_rds(out[i, ], glue::glue("some_directory/{i}.rds"))`) so that I wouldn't have to rely on the function successfully finishing execution in one run. Still, I didn't like my options.
 
 This classification job was intended to be run every night, and with an unknown amount of input text data coming in every day, I didn't want it to run for more than 24 hours one day and either a) prevent the next night's job from running or b) necessitate spinning up a second server to handle the next night's data.
 
@@ -150,7 +149,7 @@ This classification job was intended to be run every night, and with an unknown 
 
 Now that I'm starting to think 
 
-<img src = "../../themes/ropensci/static/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif" style="margin-left: 10%">
+<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif" style="margin-left: 10%"> -->
 
 I'm just about at the point where I have to start making myself useful.
 
@@ -208,16 +207,16 @@ In what I would come to know as her usual cheerful, perpetually-on-top-of-it for
 
 ### Continuing Work
 
-To make a short story shorter, Maëlle asked me if I'd like to create the extractor counterpart to `monkeylearn_classify_df()` and become an [aut](https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/)hor on the package with push access to the repo. I said yes, of course, and Maëlle opened an initial [issue](https://github.com/ropensci/monkeylearn/issues/24) to collect a to-do list and discuss different directions to take the idea in the PR. We continued to strategize over rOpenSci Slack about tradeoffs like which package dependencies we were okay with taking on, whether to go the tidyeval or base route, what the best naming conventions for the new functions should be, etc. 
+To make a short story shorter, Maëlle asked me if I'd like to create the extractor counterpart to `monkeylearn_classify_df()` and become an [aut](https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/)hor on the package with push access to the repo. I said yes, of course, and so we began to strategize over rOpenSci Slack about tradeoffs like which package dependencies we were okay with taking on, whether to go the tidyeval or base route, what the best naming conventions for the new functions should be, etc. 
 
 On the naming front, we decided to gracefully deprecate `monkeylearn_classify()` and `monkeylearn_extract()` as the newer functions could cover all of the functionality that the older guys did. I don't know much about cache invalidation, but the naming problem [was hard as usual](https://github.com/ropensci/monkeylearn/issues/24). We settled on naming their counterparts `monkey_classify()` (which replaced the original `monkeylearn_classify_df()`) and `monkey_extract()`. 
 
 
 #### gitflow
 
-Early on in the process we started talking git conventions. Rather than both work off a development branch, I floated a structure that we typically follow at my company, where each ticket (or in this case, GitHub Issue) becomes its own branch off of dev. For instance, issue #33 becomes branch `T33` (T for ticket). This approach, I am told, stems from the "[gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)" philosophy which, as far as I understand it, is one of many ways to structure a git workflow that mostly doesn't end in tears.
+Early on in the process we started talking git conventions. Rather than both work off a development branch, I floated a structure that we typically follow at my company, where each ticket (or in this case, GitHub Issue) becomes its own branch off of dev. For instance, issue #33 becomes branch `T33` (T for ticket). Each of these feature branches come off of dev (unless they're hotfixes) and are merged back into dev and deleted when they pass all the necessary checks. This approach, I am told, stems from the "[gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)" philosophy which, as far as I understand it, is one of many ways to structure a git workflow that mostly doesn't end in tears.
 
-Like most git strategies, the idea here is to make pull requests as bite-sized as possible; a PR can only be as big as the issue it's named from. An added benefit for me, at least, is that it keeps me from wandering off into other parts of the code that I notice could be improved without first documenting the point in a separate issue, and then creating a branch. At most one person is assinged to each ticket/issue, which minimizes merge conflicts. You also leave a nice paper trail because the branch name directly references the issue front and center in its title. This means you don't have to explicitly name the issue in the commit or rely on GitHub's (albeit awesome) keyword branch closing system[^3]. 
+Like most git strategies, the idea here is to make pull requests as bite-sized as possible; in this case, a PR can only be as big as the issue it's named from. An added benefit for me, at least, is that this keeps me from wandering off into other parts of the code without first documenting the point in a separate issue, and then creating a branch. At most one person is assinged to each ticket/issue, which minimizes merge conflicts. You also leave a nice paper trail because the branch name directly references the issue front and center in its title. This means you don't have to explicitly name the issue in the commit or rely on GitHub's (albeit awesome) keyword branch closing system[^4]. 
 
 Finally, since the system is so tied to issues themselves, it encourages very frequent communication between collaborators. Since the issue must necessarily be made before the branch and the accompanying changes to the code, the other contributors have a chance to weigh in on the issue or the approach suggested in its comments before any code is written. In our case, it's certainly made frequent communication the path of least resistance. 
 
@@ -254,15 +253,15 @@ I prefer named PRs as it gives a quick overview over opened PRs. While cross ref
 <!-- ``` -->
 
 
-This insight has me thinking that the best approach might be to explicitly name the issue number *and* give a description in the branch or PR title.
-
-In any case, our current system of only referencing the issue number has worked out well for Maëlle and me thus far, but that certainly doesn't mean that our commit history couldn't be more readable by including more verbose descriptions in the branch name as well.
+This insight got me thinking that the best approach might be to explicitly name the issue number *and* give a description in the branch name, like a slug of sorts. I started using a branch syntax like `T31-fix-bug-i-just-created` which has worked out well for Maëlle and me thus far, making the history a bit more readable.
 
 #### Main Improvements
 
-As I mentioned, the package was so good to begin with it was difficult to find ways to improve it. Most of the subsequent work I did was to improve the new `monkey_` functions.
+As I mentioned, the package was so good to begin with it was difficult to find ways to improve it. Most of the subsequent work I did on `monkeylearn` was to improve the new `monkey_` functions.
 
-They got more informative messages about which batches are currently being processed and which texts those batches corresponded to. Rather than discarding inputs such as empty strings that could not be sent to the API as the original `monkeylearn_` functions did, we now return a row of NAs. This means that the output is always of the same dimensions as the input, and can be unnested with either an `unnest` flag,.
+The original `monkeylearn_` functions discarded inputs such as empty strings that could not be sent to the API. We now retain those empty inputs and return NAs in the response columns for that row. This means that the output is always of the same dimensions as the input. We return an unnested dataframe by default, as the original functions did, but allow the output to be nested if the `unnest` flag is set to FALSE.
+
+The functions also got more informative messages about which batches are currently being processed and which texts those batches corresponded to.
 
 ```{r text_w_empties, warning=FALSE}
 text_w_empties <- c(
@@ -272,17 +271,35 @@ text_w_empties <- c(
     "I'm not an ambiturner. I can't turn left.",
     " ")
 
-(empties_out <- monkey_classify(text_w_empties, texts_per_req = 2, unnest = TRUE) %>% knitr::kable())
+(empties_out <- monkey_classify(text_w_empties, texts_per_req = 2, unnest = TRUE))
 ```
 
-So even though the empty string inputs like in row 3, aren't sent to the API, we can see they're still included in the output dataframe and assigned the same column names as all of the other outputs. That means that even if `unnest` is set to FALSE, the output can still be unnested with `tidyr::unnest()` after the fact.
+So even though the empty string inputs like in row 3 and 5, aren't sent to the API, we can see they're still included in the output dataframe and assigned the same column names as all of the other outputs. That means that even if `unnest` is set to FALSE, the output can still be unnested with `tidyr::unnest()` after the fact.
+
+If a dataframe is supplied, there is now a `.keep_all` option which allows for all columns of the input to be retained, not just the column that contains the text to be classified. This makes the `monkey_` functions work even more like a `mutate()`; rather than returning an object that has to be joined on the original input, we do that association for the user.
+
+
+```{r sw}
+sw <- dplyr::starwars %>% 
+  dplyr::select(name, height) %>% 
+  dplyr::sample_n(length(text_w_empties))
+
+df <- tibble::tibble(text = text_w_empties) %>% 
+  dplyr::bind_cols(sw)
+
+df %>% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALSE)
+```
+
+We see that the input column, `text` is sandwiched between the other columns of the original dataframe (the Starwars ones) and the output column `res`.
+
+The hope is that all of this serves to improve the data safety and user experience of the package.
 
 
 #### Tangent on developing functions in tandem
 
-Something I've been thinking about while working on the twin functions `monkey_extract()` and `monkey_classify()` is what the best practice is for developing very similar functions in sync with one another. These two functions are different enough to have different default values (`monkey_extract()` has a default `extractor_id` while `monkey_classify()` has a default `classifier_id`) but are so similar in other regards as to be sort of embarrassingly parallel.
+Something I've been thinking about while working on the twin functions `monkey_extract()` and `monkey_classify()` is what the best practice is for developing very similar functions in sync with one another. These two functions are different enough to have different default values (for example, `monkey_extract()` has a default `extractor_id` while `monkey_classify()` has a default `classifier_id`) but are so similar in other regards as to be sort of embarrassingly parallel.
 
-As soon as you make a change to one function, should you immediately make the same change to the other? Or is it instead better to work on one function at a time, and, at some checkpoints then batch these changes over to the other function in a big copy-paste job? I've been tending toward the latter but it's seemed a little dangerous to me.
+What I've been turning over in my head is the question of how in sync these functions should be during development. As soon as you make a change to one function, should you immediately make the same change to the other? Or is it instead better to work on one function at a time, and, at some checkpoints then batch these changes over to the other function in a big copy-paste job? I've been tending toward the latter but it's seemed a little dangerous to me.
 
 Since there are only two functions to worry about here, creating a function factory to handle them seemed like overkill, but might technically be the best practice. I'd love to hear people's thoughts on how they go about navigating this facet of package development.
 
@@ -290,19 +307,19 @@ Since there are only two functions to worry about here, creating a function fact
 
 ### Last Thoughts
 
-My work on the monkeylearn package so far has been rewarding to say the least. It's inspired me to be not just a consumer but more of an active contributor to open source. 
+My work on the `monkeylearn package` so far has been rewarding to say the least. It's inspired me to be not just a consumer but more of an active contributor to open source. The hope is to keep improving the core package features, add some more [niceties](https://github.com/ropensci/monkeylearn/issues/63), and look into building out an R-centric way for users to create and train their own custom modules on MonkeyLearn.
 
 # Insert plug for other rOpenSci packages that need some love 
 
 Maëlle's been a fantastic mentor through and through, providing guidance in at least four languages -- English, [French](https://twitter.com/ma_salmon/status/971992354763649024), R, and emoji, despite the time difference and `r emo::ji("baby")`(!). I couldn't be more stoked for future collaborations. *On y va*!
 
-<img src = "../../themes/ropensci/static/img/blog-images/2018-03-22-monkeydo/onward.gif" style="margin-left: 10%">
+<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/onward.gif" style="margin-left: 10%"> -->
 
 
 <br>
 
 
-```{r}
+```{r session_info}
 devtools::session_info()
 ```
 
