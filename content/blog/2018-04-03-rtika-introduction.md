@@ -20,18 +20,17 @@ tags:
 - data-extraction
 - archiving
 - parser
-- curl
 - excel
 - json
 - metadata
 - tesseract
 - text
-- onboarding
 - pdf
 - xml
 - word
 ---
-                        .----.      
+```  
+                      .----.      
                ____    __\\\\\\__                 
                \___'--"          .-.          
                /___>------rtika  '0'          
@@ -39,10 +38,10 @@ tags:
                       "".____  ___-"    
                       //    / /                   
                             ]/               
+```
+The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" [^1]. The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.
 
-The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" (Mattmann and Zitting 2011, 3). The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.
-
-Parsing files is a common concern for many communities, including journalism (Wikipedia 2018b), government, business, and academia. The complexity of parsing can vary a lot. Apache Tika is a common library to lower that complexity. The Tika auto-detect parser finds the content type of a file and parses it with an included parser. It currently handles text or metadata extraction from *over one thousand digital formats*:
+Parsing files is a common concern for many communities, including journalism [^2], government, business, and academia. The complexity of parsing can vary a lot. Apache Tika is a common library to lower that complexity. The Tika auto-detect parser finds the content type of a file and parses it with an included parser. It currently handles text or metadata extraction from *over one thousand digital formats*:
 
 -   Portable Document Format (`.pdf`)
 -   Microsoft Office document formats (Word, PowerPoint, Excel, etc.)
@@ -69,7 +68,7 @@ Parsing files is a common concern for many communities, including journalism (Wi
 -   Executable programs and libraries
 -   Crypto formats
 
-I am blown away by the hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others (Apache Foundation 2018). Tika began as a common back-end for search engines and to reduce duplicated effort. It first part of Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr (Mattmann and Zitting 2011, 17). Now, Tika is a back-end for R. The `rtika` package is an R interface to the Tika project.
+I am blown away by the hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others [^3]. Tika began as a common back-end for search engines and to reduce duplicated effort. It first part of Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr [^1]. Now, Tika is a back-end for R. The `rtika` package is an R interface to the Tika project.
 
 Motivation
 ----------
@@ -131,7 +130,7 @@ tryCatch(antiword(batch[last_file]), error = function(x){x})
 
 Fortunately, I remembered Apache Tika. Five years earlier, Tika helped parse files from the Internet Archive, and handled whatever format I threw at it. Back then, I put together a R package for myself and a few colleagues. It was outdated.
 
-I downloaded the latest Tika software and made a script. Tika did its magic. It scanned the headers for the so-called "Magic Bytes" (Wikipedia 2018a) and parsed the files appropriately :
+I downloaded the latest Tika software and made a script. Tika did its magic. It scanned the headers for the so-called "Magic Bytes" [^4] and parsed the files appropriately :
 
 ``` r
 library('rtika')
@@ -170,7 +169,7 @@ I never distributed a package on repositories such as CRAN or Github, and the rO
 
 ### Connecting to Tika the Old Fashioned Way
 
-Since the Tika software is already mature, my coding centered around connecting Tika and R. The `rtika` software is a message broker that handles inter-process communication, and there are several ways to do this: Tika server, `rJava`, or system calls. I read more and discovered the Linux paradigm of depending on files and file-like paths for messaging, referred to as "everything is a file" (Kerrisk 2010). I wanted a method that would work on all major operating systems and be easy to install, and chose to use system calls and access to the file system.
+Since the Tika software is already mature, my coding centered around connecting Tika and R. The `rtika` software is a message broker that handles inter-process communication, and there are several ways to do this: Tika server, `rJava`, or system calls. I read more and discovered the Linux paradigm of depending on files and file-like paths for messaging, referred to as "everything is a file" [^5]. I wanted a method that would work on all major operating systems and be easy to install, and chose to use system calls and access to the file system.
 
 This worked. R sends Tika a signal to execute code using an old fashioned command line call, telling Tika to parse a particular batch of files. R waits. Eventually, Tika sends the signal of its completion, so R can return with the results as a character vector. Surprisingly, this process can be a good option for modern containerized applications running Docker. In the example later in this blog post, a similar technique is used to connect to a local Docker container in a few lines of code.
 
@@ -178,20 +177,20 @@ Communication with Tika went smoothly, after the issue with `base::system2()` wa
 
 ### The R User Interface
 
-Many in the R community make use of `magrittr` style pipelines, and those needed to work well. The Tidy Tools Manifesto makes piping a central tenant (Wickham 2016), and it makes code easier to read and maintain.
+Many in the R community make use of `magrittr` style pipelines, and those needed to work well. The Tidy Tools Manifesto makes piping a central tenant [^6], and it makes code easier to read and maintain.
 
 When writing `rtika`, I created two distinct styles of user interface. The first was a lightweight R wrapper around the Tika command line, which I called `tika()`. The parameters and abbreviations there mirrored the Apache Tika tool. The other functions are in the common R style found in tidy tools, and run `tika()` with common presets (e.g. `tika_html()` outputs to 'html' ). For R users, these should be more intuitive and self-documenting.
 
 ### Responding to Reviewers
 
-During the review process, I appreciated David Gohel's (Gohel 2018) attention to technical details, and that Julia Silge (Silge 2018) and Noam Ross (Ross 2018) pushed me to make the documentation more focused. I ended up writing about each of the major functions in a vignette, one by one, in a methodical way. While writing and explaining, I learned to understand Tika better.
+During the review process, I appreciated David Gohel's [^7] attention to technical details, and that Julia Silge [^8] and Noam Ross [^9] pushed me to make the documentation more focused. I ended up writing about each of the major functions in a vignette, one by one, in a methodical way. While writing and explaining, I learned to understand Tika better.
 
-Noam Ross (Ross 2018), the editor, helped deal with the large size of the Tika app, which was around 60MB. CRAN officially limited the size of packages to 5MB, therefore an additional post-install function `tika_install()` downloaded Tika to a user directory. This got me thinking about the importance of Github's larger file size limits, and also how containerized apps in Docker or Kubernetes might help distribute code for packages in the future.
+Noam Ross, the editor, helped deal with the large size of the Tika app, which was around 60MB. CRAN officially limited the size of packages to 5MB, therefore an additional post-install function `tika_install()` downloaded Tika to a user directory. This got me thinking about the importance of Github's larger file size limits, and also how containerized apps in Docker or Kubernetes might help distribute code for packages in the future.
 
 Tika in Context: Parsing the Internet Archive
 =============================================
 
-The first archive I parsed with Tika was a website retrieved from the Wayback Machine (Internet Archive 2018), a treasure trove of historical files. Maintained by the Internet Archive, their crawler downloads sites over decades. If crawled consistently, longitudinal analyses are possible. For example, federal agency websites often change when an administrations change, so the Internet Archive and academic partners have increased the consistency of crawling there. In 2016, they archived over 200 terabytes of documents and include, among other things, over 40 million `pdf` files (Jefferson 2017).
+The first archive I parsed with Tika was a website retrieved from the Wayback Machine [^10], a treasure trove of historical files. Maintained by the Internet Archive, their crawler downloads sites over decades. If crawled consistently, longitudinal analyses are possible. For example, federal agency websites often change when an administrations change, so the Internet Archive and academic partners have increased the consistency of crawling there. In 2016, they archived over 200 terabytes of documents and include, among other things, over 40 million `pdf` files [^11].
 
 In the following example, the function `wayback_machine_downloader()` gets documents from '<http://www3.epa.gov/climatechange/Downloads>' between January 20th, 2016 and January 20th, 2017.
 
@@ -283,7 +282,7 @@ sample(links[[6]],10)
 #> [10] "http://www.regulations.gov"
 ```
 
-Some files are compressed, and Tika automatically uncompressed and parsers those. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette (Goodman 2018).
+Some files are compressed, and Tika automatically uncompressed and parsers those. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette [^12].
 
 Next Steps
 ==========
@@ -292,7 +291,7 @@ Out of the box, `rtika` uses the new Tika 'batch processor' module, and for most
 
 My hope is that even if `rtika` does not have the required parser, it will still be useful for Content-Type detection and metadata. I noticed Tika does not yet have strong support for Latex or Markdown, which is unfortunate because those are actively used in the R community. Tika currently reads and writes Latex and Markdown files, captures metadata, and recognizes the MIME type when downloading with `tika_fetch()`. However, Tika does not have parsers to fully understand the document structure, render it to XHTML, and extract the plain text without markup. For these cases, Pandoc will be more useful (See: <https://pandoc.org/demos.html> ). However, Tika still helps identify them and get metadata.
 
-Another step is to include an install script for the Tesseract OCR software (Smith 2007). Out of the box, Tika will be enhanced by Tesseract for `pdf` files with document images, if Tesseract is available on the system. For installation tips, see <https://wiki.apache.org/tika/TikaOCR> and <https://github.com/tesseract-ocr/tesseract/wiki>.
+Another step is to include an install script for the Tesseract OCR software [^13]. Out of the box, Tika will be enhanced by Tesseract for `pdf` files with document images, if Tesseract is available on the system. For installation tips, see <https://wiki.apache.org/tika/TikaOCR> and <https://github.com/tesseract-ocr/tesseract/wiki>.
 
 It is possible to integrate the `rJava` package. Many in the R community know `rJava`. Some like its speed while others say it is difficult to install. I think `rJava` would be a nice enhancement, but want to make it optional feature instead of a dependency. If `rJava` were already installed on a system, `rtika` would detect that and reduce the start-up overhead for each call to `tika()`. Because the 2.0 version of Tika is planned to significantly reduce start-up time, I view this as a lower priority.
 
@@ -301,31 +300,32 @@ Conclusion
 
 For researchers who work with lots of text, this is a golden age. There is so much textual data, it is almost overwhelming, and these data carry much meaning in the form of words, letters, emoji, metadata, and document structure. In my opinion, analyst should not have to spend too much time struggling to parse files. I hope the R community makes good use of `rtika`, the digital Babel fish.
 
-References
-==========
+<!-- references -->
 
-Apache Foundation. 2018. “Apache Tika Supported Document Formats.” Accessed March 14. <https://tika.apache.org/1.17/formats.html>.
+[^1]: Mattmann, Chris, and Jukka Zitting. 2011. *Tika in Action*. Manning Publications Co. <https://www.manning.com/books/tika-in-action>.
 
-Gohel, David. 2018. “ArData.” Accessed March 14. <http://www.ardata.fr/>.
+[^2]: Wikipedia. 2018b. “Panama Papers.” Accessed March 14. <https://en.wikipedia.org/wiki/Panama_Papers>.
 
-Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://ropensci.github.io/rtika/articles/rtika_introduction.html>.
+[^3]: Apache Foundation. 2018. “Apache Tika Supported Document Formats.” Accessed March 14. <https://tika.apache.org/1.17/formats.html>.
 
-Internet Archive. 2018. “Wayback Machine.” Accessed March 14. <https://archive.org/>.
+[^4]: Wikipedia. 2018a. “File Format: Magic Number.” Accessed March 14. <https://en.wikipedia.org/wiki/File_format#Magic_number>.
 
-Jefferson. 2017. “Over 200 Terabytes of the Government Web Archived!” <https://blog.archive.org/2017/05/09/over-200-terabytes-of-the-government-web-archived/>.
+[^5]: Kerrisk, Michael. 2010. *The Linux Programming Interface: A Linux and Unix System Programming Handbook*. No Starch Press.
 
-Kerrisk, Michael. 2010. *The Linux Programming Interface: A Linux and Unix System Programming Handbook*. No Starch Press.
+[^6]: Wickham, Hadley. 2016. “The Tidy Tools Manifesto.” <https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html>.
 
-Mattmann, Chris, and Jukka Zitting. 2011. *Tika in Action*. Manning Publications Co. <https://www.manning.com/books/tika-in-action>.
+[^7]: Gohel, David. 2018. “ArData.” Accessed March 14. <http://www.ardata.fr/>.
 
-Ross, Noam. 2018. “Noamross.net.” Accessed March 14. <http://www.noamross.net/>.
+[^8]: Silge, Julia. 2018. “Juliasilge.com.” Accessed March 14. <https://juliasilge.com/>.
 
-Silge, Julia. 2018. “Juliasilge.com.” Accessed March 14. <https://juliasilge.com/>.
+[^9]: Ross, Noam. 2018. “Noamross.net.” Accessed March 14. <http://www.noamross.net/>.
 
-Smith, Ray. 2007. “An Overview of the Tesseract Ocr Engine.” In *Document Analysis and Recognition, 2007. Icdar 2007. Ninth International Conference on*, 2:629–33. IEEE.
+[^10]: Internet Archive. 2018. “Wayback Machine.” Accessed March 14. <https://archive.org/>.
 
-Wickham, Hadley. 2016. “The Tidy Tools Manifesto.” <https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html>.
+[^11]: Jefferson. 2017. “Over 200 Terabytes of the Government Web Archived!” <https://blog.archive.org/2017/05/09/over-200-terabytes-of-the-government-web-archived/>.
 
-Wikipedia. 2018a. “File Format: Magic Number.” Accessed March 14. <https://en.wikipedia.org/wiki/File_format#Magic_number>.
+[^12]: Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://ropensci.github.io/rtika/articles/rtika_introduction.html>.
 
-———. 2018b. “Panama Papers.” Accessed March 14. <https://en.wikipedia.org/wiki/Panama_Papers>.
+[^13]: Smith, Ray. 2007. “An Overview of the Tesseract Ocr Engine.” In *Document Analysis and Recognition, 2007. Icdar 2007. Ninth International Conference on*, 2:629–33. IEEE.
+
+
