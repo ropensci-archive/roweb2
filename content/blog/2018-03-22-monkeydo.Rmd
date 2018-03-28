@@ -1,11 +1,11 @@
 ---
 slug: "monkeydo"
-title: MonkeyDo
+title: MonkeyBuild
 package_version: 0.2.0
 author:
   name: Amanda Dobbyn
   url: dobb.ae
-date: 2018-03-23
+date: 2018-03-22
 output:
   html_document:
     keep_md: true
@@ -15,7 +15,8 @@ output:
     toc: false
 categories: blog
 tags:
-- r
+- review
+- community
 - package
 - text
 - nlp
@@ -29,7 +30,6 @@ library(here)
 knitr::opts_chunk$set(echo = TRUE)
 # devtools::install_github("ropensci/monkeylearn", ref = "dev")
 
-# knitr::opts_knit$set(root.dir=normalizePath(""))  # TODO: remove this path
 knitr::opts_chunk$set(root.dir=normalizePath(here("../../themes/ropensci/static")))
 knitr::opts_chunk$set(root.dir=normalizePath(here("../../themes/ropensci/static"))) 
 ```
@@ -51,9 +51,8 @@ A quick `install.packages("monkeylearn")` and creation of an API key later it st
 
 <br>
 
-<img src="/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height:450px">
+<!-- <img src="/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height:650px"> -->
 
-<!-- ![](/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png) -->
 
 <br>
 
@@ -275,7 +274,7 @@ text_w_empties <- c(
 (empties_out <- monkey_classify(text_w_empties, texts_per_req = 2, unnest = TRUE))
 ```
 
-So even though the empty string inputs like in row 3 and 5, aren't sent to the API, we can see they're still included in the output dataframe and assigned the same column names as all of the other outputs. That means that even if `unnest` is set to FALSE, the output can still be unnested with `tidyr::unnest()` after the fact.
+So even though the empty string inputs like the 3rd and 5th, aren't sent to the API, we can see they're still included in the output dataframe and assigned the same column names as all of the other outputs. That means that even if `unnest` is set to FALSE, the output can still be unnested with `tidyr::unnest()` after the fact.
 
 If a dataframe is supplied, there is now a `.keep_all` option which allows for all columns of the input to be retained, not just the column that contains the text to be classified. This makes the `monkey_` functions work even more like a `mutate()`; rather than returning an object that has to be joined on the original input, we do that association for the user.
 
@@ -311,7 +310,7 @@ Since there are only two functions to worry about here, creating a function fact
 
 My work on the `monkeylearn package` so far has been rewarding to say the least. It's inspired me to be not just a consumer but more of an active contributor to open source. Some wise words from Maëlle on this front: "You too can become a contributor to an rOpenSci package! Have a look at the issues tracker of your favorite rOpenSci package(s) e.g. [rgbif](https://github.com/ropensci/rgbif/issues). Browse issues suitable for beginners over many rOpenSci repos thanks to [Lucy D'Agostino McGowan's contributr Shiny app](https://ropensci.shinyapps.io/contributr/). Always first ask in a new or existing issue whether your contribution would be welcome, plan a bit with the maintainer, and then have fun! We'd be happy to have you."
 
-Maëlle's been a fantastic mentor through and through, providing guidance in at least four languages -- English, [French](https://twitter.com/ma_salmon/status/971992354763649024), R, and emoji, despite the time difference and 👶(!). I couldn't be more stoked for future collaborations. When it comes to `monkeylearn`, the hope is to keep improving the core package features, add some more [niceties](https://github.com/ropensci/monkeylearn/issues/63), and look into building out an R-centric way for users to create and train their own custom modules on MonkeyLearn.
+Maëlle's been a fantastic mentor, providing guidance in at least four languages -- English, [French](https://twitter.com/ma_salmon/status/971992354763649024), R, and emoji, despite the time difference and 👶(!). When it comes to `monkeylearn`, the hope is to keep improving the core package features, add some more [niceties](https://github.com/ropensci/monkeylearn/issues/63), and look into building out an R-centric way for users to create and train their own custom modules on MonkeyLearn.
 
  *On y va*!
  
