@@ -224,9 +224,9 @@ initial_out</code></pre>
 <pre class="r"><code>(benchmark &lt;- initial_workaround(texts_df, texts) %&gt;% 
   microbenchmark::microbenchmark(times = 10, unit = &quot;s&quot;))</code></pre>
 <pre><code>## Unit: seconds
-##  expr     min      lq      mean   median      uq       max neval
-##     . 1.7e-08 1.8e-08 5.376e-07 1.85e-08 3.3e-08 5.164e-06    10</code></pre>
-<p>It was clear that if classifying 3 inputs was going to take 18.5 seconds, even classifying my relatively small data was going to take a looong time, like on the order of 5 days, just for the first batch of data 🙈. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of <code>write_rds(out[i, ], glue::glue(&quot;some_directory/{i}.rds&quot;))</code>) so that I wouldn’t have to rely on the function successfully finishing execution in one run. Still, I didn’t like my options.</p>
+##  expr     min      lq      mean median      uq       max neval
+##     . 1.8e-08 1.9e-08 5.547e-07  2e-08 2.1e-08 5.346e-06    10</code></pre>
+<p>It was clear that if classifying 3 inputs was going to take 20 seconds, even classifying my relatively small data was going to take a looong time, like on the order of 5 days, just for the first batch of data 🙈. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of <code>write_rds(out[i, ], glue::glue(&quot;some_directory/{i}.rds&quot;))</code>) so that I wouldn’t have to rely on the function successfully finishing execution in one run. Still, I didn’t like my options.</p>
 <p>This classification job was intended to be run every night, and with an unknown amount of input text data coming in every day, I didn’t want it to run for more than 24 hours one day and either a) prevent the next night’s job from running or b) necessitate spinning up a second server to handle the next night’s data.</p>
 <p><br></p>
 </div>
@@ -348,18 +348,18 @@ df &lt;- tibble::tibble(text = text_w_empties) %&gt;%
 
 df %&gt;% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALSE)</code></pre>
 <pre><code>## # A tibble: 5 x 4
-##   name                  height text                                res    
-##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;                               &lt;list&gt; 
-## 1 Dexter Jettster          198 It is a truth universally acknowle… &lt;data.…
-## 2 Saesee Tiin              188 When Mr. Bilbo Baggins of Bag End … &lt;data.…
-## 3 Lando Calrissian         177 &quot;&quot;                                  &lt;data.…
-## 4 Jabba Desilijic Tiure    175 I'm not an ambiturner. I can't tur… &lt;data.…
-## 5 Jocasta Nu               167 &quot; &quot;                                 &lt;data.…</code></pre>
+##   name           height text                                       res    
+##   &lt;chr&gt;           &lt;int&gt; &lt;chr&gt;                                      &lt;list&gt; 
+## 1 Finis Valorum     170 It is a truth universally acknowledged, t… &lt;data.…
+## 2 Captain Phasma     NA When Mr. Bilbo Baggins of Bag End announc… &lt;data.…
+## 3 Jocasta Nu        167 &quot;&quot;                                         &lt;data.…
+## 4 Palpatine         170 I'm not an ambiturner. I can't turn left.  &lt;data.…
+## 5 Watto             137 &quot; &quot;                                        &lt;data.…</code></pre>
 <p>We see that the input column, <code>text</code> is sandwiched between the other columns of the original dataframe (the Starwars ones) and the output column <code>res</code>.</p>
 <p>The hope is that all of this serves to improve the data safety and user experience of the package.</p>
 </div>
-<div id="tangent-on-developing-functions-in-tandem" class="section level4">
-<h4>Tangent on developing functions in tandem</h4>
+<div id="developing-functions-in-tandem" class="section level4">
+<h4>Developing functions in tandem</h4>
 <p>Something I’ve been thinking about while working on the twin functions <code>monkey_extract()</code> and <code>monkey_classify()</code> is what the best practice is for developing very similar functions in sync with one another. These two functions are different enough to have different default values (for example, <code>monkey_extract()</code> has a default <code>extractor_id</code> while <code>monkey_classify()</code> has a default <code>classifier_id</code>) but are so similar in other regards as to be sort of embarrassingly parallel.</p>
 <p>What I’ve been turning over in my head is the question of how in sync these functions should be during development. As soon as you make a change to one function, should you immediately make the same change to the other? Or is it instead better to work on one function at a time, and, at some checkpoints then batch these changes over to the other function in a big copy-paste job? I’ve been tending toward the latter but it’s seemed a little dangerous to me.</p>
 <p>Since there are only two functions to worry about here, creating a function factory to handle them seemed like overkill, but might technically be the best practice. I’d love to hear people’s thoughts on how they go about navigating this facet of package development.</p>
@@ -368,11 +368,9 @@ df %&gt;% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALS
 </div>
 <div id="last-thoughts" class="section level3">
 <h3>Last Thoughts</h3>
-<p>My work on the <code>monkeylearn package</code> so far has been rewarding to say the least. It’s inspired me to be not just a consumer but more of an active contributor to open source. The hope is to keep improving the core package features, add some more <a href="https://github.com/ropensci/monkeylearn/issues/63">niceties</a>, and look into building out an R-centric way for users to create and train their own custom modules on MonkeyLearn.</p>
-</div>
-<div id="insert-plug-for-other-ropensci-packages-that-need-some-love" class="section level1">
-<h1>Insert plug for other rOpenSci packages that need some love</h1>
-<p>Maëlle’s been a fantastic mentor through and through, providing guidance in at least four languages – English, <a href="https://twitter.com/ma_salmon/status/971992354763649024">French</a>, R, and emoji, despite the time difference and 👶(!). I couldn’t be more stoked for future collaborations. <em>On y va</em>!</p>
+<p>My work on the <code>monkeylearn package</code> so far has been rewarding to say the least. It’s inspired me to be not just a consumer but more of an active contributor to open source. Some wise words from Maëlle on this front: “You too can become a contributor to an rOpenSci package! Have a look at the issues tracker of your favorite rOpenSci package(s) e.g. <a href="https://github.com/ropensci/rgbif/issues">rgbif</a>. Browse issues suitable for beginners over many rOpenSci repos thanks to <a href="https://ropensci.shinyapps.io/contributr/">Lucy D’Agostino McGowan’s contributr Shiny app</a>. Always first ask in a new or existing issue whether your contribution would be welcome, plan a bit with the maintainer, and then have fun! We’d be happy to have you.”</p>
+<p>Maëlle’s been a fantastic mentor through and through, providing guidance in at least four languages – English, <a href="https://twitter.com/ma_salmon/status/971992354763649024">French</a>, R, and emoji, despite the time difference and 👶(!). I couldn’t be more stoked for future collaborations. When it comes to <code>monkeylearn</code>, the hope is to keep improving the core package features, add some more <a href="https://github.com/ropensci/monkeylearn/issues/63">niceties</a>, and look into building out an R-centric way for users to create and train their own custom modules on MonkeyLearn.</p>
+<p><em>On y va</em>!</p>
 <!-- ![](/img/blog-images/2018-03-22-monkeydo/onward.gif) -->
 <p><br></p>
 <pre class="r"><code>devtools::session_info()</code></pre>
@@ -384,7 +382,7 @@ df %&gt;% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALS
 ##  language (EN)                        
 ##  collate  en_US.UTF-8                 
 ##  tz       America/Chicago             
-##  date     2018-03-27</code></pre>
+##  date     2018-03-28</code></pre>
 <pre><code>## Packages -----------------------------------------------------------------</code></pre>
 <pre><code>##  package        * version    date      
 ##  assertthat       0.2.0      2017-04-11
