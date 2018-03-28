@@ -240,7 +240,7 @@ sample(links[[6]],5)
 #>  [5] "http://www.epa.gov/climatechange/endangerment.html"           
 ```
 
-Some files are compressed, and Tika automatically uncompressed and parsers those. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. 
+Some files are compressed, and Tika automatically uncompressed and parsed them. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. 
 
 For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette [^12].
 
