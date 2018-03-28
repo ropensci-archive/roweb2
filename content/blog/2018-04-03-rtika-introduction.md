@@ -31,7 +31,7 @@ tags:
 The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" [^1]. The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.
 
 ```  
-                      .----.      
+                        .----.      
                ____    __\\\\\\__                 
                \___'--"          .-.          
                /___>------rtika  '0'          
@@ -41,7 +41,7 @@ The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitch
                             ]/               
 ```
 
-Parsing files is a common concern for many communities, including journalism [^2], government, business, and academia. The complexity of parsing can vary a lot. Apache Tika is a common library to lower that complexity. The Tika auto-detect parser finds the content type of a file and parses it with an included parser. It currently handles text or metadata extraction from *over one thousand digital formats*:
+Parsing files is a common concern for many communities, including journalism [^2], government, business, and academia. The complexity of parsing can vary a lot. Apache Tika is a common library to lower that complexity. The Tika auto-detect parser finds the content type of a file and parses it with an included parser. It currently handles text or metadata extraction from **over one thousand digital formats**:
 
 -   Portable Document Format (`.pdf`)
 -   Microsoft Office document formats (Word, PowerPoint, Excel, etc.)
@@ -129,16 +129,16 @@ timing[3]/sample_size
 #> 0.006245
 ```
 
-For the batch, the performance compared favorably to `antiword`, even with the overhead of loading Tika. I estimate that starting Tika, loading the Java parsers, loading the file list, and reading the files back into R took a few seconds. Fortunately, I saved minutes of time. The reduced effort led me to think about the broader applications. I wanted to create a package and share this with the R community.
+For the batch, the efficiency compared favorably to `antiword`, even with the overhead of loading Tika. I estimate that starting Tika, loading the Java parsers, loading the file list, and reading the files back into R took a few seconds. Fortunately, I saved minutes of time. The reduced effort led me to think about the broader applications. I wanted to create a package and share this with the R community.
 
 Lessons Learned
 ===============
 
-I never distributed a package on repositories such as CRAN or Github, and the rOpenSci group was the right place to start. The reviewers had a very transparent 'on-boarding' process. Instead of seeing them as gatekeepers, they were volunteers helping create a maintainable package that followed certain standards. If I stopped maintaining `rtika`, others would need to take over, and standards help that. The vast majority of time was on documenting code, continuous integration and testing, and vignettes.
+I never distributed a package on repositories such as CRAN or Github, and the rOpenSci group was the right place to start. The reviewers used a very transparent on-boarding process. Instead of seeing them as gatekeepers, they were volunteers helping create a maintainable package that followed certain standards. If I stopped maintaining `rtika`, others could take over, and I think the rOpenSci standards will help the package work consistently into the future. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing of new code.
 
 ### Connecting to Tika the Old Fashioned Way
 
-Since the Tika software is already mature, my coding centered around connecting Tika and R. The `rtika` software is a message broker that handles inter-process communication, and there are several ways to do this: Tika server, `rJava`, or system calls. I read more and discovered the Linux paradigm of depending on files and file-like paths for messaging, referred to as "everything is a file" [^5]. I wanted a method that would work on all major operating systems and be easy to install, and chose to use system calls and access to the file system.
+Since the Tika software is already mature, my coding centered around connecting Tika and R. The `rtika` software is a message broker that handles inter-process communication, and there are several ways to do this: Tika server, `rJava`, or system calls. I discovered the Linux paradigm of using files and file-like paths for most messaging, paraphrased as "everything is a file" [^5]. I wanted a method that would work on all major operating systems and be easy to install, and chose to use system calls and the file system.
 
 This worked. R sends Tika a signal to execute code using an old fashioned command line call, telling Tika to parse a particular batch of files. R waits. Eventually, Tika sends the signal of its completion, so R can return with the results as a character vector. Surprisingly, this process can be a good option for modern containerized applications running Docker. In the example later in this blog post, a similar technique is used to connect to a local Docker container in a few lines of code.
 
@@ -146,7 +146,7 @@ Communication with Tika went smoothly, after the issue with `base::system2()` wa
 
 ### The R User Interface
 
-Many in the R community make use of `magrittr` style pipelines, and those needed to work well. The Tidy Tools Manifesto makes piping a central tenant [^6], and it makes code easier to read and maintain.
+Many in the R community make use of `magrittr` style pipelines, so those needed to work. The Tidy Tools Manifesto makes piping a central tenant [^6], and it makes code easier to read and maintain.
 
 When writing `rtika`, I created two distinct styles of user interface. The first was a lightweight R wrapper around the Tika command line, which I called `tika()`. The parameters and abbreviations there mirrored the Apache Tika tool. The other functions are in the common R style found in tidy tools, and run `tika()` with common presets (e.g. `tika_html()` outputs to 'html' ). For R users, these should be more intuitive and self-documenting.
 
@@ -240,12 +240,14 @@ sample(links[[6]],5)
 #>  [5] "http://www.epa.gov/climatechange/endangerment.html"           
 ```
 
-Some files are compressed, and Tika automatically uncompressed and parsers those. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette [^12].
+Some files are compressed, and Tika automatically uncompressed and parsers those. For example, the file 'DataAnnex\_EPA\_NonCO2\_Projections\_2011\_draft.zip' contains an Excel spreadsheet that is unzipped and converted to HTML. Both Microsoft Excel and Word tables become HTML tables with Tika. 
+
+For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette [^12].
 
 Next Steps
 ==========
 
-Out of the box, `rtika` uses the new Tika 'batch processor' module, and for most situations the settings work well. However, Tika's processor also has a new 'config file' format that gives fine grained control, and I'm eager to incorporate that once the format stabilizes. For example, it could instruct the batch processor to get a particular type of metadata only, like the language, and not parse the text.
+Out of the box, `rtika` uses the new Tika 'batch processor' module, and for most situations the settings work well. However, Tika's processor also has a new 'config file' format that gives fine grained control, and I'm eager to incorporate that once the format stabilizes. For example, it could instruct the batch processor to get a particular type of metadata only, like the Content-Type, and not parse the text.
 
 My hope is that even if `rtika` does not have the required parser, it will still be useful for Content-Type detection and metadata. I noticed Tika does not yet have strong support for Latex or Markdown, which is unfortunate because those are actively used in the R community. Tika currently reads and writes Latex and Markdown files, captures metadata, and recognizes the MIME type when downloading with `tika_fetch()`. However, Tika does not have parsers to fully understand the document structure, render it to XHTML, and extract the plain text without markup. For these cases, Pandoc will be more useful (See: <https://pandoc.org/demos.html> ). However, Tika still helps identify them and get metadata.
 
@@ -256,7 +258,7 @@ It is possible to integrate the `rJava` package. Many in the R community know `r
 Conclusion
 ==========
 
-For researchers who work with lots of text, this is a golden age. There is so much textual data, it is almost overwhelming, and these data carry much meaning in the form of words, letters, emoji, metadata, and document structure. In my opinion, analyst should not have to spend too much time struggling to parse files. I hope the R community makes good use of `rtika`, the digital Babel fish.
+For researchers who work with lots of text, this is a golden age. There is so much textual data, it is almost overwhelming. These data carry much meaning in the form of words, letters, emoji, metadata, and document structure. In my opinion, analyst should not have to spend too much time struggling to parse files. I hope the R community makes good use of `rtika`, the digital Babel fish.
 
 <!-- references -->
 
