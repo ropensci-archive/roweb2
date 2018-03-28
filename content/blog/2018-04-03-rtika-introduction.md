@@ -20,10 +20,11 @@ tags:
 - data-extraction
 - archiving
 - metadata
+- xml
+- json
 - tesseract
 - text
 - pdf
-- xml
 - word
 - excel
 ---
