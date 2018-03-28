@@ -73,7 +73,7 @@ I am blown away by the hours spent on the included parsers, such as Apache `PDFB
 Motivation: the .lob File Extension
 ----------
 
-This package came together when parsing a hundred thousand Word documents in a governmental archive. The files did not have a file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension.
+This package came together when parsing a hundred thousand Word documents in a governmental archive. The files did not have a helpful file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension.
 
 ``` r
 # The older Word .doc versions are at the top, and newer .docx are at the end.
