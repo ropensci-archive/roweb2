@@ -92,8 +92,8 @@ The files did not have a file extension. They had been stored as 'large object d
 
 ``` r
 # The older Word .doc versions are at the top, and newer .docx are at the end.
-batch[length(batch)]
-#> [1] "/Users/sasha/leginfo/2017/BILL_ANALYSIS_TBL_9999.lob"
+batch[1]
+#> [1] "/Users/sasha/leginfo/2007/BILL_ANALYSIS_TBL_1.lob"
 ```
 
 Some documents parsed with the `antiword` package.
