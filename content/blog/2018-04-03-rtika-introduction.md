@@ -1,3 +1,36 @@
+---
+slug: "rtika-introduction"
+title: Lessons Learned from rtika, a Digital Babel Fish 
+package_version: 0.1.7
+authors:
+  - name: Sasha Goodman
+    url: https://github.com/ropensci/rtika
+date: 2018-04-03
+categories: blog
+topicid: 
+tags:
+- r
+- community
+- software
+- review
+- package
+- onboarding
+- package
+- text-mining
+- data-extraction
+- archiving
+- parser
+- curl
+- excel
+- json
+- metadata
+- tesseract
+- text
+- onboarding
+- pdf
+- xml
+- word
+---
                         .----.      
                ____    __\\\\\\__                 
                \___'--"          .-.          
