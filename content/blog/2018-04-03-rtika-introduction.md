@@ -92,8 +92,6 @@ The files did not have a file extension. They had been stored as 'large object d
 
 ``` r
 # The older Word .doc versions are at the top, and newer .docx are at the end.
-batch[1]
-#> [1] "/Users/sasha/leginfo/2007/BILL_ANALYSIS_TBL_1.lob"
 batch[length(batch)]
 #> [1] "/Users/sasha/leginfo/2017/BILL_ANALYSIS_TBL_9999.lob"
 ```
@@ -148,17 +146,6 @@ timing <- system.time(
 timing[3]/sample_size
 #>  elapsed 
 #> 0.006245
-
-cat(substr(sample(text,1),200,300))
-#> 
-#> 
-#>  FORMDROPDOWN 
-#>  (Author: Ducheny)
-#> 
-#> Hearing Date:  5/14/07
-#> 
-#> Amended: 5/1/07
-#> Consultant:  John Miller
 ```
 
 For the batch, the performance compared favorably to `antiword`, even with the overhead of loading Tika. I estimate that starting Tika, loading the Java parsers, loading the file list, and reading the files back into R took a few seconds. Fortunately, I saved minutes of time. The reduced effort led me to think about the broader applications. I wanted to create a package and share this with the R community.
@@ -197,7 +184,6 @@ In the following example, the function `wayback_machine_downloader()` gets docum
 
 ``` r
 # Historical files are available from the Internet Archive
-# the following function requires Docker and the R 'processx' package
 # Please see: https://github.com/hartator/wayback-machine-downloader
 library('processx')
 
@@ -210,7 +196,6 @@ wayback_machine_downloader <- function(input,
     dir.create(download_dir, recursive = TRUE)
   }
   # wait for wayback-machine-downloader in Docker
-  # NB: Docker file permissions can differ from R's, e.g. no tempdir() access
     processx::run('docker', c('run', '--rm',
      '-v', paste0(download_dir,':/websites'),
     'hartator/wayback-machine-downloader',
