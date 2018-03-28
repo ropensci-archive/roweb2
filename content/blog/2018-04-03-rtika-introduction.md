@@ -95,7 +95,7 @@ timing <- system.time(
 )
 
 # average time elapsed *per document* for antiword:
-timing[3]/sample_size
+timing[3]/2000
 #>   elapsed 
 #> 0.0098275
 ```
@@ -124,7 +124,7 @@ timing <- system.time(
 )
 
 # average time elapsed *per document* parsed for rtika:
-timing[3]/sample_size
+timing[3]/2000
 #>  elapsed 
 #> 0.006245
 ```
