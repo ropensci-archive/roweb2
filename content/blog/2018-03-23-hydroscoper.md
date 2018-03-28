@@ -55,7 +55,7 @@ The following code is a demonstration of how to download and plot the available 
 ```r
 load(hydroscoper)
 ```
-The time series that will be used come from the station `AG. BASILEIOS`, in the Greek water division `GR13`. The station `AG. BASILEIOS` appears has two different IDs and two different owners (maybe is an inconsistency in Hydroscope's databases):
+The time series that will be used come from the station `AG. BASILEIOS`, in the Greek water division `GR13`. The station `AG. BASILEIOS` appears to have two different IDs and two different owners (maybe is an inconsistency in Hydroscope's databases):
 
 ```r
 stations[stations$name == "AG. BASILEIOS", ]
@@ -146,7 +146,7 @@ grid.arrange(g.top,g.bottom, heights = c(1/3, 2/3))
 </center>
 <p>
 
-The spikes in the plot indicate that the stream-flow values are monthly instantaneous. If there were monthly averages, one would expect a more smoother sequence of values.
+The spikes in the plot indicate that the stream-flow values are monthly instantaneous. If there were monthly averages, one would expect a  smoother sequence of values.
 
 ## Future developments
 
