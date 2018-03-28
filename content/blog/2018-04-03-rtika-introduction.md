@@ -21,7 +21,6 @@ tags:
 - archiving
 - parser
 - excel
-- json
 - metadata
 - tesseract
 - text
@@ -29,6 +28,9 @@ tags:
 - xml
 - word
 ---
+
+The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" [^1]. The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.
+
 ```  
                       .----.      
                ____    __\\\\\\__                 
@@ -39,7 +41,6 @@ tags:
                       //    / /                   
                             ]/               
 ```
-The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" [^1]. The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.
 
 Parsing files is a common concern for many communities, including journalism [^2], government, business, and academia. The complexity of parsing can vary a lot. Apache Tika is a common library to lower that complexity. The Tika auto-detect parser finds the content type of a file and parses it with an included parser. It currently handles text or metadata extraction from *over one thousand digital formats*:
 
