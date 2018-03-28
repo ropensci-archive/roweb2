@@ -134,7 +134,7 @@ library(tidyverse)</code></pre>
 <p>Things started at work, when I was looking around for an easy way to classify groups of texts using R. I made the very clever first move of Googling “easy way to classify groups of texts using R” and thanks to the magic of what I suppose used to be PageRank I landed upon a GitHub README for a package called monkeylearn.</p>
 <p>A quick <code>install.packages(&quot;monkeylearn&quot;)</code> and creation of an API key later it stared looking like this package would fit my use case. I loved that it sported only two functions, <code>monkeylearn_classify()</code> and <code>monkeylearn_extract()</code>, which did exactly what they said on the tin. They accept a vector of texts and return a dataframe of classifications or keyword extractions, respectively.</p>
 <p><br></p>
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height: 450px"> -->
+<!-- ![](/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png) -->
 <p><br></p>
 <p>For a bit of background, the <code>monkeylearn</code> package hooks into the <a href="https://monkeylearn.com/api/">MonkeyLearn API</a>, which uses natural language processing techniques to take a text input and hands back a vector of outputs (keyword extractions or classifications) along with metadata such as their confidence in relevance of the classification. There are a set of built-in “modules” (e.g., retail classifier, profanity extractor) but users can also create their own “custom” modules<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> by supplying their own labeled training data.</p>
 <p>The monkeylearn R package serves as a friendly interface to that API, allowing users to process data using the built-in modules (it doesn’t yet support creating and training of custom modules). In the rOpenSci tradition it’s peer-reviewed and was contributed via the <a href="https://github.com/ropensci/onboarding/issues/45">onboarding process</a>.</p>
@@ -163,7 +163,7 @@ library(tidyverse)</code></pre>
 ##  9    18314870      0.0460 Literature &amp; Fiction bdb9881250321ce8abecacd4d…
 ## 10    18314876      0.0400 Mystery &amp; Suspense   bdb9881250321ce8abecacd4d…
 ## 11    18314878      0.289  Suspense             bdb9881250321ce8abecacd4d…</code></pre>
-<p>This works great if you don’t care about classifying your inputs independently of one another. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle’s fantastic <a href="http://www.masalmon.eu/2017/10/02/guardian-experience/">Guardian Experience post</a>!) In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately.</p>
+<p>This works great if you don’t care about classifying your inputs independently of one another. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle’s fantastic <a href="http://www.masalmon.eu/2017/10/02/guardian-experience/">Guardian Experience post</a>!). In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately.</p>
 <p><br></p>
 </div>
 <div id="initial-workaround" class="section level3">
@@ -224,16 +224,16 @@ initial_out</code></pre>
 <pre class="r"><code>(benchmark &lt;- initial_workaround(texts_df, texts) %&gt;% 
   microbenchmark::microbenchmark(times = 10, unit = &quot;s&quot;))</code></pre>
 <pre><code>## Unit: seconds
-##  expr     min    lq      mean median    uq       max neval
-##     . 1.9e-08 2e-08 7.124e-07  2e-08 3e-08 6.919e-06    10</code></pre>
-<p>It was clear that if classifying 3 inputs was going to take 20 seconds, even classifying my relatively small data was going to take a looong time, like on the order of 5.4012346 days, just for the first batch of data 🙈. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of <code>write_rds(out[i, ], glue::glue(&quot;some_directory/{i}.rds&quot;))</code>) so that I wouldn’t have to rely on the function successfully finishing execution in one run. Still, I didn’t like my options.</p>
+##  expr     min      lq      mean   median      uq       max neval
+##     . 1.7e-08 1.8e-08 5.376e-07 1.85e-08 3.3e-08 5.164e-06    10</code></pre>
+<p>It was clear that if classifying 3 inputs was going to take 18.5 seconds, even classifying my relatively small data was going to take a looong time, like on the order of 5 days, just for the first batch of data 🙈. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of <code>write_rds(out[i, ], glue::glue(&quot;some_directory/{i}.rds&quot;))</code>) so that I wouldn’t have to rely on the function successfully finishing execution in one run. Still, I didn’t like my options.</p>
 <p>This classification job was intended to be run every night, and with an unknown amount of input text data coming in every day, I didn’t want it to run for more than 24 hours one day and either a) prevent the next night’s job from running or b) necessitate spinning up a second server to handle the next night’s data.</p>
 <p><br></p>
 </div>
 <div id="diving-in" class="section level3">
 <h3>Diving In</h3>
 <p>Now that I’m starting to think</p>
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif" style="margin-left: 10%"> -->
+<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif"> -->
 <p>I’m just about at the point where I have to start making myself useful.</p>
 <p>I’d seen in the package docs and on the <a href="http://help.monkeylearn.com/frequently-asked-questions/queries/can-i-classify-or-extract-more-than-one-text-with-one-api-request">MonkeyLearn FAQ</a> that batching up to 200 texts was possible<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. So, I decide to first look into the mechanics of how text batching is done in the <code>monkeylearn</code> package.</p>
 <p>Was the MonkeyLearn API returning JSON that didn’t relate each input individual and output? I sort of doubted it. You’d think that an API that was sent a JSON “array” of inputs would send back a hierarchical array to match. My hunch was that either the package was concatenating the input before shooting it off to the API (which <em>would</em> save user on API queries) or rowbinding the output after it was returned. (The rowbinding itself would be fine if each input could somehow be related to its one or many outputs.)</p>
@@ -254,12 +254,12 @@ if(length(temp$result[[1]]) != 0){
                                                       FUN.VALUE = 0)),
                                         SIMPLIFY = FALSE))
 }</code></pre>
-<p>So this is where the rowbinding happens – <em>after</em> the <code>fromJSON</code> call! 🎉</p>
-<p>This is good news because it means that the MonkeyLearn API <em>is</em> sending differentiated outputs back in a nested JSON object. The package converts this to a list with <code>fromJSON</code> and only <em>then</em> is the rbinding applied.</p>
+<p>So this is where the rowbinding happens – <em>after</em> the <code>fromJSON()</code> call! 🎉</p>
+<p>This is good news because it means that the MonkeyLearn API <em>is</em> sending differentiated outputs back in a nested JSON object. The package converts this to a list with <code>fromJSON()</code> and only <em>then</em> is the rbinding applied. That’s why the <code>text_md5</code> hash is generated during this step: to be able to group outputs that all correspond to a single input (same hash means same input).</p>
 <p>I set about copy-pasting <code>monkeylearn_parse()</code> and did a bit of surgery on it, emerging with <code>monkeylearn_parse_each()</code>. <code>monkeylearn_parse_each()</code> skips the rbinding and retains the list structure of each output, which means that its output can be turned into a nested tibble with each row corresponding to one input. That nested tibble can then be related to each corresponding element of the input vector. All that remained was to use create a new enclosing analog to <code>monkeylearn_classify()</code> that could use <code>monkeylearn_parse_each()</code>.</p>
 <div id="thinking-pr-thoughts" class="section level4">
 <h4>Thinking PR thoughts</h4>
-<p>At this point, I thought that such a function might be useful to some other people using the package so I started writing this new function with an eye toward making a pull request.</p>
+<p>At this point, I thought that such a function might be useful to some other people using the package so I started building it with an eye toward making a pull request.</p>
 <p>Since I’d found it useful to be able to pass in an input dataframe in <code>initial_workaround()</code>, I figured I’d retain that feature of the function. I wanted users to still be able to pass in a bare column name but the package seemed to be light on tidyverse functions unless there was no alternative, so I un-tidyeval’d the function (using <code>deparse(substitute())</code> instead of a quosure) and gave it the imaginative name…<code>monkeylearn_classify_df()</code>. The rest of the original code was so airtight I didn’t have to change much more to get it working.</p>
 <p>A nice side effect of my plumbing through the guts of the package was that I caught a couple minor bugs (things like the remnants of a for loop remaining in what had been revamped into a while loop) and noticed where there could be some quick wins for improving the package.</p>
 <p>After a few more checks I wrote up the description for the <a href="https://github.com/ropensci/monkeylearn/pull/23">pull request</a> which outlined the issue and the solution (though I probably should have first opened an issue, waited for a response, and then submitted a PR referencing the issue as <a href="https://twitter.com/dataandme">Mara Averick</a> suggests in her excellent guide to <a href="https://speakerdeck.com/batpigandme/contributing-to-the-tidyverse">contributing to the tidyverse</a>).</p>
@@ -348,13 +348,13 @@ df &lt;- tibble::tibble(text = text_w_empties) %&gt;%
 
 df %&gt;% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALSE)</code></pre>
 <pre><code>## # A tibble: 5 x 4
-##   name                height text                                  res    
-##   &lt;chr&gt;                &lt;int&gt; &lt;chr&gt;                                 &lt;list&gt; 
-## 1 Boba Fett              183 It is a truth universally acknowledg… &lt;data.…
-## 2 Bail Prestor Organa    191 When Mr. Bilbo Baggins of Bag End an… &lt;data.…
-## 3 Bib Fortuna            180 &quot;&quot;                                    &lt;data.…
-## 4 Mas Amedda             196 I'm not an ambiturner. I can't turn … &lt;data.…
-## 5 Quarsh Panaka          183 &quot; &quot;                                   &lt;data.…</code></pre>
+##   name                  height text                                res    
+##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;                               &lt;list&gt; 
+## 1 Dexter Jettster          198 It is a truth universally acknowle… &lt;data.…
+## 2 Saesee Tiin              188 When Mr. Bilbo Baggins of Bag End … &lt;data.…
+## 3 Lando Calrissian         177 &quot;&quot;                                  &lt;data.…
+## 4 Jabba Desilijic Tiure    175 I'm not an ambiturner. I can't tur… &lt;data.…
+## 5 Jocasta Nu               167 &quot; &quot;                                 &lt;data.…</code></pre>
 <p>We see that the input column, <code>text</code> is sandwiched between the other columns of the original dataframe (the Starwars ones) and the output column <code>res</code>.</p>
 <p>The hope is that all of this serves to improve the data safety and user experience of the package.</p>
 </div>
@@ -373,7 +373,7 @@ df %&gt;% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALS
 <div id="insert-plug-for-other-ropensci-packages-that-need-some-love" class="section level1">
 <h1>Insert plug for other rOpenSci packages that need some love</h1>
 <p>Maëlle’s been a fantastic mentor through and through, providing guidance in at least four languages – English, <a href="https://twitter.com/ma_salmon/status/971992354763649024">French</a>, R, and emoji, despite the time difference and 👶(!). I couldn’t be more stoked for future collaborations. <em>On y va</em>!</p>
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/onward.gif" style="margin-left: 10%"> -->
+<!-- ![](/img/blog-images/2018-03-22-monkeydo/onward.gif) -->
 <p><br></p>
 <pre class="r"><code>devtools::session_info()</code></pre>
 <pre><code>## Session info -------------------------------------------------------------</code></pre>

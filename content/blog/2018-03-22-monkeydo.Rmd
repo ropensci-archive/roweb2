@@ -53,7 +53,7 @@ A quick `install.packages("monkeylearn")` and creation of an API key later it st
 
 <br>
 
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png" style="height: 450px"> -->
+<!-- ![](/img/blog-images/2018-03-22-monkeydo/monkeylearn_api.png) -->
 
 <br>
 
@@ -75,7 +75,7 @@ texts <- c(
 (texts_out <- monkeylearn_classify(texts))
 ```
 
-This works great if you don't care about classifying your inputs independently of one another. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle's fantastic [Guardian Experience post](http://www.masalmon.eu/2017/10/02/guardian-experience/)!) In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately.
+This works great if you don't care about classifying your inputs independently of one another. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle's fantastic [Guardian Experience post](http://www.masalmon.eu/2017/10/02/guardian-experience/)!). In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately.
 
 <br>
 
@@ -139,7 +139,7 @@ But, the catch: this approach was quite slow. The real bottleneck here isn't the
   microbenchmark::microbenchmark(times = 10, unit = "s"))
 ```
 
-It was clear that if classifying `r nrow(texts_df)` inputs was going to take `r median(benchmark$time)` seconds, even classifying my relatively small data was going to take a looong time, like on the order of `r median(benchmark$time)/nrow(texts_df)*70000/60/60/24 %>% round(digits = 0)` days, just for the first batch of data `r emo::ji("see_no_evil")`. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of `write_rds(out[i, ], glue::glue("some_directory/{i}.rds"))`) so that I wouldn't have to rely on the function successfully finishing execution in one run. Still, I didn't like my options.
+It was clear that if classifying `r nrow(texts_df)` inputs was going to take `r median(benchmark$time)` seconds, even classifying my relatively small data was going to take a looong time, like on the order of `r round(median(benchmark$time)/nrow(texts_df)*70000/60/60/24, digits = 0)` days, just for the first batch of data `r emo::ji("see_no_evil")`. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of `write_rds(out[i, ], glue::glue("some_directory/{i}.rds"))`) so that I wouldn't have to rely on the function successfully finishing execution in one run. Still, I didn't like my options.
 
 This classification job was intended to be run every night, and with an unknown amount of input text data coming in every day, I didn't want it to run for more than 24 hours one day and either a) prevent the next night's job from running or b) necessitate spinning up a second server to handle the next night's data.
 
@@ -147,9 +147,9 @@ This classification job was intended to be run every night, and with an unknown 
 
 ### Diving In
 
-Now that I'm starting to think 
+Now that I'm starting to think      
 
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif" style="margin-left: 10%"> -->
+<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/theresgottabeabetterway.gif"> -->
 
 I'm just about at the point where I have to start making myself useful.
 
@@ -181,16 +181,16 @@ if(length(temp$result[[1]]) != 0){
 ```
 
 
-So this is where the rowbinding happens -- *after* the `fromJSON` call!  `r emo::ji("tada")`
+So this is where the rowbinding happens -- *after* the `fromJSON()` call!  `r emo::ji("tada")`
 
-This is good news because it means that the MonkeyLearn API *is* sending differentiated outputs back in a nested JSON object. The package converts this to a list with `fromJSON` and only *then* is the rbinding applied.
+This is good news because it means that the MonkeyLearn API *is* sending differentiated outputs back in a nested JSON object. The package converts this to a list with `fromJSON()` and only *then* is the rbinding applied. That's why the `text_md5` hash is generated during this step: to be able to group outputs that all correspond to a single input (same hash means same input).
 
 I set about copy-pasting `monkeylearn_parse()` and did a bit of surgery on it, emerging with `monkeylearn_parse_each()`. `monkeylearn_parse_each()` skips the rbinding and retains the list structure of each output, which means that its output can be turned into a nested tibble with each row corresponding to one input. That nested tibble can then be related to each corresponding element of the input vector. All that remained was to use create a new enclosing analog to `monkeylearn_classify()` that could use `monkeylearn_parse_each()`.
 
 
 #### Thinking PR thoughts
 
-At this point, I thought that such a function might be useful to some other people using the package so I started writing this new function with an eye toward making a pull request.
+At this point, I thought that such a function might be useful to some other people using the package so I started building it with an eye toward making a pull request.
 
 Since I'd found it useful to be able to pass in an input dataframe in `initial_workaround()`, I figured I'd retain that feature of the function. I wanted users to still be able to pass in a bare column name but the package seemed to be light on tidyverse functions unless there was no alternative, so I un-tidyeval'd the function (using `deparse(substitute())` instead of a quosure) and gave it the imaginative name...`monkeylearn_classify_df()`. The rest of the original code was so airtight I didn't have to change much more to get it working. 
 
@@ -313,8 +313,7 @@ My work on the `monkeylearn package` so far has been rewarding to say the least.
 
 Maëlle's been a fantastic mentor through and through, providing guidance in at least four languages -- English, [French](https://twitter.com/ma_salmon/status/971992354763649024), R, and emoji, despite the time difference and `r emo::ji("baby")`(!). I couldn't be more stoked for future collaborations. *On y va*!
 
-<!-- <img src = "/img/blog-images/2018-03-22-monkeydo/onward.gif" style="margin-left: 10%"> -->
-
+<!-- ![](/img/blog-images/2018-03-22-monkeydo/onward.gif) -->
 
 <br>
 
