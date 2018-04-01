@@ -177,7 +177,7 @@ grid.arrange(g.top,g.bottom, heights = c(1/3, 2/3))
 
 The spikes in the plot indicate that the stream-flow values are monthly instantaneous. If there were monthly averages, one would expect a  smoother sequence of values.
 
-### Some thoughts about Hydrology
+### Some final thoughts
 
 Hydrology is being transformed by a plethora[[^2]] of data. These are coming from satellites in space, gauging stations in streams, wells in the subsurface, online weather stations, and many more sources. What is really exciting is that using open source software, such as [R](https://cran.r-project.org/),  Hydrologic Processes can be modeled in a convenient,  reproducible, and transparent way using the Data Science paradigm[[^3]] and the rOpenSci [orama](https://ropensci.org/about/)[[^4]].
 
