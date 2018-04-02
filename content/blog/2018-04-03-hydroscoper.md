@@ -179,7 +179,7 @@ The spikes in the plot indicate that the stream-flow values are monthly instanta
 
 ### Some final thoughts
 
-Hydrology is being transformed by a plethora[[^2]] of data. These are coming from satellites in space, gauging stations in streams, wells in the subsurface, online weather stations, and many more sources. What is really exciting is that using open source software, such as [R](https://cran.r-project.org/),  Hydrologic Processes can be modeled in a convenient,  reproducible, and transparent way using the Data Science paradigm[[^3]] and the rOpenSci [orama](https://ropensci.org/about/)[[^4]].
+Hydrology is being transformed by a plethora[[^2]] of data. These are coming from satellites in space, gauging stations in streams, wells in the subsurface, online weather stations, and many more sources. What is really exciting is that using open source software, such as [R](https://cran.r-project.org/),  Hydrologic Processes can be modeled in a convenient,  reproducible, and transparent way using the Data Science paradigm and the [rOpenSci](https://ropensci.org/about/) orama[[^3]].
 
 ### Future developments
 
@@ -191,5 +191,4 @@ Thank you rOpenSci for this great experience! I am really grateful to rOpenSci R
 
 [^1]: [σοφιστείες](https://en.oxforddictionaries.com/definition/sophistry): using, maybe, clever but false arguments with the intention of deceiving.
 [^2]: [πληθώρα](https://en.oxforddictionaries.com/definition/plethora):  a large amount of something.
-[^3]: [παράδειγμα](https://en.oxforddictionaries.com/definition/paradigm) a pattern or model.
-[^4]: [όραμα](https://en.oxforddictionaries.com/definition/-orama): a mental image.
+[^3]: [όραμα](https://en.oxforddictionaries.com/definition/-orama): a mental image.
