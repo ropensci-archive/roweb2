@@ -1,10 +1,10 @@
 ---
 slug: "monkeydo"
-title: MonkeyBuild
+title: Toward a Theory of Monkeying around with Code and Paying it Forward
 package_version: 0.2.0
 authors:
-  name: Amanda Dobbyn
-  url: dobb.ae
+    - name: Amanda Dobbyn
+    - url: dobb.ae
 date: 2018-03-22
 output:
   html_document:
@@ -36,18 +36,22 @@ knitr::opts_chunk$set(root.dir=normalizePath(here("../../themes/ropensci/static"
 
 
 ```{r, warning=FALSE, message=FALSE}
-library(monkeylearn)
 library(tidyverse)
+library(monkeylearn)
 ```
 
 
-This is a story (mostly) about how I started contributing to the rOpenSci package [monkeylearn](https://github.com/ropensci/monkeylearn). I can't promise any life flipturning upside down, but there will be a small discussion about git best practices which is almost as good `r emo::ji("nerd")`.
+This is a story (mostly) about how I started contributing to the rOpenSci package [monkeylearn](https://github.com/ropensci/monkeylearn). I can't promise any life flipturning upside down, but there will be a small discussion about git best practices which is almost as good `r emo::ji("nerd")`. The tl;dr here is nothing novel but is something I wish I'd experienced firsthand sooner. 
+
+We all write code all the time to graft aditional features onto existing tools or reshape output into forms that fit better in our particular pipelines. Chances are, those sorts of tweaks are improvements our fellow package users could take advantage of. Plus, if they're integrated into the package source code, then we no longer need our own wrappers and reshapers and speeder-uppers. That means less code and fewer chances of bugs all around `r emo::ji("raised_hands")`. So, tinkering with and improving on the code others have written is more rewarding for you and more valuable to others when you contribute it back to the original source.
+
+<br>
 
 ### Some Backstory
 
-Things started at work, when I was looking around for an easy way to classify groups of texts using R. I made the very clever first move of Googling "easy way to classify groups of texts using R" and thanks to the magic of what I suppose used to be PageRank I landed upon a GitHub README for a package called monkeylearn. 
+My first brush with the `monkeylearn` package was at work one day when I was looking around for an easy way to classify groups of texts using R. I made the very clever first move of Googling "easy way to classify groups of texts using R" and thanks to the magic of what I suppose used to be PageRank I landed upon a GitHub README for a package called monkeylearn. 
 
-A quick `install.packages("monkeylearn")` and creation of an API key later it stared looking like this package would fit my use case. I loved that it sported only two functions, `monkeylearn_classify()` and `monkeylearn_extract()`, which did exactly what they said on the tin. They accept a vector of texts and return a dataframe of classifications or keyword extractions, respectively.
+A quick `install.packages("monkeylearn")` and creation of an API key later it started looking like this package would fit my use case. I loved that it sported only two functions, `monkeylearn_classify()` and `monkeylearn_extract()`, which did exactly what they said on the tin. They accept a vector of texts and return a dataframe of classifications or keyword extractions, respectively.
 
 <br>
 
@@ -71,10 +75,10 @@ texts <- c(
     "When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.",
     "I'm not an ambiturner. I can't turn left.")
 
-(texts_out <- monkeylearn_classify(texts))
+(texts_out <- monkeylearn_classify(texts, verbose = FALSE))
 ```
 
-This works great if you don't care about classifying your inputs independently of one another. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle's fantastic [Guardian Experience post](http://www.masalmon.eu/2017/10/02/guardian-experience/)!). In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately.
+So we can see we've now got classifications for the `texts` we fed in as input. The MD5 hash can be used to disambiguate which outputs correspond to which inputs in some cases (see Maëlle's fantastic [Guardian Experience post](http://www.masalmon.eu/2017/10/02/guardian-experience/)!). This works great if you either don't care about classifying your inputs independently of one another or you know that your inputs will never contain empty strings or other values that won't be sent to the API.  In my case, though, my inputs were independent of one another and also could not be counted on to be well-formed. I determined that each had to be classified separately so that I could guarantee a 1:1 match between input and output.
 
 <br>
 
@@ -134,11 +138,10 @@ We see that this retains the 1:1 relationship between input and output, but stil
 But, the catch: this approach was quite slow. The real bottleneck here isn't the for loop; it's that this requires a round trip to the MonkeyLearn API for each individual text. For just these three meager texts, let's see how long `initial_workaround()` takes to finish.
 
 ```{r}
-(benchmark <- initial_workaround(texts_df, texts) %>% 
-  microbenchmark::microbenchmark(times = 10, unit = "s"))
+(benchmark <- system.time(initial_workaround(texts_df, texts)))
 ```
 
-It was clear that if classifying `r nrow(texts_df)` inputs was going to take `r median(benchmark$time)` seconds, even classifying my relatively small data was going to take a looong time, like on the order of `r round(median(benchmark$time)/nrow(texts_df)*70000/60/60/24, digits = 0)` days, just for the first batch of data `r emo::ji("see_no_evil")`. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of `write_rds(out[i, ], glue::glue("some_directory/{i}.rds"))`) so that I wouldn't have to rely on the function successfully finishing execution in one run. Still, I didn't like my options.
+It was clear that if classifying `r nrow(texts_df)` inputs was going to take `r round(benchmark[3], 1)` seconds, even classifying my relatively small data was going to take a looong time, like on the order of `r round(benchmark[3]/nrow(texts_df)*70000/60/60/24, digits = 0)` days, just for the first batch of data `r emo::ji("see_no_evil")`. I updated the function to write each row out to an RDS file after it was classified inside the loop (with an addition along the lines of `write_rds(out[i, ], glue::glue("some_directory/{i}.rds"))`) so that I wouldn't have to rely on the function successfully finishing execution in one run. Still, I didn't like my options.
 
 This classification job was intended to be run every night, and with an unknown amount of input text data coming in every day, I didn't want it to run for more than 24 hours one day and either a) prevent the next night's job from running or b) necessitate spinning up a second server to handle the next night's data.
 
@@ -207,9 +210,9 @@ In what I would come to know as her usual cheerful, perpetually-on-top-of-it for
 
 ### Continuing Work
 
-To make a short story shorter, Maëlle asked me if I'd like to create the extractor counterpart to `monkeylearn_classify_df()` and become an [aut](https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/)hor on the package with push access to the repo. I said yes, of course, and so we began to strategize over rOpenSci Slack about tradeoffs like which package dependencies we were okay with taking on, whether to go the tidyeval or base route, what the best naming conventions for the new functions should be, etc. 
+To make a short story shorter, Maëlle asked me if I'd like to create the extractor counterpart to `monkeylearn_classify_df()` and become an author on the package with push access to the repo. I said yes, of course, and so we began to strategize over Slack about tradeoffs like which package dependencies we were okay with taking on, whether to go the tidyeval or base route, what the best naming conventions for the new functions should be, etc. 
 
-On the naming front, we decided to gracefully deprecate `monkeylearn_classify()` and `monkeylearn_extract()` as the newer functions could cover all of the functionality that the older guys did. I don't know much about cache invalidation, but the naming problem [was hard as usual](https://github.com/ropensci/monkeylearn/issues/24). We settled on naming their counterparts `monkey_classify()` (which replaced the original `monkeylearn_classify_df()`) and `monkey_extract()`. 
+On the naming front, we decided to gracefully deprecate `monkeylearn_classify()` and `monkeylearn_extract()` as the newer functions could cover all of the functionality that the older ones did. I don't know much about cache invalidation, but the naming problem [was hard as usual](https://github.com/ropensci/monkeylearn/issues/24). We settled on naming their counterparts `monkey_classify()` (which replaced the original `monkeylearn_classify_df()`) and `monkey_extract()`. 
 
 
 #### gitflow
@@ -271,7 +274,7 @@ text_w_empties <- c(
     "I'm not an ambiturner. I can't turn left.",
     " ")
 
-(empties_out <- monkey_classify(text_w_empties, texts_per_req = 2, unnest = TRUE))
+(empties_out <- monkey_classify(text_w_empties, classifier_id = "cl_5icAVzKR", texts_per_req = 2, unnest = TRUE))
 ```
 
 So even though the empty string inputs like the 3rd and 5th, aren't sent to the API, we can see they're still included in the output dataframe and assigned the same column names as all of the other outputs. That means that even if `unnest` is set to FALSE, the output can still be unnested with `tidyr::unnest()` after the fact.
@@ -287,7 +290,7 @@ sw <- dplyr::starwars %>%
 df <- tibble::tibble(text = text_w_empties) %>% 
   dplyr::bind_cols(sw)
 
-df %>% monkey_classify(text, unnest = FALSE, .keep_all = TRUE, verbose = FALSE)
+df %>% monkey_classify(text, classifier_id = "cl_5icAVzKR", unnest = FALSE, .keep_all = TRUE, verbose = FALSE)
 ```
 
 We see that the input column, `text` is sandwiched between the other columns of the original dataframe (the Starwars ones) and the output column `res`.
@@ -308,7 +311,9 @@ Since there are only two functions to worry about here, creating a function fact
 ### Last Thoughts
 
 
-My work on the `monkeylearn package` so far has been rewarding to say the least. It's inspired me to be not just a consumer but more of an active contributor to open source. Some wise words from Maëlle on this front: "You too can become a contributor to an rOpenSci package! Have a look at the issues tracker of your favorite rOpenSci package(s) e.g. [rgbif](https://github.com/ropensci/rgbif/issues). Browse issues suitable for beginners over many rOpenSci repos thanks to [Lucy D'Agostino McGowan's contributr Shiny app](https://ropensci.shinyapps.io/contributr/). Always first ask in a new or existing issue whether your contribution would be welcome, plan a bit with the maintainer, and then have fun! We'd be happy to have you."
+My work on the `monkeylearn package` so far has been rewarding to say the least. It's inspired me to be not just a consumer but more of an active contributor to open source. Some wise words from Maëlle on this front: 
+
+> You too can become a contributor to an rOpenSci package! Have a look at the issues tracker of your favorite rOpenSci package(s) e.g. [rgbif](https://github.com/ropensci/rgbif/issues). Browse issues suitable for beginners over many rOpenSci repos thanks to [Lucy D'Agostino McGowan's contributr Shiny app](https://ropensci.shinyapps.io/contributr/). Always first ask in a new or existing issue whether your contribution would be welcome, plan a bit with the maintainer, and then have fun! We'd be happy to have you.
 
 Maëlle's been a fantastic mentor, providing guidance in at least four languages -- English, [French](https://twitter.com/ma_salmon/status/971992354763649024), R, and emoji, despite the time difference and 👶(!). When it comes to `monkeylearn`, the hope is to keep improving the core package features, add some more [niceties](https://github.com/ropensci/monkeylearn/issues/63), and look into building out an R-centric way for users to create and train their own custom modules on MonkeyLearn.
 
@@ -316,16 +321,8 @@ Maëlle's been a fantastic mentor, providing guidance in at least four languages
  
 <!-- ![](/img/blog-images/2018-03-22-monkeydo/onward.gif) -->
 
-<br>
 
-
-```{r session_info}
-devtools::session_info()
-```
-
-
-
-[^1]: Custom, to a point. As of this writing, two types of classifier models you can create use either Naive Bayes or Support Vector Machines, though you can specify other parameters such as `use_stemmer` and `strip_stopwords`.
+[^1]: Custom, to a point. As of this writing, two types of classifier models you can create use either Naive Bayes or Support Vector Machines, though you can specify other parameters such as `use_stemmer` and `strip_stopwords`. Custom extractor modules are coming soon.
 
 [^2]: That MD5 hash almost provided the solution; each row of the output gets a hash that corresponds to a single input row, so it seemed like the hash was meant to be used to be able to map inputs to outputs. Provided that I knew that all of my inputs were non-empty strings, which are filtered out before they can be sent to the API, and could be classified I could have nested the output based on its MD5 sum and mapped the indices of the inputs and the outputs 1:1. The trouble was that I knew that my input data would be changing and I wasn't convinced that all of my inputs would be receive well-formed responses from the API. If some of the text couldn't receive a corresponding set of classification, such a nested output would have fewer rows than the input vector's length. There would be no way to tell which input corresponded to which nested output.
 
