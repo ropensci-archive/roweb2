@@ -41,9 +41,9 @@ library(monkeylearn)
 ```
 
 
-This is a story (mostly) about how I started contributing to the rOpenSci package [monkeylearn](https://github.com/ropensci/monkeylearn). I can't promise any life flipturning upside down, but there will be a small discussion about git best practices which is almost as good `r emo::ji("nerd")`. The tl;dr here is nothing novel but is something I wish I'd experienced firsthand sooner. 
+This is a story (mostly) about how I started contributing to the rOpenSci package [monkeylearn](https://github.com/ropensci/monkeylearn). I can't promise any life flipturning upside down, but there will be a small discussion about git best practices which is almost as good `r emo::ji("nerd")`. The tl;dr here is nothing novel but is something I wish I'd experienced firsthand sooner. That is, that tinkering with and improving on the code others have written is more rewarding for you and more valuable to others when you contribute it back to the original source.
 
-We all write code all the time to graft aditional features onto existing tools or reshape output into forms that fit better in our particular pipelines. Chances are, those sorts of tweaks are improvements our fellow package users could take advantage of. Plus, if they're integrated into the package source code, then we no longer need our own wrappers and reshapers and speeder-uppers. That means less code and fewer chances of bugs all around `r emo::ji("raised_hands")`. So, tinkering with and improving on the code others have written is more rewarding for you and more valuable to others when you contribute it back to the original source.
+We all write code all the time to graft aditional features onto existing tools or reshape output into forms that fit better in our particular pipelines. Chances are, these are improvements our fellow package users could take advantage of. Plus, if they're integrated into the package source code, then we no longer need our own wrappers and reshapers and speeder-uppers. That means less code and fewer chances of bugs all around `r emo::ji("raised_hands")`. So, tinkering with and improving on the code others have written is more rewarding for you and more valuable to others when you contribute it back to the original source.
 
 <br>
 
@@ -219,6 +219,14 @@ On the naming front, we decided to gracefully deprecate `monkeylearn_classify()`
 
 Early on in the process we started talking git conventions. Rather than both work off a development branch, I floated a structure that we typically follow at my company, where each ticket (or in this case, GitHub Issue) becomes its own branch off of dev. For instance, issue #33 becomes branch `T33` (T for ticket). Each of these feature branches come off of dev (unless they're hotfixes) and are merged back into dev and deleted when they pass all the necessary checks. This approach, I am told, stems from the "[gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)" philosophy which, as far as I understand it, is one of many ways to structure a git workflow that mostly doesn't end in tears.
 
+
+<br>
+
+<!-- ![](/img/blog-images/2018-03-22-monkeydo/gitflow.jpg) -->
+
+<br>
+
+
 Like most git strategies, the idea here is to make pull requests as bite-sized as possible; in this case, a PR can only be as big as the issue it's named from. An added benefit for me, at least, is that this keeps me from wandering off into other parts of the code without first documenting the point in a separate issue, and then creating a branch. At most one person is assinged to each ticket/issue, which minimizes merge conflicts. You also leave a nice paper trail because the branch name directly references the issue front and center in its title. This means you don't have to explicitly name the issue in the commit or rely on GitHub's (albeit awesome) keyword branch closing system[^4]. 
 
 Finally, since the system is so tied to issues themselves, it encourages very frequent communication between collaborators. Since the issue must necessarily be made before the branch and the accompanying changes to the code, the other contributors have a chance to weigh in on the issue or the approach suggested in its comments before any code is written. In our case, it's certainly made frequent communication the path of least resistance. 
@@ -328,5 +336,5 @@ Maëlle's been a fantastic mentor, providing guidance in at least four languages
 
 [^3]: Batching doesn't save you on requests (sending 200 texts in a batch means you now have 200 fewer queries), but it does save you bigtime on speed.
 
-[^4]: Keywords in commits don't automatically close issues until they're merged into master, and since we were working off of dev for quite a long time, if we relied on keywords to automatically close issues our Open issues list wouldn't accurately reflect the issues that we actually still had to address. Would be cool for GitHub to allow flags like maybe "fixes #33 --dev" could close issue #33 when the PR with that phrase in the commit was merged into dev. 
+[^4]: Keywords in commits don't automatically close issues until they're merged into master, and since we were working off of dev for quite a long time, if we relied on keywords to automatically close issues our Open iIsues list wouldn't accurately reflect the issues that we actually still had to address. Would be cool for GitHub to allow flags like maybe "fixes #33 --dev" could close issue #33 when the PR with that phrase in the commit was merged into dev. 
 
