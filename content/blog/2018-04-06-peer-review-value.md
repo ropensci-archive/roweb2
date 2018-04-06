@@ -37,7 +37,7 @@ I did review code as well. But it was a natural part of exploring the behaviour 
 
 I wasn't lucky enough to see Onboarding editor [Maëlle Salmon's](https://twitter.com/ma_salmon) recent hatted [SatRday talk](https://www.youtube.com/watch?v=v7yZ8SvKCwU), but I had to smile when I spotted [this slide in her deck](http://www.masalmon.eu/satrday_keynote/slides#21):
 
-![Yes indeed!](/img/blog-images/2018-04-06/what_to_review_for.png)
+![Yes indeed!](/img/blog-images/2018-04-06-peer-review-value/what-to_review_for.png)
 
 It seems we agree on the priorities. Maëlle gives technical considerations the lowest value. 
 
