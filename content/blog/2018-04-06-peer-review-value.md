@@ -24,7 +24,7 @@ This question has important corollaries which I will explore here based on my ex
 2. When is the best time in a software package's life cycle to undertake peer review?
 
 
-## Doing a good job
+### Doing a good job
 As I've read the growing number of reflective posts by other Onboarding reviewers, I'm struck similarities in our experiences. [Mara Averick](https://ropensci.org/blog/2017/08/22/first-package-review/), [Verena Haunschmid](https://ropensci.org/blog/2017/09/08/first-review-experiences/), and [Charles Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/) all place emphasis on reviewing from a "user's" perspective. For Mara and Charles, this perspective was used to gain traction after initial nervousness about their ability to do a good job.
 
 I shared these initial butterflies. `bowerbird`'s code base was quite large on the first submission. The code embedded a lot of domain specific API knowledge. It was disorientating and I felt like I was thrashing around stumbling onto issues without undertaking a systematic survey.
@@ -47,7 +47,7 @@ It is interesting that Onboarding reviewers like Mara, Charles, and myself all i
 
 To a software developer, detailed user feedback is an extremely rare and valuable commodity. It's quite amazing to receive it from multiple sources for free. The realisation that this is where the bulk of the value lies has important implications for the scaling of package peer review processes: Veteran UseRs are in much more plentiful supply than veteran package developers.
 
-## Timing it right 
+### Timing it right 
 Armed with my user-driven heuristic, it didn't take me long pick up on some of editor [Noam Ross](https://twitter.com/noamross) initial queries and determine  `bowerbird` needed to be split into two packages. The documentation and API struggled to paint separate coherent workflows for two very different classes of user.
 
 Following the split I think the authors began to feel some concern at the scale of the issues emerging in review. They worried aloud they were wasting our time and sought to engage reviewers and editors in a conversation about whether `bowerbird` had been submitted too early in its life cycle. Opinions were split on whether early or late stage review is better. I was very much in favour of early and did not see an issue with `bowerbird` being submitted as it was.
@@ -56,16 +56,15 @@ I would argue that under the user-driven school, early has to be better. There i
 
 Leaving review until late stage allows for the possibility that work done in the name of open source and open science might be wasted to some degree. I see that as tragedy worth avoiding at significant cost.
 
-## Conclusion
+### Conclusion
 A reviewer's time is best spent on the things most impactful on a software package's success. This is an uncontroversial statement. However, the user-driven school of package development & review suggests the things that most impact package success are those that affect the end user - documentation, API, and workflow. It is therefore in improving these things that the bulk of the value in package peer review lies.
 
 Falling out of this discussion are two important take aways from the user-driven school of package peer review:
 
-1. As a useR, you are qualified as a potential package reviewer if you have some appreciation for what makes your favourite packages useful.
+> 1. As a useR, you are qualified as a potential package reviewer if you have some appreciation for what makes your favourite packages useful.
+> 2. As a package author, engage early with a package peer review process if you see value in it, to get the most out of it. This is BEFORE things are 'perfect'.
 
-2. As a package author, engage early with a package peer review process if you see value in it, to get the most out of it. This is BEFORE things are 'perfect'.
-
-## Epilogue
+### Epilogue
 [`bowerbird`](https://github.com/ropensci/bowerbird) recently cleared the [review process](https://github.com/ropensci/onboarding/issues/139) and obtained Peer Reviewed status. In my biased opinion, the [main vignette](https://ropensci.github.io/bowerbird/articles/bowerbird.html) is one of the best I have read, and a fine example product of the user-driven school I have discussed here. 
 
 Congratulations to the authors [Ben Raymond](https://github.com/raymondben) and [Michael Sumner](https://github.com/mdsumner)!
