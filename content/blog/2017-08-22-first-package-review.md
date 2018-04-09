@@ -12,6 +12,7 @@ tags:
 - R
 - review
 - reviewer
+- onboarding
 - visdat
 - community
 - package
