@@ -2,7 +2,7 @@
 slug: rprofile-noam-ross
 title: ".rprofile: Noam Ross"
 date: 2018-04-13
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted by and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
@@ -54,7 +54,7 @@ NR: I went to an office then, I go to an office now. I just go to an office in a
 
 KO: Are lots of other people on your team using R, or are there other programming languages represented?
 
-NR: We are primarily an R shop on the research side. Our ecologists, phylogeneticists, genomics people and spatial experts all use R. We also have a software and tool development group that builds apps and tools, and they use more python and javascript. They do some machine-learning work, too, and that's where our worlds overlap there's sharing of tools and methods.
+NR: We are primarily an R shop on the research side. Our ecologists, phylogeneticists, genomics people and spatial experts all use R. We also have a software and tool development group that builds apps and tools, and they use more python and javascript. They do some machine-learning work, too, and that's where our worlds overlap so there's sharing of tools and methods.
 
 KO: What does your work day look like (or even your ideal work day)? What does the first half hour look like, what does the last half hour look like?
 
@@ -77,4 +77,4 @@ Then there is a grey area of work I do that is useful for my job but could also 
 
 KO: Final question, do you have any favorite tools for work or life hacks / life management?
 
-NR: I really like the 'review' tool in GitHub. It's not quite what we use in rOpenSci for package-level review, but I find the way you're able to assemble code review comments into a  very helpful report and I use it a lot for feedback within my team. One of the things I like a lot on the package development side, is Gábor Csárdi's [goodpractice package](https://github.com/MangoTheCat/goodpractice) that lets one run all of these package checks that go beyond R CMD check.  We use it all the time in the package peer-review process. Finally, I do a lot of intensive simulations so I use a lot of C++ and Rcpp, but my best hack is to have a big enough multi-core box to make up for my programming deficiencies.
+NR: I really like the 'review' tool in GitHub. It's not quite what we use in rOpenSci for package-level review, but I find the way you're able to assemble code review comments into a  very helpful report and I use it a lot for feedback within my team. One of the things I like a lot on the package development side, is Gábor Csárdi's [goodpractice package](https://github.com/MangoTheCat/goodpractice) for running all of these package checks that go beyond R CMD check.  We use it all the time in the package peer-review process. Finally, I do a lot of intensive simulations so I use a lot of C++ and Rcpp, but my best hack is to have a big enough multi-core box to make up for my programming deficiencies.
