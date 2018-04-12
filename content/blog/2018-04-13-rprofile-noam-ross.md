@@ -78,3 +78,7 @@ Then there is a grey area of work I do that is useful for my job but could also 
 KO: Final question, do you have any favorite tools for work or life hacks / life management?
 
 NR: I really like the 'review' tool in GitHub. It's not quite what we use in rOpenSci for package-level review, but I find the way you're able to assemble code review comments into a  very helpful report and I use it a lot for feedback within my team. One of the things I like a lot on the package development side, is Gábor Csárdi's [goodpractice package](https://github.com/MangoTheCat/goodpractice) for running all of these package checks that go beyond R CMD check.  We use it all the time in the package peer-review process. Finally, I do a lot of intensive simulations so I use a lot of C++ and Rcpp, but my best hack is to have a big enough multi-core box to make up for my programming deficiencies.
+
+<br>
+
+_This interview occurred at the 2017 rOpenSci unconference. Special thanks to [Noam Ross](https://twitter.com/noamross) for participating in the project!_
