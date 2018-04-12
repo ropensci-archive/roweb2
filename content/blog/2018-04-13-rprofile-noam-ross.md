@@ -15,7 +15,7 @@ tags:
 - rprofile
 ---
 
-<img src="/img/blog-images/" alt="Noam Ross" style="margin: 0px 20px; width: 250px;" align="left">
+<img src="/img/blog-images/2018-04-13-rprofile-noam-ross/noam-ross.jpg" alt="Noam Ross" style="margin: 0px 20px; width: 250px;" align="left">
 _Dr. Noam Ross [@noamross on Twitter] is a disease ecologist at [EcoHealth Alliance](https://www.ecohealthalliance.org/) in NYC, as well as an editor for rOpenSci. Topics of discussion included Noam's history with R and rOpenSci, working in a team-driven research environment, and inspirations for pushing research processes and rOpenSci projects in exciting new directions._
 
 ---
