@@ -75,10 +75,10 @@ including separation between code and UI reviewing, more advice and
 examples on how to approach review, better guidance on expectations for
 timelines and collaboration between multiple reviewers. We aim to fold
 all these suggestions into the book. There are [great posts about how to
-tackle a peer review on our blog](https://ropensci.org/tags/review/)
+tackle a peer review on our blog](https://ropensci.org/tags/reviewer/)
 that we will incorporate.
 
-#### Section 3: The review process
+### Section 3: The review process
 
 
 ![](https://i.imgur.com/QEUeWHF.png)![](https://i.imgur.com/RSXhy7j.png)
@@ -171,7 +171,6 @@ participating in onboarding.
     difficult to get elsewhere.
 -   The collegial and non-adversarial nature of the process.
 
-### What’s the best thing about the process?
 
 ![](https://i.imgur.com/lcgJgyO.png)![](https://i.imgur.com/EY8caul.png)
 
