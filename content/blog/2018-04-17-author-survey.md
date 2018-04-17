@@ -17,7 +17,7 @@ tags:
 - survey
 ---
 
-rOpenSci’s package review system (aka
+rOpenSci's package review system (aka
 [onboarding](https://github.com/ropensci/onboarding/)) is one of our key
 activities to [improve quality and sustainability of scientific R
 packages](https://ropensci.org/blog/2017/09/01/nf-softwarereview/). The
@@ -26,26 +26,24 @@ for both authors and reviewers. After our first year, we [surveyed
 authors and
 reviewers](https://ropensci.org/blog/2016/03/28/software-review/) who
 participated in our onboarding process to help us better understand
-what’s working well and where there is room for improvement. At the end
+what's working well and where there is room for improvement. At the end
 of last year, we did so again, re-designing our survey so as to better
 track participant opinions year-to-year. In this post we summarize the
-45 responses that we received and what we’re doing to address your
+45 responses that we received and what we're doing to address your
 feedback.
 
 ### Section 1: Satisfaction with the review and onboarding process
- 
 
-![](https://i.imgur.com/ym6ELDf.png)![](https://i.imgur.com/lpExW0j.png)
+![](https://i.imgur.com/x4ICORq.png)![](https://i.imgur.com/pUF0kS0.png)
 
-We’re glad to see high levels of overall satisfaction with the
+We're glad to see high levels of overall satisfaction with the
 onboarding process. We primarily ask this question to establish a
 baseline to compare year-to-year, and hope that we can maintain high
 satisfaction as we continue to grow.
 
-### Section 2: Guidelines for authors and reviewers
+###  Section 2: Guidelines for authors and reviewers
 
-
-![](https://i.imgur.com/ccpUuGz.png)![](https://i.imgur.com/bHxs88t.png)
+![](https://i.imgur.com/Vx0HtQ9.png)![](https://i.imgur.com/N6rYblm.png)
 
 We provide
 [packaging](https://github.com/ropensci/onboarding/blob/master/packaging_guide.md)
@@ -81,7 +79,7 @@ that we will incorporate.
 ### Section 3: The review process
 
 
-![](https://i.imgur.com/QEUeWHF.png)![](https://i.imgur.com/RSXhy7j.png)
+![](https://i.imgur.com/zNSsW2V.png)![](https://i.imgur.com/noxbYih.png)
 
 This was perhaps the most controversial topic in the responses. Both
 authors and reviewers were conflicted about the best time to submit for
@@ -98,8 +96,8 @@ This has been a perennial tension in the review process. A similar split
 came up in our previous survey, and Miles McBain recently wrote about it
 in his [blog post about reviewing
 **bowerbird**](https://milesmcbain.xyz/ropensci-onboarding2/). As we
-don’t see a strong net pull in either direction, we don’t plan to change
-submission requirements, and we’re worried that a multi-step process
+don't see a strong net pull in either direction, we don't plan to change
+submission requirements, and we're worried that a multi-step process
 would make too much work for reviewers. One useful suggestion, though,
 is for authors of early-development packages to open discussions on our
 [forum](http://discuss.ropensci.org/) to solicit early input.
@@ -109,15 +107,15 @@ under a fully open system, and one suggestion was to consider a single
 blinded system in order to allow reviewers (especially more early career
 folks) to provide critical comments without fear of retaliation.
 
-### Automated checking
+#### Automated checking
 
-![](https://i.imgur.com/5CttZ1t.png)![](https://i.imgur.com/3OtJjx7.png)
+![](https://i.imgur.com/boRl02k.png)![](https://i.imgur.com/NGtsJpX.png)
 
 We received specific feedback about our use of the **goodpractice**
 package to provide automated checks of some package quality issues.
 Respondents suggested that authors should pre-run these checks before
 submitting, and also to provide better guidance as to which outputs can
-be ignored. We’re adding
+be ignored. We're adding
 [both](https://github.com/ropenscilabs/dev_guide/issues/12)
 [suggestions](https://github.com/ropenscilabs/dev_guide/issues/11) to
 the new bookdown book.
@@ -130,7 +128,7 @@ scientist [Hannah
 Frick](https://rladies.org/united-kingdom-rladies/name/hannah-frick/)
 has undertaken a project to [improve the package and its
 documentation](https://github.com/MangoTheCat/goodpractice/commits/master)
-in recent weeks, and is incorporating suggestions we’ve passed on from
+in recent weeks, and is incorporating suggestions we've passed on from
 the rOpenSci survey.
 
 As **goodpractice** allows users to ignore some checks and add custom
@@ -142,14 +140,14 @@ effort for both authors and editors.
 ### Section 4: Value of software review
 
 
-![](https://i.imgur.com/CyiMORW.png)![](https://i.imgur.com/Q9pvqHK.png)![](https://i.imgur.com/p5qdjW8.png)![](https://i.imgur.com/671Zhkq.png)
+![](https://i.imgur.com/TFSA7RZ.png)![](https://i.imgur.com/GME7Kny.png)![](https://i.imgur.com/WPNhiLS.png)![](https://i.imgur.com/plB1hoL.png)
 
 Package authors are given the option to submit directly to the Journal
 of Open Source Software (JOSS) for publication.
 
-![](https://i.imgur.com/wHRMgYQ.png)
+![](https://i.imgur.com/gE6PNRf.png)
 
-### The good and the bad with onboarding
+#### The good and the bad with onboarding
 
 We asked authors to tell us some of the best and worst attributes of
 participating in onboarding.
@@ -166,15 +164,14 @@ participating in onboarding.
 -   The opportunity to network and share ideas.
 -   The openness and transparency of the entire review process.
 -   Learning about software design, package development, and improving
-    one’s own coding skills.
+    one's own coding skills.
 -   The opportunity to have two thorough code reviews which are quite
     difficult to get elsewhere.
 -   The collegial and non-adversarial nature of the process.
 
+![](https://i.imgur.com/YtgnBO0.png)![](https://i.imgur.com/2cBNR2z.png)
 
-![](https://i.imgur.com/lcgJgyO.png)![](https://i.imgur.com/EY8caul.png)
-
-### Did blogging post-acceptance have any impact?
+#### Did blogging post-acceptance have any impact?
 
 At the completion of each review, the editors invite package authors to
 submit either a long-form blog post aimed at a general reader, or a
@@ -182,9 +179,9 @@ shorter technical note. Most authors who wrote posts reported greater
 visibility for their package and some also enjoyed reflecting on the
 development process.
 
-### Upcoming improvements to onboarding
+#### Upcoming improvements to onboarding
 
-We’re grateful to all the authors and reviewers that took this survey.
+We're grateful to all the authors and reviewers that took this survey.
 The responses have helped us improve our workflow quite a bit and we are
 excited to roll out several improvements in the coming weeks to months.
 Here are a few things to look forward to:
@@ -192,7 +189,7 @@ Here are a few things to look forward to:
 -   A [much improved (bookdown)
     guide](https://github.com/ropenscilabs/dev_guide) for both package
     development and package reviewing.
--   Improvements to `goodpractice` thanks to Mango The Cat’s [Hannah
+-   Improvements to `goodpractice` thanks to Mango The Cat's [Hannah
     Frick](https://rladies.org/united-kingdom-rladies/name/hannah-frick/)
     and also a `goodpractice` API down the line.
 -   A new and improved reviewer sign up form that will make it much
