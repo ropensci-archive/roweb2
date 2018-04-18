@@ -67,9 +67,11 @@ For a post about your reviewed and onboarded package you should:
 - acknowledge reviewers by name with links to their GitHub or Twitter
 - acknowledge other contributors, if any
 - consider ending by pointing to open issues that readers might work on
-- include YAML tags `review`, `community` and tags that were topic labels in your package review
+- include YAML tags `onboarding`, `review` and tags that were topic labels in your package review
 - browse [other tags](https://ropensci.org/tags/)
-- browse other posts about onboarded packages with tag '[review](https://ropensci.org/tags/review/)'
+- browse other posts about onboarded packages with tag '[onboarding](https://ropensci.org/tags/onboarding/)'
+
+For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
 
 ### Installation requirements
 
@@ -92,7 +94,7 @@ For other website issues and updates, see [advanced-theming](advanced-theming.md
 
 ## Acknowledgements
 
-The rOpenSci project is a fiscally sponsored project of [NumFocus Inc](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by grants from various public and private institutions and from [donations](https://ropensci.org/donate/). 
+The rOpenSci project is a fiscally sponsored project of [NumFOCUS](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by grants from various public and private institutions and from [donations](https://ropensci.org/donate/). 
 
 ![](https://i.imgur.com/zlWonsc.png)
 
