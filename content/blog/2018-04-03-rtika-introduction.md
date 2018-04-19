@@ -71,8 +71,7 @@ Parsing files is a common concern for many communities, including journalism [^2
 
 I am blown away by the hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others [^3]. Tika began as a common back-end for search engines and to reduce duplicated effort. It first part of Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr [^1]. Now, Tika is a back-end for R with the `rtika` package.
 
-Motivation: the .lob File Extension
-----------
+### Motivation: the .lob File Extension
 
 This package came together when parsing a hundred thousand Word documents in a governmental archive. The files did not have a helpful file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension.
 
@@ -132,12 +131,11 @@ timing[3]/2000
 
 For the batch, the efficiency compared favorably to `antiword`, even with the overhead of loading Tika. I estimate that starting Tika, loading the Java parsers, loading the file list, and reading the files back into R took a few seconds. Fortunately, I saved minutes of time. The reduced effort led me to think about the broader applications. I wanted to create a package and share this with the R community.
 
-Lessons Learned
-===============
+### Lessons Learned
 
 I never distributed a package on repositories such as CRAN or Github, and the rOpenSci group was the right place to start. The reviewers used a very transparent on-boarding process. Instead of seeing them as gatekeepers, they were volunteers helping create a maintainable package that followed certain standards. If I stopped maintaining `rtika`, others could take over, and I think the rOpenSci standards will help the package work consistently into the future. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing of new code.
 
-### Connecting to Tika the Old Fashioned Way
+#### Connecting to Tika the Old Fashioned Way
 
 Since the Tika software is already mature, my coding centered around connecting Tika and R. The `rtika` software is a message broker that handles inter-process communication, and there are several ways to do this: Tika server, `rJava`, or system calls. I discovered the Linux paradigm of using files and file-like paths for most messaging, paraphrased as "everything is a file" [^5]. I wanted a method that would work on all major operating systems and be easy to install, and chose to use system calls and the file system.
 
@@ -145,20 +143,19 @@ This worked. R sends Tika a signal to execute code using an old fashioned comman
 
 Communication with Tika went smoothly, after the issue with `base::system2()` was identified. That was terminating Tika's long running process. Switching to `sys::exec_wait()` or `processx::run()` solved the issue.
 
-### The R User Interface
+#### The R User Interface
 
 Many in the R community make use of `magrittr` style pipelines, so those needed to work. The Tidy Tools Manifesto makes piping a central tenant [^6], and it makes code easier to read and maintain.
 
 When writing `rtika`, I created two distinct styles of user interface. The first was a lightweight R wrapper around the Tika command line, which I called `tika()`. The parameters and abbreviations there mirrored the Apache Tika tool. The other functions are in the common R style found in tidy tools, and run `tika()` with common presets (e.g. `tika_html()` outputs to 'html' ). For R users, these should be more intuitive and self-documenting.
 
-### Responding to Reviewers
+#### Responding to Reviewers
 
 During the review process, I appreciated David Gohel's [^7] attention to technical details, and that Julia Silge [^8] and Noam Ross [^9] pushed me to make the documentation more focused. I ended up writing about each of the major functions in a vignette, one by one, in a methodical way. While writing and explaining, I learned to understand Tika better.
 
 Noam Ross, the editor, helped deal with the large size of the Tika app, which was around 60MB. CRAN officially limited the size of packages to 5MB, therefore an additional post-install function `tika_install()` downloaded Tika to a user directory. This got me thinking about the importance of Github's larger file size limits, and also how containerized apps in Docker or Kubernetes might help distribute code for packages in the future.
 
-Tika in Context: Parsing the Internet Archive
-=============================================
+### Tika in Context: Parsing the Internet Archive
 
 The first archive I parsed with Tika was a website retrieved from the Wayback Machine [^10], a treasure trove of historical files. Maintained by the Internet Archive, their crawler downloads sites over decades. If crawled consistently, longitudinal analyses are possible. For example, federal agency websites often change when an administrations change, so the Internet Archive and academic partners have increased the consistency of crawling there. In 2016, they archived over 200 terabytes of documents and include, among other things, over 40 million `pdf` files [^11].
 
@@ -245,8 +242,7 @@ Some files are compressed, and Tika automatically uncompressed and parsed them. 
 
 For more fine grained access to file contents, see `tika_json()` that is discussed in the vignette [^12].
 
-Next Steps
-==========
+### Next Steps
 
 Out of the box, `rtika` uses the new Tika 'batch processor' module, and for most situations the settings work well. However, Tika's processor also has a new 'config file' format that gives fine grained control, and I'm eager to incorporate that once the format stabilizes. For example, it could instruct the batch processor to get a particular type of metadata only, like the Content-Type, and not parse the text.
 
@@ -256,8 +252,7 @@ Another step is to include an install script for the Tesseract OCR software [^13
 
 It is possible to integrate the `rJava` package. Many in the R community know `rJava`. Some like its speed while others say it is difficult to install. I think `rJava` would be a nice enhancement, but want to make it optional feature instead of a dependency. If `rJava` were already installed on a system, `rtika` would detect that and reduce the start-up overhead for each call to `tika()`. Because the 2.0 version of Tika is planned to significantly reduce start-up time, I view this as a lower priority.
 
-Conclusion
-==========
+### Conclusion
 
 For researchers who work with lots of text, this is a golden age. There is so much textual data, it is almost overwhelming. These data carry much meaning in the form of words, letters, emoji, metadata, and document structure. In my opinion, analyst should not have to spend too much time struggling to parse files. I hope the R community makes good use of `rtika`, the digital Babel fish.
 
