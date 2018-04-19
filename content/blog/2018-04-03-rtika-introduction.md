@@ -69,19 +69,11 @@ Parsing files is a common concern for many communities, including journalism [^2
 -   Executable programs and libraries
 -   Crypto formats
 
-I am blown away by the thousands of hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others [^3]. Tika began as a common back-end for search engines and to reduce duplicated time and effort. Automatically producing text from semi-structured documents is a deceptively complex process that involves tacit knowledge of how document formats have changed over time, the gray areas of their specifications, and dealing with inconsistencies in metadata over time. Tika began as part of Apache Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr [^1]. Now, Tika is the back-end in the `rtika` package.
+I am blown away by the thousands of hours spent on the included parsers, such as Apache `PDFBox`, Apache `Poi`, and others [^3]. Tika began as a common back-end for search engines and to reduce duplicated time and effort. Automatically producing information from semi-structured documents is a deceptively complex process that involves tacit knowledge of how document formats have changed over time, the gray areas of their specifications, and dealing with inconsistencies in metadata. Tika began as part of Apache Nutch in 2005, and then became its own project in 2007 and a shared module in Lucene, Jackrabbit, Mahout, and Solr [^1]. Now, Tika is the back-end of the `rtika` package.
 
 #### Motivation: the Dreaded `.lob` File Extension
 
-This package came together when parsing Word documents in a governmental archive. The files did not have a helpful file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension.
-
-``` r
-# The older Word .doc versions are at the top, and newer .docx are at the end.
-batch[1]
-#> [1] "/Users/sasha/leginfo/2007/BILL_ANALYSIS_TBL_1.lob"
-```
-
-Some documents parsed with the `antiword` package.
+This package came together when parsing Word documents in a governmental archive. The files did not have a helpful file extension. They had been stored as 'large object data' in a database, and given the generic `.lob` extension. Some documents parsed with the `antiword` package:
 
 ``` r
 library('antiword')
@@ -129,7 +121,7 @@ timing[3]/2000
 #> 0.006245
 ```
 
-For this batch, the efficiency compared favorably to `antiword`, even with the overhead of loading Tika. I estimate that starting Tika, loading the Java parsers each time, loading the file list from R, and reading the files back into an R object took a few extra seconds. The overall reduced time effort led me to think about the broader applications of Tika. This was too good not to share, but I was apprehensive about maintaining a package over many years. The rOpenSci organization was ready to help.
+For this batch, the efficiency compared favorably to `antiword`, even with the overhead of loading Tika. I estimate that starting Tika, loading the Java parsers each time, loading the file list from R, and reading the files back into an R object took a few extra seconds. The reduced time effort processing the entire batch led me to think about the broader applications of Tika. This was too good not to share, but I was apprehensive about maintaining a package over many years. The rOpenSci organization was ready to help.
 
 #### Lessons Learned
 
