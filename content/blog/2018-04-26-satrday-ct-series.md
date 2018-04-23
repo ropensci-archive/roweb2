@@ -1,5 +1,5 @@
----
-slug: "satrday-ct-serie"
+﻿---
+slug: satrday-ct-serie
 title: Our package reviews in review: Introducing a 3-post serie about rOpenSci onboarding data
 authors:
   - name: Maëlle Salmon
