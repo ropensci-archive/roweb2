@@ -4,7 +4,7 @@ title: Lessons Learned from rtika, a Digital Babel Fish
 package_version: 0.1.7
 authors:
   - name: Sasha Goodman
-    url: https://github.com/ropensci/rtika
+    url: https://twitter.com/goodmansasha
 date: 2018-04-25
 categories: blog
 topicid: 1150
