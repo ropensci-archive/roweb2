@@ -7,7 +7,7 @@ authors:
     url: https://github.com/ropensci/rtika
 date: 2018-04-25
 categories: blog
-topicid: 
+topicid: 1150
 tags:
 - r
 - community
