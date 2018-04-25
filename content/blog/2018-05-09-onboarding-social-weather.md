@@ -47,11 +47,9 @@ post, I shall explore how a [tidytext](https://www.tidytextmining.com/)
 analysis of GitHub threads might help us characterize the social weather
 of onboarding.
 
-Preparing the data
-==================
+### Preparing the data
 
-A note about text mining
-------------------------
+#### A note about text mining
 
 In this blog post, I’ll leverage the `tidytext` package, with the help
 of its accompanying book [“Tidy text
@@ -59,8 +57,7 @@ mining”](https://www.tidytextmining.com/). Interestingly, their authors
 Julia Silge and David Robinson met, and started working on this project,
 at rOpenSci unconf in 2016!
 
-The “tidy text” of the analysis
--------------------------------
+#### The “tidy text” of the analysis
 
 I’ve described in the first post of this series how I got all onboarding
 issue threads. Now, I’ll explain how I cleaned their text. Why does it
@@ -337,8 +334,7 @@ submission](https://github.com/ropensci/onboarding/issues/24) right
 under a guideline explaining how to copy the DESCRIPTION… Yep, that’s
 younger me. Oh well.
 
-Computing sentiment
--------------------
+#### Computing sentiment
 
 Another data preparation part was to compute the sentiment score of each
 line via the [`sentimentr`](https://github.com/trinker/sentimentr)
@@ -355,11 +351,9 @@ sentiment <- all %>%
   dplyr::select(line, created_at, user, role, issue, sentiment)
 ```
 
-Tidy text analysis of social weather
-====================================
+### Tidy text analysis of social weather
 
-What do reviews talk about?
----------------------------
+#### What do reviews talk about?
 
 To find out what reviews deal with as if I didn’t know about our
 guidelines, I’ll compute the frequency of words and bigrams, and the
@@ -517,8 +511,7 @@ our efforts filtering words specific to issues, some of them remain very
 specific, such as country/city/location that are very frequent in
 `ropenaq` review.
 
-How positive is onboarding?
----------------------------
+#### How positive is onboarding?
 
 Using sentiment analysis, we can look how positive lines are.
 
@@ -661,8 +654,7 @@ As you can imagine, these sentences make the whole team very happy! And
 we hope they’ll encourage you to contribute to our mission to make
 scientific software better.
 
-Outlook
-=======
+### Outlook
 
 This first try at text analysis is quite promising. One could expand
 this analysis with a study of emoji use, *in* the text using an emoji
