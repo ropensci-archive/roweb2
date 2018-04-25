@@ -14,3 +14,4 @@ config.codekit3
 .DS_Store
 .Rhistory
 *.Rproj
+addmypost.R
