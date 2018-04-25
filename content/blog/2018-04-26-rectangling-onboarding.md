@@ -5,6 +5,7 @@ authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
 date: 2018-04-26
+preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/)."
 categories: blog
 topicid: 925
 tags:
@@ -27,55 +28,59 @@ overview of rOpenSci onboarding. Read the intro to the series
 [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/).*
 
 Our [onboarding
-reviews](https://ropensci.org/blog/2017/09/11/software-review-update/)
-take place in the open, in the issue tracker of a GitHub repository.
-Development of the packages we onboard also takes place in the open,
-most often in GitHub repositories.
+reviews](https://ropensci.org/blog/2017/09/11/software-review-update/),
+that ensure that packages contributed by the community undergo a
+transparent, constructive, non adversarial and open review process, take
+place in the issue tracker of a GitHub repository. Development of the
+packages we onboard also takes place in the open, most often in GitHub
+repositories.
 
 Therefore, when wanting to get data about our onboarding system for
 giving a data-driven overview, my mission was to extract data from
-GitHub and git repositories, and to put it into nice rectangles ready
-for analysis. You might call that the first step of a “tidy git
-analysis” using the term coined by [Simon
+GitHub and git repositories, and to put it into nice rectangles (as
+defined [by Jenny
+Bryan](https://speakerdeck.com/jennybc/data-rectangling)) ready for
+analysis. You might call that the first step of a “tidy git analysis”
+using the term coined by [Simon
 Jackson](https://drsimonj.svbtle.com/embarking-on-a-tidy-git-analysis).
 So, how did I collect data?
 
-A side-note about GitHub
-========================
+### A side-note about GitHub
 
 In the following, I’ll mention repositories. All of them are git
 repositories, which means they’re folders under version control, where
-roughly said all changes are saved via commits and their (more or less)
-informative messages. Now, on top of that these repositories live on
-GitHub which means they get to enjoy some infratructure such as issue
-trackers, milestones, starring by admirers, etc. If that ecosystem is
-brand new to you, I recommend reading [this
-book](http://happygitwithr.com/), especially its [big picture
-chapter](http://happygitwithr.com/big-picture.html).
+roughly said all changes are saved via commits and their messages (more
+or less) describing what’s been changed in the commit. Now, on top of
+that these repositories live on GitHub which means they get to enjoy
+some infratructure such as issue trackers, milestones, starring by
+admirers, etc. If that ecosystem is brand new to you, I recommend
+reading [this book](http://happygitwithr.com/), especially its [big
+picture chapter](http://happygitwithr.com/big-picture.html).
 
-Package review processes: weaving the threads
-=============================================
+### Package review processes: weaving the threads
 
-Each package submission is an issue thread in our onboarding repository.
-The first comment in that issue is the submission itself, followed by
-many comments by the editor, reviewers and authors. On top of all the
-data that’s saved there, mostly text data, we have a private Airtable
-workspace where we have a table of reviewers and their reviews, with
-direct links to the issue comments that are reviews.
+Each package submission is an issue thread in our onboarding repository,
+see an example
+[here](https://github.com/ropensci/onboarding/issues/136). The first
+comment in that issue is the submission itself, followed by many
+comments by the editor, reviewers and authors. On top of all the data
+that’s saved there, mostly text data, we have a private
+[Airtable](https://airtable.com/) workspace where we have a table of
+reviewers and their reviews, with direct links to the issue comments
+that are reviews.
 
-Getting issue threads
----------------------
+#### Getting issue threads
 
 Unsurprisingly, the first step here was to “get issue threads”. What do
 I mean? I wanted a table of all issue threads, one line per comment,
 with columns indicating the time at which something was written, and
-columns digesting the data from the issue itself, e.g. deducing the role
+columns digesting the data from the issue itself, e.g. guessing the role
 from the commenter from other information: the first user of the issue
 is the “author”.
 
 I used to use GitHub API V3 and then heard about [GitHub API
 V4](https://developer.github.com/v4/) which blew my mind. As if I
-weren’t enough impressed by the mere existence of this API and of [its
+weren’t impressed enough by the mere existence of this API and [its
 advantages](https://developer.github.com/v4/#why-is-github-using-graphql),
 
 -   I discovered the rOpenSci [`ghql`
@@ -97,15 +102,15 @@ and it felt clumsier, but it might just be because I wasn’t
 perfectionist enough when writing it! I achieved writing the correct
 GitHub V4 API query to get *just* what I needed by [using its online
 explorer](https://developer.github.com/v4/explorer/). I then succeeded
-into transforming the JSON output into a rectangle by reading Carl’s
-post but also by taking advantage of another online explorer, [jq
+in transforming the JSON output into a rectangle by reading Carl’s post
+but also by taking advantage of another online explorer, [jq
 play](https://jqplay.org/) where I pasted my output via
 `writeClipboard`. That’s nearly always the way I learn about query
 tools: using some sort of explorer and then pasting the code into a
 script. When I am more experienced, I can skip the explorer part.
 
-The first function I wrote was one for getting the number of the last
-onboarding issue, because then I looped/mapped over all issues.
+The first function I wrote was one for getting the issue number of the
+last onboarding issue, because then I looped/mapped over all issues.
 
 ``` r
 library("ghql")
@@ -150,7 +155,7 @@ it’s gotten included in my [`ghrecipes`
 package](https://github.com/ropenscilabs/ghrecipes) as
 [`get_issue_thread`](https://github.com/ropenscilabs/ghrecipes/blob/master/R/get_issue_thread.R)
 so you can check out the code there, along with other useful recipes for
-analyzing GitHub.
+analyzing GitHub data.
 
 Then I launched this code to get all data! It was very satisfying.
 
@@ -172,8 +177,7 @@ all_issues <- unique(all_issues)
 readr::write_csv(all_issues, "data/all_threads_v4.csv")
 ```
 
-Digesting them and complementing them with Airtable data
---------------------------------------------------------
+#### Digesting them and complementing them with Airtable data
 
 In the previous step we got a rectangle of all threads, with information
 from the first issue comment (such as labels) distributed to all the
@@ -295,7 +299,7 @@ The role “other” corresponds to anyone chiming in, while the community
 manager role is planning blog posts with the package author. We indeed
 have a [series of guest blog posts from package
 authors](https://ropensci.org/tags/review/) that illustrate the review
-process as well as onboarded packages.
+process as well as their onboarded packages.
 
 Here is the final table. I unselect “body” because formatting in the
 text could break the output here, but I do have the text corresponding
@@ -319,8 +323,7 @@ issues %>%
 
 There are 2521 comments, corresponding to 70 onboarded packages.
 
-Submitted repositories: down to a few metrics
-=============================================
+### Submitted repositories: down to a few metrics
 
 As mentioned earlier, onboarded packages are most often developped on
 GitHub. After onboarding they live in the [ropensci GitHub
@@ -330,8 +333,7 @@ they should all be transferred soon. In any case, their being on GitHub
 means it’s possible to get their history to have a glimpse at work
 represented by onboarding!
 
-Getting all onboarded repositories
-----------------------------------
+#### Getting all onboarded repositories
 
 Using rOpenSci [`git2r` package](https://github.com/ropensci/git2r) I
 cloned all onboarded repositories in a “repos” folder. Since I didn’t
@@ -369,14 +371,14 @@ purrr::walk(pkgs, clone_repo)
 
 I didn’t clone “rrricanes” because it was too big!
 
-Getting commits reports
------------------------
+#### Getting commits reports
 
-I then got the commit logs of each repos for various reasons:
+I then got the commit logs of each repo for various reasons:
 
--   commits themselves show how much work was done during review
+-   commits themselves show how much code and documentation editing was
+    done during review
 
--   I wanted to be able to git reset hard the repo at its state at
+-   I wanted to be able to \`git reset hard the repo at its state at
     submission, for which I needed the commit logs.
 
 I used the [`gitsum`
@@ -416,8 +418,7 @@ purrr::map_df(packages, get_report) %>%
    readr::write_csv("output/gitsum_reports.csv")
 ```
 
-Getting repositories as at submission
--------------------------------------
+#### Getting repositories as at submission
 
 Crossing information from the issue threads and from commit logs, I
 could find the latest commit before submission and create a copy of each
@@ -471,18 +472,20 @@ set_archive <- function(package_name, commit){
 purrr::walk2(commits$package, commits$hash, set_archive)
 ```
 
-Outlook: getting even more data? Or analyzing this dataset :grin:
-=================================================================
+### Outlook: getting even more data? Or analyzing this dataset :grin:
 
-There’s more data to be collected or prepared! From GitHub issues one could
-get the labelling history via [the V3](https://developer.github.com/v3/issues/events/) or [V4 GitHub API](https://developer.github.com/v4/object/labeledevent/): when did an issue go from “editor-checks” to
+There’s more data to be collected or prepared! From GitHub issues,
+[using GitHub
+archive](http://www.masalmon.eu/2017/12/21/wherehaveyoubeen/) one could
+get the labelling history: when did an issue go from “editor-checks” to
 “seeking-reviewers” for instance? It’d help characterize the usual speed
 of the process. One could also try to investigate the formal and less
 formal links between the onboarded repository and the review: did
 commits and issues mention the onboarding review (with words), or even
-actually put a link to it? How usually active on GitHub are actors in
-the process, e.g. could we see that some reviewers create or relive
-their GitHub account especially for reviewing?
+actually put a link to it? Are actors in the process little or very
+active on GitHub for other activities, e.g. could we see that some
+reviewers create or revive their GitHub account especially for
+reviewing?
 
 Rather than enlarging my current dataset, I’ll present its analysis in
 two further blog posts answering the questions “How much work is
