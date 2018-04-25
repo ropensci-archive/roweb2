@@ -472,7 +472,7 @@ set_archive <- function(package_name, commit){
 purrr::walk2(commits$package, commits$hash, set_archive)
 ```
 
-### Outlook: getting even more data? Or analyzing this dataset :grin:
+### Outlook: getting even more data? Or analyzing this dataset
 
 There’s more data to be collected or prepared! From GitHub issues,
 [using GitHub
