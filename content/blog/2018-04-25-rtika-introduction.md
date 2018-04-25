@@ -125,7 +125,7 @@ For this batch, the efficiency compared favorably to `antiword`, even with the o
 
 #### Lessons Learned
 
-I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/onboarding and ropensci/onboarding#191) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
+I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/onboarding and https://github.com/ropensci/onboarding/issues/191  ) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
 
 ##### Connecting to Tika 
 
@@ -246,7 +246,7 @@ It is also possible to integrate the `rJava` package. Many in the R community kn
 
 #### Conclusion
 
-For researchers who work with digital archives, this is a golden age. There is so much textual data, it is overwhelming. These data carry much meaning in words, letters, emoji, metadata, and structure. In my opinion, analyst should not have to spend too much time struggling to parse files, and spend their time doing what they love. I hope the R community makes good use of `rtika`, a digital Babel fish.
+For researchers who work with digital archives, this is a golden age. There is so much textual data, it is overwhelming. These data carry much meaning in words, letters, emoji, metadata, and structure. In my opinion, analyst should not have to spend too much time struggling to parse files, and spend their time doing what they love. I hope the R community makes good use of `rtika`, a digital Babel fish (see: https://github.com/ropensci/rtika).
 
 <!-- references -->
 
