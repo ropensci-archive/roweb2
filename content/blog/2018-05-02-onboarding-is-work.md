@@ -1,11 +1,13 @@
 --- 
-slug: rectangling-onboarding
+slug: onboarding-is-work
 title: 'How much work is onboarding?'
 authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
+  - name: Noam Ross
+    url: http://twitter.com/noamross
 date: 2018-05-02
-preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/) and the first post about data collection [here]((https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)."
+preface: "This blog post is the second of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/) and the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)."
 categories: blog
 topicid: 925
 tags:
@@ -356,6 +358,43 @@ generally supervise the process. In [Tim Trice’s
 words](https://ropensci.org/blog/2017/09/27/rrricanes/), we are “guiding
 angels from start to finish during the entire onboarding and review
 process”.
+
+Noam Ross recently wrote this piece of code giving a more quantitative
+insight into work done by editors.
+
+``` r
+library(tidyverse)
+library(gh)
+library(lubridate)
+
+issues <- gh("/repos/ropensci/onboarding/issues?state=all&labels=package", .limit=1000)
+
+edits = map_df(issues,
+~data_frame(url = .$html_url,
+editor = .$assignee$login %||% NA_character_,
+opened = as.Date(.$created_at))) %>%
+filter(!is.na(editor)) %>%
+mutate(quarter = paste(year(opened), quarter(opened), sep="Q"),
+half =  paste(year(opened), if_else(quarter(opened) <= 2, 1, 2), sep="H"),
+year = year(opened))
+
+edits %>%
+group_by(editor, half) %>%
+summarize(n_assigned = n()) %>%
+{ full_join(., crossing(editor = unique(.$editor),  #can't get expand() to work.
+half = unique(.$half))) } %>%
+mutate(n_assigned = coalesce(n_assigned, 0L)) %>%
+ggplot(aes(x=half, y=n_assigned, fill=editor)) +
+geom_col(position="dodge") +
+geom_hline(yintercept = c(3, 6)) +
+xlab("Half / Year") + ylab("No. Issues Handled")+
+    hrbrthemes::theme_ipsum() +
+  theme(legend.position = "bottom") +
+  viridis::scale_fill_viridis(discrete = TRUE)
+```
+
+![number of assignments per editor per half a
+year](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-9-1.png)
 
 ### Outlook: decreasing work by automation
 
