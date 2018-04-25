@@ -474,10 +474,8 @@ purrr::walk2(commits$package, commits$hash, set_archive)
 Outlook: getting even more data? Or analyzing this dataset :grin:
 =================================================================
 
-There’s more data to be collected or prepared! From GitHub issues,
-[using GitHub
-archive](http://www.masalmon.eu/2017/12/21/wherehaveyoubeen/) one could
-get the labelling history: when did an issue go from “editor-checks” to
+There’s more data to be collected or prepared! From GitHub issues one could
+get the labelling history via [the V3](https://developer.github.com/v3/issues/events/) or [V4 GitHub API](https://developer.github.com/v4/object/labeledevent/): when did an issue go from “editor-checks” to
 “seeking-reviewers” for instance? It’d help characterize the usual speed
 of the process. One could also try to investigate the formal and less
 formal links between the onboarded repository and the review: did
