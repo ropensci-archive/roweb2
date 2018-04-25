@@ -378,7 +378,7 @@ I then got the commit logs of each repo for various reasons:
 -   commits themselves show how much code and documentation editing was
     done during review
 
--   I wanted to be able to \`git reset hard the repo at its state at
+-   I wanted to be able to `git reset hard` the repo at its state at
     submission, for which I needed the commit logs.
 
 I used the [`gitsum`
