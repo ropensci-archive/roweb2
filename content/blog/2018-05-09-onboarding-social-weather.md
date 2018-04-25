@@ -1,11 +1,11 @@
 --- 
-slug: rectangling-onboarding
-title: 'How much work is onboarding?'
+slug: onboarding-social-weather
+title: 'The social weather of rOpenSci onboarding system'
 authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
-date: 2018-05-02
-preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/) and the first post about data collection [here]((https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)."
+date: 2018-05-09
+preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about work quantification [here](https://ropensci.org/blog/2018/05/02/onboarding-is-work/)."
 categories: blog
 topicid: 925
 tags:
@@ -14,363 +14,667 @@ tags:
 - software
 - review
 - onboarding
-- cloc
+- tidytext
+- sentimentr
 output: 
   md_document:
     variant: markdown_github
     preserve_yaml: true
 ---
 
-Our [onboarding process](https://github.com/ropensci/onboarding/), that
-ensures that packages contributed by the community undergo a
-transparent, constructive, non adversarial and open review process,
-involves a lot of work from many actors: authors, reviewers and editors;
-but *how much work*? Here is a try at quantifying this.
+Before even submitting my first R package to rOpenSci onboarding system,
+that ensure that packages contributed by the community undergo a
+transparent, constructive, non adversarial and open review process, in
+December 2015, I spent a fair amount of time reading through previous
+issue threads in order to assess whether onboarding was a friendly place
+for me: a newbie, very motivated to learn more but a newbie nonetheless.
+I soon got the feeling that yes, onboarding would help me make my
+package better without ever making me feel inadequate.
 
-### Work done by authors
+More recently, I read [Anna Gentle’s
+essay](https://github.com/Open-Advice/Open-Advice/blob/c3e03b669f7ea7b20ef98378210cdbc8a7ea7edc/documentationsupport/AnneGentle.tex)
+in Open Advice where she mentions the concept of the *social weather* of
+an online community. By listening before I even posted, I was simply
+trying to get a good idea of the social weather of onboarding – as a
+side-note, how wonderful is it that onboarding’s being open makes it
+possible to listen?!
 
-#### During review
+In general, when one of us editors talk about onboarding, we like to use
+examples illustrating how fantastic the system is. Quotes from thankful
+package authors, of amazed reviewers, etc. Would there be a more
+quantitative way for us to support our promotion efforts? In this blog
+post, I shall explore how a [tidytext](https://www.tidytextmining.com/)
+analysis of GitHub threads might help us characterize the social weather
+of onboarding.
 
-We can try to quantify the development work of authors by looking at the
-number of lines deleted and added in the git repo of the package before,
-during, and after review. Here we therefore have to cross information
-from the git repos (information about commits) and information from the
-onboarding threads (when did the onboarding process took place). Here we
-assume that the onboarding process happened from issue opening to
-closing and do not take the labelling history of the onboarding issue
-into account.
+Preparing the data
+==================
+
+A note about text mining
+------------------------
+
+In this blog post, I’ll leverage the `tidytext` package, with the help
+of its accompanying book [“Tidy text
+mining”](https://www.tidytextmining.com/). Interestingly, their authors
+Julia Silge and David Robinson met, and started working on this project,
+at rOpenSci unconf in 2016!
+
+The “tidy text” of the analysis
+-------------------------------
+
+I’ve described in the first post of this series how I got all onboarding
+issue threads. Now, I’ll explain how I cleaned their text. Why does it
+need to be cleaned? Well, this text contains code chunks that I wished
+to remove, as well as parts from our submission and [review
+templates](https://github.com/ropensci/onboarding/blob/master/reviewer_template.md),
+that I also needed to remove because they’re not original text, with a
+few other tweaks.
+
+My biggest worry was the removal of templates from issues. I was already
+picturing my spending hours writing regular expressions to remove these
+lines… and then I realized that the word “lines” was the key! I could go
+split all issue comments into *lines*, which is called tokenization in
+proper text mining vocabulary, and then remove duplicates! This way, I
+didn’t even have to worry about the templates having changed a bit over
+time, since each version was used at least twice. A tricky part that
+remained was the removal of code chunks since I only wanted to keep
+human conversation. In theory, it was easy: code chunks are lines
+located between two lines containing “\`\`\`”… I’m still not sure I
+solved this in the easiest possible way.
+
+``` r
+library("magrittr")
+threads <- readr::read_csv("data/clean_data.csv")
+```
+
+``` r
+# to remove code lines between ```
+range <- function(x1, x2){
+  x1:x2
+}
+
+# I need the indices of lines between ```
+split_in_indices <- function(x){
+  lengthx <- length(x)
+  if(length(x) == 0){
+    return(0)
+  }else{
+    if(lengthx > 2){
+      
+      limits1 <- x[seq(from = 1, to = (lengthx - 1), by = 2)]
+      limits2 <- x[seq(from = 2, to = lengthx, by = 2)]
+      purrr::map2(limits1, limits2, range) %>%
+        unlist() %>%
+        c()
+    }else{
+      x[1]:x[2]
+    }
+  }
+}
+
+# tokenize by line
+threads <- tidytext::unnest_tokens(threads, line, body, token = "lines")
+
+# remove white space
+threads <- dplyr::mutate(threads, line = trimws(line))
+
+# remove citations lines
+threads <- dplyr::filter(threads, !stringr::str_detect(line, "^\\>"))
+
+# remove the line from the template that has ``` that used to bother me
+threads <- dplyr::filter(threads, !stringr::str_detect(line, "bounded by ```"))
+
+# correct one line
+threads <- dplyr::mutate(threads, line = stringr::str_replace_all(line, "`` `", "```"))
+
+# group by comment 
+threads <- dplyr::group_by(threads, title, created_at, user, issue)
+
+# get indices
+threads <- dplyr::mutate(threads, index = 1:n())
+
+# get lines limiting chunks
+threads <- dplyr::mutate(threads, chunk_limit = stringr::str_detect(line, "```")&stringr::str_count(line, "`") %in% c(3, 4))
+
+# special treatment
+threads <- dplyr::mutate(threads,
+                     chunk_limit = ifelse(user == "MarkEdmondson1234" & issue == 127 & index == 33,
+                                          FALSE, chunk_limit))
+threads <- dplyr::mutate(threads, which_limit = list(split_in_indices(which(chunk_limit))))
+
+# weird code probably to get indices of code lines
+threads <- dplyr::mutate(threads, code = index %in% which_limit[[1]])
+threads <- dplyr::ungroup(threads)
+```
+
+Let’s look at what this does in practice, with comments from
+[`gutenbergr`
+submission](https://github.com/ropensci/onboarding/issues/41) as
+example. I chose this submission because the package author, David
+Robinson, is one of the two `tidytext` creators, and because I was the
+reviewer, so it’s all very meta, isn’t it?
+
+``` r
+dplyr::filter(threads, package == "gutenbergr", 
+              user == "sckott", 
+              !stringr::str_detect(line, "ropensci..footer")) %>%
+  dplyr::mutate(created_at = as.character(created_at)) %>%
+  dplyr::select(created_at, line, index, chunk_limit, which_limit, code) %>%
+  knitr::kable()
+```
+
+| created\_at         | line                                                                                                                                                                                                                                                |  index| chunk\_limit | which\_limit | code  |
+|:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------:|:-------------|:-------------|:------|
+| 2016-05-02 17:04:56 | thanks for your submission @dgrtwo - seeking reviewers now                                                                                                                                                                                          |      1| FALSE        | 0            | FALSE |
+| 2016-05-04 06:09:19 | reviewers: @masalmon                                                                                                                                                                                                                                |      1| FALSE        | 0            | FALSE |
+| 2016-05-04 06:09:19 | due date: 2016-05-24                                                                                                                                                                                                                                |      2| FALSE        | 0            | FALSE |
+| 2016-05-12 16:16:38 | having a quick look over this now…                                                                                                                                                                                                                  |      1| FALSE        | 0            | FALSE |
+| 2016-05-12 16:45:59 | @dgrtwo looks great. just a minor thing:                                                                                                                                                                                                            |      1| FALSE        | 3:7          | FALSE |
+| 2016-05-12 16:45:59 | `gutenberg_get_mirror()` throws a warning due to `xml2`, at this line <https://github.com/dgrtwo/gutenbergr/blob/master/r/gutenberg_download.r#l213>                                                                                                |      2| FALSE        | 3:7          | FALSE |
+| 2016-05-12 16:45:59 | \`\`\` r                                                                                                                                                                                                                                            |      3| TRUE         | 3:7          | TRUE  |
+| 2016-05-12 16:45:59 | warning message:                                                                                                                                                                                                                                    |      4| FALSE        | 3:7          | TRUE  |
+| 2016-05-12 16:45:59 | in node\_find\_one(x*n**o**d**e*, *x*doc, xpath = xpath, nsmap = ns) :                                                                                                                                                                              |      5| FALSE        | 3:7          | TRUE  |
+| 2016-05-12 16:45:59 | 101 matches for .//a: using first                                                                                                                                                                                                                   |      6| FALSE        | 3:7          | TRUE  |
+| 2016-05-12 16:45:59 | \`\`\`                                                                                                                                                                                                                                              |      7| TRUE         | 3:7          | TRUE  |
+| 2016-05-12 16:45:59 | wonder if it’s worth a `suppresswarnings()` there?                                                                                                                                                                                                  |      8| FALSE        | 3:7          | FALSE |
+| 2016-05-12 20:42:53 | great!                                                                                                                                                                                                                                              |      1| FALSE        | 3:5          | FALSE |
+| 2016-05-12 20:42:53 | \- add the footer to your readme:                                                                                                                                                                                                                   |      2| FALSE        | 3:5          | FALSE |
+| 2016-05-12 20:42:53 | \`\`\`                                                                                                                                                                                                                                              |      3| TRUE         | 3:5          | TRUE  |
+| 2016-05-12 20:42:53 | \`\`\`                                                                                                                                                                                                                                              |      5| TRUE         | 3:5          | TRUE  |
+| 2016-05-12 20:42:53 | \- could you add `url` and `bugreports` entries to `description`, so people know where to get sources and report bugs/issues                                                                                                                        |      6| FALSE        | 3:5          | FALSE |
+| 2016-05-12 20:42:53 | \- update installation of dev versions to `ropenscilabs/gutenbergr` and any urls for the github repo to `ropenscilabs` instead of `dgrtwo`                                                                                                          |      7| FALSE        | 3:5          | FALSE |
+| 2016-05-12 20:42:53 | \- go to the repo settings –&gt; transfer ownership and transfer to `ropenscilabs` - note that all our newer pkgs go to `ropenscilabs` first, then when more mature we’ll move to `ropensci`                                                        |      8| FALSE        | 3:5          | FALSE |
+| 2016-05-13 01:22:22 | nice, builds on at travis <https://travis-ci.org/ropenscilabs/gutenbergr/> - you can keep appveyor builds under your acct, or i can start on mine, let me know                                                                                      |      1| FALSE        | 0            | FALSE |
+| 2016-05-13 16:06:31 | updated badge link, started an appveyor account with `ropenscilabs` as account name - sent pr - though the build is failing, something about getting the current gutenberg url <https://ci.appveyor.com/project/sckott/gutenbergr/build/1.0.1#l650> |      1| FALSE        | 0            | FALSE |
+
+So as you see now getting rid of chunks is straightforward: the lines
+with `code == TRUE` have to be deleted.
+
+``` r
+# remove them and get rid of now useless columns
+threads <- dplyr::filter(threads, !code)
+threads <- dplyr::select(threads, - code, - which_limit, - index, - chunk_limit)
+```
+
+Now on to removing template parts… I noticed that removing duplicates
+was a bit too drastic because sometimes duplicates were poorly formatted
+citations, e.g. an author answering a reviewer’s question, in which case
+we definitely want to keep the first occurrence, and they were sometimes
+very short sentences such as “great!” that are not templates, that we
+therefore should keep. Therefore, for each line, I counted how many time
+it occurred overall (`no_total_occ`), and in how many issues it occurred
+(`no_issues`).
+
+Let’s look at [Joseph Stachelek’s review of
+`rrricanes`](https://github.com/ropensci/onboarding/issues/118#issuecomment-310503322)
+for instance.
+
+``` r
+dplyr::filter(threads, user == "jsta", is_review) %>%
+  dplyr::select(line) %>%
+  head() %>%
+  knitr::kable()
+```
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">line</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">## package review</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">- [x] as the reviewer i confirm that there are no conflicts of interest for me to review this work (if you are unsure whether you are in conflict, please speak to your editor <em>before</em> starting your review).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">#### documentation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">the package includes all the following forms of documentation:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">- [x] <strong>a statement of need</strong> clearly stating problems the software is designed to solve and its target audience in readme</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">- [x] <strong>installation instructions:</strong> for the development version of package and any non-standard dependencies in readme</td>
+</tr>
+</tbody>
+</table>
+
+Now if we clean up a bit…
+
+``` r
+threads <- dplyr::group_by(threads, line)
+threads <- dplyr::mutate(threads, no_total_occ = n(),
+                     no_issues = length(unique(issue)), 
+                     size = stringr::str_length(line))
+threads <- dplyr::ungroup(threads)
+threads <- dplyr::group_by(threads, issue, line)
+threads <- dplyr::arrange(threads, created_at)
+threads <- dplyr::filter(threads, no_total_occ <= 2,
+                     # for repetitions in total keep the short ones 
+                     # bc they are stuff like "thanks" so not template
+                     # yes 10 is arbitrary
+                     no_issues <= 1 | size < 10)
+# when there's a duplicate in one issue
+# it's probably citation
+# so keep the first occurrence
+get_first <- function(x){
+  x[1]
+}
+threads <- dplyr::group_by(threads, issue, line)
+threads <- dplyr::summarise_all(threads, get_first)
+threads <- dplyr::select(threads, - no_total_occ, - size, - no_issues)
+
+threads <- dplyr::mutate(threads, # let code words now be real words
+                     line = stringr::str_replace_all(line, "`", ""),
+                     # only keep text from links, not the links themselves
+                     line = stringr::str_replace_all(line, "\\]\\(.*\\)", ""),
+                     line = stringr::str_replace_all(line, "\\[", ""),
+                     line = stringr::str_replace_all(line, "blob\\/master", ""), 
+                     # ’
+                     line = stringr::str_replace_all(line, "’", ""), 
+                     # remove some other links
+                     line = stringr::str_replace_all(line, "https\\:\\/\\/github\\.com\\/", ""))
+
+threads <- dplyr::filter(threads, !stringr::str_detect(line, "estimated hours spent reviewing"))
+threads <- dplyr::filter(threads, !stringr::str_detect(line, "notifications@github\\.com"))
+threads <- dplyr::filter(threads, !stringr::str_detect(line, "reply to this email directly, view it on"))
+threads <- dplyr::ungroup(threads)
+```
+
+Here is what we get from the same review.
+
+``` r
+dplyr::filter(threads, user == "jsta", is_review)  %>%
+  dplyr::select(line) %>%
+  head() %>%
+  knitr::kable()
+```
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">line</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">* also, you might consider using the skip_on_cran function for lines that call an external download as recommended by the ropensci packaging guide.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">* i am having timeout issues with building the getting_started vignette. i wonder if there is a particular year with very few hurricanes that would solve the timeout problem.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">* i cannot build the data.world vignette. probably because i don’t have an api key set up. you may want to consider setting the code chunks to eval=false.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">* i really like the tidy_ functions. i wonder if it would make it easier on the end-user to have the get_ functions return tidy results by default with an optional argument to return “messy” results.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">* missing a maintainer field in the description</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">* there are no examples for knots_to_mph, mb_to_in, status_abbr_to_str, get_discus, get_fstadv, tidy_fstadv, tidy_wr, tidy_fcst. maybe some can be changed to non-exported?</td>
+</tr>
+</tbody>
+</table>
+
+So now, we mostly got the interesting human and original language.
+
+This got me “tidy enough” text. Let’s not mention this package author
+who found a way to poorly format [their
+submission](https://github.com/ropensci/onboarding/issues/24) right
+under a guideline explaining how to copy the DESCRIPTION… Yep, that’s
+younger me. Oh well.
+
+Computing sentiment
+-------------------
+
+Another data preparation part was to compute the sentiment score of each
+line via the [`sentimentr`](https://github.com/trinker/sentimentr)
+package by Tyler Rinker, which computes a score for sentences, not for
+single words. It took a while, so had I not had other things to do while
+waiting, I might have taken some time to think about parallelizing the
+code.
+
+``` r
+sentiment <- all %>%
+  dplyr::group_by(line, created_at, user, role, issue) %>%
+  dplyr::mutate(sentiment = median(sentimentr::sentiment(line)$sentiment)) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(line, created_at, user, role, issue, sentiment)
+```
+
+Tidy text analysis of social weather
+====================================
+
+What do reviews talk about?
+---------------------------
+
+To find out what reviews deal with as if I didn’t know about our
+guidelines, I’ll compute the frequency of words and bigrams, and the
+pairwise correlation of words within issue comments.
+
+My using lollipops below was inspired by [this fascinating blog post of
+Tony ElHabr’s about his Google search
+history](https://tonyelhabr.rbind.io/posts/tidy-text-analysis-google-search-history/).
 
 ``` r
 library("ggplot2")
-library("magrittr")
+library("ggalt")
+library("hrbrthemes")
 
-commits <- readr::read_csv("output/gitsum_reports.csv")
-issues <- readr::read_csv("data/clean_data.csv")
-issues <- dplyr::group_by(issues, package) %>%
-  dplyr::summarise(opened = min(created_at),
-                   closed = max(closed_at))
-commits <- dplyr::left_join(commits, issues, by = "package")
+stopwords <- rcorpora::corpora("words/stopwords/en")$stopWords
 
-custom_transf <- function(x){
-  pof <- log(x)
-  pof[x == 0] <- 0
-  pof
-}
+word_counts <- threads %>%
+  tidytext::unnest_tokens(word, line) %>%
+  dplyr::filter(!word %in% stopwords) %>%
+  dplyr::count(word, sort = TRUE) %>%
+  dplyr::mutate(word = reorder(word, n))   
 
-custom_exp <- function(x){
-  pof <- exp(x)
-  pof[x < 0] <- - exp(-x)
-  pof
-}
-
-
-plot_commits <- function(package_name, commits){
-  message(package_name)
-  example <- dplyr::filter(commits, package == package_name, !is_merge)
-
-  p <- ggplot(example)   +
-    geom_segment(aes(x = datetime, xend = datetime,
-                     y = 0, yend = custom_transf(total_insertions)),
-                 col = "salmon", size = 1) +
-    geom_segment(aes(x = datetime, xend = datetime,
-                     y = 0, yend = - custom_transf(total_deletions)), 
-                 col = "blue", size = 1) +
-    ylab("lines") +
-    annotate("segment", 
-             x = min(example$datetime),
-             xend = max(example$datetime),
-             y = 0, yend = 0,
-             col = "grey50",
-             size = 0.2) +
-    scale_y_continuous(breaks= seq(min(-custom_transf(example$total_deletions)),
-                                   to = max(custom_transf(example$total_insertions)),
-                                   by = 5), 
-                       labels= round(custom_exp(seq(min(-custom_transf(example$total_deletions)),
-                                         to = max(custom_transf(example$total_insertions)),
-                                         by = 5))))+
-    annotate("rect",
-             xmin = example$opened[1], xmax = example$closed[1],
-             ymin = - custom_transf(max(example$total_deletions)), 
-             ymax = custom_transf(max(example$total_insertions)),
-             fill = "grey80", alpha = 0.6,
-             col = "grey10",
-             size = 0.2) +
-    ggtitle(package_name) +
-    hrbrthemes::theme_ipsum() 
-  print(p)
-}
-```
-
-Let’s have a look at a few packages.
-
-``` r
-plot_commits("opencage", commits = commits)
-```
-
-![commits plot of the opencage
-package](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-2-1.png)
-
-``` r
-plot_commits("charlatan", commits = commits)
-```
-
-![commits plot of the charlatan
-package](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-3-1.png)
-
-When looking at all onboarded repos, one sees that there’s no general
-pattern. Commits have diffent sizes, and the activity frequency is
-highly variable. In general some things happen during review as
-reviewers’ comments are taken into account. Packages sometimes change
-again after onboarding, because they’re not frozen and can get improved,
-or well repaired if there was a new or undiscovered bug. Our work is
-also to ensure a good level of quality after onboarding, which we
-achieve because authors are dedicated maintainers, and because we
-provide help where and when needed.
-
-We do try to onboard mature packages, i.e. that are not *drafts*.
-Furthermore, the absence of general patterns in the previous figures
-could be due to different age at submission. How old are packages at
-submission?
-
-``` r
-age <- commits %>%
-  dplyr::group_by(package) %>%
-  dplyr::summarise(age = difftime(min(opened), min(datetime), units = "weeks")) %>%
-  dplyr::filter(age > 0)
-
-library(hrbrthemes)
-ggplot(age) +
-  geom_dotplot(aes(age), binwidth = 5) +
-  xlab("Age (weeks)") +
-  scale_y_continuous(NULL, breaks = NULL) +
-  hrbrthemes::theme_ipsum(base_size = 16,
-                          axis_title_size = 16)
-```
-
-![age of packages at
-submission](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-4-1.png)
-
-Here I show *apparent* age because the first commit might happen a long
-time after the package was created, although often one makes an initial
-commit not long after having started to work. I needed to filter
-positive age because in one case the GitHub repo of the onboarded
-package was apparently deleted and re-created without history after
-approval. Such things happen, thankfully the package wasn’t lost, just
-its history!
-
-Many packages are submitted quite rapidly which might indicate rapid
-development, but also maybe onboarding as a part of development,
-i.e. authors knew they intended to submit. I know this of a few of my
-own packages: I did my best developping e.g. `opencage` in a few days,
-and then submitted it to get it ready for wider use by the community.
-
-#### Before review
-
-The work done by an author can also be characterized by two proxies: the
-number of lines of code, and the number of exported functions and
-classes. Obviously, this is far from perfect, since very short code can
-reflect a lot of work. That said, a lot of code will represent a lot of
-work for reviewers who’ll have to read it.
-
-The number of lines of code can be obtained by Bob Rudis’ [`cloc`
-package](https://github.com/hrbrmstr/cloc/), wrapper of the Perl CLOC
-script.
-
-``` r
-get_cloc <- function(package_name){
-  message(package_name)
-  local_path_archive <- paste0(getwd(), "/repos/", package_name)
-  if(length(fs::dir_ls(local_path_archive)) != 0){
-    report <- cloc::cloc_git(local_path_archive) 
-    report <- dplyr::rename(report, package = source)
-    return(report)
-  }else{
-    return(NULL)
-  }
-}
-
-packages <- fs::dir_ls("repos_at_submission") 
-packages <- stringr::str_replace_all(packages, "repos_at_submission\\/", "")
-purrr::map_df(packages, get_cloc) %>%
-  readr::write_csv("output/cloc.csv")
-```
-
-The equivalent data for all CRAN packages was generously provided by
-[Bob Rudis](https://rud.is/).
-
-For getting NAMESPACE info, the following scripts was used. Note that
-for both CLOC and NAMESPACE, the data was collected from the
-repositories as they were *at submission*.
-
-``` r
-get_namespace <- function(package_name){
-  message(package_name)
-  local_path_archive <- paste0(getwd(), "/repos_at_submission/", package_name)
-  if(length(fs::dir_ls(local_path_archive)) != 0){
-    ns <- devtools::parse_ns_file(local_path_archive)
-    tibble::tibble(package = package_name, 
-                   exports = length(ns$exports) +
-                     length(ns$exportClasses))
-  }else{
-    return(NULL)
-  }
-}
-
-packages <- fs::dir_ls("repos_at_submission") 
-packages <- stringr::str_replace_all(packages, "repos_at_submission\\/", "")
-purrr::map_df(packages, get_namespace) %>%
-  readr::write_csv("output/namespace.csv")
-```
-
-Let’s look at the number of lines of R code. Some of the onboarded
-packages have C++ code or other languages, and there’s a huge diversity
-of languages in CRAN packages, but for the sake of simplicity we’ll
-limit ourselves to R code.
-
-``` r
-cloc_ro <- readr::read_csv("output/cloc.csv")
-cloc_ro <- dplyr::mutate(cloc_ro, origin = "rOpenSci")
-cloc <- readr::read_csv("data/cloc_cran.csv")
-cloc <- cloc  %>%
-  dplyr::filter(!source %in% cloc_ro$package) %>%
-  dplyr::mutate(origin = "CRAN") %>%
-  dplyr::filter(language %in% cloc_ro$language)
-
-cloc <- dplyr::bind_rows(cloc, cloc_ro) 
-cloc <- dplyr::filter(cloc, language == "R")
-ggplot(cloc) +
-  geom_density(aes(loc, fill = origin), alpha = 0.5) +
-  scale_x_log10() +
+ggplot(word_counts[1:15,]) +
+  geom_lollipop(aes(word, n),
+                size = 2, col = "salmon") +
   hrbrthemes::theme_ipsum(base_size = 16,
                           axis_title_size = 16) +
-  viridis::scale_fill_viridis(discrete = TRUE)
+  coord_flip()
 ```
 
-![number of lines of code of ropensci and cran
-packages](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-5-1.png)
-
-With this crude visualization one sees that size of onboarded packages
-are comparable to size of packages on CRAN, with a few outliers.
-`charlatan` is a big package!
-
-Here is how the number of exported classes and functions look like.
+![Most common words in onboarding review
+threads](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-9-1.png)
 
 ``` r
-namespace_ro <- readr::read_csv("output/namespace.csv")
-load("data/namespace_cran.RData")
+bigrams_counts <- threads %>%
+  tidytext::unnest_tokens(bigram, line, token = "ngrams", n = 2) %>%
+  tidyr::separate(bigram, c("word1", "word2"), sep = " ",
+                  remove = FALSE) %>%
+  dplyr::filter(!word1 %in% stopwords) %>%
+  dplyr::filter(!word2 %in% stopwords) %>%
+  dplyr::count(bigram, sort = TRUE) %>%
+  dplyr::mutate(bigram = reorder(bigram, n))   
 
-namespace <- dplyr::filter(namespace, 
-                           !pkg %in% namespace_ro$package,
-                           is.na(export_patterns))
-namespace <- dplyr::group_by(namespace, pkg) %>%
-  dplyr::summarise(exports = length(exports[[1]]) + length(export_classes[[1]])) %>%
-  dplyr::mutate(origin = "CRAN") 
+ggplot(bigrams_counts[2:15,]) +
+  geom_lollipop(aes(bigram, n),
+                size = 2, col = "salmon") +
+  hrbrthemes::theme_ipsum(base_size = 16,
+                          axis_title_size = 16) +
+  coord_flip()
+```
 
-namespace_ro <- dplyr::mutate(namespace_ro, origin = "rOpenSci")
+![Most common bigrams in onboarding review
+threads](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-10-1.png)
 
-dplyr::bind_rows(namespace, namespace_ro) %>%
+I’m not showing the first bigram that basically shows I’ve an encoding
+issue to solve with a variation of “´”. In any case, both figures show
+what we care about, like our guidelines that are mentioned often, and
+documentation. I think words absent from the figures such as performance
+or speed also highlight what we care less about, following [Jeff Leek’s
+philosophy](https://github.com/jtleek/rpackages#documentation).
+
+Now, let’s move on to a bit more complex visualization of [pairwise
+correlations between
+words](https://www.tidytextmining.com/ngrams.html#counting-and-correlating-pairs-of-words-with-the-widyr-package)
+within lines. First, let’s prepare the table of words in lines. Compared
+with the book tutorial linked previously, we add a condition for
+eliminating words mentioned in only one submission, often function
+names.
+
+``` r
+users <- unique(threads$user)
+onboarding_line_words <- threads %>%
+  dplyr::group_by(user, issue, created_at, package, line) %>%
+  dplyr::mutate(line_id = paste(package, user, created_at, line)) %>%
+  dplyr::ungroup() %>%
+  tidytext::unnest_tokens(word, line) %>%
+  dplyr::filter( word != package, !word %in% users,
+                 is.na(as.numeric(word)),
+                 word != "ldecicco",
+                 word != "usgs") %>%
+  dplyr::group_by(word) %>%
+  dplyr::filter(length(unique(issue)) > 1) %>%
+  dplyr::select(line_id, word)
+
+onboarding_line_words %>%
+  head() %>%
+  knitr::kable()
+```
+
+| line\_id                                                                                               | word     |
+|:-------------------------------------------------------------------------------------------------------|:---------|
+| rrlite karthik 2015-04-12 20:56:04 - \] add a ropensci footer.                                         | add      |
+| rrlite karthik 2015-04-12 20:56:04 - \] add a ropensci footer.                                         | a        |
+| rrlite karthik 2015-04-12 20:56:04 - \] add a ropensci footer.                                         | ropensci |
+| rrlite karthik 2015-04-12 20:56:04 - \] add a ropensci footer.                                         | footer   |
+| rrlite karthik 2015-04-12 20:56:04 - \] add an appropriate entry into ropensci.org/packages/index.html | add      |
+| rrlite karthik 2015-04-12 20:56:04 - \] add an appropriate entry into ropensci.org/packages/index.html | an       |
+
+Then, we can compute the correlation.
+
+``` r
+word_cors <- onboarding_line_words %>%
+  dplyr::group_by(word) %>%
+  dplyr::filter(!word %in% stopwords) %>%
+  dplyr::filter(n() >= 20) %>%
+  widyr::pairwise_cor(word, line_id, sort = TRUE)
+```
+
+For instance, what often goes in the same line as vignette?
+
+``` r
+dplyr::filter(word_cors, item1 == "vignette")
+```
+
+    ## # A tibble: 853 x 3
+    ##    item1    item2     correlation
+    ##    <chr>    <chr>           <dbl>
+    ##  1 vignette readme         0.176 
+    ##  2 vignette vignettes      0.174 
+    ##  3 vignette chunk          0.145 
+    ##  4 vignette eval           0.120 
+    ##  5 vignette examples       0.108 
+    ##  6 vignette overview       0.0933
+    ##  7 vignette building       0.0914
+    ##  8 vignette link           0.0863
+    ##  9 vignette maps           0.0840
+    ## 10 vignette package        0.0831
+    ## # ... with 843 more rows
+
+Now let’s plot the network of these relationships between words, using
+the [`igraph`](http://igraph.org/r/) and
+[`ggraph`](https://github.com/thomasp85/ggraph) packages, by
+respectively Gábor Csárdi and Támas Nepusz, and Thomas Lin Pedersen.
+
+``` r
+library("igraph")
+library("ggraph")
+
+set.seed(2016)
+
+word_cors %>%
+  dplyr::filter(correlation > .35) %>%
+  graph_from_data_frame() %>%
+  ggraph(layout = "fr") +
+  geom_edge_link(aes(edge_alpha = correlation), show.legend = FALSE) +
+  geom_node_point(color = "lightblue", size = 5) +
+  geom_node_text(aes(label = name), repel = TRUE) +
+  theme_void()
+```
+
+![](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-14-1.png)
+
+This figure gives a good sample of things discussed in reviews. Despite
+our efforts filtering words specific to issues, some of them remain very
+specific, such as country/city/location that are very frequent in
+`ropenaq` review.
+
+How positive is onboarding?
+---------------------------
+
+Using sentiment analysis, we can look how positive lines are.
+
+``` r
+sentiments %>%
+  dplyr::group_by(role) %>%
+  skimr::skim(sentiment)
+```
+
+    ## Skim summary statistics
+    ##  n obs: 11553 
+    ##  n variables: 6 
+    ##  group variables: role 
+    ## 
+    ## Variable type: numeric 
+    ##               role  variable missing complete    n  mean   sd   min p25
+    ##             author sentiment       0     4823 4823 0.07  0.21 -1.2    0
+    ##  community_manager sentiment       0       97   97 0.13  0.21 -0.41   0
+    ##             editor sentiment       0     1521 1521 0.13  0.22 -1.63   0
+    ##              other sentiment       0      344  344 0.073 0.2  -0.6    0
+    ##           reviewer sentiment       0     4768 4768 0.073 0.21 -1      0
+    ##  median  p75  max     hist
+    ##   0     0.17 1.84 <U+2581><U+2581><U+2582><U+2587><U+2581><U+2581><U+2581><U+2581>
+    ##   0.071 0.23 1    <U+2581><U+2581><U+2587><U+2585><U+2582><U+2581><U+2581><U+2581>
+    ##   0.075 0.25 1.13 <U+2581><U+2581><U+2581><U+2581><U+2587><U+2586><U+2581><U+2581>
+    ##   0     0.2  0.81 <U+2581><U+2581><U+2582><U+2587><U+2582><U+2582><U+2581><U+2581>
+    ##   0     0.17 1.73 <U+2581><U+2581><U+2587><U+2585><U+2581><U+2581><U+2581><U+2581>
+
+``` r
+summary(sentiments$sentiment)
+```
+
+    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+    ## -1.63200  0.00000  0.00000  0.07961  0.18353  1.84223
+
+``` r
+sentiments %>%
+  dplyr::filter(!role %in% c("other", "community_manager")) %>%
+  ggplot(aes(role, sentiment)) +
+  geom_boxplot(fill = "salmon") +
+  hrbrthemes::theme_ipsum(base_size = 16,
+                          axis_title_size = 16,
+                          strip_text_size = 16)
+```
+
+![Sentiment of onboarding review threads by
+line](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-15-1.png)
+
+Generally lines are quite positive, although it’d be better to be able
+to compare them with text from traditional review processes of
+scientific manuscripts. So we do get negative lines… about what? Note
+that we have a [code of
+conduct](https://github.com/ropensci/onboarding/blob/master/policies.md/#code-of-conduct)
+that’s always been respected, so you wouldn’t find really mean stuff.
+
+``` r
+sentiments %>%
+  dplyr::filter(sentiment < 0) %>%
+  tidytext::unnest_tokens(word, line) %>%
+  dplyr::filter(!word %in% stopwords) %>%
+  dplyr::count(word, sort = TRUE) %>%
+  dplyr::mutate(word = reorder(word, n)) %>%
+  dplyr::filter(n > 100) %>%
 ggplot() +
-  geom_density(aes(exports, fill = origin), alpha = 0.5) +
-  scale_x_log10() +
-  viridis::scale_fill_viridis(discrete = TRUE) +
+  geom_lollipop(aes(word, n),
+                size = 2, col = "salmon") +
   hrbrthemes::theme_ipsum(base_size = 16,
                           axis_title_size = 16) +
-  xlab("No. of exported functions/classes")
+  coord_flip()
 ```
 
-![number of lines of exports of ropensci and cran
-packages](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-6-1.png)
+![Most common words in negative
+lines](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-16-1.png)
 
-In the future we might want to provide such metrics to potential
-reviewers when recruiting them, because some of them might have time to
-review [an abnormally big
-package](https://ropensci.org/blog/2018/04/06/peer-review-value/) and
-some others not.
-
-### Work done by reviewers
-
-The previous figures of lines of code and NAMESPACE exports give a good
-idea of the size and complexity of the package authors have to review:
-Reviewers more or less get to review the package as it was at submission
-(minus editor remarks, and well the review of the first reviewer if the
-second one reviews much later). Now, we also ask reviewers to tell us
-how much time they spent reviewing, not to judge anyone, but to get a
-sense of the involvement we asked. We also use this information when
-recruiting reviewers, generally saying that reviewing a package is “as
-long as reviewing a scientific paper”, a couple of hours.
+And looking at a sample…
 
 ``` r
-# airtable data
-# this is our private database of who's reviewed what
-# and of reviewers' areas of expertise
-airtable <- airtabler::airtable("appZIB8hgtvjoV99D", "Reviews")
-airtable <- airtable$Reviews$select_all()
+sentiments %>%
+  dplyr::arrange(sentiment) %>%
+  dplyr::select(line, sentiment) %>%
+  head(n = 15) %>%
+  knitr::kable()
 ```
 
-Out of 184 we now have reviewing time for 136.
+| line                                                                                                                                                                                                                                                              |   sentiment|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------:|
+| @ultinomics no more things, although do make sure to add more examples - perhaps open an issue ropenscilabs/gtfsr/issues to remind yourself to do that,                                                                                                           |  -1.6320000|
+| not sure what you mean, but i’ll use different object names to avoid any confusion (ropenscilabs/mregions\#24)                                                                                                                                                    |  -1.2029767|
+| error in .local(.object, …) :                                                                                                                                                                                                                                     |  -1.0000000|
+| error:                                                                                                                                                                                                                                                            |  -1.0000000|
+| \#\#\#\# miscellaneous                                                                                                                                                                                                                                            |  -1.0000000|
+| error: command failed (1)                                                                                                                                                                                                                                         |  -0.8660254|
+| \- get\_plate\_size\_from\_number\_of\_columns: maybe throwing an error makes more sense than returning a string indicating an error                                                                                                                              |  -0.7855844|
+| this code returns an error, which is good, but it would be useful to return a more clear error. filtering on a non-existant species results in a 0 “length” onekp object (ok), but then the download\_\* functions return a curl error due to a misspecified url. |  -0.7437258|
+| 0 errors \| 0 warnings \| 0 notes                                                                                                                                                                                                                                 |  -0.7216878|
+| once i get to use this package more, i’m sure i’ll have more comments/issues but for the moment i just want to get this review done so it isn’t a blocker.                                                                                                        |  -0.7212489|
+| \- i now realize i’ve pasted the spelling mistakes without thinking too much about us vs. uk english, sorry.                                                                                                                                                      |  -0.7071068|
+| minor issues:                                                                                                                                                                                                                                                     |  -0.7071068|
+| \#\# minor issues                                                                                                                                                                                                                                                 |  -0.7071068|
+| replicates issue                                                                                                                                                                                                                                                  |  -0.7071068|
+| visualization issue                                                                                                                                                                                                                                               |  -0.7071068|
+
+It seems that negative lines are mostly people trying discussing bugs
+and problems in code, and GitHub issues, and trying to solve them. The
+kind of negative lines we’re happy to see in our process, since once
+solved, they mean the software got more robust!
+
+Last but not least, I mentioned our using particular cases as examples
+of how happy everyone seems to be in the process. To find such examples,
+we rely on memory, but what about picking heart-warming lines using
+their sentiment score?
 
 ``` r
-ggplot(airtable) +
-  geom_boxplot(aes(y = review_hours, x = "")) +
-  hrbrthemes::theme_ipsum(base_size = 16,
-                          axis_title_size = 16) +
-  theme(axis.title.x=element_blank()) +
-  ylab("Reviewing time (hours)")
+sentiments %>%
+  dplyr::arrange(- sentiment) %>%
+  dplyr::select(line, sentiment) %>%
+  head(n = 15) %>%
+  knitr::kable()
 ```
 
-![hours spent
-reviewing](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-8-1.png)
+| line                                                                                                                                                                                                                                                                                                                                                              |  sentiment|
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|
+| absolutely - it’s really important to ensure it really has been solved!                                                                                                                                                                                                                                                                                           |   1.842234|
+| overall, really easy to use and really nicely done.                                                                                                                                                                                                                                                                                                               |   1.733333|
+| this package is a great and lightweight addition to working with rdf and linked data in r. coming after my review of the codemetar package which introduced me to linked data, i found this a great learning experience into a topic i’ve become really interested in but am still quite novice in so i hope my feedback helps to appreciate that particular pov. |   1.463226|
+| i am very grateful for your approval and i very much look forward to collaborating with you and the ropensci community.                                                                                                                                                                                                                                           |   1.256935|
+| thank you very much for the constructive thoughts.                                                                                                                                                                                                                                                                                                                |   1.237437|
+| thanks for the approval, all in all a very helpful and educational process!                                                                                                                                                                                                                                                                                       |   1.217567|
+| \- really good use of helper functions                                                                                                                                                                                                                                                                                                                            |   1.139013|
+| \- i believe the utf note is handled correctly and this is just a snafu in **goodpractice**, but i will seek a reviewer with related expertise in ensuring that all unicode is handled properly.                                                                                                                                                                  |   1.132201|
+| seem more unified and consistent.                                                                                                                                                                                                                                                                                                                                 |   1.126978|
+| very much appreciated!                                                                                                                                                                                                                                                                                                                                            |   1.125833|
+| \- well organized, readable code                                                                                                                                                                                                                                                                                                                                  |   1.100000|
+| \- wow very extensive testing! well done, very thorough                                                                                                                                                                                                                                                                                                           |   1.100000|
+| \- i’m delighted that you find my work interesting and i’m very keen to help, contribute and collaborate in any capacity.                                                                                                                                                                                                                                         |   1.084493|
+| thank you very much for your thorough and thoughtful review, @batpigandme ! this is great feedback, and i think that visdat will be much improved because of these reviews.                                                                                                                                                                                       |   1.083653|
+| great, thank you very much for accepting this package. i am very grateful about the reviews, which were very helpful to improve this package!                                                                                                                                                                                                                     |   1.074281|
 
-In case you wonder, what’s in it for reviewers? They do it out of
-personal interest for scientific software, to learn more about package
-development, to discover a package, and maybe because they feel grateful
-for reviews of their own software. You can read personal perspectives of
-reviewers on our blog: [one by Mara
-Averick](https://ropensci.org/blog/2017/08/22/first-package-review/),
-[one by Verena
-Haunschmid](https://ropensci.org/blog/2017/09/08/first-review-experiences/),
-[one by Charles T.
-Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/) and [one by
-Miles McBain](https://ropensci.org/blog/2018/04/06/peer-review-value/).
-Some reviewers end up being listed as reviewers in the package list of
-authors as explained [in this insightful and entertaining post by editor
-Noam
-Ross](https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/).
+As you can imagine, these sentences make the whole team very happy! And
+we hope they’ll encourage you to contribute to our mission to make
+scientific software better.
 
-#### Is the size of the package related to its review time
+Outlook
+=======
 
-``` r
-namespace_ro <- dplyr::left_join(namespace_ro, airtable, by = "package")
-ggplot(namespace_ro) +
-  geom_point(aes(exports, review_hours))
-```
+This first try at text analysis is quite promising. One could expand
+this analysis with a study of emoji use, *in* the text using an emoji
+dictionary [as in this blog
+post](http://www.masalmon.eu/2017/05/03/lucysemojis/) and *around* the
+text (so-called emoji reactions, present in the API and used in e.g
+[`ghrecipes::get_issues_thumbs`](https://github.com/maelle/ghrecipes/blob/master/R/get_issues_thumbs.R)).
+Besides, another aspect of social weather is maybe the timeliness that’s
+expected or implemented at the different parts of the process, but it’d
+be covered by other data such as the labelling history of the issues,
+which could get extracted from GitHub V4 API as well.
 
-![](/img/blog-images/2018-05-02-onboarding-is-work/scatterplot-size-vs-reviewing-time-1.png)
-
-I’d have been surprised to see a link here anyway!
-
-#### Work done by editors
-
-Editors perform a few checks before seeking reviewers, and then
-generally supervise the process. In [Tim Trice’s
-words](https://ropensci.org/blog/2017/09/27/rrricanes/), we are “guiding
-angels from start to finish during the entire onboarding and review
-process”.
-
-### Outlook: decreasing work by automation
-
-As mentioned [in this blog post about the authors and reviewers
-survey](https://ropensci.org/blog/2018/04/17/author-survey/), we’re in
-the process of trying to maximize automation of all than can be
-automated in order to reduce and simplify work for everyone involved.
-This way, humans can focus on what they’re best at. Our current
-automation efforts include two packages in development: one for package
-authors, [`rodev`](https://github.com/ropenscilabs/rodev), and one for
-package
-reviewers,[`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr), by
-[Anna Krystalli](http://www.annakrystalli.com/); efforts to run
-`goodpractice::gp` automatically without local install. Exciting times!
-
-If you liked this data exploration, stay tuned for the third and final
-post of this series, about the social weather of onboarding as
-characterized by a tidy text analysis of onboarding threads!
+This post is the final post of this series… but certainly not the last
+data-driven post about onboarding you’ll see on this blog, so keep
+reading!
