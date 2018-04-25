@@ -5,7 +5,7 @@ package_version: 0.1.7
 authors:
   - name: Sasha Goodman
     url: https://github.com/ropensci/rtika
-date: 2018-04-24
+date: 2018-04-25
 categories: blog
 topicid: 
 tags:
@@ -102,7 +102,7 @@ tryCatch(antiword(batch[last_file]), error = function(x){x})
 
 Fortunately, I remembered Apache Tika. Five years earlier, Tika helped parse the Internet Archive, and handled whatever format I threw at it. Back then, I put together a R package for myself and a few colleagues. It was outdated.
 
-I downloaded Tika and made a R script. Tika did its magic. It scanned the headers for the "Magic Bytes" [^4] and parsed the files appropriately:
+I downloaded Tika and made an R script. Tika did its magic. It scanned the headers for the "Magic Bytes" [^4] and parsed the files appropriately:
 
 ``` r
 library('rtika')
@@ -125,19 +125,19 @@ For this batch, the efficiency compared favorably to `antiword`, even with the o
 
 #### Lessons Learned
 
-I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent on-boarding process and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
+I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/onboarding and ropensci/onboarding#191) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
 
 ##### Connecting to Tika 
 
-Since the Tika software is mature, my coding centered around connecting R to Tika. The `rtika` software is a message broker that handles inter-process communication, and there are several ways to do this: Tika server, `rJava`, or system calls. I discovered the Linux paradigm of using files and file-like paths for most messaging, paraphrased as "everything is a file" [^5]. I wanted a method that would work on Windows and OS X and be easy to install, so chose basic system calls and the file system.
+There needed to be a reliable way to send messages from R to Tika and back. There were several possible ways to implement this: Tika server, `rJava`, or system calls. I recently discovered the Linux paradigm of using files and file-like paths for messaging, paraphrased as "everything is a file" [^5], and wanted a method that would work on Linux, Windows and OS X and be easy to install. I chose the method of passing short messages to Java through the command line and sending larger amounts of data through the file system.
 
-This worked. R sends Tika a signal to execute code using an old-fashioned command line call, telling Tika to parse a particular batch of files. R waits. Eventually, Tika sends the signal of its completion, and R can then return with results as a character vector. Surprisingly, this process may be a good option for containerized applications running Docker. In the example later in this blog post, a similar technique is used to connect to a Docker container in a few lines of code.
+This worked. R sends Tika a signal to execute code using an old-fashioned command line call, telling Tika to parse a particular batch of files. R waits for a response. Eventually, Tika sends the signal of its completion, and R can then return with results as a character vector. Surprisingly, this process may be a good option for containerized applications running Docker. In the example later in this blog post, a similar technique is used to connect to a Docker container in a few lines of code.
 
-Communication with Tika went smoothly, but after one issue with `base::system2()` was identified. That was terminating Tika's long running process. Switching to `sys::exec_wait()` or `processx::run()` solved the issue.
+Communication with Tika went smoothly, but after one issue with `base::system2()` was identified. The `base::system2()` call was terminating Tika's long running process. Switching to `sys::exec_wait()` or `processx::run()` solved the issue.
 
 ##### The R User Interface
 
-Many in the R community make use of `magrittr` style pipelines, so those needed to work well. The Tidy Tools Manifesto makes piping a central tenant [^6], which makes code easier to read and maintain.
+Many in the R community make use of `magrittr` style pipelines, so those needed to work well. The Tidy Tools Manifesto makes piping a central tenet [^6], which makes code easier to read and maintain.
 
 When writing `rtika`, I created two distinct styles of user interface. The first was a lightweight R wrapper around the Tika command line, called `tika()`. The parameters and abbreviations there mirrored the Apache Tika tool. The other functions are in the common R style found in tidy tools, and run `tika()` with certain presets (e.g. `tika_html()` outputs to 'html' ). For R users, these should be more intuitive and self-documenting.
 
@@ -149,7 +149,7 @@ Noam Ross, the editor, helped deal with the unusually large size of the Tika app
 
 #### Tika in Context: Parsing the Internet Archive
 
-The first archive I parsed with Tika was a website retrieved from the Wayback Machine [^10], a treasure trove of historical files. Maintained by the Internet Archive, their crawler downloads sites over decades. When a site is crawled consistently, longitudinal analyses are possible. For example, federal agency websites often change when an administrations change, so the Internet Archive group and academic partners have increased the consistency of crawling there. In 2016, they archived over 200 terabytes of documents to include, among other things, over 40 million `pdf` files [^11]. I consider these government documents to be in the public domain, even if an administration hides or removes them.
+The first archive I parsed with Tika was a website retrieved from the Wayback Machine [^10], a treasure trove of historical files. Maintained by the Internet Archive, their crawler downloads sites over decades. When a site is crawled consistently, longitudinal analyses are possible. For example, federal agency websites often change when the executive branch administration changes, so the Internet Archive group and academic partners have increased the consistency of crawling there. In 2016, they archived over 200 terabytes of documents to include, among other things, over 40 million `pdf` files [^11]. I consider these government documents to be in the public domain, even if an administration hides or removes them.
 
 In the following example, the function `wayback_machine_downloader()` gets documents from '<http://www3.epa.gov/climatechange/Downloads>' between January 20th, 2016 and January 20th, 2017.
 
