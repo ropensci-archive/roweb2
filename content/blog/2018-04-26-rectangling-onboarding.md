@@ -7,7 +7,7 @@ authors:
 date: 2018-04-26
 preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/A-satrday-ct-series/)."
 categories: blog
-topicid: 925
+topicid: 1152
 tags:
 - r
 - community
