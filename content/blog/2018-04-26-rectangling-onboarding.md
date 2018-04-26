@@ -5,7 +5,7 @@ authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
 date: 2018-04-26
-preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/)."
+preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-series/)."
 categories: blog
 topicid: 925
 tags:
@@ -22,10 +22,6 @@ output:
     variant: markdown_github
     preserve_yaml: true
 ---
-
-*This blog post is the first of a 3-post series about a data-driven
-overview of rOpenSci onboarding. Read the intro to the series
-[here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/).*
 
 Our [onboarding
 reviews](https://ropensci.org/blog/2017/09/11/software-review-update/),
