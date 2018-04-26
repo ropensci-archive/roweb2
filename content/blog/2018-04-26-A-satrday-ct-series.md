@@ -1,5 +1,5 @@
 ﻿---
-slug: satrday-ct-series
+slug: A-satrday-ct-series
 title: "Our package reviews in review: Introducing a 3-post series about software onboarding data"
 authors:
   - name: Maëlle Salmon
