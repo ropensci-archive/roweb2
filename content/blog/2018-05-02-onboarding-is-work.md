@@ -27,7 +27,11 @@ Our [onboarding process](https://github.com/ropensci/onboarding/), that
 ensures that packages contributed by the community undergo a
 transparent, constructive, non adversarial and open review process,
 involves a lot of work from many actors: authors, reviewers and editors;
-but *how much work*? Managing the effort involved in the peer-review process is a major part of ensuring its sustainability and quality.  In this post, we'll take a look the effort put in by participants in the review process, and also learn something about exploring GitHub data along the way.
+but *how much work*? Managing the effort involved in the peer-review
+process is a major part of ensuring its sustainability and quality. In
+this post, we’ll take a look the effort put in by participants in the
+review process, and also learn something about exploring GitHub data
+along the way.
 
 ### Work done by authors
 
@@ -35,9 +39,10 @@ but *how much work*? Managing the effort involved in the peer-review process is 
 
 We can try to quantify the development work of authors by looking at the
 number of lines deleted and added in the git repo of the package before,
-during, and after review. To do so, we link information
-from the package git repos (information about sizes and dates of commits) and information from the
-onboarding issue threads (start and end dates of the review process, as measured by open/close dates). 
+during, and after review. To do so, we link information from the package
+git repos (information about sizes and dates of commits) and information
+from the onboarding issue threads (start and end dates of the review
+process, as measured by open/close dates).
 
 ``` r
 library("ggplot2")
@@ -116,10 +121,19 @@ plot_commits("charlatan", commits = commits)
 ![commits plot of the charlatan
 package](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-3-1.png)
 
-When looking at all onboarded repos, we don't see a general
-pattern to commit histories. Commits have diffent sizes, and the activity frequency is
-highly variable. While we see the updates to packages that occur during review, there is just as often change
-again after onboarding, as packages continue to improve and be maintained.  This highlights an important aspect of our peer review, which is that _acceptance is not the end of the process_.  While we aim for the process to ensure high quality at acceptance, packages are not static moving forwards.  Not all deficiencies are detected by peer reviewers, and further improvements and maintanance will continue.  This is why many of our standards are about maintainability, and our process is in part an approach to onboard _authors_ into a community of dedicated and supportive package maintainers.
+When looking at all onboarded repos, we don’t see a general pattern to
+commit histories. Commits have diffent sizes, and the activity frequency
+is highly variable. While we see the updates to packages that occur
+during review, there is just as often change again after onboarding, as
+packages continue to improve and be maintained. This highlights an
+important aspect of our peer review, which is that acceptance is not the
+end of the process. While we aim for the process to ensure high quality
+at acceptance, packages are not static moving forwards. Not all
+deficiencies are detected by peer reviewers, and further improvements
+and maintanance will continue. This is why many of our standards are
+about maintainability, and our process is in part an approach to onboard
+authors into a community of dedicated and supportive package
+maintainers.
 
 We do try to onboard mature packages, i.e. that are not *drafts*.
 Furthermore, the absence of general patterns in the previous figures
@@ -154,7 +168,9 @@ its history!
 
 Many packages are submitted quite rapidly which might indicate rapid
 development, but also maybe onboarding as a part of development,
-i.e. authors knew they intended to submit. For instance, Maëlle's developed `opencage` in just a few days, then submitted it to get it ready for wider use by the community.
+i.e. authors knew they intended to submit. For instance, Maëlle’s
+developed `opencage` in just a few days, then submitted it to get it
+ready for wider use by the community.
 
 #### Before review
 
@@ -281,12 +297,20 @@ some others not.
 
 ### Work done by reviewers
 
-How much effort is put in by reviewers in this process?  Reviewer time and effort is one of our most previous resources (you can read more about reviewer motivations and perspectives in other blog posts by [Mara Averick](https://ropensci.org/blog/2017/08/22/first-package-review/),
+How much effort is put in by reviewers in this process? Reviewer time
+and effort is one of our most previous resources (you can read more
+about reviewer motivations and perspectives in other blog posts by [Mara
+Averick](https://ropensci.org/blog/2017/08/22/first-package-review/),
 [Verena
 Haunschmid](https://ropensci.org/blog/2017/09/08/first-review-experiences/),
-[Charles T.
-Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/) and [
-Miles McBain](https://ropensci.org/blog/2018/04/06/peer-review-value/).  We this effort by asking reviewers to self-report the hours spent reviewing. We do so to understand the amount of effort we are asking reviewers for, so we can let new reviewers know what to expect, and so hopefully in the future we can measure the success of efforts to automate some reviewer tasks. 
+[Charles T. Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/)
+and [Miles
+McBain](https://ropensci.org/blog/2018/04/06/peer-review-value/). We
+this effort by asking reviewers to self-report the hours spent
+reviewing. We do so to understand the amount of effort we are asking
+reviewers for, so we can let new reviewers know what to expect, and so
+hopefully in the future we can measure the success of efforts to
+automate some reviewer tasks.
 
 ``` r
 # airtable data
@@ -310,9 +334,16 @@ ggplot(airtable) +
 ![hours spent
 reviewing](/img/blog-images/2018-05-02-onboarding-is-work/unnamed-chunk-8-1.png)
 
-As we found before, it appears to take our reviewers a similar amount of time to review R packages as [scientists take to review a manuscript (5 hour median and 9 hour mean)](http://publishingresearchconsortium.com/index.php/112-prc-projects/research-reports/peer-review-in-scholarly-journals-research-report/142-peer-review-in-scholarly-journals-perspective-of-the-scholarly-community-an-international-study).  
+As we found before, it appears to take our reviewers a similar amount of
+time to review R packages as [scientists take to review a manuscript (5
+hour median and 9 hour
+mean)](http://publishingresearchconsortium.com/index.php/112-prc-projects/research-reports/peer-review-in-scholarly-journals-research-report/142-peer-review-in-scholarly-journals-perspective-of-the-scholarly-community-an-international-study).
 
-One potential question is whether reviewer time is affected by the size of the package reviewed.  The previous figures of lines of code and NAMESPACE exports give a good idea of the size and complexity of the package authors have to review. Interestingly, we find no relationship between the two:
+One potential question is whether reviewer time is affected by the size
+of the package reviewed. The previous figures of lines of code and
+NAMESPACE exports give a good idea of the size and complexity of the
+package authors have to review. Interestingly, we find no relationship
+between the two:
 
 ``` r
 namespace_ro <- dplyr::left_join(namespace_ro, airtable, by = "package")
@@ -322,12 +353,21 @@ ggplot(namespace_ro) +
 
 ![](/img/blog-images/2018-05-02-onboarding-is-work/scatterplot-size-vs-reviewing-time-1.png)
 
-There are a few potential explanations to this that might be fruitful to explore.  For instance, does this mean that there's only so much time, and so larger packages get less scrutiny per line of code?  Or does review time just depend more on the reviewer than the package?  
+There are a few potential explanations to this that might be fruitful to
+explore. For instance, does this mean that there’s only so much time,
+and so larger packages get less scrutiny per line of code? Or does
+review time just depend more on the reviewer than the package?
 
 #### Work done by editors
 
-Editors manage the review process, performing initial pacakge checks, identifying and contacting reviewers, and then
-moderating the cajoling the process forward.  Our best measure for editor effort is the number of packages handled by an editor in a given time frame, which we can track from the assignments on GitHub issues since the start of onboarding.  Looking at this over time, we can see how editor workloads changed in response to growing number of assignments and how we have attempted to manage this by expanding our editorial board:
+Editors manage the review process, performing initial pacakge checks,
+identifying and contacting reviewers, and then moderating the cajoling
+the process forward. Our best measure for editor effort is the number of
+packages handled by an editor in a given time frame, which we can track
+from the assignments on GitHub issues since the start of onboarding.
+Looking at this over time, we can see how editor workloads changed in
+response to growing number of assignments and how we have attempted to
+manage this by expanding our editorial board:
 
 ``` r
 library(tidyverse)
@@ -374,8 +414,10 @@ automation efforts include two packages in development: one for package
 authors, [`rodev`](https://github.com/ropenscilabs/rodev), and one for
 package
 reviewers,[`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr), by
-[Anna Krystalli](http://www.annakrystalli.com/).  We also are working on
-automating most of checks that use `goodpractice::gp` so they are run on CI infrastructure automatically on submission, rather than requiring editors to do so locally.
+[Anna Krystalli](http://www.annakrystalli.com/). We also are working on
+automating most of checks that use `goodpractice::gp` so they are run on
+CI infrastructure automatically on submission, rather than requiring
+editors to do so locally.
 
 If you liked this data exploration, stay tuned for the third and final
 post of this series, about the social weather of onboarding as
