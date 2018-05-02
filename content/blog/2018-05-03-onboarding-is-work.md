@@ -107,8 +107,8 @@ plot_commits <- function(package_name, commits){
 
 Let’s have a look at a few packages. The x-axis represents time, and the
 grey box the onboarding period (from issue opening i.e. submission to
-issue closing i.e. approval). The blue lines above the y-axis are the
-number of lines *added* in one commit while the red lines below the
+issue closing i.e. approval). The salmon lines above the y-axis are the
+number of lines *added* in one commit while the blue lines below the
 y-axis are the number of lines *deleted* in one commit.
 
 ``` r
@@ -187,7 +187,7 @@ Averick](https://ropensci.org/blog/2017/08/22/first-package-review/),
 Haunschmid](https://ropensci.org/blog/2017/09/08/first-review-experiences/),
 [Charles T. Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/)
 and [Miles
-McBain](https://ropensci.org/blog/2018/04/06/peer-review-value/). We
+McBain](https://ropensci.org/blog/2018/04/06/peer-review-value/)). We
 measure this effort by asking reviewers to self-report the hours spent
 reviewing. We do so to understand the amount of effort we are asking
 reviewers for, so we can let new reviewers know what to expect, and so
@@ -336,12 +336,13 @@ automated in order to reduce and simplify work for everyone involved.
 This way, humans can focus on what they’re best at. Our current
 automation efforts include two packages in development: one for package
 authors, [`rodev`](https://github.com/ropenscilabs/rodev), by rOpenSci
-staff, and one for package
-reviewers,[`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr), by
-community member [Anna Krystalli](http://www.annakrystalli.com/). We
-also are working on automating most of the checks that use
-`goodpractice::gp` so they are run on CI infrastructure automatically on
-submission, rather than requiring editors to do so locally.
+staff, and one for package reviewers,
+[`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr), by community
+member (and guest editor!) [Anna
+Krystalli](http://www.annakrystalli.com/). We also are working on
+automating most of the checks that use `goodpractice::gp` so they are
+run on CI infrastructure automatically on submission, rather than
+requiring editors to do so locally.
 
 If you liked this data exploration, stay tuned for the third and final
 post of this series, about the social weather of onboarding as
