@@ -159,8 +159,8 @@ In the excerpt below, we see the most important variable, the binary
 `code` indicating whether the line is a code line. This excerpt also
 shows variables created to help compute `code`: `index` is the index of
 the line withing a comment, `chunk_limit` indicates whether the line is
-a chunk limit (that is “`r" or "`”), `which_limit` indicates which
-indices in the comment indicate lines of code.
+a chunk limit, `which_limit` indicates which indices in the comment
+indicate lines of code.
 
 ``` r
 dplyr::filter(threads, package == "gutenbergr", 
