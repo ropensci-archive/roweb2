@@ -5,9 +5,9 @@ authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
 date: 2018-05-09
-preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/satrday-ct-serie/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about work quantification [here](https://ropensci.org/blog/2018/05/02/onboarding-is-work/)."
+preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about work quantification [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/)."
 categories: blog
-topicid: 925
+topicid: 
 tags:
 - r
 - community
@@ -22,10 +22,11 @@ output:
     preserve_yaml: true
 ---
 
-Before even submitting my first R package to rOpenSci onboarding system,
-that ensure that packages contributed by the community undergo a
-transparent, constructive, non adversarial and open review process, in
-December 2015, I spent a fair amount of time reading through previous
+Our [onboarding process](https://github.com/ropensci/onboarding/)
+ensures that packages contributed by the community undergo a
+transparent, constructive, non adversarial and open review process.
+Before even submitting my first R package to rOpenSci onboarding system
+in December 2015, I spent a fair amount of time reading through previous
 issue threads in order to assess whether onboarding was a friendly place
 for me: a newbie, very motivated to learn more but a newbie nonetheless.
 I soon got the feeling that yes, onboarding would help me make my
@@ -39,13 +40,16 @@ trying to get a good idea of the social weather of onboarding – as a
 side-note, how wonderful is it that onboarding’s being open makes it
 possible to listen?!
 
-In general, when one of us editors talk about onboarding, we like to use
-examples illustrating how fantastic the system is. Quotes from thankful
+In the meantime, I’ve now only submitted and reviewed a few packages but
+also become an [associate
+editor](https://github.com/ropensci/onboarding/#associate-editors). In
+general, when one of us editors talks about onboarding, we like to use
+examples illustrating the system in a good light. Quotes from thankful
 package authors, of amazed reviewers, etc. Would there be a more
 quantitative way for us to support our promotion efforts? In this blog
 post, I shall explore how a [tidytext](https://www.tidytextmining.com/)
-analysis of GitHub threads might help us characterize the social weather
-of onboarding.
+analysis of review processes (via their GitHub threads) might help us
+characterize the social weather of onboarding.
 
 ### Preparing the data
 
@@ -53,19 +57,19 @@ of onboarding.
 
 In this blog post, I’ll leverage the `tidytext` package, with the help
 of its accompanying book [“Tidy text
-mining”](https://www.tidytextmining.com/). Interestingly, their authors
+mining”](https://www.tidytextmining.com/). Interestingly, the authors
 Julia Silge and David Robinson met, and started working on this project,
 at rOpenSci unconf in 2016!
 
 #### The “tidy text” of the analysis
 
-I’ve described in the first post of this series how I got all onboarding
-issue threads. Now, I’ll explain how I cleaned their text. Why does it
-need to be cleaned? Well, this text contains code chunks that I wished
-to remove, as well as parts from our submission and [review
-templates](https://github.com/ropensci/onboarding/blob/master/reviewer_template.md),
-that I also needed to remove because they’re not original text, with a
-few other tweaks.
+I’ve described [in the first post of this
+series](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)
+how I got all onboarding issue threads. Now, I’ll explain how I cleaned
+their text. Why does it need to be cleaned? Well, this text contains
+elements that I wished to remove: code chunks, as well as parts from our
+submission and [review
+templates](https://github.com/ropensci/onboarding/blob/master/reviewer_template.md).
 
 My biggest worry was the removal of templates from issues. I was already
 picturing my spending hours writing regular expressions to remove these
@@ -151,38 +155,45 @@ example. I chose this submission because the package author, David
 Robinson, is one of the two `tidytext` creators, and because I was the
 reviewer, so it’s all very meta, isn’t it?
 
+In the excerpt below, we see the most important variable, the binary
+`code` indicating whether the line is a code line. This excerpt also
+shows variables created to help compute `code`: `index` is the index of
+the line withing a comment, `chunk_limit` indicates whether the line is
+a chunk limit (that is “`r" or "`”), `which_limit` indicates which
+indices in the comment indicate lines of code.
+
 ``` r
 dplyr::filter(threads, package == "gutenbergr", 
               user == "sckott", 
               !stringr::str_detect(line, "ropensci..footer")) %>%
   dplyr::mutate(created_at = as.character(created_at)) %>%
-  dplyr::select(created_at, line, index, chunk_limit, which_limit, code) %>%
+  dplyr::select(created_at, line, code, index, chunk_limit, which_limit) %>%
   knitr::kable()
 ```
 
-| created\_at         | line                                                                                                                                                                                                                                                |  index| chunk\_limit | which\_limit | code  |
-|:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------:|:-------------|:-------------|:------|
-| 2016-05-02 17:04:56 | thanks for your submission @dgrtwo - seeking reviewers now                                                                                                                                                                                          |      1| FALSE        | 0            | FALSE |
-| 2016-05-04 06:09:19 | reviewers: @masalmon                                                                                                                                                                                                                                |      1| FALSE        | 0            | FALSE |
-| 2016-05-04 06:09:19 | due date: 2016-05-24                                                                                                                                                                                                                                |      2| FALSE        | 0            | FALSE |
-| 2016-05-12 16:16:38 | having a quick look over this now…                                                                                                                                                                                                                  |      1| FALSE        | 0            | FALSE |
-| 2016-05-12 16:45:59 | @dgrtwo looks great. just a minor thing:                                                                                                                                                                                                            |      1| FALSE        | 3:7          | FALSE |
-| 2016-05-12 16:45:59 | `gutenberg_get_mirror()` throws a warning due to `xml2`, at this line <https://github.com/dgrtwo/gutenbergr/blob/master/r/gutenberg_download.r#l213>                                                                                                |      2| FALSE        | 3:7          | FALSE |
-| 2016-05-12 16:45:59 | \`\`\` r                                                                                                                                                                                                                                            |      3| TRUE         | 3:7          | TRUE  |
-| 2016-05-12 16:45:59 | warning message:                                                                                                                                                                                                                                    |      4| FALSE        | 3:7          | TRUE  |
-| 2016-05-12 16:45:59 | in node\_find\_one(x*n**o**d**e*, *x*doc, xpath = xpath, nsmap = ns) :                                                                                                                                                                              |      5| FALSE        | 3:7          | TRUE  |
-| 2016-05-12 16:45:59 | 101 matches for .//a: using first                                                                                                                                                                                                                   |      6| FALSE        | 3:7          | TRUE  |
-| 2016-05-12 16:45:59 | \`\`\`                                                                                                                                                                                                                                              |      7| TRUE         | 3:7          | TRUE  |
-| 2016-05-12 16:45:59 | wonder if it’s worth a `suppresswarnings()` there?                                                                                                                                                                                                  |      8| FALSE        | 3:7          | FALSE |
-| 2016-05-12 20:42:53 | great!                                                                                                                                                                                                                                              |      1| FALSE        | 3:5          | FALSE |
-| 2016-05-12 20:42:53 | \- add the footer to your readme:                                                                                                                                                                                                                   |      2| FALSE        | 3:5          | FALSE |
-| 2016-05-12 20:42:53 | \`\`\`                                                                                                                                                                                                                                              |      3| TRUE         | 3:5          | TRUE  |
-| 2016-05-12 20:42:53 | \`\`\`                                                                                                                                                                                                                                              |      5| TRUE         | 3:5          | TRUE  |
-| 2016-05-12 20:42:53 | \- could you add `url` and `bugreports` entries to `description`, so people know where to get sources and report bugs/issues                                                                                                                        |      6| FALSE        | 3:5          | FALSE |
-| 2016-05-12 20:42:53 | \- update installation of dev versions to `ropenscilabs/gutenbergr` and any urls for the github repo to `ropenscilabs` instead of `dgrtwo`                                                                                                          |      7| FALSE        | 3:5          | FALSE |
-| 2016-05-12 20:42:53 | \- go to the repo settings –&gt; transfer ownership and transfer to `ropenscilabs` - note that all our newer pkgs go to `ropenscilabs` first, then when more mature we’ll move to `ropensci`                                                        |      8| FALSE        | 3:5          | FALSE |
-| 2016-05-13 01:22:22 | nice, builds on at travis <https://travis-ci.org/ropenscilabs/gutenbergr/> - you can keep appveyor builds under your acct, or i can start on mine, let me know                                                                                      |      1| FALSE        | 0            | FALSE |
-| 2016-05-13 16:06:31 | updated badge link, started an appveyor account with `ropenscilabs` as account name - sent pr - though the build is failing, something about getting the current gutenberg url <https://ci.appveyor.com/project/sckott/gutenbergr/build/1.0.1#l650> |      1| FALSE        | 0            | FALSE |
+| created\_at         | line                                                                                                                                                                                                                                                | code  |  index| chunk\_limit | which\_limit |
+|:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|------:|:-------------|:-------------|
+| 2016-05-02 17:04:56 | thanks for your submission @dgrtwo - seeking reviewers now                                                                                                                                                                                          | FALSE |      1| FALSE        | 0            |
+| 2016-05-04 06:09:19 | reviewers: @masalmon                                                                                                                                                                                                                                | FALSE |      1| FALSE        | 0            |
+| 2016-05-04 06:09:19 | due date: 2016-05-24                                                                                                                                                                                                                                | FALSE |      2| FALSE        | 0            |
+| 2016-05-12 16:16:38 | having a quick look over this now…                                                                                                                                                                                                                  | FALSE |      1| FALSE        | 0            |
+| 2016-05-12 16:45:59 | @dgrtwo looks great. just a minor thing:                                                                                                                                                                                                            | FALSE |      1| FALSE        | 3:7          |
+| 2016-05-12 16:45:59 | `gutenberg_get_mirror()` throws a warning due to `xml2`, at this line <https://github.com/dgrtwo/gutenbergr/blob/master/r/gutenberg_download.r#l213>                                                                                                | FALSE |      2| FALSE        | 3:7          |
+| 2016-05-12 16:45:59 | \`\`\` r                                                                                                                                                                                                                                            | TRUE  |      3| TRUE         | 3:7          |
+| 2016-05-12 16:45:59 | warning message:                                                                                                                                                                                                                                    | TRUE  |      4| FALSE        | 3:7          |
+| 2016-05-12 16:45:59 | in node\_find\_one(x*n**o**d**e*, *x*doc, xpath = xpath, nsmap = ns) :                                                                                                                                                                              | TRUE  |      5| FALSE        | 3:7          |
+| 2016-05-12 16:45:59 | 101 matches for .//a: using first                                                                                                                                                                                                                   | TRUE  |      6| FALSE        | 3:7          |
+| 2016-05-12 16:45:59 | \`\`\`                                                                                                                                                                                                                                              | TRUE  |      7| TRUE         | 3:7          |
+| 2016-05-12 16:45:59 | wonder if it’s worth a `suppresswarnings()` there?                                                                                                                                                                                                  | FALSE |      8| FALSE        | 3:7          |
+| 2016-05-12 20:42:53 | great!                                                                                                                                                                                                                                              | FALSE |      1| FALSE        | 3:5          |
+| 2016-05-12 20:42:53 | \- add the footer to your readme:                                                                                                                                                                                                                   | FALSE |      2| FALSE        | 3:5          |
+| 2016-05-12 20:42:53 | \`\`\`                                                                                                                                                                                                                                              | TRUE  |      3| TRUE         | 3:5          |
+| 2016-05-12 20:42:53 | \`\`\`                                                                                                                                                                                                                                              | TRUE  |      5| TRUE         | 3:5          |
+| 2016-05-12 20:42:53 | \- could you add `url` and `bugreports` entries to `description`, so people know where to get sources and report bugs/issues                                                                                                                        | FALSE |      6| FALSE        | 3:5          |
+| 2016-05-12 20:42:53 | \- update installation of dev versions to `ropenscilabs/gutenbergr` and any urls for the github repo to `ropenscilabs` instead of `dgrtwo`                                                                                                          | FALSE |      7| FALSE        | 3:5          |
+| 2016-05-12 20:42:53 | \- go to the repo settings –&gt; transfer ownership and transfer to `ropenscilabs` - note that all our newer pkgs go to `ropenscilabs` first, then when more mature we’ll move to `ropensci`                                                        | FALSE |      8| FALSE        | 3:5          |
+| 2016-05-13 01:22:22 | nice, builds on at travis <https://travis-ci.org/ropenscilabs/gutenbergr/> - you can keep appveyor builds under your acct, or i can start on mine, let me know                                                                                      | FALSE |      1| FALSE        | 0            |
+| 2016-05-13 16:06:31 | updated badge link, started an appveyor account with `ropenscilabs` as account name - sent pr - though the build is failing, something about getting the current gutenberg url <https://ci.appveyor.com/project/sckott/gutenbergr/build/1.0.1#l650> | FALSE |      1| FALSE        | 0            |
 
 So as you see now getting rid of chunks is straightforward: the lines
 with `code == TRUE` have to be deleted.
@@ -195,12 +206,14 @@ threads <- dplyr::select(threads, - code, - which_limit, - index, - chunk_limit)
 
 Now on to removing template parts… I noticed that removing duplicates
 was a bit too drastic because sometimes duplicates were poorly formatted
-citations, e.g. an author answering a reviewer’s question, in which case
-we definitely want to keep the first occurrence, and they were sometimes
-very short sentences such as “great!” that are not templates, that we
-therefore should keep. Therefore, for each line, I counted how many time
-it occurred overall (`no_total_occ`), and in how many issues it occurred
-(`no_issues`).
+citations, e.g. an author answering a reviewer’s question by
+copy-pasting it without [Markdown
+blockquotes](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes),
+in which case we definitely want to keep the first occurrence. Besides,
+duplicates were sometimes very short sentences such as “great!” that are
+not templates, that we therefore should keep. Therefore, for each line,
+I counted how many times it occurred overall (`no_total_occ`), and in
+how many issues it occurred (`no_issues`).
 
 Let’s look at [Joseph Stachelek’s review of
 `rrricanes`](https://github.com/ropensci/onboarding/issues/118#issuecomment-310503322)
@@ -339,9 +352,7 @@ younger me. Oh well.
 Another data preparation part was to compute the sentiment score of each
 line via the [`sentimentr`](https://github.com/trinker/sentimentr)
 package by Tyler Rinker, which computes a score for sentences, not for
-single words. It took a while, so had I not had other things to do while
-waiting, I might have taken some time to think about parallelizing the
-code.
+single words.
 
 ``` r
 sentiment <- all %>%
@@ -351,7 +362,7 @@ sentiment <- all %>%
   dplyr::select(line, created_at, user, role, issue, sentiment)
 ```
 
-### Tidy text analysis of social weather
+### Tidy text analysis of onboarding social weather
 
 #### What do reviews talk about?
 
@@ -385,7 +396,7 @@ ggplot(word_counts[1:15,]) +
 ```
 
 ![Most common words in onboarding review
-threads](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-9-1.png)
+threads](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-9-1.png)
 
 ``` r
 bigrams_counts <- threads %>%
@@ -406,7 +417,7 @@ ggplot(bigrams_counts[2:15,]) +
 ```
 
 ![Most common bigrams in onboarding review
-threads](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-10-1.png)
+threads](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-10-1.png)
 
 I’m not showing the first bigram that basically shows I’ve an encoding
 issue to solve with a variation of “´”. In any case, both figures show
@@ -419,9 +430,10 @@ Now, let’s move on to a bit more complex visualization of [pairwise
 correlations between
 words](https://www.tidytextmining.com/ngrams.html#counting-and-correlating-pairs-of-words-with-the-widyr-package)
 within lines. First, let’s prepare the table of words in lines. Compared
-with the book tutorial linked previously, we add a condition for
-eliminating words mentioned in only one submission, often function
-names.
+with [the book
+tutorial](https://www.tidytextmining.com/ngrams.html#counting-and-correlating-pairs-of-words-with-the-widyr-package),
+we add a condition for eliminating words mentioned in only one
+submission, often function names.
 
 ``` r
 users <- unique(threads$user)
@@ -484,9 +496,9 @@ dplyr::filter(word_cors, item1 == "vignette")
     ## # ... with 843 more rows
 
 Now let’s plot the network of these relationships between words, using
-the [`igraph`](http://igraph.org/r/) and
-[`ggraph`](https://github.com/thomasp85/ggraph) packages, by
-respectively Gábor Csárdi and Támas Nepusz, and Thomas Lin Pedersen.
+the [`igraph`](http://igraph.org/r/) package by Gábor Csárdi and Támas
+Nepusz and [`ggraph`](https://github.com/thomasp85/ggraph) package by
+Thomas Lin Pedersen.
 
 ``` r
 library("igraph")
@@ -504,7 +516,7 @@ word_cors %>%
   theme_void()
 ```
 
-![](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-14-1.png)
+![](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-14-1.png)
 
 This figure gives a good sample of things discussed in reviews. Despite
 our efforts filtering words specific to issues, some of them remain very
@@ -513,7 +525,7 @@ specific, such as country/city/location that are very frequent in
 
 #### How positive is onboarding?
 
-Using sentiment analysis, we can look how positive lines are.
+Using sentiment analysis, we can look at how positive comments are.
 
 ``` r
 sentiments %>%
@@ -558,14 +570,13 @@ sentiments %>%
 ```
 
 ![Sentiment of onboarding review threads by
-line](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-15-1.png)
+line](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-15-1.png)
 
-Generally lines are quite positive, although it’d be better to be able
-to compare them with text from traditional review processes of
-scientific manuscripts. So we do get negative lines… about what? Note
-that we have a [code of
-conduct](https://github.com/ropensci/onboarding/blob/master/policies.md/#code-of-conduct)
-that’s always been respected, so you wouldn’t find really mean stuff.
+Generally lines are quite positive (positive mean, zero 25th-quantile),
+although it’d be better to be able to compare them with text from
+traditional review processes of scientific manuscripts. So we do get
+negative lines… about what? Here are the most common words in negative
+lines.
 
 ``` r
 sentiments %>%
@@ -584,7 +595,7 @@ ggplot() +
 ```
 
 ![Most common words in negative
-lines](/img/blog-images/2018-05-09-onboarding-social-weather/unnamed-chunk-16-1.png)
+lines](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-16-1.png)
 
 And looking at a sample…
 
@@ -651,22 +662,29 @@ sentiments %>%
 | great, thank you very much for accepting this package. i am very grateful about the reviews, which were very helpful to improve this package!                                                                                                                                                                                                                     |   1.074281|
 
 As you can imagine, these sentences make the whole team very happy! And
-we hope they’ll encourage you to contribute to our mission to make
-scientific software better.
+we hope they’ll encourage you to contribute to rOpenSci onboarding.
 
 ### Outlook
 
-This first try at text analysis is quite promising. One could expand
-this analysis with a study of emoji use, *in* the text using an emoji
-dictionary [as in this blog
-post](http://www.masalmon.eu/2017/05/03/lucysemojis/) and *around* the
-text (so-called emoji reactions, present in the API and used in e.g
+This first try at text analysis is quite promising: we were able to
+retrieve text and to use natural language processing to extract most
+common words and bigrams, and sentiment. One could expand this analysis
+with a study of emoji use, *in* the text using an emoji dictionary [as
+in this blog post](http://www.masalmon.eu/2017/05/03/lucysemojis/) and
+*around* the text (so-called emoji reactions, present in the API and
+used in e.g
 [`ghrecipes::get_issues_thumbs`](https://github.com/maelle/ghrecipes/blob/master/R/get_issues_thumbs.R)).
 Besides, another aspect of social weather is maybe the timeliness that’s
 expected or implemented at the different parts of the process, but it’d
 be covered by other data such as the labelling history of the issues,
 which could get extracted from GitHub V4 API as well.
 
-This post is the final post of this series… but certainly not the last
-data-driven post about onboarding you’ll see on this blog, so keep
-reading!
+This post is the final post of the “Our package review system in review”
+series. The first post presented [data collection from
+GitHub](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
+the second post aimed at [quantifying the work represented by
+onboarding](https://ropensci.org/blog/2018/05/03/onboarding-is-work/).
+The posts comforted us in our efforts to try and automate more parts of
+the review system, and motivated us to keep using data to illustrate and
+assess the system. Brace yourself for more onboarding data analyses in
+the future!
