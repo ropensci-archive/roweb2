@@ -6,7 +6,7 @@ authors:
     url: http://www.masalmon.eu/
   - name: Noam Ross
     url: http://twitter.com/noamross
-date: 2018-05-02
+date: 2018-05-03
 preface: "This blog post is the second of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/) and the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)."
 categories: blog
 topicid: 1160
