@@ -194,6 +194,7 @@ dplyr::filter(threads, package == "gutenbergr",
 | 2016-05-12 20:42:53 | \- go to the repo settings –&gt; transfer ownership and transfer to `ropenscilabs` - note that all our newer pkgs go to `ropenscilabs` first, then when more mature we’ll move to `ropensci`                                                        | FALSE |      8| FALSE        | 3:5          |
 | 2016-05-13 01:22:22 | nice, builds on at travis <https://travis-ci.org/ropenscilabs/gutenbergr/> - you can keep appveyor builds under your acct, or i can start on mine, let me know                                                                                      | FALSE |      1| FALSE        | 0            |
 | 2016-05-13 16:06:31 | updated badge link, started an appveyor account with `ropenscilabs` as account name - sent pr - though the build is failing, something about getting the current gutenberg url <https://ci.appveyor.com/project/sckott/gutenbergr/build/1.0.1#l650> | FALSE |      1| FALSE        | 0            |
+| <br><br>            |                                                                                                                                                                                                                                                     |       |       |              |              |
 
 So as you see now getting rid of chunks is straightforward: the lines
 with `code == TRUE` have to be deleted.
@@ -256,6 +257,8 @@ dplyr::filter(threads, user == "jsta", is_review) %>%
 </tr>
 </tbody>
 </table>
+
+<br><br>
 
 Now if we clean up a bit…
 
@@ -338,6 +341,8 @@ dplyr::filter(threads, user == "jsta", is_review)  %>%
 </tr>
 </tbody>
 </table>
+
+<br><br>
 
 So now, we mostly got the interesting human and original language.
 
@@ -463,6 +468,7 @@ onboarding_line_words %>%
 | rrlite karthik 2015-04-12 20:56:04 - \] add a ropensci footer.                                         | footer   |
 | rrlite karthik 2015-04-12 20:56:04 - \] add an appropriate entry into ropensci.org/packages/index.html | add      |
 | rrlite karthik 2015-04-12 20:56:04 - \] add an appropriate entry into ropensci.org/packages/index.html | an       |
+| <br><br>                                                                                               |          |
 
 Then, we can compute the correlation.
 
@@ -624,6 +630,7 @@ sentiments %>%
 | \#\# minor issues                                                                                                                                                                                                                                                 |  -0.7071068|
 | replicates issue                                                                                                                                                                                                                                                  |  -0.7071068|
 | visualization issue                                                                                                                                                                                                                                               |  -0.7071068|
+| <br><br>                                                                                                                                                                                                                                                          |            |
 
 It seems that negative lines are mostly people discussing bugs and
 problems in code, and GitHub issues, and trying to solve them. The kind
@@ -660,6 +667,7 @@ sentiments %>%
 | \- i’m delighted that you find my work interesting and i’m very keen to help, contribute and collaborate in any capacity.                                                                                                                                                                                                                                         |   1.084493|
 | thank you very much for your thorough and thoughtful review, @batpigandme ! this is great feedback, and i think that visdat will be much improved because of these reviews.                                                                                                                                                                                       |   1.083653|
 | great, thank you very much for accepting this package. i am very grateful about the reviews, which were very helpful to improve this package!                                                                                                                                                                                                                     |   1.074281|
+| <br><br>                                                                                                                                                                                                                                                                                                                                                          |           |
 
 As you can imagine, these sentences make the whole team very happy! And
 we hope they’ll encourage you to contribute to rOpenSci onboarding.
