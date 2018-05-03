@@ -625,10 +625,10 @@ sentiments %>%
 | replicates issue                                                                                                                                                                                                                                                  |  -0.7071068|
 | visualization issue                                                                                                                                                                                                                                               |  -0.7071068|
 
-It seems that negative lines are mostly people trying discussing bugs
-and problems in code, and GitHub issues, and trying to solve them. The
-kind of negative lines we’re happy to see in our process, since once
-solved, they mean the software got more robust!
+It seems that negative lines are mostly people discussing bugs and
+problems in code, and GitHub issues, and trying to solve them. The kind
+of negative lines we’re happy to see in our process, since once solved,
+they mean the software got more robust!
 
 Last but not least, I mentioned our using particular cases as examples
 of how happy everyone seems to be in the process. To find such examples,
