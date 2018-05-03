@@ -32,7 +32,7 @@ for me: a newbie, very motivated to learn more but a newbie nonetheless.
 I soon got the feeling that yes, onboarding would help me make my
 package better without ever making me feel inadequate.
 
-More recently, I read [Anna Gentle’s
+More recently, I read [Anne Gentle’s
 essay](https://github.com/Open-Advice/Open-Advice/blob/c3e03b669f7ea7b20ef98378210cdbc8a7ea7edc/documentationsupport/AnneGentle.tex)
 in Open Advice where she mentions the concept of the *social weather* of
 an online community. By listening before I even posted, I was simply
