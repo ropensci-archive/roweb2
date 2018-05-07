@@ -4,8 +4,8 @@ title: 'The social weather of rOpenSci onboarding system'
 authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
-date: 2018-05-09
-preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about work quantification [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/)."
+date: 2018-05-10
+preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/)."
 categories: blog
 topicid: 
 tags:
@@ -44,12 +44,13 @@ In the meantime, I’ve now only submitted and reviewed a few packages but
 also become an [associate
 editor](https://github.com/ropensci/onboarding/#associate-editors). In
 general, when one of us editors talks about onboarding, we like to use
-examples illustrating the system in a good light. Quotes from thankful
-package authors, of amazed reviewers, etc. Would there be a more
-quantitative way for us to support our promotion efforts? In this blog
-post, I shall explore how a [tidytext](https://www.tidytextmining.com/)
-analysis of review processes (via their GitHub threads) might help us
-characterize the social weather of onboarding.
+examples illustrating the system in a good light: often excerpts from
+review processes, or quotes of tweets by authors or reviewers. Would
+there be a more quantitative way for us to support our promotion
+efforts? In this blog post, I shall explore how a
+[tidytext](https://www.tidytextmining.com/) analysis of review processes
+(via their GitHub threads) might help us characterize the social weather
+of onboarding.
 
 ### Preparing the data
 
@@ -57,9 +58,9 @@ characterize the social weather of onboarding.
 
 In this blog post, I’ll leverage the `tidytext` package, with the help
 of its accompanying book [“Tidy text
-mining”](https://www.tidytextmining.com/). Interestingly, the authors
-Julia Silge and David Robinson met, and started working on this project,
-at rOpenSci unconf in 2016!
+mining”](https://www.tidytextmining.com/). The authors, Julia Silge and
+David Robinson, actually met and started working on this project, at
+[rOpenSci unconf in 2016](http://unconf16.ropensci.org/)!
 
 #### The “tidy text” of the analysis
 
@@ -367,6 +368,8 @@ sentiment <- all %>%
   dplyr::select(line, created_at, user, role, issue, sentiment)
 ```
 
+This dataset of sentiment will be used later in the post.
+
 ### Tidy text analysis of onboarding social weather
 
 #### What do reviews talk about?
@@ -578,10 +581,14 @@ sentiments %>%
 ![Sentiment of onboarding review threads by
 line](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-15-1.png)
 
-Generally lines are quite positive (positive mean, zero 25th-quantile),
-although it’d be better to be able to compare them with text from
-traditional review processes of scientific manuscripts. So we do get
-negative lines… about what? Here are the most common words in negative
+These boxplots seem to indicate that lines are generally not negative
+(positive mean, zero 25th-quantile), although it’d be better to be able
+to compare them with text from traditional review processes of
+scientific manuscripts in order to get a better feeling for the meaning
+of these numbers.
+
+On these boxplots we also see that we do get lines with a negative
+sentiment value… about what? Here are the most common words in negative
 lines.
 
 ``` r
@@ -674,25 +681,29 @@ we hope they’ll encourage you to contribute to rOpenSci onboarding.
 
 ### Outlook
 
-This first try at text analysis is quite promising: we were able to
-retrieve text and to use natural language processing to extract most
-common words and bigrams, and sentiment. One could expand this analysis
-with a study of emoji use, *in* the text using an emoji dictionary [as
-in this blog post](http://www.masalmon.eu/2017/05/03/lucysemojis/) and
-*around* the text (so-called emoji reactions, present in the API and
-used in e.g
-[`ghrecipes::get_issues_thumbs`](https://github.com/maelle/ghrecipes/blob/master/R/get_issues_thumbs.R)).
-Besides, another aspect of social weather is maybe the timeliness that’s
-expected or implemented at the different parts of the process, but it’d
-be covered by other data such as the labelling history of the issues,
-which could get extracted from GitHub V4 API as well.
+This first try at text analysis of onboarding issue threads is quite
+promising: we were able to retrieve text and to use natural language
+processing to extract most common words and bigrams, and sentiment. This
+allowed us to describe the social weather of onboarding: we could see
+that this system is about software, and that negative sentiment was
+often due to bugs being discussed and solved; and we could extract the
+most positive lines where volunteers praised the review system or the
+piece of software under review.
 
-This post is the final post of the “Our package review system in review”
+One could expand this analysis with a study of emoji use, *in* the text
+using an emoji dictionary [as in this blog
+post](http://www.masalmon.eu/2017/05/03/lucysemojis/) and *around* the
+text (so-called emoji reactions, present in the API and used in e.g
+[`ghrecipes::get_issues_thumbs`](https://github.com/maelle/ghrecipes/blob/master/R/get_issues_thumbs.R)).
+Another aspect of social weather is maybe the timeliness that’s expected
+or implemented at the different parts of the process, but it’d be
+covered by other data such as the labelling history of the issues, which
+could get extracted from GitHub V4 API as well.
+
+This is the final post of the “Our package review system in review”
 series. The first post presented [data collection from
 GitHub](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
 the second post aimed at [quantifying the work represented by
 onboarding](https://ropensci.org/blog/2018/05/03/onboarding-is-work/).
-The posts comforted us in our efforts to try and automate more parts of
-the review system, and motivated us to keep using data to illustrate and
-assess the system. Brace yourself for more onboarding data analyses in
-the future!
+The posts motivated us to keep using data to illustrate and assess the
+system. Brace yourself for more onboarding data analyses in the future!
