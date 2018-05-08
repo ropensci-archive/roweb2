@@ -66,8 +66,7 @@ p1 <- ggplot(west_hex_map) + geom_sf(aes(geometry = geometry,
 p1
 ```
 
-![plot of chunk map-chunk](figure/map-chunk-1.png)
-
+![map-chunk-1](https://i.imgur.com/x0e4ZXf.png)
 
 `nomisr` was developed to make using UK labour market statistics faster, easier and more replicable. I've used it to speed up research for policy and issue briefings in my day job 
 
