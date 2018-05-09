@@ -581,7 +581,7 @@ sentiments %>%
 ![Sentiment of onboarding review threads by
 line](/img/blog-images/2018-05-10-onboarding-social-weather/unnamed-chunk-15-1.png)
 
-These boxplots seem to indicate that lines are generally not negative
+These boxplots seem to indicate that lines are generally positive
 (positive mean, zero 25th-quantile), although it’d be better to be able
 to compare them with text from traditional review processes of
 scientific manuscripts in order to get a better feeling for the meaning
