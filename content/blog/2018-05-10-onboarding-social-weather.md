@@ -7,7 +7,7 @@ authors:
 date: 2018-05-10
 preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/)."
 categories: blog
-topicid: 
+topicid: 1167
 tags:
 - r
 - community
