@@ -14,7 +14,7 @@ including 4.7 million full-text records available in [PubMed Central](http://www
 million different sequences, and [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) describes
 1070.2 million different genetic variants. All of these
 records can be cross-referenced with the  1.3 million
-species in the [NCBI taxonomy](www.ncbi.nlm.nih.gov/taxonomy) or 25.2 thousand disease-associated records
+species in the [NCBI taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy) or 25.2 thousand disease-associated records
 in [OMIM](http://www.ncbi.nlm.nih.gov/omim).
 
 
