@@ -451,8 +451,6 @@ Finally, we can plot this as a map using `mapview`. In this manner all the data 
 mapview(MB, zcol = "mean_temp", legend = TRUE)
 ```
 
-![](../../themes/ropensci/static/img/blog-images/2018-03-06-weathercan/mapview-1.png)
-
 <center>
 <img src = "/img/blog-images/2018-03-06-weathercan/mapview-1.png" style = "width:80%">
 </center>
