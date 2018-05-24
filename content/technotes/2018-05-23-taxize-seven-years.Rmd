@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories:
   - technotes
-topicid: 
+topicid: 1181
 tags:
 - R
 - taxonomy
@@ -29,9 +29,9 @@ knitr::opts_chunk$set(
 
 <br><br>
 
-## But what does taxize do?
+## What is taxize?
 
-`taxize` is designed around making working with taxonomic names easier - abstracting away the details of what each taxonomic data source requires for a given use case. 
+`taxize` is designed around making working with taxonomic names easier - abstracting away the details of what each of 20 or so taxonomic data sources require for a given use case. 
 
 A samping of use cases covered in `taxize` (all of these across many different data sources):
 
