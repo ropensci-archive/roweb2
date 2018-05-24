@@ -50,7 +50,7 @@ We've come a long way since May 2011. We've added a lot of new functionality and
 
 ### Commit history
 
-Get git commits for `taxize` using a few tidyverse packages as well as our [git2r][], our R package for working with git repositories:
+Get git commits for `taxize` using a few tidyverse packages as well as [git2r](https://github.com/ropensci/git2r), our R package for working with git repositories:
 
 
 ```r
