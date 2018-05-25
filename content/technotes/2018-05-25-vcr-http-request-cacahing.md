@@ -99,7 +99,7 @@ use_cassette(name = "helloworld", {
 
 The first time the above code block is run real HTTP connections are allowed because it doesn't match any previous requests, and the response is cached. The second time the request is made, the cached response is used.
 
-The cached response is a yaml file - an example is show below. The advante of the format is that it's machine readable but humans can also read them so you can inspect your cached HTTP responses to better be able to construct/debug your test suite.
+The cached response is a yaml file - an example is show below. The advantage of the format is that it's machine readable but humans can also read them so you can inspect your cached HTTP responses to better be able to construct/debug your test suite.
 
 ```
 http_interactions:
