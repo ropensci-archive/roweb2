@@ -1,7 +1,7 @@
 
 ---
-slug: "unconf18_recap_3"
-title: "Unconf18 projects 3: middlechild, defender, ropsec, keybase"
+slug: "unconf18_recap_2"
+title: "Unconf18 projects 2: middlechild, defender, ropsec, keybase"
 date: 2018-06-06
 authors:
   - name: Karthik Ram
