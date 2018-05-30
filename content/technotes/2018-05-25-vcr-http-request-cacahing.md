@@ -99,7 +99,7 @@ use_cassette(name = "helloworld", {
 
 The first time the above code block is run real HTTP connections are allowed because it doesn't match any previous requests, and the response is cached. The second time the request is made, the cached response is used.
 
-The cached response is a yaml file - an example is show below. The advantage of the format is that it's machine readable but humans can also read them so you can inspect your cached HTTP responses to better be able to construct/debug your test suite.
+The cached response is a YAML file - an example is show below. The advantage of the format is that it's machine readable but humans can also read them so you can inspect your cached HTTP responses to better be able to construct/debug your test suite.
 
 ```
 http_interactions:
@@ -141,7 +141,7 @@ http_interactions:
 
 ## Why vcr and webmockr?
 
-The power of both vcr and webockr is they abstract away the gory details, and present a single user interface to (eventually) many different HTTP R libraries (only `crul` right now, but `curl` and `httr` are in development). In addition, though not available yet, vcr will have many different serialization formats; it has only YAML now, but could include JSON and other formats. Both packages will handle a relatively complex set of use cases that come from many years of input from lots of users.
+The power of both vcr and webmockr is they abstract away the gory details, and present a single user interface to (eventually) many different HTTP R libraries (only `crul` right now, but `curl` and `httr` are in development). In addition, though not available yet, vcr will have many different serialization formats; it has only YAML now, but could include JSON and other formats. Both packages will handle a relatively complex set of use cases that come from many years of input from lots of users.
 
 <br>
 
