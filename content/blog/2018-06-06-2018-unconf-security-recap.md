@@ -49,3 +49,5 @@ As part of our series summarizing all projects from this year's unconf I'm excit
 **Team:** [Ildiko Czeller](https://github.com/czeildi), [Karthik Ram](https://github.com/karthik), [Bob Rudis](https://github.com/hrbrmstr), [Kara Woo](https://github.com/karawoo) 
 
 **GitHub:**  https://github.com/ropenscilabs/keybase
+
+Look for the next post featuring unconf18 projects tomorrow!
