@@ -16,9 +16,10 @@ tags:
 ---
 
 <img src="/img/blog-images/2018-06-08-rprofile-julia-silge/julia-silge.jpg" alt="Julia Silge" style="margin: 0px 20px; width: 250px;" align="left">
-_Dr. Julia Silge [@juliasilge on Twitter] is a _
+_Dr. Julia Silge [@juliasilge on Twitter] is a_
 
 ---
 
+<img src="/img/blog-images/2018-06-08-rprofile-julia-silge/julia-tweet.png" alt="BEING AMAZING!" align="right" style="margin: 0px 20px", width="350px">
 
 _This interview occurred at the 2018 RStudio Conference. Special thanks to [Julia Silge](https://twitter.com/juliasilge) for participating in the project!_
