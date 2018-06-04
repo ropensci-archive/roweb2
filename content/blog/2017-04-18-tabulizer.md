@@ -1,23 +1,22 @@
 ---
-slug: "tabulizer"
-title: "Release 'open' data from their PDF prisons using tabulizer"
+slug: tabulizer
+title: Release 'open' data from their PDF prisons using tabulizer
 authors:
   - name: Thomas J. Leeper
     url: http://www.thomasleeper.com/
-categories:
-  - blog
+categories: blog
 topicid: 663
-date: 2017-04-18
+date: '2017-04-18'
 tags:
-- r
-- community
-- software
-- opendata
-- pdf
-- tabulizer
-- data-extraction
-- review
-- onboarding
+  - R
+  - community
+  - software
+  - opendata
+  - pdf
+  - tabulizer
+  - data-extraction
+  - review
+  - onboarding
 ---
 
 

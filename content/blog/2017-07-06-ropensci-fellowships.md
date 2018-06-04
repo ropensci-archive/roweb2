@@ -1,15 +1,15 @@
 ---
-slug: "ropensci-fellowships"
-title: "Announcing the rOpenSci Fellowships Program"
-date: 2017-07-06
+slug: ropensci-fellowships
+title: Announcing the rOpenSci Fellowships Program
+date: '2017-07-06'
 authors:
   - name: Karthik Ram
 categories: blog
 topicid: 764
 tags:
-- fellowships
-- ropensci
-- funding
+  - fellowships
+  - rOpenSci
+  - funding
 ---
 
 rOpenSci's mission is to promote a culture of open, transparent, and reproducible research across various research domains. Everything we do, from developing high-quality open-source software for data science and, [software review](https://github.com/ropensci/onboarding#ropensci-onboarding), to building community through events like our [community calls](https://github.com/ropensci/commcalls/issues) and [annual unconference](http://unconf17.ropensci.org/) are all geared toward lowering barriers to reproducible, open science.

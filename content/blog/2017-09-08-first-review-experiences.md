@@ -1,20 +1,19 @@
 ---
-slug: "first-review-experiences"
-title: "Experiences as a first time rOpenSci package reviewer"
-date: 2017-09-08
+slug: first-review-experiences
+title: Experiences as a first time rOpenSci package reviewer
+date: '2017-09-08'
 authors:
   - name: Verena Haunschmid
     url: http://blog.haunschmid.name
-categories:
-  - blog
+categories: blog
 topicid: 861
 tags:
-- R
-- software
-- review
-- reviewer
-- ropensci
-- onboarding
+  - R
+  - software
+  - review
+  - reviewer
+  - rOpenSci
+  - onboarding
 ---
 
 It all started January 26<sup>th</sup> this year when I signed up to volunteer as

@@ -1,17 +1,16 @@
 ---
-slug: "open-science-with-R"
+slug: open-science-with-R
 title: Open Science with R
-date: 2013-12-02
+date: '2013-12-02'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- book
-- reproducibleresearch
-- openscience
+  - R
+  - rOpenSci
+  - book
+  - reproducibleresearch
+  - openscience
 ---
 
 **Upcoming Book on Open Science with R**

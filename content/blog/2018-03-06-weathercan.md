@@ -1,15 +1,15 @@
 ---
-slug: "weathercan"
+slug: weathercan
 title: Integrating data from weathercan
 package_version: 0.2.5
 authors:
   - name: Steffi LaZerte
     url: http://steffilazerte.ca
-date: 2018-03-06
+date: '2018-03-06'
 categories: blog
 topicid: 1086
 tags:
-  - r
+  - R
   - community
   - software
   - review
@@ -23,7 +23,7 @@ tags:
 output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org), data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck. This is one of the reasons why, when I designed [`weathercan`](http://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward.

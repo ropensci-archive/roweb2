@@ -1,7 +1,7 @@
 ---
-slug: "realtime"
-title: "2017 rOpenSci ozunconf :: Reflections and the realtime Package"
-date: 2017-11-14
+slug: realtime
+title: '2017 rOpenSci ozunconf :: Reflections and the realtime Package'
+date: '2017-11-14'
 authors:
   - name: Jonathan Carroll
     url: https://jcarroll.com.au/
@@ -9,11 +9,11 @@ categories: blog
 topicid: 960
 tags:
   - community
-  - ropensci
+  - rOpenSci
   - meetings
   - unconf
-  - australia
-  - r
+  - Australia
+  - R
   - plot
   - realtime
 ---

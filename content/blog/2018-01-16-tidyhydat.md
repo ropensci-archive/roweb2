@@ -1,27 +1,27 @@
 ---
 slug: tidyhydat
-title: "5 Things I Learned Making a Package to Work with Hydrometric Data in R"
+title: 5 Things I Learned Making a Package to Work with Hydrometric Data in R
 package_version: 0.3.2
 authors:
-- name: Sam Albers
-  url: https://github.com/boshek
-date: 2018-01-16
+  - name: Sam Albers
+    url: https://github.com/boshek
+date: '2018-01-16'
 categories: blog
 topicid: 1030
 tags:
-- r
-- community
-- software
-- review
-- onboarding
-- package
-- hydrometrics
-- bcgov
-- tidydata
-- Canada
-- climate-data
-- data-access
-- earth-science
+  - R
+  - community
+  - software
+  - review
+  - onboarding
+  - package
+  - hydrometrics
+  - bcgov
+  - tidydata
+  - Canada
+  - climate-data
+  - data-access
+  - earth-science
 output:
   html_document:
     keep_md: yes

@@ -1,16 +1,15 @@
 ---
-slug: "r-metadata"
+slug: r-metadata
 title: Scholarly metadata in R
-date: 2013-03-15
+date: '2013-03-15'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- metadata
-- API
+  - R
+  - rOpenSci
+  - metadata
+  - API
 ---
 
 Scholarly metadata - the meta-information surrounding articles - can be super useful.  Although metadata does not contain the full content of articles, it contains a lot of useful information, including title, authors, abstract, URL to the article, etc.
