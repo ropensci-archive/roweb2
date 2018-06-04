@@ -1,15 +1,14 @@
 ---
-slug: "open-tree-of-life-hackathon"
+slug: open-tree-of-life-hackathon
 title: rOpenSci at NESCent Open Tree of Life Hackathon
-date: 2014-08-15
+date: '2014-08-15'
 authors:
   - name: David Winter
     url: http://cartwrig.ht/people/#david-j-winter
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- Conference
+  - R
+  - conference
 ---
 
 The [Open Tree of Life project](http://opentreeoflife.org) aims to synthesize our combined knowledge of how organisms relate to each other, and make the results available to anyone who wants to use them. At present, the project  contains data from more than 4,000 published phylogenies, which combine with other data sources to make [a tree that covers 2.5 million species](http://tree.opentreeoflife.org/).

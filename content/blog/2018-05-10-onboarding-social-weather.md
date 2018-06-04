@@ -1,25 +1,28 @@
---- 
+---
 slug: onboarding-social-weather
-title: 'The social weather of rOpenSci onboarding system'
+title: The social weather of rOpenSci onboarding system
 authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
-date: 2018-05-10
-preface: "This blog post is the third of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/), the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/), the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/)."
+date: '2018-05-10'
+preface: This blog post is the third of a 3-post series about a data-driven overview
+  of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/),
+  the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
+  the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/).
 categories: blog
 topicid: 1167
 tags:
-- r
-- community
-- software
-- review
-- onboarding
-- tidytext
-- sentimentr
-output: 
+  - R
+  - community
+  - software
+  - review
+  - onboarding
+  - tidytext
+  - sentimentr
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 Our [onboarding process](https://github.com/ropensci/onboarding/)

@@ -4,23 +4,24 @@ title: Rectangling onboarding
 authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
-date: 2018-04-26
-preface: "This blog post is the first of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/A-satrday-ct-series/)."
+date: '2018-04-26'
+preface: This blog post is the first of a 3-post series about a data-driven overview
+  of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/A-satrday-ct-series/).
 categories: blog
 topicid: 1152
 tags:
-- r
-- community
-- software
-- review
-- onboarding
-- ghql
-- jqr
-- git2r
-output: 
+  - R
+  - community
+  - software
+  - review
+  - onboarding
+  - ghql
+  - jqr
+  - git2r
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 Our [onboarding

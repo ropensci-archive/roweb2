@@ -1,16 +1,16 @@
 ---
-slug: "unconf_projects_3"
-title: "Unconf projects 3: available, miner, rcheatsheet, ponyexpress"
-date: 2017-06-07
+slug: unconf_projects_3
+title: 'Unconf projects 3: available, miner, rcheatsheet, ponyexpress'
+date: '2017-06-07'
 authors:
   - name: Karthik Ram
 categories: blog
 topicid: 740
 tags:
-- community
-- ropensci
-- meetings
-- unconf
+  - community
+  - rOpenSci
+  - meetings
+  - unconf
 ---
 
 Continuing our series of blog posts ([day 1](https://ropensci.org/blog/blog/2017/06/05/unconf_recap_1), [day 2](https://ropensci.org/blog/blog/2017/06/06/unconf_recap_2)) this week about [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017).

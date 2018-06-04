@@ -1,20 +1,19 @@
 ---
-slug: "author-survey"
-title: 'The 2018 author and reviewer survey'
+slug: author-survey
+title: The 2018 author and reviewer survey
 date: '2018-04-17'
 authors:
   - name: Karthik Ram
   - name: Noam Ross
   - name: Scott Chamberlain
   - name: Maëlle Salmon
-
 categories: blog
 topicid: 1142
 tags:
-- community
-- ropensci
-- onboarding
-- survey
+  - community
+  - rOpenSci
+  - onboarding
+  - survey
 ---
 
 rOpenSci's package review system (aka

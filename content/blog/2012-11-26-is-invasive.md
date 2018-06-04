@@ -1,16 +1,15 @@
 ---
-slug: "is-invasive"
+slug: is-invasive
 title: is.invasive()
-date: 2012-11-26
+date: '2012-11-26'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- taxize
-- ecology
+  - R
+  - rOpenSci
+  - taxize
+  - ecology
 ---
 
 The following is a guest post from [Ignasi Bartomeus](http://www.bartomeus.cat/es/ignasi/), originally [posted](http://ibartomeus.wordpress.com/2012/11/26/is-invasive/) on [his blog](http://ibartomeus.wordpress.com/) on 26 Nov, 2012. Check out a related blog post [here](http://sckott.github.com/2012/12/is-invasive/). Note the functionality discussed in this post is now in our [taxize](https://github.com/ropensci/taxize_) package under the function [`gisd_isinvasive`](https://github.com/ropensci/taxize_/blob/master/R/gisd_isinvasive.R). We hacked out a quick [Shiny](http://www.rstudio.com/shiny/) app so you can play around with the below function in taxize on the web to get invasive status and plot it on a phylogeny. Check it out [here](http://glimmer.rstudio.com/ropensci/taxize_invasive/).

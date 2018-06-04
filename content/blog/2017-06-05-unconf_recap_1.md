@@ -1,16 +1,16 @@
 ---
-slug: "unconf_recap_1"
-title: "Unconf projects 1: skimr, emldown, testrmd, webrockets"
-date: 2017-06-05
+slug: unconf_recap_1
+title: 'Unconf projects 1: skimr, emldown, testrmd, webrockets'
+date: '2017-06-05'
 authors:
   - name: Karthik Ram
 categories: blog
 topicid: 740
 tags:
-- community
-- ropensci
-- meetings
-- unconf
+  - community
+  - rOpenSci
+  - meetings
+  - unconf
 ---
 
 Following up on Stefanie's recap of [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017), we are following up this entire week with summaries of projects developed at the event. We plan to highlight 4-5 projects each day, with detailed posts from a handful of teams to follow.

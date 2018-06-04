@@ -1,32 +1,32 @@
 ---
-slug: "rtika-introduction"
-title: Lessons Learned from rtika, a Digital Babel Fish 
+slug: rtika-introduction
+title: Lessons Learned from rtika, a Digital Babel Fish
 package_version: 0.1.7
 authors:
   - name: Sasha Goodman
     url: https://twitter.com/goodmansasha
-date: 2018-04-25
+date: '2018-04-25'
 categories: blog
 topicid: 1150
 tags:
-- r
-- community
-- software
-- review
-- package
-- onboarding
-- package
-- text-mining
-- data-extraction
-- archiving
-- metadata
-- xml
-- json
-- tesseract
-- text
-- pdf
-- word
-- excel
+  - R
+  - community
+  - software
+  - review
+  - package
+  - onboarding
+  - package
+  - text-mining
+  - data-extraction
+  - archiving
+  - metadata
+  - xml
+  - json
+  - tesseract
+  - text
+  - pdf
+  - word
+  - excel
 ---
 
 The Apache Tika parser is like the Babel fish in Douglas Adam's book, "The Hitchhikers' Guide to the Galaxy" [^1]. The Babel fish translates any natural language to any other. Although Tika does not yet translate natural language, it starts to tame the tower of babel of digital document formats. As the Babel fish allowed a person to understand Vogon poetry, Tika allows an analyst to extract text and objects from Microsoft Word.

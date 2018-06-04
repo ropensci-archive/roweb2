@@ -1,17 +1,17 @@
 ---
-slug: "ropensci_text_tools"
-title: "New rOpenSci Packages for Text Processing in R"
-date: 2017-06-13
+slug: ropensci_text_tools
+title: New rOpenSci Packages for Text Processing in R
+date: '2017-06-13'
 authors:
   - name: Jeroen Ooms
 categories: blog
 topicid: 746
 tags:
-- r
-- packages
-- software
-- opendata
-- pdf
+  - R
+  - packages
+  - software
+  - opendata
+  - pdf
 ---
 
 Textual data and natural language processing are still a niche domain within the R ecosytstem. The [NLP task view](https://cran.r-project.org/view=NaturalLanguageProcessing) gives an overview of existing work however a lot of basic infrastructure is still missing.

@@ -1,15 +1,14 @@
 ---
-slug: "nceas-codefest-follow-up"
+slug: nceas-codefest-follow-up
 title: NCEAS Codefest Follow-up
-date: 2014-09-23
+date: '2014-09-23'
 authors:
   - name: Scott Chamberlain
   - name: Ted Hart
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- Conference
+  - R
+  - conference
 ---
 
 The week after labor day, we had the pleasure of attending the [NCEAS open science codefest](http://nceas.github.io/open-science-codefest/) event in Santa Barbara. It was great to meet folks like the new arrivals at the expanding [Mozilla Science Lab](http://mozillascience.org), [Bill Mills](https://twitter.com/billdoesphysics) and [Abby Cabunoc](https://twitter.com/abbycabs) (Bill even already has a great [post up about the codefest](http://mozillascience.org/worries-critical-mass/)), and see old friends from NCEAS and DataONE, among many more. This 2.5 day event ran smoothly thanks to the leadership of [Matt Jones](https://www.nceas.ucsb.edu/~jones/). The event was run in [unconference style](http://en.wikipedia.org/wiki/Unconference). Each idea was then posted up on a giant post it on the wall and people had  30 minutes to wander the room choosing projects. The approach allowed for a consensus based filtering of ideas. We had the opportunity to suggest some ideas, and a chance to help out with others. Here's an overview of the projects the rOpenSci team worked on and what we accomplished at the open science codefest.

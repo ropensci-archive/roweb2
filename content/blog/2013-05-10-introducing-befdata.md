@@ -1,16 +1,15 @@
 ---
-slug: "introducing-befdata"
+slug: introducing-befdata
 title: Introducing the BEFData package
-date: 2013-05-10
+date: '2013-05-10'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- packages
-- biodiversity
+  - R
+  - rOpenSci
+  - packages
+  - biodiversity
 ---
 
 *This is a guest post by Class-Thido Pfaff*

@@ -1,16 +1,16 @@
 ---
 slug: ropensci-fellowship-zoon
-title: "Announcing our first fellowship awarded to Dr. Nick Golding"
-date: 2016-12-12
+title: Announcing our first fellowship awarded to Dr. Nick Golding
+date: '2016-12-12'
 authors:
   - name: Stefanie Butland
   - name: Karthik Ram
 categories: blog
 tags:
-- community
-- ropensci
-- fellowships
-- interviews
+  - community
+  - rOpenSci
+  - fellowships
+  - interviews
 ---
 
 rOpenSci's overarching mission is to promote a culture of transparent, open, and reproducible research across various scientific communities. All of our activities are geared towards lowering barriers to participation, and building a community of practitioners around the world. In addition to developing and maintaining a large suite of open source tools for data science, we actively support the research community with expert review on research software development, community calls, and hosting annual unconferences around the world.
