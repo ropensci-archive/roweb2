@@ -10,6 +10,7 @@ tags:
   - meeting
   - R
   - unconf
+  - unconf14
 ---
 
 Our team has been cranking out a large number of tools over the past several months. As regular readers are aware, our software packages provide programmatic access to a diverse and extensive trove of scientific data. More recently we’ve expanded our efforts to build more general purpose and cross-domain tools. These include tools for reading, writing, integrating and publishing data, a unit testing platform for data, and a mapping engine that can visualize various kinds of spatial data. Many of our projects are inspired by ad hoc discussions with other scientists and software developers both online (often on [Twitter](https://twitter.com/ropensci) and [GitHub](https://github.com/ropensci)) and offline. Several of these folks are now [regular contributors](http://ropensci.org/codevs/index.html) to the project. To foster more such collaborations and drive new software innovations, we are excited to announce our first developer meeting next month at GitHub’s headquarters in San Francisco. This meeting is made possible by support from the Alfred P. Sloan foundation and GitHub.

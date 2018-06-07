@@ -10,12 +10,14 @@ authors:
 categories: blog
 topicid: 980
 tags:
-  - community
-  - meetings
-  - unconf
   - Australia
-  - R
+  - community
   - Git
+  - meetings
+  - ozunconf
+  - ozunconf17
+  - R
+  - unconf
   - versioncontrol
 ---
 

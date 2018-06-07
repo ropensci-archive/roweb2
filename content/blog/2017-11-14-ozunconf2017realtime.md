@@ -8,14 +8,16 @@ authors:
 categories: blog
 topicid: 960
 tags:
-  - community
-  - rOpenSci
-  - meetings
-  - unconf
   - Australia
-  - R
+  - community
+  - meetings
+  - ozunconf
+  - ozunconf17
   - plot
+  - R
   - realtime
+  - rOpenSci
+  - unconf
 ---
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
