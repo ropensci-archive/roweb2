@@ -7,6 +7,8 @@ authors:
     url: http://njtierney.com
 categories: blog
 tags:
+  - ozunconf
+  - ozunconf16
   - R
   - rOpenSci
 ---
