@@ -8,9 +8,10 @@ categories: blog
 topicid: 743
 tags:
   - community
-  - rOpenSci
   - meetings
+  - rOpenSci
   - unconf
+  - unconf17
 ---
 
 And finally, we end our series of [unconf](https://ropensci.org/blog/blog/2017/06/02/unconf2017) project summaries ([day 1](https://ropensci.org/blog/blog/2017/06/05/unconf_recap_1), [day 2](https://ropensci.org/blog/blog/2017/06/06/unconf_recap_2), [day 3](https://ropensci.org/blog/blog/2017/06/07/unconf_projects_3), [day 4](https://ropensci.org/blog/blog/2017/06/08/unconf_recap_4)).

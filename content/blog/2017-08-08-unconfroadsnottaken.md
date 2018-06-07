@@ -8,11 +8,12 @@ topicid: 814
 date: '2017-08-08'
 tags:
   - community
-  - rOpenSci
   - meetings
-  - unconf
-  - software
   - R
+  - rOpenSci
+  - software
+  - unconf
+  - unconf17
 title: 'Unconf 2017: The Roads Not Taken'
 ---
 
