@@ -1,14 +1,13 @@
 ---
-slug: "nceas-codefest"
+slug: nceas-codefest
 title: NCEAS Codefest
-date: 2014-08-06
+date: '2014-08-06'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- Conference
+  - R
+  - conference
 ---
 
 We're delighted to be sponsoring the upcoming Open Science Codefest in Santa Barbara, California, alongside [RENCI](http://renci.org/), [NCEAS](http://www.nceas.ucsb.edu/), [NSF](http://www.nsf.gov/), [DataONE](https://www.dataone.org/), and [Mozilla Science Lab](http://mozillascience.org/).  The Open Science Codefest's goal is to gather researchers from across ecology, biodiversity science, and other earth and environmental sciences with programmer types to collaborate on coding projects. The ideas for the event so far include not just coding projects with the end result being software, but conversations on particular topics that may or my not lead to code being written.

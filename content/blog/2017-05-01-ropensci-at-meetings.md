@@ -1,17 +1,16 @@
 ---
-slug: "ropensci-at-meetings"
-title: "Chat with the rOpenSci team at upcoming meetings"
-date: 2017-05-01
+slug: ropensci-at-meetings
+title: Chat with the rOpenSci team at upcoming meetings
+date: '2017-05-01'
 authors:
   - name: Stefanie Butland
-categories:
-  - blog
+categories: blog
 topicid: 683
 tags:
-- ropensci
-- community
-- meetings
-- R
+  - rOpenSci
+  - community
+  - meetings
+  - R
 ---
 
 You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](https://ropensci.org/packages/) can enable your research, or about our [onboarding](https://github.com/ropensci/onboarding) process for contributing new packages, discuss software [sustainability](https://ropensci.org/blog/blog/2016/05/25/software-sustanability-ropensci) or tell us how we can help you do open and reproducible research.

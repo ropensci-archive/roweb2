@@ -1,5 +1,5 @@
 ---
-slug: "thanking-reviewers-in-metadata"
+slug: thanking-reviewers-in-metadata
 title: 'Thanking Your Reviewers: Gratitude through Semantic Metadata'
 date: '2018-03-16'
 authors:
@@ -11,10 +11,10 @@ authors:
 categories: blog
 topicid: 1101
 tags:
-- community
-- ropensci
-- onboarding
-- metadata
+  - community
+  - rOpenSci
+  - onboarding
+  - metadata
 ---
 
 At rOpenSci, our [R package peer review process] relies on the the hard work of many volunteer reviewers.  These community members donate their [time] and expertise to improving the quality of  rOpenSci packages and helping drive best practices into scientific software.  

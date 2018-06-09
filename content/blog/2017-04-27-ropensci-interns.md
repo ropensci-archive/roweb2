@@ -1,15 +1,15 @@
 ---
-slug: "ropensci-interns"
+slug: ropensci-interns
 title: Welcome to our rOpenSci Interns
-date: 2017-04-27
+date: '2017-04-27'
 authors:
   - name: Scott Chamberlain
   - name: Stefanie Butland
 categories: blog
 topicid: 674
 tags:
-- community
-- ropensci
+  - community
+  - rOpenSci
 ---
 
 There's a lot of work that goes in to making software: the code that does the thing itself, unit testing, examples, tutorials, documentation, and support. rOpenSci software is created and maintained both by our [staff](https://ropensci.org/about/#staff) and by our (awesome) community. In keeping with our aim to build capacity of software users and developers, three interns from our academic home at [UC Berkeley](https://bids.berkeley.edu/research) are now working with us as well. Our interns are mentored by [Carl Boettiger](https://ropensci.org/about/#team), [Scott Chamberlain](https://ropensci.org/about/#team), and [Karthik Ram](https://ropensci.org/about/#team) and they will receive academic credit and/or pay for their work.

@@ -1,16 +1,15 @@
 ---
-slug: "ropensci-collaboration"
+slug: ropensci-collaboration
 title: Visualizing rOpenSci collaboration
-date: 2013-03-08
+date: '2013-03-08'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- github
-- API
+  - R
+  - rOpenSci
+  - GitHub
+  - API
 ---
 
 We have been writing code for R packages for a couple years, so it is time to take a look back at the data. What data you ask? The commits data from GitHub ~ data that records who did what and when.

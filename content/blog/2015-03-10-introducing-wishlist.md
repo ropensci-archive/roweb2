@@ -1,16 +1,15 @@
 ---
-slug: "introducing-wishlist"
+slug: introducing-wishlist
 title: Introducing a Wishlist for Scientific R Packages
-date: 2015-03-10
+date: '2015-03-10'
 authors:
   - name: Oliver Keyes
     url: http://ironholds.org
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- github
+  - R
+  - rOpenSci
+  - GitHub
 ---
 
 There are two things that make R such a wonderful programming environment - the vast number of packages to access, process and interpret

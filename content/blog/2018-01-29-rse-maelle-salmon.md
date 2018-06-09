@@ -1,19 +1,17 @@
-
 ---
-date: 2018-01-29
-slug: "rse-maëlle-salmon"
-title: "Introducing Maëlle Salmon, rOpenSci’s new Research Software Engineer"
+date: '2018-01-29'
+slug: rse-maëlle-salmon
+title: Introducing Maëlle Salmon, rOpenSci’s new Research Software Engineer
 authors:
   - name: Stefanie Butland
   - name: Scott Chamberlain
 categories: blog
 topicid: 1044
 tags:
-- community
-- ropensci
-- interviews
-- staff
-
+  - community
+  - rOpenSci
+  - interviews
+  - staff
 ---
 We’re very pleased to be introducing someone who needs no introduction in the R community. Join us in welcoming Maëlle Salmon to rOpenSci as a Research Software Engineer (part time, working from Nancy, France). We’d like to formally introduce her here and share a bit about the kinds of things she’ll be working on.
 

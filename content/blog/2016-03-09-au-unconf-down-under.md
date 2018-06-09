@@ -1,15 +1,17 @@
 ---
-slug: "au-unconf-down-under"
+slug: au-unconf-down-under
 title: Australian rOpenSci Unconference
-date: 2016-03-09
+date: '2016-03-09'
 authors:
   - name: Nicholas Tierney
     url: http://njtierney.com
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
+  - ozunconf
+  - ozunconf16
+  - unconf
+  - R
+  - rOpenSci
 ---
 
 The rOpenSci Unconference is coming to Australia and we are excited!!

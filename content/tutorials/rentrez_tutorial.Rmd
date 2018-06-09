@@ -26,7 +26,7 @@ including `r count_recs("pmc", 1e6)` million full-text records available in [Pub
 million different sequences, and [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) describes
 `r count_recs("snp", 1e6)` million different genetic variants. All of these
 records can be cross-referenced with the  `r round(entrez_search(db="taxonomy", term='species[RANK]')$count/1e6,2)` million
-species in the [NCBI taxonomy](www.ncbi.nlm.nih.gov/taxonomy) or `r count_recs("omim", 1e3)` thousand disease-associated records
+species in the [NCBI taxonomy](http://www.ncbi.nlm.nih.gov/taxonomy) or `r count_recs("omim", 1e3)` thousand disease-associated records
 in [OMIM](http://www.ncbi.nlm.nih.gov/omim).
 
 

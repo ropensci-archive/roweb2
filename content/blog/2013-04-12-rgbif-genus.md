@@ -1,16 +1,15 @@
 ---
-slug: "rgbif-genus"
+slug: rgbif-genus
 title: Use case - how to get species occurrence data from GBIF for a genus
-date: 2013-04-12
+date: '2013-04-12'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- rgbif
-- API
+  - R
+  - rOpenSci
+  - rgbif
+  - API
 ---
 
 Real use cases from people using our software are awesome. They are important for many reasons: 1) They make the code more useable because we may change code to make the interace and output easier to understand; 2) They may highlight bugs in our code; and 3) They show us what functions users care the most about (if we can assume number of questions equates to use).

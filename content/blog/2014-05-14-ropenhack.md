@@ -1,17 +1,18 @@
 ---
-slug: "ropenhack"
+slug: ropenhack
 title: rOpenHack report
-date: 2014-05-14
+date: '2014-05-14'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- community
-- events
-- hackathon
-- ropenhack
+  - community
+  - events
+  - hackathon
+  - R
+  - ropenhack
+  - unconf
+  - unconf14
 ---
 
 The rOpenSci project is a poster child for the fluid collaboration that has become increasingly common these days thanks to platforms like Twitter and GitHub. It has been really inspring to see open discussions take shape as rough ideas, which rapidly turn into prototype research software, all of which are now happening in the order of few days to weeks rather than months to years. The origins of this project itself lead back to a series of serendipitous conversations that occurred over Twitter three years ago. Today we are a rapidly growing community of scientists, students, software developers, and information researchers.

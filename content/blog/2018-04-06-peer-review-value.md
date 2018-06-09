@@ -1,20 +1,22 @@
 ---
-slug: "peer-review-value"
+slug: peer-review-value
 title: Where is the value in package peer review?
 authors:
-  - name: Miles McBain 
+  - name: Miles McBain
     url: https://github.com/milesmcbain
-date: 2018-04-06
-preface: "This reflection on the value of package peer review is a cross-post of the original that appeared on Miles McBain's [personal blog](https://milesmcbain.xyz) on 2018-03-26."
+date: '2018-04-06'
+preface: This reflection on the value of package peer review is a cross-post of the
+  original that appeared on Miles McBain's [personal blog](https://milesmcbain.xyz)
+  on 2018-03-26.
 categories: blog
 topicid: 1132
 tags:
-- r
-- community
-- software
-- review
-- reviewer
-- onboarding
+  - R
+  - community
+  - software
+  - review
+  - reviewer
+  - onboarding
 ---
 
 If you read my [reflection #1 on rOpenSci Onboarding](https://milesmcbain.xyz/ropensci-onboarding1/), then you know I see value in the Onboarding process. A LOT of value even. This post is about where that value lies. 
