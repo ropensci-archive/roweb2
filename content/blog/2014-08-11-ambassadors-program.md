@@ -1,15 +1,14 @@
 ---
-slug: "ambassadors-program"
+slug: ambassadors-program
 title: Announcing our ambassadors program
-date: 2014-08-11
+date: '2014-08-11'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- community
+  - R
+  - rOpenSci
+  - community
 ---
 
 In the last 12 months we traveled all over the world delivering talks and hands on workshops at various conferences and universities. This was a great opportunity for us to raise awareness for the project and get more of you involved as contributors and collaborators. As we scale the project to the next level, we need your help in spreading the message.

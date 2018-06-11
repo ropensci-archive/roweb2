@@ -1,15 +1,15 @@
 ---
-slug: "hydroscoper"
+slug: hydroscoper
 title: ὕδωρ + σκοπῶ = water + observe
 package_version: 1.0.0
 authors:
   - name: Konstantinos Vantas
     url: https://kvantas.github.io/
-date: 2018-04-03
+date: '2018-04-03'
 categories: blog
 topicid: 1130
 tags:
-  - r
+  - R
   - community
   - software
   - review
@@ -22,7 +22,7 @@ tags:
 output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 > Hydrology is a concept to unify statistics, data analysis and numerical models in order to understand and analyze the endless circulation of water between the earth and its atmosphere.

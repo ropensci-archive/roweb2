@@ -1,5 +1,5 @@
 ---
-slug: "packagemetrics"
+slug: packagemetrics
 title: packagemetrics - Helping you choose a package since runconf17
 authors:
   - name: Becca Krouse
@@ -13,16 +13,16 @@ authors:
   - name: Sam Firke
     url: http://twitter.com/samfirke
   - name: William Ampeh
-categories:
-  - blog
+categories: blog
 topicid: 759
-date: 2017-06-27
+date: '2017-06-27'
 tags:
   - community
-  - software
-  - unconf
   - meetings
   - R
+  - software
+  - unconf
+  - unconf17
 ---
 
 

@@ -1,21 +1,23 @@
 ---
-slug: "ropensci-changes"
-title: "changes: easy Git-based version control from R"
-date: 2017-11-28
+slug: ropensci-changes
+title: 'changes: easy Git-based version control from R'
+date: '2017-11-28'
 authors:
-- name: Anikó B. Tóth
-  url: https://github.com/anikobtoth
-- name: Nick Golding
-  url: https://twitter.com/_NickGolding_
+  - name: Anikó B. Tóth
+    url: https://github.com/anikobtoth
+  - name: Nick Golding
+    url: https://twitter.com/_NickGolding_
 categories: blog
 topicid: 980
 tags:
+  - Australia
   - community
-  - meetings
-  - unconf
-  - australia
-  - r
   - Git
+  - meetings
+  - ozunconf
+  - ozunconf17
+  - R
+  - unconf
   - versioncontrol
 ---
 

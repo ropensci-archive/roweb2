@@ -1,26 +1,28 @@
---- 
+---
 slug: onboarding-is-work
-title: 'How much work is onboarding?'
+title: How much work is onboarding?
 authors:
   - name: Maëlle Salmon
     url: http://www.masalmon.eu/
   - name: Noam Ross
     url: http://twitter.com/noamross
-date: 2018-05-03
-preface: "This blog post is the second of a 3-post series about a data-driven overview of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/) and the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)."
+date: '2018-05-03'
+preface: This blog post is the second of a 3-post series about a data-driven overview
+  of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/)
+  and the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/).
 categories: blog
 topicid: 1160
 tags:
-- r
-- community
-- software
-- review
-- onboarding
-- cloc
-output: 
+  - R
+  - community
+  - software
+  - review
+  - onboarding
+  - cloc
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 Our [onboarding process](https://github.com/ropensci/onboarding/), that

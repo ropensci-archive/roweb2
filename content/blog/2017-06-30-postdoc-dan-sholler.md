@@ -1,17 +1,16 @@
 ---
-date: 2017-06-30
-slug: "postdoc_dan_sholler"
-title: "Introducing our Postdoctoral Fellow, Dr. Dan Sholler"
+date: '2017-06-30'
+slug: postdoc_dan_sholler
+title: Introducing our Postdoctoral Fellow, Dr. Dan Sholler
 authors:
   - name: Stefanie Butland
   - name: Karthik Ram
 categories: blog
 topicid: 761
 tags:
-- community
-- ropensci
-- interviews
-
+  - community
+  - rOpenSci
+  - interviews
 ---
 
 We are pleased to welcome our Postdoctoral Fellow, [Dr. Dan Sholler](https://danielsholler.wordpress.com/). Dan is an expert in qualitative research (yes, you read that correctly) and studies digital infrastructure creation, growth, and maintenance efforts. Through this research interest, he was drawn to the open science community and its ongoing development of tools and communities to support sustainable, reproducible, high-quality research. With rOpenSci, he intends to investigate _what drives scientists to engage with or resist open science tools and communities_.

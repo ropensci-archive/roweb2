@@ -1,20 +1,20 @@
 ---
-slug: "webrockets"
+slug: webrockets
 title: Launching webrockets at runconf17
 authors:
   - name: Alicia Schep
     url: http://twitter.com/aliciaschep
   - name: Miles McBain
     url: http://twitter.com/milesmcbain
-date: 2017-07-05
+date: '2017-07-05'
 topicid: 928
-categories:
-  - blog
+categories: blog
 tags:
   - community
+  - R
   - software
   - unconf
-  - R
+  - unconf17
 ---
 
 We, [Alicia Schep](https://github.com/AliciaSchep/) and [Miles

@@ -1,17 +1,16 @@
 ---
-slug: "rbison-geoson"
+slug: rbison-geoson
 title: From occurrence data to interactive maps on the web
-date: 2013-07-04
+date: '2013-07-04'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- ropensci
-- rbison
-- API
-- geojson
+  - R
+  - rOpenSci
+  - rbison
+  - API
+  - geojson
 ---
 
 We have a number of packages for getting species occurrence data: [rgbif][rgbif] and [rbison][rbison]. The power of R is that you can pull down this occurrence data, manipulate the data, do some analyses, and visualize the data - all in one open source framework.

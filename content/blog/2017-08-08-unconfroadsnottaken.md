@@ -1,19 +1,19 @@
 ---
-slug: "unconfroadsnottaken"
+slug: unconfroadsnottaken
 authors:
-- name: Noam Ross
-  url: https://twitter.com/noamross
-categories:
-- blog
+  - name: Noam Ross
+    url: https://twitter.com/noamross
+categories: blog
 topicid: 814
 date: '2017-08-08'
 tags:
-- community
-- ropensci
-- meetings
-- unconf
-- software
-- R
+  - community
+  - meetings
+  - R
+  - rOpenSci
+  - software
+  - unconf
+  - unconf17
 title: 'Unconf 2017: The Roads Not Taken'
 ---
 
