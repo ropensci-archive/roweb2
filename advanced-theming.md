@@ -40,7 +40,7 @@ If you don't have npm yet, run e.g. `brew install node`.
 
 ```sh
 cd themes/ropensci/static/
-npm install .
+npm install . --no-optional
 npm run css
 ```
 
