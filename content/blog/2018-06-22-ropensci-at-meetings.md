@@ -51,13 +51,13 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>July 28-Aug 2, 2018</td>
 	<td>Karthik Ram, Jenny Bryan</td>
 	<td>Vancouver, CA</td>
-	<td><a href="http://ww2.amstat.org/meetings/jsm/2018/">JSM</a></td>
+	<td><a href="http://ww2.amstat.org/meetings/jsm/2018/">Joint Statistical Meetings (JSM)</a></td>
 </tr>
 <tr>
 	<td>Aug 6-10, 2018</td>
 	<td>Carl Boettiger, Dan Sholler</td>
 	<td>New Orleans, LA</td>
-	<td><a href="https://esa.org/neworleans/">ESA</a></td>
+	<td><a href="https://esa.org/neworleans/">Ecological Society of America(ESA)</a></td>
 </tr>
 <tr>
 	<td>Aug 15-16, 2018</td>
