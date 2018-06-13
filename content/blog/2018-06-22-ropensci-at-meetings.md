@@ -54,58 +54,28 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td><a href="http://ww2.amstat.org/meetings/jsm/2018/">JSM</a></td>
 </tr>
 <tr>
-	<td>Sep 19-20, 2017</td>
-	<td>Jenny Bryan</td>
-	<td>San Francisco, CA</td>
-	<td><a href="https://www.rstudio.com/workshops/extending-the-tidyverse/">Extending the tidyverse</a></td>
+	<td>Aug 6-10, 2018</td>
+	<td>Carl Boettiger, Dan Sholler</td>
+	<td>New Orleans, LA</td>
+	<td><a href="https://esa.org/neworleans/">ESA</a></td>
 </tr>
 <tr>
-	<td>Oct 1-4, 2017</td>
-	<td>Scott Chamberlain</td>
-	<td>Ottawa, CA</td>
-	<td><a href="https://tdwg.github.io/conferences/2017/">TDWG Annual Conference</a></td>
-</tr>
-<tr>
-	<td>Oct 10-11, 2017</td>
-	<td>Karthik Ram, Stefanie Butland</td>
-	<td>Austin, TX</td>
-	<td><a href="https://www.numfocus.org/">NumFOCUS Summit</a></td>
-</tr>
-<tr>
-	<td>Oct 19-21, 2017</td>
-	<td>Jenny Bryan</td>
-	<td>La Jolla, CA</td>
-	<td><a href="https://ww2.amstat.org/meetings/wsds/2017/">Women in Statistics and Data Science Conference</a></td>
-</tr>
-<tr>
-	<td>Oct 26-27, 2017</td>
-	<td>TBD</td>
-	<td>Melbourne, AU</td>
-	<td><a href="https://njtierney.typeform.com/to/RzeQVp">2nd Annual rOpenSci AU-Unconf</a></td>
-</tr>
-<tr>
-	<td>Nov 7-10, 2017</td>
-	<td>Scott Chamberlain</td>
-	<td>Durham, NC</td>
-	<td><a href="http://phenoscape.org/">Phenoscape Hackathon</a></td>
-</tr>
-<tr>
-	<td>Dec 8-9, 2017</td>
+	<td>Aug 15-16, 2018</td>
 	<td>Stefanie Butland</td>
-	<td>Washington, DC</td>
-	<td><a href="https://www.aaas.org/cefp/meet-our-fellows">AAAS Community Engagement Fellows meeting</a></td>
+	<td>Cambridge, MA</td>
+	<td><a href="http://rinpharma.com/">R / Pharma</a></td>
 </tr>
 <tr>
-	<td>Dec 10-14, 2017</td>
-	<td>Jenny Bryan</td>
-	<td>Auckland, NZ</td>
-	<td><a href="http://www.stats.org.nz/events-archive/2017-nzsa-conference">IASC-ARS/NZSA Conference</a></td>
+	<td>Aug 27-30, 2018</td>
+	<td>Scott Chamberlain</td>
+	<td>Dunedin, NZ</td>
+	<td><a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a></td>
 </tr>
 <tr>
-	<td>Dec 11, 2017</td>
-	<td><a href="https://ropensci.org/blog/blog/2016/12/12/ropensci-fellowship-zoon">Nick Golding</a></td>
-	<td>Ghent, BE</td>
-	<td><a href="http://www.britishecologicalsociety.org/events/annual-meeting-2017/workshop-submissions/">Workshop: Developing R Packages for Accessing, Synthesizing and Analysing Ecological Data</a></td>
+	<td>Sep 12-14, 2018</td>
+	<td>Jeroen Ooms</td>
+	<td>The Hague, NL</td>
+	<td><a href="https://www.aanmelder.nl/uros2018#.WyFyd1MvyEI">Use of R in Official Statistics (uRos2018)</a></td>
 </tr>
 </tbody>
 </table>
