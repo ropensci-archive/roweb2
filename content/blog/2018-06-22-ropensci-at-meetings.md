@@ -57,7 +57,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Aug 6-10, 2018</td>
 	<td>Carl Boettiger, Dan Sholler</td>
 	<td>New Orleans, LA</td>
-	<td><a href="https://esa.org/neworleans/">Ecological Society of America(ESA)</a></td>
+	<td><a href="https://esa.org/neworleans/">Ecological Society of America (ESA)</a></td>
 </tr>
 <tr>
 	<td>Aug 15-16, 2018</td>
