@@ -13,7 +13,7 @@ tags:
   - R
 ---
 
-You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](https://ropensci.org/packages/) can enable your research, or about our process for open peer software [review and onboarding](https://github.com/ropensci/onboarding#ropensci-onboarding), how you can get connected with the [community](https://ropensci.org/community/) or tell us how we can help you do open and reproducible research.
+You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our software [packages](https://ropensci.org/packages/) can enable your research, or about our process for open peer software [review and onboarding](https://github.com/ropensci/onboarding#ropensci-onboarding), how you can get connected with the [community](https://ropensci.org/community/) or tell us how we can help you do open and reproducible research.
 
 <!--more-->
 
@@ -48,6 +48,12 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td><a href="https://r2018-rennes.sciencesconf.org/">French R conference</a></td>
 </tr>
 <tr>
+	<td>July 10-13, 2018</td>
+	<td>Jenny Bryan</td>
+	<td>Brisbane, AU</td>
+	<td><a href="https://user2018.r-project.org/">UseR!</a></td>
+</tr>
+<tr>
 	<td>July 28-Aug 2, 2018</td>
 	<td>Karthik Ram, Jenny Bryan</td>
 	<td>Vancouver, CA</td>
@@ -72,10 +78,28 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td><a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a></td>
 </tr>
 <tr>
+	<td>Sep 3-7, 2018</td>
+	<td>Jenny Bryan</td>
+	<td>Buenos Aires, Argentina</td>
+	<td><a href="http://47jaiio.sadio.org.ar/index.php?q=node/125">LatinR</a></td>
+</tr>
+<tr>
+	<td>Sep 11, 2018</td>
+	<td>Maëlle Salmon</td>
+	<td>Radolfzell, GE</td>
+	<td><a href="http://animove.org/courses/animove-2018/">AniMove</a></td>
+</tr>
+<tr>
 	<td>Sep 12-14, 2018</td>
 	<td>Jeroen Ooms</td>
 	<td>The Hague, NL</td>
 	<td><a href="https://www.aanmelder.nl/uros2018#.WyFyd1MvyEI">Use of R in Official Statistics (uRos2018)</a></td>
+</tr>
+<tr>
+	<td>Oct 26, 2018</td>
+	<td>Nick Tierney (representing rOpenSci)</td>
+	<td>Korea</td>
+	<td><a href="https://translate.google.com/translate?sl=ko&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fruck2018.r-kor.org">R User Conference in Korea 2018</a></td>
 </tr>
 </tbody>
 </table>
