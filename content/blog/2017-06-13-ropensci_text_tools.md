@@ -39,7 +39,7 @@ cld2::detect_language(text)
 # [1] "fr" "ja" "ru" "nl"
 ```
 
-[Maëlle](https://maelle.github.io) has written a [cool post](http://www.masalmon.eu/2017/06/10/rolandgarros/) comparing language classification methods using 18000 `"#RolandGarros2017"` tweets and [Thomas](https://www.stat.auckland.ac.nz/people/tlum005) [reminds us](http://notstatschat.tumblr.com/post/161449071226/stupid-word-games) that algorithms can easily be fooled. Still I found the accuracy on real text quite astonishing given the relatively small size of these libraries.
+[Maëlle](https://maelle.github.io) has written a [cool post](https://masalmon.eu/2017/06/10/rolandgarros/) comparing language classification methods using 18000 `"#RolandGarros2017"` tweets and [Thomas](https://www.stat.auckland.ac.nz/people/tlum005) [reminds us](http://notstatschat.tumblr.com/post/161449071226/stupid-word-games) that algorithms can easily be fooled. Still I found the accuracy on real text quite astonishing given the relatively small size of these libraries.
 
 Note that the algorithm for CLD3 is still under development and the engineers at Google have recently [opened](https://github.com/google/cld3/issues) their Github issues page for feedback.
 
