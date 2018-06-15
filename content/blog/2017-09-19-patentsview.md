@@ -402,7 +402,7 @@ I'd like to thank the package's two reviewers, [Paul
 Oldham](https://github.com/poldham) and [Verena
 Haunschmid](http://blog.haunschmid.name/), for taking the time to review
 the package and providing helpful feedback. I'd also like to thank
-[Maëlle Salmon](http://www.masalmon.eu/) for shepherding the package
+[Maëlle Salmon](https://masalmon.eu/) for shepherding the package
 along the rOpenSci review process, as well [Scott
 Chamberlain](https://scottchamberlain.info/) and [Stefanie
 Butland](https://twitter.com/stefaniebutland) for their miscellaneous
