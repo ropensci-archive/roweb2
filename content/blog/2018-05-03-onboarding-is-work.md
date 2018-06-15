@@ -3,7 +3,7 @@ slug: onboarding-is-work
 title: How much work is onboarding?
 authors:
   - name: Maëlle Salmon
-    url: http://www.masalmon.eu/
+    url: https://masalmon.eu/
   - name: Noam Ross
     url: http://twitter.com/noamross
 date: '2018-05-03'
