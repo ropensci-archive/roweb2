@@ -4,7 +4,7 @@ title: "rtimicropem: Using an *R* package as platform for harmonized cleaning of
 date: 2017-08-29
 authors:
   - name: Maëlle Salmon
-    url: http://www.masalmon.eu/
+    url: https://masalmon.eu
 categories: blog
 tags:
 - R
