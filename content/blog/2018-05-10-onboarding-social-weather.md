@@ -695,7 +695,7 @@ piece of software under review.
 
 One could expand this analysis with a study of emoji use, *in* the text
 using an emoji dictionary [as in this blog
-post](http://www.masalmon.eu/2017/05/03/lucysemojis/) and *around* the
+post](https://masalmon.eu/2017/05/03/lucysemojis/) and *around* the
 text (so-called emoji reactions, present in the API and used in e.g
 [`ghrecipes::get_issues_thumbs`](https://github.com/maelle/ghrecipes/blob/master/R/get_issues_thumbs.R)).
 Another aspect of social weather is maybe the timeliness that’s expected
