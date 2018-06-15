@@ -51,7 +51,7 @@ I enjoy it, the actual activity and the people I get to interact with, and that�
 
 ### Q: Why do you blog?
 
-I met Julia Silge, whose blog I knew and enjoyed a lot, at [unconf16](http://unconf16.ropensci.org/). I discussed blogging with her and it helped motivate me to start blogging as a way to open opportunities. I had produced and tweeted some fun visualizations so my first blog posts were directed to that, for instance [this one about place names in France](http://www.masalmon.eu/2017/01/24/kervillebourg/). I like playing with data and writing per se but it’s also incredibly satisfying to get it out there and see people starting conversations with you. For example when I did the [post about random seeds](http://www.masalmon.eu/2017/04/12/seeds/), people started telling me what [their random seeds](https://twitter.com/ma_salmon/status/852225247935946753) were.
+I met Julia Silge, whose blog I knew and enjoyed a lot, at [unconf16](http://unconf16.ropensci.org/). I discussed blogging with her and it helped motivate me to start blogging as a way to open opportunities. I had produced and tweeted some fun visualizations so my first blog posts were directed to that, for instance [this one about place names in France](https://masalmon.eu/2017/01/24/kervillebourg/). I like playing with data and writing per se but it’s also incredibly satisfying to get it out there and see people starting conversations with you. For example when I did the [post about random seeds](http://www.masalmon.eu/2017/04/12/seeds/), people started telling me what [their random seeds](https://twitter.com/ma_salmon/status/852225247935946753) were.
 
 ### Q: What will you be working on as an rOpenSci research software engineer?
 
