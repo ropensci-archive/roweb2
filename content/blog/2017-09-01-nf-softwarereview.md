@@ -9,7 +9,7 @@ authors:
   - name: Scott Chamberlain
   - name: Karthik Ram
   - name: Maëlle Salmon
-    url: http://www.masalmon.eu/
+    url: https://masalmon.eu/
 categories:
   - blog
 topicid: 850

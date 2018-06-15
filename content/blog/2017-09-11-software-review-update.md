@@ -5,7 +5,7 @@ date: 2017-09-11
 authors:
   - name: Scott Chamberlain
   - name: Maëlle Salmon
-    url: http://www.masalmon.eu/
+    url: https://masalmon.eu
   - name: Noam Ross
     url: http://www.noamross.net/
   - name: Karthik Ram

@@ -3,7 +3,7 @@ slug: rectangling-onboarding
 title: Rectangling onboarding
 authors:
   - name: Maëlle Salmon
-    url: http://www.masalmon.eu/
+    url: https://masalmon.eu/
 date: '2018-04-26'
 preface: This blog post is the first of a 3-post series about a data-driven overview
   of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/A-satrday-ct-series/).
@@ -473,7 +473,7 @@ purrr::walk2(commits$package, commits$hash, set_archive)
 
 There’s more data to be collected or prepared! From GitHub issues,
 [using GitHub
-archive](http://www.masalmon.eu/2017/12/21/wherehaveyoubeen/) one could
+archive](https://masalmon.eu/2017/12/21/wherehaveyoubeen/) one could
 get the labelling history: when did an issue go from “editor-checks” to
 “seeking-reviewers” for instance? It’d help characterize the usual speed
 of the process. One could also try to investigate the formal and less
