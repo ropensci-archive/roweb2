@@ -63,7 +63,7 @@ var calendar = {
       'title': '<a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a>',
       'dateStart': 'Aug 27',
       'dateEnd': '30, 2018',
-      'description': 'Talk ',
+      'description': '<a href="https://biss.pensoft.net/article/25589/">Talk: Phylogeny Based Biodiversity Data Queries</a>',
       'location': 'Dunedin, NZ',
       'attendees': 'Scott Chamberlain'
     },
