@@ -4,6 +4,22 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
+      'title': '<a href="http://cardiff2018.satrdays.org/">satRday Cardiff</a>',
+      'dateStart': 'Jun 23, 2018',
+      'dateEnd': '',
+      'description': 'Talk: Our packages reviews in review: introducting and analyzing rOpenSci onboarding system',
+      'location': 'Cardiff, UK',
+      'attendees': 'Maëlle Salmon</a>'
+    },
+    {
+      'title': '<a href="https://gccbosc2018.sched.com/">Bioinformatics Open Source Conference 2018 (BOSC)</a>',
+      'dateStart': 'Jun 27',
+      'dateEnd': '28, 2018',
+      'description': 'Talk: taxa: taxonomic data standards and methods for R and Python',
+      'location': 'Portland, OR',
+      'attendees': 'Scott Chamberlain'
+    },
+    {
       'title': 'rOpenSci meetup',
       'dateStart': 'Mar 12, 2018',
       'dateEnd': '5:30PM',
