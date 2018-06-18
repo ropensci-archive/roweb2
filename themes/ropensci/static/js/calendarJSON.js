@@ -9,7 +9,7 @@ var calendar = {
       'dateEnd': '',
       'description': 'Talk: Our packages reviews in review: introducting and analyzing rOpenSci onboarding system',
       'location': 'Cardiff, UK',
-      'attendees': 'Maëlle Salmon</a>'
+      'attendees': 'Maëlle Salmon'
     },
     {
       'title': '<a href="https://gccbosc2018.sched.com/">Bioinformatics Open Source Conference 2018 (BOSC)</a>',
@@ -20,20 +20,36 @@ var calendar = {
       'attendees': 'Scott Chamberlain'
     },
     {
-      'title': 'rOpenSci meetup',
-      'dateStart': 'Mar 12, 2018',
-      'dateEnd': '5:30PM',
-      'description': 'presentations, short demos, networking',
-      'location': 'Vancouver BC',
-      'attendees': '<a href="https://ropensci.org/about/#team">rOpenSci team</a>'
-    },
+      'title': '<a href="https://r2018-rennes.sciencesconf.org/">French R conference</a>',
+      'dateStart': 'Jul 4',
+      'dateEnd': '6, 2018',
+      'description': 'Talk: Our packages reviews in review: introducting and analyzing rOpenSci onboarding system',
+      'location': 'Rennes, FR',
+      'attendees': 'Maëlle Salmon'
+    },    
     {
-      'title': 'rOpenSci unconf18',
-      'dateStart': 'May 21',
-      'dateEnd': '22, 2018',
-      'description': 'annual unconference',
-      'location': 'Seattle WA',
-      'attendees': 'rOpenSci team, invited participants'
-    }    
+      'title': '<a href="https://user2018.r-project.org/">UseR!</a>',
+      'dateStart': 'Jul 10',
+      'dateEnd': '13, 2018',
+      'description': 'Keynote',
+      'location': 'Brisbane, AU',
+      'attendees': 'Jenny Bryan'
+    },    
+    {
+      'title': '<a href="http://ww2.amstat.org/meetings/jsm/2018/">Joint Statistical Meetings (JSM)</a>',
+      'dateStart': 'Jul 28',
+      'dateEnd': 'Aug 2, 2018',
+      'description': 'Keynote',
+      'location': 'Vancouver, CA',
+      'attendees': 'Jenny Bryan'
+    },    
+    {
+      'title': '<a href="https://esa.org/neworleans/">Orleans, LA	Ecological Society of America (ESA)</a>',
+      'dateStart': 'Aug 6',
+      'dateEnd': '10, 2018',
+      'description': 'tbd',
+      'location': 'New Orleans, LA',
+      'attendees': 'Carl Boettiger, Dan Sholler'
+    }             
   ]
 }
