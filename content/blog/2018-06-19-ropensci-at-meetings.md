@@ -1,7 +1,7 @@
 ---
 slug: ropensci-at-meetings
 title: Chat with the rOpenSci team at upcoming meetings
-date: '2018-06-22'
+date: '2018-06-19'
 authors:
   - name: Stefanie Butland
 categories: blog
