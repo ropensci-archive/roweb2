@@ -55,7 +55,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 <tr>
 	<td>July 28-Aug 2, 2018</td>
-	<td>Karthik Ram, Jenny Bryan</td>
+	<td>Jenny Bryan</td>
 	<td>Vancouver, CA</td>
 	<td><a href="http://ww2.amstat.org/meetings/jsm/2018/">Joint Statistical Meetings (JSM)</a></td>
 </tr>
@@ -80,7 +80,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 <tr>
 	<td>Sep 3-7, 2018</td>
 	<td>Jenny Bryan</td>
-	<td>Buenos Aires, Argentina</td>
+	<td>Buenos Aires, AR</td>
 	<td><a href="http://47jaiio.sadio.org.ar/index.php?q=node/125">LatinR</a></td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 <tr>
 	<td>Oct 26, 2018</td>
 	<td>Nick Tierney (representing rOpenSci)</td>
-	<td>Korea</td>
+	<td>Seoul, KR</td>
 	<td><a href="https://translate.google.com/translate?sl=ko&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fruck2018.r-kor.org">R User Conference in Korea 2018</a></td>
 </tr>
 </tbody>
