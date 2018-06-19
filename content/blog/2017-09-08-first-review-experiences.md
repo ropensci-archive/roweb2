@@ -22,7 +22,7 @@ wanting to volunteer was to learn something new and to
 contribute to the R open source community. If you are wondering why the
 people behind rOpenSci are doing this, you can read [How rOpenSci uses Code Review to Promote Reproducible Science](https://www.numfocus.org/blog/how-ropensci-uses-code-review-to-promote-reproducible-science/).
 
-Three months later I was contacted by [Maelle Salmon](https://twitter.com/masalmon) asking whether I was interested in
+Three months later I was contacted by [Maëlle Salmon](https://twitter.com/masalmon) asking whether I was interested in
 reviewing the R package [`patentsview`](https://github.com/ropensci/patentsview) for rOpenSci. And yes, I
 was! To be honest I was a little bit thrilled.
 
