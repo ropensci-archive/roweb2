@@ -51,7 +51,7 @@ queries to check whether the behavior of the methods was as expected.
 With this approach I was able to give feedback to the package author
 which led to the inclusion of an additional unit test, a helper function
 that makes the package easier to use, clarification of an error message
-and an improved documentation. You can find the review I did [here](https://github.com/ropensci/onboarding/issues/112).
+and an improved documentation. You can find the review I did [here](https://github.com/ropensci/onboarding/issues/112#issuecomment-303462505).
 
 There are several R packages that helped me get started with my review,
 e.g. [`devtools`](https://github.com/hadley/devtools) and
