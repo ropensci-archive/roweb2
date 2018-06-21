@@ -59,7 +59,7 @@ this was a great suggestion, and have begun the process of porting all
 our documentation for packaging and reviewing, into a common bookdown
 book. Editor Maëlle Salmon is leading this work, and you can find the
 in-progress book, *rOpenSci Packages: Development, Maintenance, and Peer
-Review*, [here](https://github.com/ropenscilabs/dev_guide/).
+Review*, [here](https://ropensci.github.io/dev_guide/).
 
 We also got feedback from authors that they wanted guidance on how best
 to acknowledge the efforts of reviewers. This was one of our drivers to
