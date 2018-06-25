@@ -30,12 +30,6 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </thead>
 <tbody>
 <tr>
-	<td>June 23, 2018</td>
-	<td>Maëlle Salmon</td>
-	<td>Cardiff, UK</td>
-	<td><a href="http://cardiff2018.satrdays.org/">satRday Cardiff</a></td>
-</tr>
-<tr>
 	<td>June 27-28, 2018</td>
 	<td>Scott Chamberlain</td>
 	<td>Portland, OR</td>
