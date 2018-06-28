@@ -13,6 +13,8 @@ tags:
   - community
   - rOpenSci
   - onboarding
+  - review
+  - reviewer
   - survey
 ---
 
