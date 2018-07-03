@@ -1,6 +1,6 @@
 ---
 slug: "pkginspector"
-title: "What's inside? Helpful tools for inspecting package contents"
+title: "What's inside? `pkginspector` provides helpful tools for inspecting package contents"
 preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
 authors:
     
@@ -28,6 +28,13 @@ output:
   html_document: 
     keep_md: yes
 ---
+
+# What's inside? `pkginspector` provides helpful tools for inspecting package contents
+
+[Sam Albers](https://github.com/boshek), [Leonardo Collado-Torres](https://github.com/lcolladotor), [Mauro Lepore](https://github.com/maurolepore), [Joyce Robbins](https://github.com/jtr13), [Noam Ross](https://github.com/noamross), [Omayma Said](https://github.com/OmaymaS)
+
+<!--- Above is only for GitHub version, will be removed --->
+
 
 Packages are the basic building blocks of the entire R ecosystem. They are the primary form in which we bundle up functions, data, help files, vignettes, and other pieces information that make it convenient to share code among users. While using a package is relatively straightforward, understanding what's going on under the hood may not be. Yet this understanding is crucial to a number of important tasks, such as contributing to the development of a package, or reviewing its quality. 
 
