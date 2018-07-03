@@ -43,7 +43,7 @@ The workhorse function to analyze function calls is `rev_fn_summary()` which tak
 #devtools::install_github("ropenscilabs/pkginspector")
 library(pkginspector)
 pkgdir <- system.file('viridisLite', package = 'pkginspector')
-knitr::kable(rev_fn_summary(pkgdir))
+rev_fn_summary(pkgdir)
 ```
 
 We learn that the first four functions call one function a piece, and are not called by any other functions in the package. `viridis()`, in constrast, doesn't call any functions but is called by four other functions. In this case, the number of "dependents" is also four. Dependents are counted recursively and include any functions in the calling chain. For example, if A calls B and B calls C, we would say that C is called by 1 (B) but has 2 dependents (A & B). `rev_fn_summary()` also provides information about function parameters in the `f_args` column.
@@ -69,7 +69,7 @@ To create the visualizations, we use `visNetwork`, a R implementation of the Jav
 Finally, the `rev_args()` function identifies all the arguments used in the functions of a given package. Its main feature is a logical vector indicating if the default value of the argument is consistent across all uses of the argument. The idea is that this information can be useful to a reviewer because it is a proxy of the complexity of the package and potential source of confusion to users. Maybe the package uses the same argument name for two completely different things. Or maybe it’s a logical flag that sometimes is set to TRUE and others to FALSE.
 
 ```{r}
-knitr::kable(rev_args(pkgdir)$arg_df)
+rev_args(pkgdir)$arg_df
 ```
 
 We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This may or may not be an issue, but it is certainly helpful to be able to flag items for further investigation.

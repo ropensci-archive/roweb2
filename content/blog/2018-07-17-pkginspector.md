@@ -44,19 +44,32 @@ The workhorse function to analyze function calls is `rev_fn_summary()` which tak
 #devtools::install_github("ropenscilabs/pkginspector")
 library(pkginspector)
 pkgdir <- system.file('viridisLite', package = 'pkginspector')
-knitr::kable(rev_fn_summary(pkgdir))
+rev_fn_summary(pkgdir)
 ```
 
-
-
-f_name       f_args                                                                     calls   called_by   dependents
------------  ------------------------------------------------------------------------  ------  ----------  -----------
-cividis      cividis (n, alpha = 1, begin = 0, end = 1, direction = 1)                      1           0            0
-inferno      inferno (n, alpha = 1, begin = 0, end = 1, direction = 1)                      1           0            0
-magma        magma (n, alpha = 1, begin = 0, end = 1, direction = 1)                        1           0            0
-plasma       plasma (n, alpha = 1, begin = 0, end = 1, direction = 1)                       1           0            0
-viridis      viridis (n, alpha = 1, begin = 0, end = 1, direction = 1, option = "D")        0           4            4
-viridisMap   viridisMap (n = 256, alpha = 1, begin = 0, end = 1, direction = 1,             0           0            0
+```
+##       f_name
+## 1    cividis
+## 2    inferno
+## 3      magma
+## 4     plasma
+## 5    viridis
+## 6 viridisMap
+##                                                                     f_args
+## 1               cividis (n, alpha = 1, begin = 0, end = 1, direction = 1) 
+## 2               inferno (n, alpha = 1, begin = 0, end = 1, direction = 1) 
+## 3                 magma (n, alpha = 1, begin = 0, end = 1, direction = 1) 
+## 4                plasma (n, alpha = 1, begin = 0, end = 1, direction = 1) 
+## 5 viridis (n, alpha = 1, begin = 0, end = 1, direction = 1, option = "D") 
+## 6      viridisMap (n = 256, alpha = 1, begin = 0, end = 1, direction = 1, 
+##   calls called_by dependents
+## 1     1         0          0
+## 2     1         0          0
+## 3     1         0          0
+## 4     1         0          0
+## 5     0         4          4
+## 6     0         0          0
+```
 
 We learn that the first four functions call one function a piece, and are not called by any other functions in the package. `viridis()`, in constrast, doesn't call any functions but is called by four other functions. In this case, the number of "dependents" is also four. Dependents are counted recursively and include any functions in the calling chain. For example, if A calls B and B calls C, we would say that C is called by 1 (B) but has 2 dependents (A & B). `rev_fn_summary()` also provides information about function parameters in the `f_args` column.
 
@@ -83,19 +96,18 @@ Finally, the `rev_args()` function identifies all the arguments used in the func
 
 
 ```r
-knitr::kable(rev_args(pkgdir)$arg_df)
+rev_args(pkgdir)$arg_df
 ```
 
-
-
-arg_name     n_functions  default_consistent    default_consistent_percent
-----------  ------------  -------------------  ---------------------------
-n                      6  FALSE                                   83.33333
-alpha                  6  TRUE                                   100.00000
-begin                  6  TRUE                                   100.00000
-end                    6  TRUE                                   100.00000
-direction              6  TRUE                                   100.00000
-option                 2  TRUE                                   100.00000
+```
+##    arg_name n_functions default_consistent default_consistent_percent
+## 1         n           6              FALSE                   83.33333
+## 2     alpha           6               TRUE                  100.00000
+## 3     begin           6               TRUE                  100.00000
+## 4       end           6               TRUE                  100.00000
+## 5 direction           6               TRUE                  100.00000
+## 6    option           2               TRUE                  100.00000
+```
 
 We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This may or may not be an issue, but it is certainly helpful to be able to flag items for further investigation.
 
