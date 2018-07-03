@@ -16,4 +16,4 @@ config.codekit3
 *.Rproj
 addmypost.R
 content/blog/*.html
-
+.gitignore

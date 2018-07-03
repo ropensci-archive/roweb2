@@ -71,6 +71,8 @@ We provide a means to visualize the function structure with `vis_package()`. We 
 vis_package(pkgdir, physics = FALSE)
 ```
 
+
+<!--- this link will be changed for the final draft per instructions --->
 ![](../../themes/ropensci/static/img/blog-images/2018-07-17-pkginspector/viridisLite.png)
 
 To create the visualizations, we use `visNetwork`, a R implementation of the JavaScript vis.js library. More details on `vis_package()`, including interactive examples, can be found [here](http://rpubs.com/jtr13/vis_package).
@@ -95,7 +97,7 @@ end                    6  TRUE                                   100.00000
 direction              6  TRUE                                   100.00000
 option                 2  TRUE                                   100.00000
 
-We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This isn't necessarily a problem, but a useful metric for flagging items that are worth checking.
+We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This may or may not be an issue, but it is certainly helpful to be able to flag items for further investigation.
 
 ### In sum
 
