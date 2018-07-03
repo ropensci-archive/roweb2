@@ -1,6 +1,6 @@
- ---
+---
 slug: "pkginspector"
-title: "What's inside the package? Helpful tools for inspecting the contents"
+title: "What's inside? Helpful tools for inspecting package contents"
 preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
 authors:
     
@@ -71,8 +71,33 @@ We provide a means to visualize the function structure with `vis_package()`. We 
 vis_package(pkgdir, physics = FALSE)
 ```
 
-<!--html_preserve--><div id="htmlwidget-091656d4367f0c9908bf" style="width:672px;height:480px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-091656d4367f0c9908bf">{"x":{"nodes":{"id":["cividis","inferno","magma","plasma","viridis","viridisMap"],"file":["R/viridis.R","R/viridis.R","R/viridis.R","R/viridis.R","R/viridis.R","R/viridis.R"],"line":["187","175","169","181","98","137"],"col1":["12","12","10","11","12","15"],"col2":["19","19","17","18","19","22"],"own":[true,true,true,true,true,true],"exported":[true,true,true,true,true,false],"group":["exported","exported","exported","exported","exported","not\nexported"],"font":["24px arial","24px arial","24px arial","24px arial","24px arial","24px arial"],"label":["cividis","inferno","magma","plasma","viridis","viridisMap"],"x":[-1,-0.10369145673042,0.705001663944856,-0.342494476943274,-0.162912967271769,1],"y":[-0.147162682224389,-1,-0.329853615540176,0.666707464425406,-0.178931439453109,1]},"edges":{"from":["magma","inferno","plasma","cividis"],"to":["viridis","viridis","viridis","viridis"],"type":["call","call","call","call"],"line":[170,176,182,188],"col1":[3,3,3,3],"col2":[9,9,9,9],"file":["R/viridis.R","R/viridis.R","R/viridis.R","R/viridis.R"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"edges":{"smooth":false,"arrows":"to"},"physics":{"solver":"barnesHut","stabilization":false,"barnesHut":{"centralGravity":0.3}},"layout":{"randomSeed":2018},"interaction":{"hover":true},"groups":{"not\nexported":{"shape":"icon","icon":{"code":"f013","color":"#4995d0"}},"exported":{"shape":"icon","icon":{"code":"f072","color":"#ff7600"}},"useDefaultGroups":true,"external":{"shape":"icon","icon":{"code":"f090","color":"#2caa58"}}}},"groups":["exported","not\nexported"],"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","highlight":{"enabled":true,"hoverNearest":true,"degree":{"from":10,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null},"legend":{"width":0.1,"useGroups":true,"position":"right","ncol":1,"stepX":100,"stepY":100,"zoom":true},"iconsRedraw":true},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+![](../../themes/ropensci/static/img/blog-images/2018-07-17-pkginspector/viridisLite.png)
+
+To create the visualizations, we use `visNetwork`, a R implementation of the JavaScript vis.js library. More details on `vis_package()`, including interactive examples, can be found [here](http://rpubs.com/jtr13/vis_package).
+
+### Argument default usage
+
+Finally, the `rev_args()` function identifies all the arguments used in the functions of a given package. Its main feature is a logical vector indicating if the default value of the argument is consistent across all uses of the argument. The idea is that this information can be useful to a reviewer because it is a proxy of the complexity of the package and potential source of confusion to users. Maybe the package uses the same argument name for two completely different things. Or maybe it’s a logical flag that sometimes is set to TRUE and others to FALSE.
 
 
+```r
+knitr::kable(rev_args(pkgdir)$arg_df)
+```
+
+
+
+arg_name     n_functions  default_consistent    default_consistent_percent
+----------  ------------  -------------------  ---------------------------
+n                      6  FALSE                                   83.33333
+alpha                  6  TRUE                                   100.00000
+begin                  6  TRUE                                   100.00000
+end                    6  TRUE                                   100.00000
+direction              6  TRUE                                   100.00000
+option                 2  TRUE                                   100.00000
+
+We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This isn't necessarily a problem, but a useful metric for flagging items that are worth checking.
+
+### In sum
+
+Reviewing a package is a complex undertaking. While it's hard to imagine a completely automated review process, having tools on hand can be of great assistance to the reviewer. There is still plenty of work to be done; nonetheless, we feel positive about the progress we made during unconf18 and after.  We welcome your comments and feedback.
 
