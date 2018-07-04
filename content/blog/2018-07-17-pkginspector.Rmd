@@ -1,6 +1,6 @@
 ---
 slug: "pkginspector"
-title: "What's inside? `pkginspector` provides helpful tools for inspecting package contents"
+title: "What's inside? __pkginspector__ provides helpful tools for inspecting package contents"
 preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
 authors:
     
@@ -29,7 +29,7 @@ output:
     keep_md: yes
 ---
 
-# What's inside? `pkginspector` provides helpful tools for inspecting package contents
+# What's inside? __pkginspector__ provides helpful tools for inspecting package contents
 
 [Sam Albers](https://github.com/boshek), [Leonardo Collado-Torres](https://github.com/lcolladotor), [Mauro Lepore](https://github.com/maurolepore), [Joyce Robbins](https://github.com/jtr13), [Noam Ross](https://github.com/noamross), [Omayma Said](https://github.com/OmaymaS)
 
@@ -38,13 +38,13 @@ output:
 
 Packages are the basic building blocks of the entire R ecosystem. They are the primary form in which we bundle up functions, data, help files, vignettes, and other pieces information that make it convenient to share code among users. While using a package is relatively straightforward, understanding what's going on under the hood may not be. Yet this understanding is crucial to a number of important tasks, such as contributing to the development of a package, or reviewing its quality. 
 
-`pkginspector` is part of a larger effort by rOpenSci to develop tools to make it easier to comprehend as well as evaluate a package's contents. In fact, with guidance from Noam Ross, this project began during unconf18 as part of the `pkgreviewr` package, and was spun off after the conference since it contains a unique set of tools that are helpful not only for reviewers but for developers as well.
+__pkginspector__ is part of a larger effort by rOpenSci to develop tools to make it easier to comprehend as well as evaluate a package's contents. In fact, with guidance from Noam Ross, this project began during unconf18 as part of the `pkgreviewr` package, and was spun off after the conference since it contains a unique set of tools that are helpful not only for reviewers but for developers as well.
 
 The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we build tools to analyze and visualize function dependencies, and to analyze function parameters within a package:
 
 ### Function calls
 
-The workhorse function to analyze function calls is `rev_fn_summary()` which takes a package path and returns a table of information about its functions. We demonstrate here, with a simple package, `viridisLite`, which is included with `pkginspector` for demo purposes:
+The workhorse function to analyze function calls is `rev_fn_summary()` which takes a package path and returns a table of information about its functions. We demonstrate here, with a simple package, `viridisLite`, which is included with __pkginspector__ for demo purposes:
 
 ```{r}
 #devtools::install_github("ropenscilabs/pkginspector")
