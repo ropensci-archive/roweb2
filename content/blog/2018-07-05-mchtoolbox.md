@@ -14,7 +14,7 @@ authors:
     url: https://github.com/softloud
 date: 2018-07-05
 categories: blog
-topicid: 
+topicid: 1249
 tags:
 - r
 - package
@@ -49,7 +49,7 @@ We aimed to build a package that addresses a gap in the workflow of researchers 
 
 ### Using runconf to learn how to collaborate
 
-If you’re an [isolated data scientist](https://peerj.com/preprints/3160/) or if you tend to develop analyses on your own, collaboration usually consists of documenting your code and using Git/GitHub so future you knows what past you was up to. Using version control on your own is a great place to begin if you haven’t tried it before, and is fairly straightforward. However, we rapidly discovered that working collaboratively on GitHub  can get quite complicated when you have 5 people sitting around a table contributing to a code base in real time, and some changes in git workflow habits may be required! Thanks to the community and environment rOpenSci intentionally creates at the unconf, we had a short crash course from Jenny Bryan in [happy git with R](http://happygitwithr.com/) and the `usethis` package, and help from Maȅlle Salmon on setting up continuous integration, giving us a solid workflow for software development as we move forward. It can be a pretty big leap stepping into a highly collaborative project for the first time -- expect there to be challenges and absolutely don’t be afraid to ask for help! 
+If you’re an [isolated data scientist](https://peerj.com/preprints/3160/) or if you tend to develop analyses on your own, collaboration usually consists of documenting your code and using Git/GitHub so future you knows what past you was up to. Using version control on your own is a great place to begin if you haven’t tried it before, and is fairly straightforward. However, we rapidly discovered that working collaboratively on GitHub  can get quite complicated when you have 5 people sitting around a table contributing to a code base in real time, and some changes in git workflow habits may be required! Thanks to the community and environment rOpenSci intentionally creates at the unconf, we had a short crash course from Jenny Bryan in [happy git with R](http://happygitwithr.com/) and the `usethis` package, and help from Maëlle Salmon on setting up continuous integration, giving us a solid workflow for software development as we move forward. It can be a pretty big leap stepping into a highly collaborative project for the first time -- expect there to be challenges and absolutely don’t be afraid to ask for help! 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Thank you, <a href="https://twitter.com/jent103?ref_src=twsrc%5Etfw">@jent103</a> - git level up! <a href="https://twitter.com/hashtag/runconf18?src=hash&amp;ref_src=twsrc%5Etfw">#runconf18</a> mchtoolbox is go. We even have a hex, designed by developer <a href="https://twitter.com/kylehamilton?ref_src=twsrc%5Etfw">@kylehamilton</a> <a href="https://t.co/agPyL8butb">pic.twitter.com/agPyL8butb</a></p>&mdash; Charles T. Gray (@cantabile) <a href="https://twitter.com/cantabile/status/999059214759673856?ref_src=twsrc%5Etfw">May 22, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
