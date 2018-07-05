@@ -23,7 +23,7 @@ tags:
 - unconf18
 ---
 
-It’s easy to come to a conference and feel intimidated by the wealth of knowledge and expertise other attendees. As Ellen Ullman, a software engineer and writer describes,[^1] 
+It’s easy to come to a conference and feel intimidated by the wealth of knowledge and expertise of other attendees. As Ellen Ullman, a software engineer and writer describes,[^1] 
 
 > I was aware at all times that I had only islands of knowledge separated by darkness; that I was surrounded by chasms of not-knowing, into one of which I was certain to fall.
 
