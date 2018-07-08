@@ -36,7 +36,7 @@ pkginspector_example <- function(path) {
 }
 ```
 
-```{r funs-helpers}
+```{r funs-helpers, echo=FALSE}
 # Helpers for this rmarkdown document.
 commas <- function(x) {
   if (length(x) == 1) return(x)
@@ -109,5 +109,4 @@ The example shows that the parameter `n` is used inconsistently. [The documentat
 
 ### In sum
 
-Reviewing a package is a complex undertaking. While it's hard to imagine a completely automated review process, having tools on hand can be of great assistance to the reviewer. There is still plenty of work to be done; nonetheless, we feel positive about the progress we made during unconf18 and after.  We welcome your comments and feedback.
-
+If you are building or reviewing an R package, __pkginspector__ can help you better understand its complex structure. This is an important step towards improving your code and research. While __pkginspector__ has room for improvement, the features built during and since unconf18 are already useful. We welcome your comments and feedback.
