@@ -82,7 +82,7 @@ n_callby <- commas(out$called_by[n])
 viridis <- out[out$f_name == "viridis", ]
 ```
 
-We learn that the number of functions called by `r n_funs` is `r n_call`, and that these functions are called by `r n_callby` functions. `viridis()`, in contrast, calls `r viridis$calls` functions but is called by `r viridis$called_by` functions. In this case, the number of `dependents` is `r viridis$dependents`. Dependents are counted recursively and include any functions in the calling chain. For example, if A calls B and B calls C, we would say that C is called by 1 (B) but has 2 dependents (A & B). `rev_fn_summary()` also provides information about function parameters in the `f_args` column.
+The example shows that the number of functions called by `r n_funs` is `r n_call`, and that these functions are called by `r n_callby` functions. `viridis()`, in contrast, calls `r viridis$calls` functions but is called by `r viridis$called_by` functions. In this case, the number of `dependents` is `r viridis$dependents`. Dependents are counted recursively and include any functions in the calling chain. For example, if A calls B and B calls C, we would say that C is called by 1 (B) but has 2 dependents (A & B). `rev_fn_summary()` also provides information about function parameters in the `f_args` column.
 
 *What's not working:* We know that we miss function calls if they are passed as parameters to `purrr::map()` and `do.call()` functions. There may be other systematic misses as well.
 
@@ -99,13 +99,13 @@ vis_package(path, physics = FALSE)
 
 ### Argument default usage
 
-Finally, the `rev_args()` function identifies all the arguments used in the functions of a given package. Its main feature is a logical vector indicating if the default value of the argument is consistent across all uses of the argument. The idea is that this information can be useful to a reviewer because it is a proxy of the complexity of the package and potential source of confusion to users. Maybe the package uses the same argument name for two completely different things. Or maybe it’s a logical flag that sometimes is set to TRUE and others to FALSE.
+`rev_args()` identifies all the functions' arguments used in a given package. It returns a dataframe which main column, `detault_consistent` indicates whether or not the default value of the argument is consistent across the functions that use it. This helps to evaluate the complexity of the package and to identify potential sources of confusion, for example, if the meaning or default value of the same argument varies across functions.
 
 ```{r}
 rev_args(path)$arg_df
 ```
 
-We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This may or may not be an issue, but it is certainly helpful to be able to flag items for further investigation.
+The example shows that the parameter `n` is used inconsistently. [The documentation](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation.
 
 ### In sum
 
