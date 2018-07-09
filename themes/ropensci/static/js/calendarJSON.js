@@ -4,28 +4,12 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://cardiff2018.satrdays.org/">satRday Cardiff</a>',
-      'dateStart': 'Jun 23, 2018',
-      'dateEnd': '',
-      'description': 'Talk: Our packages reviews in review: introducting and analyzing rOpenSci onboarding system',
-      'location': 'Cardiff, UK',
-      'attendees': 'Maëlle Salmon'
-    },
-    {
-      'title': '<a href="https://gccbosc2018.sched.com/">Bioinformatics Open Source Conference 2018 (BOSC)</a>',
-      'dateStart': 'Jun 27',
-      'dateEnd': '28, 2018',
-      'description': 'Talk: taxa: taxonomic data standards and methods for R and Python',
-      'location': 'Portland, OR',
-      'attendees': 'Scott Chamberlain'
-    },
-    {
-      'title': '<a href="https://r2018-rennes.sciencesconf.org/">French R conference</a>',
-      'dateStart': 'Jul 4',
-      'dateEnd': '6, 2018',
-      'description': 'Talk: Our packages reviews in review: introducting and analyzing rOpenSci onboarding system',
-      'location': 'Rennes, FR',
-      'attendees': 'Maëlle Salmon'
+      'title': '<a href="https://scipy2018.scipy.org/">SciPy</a>',
+      'dateStart': 'Jul 11',
+      'dateEnd': '13, 2018',
+      'description': '<a href="https://scipy2018.scipy.org/ehome/index.php?eventid=299527&tabid=721463&cid=2264594&sessionid=23265870&sessionchoice=1">BoF: A (Python) Community for Reproducible Research and Scientific Code Reviews</a>',
+      'location': 'Austin, TX',
+      'attendees': 'Karthik Ram'
     },    
     {
       'title': '<a href="https://user2018.r-project.org/">UseR!</a>',
@@ -41,7 +25,7 @@ var calendar = {
       'dateEnd': 'Aug 2, 2018',
       'description': '<a href="http://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326743">Talk: Version Control: The Gain You Get for Your Pain</a>',
       'location': 'Vancouver, CA',
-      'attendees': 'Jenny Bryan'
+      'attendees': 'Scott, Chamberlain, Jenny Bryan'
     },    
     {
       'title': '<a href="https://esa.org/neworleans/">Ecological Society of America (ESA)</a>',
