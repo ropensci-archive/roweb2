@@ -42,6 +42,12 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td><a href="https://r2018-rennes.sciencesconf.org/">French R conference</a></td>
 </tr>
 <tr>
+	<td>July 11-13, 2018</td>
+	<td>Karthik Ram</td>
+	<td>Austin, TX</td>
+	<td><a href="https://scipy2018.scipy.org/">SciPy</a></td>
+</tr>
+<tr>
 	<td>July 10-13, 2018</td>
 	<td>Jenny Bryan</td>
 	<td>Brisbane, AU</td>
