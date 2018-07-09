@@ -23,7 +23,7 @@ var calendar = {
       'title': '<a href="http://ww2.amstat.org/meetings/jsm/2018/">Joint Statistical Meetings (JSM)</a>',
       'dateStart': 'Jul 28',
       'dateEnd': 'Aug 2, 2018',
-      'description': '<a href="http://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326743">Talk: Version Control: The Gain You Get for Your Pain</a>',
+      'description': '<a href="https://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326906">Talk: Harnessing the Power of Open Data on the Web</a>, <a href="http://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326743">Talk: Version Control: The Gain You Get for Your Pain</a>',
       'location': 'Vancouver, CA',
       'attendees': 'Scott, Chamberlain, Jenny Bryan'
     },    
@@ -39,7 +39,7 @@ var calendar = {
       'title': '<a href="http://rinpharma.com/">R / Pharma</a>',
       'dateStart': 'Aug 15',
       'dateEnd': '16, 2018',
-      'description': 'Talk: rOpenSci and open and reproducible research',
+      'description': 'Talk: rOpenSci - enabling open and reproducible research',
       'location': 'Cambridge, MA',
       'attendees': 'Stefanie Butland'
     },    
