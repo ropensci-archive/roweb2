@@ -1,6 +1,6 @@
 ---
 slug: "pkginspector"
-title: "What's inside? `pkginspector` provides helpful tools for inspecting package contents"
+title: "What's inside? __pkginspector__ provides helpful tools for inspecting package contents"
 preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
 authors:
     
@@ -29,29 +29,30 @@ output:
     keep_md: yes
 ---
 
-# What's inside? `pkginspector` provides helpful tools for inspecting package contents
+
+
+
+
+# What's inside? __pkginspector__ provides helpful tools for inspecting package contents
 
 [Sam Albers](https://github.com/boshek), [Leonardo Collado-Torres](https://github.com/lcolladotor), [Mauro Lepore](https://github.com/maurolepore), [Joyce Robbins](https://github.com/jtr13), [Noam Ross](https://github.com/noamross), [Omayma Said](https://github.com/OmaymaS)
 
 <!--- Above is only for GitHub version, will be removed --->
 
+R packages are widely used in science, yet they are rarely peer-reviewed, or reviewed by volunteers with little time and varying expertise in software development. The goal of __pkginspector__ is to help you better understand the internal structure of R packages. It summarizes the relationship between a focal package and the packages it depends on; and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) __pkginspector__ is for you.
 
-Packages are the basic building blocks of the entire R ecosystem. They are the primary form in which we bundle up functions, data, help files, vignettes, and other pieces information that make it convenient to share code among users. While using a package is relatively straightforward, understanding what's going on under the hood may not be. Yet this understanding is crucial to a number of important tasks, such as contributing to the development of a package, or reviewing its quality. 
-
-`pkginspector` is part of a larger effort by rOpenSci to develop tools to make it easier to comprehend as well as evaluate a package's contents. In fact, with guidance from Noam Ross, this project began during unconf18 as part of the `pkgreviewr` package, and was spun off after the conference since it contains a unique set of tools that are helpful not only for reviewers but for developers as well.
-
-The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we build tools to analyze and visualize function dependencies, and to analyze function parameters within a package:
+We begun building __pkginspector__ during [unconf18](TODO add link), with support from [rOpenSci](TODO add link) and guidance from [Noam Ross](TODO add link). The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we are building tools to analyze and visualize function dependencies, and to analyze function parameters within a package:
 
 ### Function calls
 
-The workhorse function to analyze function calls is `rev_fn_summary()` which takes a package path and returns a table of information about its functions. We demonstrate here, with a simple package, `viridisLite`, which is included with `pkginspector` for demo purposes:
+`rev_fn_summary()` helps you analyze function calls. It takes a package path and returns a table of information about its functions. Consider this example included in __pkginspector__:
 
 
 ```r
-#devtools::install_github("ropenscilabs/pkginspector")
+# devtools::install_github("ropenscilabs/pkginspector")
 library(pkginspector)
-pkgdir <- system.file('viridisLite', package = 'pkginspector')
-rev_fn_summary(pkgdir)
+path <- pkginspector_example("viridisLite")
+rev_fn_summary(path)
 ```
 
 ```
@@ -78,32 +79,31 @@ rev_fn_summary(pkgdir)
 ## 6     0         0          0
 ```
 
-We learn that the first four functions call one function a piece, and are not called by any other functions in the package. `viridis()`, in constrast, doesn't call any functions but is called by four other functions. In this case, the number of "dependents" is also four. Dependents are counted recursively and include any functions in the calling chain. For example, if A calls B and B calls C, we would say that C is called by 1 (B) but has 2 dependents (A & B). `rev_fn_summary()` also provides information about function parameters in the `f_args` column.
+
+
+The example shows that the number of functions called by `cividis()`, `inferno()`, `magma()` and `plasma()` is 1, 1, 1 and 1, and that these functions are called by 0, 0, 0 and 0 functions. `viridis()`, in contrast, calls 0 functions but is called by 4 functions. In this case, the number of `dependents` is 4. Dependents are counted recursively and include any functions in the calling chain. For example, if A calls B and B calls C, we would say that C is called by 1 (B) but has 2 dependents (A & B). `rev_fn_summary()` also provides information about function parameters in the `f_args` column.
 
 *What's not working:* We know that we miss function calls if they are passed as parameters to `purrr::map()` and `do.call()` functions. There may be other systematic misses as well.
 
 ### Visualization
 
-We provide a means to visualize the function structure with `vis_package()`. We believe that presenting the same information in multiple ways gives the user options. Depending on the situation, a table or a network graph may be more useful.  
+`vis_package()` helps you visualize the network of functions' dependencies ([interactive example](http://rpubs.com/jtr13/vis_package)).
 
 
 ```r
-vis_package(pkgdir, physics = FALSE)
+vis_package(path, physics = FALSE)
 ```
-
 
 <!--- this link will be changed for the final draft per instructions --->
 ![](../../themes/ropensci/static/img/blog-images/2018-07-17-pkginspector/viridisLite.png)
 
-To create the visualizations, we use `visNetwork`, a R implementation of the JavaScript vis.js library. More details on `vis_package()`, including interactive examples, can be found [here](http://rpubs.com/jtr13/vis_package).
-
 ### Argument default usage
 
-Finally, the `rev_args()` function identifies all the arguments used in the functions of a given package. Its main feature is a logical vector indicating if the default value of the argument is consistent across all uses of the argument. The idea is that this information can be useful to a reviewer because it is a proxy of the complexity of the package and potential source of confusion to users. Maybe the package uses the same argument name for two completely different things. Or maybe it’s a logical flag that sometimes is set to TRUE and others to FALSE.
+`rev_args()` identifies all the functions' arguments used in a given package. It returns a dataframe which main column, `detault_consistent` indicates whether or not the default value of the argument is consistent across the functions that use it. This helps to evaluate the complexity of the package and to identify potential sources of confusion, for example, if the meaning or default value of the same argument varies across functions.
 
 
 ```r
-rev_args(pkgdir)$arg_df
+rev_args(path)$arg_df
 ```
 
 ```
@@ -116,9 +116,8 @@ rev_args(pkgdir)$arg_df
 ## 6    option           2               TRUE                  100.00000
 ```
 
-We learn that the `n` parameter isn't used consistently: [in one function its default value is 256 but in the others no default is specified.](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R). This may or may not be an issue, but it is certainly helpful to be able to flag items for further investigation.
+The example shows that the parameter `n` is used inconsistently. [The documentation](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation.
 
 ### In sum
 
-Reviewing a package is a complex undertaking. While it's hard to imagine a completely automated review process, having tools on hand can be of great assistance to the reviewer. There is still plenty of work to be done; nonetheless, we feel positive about the progress we made during unconf18 and after.  We welcome your comments and feedback.
-
+If you are building or reviewing an R package, __pkginspector__ can help you better understand its complex structure. This is an important step towards improving your code and research. While __pkginspector__ has room for improvement, the features built during and since unconf18 are already useful. We welcome your comments and feedback.
