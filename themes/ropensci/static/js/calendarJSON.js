@@ -25,7 +25,7 @@ var calendar = {
       'dateEnd': 'Aug 2, 2018',
       'description': '<a href="https://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326906">Talk: Harnessing the Power of Open Data on the Web</a>, <a href="http://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326743">Talk: Version Control: The Gain You Get for Your Pain</a>',
       'location': 'Vancouver, CA',
-      'attendees': 'Scott, Chamberlain, Jenny Bryan'
+      'attendees': 'Scott Chamberlain, Jenny Bryan'
     },    
     {
       'title': '<a href="https://esa.org/neworleans/">Ecological Society of America (ESA)</a>',
