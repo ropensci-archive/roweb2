@@ -24,6 +24,9 @@ tags:
   - r
   - review
   - onboarding
+  - package
+  - unconf
+  - unconf18
 output: 
   html_document: 
     keep_md: yes
