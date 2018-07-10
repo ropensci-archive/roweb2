@@ -105,7 +105,7 @@ vis_package(path, physics = FALSE)
 rev_args(path)$arg_df
 ```
 
-The example shows that the parameter `n` is used inconsistently. [The documentation](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation. In this case, the odd function out - `viridisMap()` - has a different and clearly use case than the others.
+The example shows that the parameter `n` is used inconsistently. [The documentation](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation. In this case, the odd function out--`viridisMap()`--has a clear use case that is different from the others.
 
 ### In sum
 
