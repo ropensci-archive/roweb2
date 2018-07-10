@@ -27,20 +27,7 @@ tags:
   - package
   - unconf
   - unconf18
-output: 
-  html_document: 
-    keep_md: yes
 ---
-
-
-
-
-
-# What's inside? __pkginspector__ provides helpful tools for inspecting package contents
-
-[Sam Albers](https://github.com/boshek), [Leonardo Collado-Torres](https://github.com/lcolladotor), [Mauro Lepore](https://github.com/maurolepore), [Joyce Robbins](https://github.com/jtr13), [Noam Ross](https://github.com/noamross), [Omayma Said](https://github.com/OmaymaS)
-
-<!--- Above is only for GitHub version, will be removed --->
 
 R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of [__pkginspector__](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) __pkginspector__ is for you (or at least it will be!).
 
@@ -97,8 +84,7 @@ The example shows that the number of functions called by `cividis()`, `inferno()
 vis_package(path, physics = FALSE)
 ```
 
-<!--- this link will be changed for the final draft per instructions --->
-![](../../themes/ropensci/static/img/blog-images/2018-07-17-pkginspector/viridisLite.png)
+![](img/blog-images/2018-07-17-pkginspector/viridisLite.png)
 
 ### Argument default usage
 
