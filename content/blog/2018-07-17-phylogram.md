@@ -97,7 +97,7 @@ A wide variety of tree formats can be parsed as phylo objects using either the
 well-optimized `ape::read.tree` function 
 (for [Newick](http://evolution.genetics.washington.edu/phylip/newicktree.html) 
 strings), 
-or the suite of specialized functions in the handy 
+or the suite of specialized functions in the versatile 
 [treeio](https://ropensci.org/blog/2018/05/17/treeio/) package.
 To convert a phylo object to a dendrogram, the **phylogram** package includes 
 the function `as.dendrogram`, which retains node height attributes and can handle
@@ -234,9 +234,11 @@ dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 
 Hopefully users will find the package useful for a range of other applications, 
 and I look forward to receiving feedback from the community. 
-Thanks to @wcornwell and @BenJWard for reviewing the code and 
-suggesting improvements, and to @sckott for handling the @ropensci onboarding 
-process. 
+Thanks to [wcornwell](https://github.com/wcornwell) and 
+[BenJWard](https://github.com/BenJWard) 
+for reviewing the code and suggesting improvements, 
+and to [sckott](https://github.com/sckott) 
+for handling the [ROpenSci](https://github.com/ropensci) onboarding process. 
 
 The phylogram package is available for download from
 [GitHub](https://github.com/ropensci/phylogram) and 
