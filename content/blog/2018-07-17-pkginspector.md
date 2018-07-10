@@ -39,9 +39,9 @@ output:
 
 <!--- Above is only for GitHub version, will be removed --->
 
-R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of __pkginspector__ is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within the package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) __pkginspector__ is for you (or at least it will be!).
+R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of __pkginspector__ is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) __pkginspector__ is for you (or at least it will be!).
 
-We begun building __pkginspector__ during [unconf18](), with support from [rOpenSci](http://unconf18.ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we are building tools to analyze and visualize function dependencies, and to analyze function parameters within a package:
+We begun building __pkginspector__ during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we are building tools to analyze and visualize function dependencies, and to analyze function parameters within a package.
 
 ### Function calls
 
@@ -116,7 +116,7 @@ rev_args(path)$arg_df
 ## 6    option           2               TRUE                  100.00000
 ```
 
-The example shows that the parameter `n` is used inconsistently. [The documentation](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation.
+The example shows that the parameter `n` is used inconsistently. [The documentation](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation. In this case, the odd function out--`viridisMap()`--has a clear use case that is different from the others.
 
 ### In sum
 
