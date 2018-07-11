@@ -5,9 +5,8 @@ package_version: 2.1
 authors:
   - name: Shaun Wilkinson
     url: https://github.com/shaunpwilkinson
-date: 2018-07-17
+date: 2018-07-12
 categories: technote
-topicid: 1175
 tags:
 - r
 - ropensci
@@ -30,7 +29,7 @@ available in packages such as [ape](http://ape-package.ird.fr/),
 [phangorn](https://github.com/KlausVigo/phangorn) and 
 [phytools](http://blog.phytools.org/) make R an ideal platform for
 phylogenetic analysis. 
-Yet the many of the different tree formats are not well integrated, 
+Yet the many different tree formats are not well integrated, 
 as pointed out in a recent 
 [post](https://ropensci.org/blog/2018/05/17/treeio/).
 
@@ -150,7 +149,7 @@ x <- as.cladogram(x)
 ```
 
 
-A nice feature of the dendrogram object type that tree 
+A nice feature of the dendrogram object type is that tree 
 editing operations can be carried out recursively 
 using fast inbuilt functions in the "apply" family such as `dendrapply` 
 and `lapply`. 
@@ -169,7 +168,7 @@ x <- dendrapply(x, set_label)
 plot(x, horiz = TRUE)
 ```
 
-<img src="/img/blog-images/2018-07-17-phylogram/unnamed-chunk-6-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-6-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
 
 
 ### Applications
@@ -208,7 +207,7 @@ dndlist <- dendextend::dendlist(dnd1, dnd2)
 dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 ```
 
-<img src="/img/blog-images/2018-07-17-phylogram/unnamed-chunk-7-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-7-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
 
 \
 
@@ -229,17 +228,20 @@ dndlist <- dendextend::dendlist(dnd1, dnd3)
 dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 ```
 
-<img src="/img/blog-images/2018-07-17-phylogram/unnamed-chunk-8-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-8-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
 
 \
 
-Hopefully users will find the package useful for a range of other applications, 
-and I look forward to receiving feedback from the community. 
-Thanks to [wcornwell](https://github.com/wcornwell) and 
-[BenJWard](https://github.com/BenJWard) 
+Hopefully users will find the package useful for a range of other applications.
+Bug reports and other suggestions are welcomed, and can be directed to the 
+[GitHub issues page](http://github.com/ropensci/phylogram/issues) 
+or the [phylogram google group](https://groups.google.com/group/phylogram).
+Thanks to [Will Cornwell](https://github.com/wcornwell) and 
+[Ben J. Ward](https://github.com/BenJWard) 
 for reviewing the code and suggesting improvements, 
-and to [sckott](https://github.com/sckott) 
-for handling the [rOpenSci](https://github.com/ropensci) onboarding process.
+and to [Scott Chamberlain](https://github.com/sckott) 
+for handling the [rOpenSci](https://github.com/ropensci) 
+onboarding process.
 
 The phylogram package is available for download from
 [GitHub](https://github.com/ropensci/phylogram) and 
