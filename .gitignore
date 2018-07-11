@@ -17,3 +17,4 @@ config.codekit3
 addmypost.R
 content/blog/*.html
 .gitignore
+content/blog/*.Rmd
