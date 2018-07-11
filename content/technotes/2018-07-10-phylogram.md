@@ -169,8 +169,7 @@ x <- dendrapply(x, set_label)
 plot(x, horiz = TRUE)
 ```
 
-<img src="/img/blog-images/2018-07-10-phylogram/unnamed-chunk-6-1.png" width="1000px" style="max-width: 25%;
-    height: auto; display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-10-phylogram/unnamed-chunk-6-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
 
 
 ### Applications
