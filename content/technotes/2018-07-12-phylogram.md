@@ -54,7 +54,7 @@ project.
 This small package features a handful of functions for tree conversion, 
 importing and exporting trees as parenthetic text, and manipulating
 dendrograms for phylogenetic applications. 
-The phylogram package draws heavily on [ape](http://ape-package.ird.fr/),
+The `phylogram` package draws heavily on [ape](http://ape-package.ird.fr/),
 but currently has no other non-standard dependencies.
 
 \
@@ -62,7 +62,7 @@ but currently has no other non-standard dependencies.
 
 ### Installation
 
-To download **phylogram** from CRAN and load the package, run
+To download `phylogram` from CRAN and load the package, run
 
 
 ```r
@@ -97,7 +97,7 @@ well-optimized `ape::read.tree` function
 strings), 
 or the suite of specialized functions in the versatile 
 [treeio](https://ropensci.org/blog/2018/05/17/treeio/) package.
-To convert a phylo object to a dendrogram, the **phylogram** package includes 
+To convert a phylo object to a dendrogram, the `phylogram` package includes 
 the function `as.dendrogram`, which retains node height attributes and can handle
 non-ultrametric trees.
 
@@ -113,7 +113,7 @@ export dendrogram objects to parenthetic text and phylo objects, respectively.
 
 ### Tree editing 
 
-The **phylogram** package includes some new functions for manipulating 
+The `phylogram` package includes some new functions for manipulating 
 trees in dendrogram format.
 Leaf nodes and internal branching nodes can be removed 
 using the function `prune`, which identifies and 
@@ -243,7 +243,7 @@ and to [Scott Chamberlain](https://github.com/sckott)
 for handling the [rOpenSci](https://github.com/ropensci) 
 onboarding process.
 
-The phylogram package is available for download from
+The `phylogram` package is available for download from
 [GitHub](https://github.com/ropensci/phylogram) and 
 [CRAN](https://CRAN.R-project.org/package=phylogram), 
 and a summary of the package is published in the 
