@@ -5,9 +5,9 @@ package_version: 2.1
 authors:
   - name: Shaun Wilkinson
     url: https://github.com/shaunpwilkinson
-date: 2018-07-17
+date: 2018-07-09
 categories: technote
-topicid: 000
+topicid: 1175
 tags:
 - r
 - ropensci
@@ -50,11 +50,10 @@ and plotting publication-quality trees.
 To better integrate the phylo and dendrogram object types, 
 and hence increase the options available for both camps,
 we developed the [phylogram](https://github.com/ropensci/phylogram) 
-package, which is now a part of the [ROpenSci](https://ropensci.org/)
+package, which is now a part of the [rOpenSci](https://ropensci.org/)
 project. 
-This small package features a handful of functions for converting
-trees between the "phylo" and "dendrogram" object types, importing
-and exporting trees as parenthetic text, and manipulating
+This small package features a handful of functions for tree conversion, 
+importing and exporting trees as parenthetic text, and manipulating
 dendrograms for phylogenetic applications. 
 The phylogram package draws heavily on [ape](http://ape-package.ird.fr/),
 but currently has no other non-standard dependencies.
@@ -170,7 +169,8 @@ x <- dendrapply(x, set_label)
 plot(x, horiz = TRUE)
 ```
 
-<img src="/img/blog-images/2018-07-10-phylogram/unnamed-chunk-6-1.png" width="200px" style="display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-09-phylogram/unnamed-chunk-6-1.png" width="1000px" style="max-width: 25%;
+    height: auto; display: block; margin: auto auto auto 0;" />
 
 
 ### Applications
@@ -209,7 +209,7 @@ dndlist <- dendextend::dendlist(dnd1, dnd2)
 dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 ```
 
-<img src="/img/blog-images/2018-07-10-phylogram/unnamed-chunk-7-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-09-phylogram/unnamed-chunk-7-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
 
 \
 
@@ -228,7 +228,7 @@ dndlist <- dendextend::dendlist(dnd1, dnd3)
 dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 ```
 
-<img src="/img/blog-images/2018-07-10-phylogram/unnamed-chunk-8-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+<img src="/img/blog-images/2018-07-09-phylogram/unnamed-chunk-8-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
 
 \
 
@@ -238,13 +238,12 @@ Thanks to [wcornwell](https://github.com/wcornwell) and
 [BenJWard](https://github.com/BenJWard) 
 for reviewing the code and suggesting improvements, 
 and to [sckott](https://github.com/sckott) 
-for handling the [ROpenSci](https://github.com/ropensci) onboarding process. 
+for handling the [rOpenSci](https://github.com/ropensci) onboarding process.
 
 The phylogram package is available for download from
 [GitHub](https://github.com/ropensci/phylogram) and 
 [CRAN](https://CRAN.R-project.org/package=phylogram), 
 and a summary of the package is published in the 
 [Journal of Open Source Software](https://joss.theoj.org/papers/6773f7e7465b5068fc5654018c1a33b8).
-
 
 
