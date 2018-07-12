@@ -7,6 +7,7 @@ authors:
     url: https://github.com/shaunpwilkinson
 date: 2018-07-12
 categories: technote
+topicid: 1256
 tags:
 - r
 - ropensci
