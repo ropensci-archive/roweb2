@@ -1,6 +1,6 @@
 ---
 slug: "pkginspector"
-title: "What's inside? `pkginspector` provides helpful tools for inspecting package contents"
+title: "What's inside? pkginspector provides helpful tools for inspecting package contents"
 preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
 authors:
     
@@ -33,15 +33,15 @@ tags:
 <img src="img/blog-images/2018-07-17-pkginspector/pkginspector_hex_sticker.png" alt="pkginspector hex sticker" style="width: 300px;" />
 </center>
 
-R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) `pkginspector` is for you.
+R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is for you.
 
-We began building `pkginspector` during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package; it is one of a collection of packages, including rOpenSci's [`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr) and [`goodpractice`](https://github.com/MangoTheCat/goodpractice), which are also devoted to this project. 
+We began building [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package; it is one of a collection of packages, including rOpenSci's [`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr) and [`goodpractice`](https://github.com/MangoTheCat/goodpractice), which are also devoted to this project. 
 
 (For more on rOpenSci's review process, see the blog posts: ["How rOpenSci uses Code Review to Promote Reproducible Science"](https://ropensci.org/blog/2017/09/01/nf-softwarereview/) and ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) as well as the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we are building tools to analyze and visualize function dependencies, and to analyze function parameters within a package.
 
 ### Function calls
 
-`rev_fn_summary()` helps you analyze function calls. It takes a package path and returns a table of information about its functions. Consider this example included in `pkginspector`:
+`rev_fn_summary()` helps you analyze function calls. It takes a package path and returns a table of information about its functions. Consider this example included in [`pkginspector`](https://github.com/ropenscilabs/pkginspector/):
 
 
 ```r
@@ -81,6 +81,7 @@ The example shows that the number of functions called by `cividis()`, `inferno()
 
 *What's not working:* We know that we miss function calls if they are passed as parameters to `purrr::map()` and `do.call()` functions. There may be other systematic misses as well.
 
+
 ### Visualization
 
 `vis_package()` helps you visualize the network of functions' dependencies ([interactive example](http://rpubs.com/jtr13/vis_package)).
@@ -90,7 +91,8 @@ The example shows that the number of functions called by `cividis()`, `inferno()
 vis_package(path, physics = FALSE)
 ```
 
-![](img/blog-images/2018-07-17-pkginspector/viridisLite.png)
+![vis_package screenshot](img/blog-images/2018-07-17-pkginspector/viridisLite.png)
+_(screenshot)_
 
 ### Argument default usage
 
@@ -115,6 +117,6 @@ The example shows that the parameter `n` is used inconsistently. [A look at the 
 
 ### In sum
 
-If you are building or reviewing an R package, `pkginspector` can help you better understand its complex structure. This is an important step towards improving your code and research. While `pkginspector` will expand in scope, the features built during and since unconf18 are already useful. For example, if you've tried sketching out the relationship among functions in a package with pencil and paper, you will appreciate the ability to call `vis_package()` to create a network diagram.
+If you are building or reviewing an R package, [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) can help you better understand its complex structure. This is an important step towards improving your code and research. While [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) will expand in scope, the features built during and since unconf18 are already useful. For example, if you've tried sketching out the relationship among functions in a package with pencil and paper, you will appreciate the ability to call `vis_package()` to create a network diagram.
 
-Our broader vision for `pkginspector` is a tool that guides both the development and review of R packages and provides automated checks on subtle differences in package functions that inevitably arise during the development process. The package will (hopefully) grow and exist as a living toolbox for development and review. If you have ideas for tools that could be added to `pkginspector` to facilitate the process of reviewing a package, we encourage you to open an [issue](https://github.com/ropenscilabs/pkginspector/issues). 
+Our broader vision for [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is a tool that guides both the development and review of R packages and provides automated checks on subtle differences in package functions that inevitably arise during the development process. The package will (hopefully) grow and exist as a living toolbox for development and review. If you have ideas for tools that could be added to [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) to facilitate the process of reviewing a package, we encourage you to open an [issue](https://github.com/ropenscilabs/pkginspector/issues). 
