@@ -1,6 +1,6 @@
 ---
 slug: "pkginspector"
-title: "What's inside? __pkginspector__ provides helpful tools for inspecting package contents"
+title: "What's inside? `pkginspector` provides helpful tools for inspecting package contents"
 preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
 authors:
     
@@ -29,13 +29,13 @@ tags:
   - unconf18
 ---
 
-R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of [__pkginspector__](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) __pkginspector__ is for you (or at least it will be!).
+R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) `pkginspector` is for you (or at least it will be!).
 
-We begun building __pkginspector__ during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we are building tools to analyze and visualize function dependencies, and to analyze function parameters within a package.
+We begun building `pkginspector` during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package. (For more on rOpenSci's review process, see the blog post: ["Onboarding at rOpenSci: A Year in Reviews"](https://ropensci.org/blog/2016/03/28/software-review/) and the e-book [*rOpenSci Packages: Development, Maintenance, and Peer Review.*](https://ropensci.github.io/dev_guide/)) Specifically, we are building tools to analyze and visualize function dependencies, and to analyze function parameters within a package.
 
 ### Function calls
 
-`rev_fn_summary()` helps you analyze function calls. It takes a package path and returns a table of information about its functions. Consider this example included in __pkginspector__:
+`rev_fn_summary()` helps you analyze function calls. It takes a package path and returns a table of information about its functions. Consider this example included in `pkginspector`:
 
 
 ```r
@@ -109,4 +109,4 @@ The example shows that the parameter `n` is used inconsistently. [The documentat
 
 ### In sum
 
-If you are building or reviewing an R package, __pkginspector__ can help you better understand its complex structure. This is an important step towards improving your code and research. While __pkginspector__ will expand in scope, the features built during and since unconf18 are already useful. We welcome comments and issues about what other elements of a package deserve to be reviewed and if that review process can be automated. Our broader vision for __pkginspector__ is a tool that guides both the development and review of R packages and provide automated checks on subtle differences in package functions that inevitably arise during the development process. The package will (hopefully) grow and exist as a living toolbox for development and review. 
+If you are building or reviewing an R package, `pkginspector` can help you better understand its complex structure. This is an important step towards improving your code and research. While `pkginspector` will expand in scope, the features built during and since unconf18 are already useful. We welcome comments and issues about what other elements of a package deserve to be reviewed and if that review process can be automated. Our broader vision for `pkginspector` is a tool that guides both the development and review of R packages and provide automated checks on subtle differences in package functions that inevitably arise during the development process. The package will (hopefully) grow and exist as a living toolbox for development and review. 
