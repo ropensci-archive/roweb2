@@ -90,7 +90,7 @@ vis_package(path, physics = FALSE)
 ```
 
 ![vis_package screenshot](img/blog-images/2018-07-17-pkginspector/viridisLite.png)
-_(screenshot)_
+*(screenshot)*
 
 ### Argument default usage
 
