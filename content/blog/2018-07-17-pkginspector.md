@@ -88,7 +88,7 @@ vis_package(path, physics = FALSE)
 
 ### Argument default usage
 
-`rev_args()` identifies all the functions' arguments used in a given package. It returns a dataframe which main column, `detault_consistent` indicates whether or not the default value of the argument is consistent across the functions that use it. This helps to evaluate the complexity of the package and to identify potential sources of confusion, for example, if the meaning or default value of the same argument varies across functions.
+`rev_args()` identifies all the functions' arguments used in a given package. It returns a dataframe whose main column, default_consistent indicates whether or not the default value of the argument is consistent across the functions that use it. This helps to evaluate the complexity of the package and to identify potential sources of confusion, for example, if the meaning or default value of the same argument varies across functions.
 
 
 ```r
