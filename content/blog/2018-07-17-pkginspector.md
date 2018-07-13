@@ -29,7 +29,9 @@ tags:
   - unconf18
 ---
 
-![`pkginspector` hex sticker](img/blog-images/2018-07-17-pkginspector/pkginspector_hex_sticker.png)
+<p><center>
+<img src="img/blog-images/2018-07-17-pkginspector/pkginspector_hex_sticker.png" alt="pkginspector hex sticker" style="width: 300px;" />
+</center>
 
 R packages are widely used in science. Despite this broad usage, the code behind R packages is rarely part of the scientific peer-review process. In the R ecosystem, rOpenSci has been a pioneer in developing a peer-review process for R packages. The goal of [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It summarizes the relationship among functions within a package, and reports whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own) `pkginspector` is for you.
 
