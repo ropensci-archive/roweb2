@@ -8,7 +8,7 @@ var calendar = {
       'dateStart': 'Jul 25',
       'dateEnd': '27, 2018',
       'description': '<a href="https://osaos.org/convening-the-community-looking-towards-the-future/">Handbook hackathon - Open Source Alliance for Open Scholarship </a>',
-      'location': 'NY, NY',
+      'location': 'New York, NY',
       'attendees': 'Stefanie Butland'
     },    
     {
