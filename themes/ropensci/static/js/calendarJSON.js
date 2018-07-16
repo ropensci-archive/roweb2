@@ -2,22 +2,14 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [
+  'eventList': [    
     {
-      'title': '<a href="https://scipy2018.scipy.org/">SciPy</a>',
-      'dateStart': 'Jul 11',
-      'dateEnd': '13, 2018',
-      'description': '<a href="https://scipy2018.scipy.org/ehome/index.php?eventid=299527&tabid=721463&cid=2264594&sessionid=23265870&sessionchoice=1">BoF: A (Python) Community for Reproducible Research and Scientific Code Reviews</a>',
-      'location': 'Austin, TX',
-      'attendees': 'Karthik Ram'
-    },    
-    {
-      'title': '<a href="https://user2018.r-project.org/">UseR!</a>',
-      'dateStart': 'Jul 10',
-      'dateEnd': '13, 2018',
-      'description': 'Keynote',
-      'location': 'Brisbane, AU',
-      'attendees': 'Jenny Bryan'
+      'title': '<a href="https://osaos.org/">OASOS</a>',
+      'dateStart': 'Jul 25',
+      'dateEnd': '27, 2018',
+      'description': '<a href="https://osaos.org/convening-the-community-looking-towards-the-future/">Handbook hackathon - Open Source Alliance for Open Scholarship </a>',
+      'location': 'NY, NY',
+      'attendees': 'Stefanie Butland'
     },    
     {
       'title': '<a href="http://ww2.amstat.org/meetings/jsm/2018/">Joint Statistical Meetings (JSM)</a>',
