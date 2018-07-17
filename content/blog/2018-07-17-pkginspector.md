@@ -35,7 +35,7 @@ tags:
 
 R packages are widely used in science, yet the code behind them often does not come under scrutiny. To address this lack, rOpenSci has been a pioneer in developing a peer review process for R packages. The goal of [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is to help that process by providing a means to better understand the internal structure of R packages. It offers tools to analyze and visualize the relationship among functions within a package, and to report whether or not functions' interfaces are consistent. If you are reviewing an R package (maybe your own!), [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) is for you.
 
-We began building [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package; it is one of a collection of packages, including [`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr) (rOpenSci) and [`goodpractice`](https://github.com/MangoTheCat/goodpractice), among others, that are devoted to this project. (The division of labor among these packages is [under discussion](https://github.com/ropenscilabs/pkginspector/issues/18)). (If you're not familiar with rOpenSci's package review process, ["How rOpenSci uses Code Review to Promote Reproducible Science"](https://ropensci.org/blog/2017/09/01/nf-softwarereview/) provides context.)  
+We began building [`pkginspector`](https://github.com/ropenscilabs/pkginspector/) during [unconf18](http://unconf18.ropensci.org/), with support from [rOpenSci](https://ropensci.org/) and guidance from [Noam Ross](https://github.com/noamross). The package focuses on facilitating a few of the many tasks involved in reviewing a package; it is one of a collection of packages, including [`pkgreviewr`](https://github.com/ropenscilabs/pkgreviewr) (rOpenSci) and [`goodpractice`](https://github.com/MangoTheCat/goodpractice), among others, that are devoted to this project. (The division of labor among these packages is [under discussion](https://github.com/ropenscilabs/pkginspector/issues/18)). If you're not familiar with rOpenSci's package review process, ["How rOpenSci uses Code Review to Promote Reproducible Science"](https://ropensci.org/blog/2017/09/01/nf-softwarereview/) provides context. 
 
 <br>
 
@@ -114,7 +114,7 @@ rev_args(path)$arg_df
 ## 6    option           2               TRUE                  100.00000
 ```
 
-The example shows that the parameter `n` is used inconsistently. A look at the [`viridisLite` code](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation. In this case, the odd function out--`viridisMap()`--has a clear use case that is different from the others.  
+The example shows that the parameter `n` is used inconsistently. A look at the [`viridisLite` code](https://github.com/sjmgarnier/viridisLite/blob/master/R/viridis.R) reveals that the default value of `n` is 256 in one function but missing in all others. This flags a potential issue that deserves further investigation. In this case, the odd function out - `viridisMap()` - has a clear use case that is different from the others.  
   
   
 <br>     
