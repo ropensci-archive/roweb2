@@ -49,7 +49,12 @@
                         </div>
                         <div class="labels">
                             {{ range .Params.tags }}
-                                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
+                                {{ $targetUrl := (print ("/tags/" | relLangURL) (. | urlize) "/") }}
+                                {{ if eq $.Page.URL $targetUrl }}
+                                <a href="{{ $targetUrl }}"><span class="label active">{{ . }}</span></a>
+                                {{ else }}
+                                <a href="{{ $targetUrl }}"><span class="label">{{ . }}</span></a>
+                                {{ end }}
                             {{ end }}
                         </div><!-- /labels -->
 

@@ -262,10 +262,18 @@ article {
         width: 100%;
         display: inline-block;
         & .label {
-            background-color: var(--main_button);
-            color: white;
+            background-color: var(--table_header);
+            color: var(--title);
             text-transform: none;
             margin-right: 10px;
+            &:hover {
+                background-color: var(--main_button);
+                color: white;
+            }
+            &.active {
+                background-color: #006400;
+                color: white;
+            }
         }
     }
     & .excerpt {
