@@ -1115,7 +1115,6 @@ q:before, q:after {
 }table tbody tr td:last-child{
                     padding: 15px 0;
 }table.technotelist {
-    margin-left: 36px;
     border: 1px solid #dfe3eb
 }table.technotelist tbody{
 }table.technotelist tbody tr{
