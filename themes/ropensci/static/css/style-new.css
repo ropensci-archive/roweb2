@@ -1114,10 +1114,7 @@ q:before, q:after {
     border: 1px solid #dfe3eb
 }table.technotelist tbody{
 }table.technotelist tbody tr{
-            background-color: var(--table_row)
-            &:nth-child(even) {
-                background-color: none;
-            }
+            background-color: unset;
 }table.technotelist tbody tr td{
                 padding: 10px 14px 6px 24px;
 }table.technotelist tbody tr td .technotex{
