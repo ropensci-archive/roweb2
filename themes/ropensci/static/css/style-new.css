@@ -776,7 +776,9 @@ q:before, q:after {
             text-transform: none;
             margin-right: 10px;
 }article .excerpt{
-        margin-bottom: 60px;
+        border-bottom: 1px solid #dfe3eb;
+        padding-bottom: 12px;
+        margin-bottom: 40px;
 }article .excerpt p{
             line-height: 1.4rem;
             font-size: .87rem;
