@@ -27,9 +27,9 @@
                     <div class="excerpt">
                         <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
                         
-                        <p class="authors">
+                        <p class="authors">By:
                             {{ range $i, $e := .Params.authors }}
-                                {{ if $i }} &nbsp; | &nbsp; {{ end }}
+                                {{ if $i }}, {{ end }}
                                 {{ if in $.Site.Params.leadership .name }}
                                   <a href="/about/#team">{{ .name }}</a>
                                 {{ else if in $.Site.Params.staff .name }}
@@ -45,7 +45,7 @@
                         <div class="lighter" style="font-style: italic; text-align: justify;">
 
                             <!--<small>{{ .Date.Format "January 2, 2006" }}</small>-->
-                            <p><small>{{ .Summary }}</small></p>
+                            <p>{{ .Summary }}</p>
 
                         </div>
                         <div class="labels">

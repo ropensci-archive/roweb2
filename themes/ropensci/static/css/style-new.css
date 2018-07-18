@@ -779,6 +779,7 @@ q:before, q:after {
         margin-bottom: 60px;
 }article .excerpt p{
             line-height: 1.4rem;
+            font-size: .87rem;
 }article .excerpt p:last-child{
 }article .excerpt p:last-child:after{
             content: '…';
