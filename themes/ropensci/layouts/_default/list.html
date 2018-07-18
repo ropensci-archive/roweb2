@@ -29,9 +29,9 @@
 
                         <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
 
-                        <p class="authors">By:
+                        <p class="lighter authors">By:
                             {{ range $i, $e := .Params.authors }}
-                                {{ if $i }}, {{ end }}
+                                {{ if $i }}&nbsp;|&nbsp;{{ end }}
                                 {{ if in $.Site.Params.leadership .name }}
                                   <a href="/about/#team">{{ .name }}</a>
                                 {{ else if in $.Site.Params.staff .name }}
