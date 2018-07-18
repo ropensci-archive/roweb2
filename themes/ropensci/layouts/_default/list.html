@@ -67,7 +67,7 @@
                 <div class="col-4 top-12 bottom-10">
                     <table class="technotelist">
                         <thead>
-                            <tr><th>Updates and technotes</th></tr>
+                            <tr><th>Brief Technical Notes</th></tr>
                         </thead>
                         <tbody>
                         {{ range where .Site.Pages "Section" (or "technotes" "tutorials") | first 18 }}
