@@ -1109,6 +1109,34 @@ q:before, q:after {
                 padding: 15px;
 }table tbody tr td:last-child{
                     padding: 15px 0;
+}table.technotelist {
+    margin-left: 36px;
+    border: 1px solid #dfe3eb
+}table.technotelist tbody{
+}table.technotelist tbody tr{
+            background-color: var(--table_row)
+            &:nth-child(even) {
+                background-color: none;
+            }
+}table.technotelist tbody tr td{
+                padding: 10px 14px 6px 24px;
+}table.technotelist tbody tr td .technotex{
+                    border-bottom: 1px solid #dfe3eb;
+                    text-transform: lowercase;
+}table.technotelist tbody tr td span{
+                    color: #dfe3eb;
+}table.technotelist tbody tr:last-of-type{
+}table.technotelist tbody tr:last-of-type .technotex{
+                    border-bottom: none;
+}table.technotelist tbody tr:first-of-type{
+}table.technotelist tbody tr:first-of-type .technotex{
+                    margin-top: 8px;
+}table.technotelist tfoot{
+        font-weight: 600;
+}table.technotelist tfoot th{
+            padding: 18px;
+}table.technotelist tfoot th a{
+                color: #5c677e;
 }/***************************************************************************************** DATA TABLES *****/.dataTables_paginate {
     padding: 0 15px 15px 15px;
     margin: 20px 0 60px 0;
