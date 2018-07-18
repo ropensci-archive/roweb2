@@ -28,7 +28,8 @@
                         <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
                         
                         <p class="authors">
-                            {{ range .Params.authors }}
+                            {{ range $i, $e := .Params.authors }}
+                                {{ if $i }} &nbsp; | &nbsp; {{ end }}
                                 {{ if in $.Site.Params.leadership .name }}
                                   <a href="/about/#team">{{ .name }}</a>
                                 {{ else if in $.Site.Params.staff .name }}
@@ -38,13 +39,14 @@
                                 {{ else }}
                                   <a href="{{ .url }}" target="_blank">{{ .name }}</a>
                                 {{ end }}
-                                &nbsp; | &nbsp;
                             {{ end }}
 
-                            <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
                         </p>
                         <div class="lighter" style="font-style: italic; text-align: justify;">
-                            <p>{{ .Summary }}</p>
+
+                            <!--<small>{{ .Date.Format "January 2, 2006" }}</small>-->
+                            <p><small>{{ .Summary }}</small></p>
+
                         </div>
                         <div class="labels">
                             {{ range .Params.tags }}
@@ -58,7 +60,7 @@
                 <div class="col-4 top-12 bottom-10">
                     <table class="technotelist">
                         <thead>
-                            <tr><th>Releases and Technotes</th></tr>
+                            <tr><th>Updates and technotes</th></tr>
                         </thead>
                         <tbody>
                         {{ range where .Site.Pages "Section" (or "technotes" "tutorials") | first 18 }}

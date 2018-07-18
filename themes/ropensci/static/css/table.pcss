@@ -44,12 +44,17 @@ table.technotelist {
     border: 1px solid var(--table_header);
     & tbody {
         & tr {
-            background-color: unset;
+            &:nth-child(even) {
+                background-color: unset;
+            }
             & td {
                 padding: 6px 14px 6px 24px;
                 & .technotex {
                     border-bottom: 1px solid var(--table_header);
                     text-transform: lowercase;
+                    & a {
+                        color: var(--bg_footer);
+                    }
                 }
                 & span {
                     color: var(--table_header);
