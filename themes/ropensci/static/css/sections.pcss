@@ -262,14 +262,28 @@ article {
         width: 100%;
         display: inline-block;
         & .label {
-            background-color: var(--main_button);
-            color: white;
+            background-color: var(--table_header);
+            color: var(--title);
             text-transform: none;
             margin-right: 10px;
+            &:hover {
+                background-color: var(--main_button);
+                color: white;
+            }
+            &.active {
+                background-color: var(--main_button);
+                color: white;
+            }
         }
     }
     & .excerpt {
-        margin-bottom: 60px;
+        border-bottom: 1px solid var(--table_header);
+        padding-bottom: 12px;
+        margin-bottom: 40px;
+        & p {
+            line-height: 1.4rem;
+            font-size: .87rem;
+        }
         & p:last-child {
             &:after {
             content: '…';

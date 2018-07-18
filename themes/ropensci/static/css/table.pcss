@@ -39,6 +39,49 @@ table {
     }
 }
 
+table.technotelist {
+    border: 1px solid var(--table_header);
+    & tbody {
+        & tr {
+            &:nth-child(even) {
+                background-color: unset;
+            }
+            & td {
+                padding: 6px 14px 6px 24px;
+                & .technotex {
+                    border-bottom: 1px solid var(--table_header);
+                    text-transform: lowercase;
+                    & a {
+                        color: var(--bg_footer);
+                    }
+                }
+                & span {
+                    color: var(--table_header);
+                }
+            }
+            &:last-of-type {
+                & .technotex {
+                    border-bottom: none;
+                }
+            }
+            &:first-of-type {
+                & .technotex {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+    & tfoot {
+        font-weight: 600;
+        & th {
+            padding: 18px;
+            & a {
+                color: var(--title);
+            }
+        }
+    }
+}
+
 /***************************************************************************************** DATA TABLES *****/
 
 .dataTables_paginate {
