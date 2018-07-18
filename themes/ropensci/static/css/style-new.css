@@ -1116,7 +1116,7 @@ q:before, q:after {
 }table.technotelist tbody tr{
             background-color: unset;
 }table.technotelist tbody tr td{
-                padding: 10px 14px 6px 24px;
+                padding: 6px 14px 6px 24px;
 }table.technotelist tbody tr td .technotex{
                     border-bottom: 1px solid #dfe3eb;
                     text-transform: lowercase;
