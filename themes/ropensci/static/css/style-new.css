@@ -1253,8 +1253,8 @@ q:before, q:after {
                 justify-content: center;
     }
 }@media screen and (min-width: 736px) {
-    .mainpostlist {
-        padding-right: 36px;
+    .technotebar {
+        padding-left: 36px;
     }
 }@media screen and (max-width: 1024px) {
 
