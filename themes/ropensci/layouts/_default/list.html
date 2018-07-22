@@ -64,31 +64,7 @@
                 {{ end }}
                 </div><!-- /maintext -->
 
-                <div class="col-4 top-12 bottom-10">
-                    <table class="technotelist">
-                        <thead>
-                            <tr><th>Brief Technical Notes</th></tr>
-                        </thead>
-                        <tbody>
-                        {{ range where .Site.Pages "Section" (or "technotes" "tutorials") | first 14 }}
-                            <tr>
-                                <td>
-                                    <div class="technotex">
-                                        <a href="{{ .URL | relURL }}">{{ .Title | truncate 42 }}</a>
-                                        <span class="label pull-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                                    </div>
-                                </td>
-                            </tr>
-                        {{ end }}
-                        </tbody>
-                        <tfoot>
-                            <tr><th>
-                                <a href ="/technotes">
-                                    <span class="label pull-right">More Technotes &nbsp; <i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                                </a></th></tr>
-                        </tfoot>
-                    </table>
-                </div>
+                {{ partial "technotebar.html" . }}
 
             </div>
         </div>
