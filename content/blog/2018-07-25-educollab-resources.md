@@ -32,6 +32,10 @@ draft: true
 
 In the first post of this series, we sketched out some of the common challenges faced by educators who teach with R across scientific domains. In this post, we delve into what makes a "good" educational resource for teaching science with R.
 
+<center>
+<img alt = 'educollab hashtags' src='/img/blog-images/2018-07-24-educollab-challenges/educollab-logo.png' />
+</center>
+
 For instructors teaching sciences with R, there are a number of open educational resources that they can reuse, tailor to their own teaching style, or use to inspire them in creating their own materials. Some examples:
 
 - [Data wrangling, exploration, and analysis with R (a.k.a. STAT545)](http://stat545.com/), originally developed by Jenny Bryan
@@ -41,6 +45,10 @@ For instructors teaching sciences with R, there are a number of open educational
 - The lessons offered by [The Carpentries](https://carpentries.org/), including [Software Carpentry](https://software-carpentry.org/lessons/) (which are domain agnostic) and [Data Carpentry](http://www.datacarpentry.org/lessons/) (which are domain specific) 
 
 What makes these teaching materials appealing for educators?
+
+<center>
+<img alt = 'educators thinking how to make materials appealing' src='/img/blog-images/2018-07-25-educollab-resources/2018-05-21 08.25.15.jpg' />
+</center>
 
 _These curricular materials are open and discoverable by other educators._ A common belief is that educational resources that are closed are better than any open material can ever be. Otherwise, why would someone pay for educational materials? While there are surely cases of closed educational resources that are excellent, openness is one of the most appealing characteristics of high quality teaching resources for teaching sciences with R. Open materials have no cost for students, allow a community of educators and students to improve and update the materials, and make it possible to reuse and adapt resources. All this makes the whole teaching experience a lot more efficient for the education community at large. In the closed model, where educators do not share their materials openly, they are often working alone (or in small groups) without any feedback or contributions from the teaching community. 
 

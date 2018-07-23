@@ -29,7 +29,15 @@ tags:
 - educollab
 ---
 
-Educators who teach science using R tend to face common pedagogical problems, regardless of their scientific domain. Yet instructors who teach with R often feel isolated at their institutions. They may be the only ones in their departments to teach using R. Even if there are others, the culture of collaboration around teaching is generally impoverished, unlike the rich culture of collaboration around research. In this three-part series of blog posts, participants at the [rOpenSci 2018 unconf](https://unconf18.ropensci.org/) briefly survey the state of teaching science with R. This first post aims to summarize the main challenges that educators face, as a tool to help them think through the decisions they make about their course materials. The second post explains what makes for a good educational resource which can address these shared challenges. The final post sketches out the main things that educators can do in the future to create and share teaching materials and---even more important---to foster a community of practice around teaching science with R.
+<center>
+<img alt = 'educollab hashtags' src='/img/blog-images/2018-07-24-educollab-challenges/educollab-logo.png' />
+</center>
+
+Educators who teach science using R tend to face common pedagogical problems, regardless of their scientific domain. Yet instructors who teach with R often feel isolated at their institutions. They may be the only ones in their departments to teach using R. Even if there are others, the culture of collaboration around teaching is generally impoverished, unlike the rich culture of collaboration around research. In this three-part series of blog posts, participants at the [rOpenSci 2018 unconf](https://unconf18.ropensci.org/) briefly survey the state of teaching science with R. 
+
+{{< tweet 1004132496458407937 >}}
+
+This first post aims to summarize the main challenges that educators face, as a tool to help them think through the decisions they make about their course materials. The second post explains what makes for a good educational resource which can address these shared challenges. The final post sketches out the main things that educators can do in the future to create and share teaching materials and---even more important---to foster a community of practice around teaching science with R.
 
 The primary challenge instructors face is how to keep the focus on their subject matter and not on R. In most courses that use R, some subject like ecology, statistics, or history is the main discipline to be taught, and teaching R is only a means to that end. In other words, we are not teaching courses about R programming or programming in general, as one might in computer science. Rather, we are teaching R so that we can teach specific skills, such as modeling, manipulating, or visualizing data. And we teach those skills so that we can teach students how to think as ecologists, psychologists, statisticians, or historians. Yet much of the day-to-day work of teaching and learning is necessarily focused on R, since in these domains R is not just a programming language but actually a language of thought and expression within one's discipline. Educators therefore must balance teaching R with teaching their subject.
 
