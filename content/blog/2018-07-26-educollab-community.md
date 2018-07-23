@@ -27,12 +27,13 @@ tags:
 - unconf
 - unconf18
 - educollab
+draft: true
 ---
 
 **tl;dr**: we propose three calls to action:
 
 1. Share your curricular materials in the open.
-1. Participate in rOpenSci Education profile series.
+1. Participate in the rOpenSci Education profile series.
 1. Discuss with us how you want to be involved in [rOpenSci Educators’ Collaborative](https://github.com/ropenscilabs/rOpenSciEd).
 
 ------------------------------
@@ -47,7 +48,7 @@ On the other hand, there is a lack of integrated long-form  resources, where edu
 
 - [Humanities Commons](https://hcommons.org)
 - [Open Science Framework](https://osf.io)
-- [GitHub repository](https://github.com) with recommended topic tags `teaching` and `rstats`.
+- [GitHub repository](https://github.com) with recommended topic tags `teaching` and `rstats`. ([Sample search](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ateaching+topic%3Arstats&ref=simplesearch))
 
 Even if they are made open, the problem remains of how to discover their availability; current methods tend to be time-dependent like sharing links in tweets or posts on community forums. If stored in a GitHub repository with the `teaching` and `rstats` topics added, one can search GitHub for these topics: currently there are 8 of them!
 
