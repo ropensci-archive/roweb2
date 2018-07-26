@@ -11,6 +11,7 @@ preface: The blog post series corresponds to the material for a talk I'll give a
 tags:
 - osmdata
 - osmplotr
+- opencage
 - bbox
 - magick
 - birder
@@ -21,19 +22,18 @@ output:
 ---
 
 This post is the 1st post of a series showcasing various rOpenSci
-packages as if I were a birder trying to make the most of R in general
-and rOpenSci in particular. Although the series use cases will mostly
-feature *birds*, it’ll be the occasion to highlight rOpenSci’s packages
-that are more widely applicable, so read on no matter what your field
-is!
+packages as if Maëlle were a birder trying to make the most of R in
+general and rOpenSci in particular. Although the series use cases will
+mostly feature *birds*, it’ll be the occasion to highlight rOpenSci’s
+packages that are more widely applicable, so read on no matter what your
+field is!
 
 A logical first step in this birder’s guide to rOpenSci is to use R to
 find where to observe birds! In this blog post, we shall use rOpenSci
 packages accessing open geographical data to locate and visualize where
 to observe birds near a given location.
 
-First of all, where are we now?
-===============================
+### First of all, where are we now?
 
 The Max Planck Institute for Ornithology (henceforth shortened to MPI),
 where Maëlle will give a talk is located at *Am Obstberg 1 78315
@@ -61,11 +61,9 @@ head(names(mpi))
 This gets us Am Obstberg 1, 78315 Radolfzell, Germany (`mpi$formatted`)
 which is in 🇩🇪 (`mpi$annotations.flag` gets us a flag!).
 
-Birding in a bird hide?
-=======================
+### Birding in a bird hide?
 
-Where to find a bird hide?
---------------------------
+#### Where to find a bird hide?
 
 You can most certainly go birding anywhere, but if you can find a bird
 hide, it might be a very appropriate observation point. Now that we know
@@ -123,8 +121,7 @@ results$osm_points
 
 Yay, we now know where to find a bird hide not too far from the MPI!
 
-Visualizing our location and the bird hide
-------------------------------------------
+#### Visualizing our location and the bird hide
 
 So one could enter the coordinates of that bird hide in one’s favourite
 mapping software or app but to show you where the bird hide is we can
@@ -228,8 +225,7 @@ magick::image_read('map_a2.png') %>%
 Aha, now we see where the bird hide is, fantastic! But as Mark noted,
 birds can actually be observed from other places.
 
-Birding where birds should be?
-==============================
+### Birding where birds should be?
 
 Birds are most likely to be found **where water lies close to natural
 areas**, and we can translate this to R code! We shall get all water and
@@ -325,11 +321,9 @@ itself is not too badly located, which after all is not too surprising
 for an MPI of *ornithology*. Maybe one should just walk to the one of
 the nearest lakes to meet some birds.
 
-Conclusion
-==========
+### Conclusion
 
-A note about open geographical data
------------------------------------
+#### A note about open geographical data
 
 In this post we used `opencage`, `osmdata` and `osmplotr` therefore
 mosly making use of the awesome OpenStreetMap data (The OpenCage
@@ -340,8 +334,7 @@ the annotation “Map data © OpenStreetMap contributors” using rOpenSci’s
 both `osmdata` and `osmplotr` have start-up messages indicating the data
 origin and licence.
 
-Geographical analyses with R
-----------------------------
+#### Geographical analyses with R
 
 In this post we showcased three rOpenSci packages helping you use
 OpenStreetMap and other open geographical data in R:
@@ -366,8 +359,7 @@ Muenchow](https://geocompr.robinlovelace.net/), and [more links
 presented in this blog post of Steph
 Locke’s](https://itsalocke.com/blog/r-spatial-resources/).
 
-More birding soon!
-------------------
+#### More birding soon!
 
 Stay tuned for the next post in this series, about getting bird
 observation data in R! In the meantime, happy birding!
