@@ -7,7 +7,7 @@ authors:
   - name: Mark Padgham
     url: https://github.com/mpadge
 date: 2018-08-14
-preface: The blog post series corresponds to the material for a talk I'll give at the [Animal Movement Analysis summer school in Radolfzell, Germany](http://animove.org/courses/animove-2018/) on [September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
+preface: The blog post series corresponds to the material for a talk Maëlle wll give at the [Animal Movement Analysis summer school in Radolfzell, Germany](http://animove.org/courses/animove-2018/) on [September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
 tags:
 - osmdata
 - osmplotr
