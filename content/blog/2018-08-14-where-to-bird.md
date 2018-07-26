@@ -26,12 +26,12 @@ packages as if Maëlle were a birder trying to make the most of R in
 general and rOpenSci in particular. Although the series use cases will
 mostly feature *birds*, it’ll be the occasion to highlight rOpenSci’s
 packages that are more widely applicable, so read on no matter what your
-field is!
+field is! Moreoever, each post should stand on its own.
 
 A logical first step in this birder’s guide to rOpenSci is to use R to
-find where to observe birds! In this blog post, we shall use rOpenSci
-packages accessing open geographical data to locate and visualize where
-to observe birds near a given location.
+find where to observe birds! In this blog post, we shall use **rOpenSci
+packages accessing open geographical data** to locate and visualize
+where to observe birds near a given location.
 
 ### First of all, where are we now?
 
