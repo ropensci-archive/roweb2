@@ -27,7 +27,6 @@ tags:
 - unconf
 - unconf18
 - educollab
-draft: true
 ---
 
 **tl;dr**: we propose three calls to action:
