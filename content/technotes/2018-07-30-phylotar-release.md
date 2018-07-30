@@ -32,13 +32,13 @@ tags:
 
 phylotaR is available from CRAN.
 
-```{r}
+```r
 install.packages('phylotaR')
 ```
 
 Alternatively, the latest development version can be downloaded from phylotaR's [GitHub page](https://github.com/ropensci/phylotaR).
 
-```{r}
+```r
 devtools::install_github(repo = 'ropensci/phylotaR', build_vignettes = TRUE)
 ```
 
