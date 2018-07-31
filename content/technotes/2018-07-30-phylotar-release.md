@@ -32,7 +32,7 @@ The phylotaR R package, like its earlier inspiration [PhyLoTa](http://phylota.ne
 
 The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information, download sequences, identify clusters, identify clusters among the clusters.
 
-![phylotaR pipeline stages](https://raw.githubusercontent.com/ropensci/phylotaR/master/other/stages.png)
+![phylotaR pipeline stages](/img/blog-images/2018-07-31-phylotar/stages.png)
 
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
@@ -83,7 +83,7 @@ run(wd = wd)
 # ^^ running should take about 5 minutes to complete
 ```
 
-For more details on running the pipeline, such as changing the parameters or understanding the results, see the vignette, `vignette('phylotaR)'` or visit the [website](https://ropensci.github.io/phylotaR/).
+For more details on running the pipeline, such as changing the parameters or understanding the results, see the vignette, `vignette('phylotaR')` or visit the [website](https://ropensci.github.io/phylotaR/).
 
 ### Timings
 
@@ -104,7 +104,7 @@ Platyrrhini|212|12731|60|
 
 ### Reviewing the results
 
-After a pipeline has completed, the `wd` will contain all the results files. The information contained within these files can be read into the R environment using the `read_phylota()` function. It will generate a `Phylota` object that contains information on all the idnetified 'clusters' -- i.e. groups of ortholgous sequences. A user can interact with the object to filter out unwanted sequences, clusters or taxonomic groups. The package comes with completed results for playing with. In the example below, we demonstrate how to generate a presence/absence matrix of all the genera in the top 10 clusters identifed for cycads.
+After a pipeline has completed, the `wd` will contain all the results files. The information contained within these files can be read into the R environment using the `read_phylota()` function. It will generate a `Phylota` object that contains information on all the identified 'clusters' -- i.e. groups of ortholgous sequences. A user can interact with the object to filter out unwanted sequences, clusters or taxonomic groups. The package comes with completed results for playing with. In the example below, we demonstrate how to generate a presence/absence matrix of all the genera in the top 10 clusters identifed for cycads.
 
 ```r
 library(phylotaR)
@@ -126,6 +126,8 @@ p <- plot_phylota_pa(phylota = cycads, cids = cycads@cids, txids = genus_txids,
 print(p)
 ```
 
+![presenceabsence of cycad genera](/img/blog-images/2018-07-31-phylotar/pa.png)
+
 In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous.
 
 ```r
@@ -140,6 +142,8 @@ p <- plot_phylota_treemap(phylota = tinamous, txids = txids, txnms = txnms,
                           area = 'nsq', fill = 'ncl')
 print(p)
 ```
+
+![treemap of tinmous genera](/img/blog-images/2018-07-31-phylotar/treemap.png)
 
 For more information on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
 
