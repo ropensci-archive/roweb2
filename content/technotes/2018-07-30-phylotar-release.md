@@ -26,6 +26,15 @@ tags:
 
 ## What is phylotaR?
 
+In any phylogenetic analysis it is important to identify sequences that share the same orthology. This is often performed by searching an online sequence repository, such as GenBank, using a gene/region name and the taxa of interest, e.g. 'Aotus' and 'cytochrome oxidase'. Relying solely on sequence labels, however, can miss sequences that have either not been labelled, have unanticipated names or have been mislabelled.
+
+The phylotaR R package, like its earlier inspiration [PhyLoTa](http://phylota.net/), identifies sequences of shared orthology not by naming matching but instead through the use of an alignment search tool, [BLAST](https://en.wikipedia.org/wiki/BLAST). As a result, a user of phylotaR will able to download more relevant sequence data for their phylogenetic analysis than they otherwise would.
+
+The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information, download sequences, identify clusters, identify clusters among the clusters.
+
+![phylotaR pipeline stages](https://raw.githubusercontent.com/ropensci/phylotaR/master/other/stages.png)
+
+For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
 
 ## Installation
@@ -44,7 +53,7 @@ devtools::install_github(repo = 'ropensci/phylotaR', build_vignettes = TRUE)
 
 ### BLAST+
 
-In addition to the R package a user will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortnately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system.
+In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortnately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system.
 
 **To install BLAST+ on your local machine follow the [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).**
 
@@ -71,6 +80,7 @@ dir.create('aotus')
 setup(wd = wd, txid = 9504, ncbi_dr = '/usr/local/ncbi/blast/bin/')
 # run the pipeline
 run(wd = wd)
+# ^^ running should take about 5 minutes to complete
 ```
 
 For more details on running the pipeline, such as changing the parameters or understanding the results, see the vignette, `vignette('phylotaR)'` or visit the [website](https://ropensci.github.io/phylotaR/).
@@ -97,6 +107,10 @@ Platyrrhini|212|12731|60|
 
 
 ## Future
+
+We have many ideas on improving phylotaR, such as making use of the BLAST API -- instead of relying on users installing BLAST+ on their machine -- and allowing users to introduce their own non-GenBank sequences. Please see the [contributing page](https://github.com/ropensci/phylotaR/blob/master/CONTRIBUTING.md) for a complete and current list of development options. Fork requests are welcome!
+
+Alternatively, if you have any ideas of your own for new features than please open a [new issue](https://github.com/ropensci/phylotaR/issues).
 
 ## Useful Links
 
