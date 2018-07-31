@@ -102,9 +102,44 @@ Eutardigrada|261|960|14|
 Kazachstania|40|623|23|
 Platyrrhini|212|12731|60|
 
-### Visualising the output
+### Reviewing the results
 
+After a pipeline has completed, the `wd` will contain all the results files. The information contained within these files can be read into the R environment using the `read_phylota()` function. It will generate a `Phylota` object that contains information on all the idnetified 'clusters' -- i.e. groups of ortholgous sequences. A user can interact with the object to filter out unwanted sequences, clusters or taxonomic groups. The package comes with completed results for playing with. In the example below, we demonstrate how to generate a presence/absence matrix of all the genera in the top 10 clusters identifed for cycads.
 
+```r
+library(phylotaR)
+data(cycads)
+# drop all but first ten
+cycads <- drop_clstrs(cycads, cycads@cids[1:10])
+# get genus-level taxonomic names
+genus_txids <- get_txids(cycads, txids = cycads@txids, rnk = 'genus')
+genus_txids <- unique(genus_txids)
+# dropping missing
+genus_txids <- genus_txids[genus_txids !=  '']
+genus_nms <- get_tx_slot(cycads, genus_txids, slt_nm = 'scnm')
+# make alphabetical for plotting
+genus_nms <- sort(genus_nms, decreasing = TRUE)
+# generate geom_object
+p <- plot_phylota_pa(phylota = cycads, cids = cycads@cids, txids = genus_txids,
+                     txnms = genus_nms)
+# plot
+print(p)
+```
+
+In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous.
+
+```r
+library(phylotaR)
+data(tinamous)
+# Plot taxa, size by n. sq, fill by ncl
+txids <- get_txids(tinamous, txids = tinamous@txids, rnk = 'genus')
+txids <- txids[txids !=  '']
+txids <- unique(txids)
+txnms <- get_tx_slot(tinamous, txids, slt_nm = 'scnm')
+p <- plot_phylota_treemap(phylota = tinamous, txids = txids, txnms = txnms,
+                          area = 'nsq', fill = 'ncl')
+print(p)
+```
 
 ## Future
 
