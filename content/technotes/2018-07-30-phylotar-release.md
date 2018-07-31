@@ -141,6 +141,8 @@ p <- plot_phylota_treemap(phylota = tinamous, txids = txids, txnms = txnms,
 print(p)
 ```
 
+For more information on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
+
 ## Future
 
 We have many ideas on improving phylotaR, such as making use of the BLAST API -- instead of relying on users installing BLAST+ on their machine -- and allowing users to introduce their own non-GenBank sequences. Please see the [contributing page](https://github.com/ropensci/phylotaR/blob/master/CONTRIBUTING.md) for a complete and current list of development options. Fork requests are welcome!
