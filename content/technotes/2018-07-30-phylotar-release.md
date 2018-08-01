@@ -5,7 +5,7 @@ package_version: 1.0.0
 authors:
   - name: Dom Bennett
     url: https://github.com/dombennett
-date: 2018-07-30
+date: 2018-08-08
 categories: technote
 topicid: 1256
 tags:
@@ -22,6 +22,8 @@ tags:
 - genbank
 - dna
 - sequences
+- data-access
+- taxonomy
 ---
 
 ## What is phylotaR?
@@ -32,7 +34,7 @@ The phylotaR R package, like its earlier inspiration [PhyLoTa](http://phylota.ne
 
 The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information, download sequences, identify clusters, identify clusters among the clusters.
 
-![phylotaR pipeline stages](/img/blog-images/2018-07-31-phylotar/stages.png)
+![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
 
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
@@ -126,7 +128,7 @@ p <- plot_phylota_pa(phylota = cycads, cids = cycads@cids, txids = genus_txids,
 print(p)
 ```
 
-![presenceabsence of cycad genera](/img/blog-images/2018-07-31-phylotar/pa.png)
+![presenceabsence of cycad genera](/img/blog-images/2018-08-08-phylotar/pa.png)
 
 In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous.
 
@@ -143,7 +145,7 @@ p <- plot_phylota_treemap(phylota = tinamous, txids = txids, txnms = txnms,
 print(p)
 ```
 
-![treemap of tinmous genera](/img/blog-images/2018-07-31-phylotar/treemap.png)
+![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
 
 For more information on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
 
@@ -152,6 +154,10 @@ For more information on manipulating the Phylota object, see the [phylotaR websi
 We have many ideas on improving phylotaR, such as making use of the BLAST API -- instead of relying on users installing BLAST+ on their machine -- and allowing users to introduce their own non-GenBank sequences. Please see the [contributing page](https://github.com/ropensci/phylotaR/blob/master/CONTRIBUTING.md) for a complete and current list of development options. Fork requests are welcome!
 
 Alternatively, if you have any ideas of your own for new features than please open a [new issue](https://github.com/ropensci/phylotaR/issues).
+
+## Acknowledgements
+
+Big thanks to [Zebulun Arendsee](https://github.com/arendsee), [Naupaka Zimmerman](https://github.com/naupaka) and for reviewing/editing the package for ROpenSci.
 
 ## Useful Links
 
