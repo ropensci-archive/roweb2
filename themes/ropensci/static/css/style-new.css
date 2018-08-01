@@ -683,9 +683,17 @@ q:before, q:after {
 }.team .label.advisor:after{
   content: 'advisor';
 }.team .label.alumnus{
-  background-color: #f17183;
+  background-color: #797f8b;
 }.team .label.alumnus:after{
   content: 'alumnus';
+}.team .label.postdoc{
+  background-color: #4b8add;
+}.team .label.postdoc:after{
+  content: 'postdoc';
+}.team .label.editor{
+  background-color: #f17183;
+}.team .label.editor:after{
+  content: 'editor';
 }.resources {
 }.resources .resourcelist{
 }.resources .resourcelist li{
