@@ -67,7 +67,7 @@ Once BLAST+ is intalled you will need to record the location of the BLAST+ file 
 
 After installation, a phylotaR pipeline can be launched with the `setup()` and `run()` functions. Before launching a run, a user must first look up the NCBI taxonomic ID for their chosen taxonomic group. To find the ID of your taxon, search [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy) using the scientific name or an English common name. For example, upon searching for the primate genus 'Aotus' we should come across this [page](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9504) which states the taxonomic ID as `9504`.
 
-Because names are not unique phylotaR does not allow names to be used instead of taxonomic IDs. Aotus is a good example as there is also a plant genus of the same name. If we were to search NCBI with just the name then we would be downloading a mixture of primate and plant DNA. Such is the importance of IDs. (You could automate this step yourself using the [taxize](https://github.com/ropensci/taxize) package.)
+Because names are not unique phylotaR does not allow names to be used instead of taxonomic IDs. Aotus is a good example as there is also a plant genus of the same name. If we were to search NCBI with just the name then we would be downloading a mixture of primate and plant DNA. Such is the importance of IDs. (Alternatively, you could automate this step yourself using the [taxize](https://github.com/ropensci/taxize) package.)
 
 ### Running
 
@@ -90,7 +90,6 @@ For more details on running the pipeline, such as changing the parameters or und
 ### Timings
 
 The time it takes for a pipeline to complete depends on the number of taxonomic groups a taxon contains and the number of sequences it represents. The genus Aotus has more species than the great apes but the latter will take far long because it represents highly well-sequenced species.
-
 
 Taxon|N. taxa|N. sequences|Time taken (mins.)|
 |:--|--:|--:|--:|
@@ -157,7 +156,7 @@ Alternatively, if you have any ideas of your own for new features than please op
 
 ## Acknowledgements
 
-Big thanks to [Zebulun Arendsee](https://github.com/arendsee), [Naupaka Zimmerman](https://github.com/naupaka) and for reviewing/editing the package for ROpenSci.
+Big thanks to [Zebulun Arendsee](https://github.com/arendsee), [Naupaka Zimmerman](https://github.com/naupaka) and [Scott Chamberlain](https://github.com/sckott) for reviewing/editing the package for ROpenSci.
 
 ## Useful Links
 
