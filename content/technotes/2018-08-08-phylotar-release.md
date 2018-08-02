@@ -96,15 +96,15 @@ The time it takes for a pipeline to complete depends on the number of taxonomic 
 
 Taxon|N. taxa|N. sequences|Time taken (mins.)|
 |:--|--:|--:|--:|
-Anisoptera|1175|11432|72|
-Acipenseridae|51|2407|13|
-Tinamiformes|25|251|2.7|
-Aotus|13|1499|3.9|
-Bromeliaceae|1171|9833|66|
-Cycadidae|353|8331|37|
-Eutardigrada|261|960|14|
-Kazachstania|40|623|23|
-Platyrrhini|212|12731|60|
+Anisoptera ("dragonflies")|1175|11432|72|
+Acipenseridae ("sturgeons")|51|2407|13|
+Tinamiformes ("tinamous")|25|251|2.7|
+Aotus ("night/owl monkeys")|13|1499|3.9|
+Bromeliaceae ("bromeliads")|1171|9833|66|
+Cycadidae ("cycads")|353|8331|37|
+Eutardigrada ("water bears")|261|960|14|
+Kazachstania (a group of yeast)|40|623|23|
+Platyrrhini ("old world monkeys")|212|12731|60|
 
 ### Reviewing the results
 
