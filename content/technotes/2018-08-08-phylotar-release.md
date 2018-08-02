@@ -26,9 +26,12 @@ tags:
 - taxonomy
 ---
 
+In this technote I will outline what phylotaR was developed for, how to install it and how to run it with some simple examples.
+
+
 ## What is phylotaR?
 
-In any phylogenetic analysis it is important to identify sequences that share the same orthology. This is often performed by searching an online sequence repository, such as GenBank, using a gene/region name and the taxa of interest, e.g. 'Aotus' and 'cytochrome oxidase'. Relying solely on sequence labels, however, can miss sequences that have either not been labelled, have unanticipated names or have been mislabelled.
+In any phylogenetic analysis it is important to identify sequences that share the same [orthology](https://en.wikipedia.org/wiki/Sequence_homology#Orthology) -- homologous sequences separated by speciation events. This is often performed by simply searching an online sequence repository using sequence labels. Relying solely on sequence labels, however, can miss sequences that have either not been labelled, have unanticipated names or have been mislabelled.
 
 The phylotaR R package, like its earlier inspiration [PhyLoTa](http://phylota.net/), identifies sequences of shared orthology not by naming matching but instead through the use of an alignment search tool, [BLAST](https://en.wikipedia.org/wiki/BLAST). As a result, a user of phylotaR will able to download more relevant sequence data for their phylogenetic analysis than they otherwise would.
 
@@ -60,6 +63,7 @@ devtools::install_github(repo = 'ropensci/phylotaR', build_vignettes = TRUE)
 In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortunately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system: [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
 
 Once BLAST+ is intalled you will need to record the location of the BLAST+ file system path where the exectuable programs are located. This should be something like `C:\users\tao\desktop\blast-2.2.29+\bin\` on a Windows machine or `/usr/local/ncbi/blast/bin/` on a Unix.
+
 
 ## Quick guide
 
@@ -148,17 +152,20 @@ print(p)
 ![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
 *Relative number of sequences and clusters per Tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
 
-For more information on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
+Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://ropensci.github.io/phylotaR/reference/write_sqs.html) function. For more information and examples on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
+
 
 ## Future
 
-We have many ideas on improving phylotaR, such as making use of the BLAST API -- instead of relying on users installing BLAST+ on their machine -- and allowing users to introduce their own non-GenBank sequences. Please see the [contributing page](https://github.com/ropensci/phylotaR/blob/master/CONTRIBUTING.md) for a complete and current list of development options. Fork requests are welcome!
+We have many ideas for improving phylotaR, such as making use of the BLAST API -- instead of relying on users installing BLAST+ on their machine -- and allowing users to introduce their own non-GenBank sequences. Please see the [contributing page](https://github.com/ropensci/phylotaR/blob/master/CONTRIBUTING.md) for a complete and current list of development options. Fork requests are welcome!
 
 Alternatively, if you have any ideas of your own for new features than please open a [new issue](https://github.com/ropensci/phylotaR/issues).
+
 
 ## Acknowledgements
 
 Big thanks to [Zebulun Arendsee](https://github.com/arendsee), [Naupaka Zimmerman](https://github.com/naupaka) and [Scott Chamberlain](https://github.com/sckott) for reviewing/editing the package for ROpenSci.
+
 
 ## Useful Links
 
@@ -167,6 +174,7 @@ Big thanks to [Zebulun Arendsee](https://github.com/arendsee), [Naupaka Zimmerma
 * [BLAST+ installation and usage instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/)
 * [GenBank](https://www.ncbi.nlm.nih.gov/genbank/)
 * [phylotaR on GitHub](https://github.com/ropensci/phylotaR)
+
 
 ## References
 
