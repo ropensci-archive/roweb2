@@ -36,7 +36,7 @@ The entire phylotaR pipeline is automated and all a user needs to supply is a ta
 
 ![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
 
-*The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
+*Figure 1. The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
 
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
@@ -105,7 +105,7 @@ Platyrrhini|212|12731|60|
 
 ### Reviewing the results
 
-After a pipeline has completed, the `wd` will contain all the results files. The information contained within these files can be read into the R environment using the `read_phylota()` function. It will generate a `Phylota` object that contains information on all the identified 'clusters' -- i.e. groups of ortholgous sequences. A user can interact with the object to filter out unwanted sequences, clusters or taxonomic groups. The package comes with completed results for playing with. In the example below, we demonstrate how to generate a presence/absence matrix of all the genera in the top 10 clusters identifed for cycads.
+After a pipeline has completed, the `wd` will contain all the results files. The information contained within these files can be read into the R environment using the `read_phylota()` function. It will generate a `Phylota` object that contains information on all the identified 'clusters' -- i.e. groups of ortholgous sequences. A user can interact with the object to filter out unwanted sequences, clusters or taxonomic groups. The package comes with completed results for playing with. In the example below, we demonstrate how to generate a presence/absence matrix of all the genera in the top 10 clusters identifed for cycads, [1445963](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=1445963).
 
 ```r
 library(phylotaR)
@@ -128,6 +128,7 @@ print(p)
 ```
 
 ![presenceabsence of cycad genera](/img/blog-images/2018-08-08-phylotar/pa.png)
+*Figure 2. The presence (dark block) or absence (light block) for different cycad genera across the top ten clusters in the example dataset.*
 
 In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous, [8802](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=8802). (For the unintiated, [tinamous](https://en.wikipedia.org/wiki/Tinamou) are semi-flightless birds found in South America and members of the ratities, the same group comprising of ostrichs and kiwis.)
 
@@ -145,6 +146,7 @@ print(p)
 ```
 
 ![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
+*Relative number of sequences and clusters per Tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
 
 For more information on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
 
