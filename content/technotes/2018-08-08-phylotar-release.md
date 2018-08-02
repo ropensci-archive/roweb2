@@ -38,7 +38,6 @@ The phylotaR R package, like its earlier inspiration [PhyLoTa](http://phylota.ne
 The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information, download sequences, identify clusters, identify clusters among the clusters.
 
 ![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
-
 *Figure 1. The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
 
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
@@ -150,7 +149,7 @@ print(p)
 ```
 
 ![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
-*Relative number of sequences and clusters per Tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
+*Figure 3. Relative number of sequences and clusters per Tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
 
 Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://ropensci.github.io/phylotaR/reference/write_sqs.html) function. For more information and examples on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
 
