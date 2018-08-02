@@ -33,9 +33,9 @@ In this technote I will outline what phylotaR was developed for, how to install 
 
 In any phylogenetic analysis it is important to identify sequences that share the same [orthology](https://en.wikipedia.org/wiki/Sequence_homology#Orthology) -- homologous sequences separated by speciation events. This is often performed by simply searching an online sequence repository using sequence labels. Relying solely on sequence labels, however, can miss sequences that have either not been labelled, have unanticipated names or have been mislabelled.
 
-The phylotaR R package, like its earlier inspiration [PhyLoTa](http://phylota.net/), identifies sequences of shared orthology not by naming matching but instead through the use of an alignment search tool, [BLAST](https://en.wikipedia.org/wiki/BLAST). As a result, a user of phylotaR will able to download more relevant sequence data for their phylogenetic analysis than they otherwise would.
+The phylotaR package, like its earlier inspiration [PhyLoTa](http://phylota.net/), identifies sequences of shared orthology not by naming matching but instead through the use of an alignment search tool, [BLAST](https://en.wikipedia.org/wiki/BLAST). As a result, a user of phylotaR is able to download more relevant sequence data for their phylogenetic analysis than they otherwise would.
 
-The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information, download sequences, identify clusters, identify clusters among the clusters.
+The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information ('taxise'), download sequences, identify clusters and identify clusters among the clusters.
 
 ![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
 *Figure 1. The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
@@ -61,7 +61,7 @@ devtools::install_github(repo = 'ropensci/phylotaR', build_vignettes = TRUE)
 
 In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortunately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system: [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
 
-Once BLAST+ is intalled you will need to record the location of the BLAST+ file system path where the exectuable programs are located. This should be something like `C:\users\tao\desktop\blast-2.2.29+\bin\` on a Windows machine or `/usr/local/ncbi/blast/bin/` on a Unix.
+Once BLAST+ is installed you will need to record the location of the BLAST+ file system path where the exectuable programs are located. This should be something like `C:\users\tao\desktop\blast-2.2.29+\bin\` on a Windows machine or `/usr/local/ncbi/blast/bin/` on a Unix.
 
 
 ## Quick guide
@@ -133,7 +133,7 @@ print(p)
 ![presenceabsence of cycad genera](/img/blog-images/2018-08-08-phylotar/pa.png)
 *Figure 2. The presence (dark block) or absence (light block) for different cycad genera across the top ten clusters in the example dataset.*
 
-In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous, [8802](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=8802). (For the unintiated, [tinamous](https://en.wikipedia.org/wiki/Tinamou) are semi-flightless birds found in South America and members of the ratities, the same group comprising of ostrichs and kiwis.)
+In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous, [8802](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=8802). (For the unintiated, [tinamous](https://en.wikipedia.org/wiki/Tinamou) are semi-flightless birds found in South America and members of the ratities -- the same group comprising of ostrichs and kiwis.)
 
 ```r
 library(phylotaR)
@@ -149,7 +149,7 @@ print(p)
 ```
 
 ![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
-*Figure 3. Relative number of sequences and clusters per Tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
+*Figure 3. Relative number of sequences and clusters per tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
 
 Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://ropensci.github.io/phylotaR/reference/write_sqs.html) function.
 
