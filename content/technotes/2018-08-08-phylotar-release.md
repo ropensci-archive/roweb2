@@ -104,7 +104,7 @@ Bromeliaceae ("bromeliads")|1171|9833|66|
 Cycadidae ("cycads")|353|8331|37|
 Eutardigrada ("water bears")|261|960|14|
 Kazachstania (a group of yeast)|40|623|23|
-Platyrrhini ("old world monkeys")|212|12731|60|
+Platyrrhini ("new world monkeys")|212|12731|60|
 
 ### Reviewing the results
 
