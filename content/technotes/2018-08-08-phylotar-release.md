@@ -7,7 +7,7 @@ authors:
     url: https://github.com/dombennett
 date: 2018-08-08
 categories: technote
-topicid: 1256
+topicid:
 tags:
 - r
 - ropensci
@@ -36,6 +36,8 @@ The entire phylotaR pipeline is automated and all a user needs to supply is a ta
 
 ![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
 
+*The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
+
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
 
@@ -55,9 +57,7 @@ devtools::install_github(repo = 'ropensci/phylotaR', build_vignettes = TRUE)
 
 ### BLAST+
 
-In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortnately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system.
-
-**To install BLAST+ on your local machine follow the [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).**
+In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortunately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system: [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
 
 Once BLAST+ is intalled you will need to record the location of the BLAST+ file system path where the exectuable programs are located. This should be something like `C:\users\tao\desktop\blast-2.2.29+\bin\` on a Windows machine or `/usr/local/ncbi/blast/bin/` on a Unix.
 
@@ -89,7 +89,7 @@ For more details on running the pipeline, such as changing the parameters or und
 
 ### Timings
 
-The time it takes for a pipeline to complete depends on the number of taxonomic groups a taxon contains and the number of sequences it represents. The genus Aotus has more species than the great apes but the latter will take far long because it represents highly well-sequenced species.
+The time it takes for a pipeline to complete depends on the number of taxonomic groups a taxon contains and the number of sequences it represents. Below are some examples of the time taken for various taxonomic groups.
 
 Taxon|N. taxa|N. sequences|Time taken (mins.)|
 |:--|--:|--:|--:|
@@ -129,7 +129,7 @@ print(p)
 
 ![presenceabsence of cycad genera](/img/blog-images/2018-08-08-phylotar/pa.png)
 
-In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous.
+In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous, [8802](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=8802). (For the unintiated, [tinamous](https://en.wikipedia.org/wiki/Tinamou) are semi-flightless birds found in South America and members of the ratities, the same group comprising of ostrichs and kiwis.)
 
 ```r
 library(phylotaR)
