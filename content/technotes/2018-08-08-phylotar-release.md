@@ -151,7 +151,25 @@ print(p)
 ![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
 *Figure 3. Relative number of sequences and clusters per Tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
 
-Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://ropensci.github.io/phylotaR/reference/write_sqs.html) function. For more information and examples on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
+Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://ropensci.github.io/phylotaR/reference/write_sqs.html) function.
+
+```r
+# get sequences for a cluster and write out
+data('aotus')
+# take the first cluser ID
+cid <- aotus@cids[[1]]
+# extract its sequence IDs from Phylota object
+sids <- aotus[[cid]]@sids
+# design sequence names for definition line
+sid_txids <- get_sq_slot(phylota = aotus, sid = sids, slt_nm = 'txid')
+sid_spnms <- get_tx_slot(phylota = aotus, txid = sid_txids, slt_nm = 'scnm')
+sq_nms <- paste0(sid_spnms, ' | ', sids)
+# write out
+write_sqs(phylota = aotus, outfile = file.path(tempdir(), 'test.fasta'),
+          sq_nm = sq_nms, sid = sids)
+```
+
+For more information and examples on manipulating the Phylota object, see the [phylotaR website](https://ropensci.github.io/phylotaR/).
 
 
 ## Future
