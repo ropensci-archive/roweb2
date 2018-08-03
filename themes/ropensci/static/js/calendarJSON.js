@@ -7,7 +7,7 @@ var calendar = {
       'title': '<a href="https://esa.org/neworleans/">Ecological Society of America (ESA)</a>',
       'dateStart': 'Aug 6',
       'dateEnd': '10, 2018',
-      'description': 'Sholler talk: <a href="https://eco.confex.com/eco/2018/webprogrampreliminary/Paper70560.html">Barriers and facilitators in the data publishing process: Evidence from an interview-based study of journal data publication</a>, Boettiger talk 1: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70519">Precaution without paralysis: A theory for decision-making under extreme events</a>, Boettiger talk 2: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70046">Unifying resilience thinking and optimal control></a>',
+      'description': 'Sholler talk: <a href="https://eco.confex.com/eco/2018/webprogrampreliminary/Paper70560.html">Barriers and facilitators in the data publishing process: Evidence from an interview-based study of journal data publication</a>, Boettiger talk 1: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70519">Precaution without paralysis: A theory for decision-making under extreme events</a>, Boettiger talk 2: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70046">Unifying resilience thinking and optimal control</a>',
       'location': 'New Orleans, LA',
       'attendees': 'Carl Boettiger, Dan Sholler'
     },    
@@ -23,7 +23,7 @@ var calendar = {
       'title': '<a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a>',
       'dateStart': 'Aug 27',
       'dateEnd': '30, 2018',
-      'description': '<a href="https://biss.pensoft.net/article/25589/">Talk: Phylogeny Based Biodiversity Data Queries</a>',
+      'description': 'Talk: <a href="https://biss.pensoft.net/article/25589/">Phylogeny Based Biodiversity Data Queries</a>',
       'location': 'Dunedin, NZ',
       'attendees': 'Scott Chamberlain'
     },
