@@ -35,12 +35,12 @@ In any phylogenetic analysis it is important to identify sequences that share th
 
 The phylotaR package, like its earlier inspiration [PhyLoTa](http://phylota.net/), identifies sequences of shared orthology not by naming matching but instead through the use of an alignment search tool, [BLAST](https://en.wikipedia.org/wiki/BLAST). As a result, a user of phylotaR is able to download more relevant sequence data for their phylogenetic analysis than they otherwise would.
 
-From the taxon of interest the phylotaR pipeline traverses down the taxonomy and downloads entires subsets of sequences representing different nodes in the taxonomy. For taxa with too many sequences (e.g. *Homo sapiens*, *Arabidopsis thaliana*), a random subset is instead downloaded. For each of these subsets of downloaded sequences all-vs-all BLAST is then performed. The BLAST results of these subsets are parsed to identify all the independent, homologous clusters of sequences as determined using E-values and coverages. A secondary clustering step performs BLAST again to identify higher-level taxonomic clusters, above the level at which the all-vs-all BLAST searches were performed. This pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify clusters. The pipeline is broken down into four stages: retrieve taxonomic information ('taxise'), download sequences, identify clusters and identify clusters among the clusters.
+From the taxon of interest the phylotaR pipeline traverses down the taxonomy and downloads entire subsets of sequences representing different nodes in the taxonomy. For taxa with too many sequences (e.g. *Homo sapiens*, *Arabidopsis thaliana*), a random subset is instead downloaded. For each of these subsets of downloaded sequences all-vs-all BLAST is then performed. The BLAST results of these subsets are parsed to identify all the independent, homologous clusters of sequences as determined using E-values and coverages. A secondary clustering step performs BLAST again to identify higher-level taxonomic clusters, above the level at which the all-vs-all BLAST searches were performed. This pipeline is automated and all a user needs to supply is a taxonomic group of interest from which the pipeline will begin its traverse. The pipeline is broken down into four stages: retrieve taxonomic information ('taxise'), download sequences, identify clusters and identify clusters among the clusters.
 
 ![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
 *Figure 1. The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
 
-After a pipeline has completed, the package provides a series of tools for interacting with the results to identify potential ortholgous clusters suitable for phylogenetic analysis. These tools include filtering based on 
+After a pipeline has completed, the package provides a series of tools for interacting with the results to identify potential ortholgous clusters suitable for phylogenetic analysis. These tools include methods for filtering based on sequence lengths, sequence annotations, taxonomy ...etc. As well as for visualisations to, for example, check the relative abundance of sequences by taxon.
 
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
@@ -135,7 +135,7 @@ print(p)
 ![presenceabsence of cycad genera](/img/blog-images/2018-08-08-phylotar/pa.png)
 *Figure 2. The presence (dark block) or absence (light block) for different cycad genera across the top ten clusters in the example dataset.*
 
-In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous, [8802](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=8802). (For the unintiated, [tinamous](https://en.wikipedia.org/wiki/Tinamou) are semi-flightless birds found in South America and members of the ratities -- the same group comprising of ostrichs and kiwis.)
+In this next example, we create a treemap showing the differences in the number of sequences and clusters identifed between genera in tinamous, [8802](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=8802). (For the unintiated, [tinamous](https://en.wikipedia.org/wiki/Tinamou) are semi-flightless birds found in South America and members of the ratities -- the same group comprising ostrichs and kiwis.)
 
 ```r
 library(phylotaR)
