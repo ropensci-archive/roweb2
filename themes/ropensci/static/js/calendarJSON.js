@@ -2,28 +2,12 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [    
-    {
-      'title': '<a href="https://osaos.org/">OASOS</a>',
-      'dateStart': 'Jul 25',
-      'dateEnd': '27, 2018',
-      'description': '<a href="https://osaos.org/convening-the-community-looking-towards-the-future/">Handbook hackathon - Open Source Alliance for Open Scholarship </a>',
-      'location': 'New York, NY',
-      'attendees': 'Stefanie Butland'
-    },    
-    {
-      'title': '<a href="http://ww2.amstat.org/meetings/jsm/2018/">Joint Statistical Meetings (JSM)</a>',
-      'dateStart': 'Jul 28',
-      'dateEnd': 'Aug 2, 2018',
-      'description': '<a href="https://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326906">Talk: Harnessing the Power of Open Data on the Web</a>, <a href="http://ww2.amstat.org/meetings/jsm/2018/onlineprogram/AbstractDetails.cfm?abstractid=326743">Talk: Version Control: The Gain You Get for Your Pain</a>',
-      'location': 'Vancouver, CA',
-      'attendees': 'Scott Chamberlain, Jenny Bryan'
-    },    
+  'eventList': [   
     {
       'title': '<a href="https://esa.org/neworleans/">Ecological Society of America (ESA)</a>',
       'dateStart': 'Aug 6',
       'dateEnd': '10, 2018',
-      'description': '<a href="https://eco.confex.com/eco/2018/webprogrampreliminary/Paper70560.html">Sholler talk: Barriers and facilitators in the data publishing process: Evidence from an interview-based study of journal data publication</a>',
+      'description': 'Sholler talk: <a href="https://eco.confex.com/eco/2018/webprogrampreliminary/Paper70560.html">Barriers and facilitators in the data publishing process: Evidence from an interview-based study of journal data publication</a>, Boettiger talk 1: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70519">Precaution without paralysis: A theory for decision-making under extreme events</a>, Boettiger talk 2: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70046">Unifying resilience thinking and optimal control></a>',
       'location': 'New Orleans, LA',
       'attendees': 'Carl Boettiger, Dan Sholler'
     },    
@@ -31,7 +15,7 @@ var calendar = {
       'title': '<a href="http://rinpharma.com/">R / Pharma</a>',
       'dateStart': 'Aug 15',
       'dateEnd': '16, 2018',
-      'description': 'Talk: rOpenSci - enabling open and reproducible research',
+      'description': 'Talk: <a href="http://rinpharma.com/#schedule">rOpenSci - enabling open and reproducible research</a>',
       'location': 'Cambridge, MA',
       'attendees': 'Stefanie Butland'
     },    
@@ -44,18 +28,18 @@ var calendar = {
       'attendees': 'Scott Chamberlain'
     },
     {
-      'title': '<a href="http://47jaiio.sadio.org.ar/index.php?q=node/125">LatinR</a>',
+      'title': '<a href="http://latin-r.com/">LatinR</a>',
       'dateStart': 'Sep 3',
       'dateEnd': '7, 2018',
-      'description': 'Talk',
+      'description': 'Maëlle Salmon (remote presentation): <a href="http://latin-r.com/cronograma/#session-26">Ciencia abierta - ¡MejoR ciencia con rOpenSci!</a>, Jenny Bryan talk: <a href="http://latin-r.com/cronograma/#session-6">Teaching R (and more) in the Era of Data Science</a>, Jenny Bryan tutorial: <a href="http://latin-r.com/cronograma/#session-3">How to repeat yourself with purr</a>',
       'location': 'Buenos Aires, AR',
-      'attendees': 'Jenny Bryan'
+      'attendees': 'Jenny Bryan, Maëlle Salmon (remote presentation)'
     },
     {
-      'title': '<a href="http://animove.org/courses/animove-2018/">AniMove</a>',
+      'title': '<a href="http://animove.org/animove-2019-evening-keynotes/">AniMove</a>',
       'dateStart': 'Sep 11, 2018',
       'dateEnd': '',
-      'description': 'Talk',
+      'description': 'Keynote: The birder’s guide to rOpenSci',
       'location': 'Radolfzell, GE',
       'attendees': 'Maëlle Salmon'
     },
@@ -74,6 +58,22 @@ var calendar = {
       'description': 'Talk',
       'location': 'Seoul, KR',
       'attendees': 'Nick Tierney (representing rOpenSci)'
-    }                  
+    },
+    {
+      'title': '<a href="http://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx">rstudio::conf</a>',
+      'dateStart': 'Jan 15',
+      'dateEnd': '18, 2019',
+      'description': 'Talk',
+      'location': 'Austin, TX',
+      'attendees': 'Karthik Ram, Jenny Bryan'
+    },
+    {
+      'title': '<a href="https://www.conectar2019.org/">ConectaR2019</a>',
+      'dateStart': 'Jan 24',
+      'dateEnd': '26, 2019',
+      'description': 'Keynote',
+      'location': 'San Jose, CR',
+      'attendees': 'Maëlle Salmon'
+    }
   ]
 }
