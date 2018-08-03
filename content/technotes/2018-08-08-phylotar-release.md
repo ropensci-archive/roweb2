@@ -35,10 +35,12 @@ In any phylogenetic analysis it is important to identify sequences that share th
 
 The phylotaR package, like its earlier inspiration [PhyLoTa](http://phylota.net/), identifies sequences of shared orthology not by naming matching but instead through the use of an alignment search tool, [BLAST](https://en.wikipedia.org/wiki/BLAST). As a result, a user of phylotaR is able to download more relevant sequence data for their phylogenetic analysis than they otherwise would.
 
-The entire phylotaR pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify ortholgous sequences. The pipeline is broken down into four stages: retrieve taxonomic information ('taxise'), download sequences, identify clusters and identify clusters among the clusters.
+From the taxon of interest the phylotaR pipeline traverses down the taxonomy and downloads entires subsets of sequences representing different nodes in the taxonomy. For taxa with too many sequences (e.g. *Homo sapiens*, *Arabidopsis thaliana*), a random subset is instead downloaded. For each of these subsets of downloaded sequences all-vs-all BLAST is then performed. The BLAST results of these subsets are parsed to identify all the independent, homologous clusters of sequences as determined using E-values and coverages. A secondary clustering step performs BLAST again to identify higher-level taxonomic clusters, above the level at which the all-vs-all BLAST searches were performed. This pipeline is automated and all a user needs to supply is a taxonomic group of interest for which the user would like to identify clusters. The pipeline is broken down into four stages: retrieve taxonomic information ('taxise'), download sequences, identify clusters and identify clusters among the clusters.
 
 ![phylotaR pipeline stages](/img/blog-images/2018-08-08-phylotar/stages.png)
 *Figure 1. The stages of phylotaR pipeline: taxise, download, cluster and cluster^2. Note, 'taxise' is the name of a stage and does not relate to the package `taxize`.*
+
+After a pipeline has completed, the package provides a series of tools for interacting with the results to identify potential ortholgous clusters suitable for phylogenetic analysis. These tools include filtering based on 
 
 For more information on how the pipeline works, please see the open-access scientific article: [phylotaR: An Automated Pipeline for Retrieving Orthologous DNA Sequences from GenBank in R](https://doi.org/10.3390/life8020020)
 
@@ -59,7 +61,7 @@ devtools::install_github(repo = 'ropensci/phylotaR', build_vignettes = TRUE)
 
 ### BLAST+
 
-In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://en.wikipedia.org/wiki/BLAST) on your machine. Unfortunately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system: [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
+In addition to the R package you will also need to have installed BLAST+ -- a local copy of the well-known [BLAST software](https://blast.ncbi.nlm.nih.gov/Blast.cgi) on your machine. Unfortunately this can be a little complex as its installation depends on your operating system (Windows, Mac or Linux). Fortunately, NCBI provides detailed installation instructions for each flavour of operating system: [NCBI installation instructions](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
 
 Once BLAST+ is installed you will need to record the location of the BLAST+ file system path where the exectuable programs are located. This should be something like `C:\users\tao\desktop\blast-2.2.29+\bin\` on a Windows machine or `/usr/local/ncbi/blast/bin/` on a Unix.
 
@@ -88,7 +90,7 @@ run(wd = wd)
 # ^^ running should take about 5 minutes to complete
 ```
 
-For more details on running the pipeline, such as changing the parameters or understanding the results, see the vignette, `vignette('phylotaR')` or visit the [website](https://ropensci.github.io/phylotaR/).
+For more details on running the pipeline, such as changing the [parameters](https://ropensci.github.io/phylotaR/reference/parameters.html) or understanding the results, see the vignette, `vignette('phylotaR')` or visit the [website](https://ropensci.github.io/phylotaR/).
 
 ### Timings
 
