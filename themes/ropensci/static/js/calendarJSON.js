@@ -52,6 +52,14 @@ var calendar = {
       'attendees': 'Jeroen Ooms'
     },
     {
+      'title': '<a href="https://numfocus.org/forum2018">NumFOCUS Project Forum 2018</a>',
+      'dateStart': 'Sep 24',
+      'dateEnd': '25, 2018',
+      'description': 'NumFOCUS Project Forum for Core Developers and Critical Users',
+      'location': 'New York, NY',
+      'attendees': 'Karthik Ram'
+    },
+    {
       'title': '<a href="https://translate.google.com/translate?sl=ko&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fruck2018.r-kor.org">R User Conference in Korea 2018</a>',
       'dateStart': 'Oct 26, 2018',
       'dateEnd': '',
