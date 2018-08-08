@@ -71,8 +71,10 @@ hide (or *bird blind* depending on the English you speak), it might be a
 very appropriate observation point. Now that we know where the MPI is,
 we can look for bird hide(s) in the vicinity. For that, we shall use
 [rOpenSci’s `osmdata` package](https://github.com/ropensci/osmdata) by
-Mark Padgham and collaborators! This package is an interface to
-[OpenStreetMap’s Overpass
+Mark Padgham and collaborators! Note that incidentally, Mark [did his
+PhD in
+ecology](https://link.springer.com/article/10.1007/s10021-010-9397-3).
+This package is an interface to [OpenStreetMap’s Overpass
 API](https://wiki.openstreetmap.org/wiki/Overpass_API). OpenStreetMap is
 a collective map of the world. It contains information about towns’
 limits, roads, placenames… but also tags of everything, from bars as
@@ -83,9 +85,6 @@ wiki](https://wiki.openstreetmap.org/wiki/Main_Page). Some parts of the
 world are better mapped than others depending on the local OpenStreetMap
 community. Actually, OpenCage’s blog features an interesting series of
 [country profiles](https://blog.opencagedata.com/tagged/countryprofile).
-
-Note that incidentally, Mark [did his PhD in
-ecology](https://link.springer.com/article/10.1007/s10021-010-9397-3).
 
 To look for a bird hide, we first create a bounding box of 10km around
 the MPI, using [rOpenSci’s `bbox`
