@@ -453,8 +453,8 @@ ebd %>%
 | Oxyura leucocephala | White-headed Duck | FALSE    | TRUE     | Species-Introduced/Exotic |
 | Mareca sibilatrix   | Chiloe Wigeon     | FALSE    | TRUE     | Species-Introduced/Exotic |
 
-Black Swans ([are mostly present in Australia, imported and escaped in a
-few other places](https://en.wikipedia.org/wiki/Black_swan)) but eBird
+Black Swans [are mostly present in Australia, imported and escaped in a
+few other places](https://en.wikipedia.org/wiki/Black_swan) but eBird
 mostly doesn’t accept the entry of exotic species [although it’s
 debated](https://help.ebird.org/customer/portal/questions/5390335-exclusion-of-not-native-birds-in-lists).
 In any case, eBird’s control of the data entered is quite admirable.
