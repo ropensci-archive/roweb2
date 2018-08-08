@@ -7,7 +7,7 @@ authors:
   - name: Mark Padgham
     url: https://github.com/mpadge
 date: 2018-08-14
-preface: The blog post series corresponds to the material for a talk Maëlle wll give at the [Animal Movement Analysis summer school in Radolfzell, Germany](http://animove.org/courses/animove-2018/) on [September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
+preface: The blog post series corresponds to the material for a talk Maëlle wll give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
 tags:
 - osmdata
 - osmplotr
@@ -39,9 +39,10 @@ The Max Planck Institute for Ornithology (henceforth shortened to MPI),
 where Maëlle will give a talk is located at *Am Obstberg 1 78315
 Radolfzell*. Let’s geolocate it using [rOpenSci’s `opencage`
 package](https://github.com/ropensci/opencage) that interfaces the
-[OpenCage Geocoder](https://opencagedata.com/), [commercial service
-based on open data](https://opencagedata.com/credits). Choosing to get
-only one result, we’ll get the best one.
+[OpenCage Geocoder](https://opencagedata.com/), [a commercial service
+based on open data](https://opencagedata.com/credits). When choosing to
+get only one result via `limit = 1`, one gets what the API considers to
+be the best one.
 
 ``` r
 mpi <- opencage::opencage_forward("Am Obstberg 1 78315 Radolfzell", limit = 1)$results
@@ -66,17 +67,28 @@ which is in 🇩🇪 (`mpi$annotations.flag` gets us a flag!).
 #### Where to find a bird hide?
 
 You can most certainly go birding anywhere, but if you can find a bird
-hide, it might be a very appropriate observation point. Now that we know
-where the MPI is, we can look for bird hide(s) in the vicinity. For
-that, we shall use [rOpenSci’s `osmdata`
-package](https://github.com/ropensci/osmdata) by Mark Padgham and
-collaborators! This package is an interface to [OpenStreetMap’s Overpass
-API](https://wiki.openstreetmap.org/wiki/Overpass_API). Note that
-incidentally, Mark [did his PhD in
+hide (or *bird blind* depending on the English you speak), it might be a
+very appropriate observation point. Now that we know where the MPI is,
+we can look for bird hide(s) in the vicinity. For that, we shall use
+[rOpenSci’s `osmdata` package](https://github.com/ropensci/osmdata) by
+Mark Padgham and collaborators! This package is an interface to
+[OpenStreetMap’s Overpass
+API](https://wiki.openstreetmap.org/wiki/Overpass_API). OpenStreetMap is
+a collective map of the world. It contains information about towns’
+limits, roads, placenames… but also tags of everything, from bars as
+seen in [this blog post](https://rgeomatic.hypotheses.org/1244) to
+[trees](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dtree). You can
+browse existing features [via OpenStreetMap’s
+wiki](https://wiki.openstreetmap.org/wiki/Main_Page). Some parts of the
+world are better mapped than others depending on the local OpenStreetMap
+community. Actually, OpenCage’s blog features an interesting series of
+[country profiles](https://blog.opencagedata.com/tagged/countryprofile).
+
+Note that incidentally, Mark [did his PhD in
 ecology](https://link.springer.com/article/10.1007/s10021-010-9397-3).
 
 To look for a bird hide, we first create a bounding box of 10km around
-the MP, using [rOpenSci’s `bbox`
+the MPI, using [rOpenSci’s `bbox`
 package](https://github.com/ropensci/bbox).
 
 ``` r
@@ -185,7 +197,7 @@ points_map <- add_osm_objects(map0, results$osm_points,
 ```
 
 For plotting the MPI, we’ll convert `opencage` output to an `sf` point
-with the same coordinate reference system as the Openstreetmap data
+with the same coordinate reference system as the OpenStreetMap data
 extracted with `osmdata`.
 
 ``` r
@@ -283,10 +295,11 @@ xy <- xy [!duplicated (xy), ]
 ```
 
 Finally we plot the results on the roads we had gotten earlier, although
-we do not recommend staying on the middle of a road to bird! We re-add
-the points corresponding to the MPI and bird hide after the surface
-coloring. With `osmplotr`, order matters because layers are added on top
-of each other. Note that plotting the distances takes a while.
+we do not recommend staying on the middle of a road to observe birds! We
+re-add the points corresponding to the MPI and bird hide after the
+surface coloring. With `osmplotr`, order matters because layers are
+added on top of each other. Note that plotting the distances takes a
+while.
 
 ``` r
 # colorblind-friendly palette!
@@ -329,10 +342,10 @@ In this post we used `opencage`, `osmdata` and `osmplotr` therefore
 mosly making use of the awesome OpenStreetMap data (The OpenCage
 Geocoder uses a bit more, but it only warrants [attributing
 OpenStreetMap](https://opencagedata.com/faq#legal)). We therefore added
-the annotation “Map data © OpenStreetMap contributors” using rOpenSci’s
-`magick` package. You might also have noticed in the code earlier that
-both `osmdata` and `osmplotr` have start-up messages indicating the data
-origin and licence.
+the annotation “Map data © OpenStreetMap contributors” to all maps of
+this post using rOpenSci’s `magick` package. You might also have noticed
+in the code earlier that both `osmdata` and `osmplotr` have start-up
+messages indicating the data origin and licence.
 
 #### Geographical analyses with R
 
