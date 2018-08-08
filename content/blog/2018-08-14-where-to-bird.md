@@ -346,6 +346,12 @@ this post using rOpenSci’s `magick` package. You might also have noticed
 in the code earlier that both `osmdata` and `osmplotr` have start-up
 messages indicating the data origin and licence.
 
+Another package of rOpenSci’s interacting with open geographical data,
+that might be of interest for making maps, is
+[`rnaturalearth`](https://github.com/ropensci/rnaturalearth) that
+facilitates interaction with [Natural Earth map
+data](http://www.naturalearthdata.com/).
+
 #### Geographical analyses with R
 
 In this post we showcased three rOpenSci packages helping you use
