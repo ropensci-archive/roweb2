@@ -45,7 +45,8 @@ applications in order to help potential users: [`rebird`
 README](https://github.com/ropensci/rebird#auk-vs-rebird), [`auk`
 README](https://github.com/CornellLabofOrnithology/auk#auk-vs-rebird).*
 
--   You want to study a region, or a bird, quite deeply. Use `auk`!
+-   You want to study a region, or a bird, quite deeply and you even
+    want absence/presence data, not only presence data. Use `auk`!
 
 -   You want to build a tool based on recent observations only or you
     want to get a quick taste of eBird’s data. Use `rebird`!
@@ -401,10 +402,8 @@ ggplot() +
 
 ![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-10-1.png)
 
-I’m not sure whether eBird got more popular in the most recent years in
-general, or more popular in the most recent years in Germany, or got a
-partnership with a local German data source, but in any case, there are
-more occurrences reported since 2011.
+eBird started in 2002 but only became global in 2010. It allows people
+to enter older observations, though.
 
 Now we can look at what birds have been reported the most.
 
@@ -454,11 +453,11 @@ ebd %>%
 | Oxyura leucocephala | White-headed Duck | FALSE    | TRUE     | Species-Introduced/Exotic |
 | Mareca sibilatrix   | Chiloe Wigeon     | FALSE    | TRUE     | Species-Introduced/Exotic |
 
-I’m quite puzzled by Black Swans, because Swans are big and Black Swans
-([mostly present in Australia, imported and escaped in a few other
-places](https://en.wikipedia.org/wiki/Black_swan)) quite easy to
-recognize? What had the birders actually seen? In any case, eBird’s
-control of the data entered is quite admirable.
+Black Swans ([are mostly present in Australia, imported and escaped in a
+few other places](https://en.wikipedia.org/wiki/Black_swan)) but eBird
+mostly doesn’t accept the entry of exotic species [although it’s
+debated](https://help.ebird.org/customer/portal/questions/5390335-exclusion-of-not-native-birds-in-lists).
+In any case, eBird’s control of the data entered is quite admirable.
 
 #### Who observed birds?
 
@@ -485,7 +484,8 @@ first_birder$n/nrow(ebd)
 
     ## [1] 0.3496455
 
-Wow! The EBD no longer provides names (GDPR consequence?) but from the
+Wow! The EBD no longer provides names (consequence of the [EU General
+Data Protection Regulation](https://www.eugdpr.org/)) but from the
 checklist ID one can get access to the checklist page e.g [this
 one](https://ebird.org/view/checklist/S42391392) where the name of the
 observer is present. The super birder of the County of Constance is
@@ -497,8 +497,8 @@ observer is present. The super birder of the County of Constance is
 
 In this post we gave a rough view of what birds are present in the
 county around Radolfzell: Eurasian Blackbirds, Carrion Crows, Great
-Tits… but not Black Swans. We mostly illustrated the use of two R
-packages accessing eBird’s data:
+Tits… but not Black Swans in eBird’s data. We mostly illustrated the use
+of two R packages accessing eBird’s data:
 
 -   `auk` for processing the gigantic whole eBird’s dataset.
 
