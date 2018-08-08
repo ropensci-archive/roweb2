@@ -230,7 +230,7 @@ We got 47 observations (`nrow(trimmed_birds)`) of 47 species
 (`length(unique(trimmed_birds$comName))`), over 2 places
 (`length(unique(trimmed_birds$locName))`) during 4 observation sessions.
 Hopefully merely an appetizer to what we can hope to get from using the
-full eBird dataset in the next session…
+full eBird dataset in the next section…
 
 Before then, let’s just add the MPI on the map.
 
@@ -255,16 +255,41 @@ ggplot() +
 
 ![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-6-1.png)
 
+Note that the initial query could have been made with `spocc` which
+would have helped using the rOpenSci occurrence suite.
+
+``` r
+birds2 <- spocc::occ(from = "ebird",
+                     ebirdopts = list(method = "ebirdgeo",
+                                      species = NULL,
+                                      lng = center["x.x1"],
+                                      lat = center["y.y1"],
+                                      back = 30,
+                                      dist = as.numeric(
+                                        units::set_units(dist, "km"))))
+                     
+mapr::map_leaflet(birds2)
+```
+
+    ## no. taxa > 9, using single color - consider passing in colors
+
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-7-1.png)
+
+Quite handy!
+
+Now, let’s explore the whole eBird dataset for Germany.
+
 ### Using `auk` to process EBD dataset for Germany
 
 After getting access to a custom dataset corresponding to the EBD for
-Germany only, I used `auk`’s documentation to learn how to process it.
-Since I wasn’t planning on zero-filling the data, I was able to ignore
-the sampling event data that contains the checklist-level information
-(e.g. time and date, location, and search effort information). For an
-example of a more advanced `auk` workflow involving the **full** EBD,
-and sampling data, refer to [Matt Strimas-Mackey’s own blog post about
-his package](https://ropensci.org/blog/2018/08/07/auk/).
+Germany only, I used `auk`’s documentation and [this
+post](https://ropensci.org/blog/2018/08/07/auk/) to learn how to process
+it. Since I wasn’t planning on zero-filling the data, I was able to
+ignore the sampling event data that contains the checklist-level
+information (e.g. time and date, location, and search effort
+information). For an example of a more advanced `auk` workflow involving
+the **full** EBD, and sampling data, refer to [Matt Strimas-Mackey’s own
+blog post about his package](https://ropensci.org/blog/2018/08/07/auk/).
 
 #### Preparing the dataset
 
@@ -283,7 +308,7 @@ f_clean <- file.path(ebd_dir, "ebd_DE_relMay-2018_clean.txt")
 auk::auk_clean(f, f_out = f_clean, remove_text = TRUE)
 ```
 
-Then I was abe to filter the data.
+Then one can filter the data.
 
 ``` r
 ebd_dir <- "C:/Users/Maelle/Documents/ropensci/ebird"
@@ -330,7 +355,7 @@ ebd_filtered <- auk::auk_filter(ebd_filter, file = f_out_ebd,
                                 overwrite = TRUE)
 ```
 
-On top of this filtering with `auk`, after loading the data I filtered
+On top of this filtering with `auk`, after loading the data we filter
 observations inside the polygon of the county.
 
 ``` r
@@ -357,55 +382,14 @@ Before looking at species names, let’s have a brief look at the size and
 temporal extent of the data.
 
 ``` r
-dplyr::glimpse(ebd)
+library("ggplot2")
+
+dim(ebd)
 ```
 
-    ## Observations: 10,156
-    ## Variables: 41
-    ## $ checklist_id                 <chr> "S45711521", "S45711455", "S45711...
-    ## $ global_unique_identifier     <chr> "URN:CornellLabOfOrnithology:EBIR...
-    ## $ last_edited_date             <chr> "2018-05-15 17:04:37.0", "2018-05...
-    ## $ taxonomic_order              <dbl> 4492.00, 2640.00, 31403.00, 3807....
-    ## $ category                     <chr> "species", "species", "species", ...
-    ## $ common_name                  <chr> "Common Tern", "Eurasian Marsh-Ha...
-    ## $ scientific_name              <chr> "Sterna hirundo", "Circus aerugin...
-    ## $ observation_count            <chr> "X", "2", "X", "X", "X", "1", "8"...
-    ## $ breeding_bird_atlas_code     <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ breeding_bird_atlas_category <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ age_sex                      <chr> NA, "Female, Adult (1); Male, Adu...
-    ## $ country                      <chr> "Germany", "Germany", "Germany", ...
-    ## $ country_code                 <chr> "DE", "DE", "DE", "DE", "DE", "DE...
-    ## $ state                        <chr> "Baden-WÃ¼rttemberg", "Baden-WÃ¼r...
-    ## $ state_code                   <chr> "DE-BW", "DE-BW", "DE-BW", "DE-BW...
-    ## $ county                       <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ county_code                  <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ iba_code                     <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ bcr_code                     <int> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ usfws_code                   <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ atlas_block                  <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ locality_id                  <chr> "L4067648", "L4067648", "L4067648...
-    ## $ locality_type                <chr> "H", "H", "H", "H", "H", "H", "H"...
-    ## $ observation_date             <date> 1960-07-09, 1960-09-24, 1961-04-...
-    ## $ time_observations_started    <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ observer_id                  <chr> "obsr556494", "obsr556494", "obsr...
-    ## $ sampling_event_identifier    <chr> "S45711521", "S45711455", "S45711...
-    ## $ protocol_type                <chr> "Historical", "Historical", "Hist...
-    ## $ protocol_code                <chr> "P62", "P62", "P62", "P62", "P62"...
-    ## $ project_code                 <chr> "EBIRD", "EBIRD", "EBIRD", "EBIRD...
-    ## $ duration_minutes             <int> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ effort_distance_km           <dbl> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ effort_area_ha               <dbl> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ number_observers             <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
-    ## $ all_species_reported         <lgl> FALSE, FALSE, FALSE, FALSE, FALSE...
-    ## $ group_identifier             <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ has_media                    <lgl> FALSE, FALSE, FALSE, FALSE, FALSE...
-    ## $ approved                     <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRU...
-    ## $ reviewed                     <lgl> FALSE, FALSE, FALSE, FALSE, FALSE...
-    ## $ reason                       <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
-    ## $ geometry                     <POINT [Â°]> POINT (9.138629 47.66958),...
+    ## [1] 10156    41
 
 ``` r
-library("ggplot2")
 ebd %>%
   dplyr::mutate(year = as.factor(lubridate::year(observation_date))) %>%
 ggplot() +
@@ -415,7 +399,7 @@ ggplot() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-9-1.png)
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-10-1.png)
 
 I’m not sure whether eBird got more popular in the most recent years in
 general, or more popular in the most recent years in Germany, or got a
@@ -481,7 +465,7 @@ control of the data entered is quite admirable.
 In [one of his latest blog
 posts](https://recology.info/2018/06/butte-county/) Scott Chamberlain
 mentioned the legendary Lowell Ahart, super plant collector in Butte
-County, California. Does Landkreis Konstanz have a super birder?
+County, California. Does the county of Constance have a super birder?
 
 ``` r
 (first_birder <- ebd %>%
@@ -504,8 +488,8 @@ first_birder$n/nrow(ebd)
 Wow! The EBD no longer provides names (GDPR consequence?) but from the
 checklist ID one can get access to the checklist page e.g [this
 one](https://ebird.org/view/checklist/S42391392) where the name of the
-observer is present. The super birder of Landkreis Konstanz is [Antonio
-Anta Bink](https://ebird.org/profile/NDU3MTA4/DE).
+observer is present. The super birder of the County of Constance is
+[Antonio Anta Bink](https://ebird.org/profile/NDU3MTA4/DE).
 
 ### Conclusion
 
