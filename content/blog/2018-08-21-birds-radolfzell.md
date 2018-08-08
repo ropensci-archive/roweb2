@@ -1,0 +1,8371 @@
+---
+title: "What birds are observed near Radolfzell? Bird occurrence data in R"
+slug: birds-radolfzell
+authors:
+  - name: Maëlle Salmon
+    url: https://masalmon.eu/
+date: 2018-08-21
+preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
+tags:
+- rebird
+- spocc
+- auk
+- birder
+output: 
+  md_document:
+    variant: markdown_github
+    preserve_yaml: true
+---
+
+Thanks to the [first post of the
+series](https://ropensci.org/blog/2018/08/14/where-to-bird/) we know
+where to observe birds near Radolfzell’s Max Planck Institute for
+Ornithology, so we could go and do that! Or we can stay behind our
+laptops and take advantage of [eBird](https://ebird.org/home), a
+fantastic bird sightings aggregator! As explained by Matt Strimas-Mackey
+in [his recent blog post](https://ropensci.org/blog/2018/08/07/auk/),
+“The eBird database currently contains over 500 million records of bird
+sightings, spanning every country and over 98% of species, making it an
+extremely valuable resource for bird research and conservation.”.
+
+Luckily for us, there are no less than *two* rOpenSci packages giving us
+access to eBird data! In this blog post, I shall play with both of them,
+highlighting their respective strengths, while discovering what birds
+are observed in the area.
+
+### How to access eBird data?
+
+There are two ways to access eBird data, whole dataset download or APIs,
+with an R package for each of these methods, `auk` and `rebird`,
+maintained respectively by [Matt Strimas-Mackey](http://strimas.com/)
+and by [Sebastian Pardo](http://sebpardo.github.io/). Your use case will
+help you decide which entry point is the most appropriate for your use
+case. *Note that both packages have documented their respective
+applications in order to help potential users: [`rebird`
+README](https://github.com/ropensci/rebird#auk-vs-rebird), [`auk`
+README](https://github.com/CornellLabofOrnithology/auk#auk-vs-rebird).*
+
+-   You want to study a region, or a bird, quite deeply. Use `auk`!
+
+-   You want to build a tool based on recent observations only or you
+    want to get a quick taste of eBird’s data. Use `rebird`!
+
+-   A bit provocatively, do you want birds data only? If not, maybe
+    you’ll need a combination of `auk`/`rebird` and another package.
+    Check out this list of [data providers covered by
+    `spocc`](https://github.com/ropensci/spocc#spocc), umbrella package
+    for rOpenSci’s packages accessing occurrence data. Many data sources
+    actually end up in [GBIF
+    datasets](https://www.gbif.org/dataset/search), eBird seems to
+    upload their data there once a year.
+
+-   You want to analyze *your* eBird’s sightings? Check out the
+    work-in-progress [`myebird`](https://github.com/sebpardo/myebird) by
+    [Sebastian Pardo](http://sebpardo.github.io/), `rebird`’s
+    maintainer, and this app\](<http://www.ebirdedgeapp.io/>) by [Simón
+    Valdez-Juarez](https://www.sfu.ca/biology/people/profiles/svaldez.html)
+    and [Sebastian Pardo](http://sebpardo.github.io/) highlighting the
+    most endangered species you observed.
+
+-   You’re writing a birder’s guide to rOpenSci? Use both `rebird` and
+    `auk` to show them off!
+
+### How to get access to eBird’s data
+
+#### Whole eBird dataset, quarterly updated
+
+One needs to first [create an eBird
+account](https://secure.birds.cornell.edu/cassso/login) and [then
+request access to the data](https://ebird.org/data/request). Once one
+has gotten green light from eBird (in my case a few days following my
+request), after a small dance of joy it’s time to head to eBird’s
+[download page](https://ebird.org/data/download/ebd). If one doesn’t
+want nor need to download the whole eBird Basic Dataset (EBD), one can
+request a custom download, which I did, asking for only the data for
+Germany which I got after a few days (the time to receiving the link to
+download a custum dataset is variable). While waiting, I worked on the
+`rebird` part of this post, among other things.
+
+#### API key? Not yet
+
+At the moment, `rebird` interfaces the 1.1 APIs that will be retired
+[“at some point in the
+future”](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW).
+When this happens, the `rebird` package [will use the new
+API](https://github.com/ropensci/rebird/issues/58) which will mean
+you’ll need an API key. Currently, though, you don’t need any
+authentication to use `rebird`.
+
+### Using `rebird` while waiting for the eBird’s full dataset
+
+In the following, we’ll use the rOpenSci’s packages `rebird` to get and
+map all observations in the last 30 days near Radolfzell in Germany.
+
+The *Radolfzell* part of that sentence is a bit different than in last
+post about finding bird’s hides near the MPI institute for ornithology:
+I want all observations inside the polygon of the district of Constance
+(Landkreis Konstanz, including Radolfzell… and a protected natural
+area!) so I’ll first need to get it. For doing that I’ll use
+`osmdata::getbb`, that uses the free Nominatim API provided by
+Openstreetmap.
+
+``` r
+library("sf")
+```
+
+    ## Linking to GEOS 3.6.1, GDAL 2.2.3, proj.4 4.9.3
+
+``` r
+landkreis_konstanz <- osmdata::getbb("Landkreis Konstanz",
+                             format_out = "sf_polygon")
+
+plot(landkreis_konstanz)
+```
+
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-1-1.png)
+
+Neither `rebird` nor `spocc` currently offer built-in trimming of
+occurrence data to a polygon (whereas `osmdata` does). A further
+difficulty created by eBird’s API is that it doesn’t allow for the use
+of a bounding box, but instead demands a `lat`, `lng` and a `dist`
+defining the radius of interest from given `lat`/`lng` in kilometers.
+Thanks to [Marco Sciaini](https://marcosci.rbind.io/) for providing me
+with an easy way to compute `dist`, using the `sf` package.
+
+``` r
+coord <- sf::st_coordinates(landkreis_konstanz)
+
+bbox <- c(x1 = min(coord[, "X"]),
+          x2 = max(coord[, "X"]),
+          y1 = min(coord[, "Y"]),
+          y2 = max(coord[, "Y"]))
+
+
+center <- c(x = (bbox["x1"] + bbox["x2"])/2,
+            y = (bbox["y1"] + bbox["y2"])/2)
+
+dist <- landkreis_konstanz %>%
+  sf::st_cast("POINT") %>%
+  sf::st_distance() %>% 
+  max() * 0.5
+
+dist
+```
+
+    ## 24129.15 m
+
+Now, we can make the query.
+
+``` r
+birds <- rebird::ebirdgeo(species = NULL,
+                          lng = center["x.x1"],
+                          lat = center["y.y1"],
+                          back = 30,
+                          dist = as.numeric(
+                            units::set_units(dist, "km")))
+nrow(birds)
+```
+
+    ## [1] 54
+
+``` r
+str(birds)
+```
+
+    ## Classes 'tbl_df', 'tbl' and 'data.frame':    54 obs. of  12 variables:
+    ##  $ lng            : num  9 9 9 9 9 ...
+    ##  $ locName        : chr  "Max Planck Institute" "Max Planck Institute" "Max Planck Institute" "Max Planck Institute" ...
+    ##  $ howMany        : int  1 2 4 2 2 10 1 1 1 1 ...
+    ##  $ sciName        : chr  "Sylvia atricapilla" "Fulica atra" "Columba palumbus" "Corvus corax" ...
+    ##  $ obsValid       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ locationPrivate: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ obsDt          : chr  "2018-07-29 13:00" "2018-07-29 13:00" "2018-07-29 13:00" "2018-07-29 13:00" ...
+    ##  $ obsReviewed    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+    ##  $ comName        : chr  "Eurasian Blackcap" "Eurasian Coot" "Common Wood-Pigeon" "Common Raven" ...
+    ##  $ lat            : num  47.8 47.8 47.8 47.8 47.8 ...
+    ##  $ locID          : chr  "L2331012" "L2331012" "L2331012" "L2331012" ...
+    ##  $ locId          : chr  "L2331012" "L2331012" "L2331012" "L2331012" ...
+
+Now that we have the occurrence data, let’s plot it to see whether
+trimming is required.
+
+``` r
+crs <- sf::st_crs(landkreis_konstanz)
+
+birds_sf <- sf::st_as_sf(birds,
+                         coords = c("lng", "lat"), 
+                         crs = crs)
+library("ggplot2")
+ggplot() +
+  geom_sf(data = landkreis_konstanz) +
+  geom_sf(data = birds_sf) +
+  theme(legend.position = "bottom") +
+  hrbrthemes::theme_ipsum()
+```
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-4-1.png)
+
+Yes, trimming is required! It’d have been too bad not to learn how to do
+it, anyway.
+
+``` r
+in_indices <- sf::st_within(birds_sf, landkreis_konstanz)
+```
+
+    ## although coordinates are longitude/latitude, st_within assumes that they are planar
+
+``` r
+trimmed_birds <- dplyr::filter(birds_sf,
+                               lengths(in_indices) > 0)
+
+summarized_birds <- trimmed_birds %>%
+  dplyr::group_by(locName) %>%
+  dplyr::summarise(n = n())
+
+ggplot() +
+  geom_sf(data = landkreis_konstanz) +
+  geom_sf(data = summarized_birds,
+          aes(size = n), show.legend = "point") +
+  hrbrthemes::theme_ipsum()
+```
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-5-1.png)
+
+We got 47 observations (`nrow(trimmed_birds)`) of 47 species
+(`length(unique(trimmed_birds$comName))`), over 2 places
+(`length(unique(trimmed_birds$locName))`) during 4 observation sessions.
+Hopefully merely an appetizer to what we can hope to get from using the
+full eBird dataset in the next session…
+
+Before then, let’s just add the MPI on the map.
+
+``` r
+mpi <- opencage::opencage_forward("Am Obstberg 1 78315 Radolfzell", limit = 1)$results
+coords <- data.frame(lon = mpi$geometry.lng,
+                     lat = mpi$geometry.lat)
+crs <- sf::st_crs(landkreis_konstanz)
+
+mpi_sf <- sf::st_as_sf(coords,
+                       coords = c("lon", "lat"), 
+                      crs = crs)
+
+ggplot() +
+  geom_sf(data = landkreis_konstanz) +
+  geom_sf(data = summarized_birds,
+          aes(size = n), show.legend = "point") +
+  geom_sf(data = mpi_sf,
+          shape = 2) +
+  hrbrthemes::theme_ipsum()
+```
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-6-1.png)
+
+### Using `auk` to process EBD dataset for Germany
+
+After getting access to a custom dataset corresponding to the EBD for
+Germany only, I used `auk`’s documentation to learn how to process it.
+Since I wasn’t planning on zero-filling the data, I was able to ignore
+the sampling event data that contains the checklist-level information
+(e.g. time and date, location, and search effort information). For an
+example of a more advanced `auk` workflow involving the **full** EBD,
+and sampling data, refer to [Matt Strimas-Mackey’s own blog post about
+his package](https://ropensci.org/blog/2018/08/07/auk/).
+
+#### Preparing the dataset
+
+Here, the worflow is to *clean* the data and to *filter* it using an
+`auk`’s built-in filter and then polygon filtering as earlier in this
+post. All steps are quite fast, because the custom dataset for Germany
+isn’t too big (a few hundred megabytes).
+
+Cleaning happens in the following:
+
+``` r
+ebd_dir <- "C:/Users/Maelle/Documents/ropensci/ebird"
+
+f <- file.path(ebd_dir, "ebd_DE_relMay-2018.txt")
+f_clean <- file.path(ebd_dir, "ebd_DE_relMay-2018_clean.txt")
+auk::auk_clean(f, f_out = f_clean, remove_text = TRUE)
+```
+
+Then I was abe to filter the data.
+
+``` r
+ebd_dir <- "C:/Users/Maelle/Documents/ropensci/ebird"
+f_in_ebd <- file.path(ebd_dir, "ebd_DE_relMay-2018_clean.txt")
+
+library("magrittr")
+landkreis_konstanz_coords <- sf::st_coordinates(landkreis_konstanz)
+
+ebd_filter <- auk::auk_ebd(f_in_ebd) %>% 
+  auk::auk_extent(c(min(landkreis_konstanz_coords[, "X"]),
+                    min(landkreis_konstanz_coords[, "Y"]), 
+                    max(landkreis_konstanz_coords[, "X"]), 
+                    max(landkreis_konstanz_coords[, "Y"])))
+ebd_filter
+```
+
+    ## Input 
+    ##   EBD: C:\Users\Maelle\Documents\ropensci\ebird\ebd_DE_relMay-2018_clean.txt 
+    ## 
+    ## Output 
+    ##   Filters not executed
+    ## 
+    ## Filters 
+    ##   Species: all
+    ##   Countries: all
+    ##   States: all
+    ##   BCRs: all
+    ##   Spatial extent: Lon 8.6 - 9.2; Lat 47.7 - 47.9
+    ##   Date: all
+    ##   Start time: all
+    ##   Last edited date: all
+    ##   Protocol: all
+    ##   Project code: all
+    ##   Duration: all
+    ##   Distance travelled: all
+    ##   Records with breeding codes only: no
+    ##   Complete checklists only: no
+
+``` r
+fs::dir_create("ebird")
+f_out_ebd <- "ebird/ebd_lk_konstanz.txt"
+f_out_sampling <- "ebird/ebd_lk_konstanz_sampling.txt"
+ebd_filtered <- auk::auk_filter(ebd_filter, file = f_out_ebd,
+                                overwrite = TRUE)
+```
+
+On top of this filtering with `auk`, after loading the data I filtered
+observations inside the polygon of the county.
+
+``` r
+crs <- sf::st_crs(landkreis_konstanz)
+
+ebd <- auk::read_ebd(f_out_ebd) %>%
+  sf::st_as_sf(coords = c("longitude", "latitude"), 
+                crs = crs) 
+
+in_indices <- sf::st_within(ebd, landkreis_konstanz)
+```
+
+    ## although coordinates are longitude/latitude, st_within assumes that they are planar
+
+``` r
+ebd <- dplyr::filter(ebd, lengths(in_indices) > 0)
+
+ebd <- as.data.frame(ebd)
+```
+
+#### What are the observed birds?
+
+Before looking at species names, let’s have a brief look at the size and
+temporal extent of the data.
+
+``` r
+dplyr::glimpse(ebd)
+```
+
+    ## Observations: 10,156
+    ## Variables: 41
+    ## $ checklist_id                 <chr> "S45711521", "S45711455", "S45711...
+    ## $ global_unique_identifier     <chr> "URN:CornellLabOfOrnithology:EBIR...
+    ## $ last_edited_date             <chr> "2018-05-15 17:04:37.0", "2018-05...
+    ## $ taxonomic_order              <dbl> 4492.00, 2640.00, 31403.00, 3807....
+    ## $ category                     <chr> "species", "species", "species", ...
+    ## $ common_name                  <chr> "Common Tern", "Eurasian Marsh-Ha...
+    ## $ scientific_name              <chr> "Sterna hirundo", "Circus aerugin...
+    ## $ observation_count            <chr> "X", "2", "X", "X", "X", "1", "8"...
+    ## $ breeding_bird_atlas_code     <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ breeding_bird_atlas_category <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ age_sex                      <chr> NA, "Female, Adult (1); Male, Adu...
+    ## $ country                      <chr> "Germany", "Germany", "Germany", ...
+    ## $ country_code                 <chr> "DE", "DE", "DE", "DE", "DE", "DE...
+    ## $ state                        <chr> "Baden-WÃ¼rttemberg", "Baden-WÃ¼r...
+    ## $ state_code                   <chr> "DE-BW", "DE-BW", "DE-BW", "DE-BW...
+    ## $ county                       <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ county_code                  <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ iba_code                     <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ bcr_code                     <int> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ usfws_code                   <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ atlas_block                  <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ locality_id                  <chr> "L4067648", "L4067648", "L4067648...
+    ## $ locality_type                <chr> "H", "H", "H", "H", "H", "H", "H"...
+    ## $ observation_date             <date> 1960-07-09, 1960-09-24, 1961-04-...
+    ## $ time_observations_started    <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ observer_id                  <chr> "obsr556494", "obsr556494", "obsr...
+    ## $ sampling_event_identifier    <chr> "S45711521", "S45711455", "S45711...
+    ## $ protocol_type                <chr> "Historical", "Historical", "Hist...
+    ## $ protocol_code                <chr> "P62", "P62", "P62", "P62", "P62"...
+    ## $ project_code                 <chr> "EBIRD", "EBIRD", "EBIRD", "EBIRD...
+    ## $ duration_minutes             <int> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ effort_distance_km           <dbl> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ effort_area_ha               <dbl> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ number_observers             <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+    ## $ all_species_reported         <lgl> FALSE, FALSE, FALSE, FALSE, FALSE...
+    ## $ group_identifier             <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ has_media                    <lgl> FALSE, FALSE, FALSE, FALSE, FALSE...
+    ## $ approved                     <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRU...
+    ## $ reviewed                     <lgl> FALSE, FALSE, FALSE, FALSE, FALSE...
+    ## $ reason                       <chr> NA, NA, NA, NA, NA, NA, NA, NA, N...
+    ## $ geometry                     <POINT [Â°]> POINT (9.138629 47.66958),...
+
+``` r
+library("ggplot2")
+ebd %>%
+  dplyr::mutate(year = as.factor(lubridate::year(observation_date))) %>%
+ggplot() +
+  geom_bar(aes(year)) +
+  hrbrthemes::theme_ipsum(base_size = 14,
+                          axis_title_size = 10) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+    ## font family not found in Windows font database
+
+    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
+    ## x$y, : font family not found in Windows font database
+
+![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-9-1.png)
+
+I’m not sure whether eBird got more popular in the most recent years in
+general, or more popular in the most recent years in Germany, or got a
+partnership with a local German data source, but in any case, there are
+more occurrences reported since 2011.
+
+Now we can look at what birds have been reported the most.
+
+``` r
+ebd %>%
+  dplyr::filter(approved) %>%
+  dplyr::count(scientific_name, common_name) %>%
+  dplyr::arrange(- n) %>%
+  head(n = 10) %>%
+  knitr::kable()
+```
+
+| scientific\_name           | common\_name        |    n|
+|:---------------------------|:--------------------|----:|
+| Corvus corone              | Carrion Crow        |  288|
+| Turdus merula              | Eurasian Blackbird  |  285|
+| Anas platyrhynchos         | Mallard             |  273|
+| Fulica atra                | Eurasian Coot       |  268|
+| Parus major                | Great Tit           |  266|
+| Podiceps cristatus         | Great Crested Grebe |  254|
+| Ardea cinerea              | Gray Heron          |  236|
+| Cygnus olor                | Mute Swan           |  234|
+| Cyanistes caeruleus        | Eurasian Blue Tit   |  233|
+| Chroicocephalus ridibundus | Black-headed Gull   |  223|
+
+I had to google most of them, but only because I didn’t know the
+scientific and English names of these birds: they’re birds even I, not a
+birder, know, probably because they’re also common in Brittany where I
+grew up.
+
+We can also look at birds whose observation was rejected. Out of 10156
+observations only 64 were reviewed, and only 5 were not approved.
+
+``` r
+ebd %>%
+  dplyr::select(scientific_name, common_name,
+               approved, reviewed, reason) %>%
+  dplyr::filter(!approved) %>%
+  knitr::kable()
+```
+
+| scientific\_name    | common\_name      | approved | reviewed | reason                    |
+|:--------------------|:------------------|:---------|:---------|:--------------------------|
+| Cygnus atratus      | Black Swan        | FALSE    | TRUE     | Species-Introduced/Exotic |
+| Cygnus atratus      | Black Swan        | FALSE    | TRUE     | Species-Introduced/Exotic |
+| Cygnus atratus      | Black Swan        | FALSE    | TRUE     | Species-Introduced/Exotic |
+| Oxyura leucocephala | White-headed Duck | FALSE    | TRUE     | Species-Introduced/Exotic |
+| Mareca sibilatrix   | Chiloe Wigeon     | FALSE    | TRUE     | Species-Introduced/Exotic |
+
+I’m quite puzzled by Black Swans, because Swans are big and Black Swans
+([mostly present in Australia, imported and escaped in a few other
+places](https://en.wikipedia.org/wiki/Black_swan)) quite easy to
+recognize? What had the birders actually seen? In any case, eBird’s
+control of the data entered is quite admirable.
+
+#### Who observed birds?
+
+In [one of his latest blog
+posts](https://recology.info/2018/06/butte-county/) Scott Chamberlain
+mentioned the legendary Lowell Ahart, super plant collector in Butte
+County, California. Does Landkreis Konstanz have a super birder?
+
+``` r
+(first_birder <- ebd %>%
+  dplyr::count(observer_id) %>%
+  dplyr::arrange(- n) %>%
+  head(n = 1) )
+```
+
+    ## # A tibble: 1 x 2
+    ##   observer_id     n
+    ##   <chr>       <int>
+    ## 1 obsr457108   3551
+
+``` r
+first_birder$n/nrow(ebd)
+```
+
+    ## [1] 0.3496455
+
+Wow! The EBD no longer provides names (GDPR consequence?) but from the
+checklist ID one can get access to the checklist page e.g [this
+one](https://ebird.org/view/checklist/S42391392) where the name of the
+observer is present. The super birder of Landkreis Konstanz is [Antonio
+Anta Bink](https://ebird.org/profile/NDU3MTA4/DE).
+
+### Conclusion
+
+#### R packages for occurrence data
+
+In this post we gave a rough view of what birds are present in the
+county around Radolfzell: Eurasian Blackbirds, Carrion Crows, Great
+Tits… but not Black Swans. We mostly illustrated the use of two R
+packages accessing eBird’s data:
+
+-   `auk` for processing the gigantic whole eBird’s dataset.
+
+-   `rebird` for getting access to recent data via an API. `rebird` is
+    part of a larger collection of packages for occurrence data within
+    rOpenSci’s suite, with `spocc` being an umbrella package accessing
+    several data sources; `scrubr` an helper for cleaning data obtained
+    this way; and `mapr` an utility package for mapping such data.
+
+Explore these packages, and more rOpenSci’s packages, by checking out
+our [packages page](https://ropensci.org/packages/)!
+
+#### More birding soon!
+
+Stay tuned for the next post in this series, that’ll mark a break from
+modern data since we’ll try and extract information from old natural
+history bird drawings! After that, in a following post we’ll come back
+to the occurrence data obtained from eBird in order to complement it
+with open taxonomic and traits data. In the meantime, happy (e)birding!
