@@ -256,17 +256,24 @@ itself with
 but I’ll add them on the side instead.
 
 ``` r
+# Get pics ids
 load(file.path("taxo", "ids.RData"))
 
-# basic tree
+# Plot basic tree
 p <- ggtree::ggtree(tree$phylo) 
 
+# Sort the orders by node id
 orders <- dplyr::arrange(orders, - id)
 
+# Helper to plot one order
 plot_order <- function(order, orders,
                        ids, p){
+                       
+  # Get index
   i <- which(orders$order == order)
   
+  # From image ID get image itself 
+  # and image metadata (copyright &co)
   img_id <- ids$pic_id[ids$order == order]
   img <- rphylopic::image_data(img_id, 512)
   img_info <- rphylopic::image_get(img_id,
@@ -276,25 +283,31 @@ plot_order <- function(order, orders,
   if(is.null(img_info$credit)){
     img_info$credit <- ""
   }
+  
+  # Now, plot!
   p +
+  # Highlight the order
   ggtree::geom_hilight(node = orders$id[i],
                        fill = "salmon") +
+  # Order name as title
   ggtitle(orders$order[i])+
   xlim(0, 150) +
   ylim(0, 250) +
+  # Add species names on the side
   annotate("text", x = 110,
            y = 200, label = orders$species[i],
            size = 4) +
-    annotate("text", x = 110,
+  # Credit at the bottom
+  annotate("text", x = 110,
            y = 0,
            size = 2,
-             label = glue::glue("Silhouette: {img_info$credit}\n{img_info$licenseURL}"))
+          label = glue::glue("Silhouette: {img_info$credit}\n{img_info$licenseURL}"))
   
+  # Save a first time
   filepath <- file.path("taxo", glue::glue("p{i}.png"))
-  
   ggsave(filepath, width = 7, height = 7)
   
-  # add silhouette
+  # Add silhouette via magick
   silhouette <- magick::image_read(img[[1]])
   magick::image_read(filepath) %>%
     magick::image_composite(silhouette,
@@ -303,6 +316,7 @@ plot_order <- function(order, orders,
   
 }
 
+# Create aaall plots
   
 purrr::walk(orders$order, plot_order,
             orders, ids, p)
@@ -316,40 +330,22 @@ Once we have created all these PNGs, we can join them into a gif using
 png_files <- fs::dir_ls("taxo", regexp = "[.]png$")
 
 gifski::gifski(png_files = png_files,
-               gif_file = file.path("taxo", "taxo.gif"),
+               gif_file = file.path("2018-09-04-birds-taxo-traits_files",
+                                    "figure-markdown_github", "taxo.gif"),
                delay = 3,
-               width = 700, height = 700)
+               width = 700, height = 700,
+               progress = FALSE)
 ```
 
-    ## 
-    Frame 0 (5%)
-    Frame 1 (11%)
-    Frame 2 (16%)
-    Frame 3 (22%)
-    Frame 4 (27%)
-    Frame 5 (33%)
-    Frame 6 (38%)
-    Frame 7 (44%)
-    Frame 8 (50%)
-    Frame 9 (55%)
-    Frame 10 (61%)
-    Frame 11 (66%)
-    Frame 12 (72%)
-    Frame 13 (77%)
-    Frame 14 (83%)
-    Frame 15 (88%)
-    Frame 16 (94%)
-    Frame 17 (100%)
-    ## Finalizing encoding... done!
-
-    ## [1] "taxo/taxo.gif"
+    ## [1] "/img/blog-images/2018-09-04-birds-taxo-traits/taxo.gif"
 
 ``` r
-magick::image_read(file.path("taxo", "taxo.gif")) %>%
-  magick::image_animate()
+knitr::include_graphics(file.path("2018-09-04-birds-taxo-traits_files",
+                                    "figure-markdown_github", "taxo.gif")) 
 ```
 
-![](/img/blog-images/2018-09-04-birds-taxo-traits/unnamed-chunk-7-1.gif)
+![animated tree with species names and order
+silhouette](/img/blog-images/2018-09-04-birds-taxo-traits/taxo.gif)
 
 This gif shows many species names and order giving us a feeling for what
 we might encounter in the county of Constance, but it lacks quantitative
@@ -400,6 +396,8 @@ get_info <- function(species){
 
 species_info <- purrr::map(species,
                            get_info)
+
+save(species_info, file.path("taxo", "species_info.RData"))
 ```
 
 ### Conclusion
