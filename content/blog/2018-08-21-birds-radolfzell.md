@@ -400,7 +400,8 @@ ebd %>%
 ggplot() +
   geom_bar(aes(year))  +
   hrbrthemes::theme_ipsum(base_size = 12, axis_title_size = 12, axis_text_size = 12) +
-  xlab("No. of eBird observations") +
+  ylab("No. of eBird observations") +
+  xlab("Time (years)") +
   ggtitle("Full eBird dataset for the County of Constance")
 ```
 
@@ -484,14 +485,16 @@ County, California. Does the county of Constance have a super birder?
     ## 1 obsr457108   3551
 
 ``` r
-first_birder$n/nrow(ebd)
+(proportion <- round(first_birder$n/nrow(ebd),
+                    digits = 2))
 ```
 
-    ## [1] 0.3496455
+    ## [1] 0.35
 
-Wow! The EBD no longer provides names (consequence of the [EU General
-Data Protection Regulation](https://www.eugdpr.org/)) but from the
-checklist ID one can get access to the checklist page e.g [this
+Wow, that person made 35% of eBird observations in the county! The EBD
+no longer provides names (consequence of the [EU General Data Protection
+Regulation](https://www.eugdpr.org/)) but from the checklist ID one can
+get access to the checklist page e.g [this
 one](https://ebird.org/view/checklist/S42391392) where the name of the
 observer is present. The super birder of the County of Constance is
 [Antonio Anta Bink](https://ebird.org/profile/NDU3MTA4/DE).
