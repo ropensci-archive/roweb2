@@ -668,8 +668,8 @@ q:before, q:after {
 }.team .label{
   float: none;
   color: white;
-  font-weight: 700;
-  padding: 5px 10px;
+  font-weight: 600;
+  padding: 4px 10px;
 }.team .label.staff{
   /*background-color: #01dc0b;*/
    background-color: #748290;
