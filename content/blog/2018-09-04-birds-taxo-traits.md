@@ -94,7 +94,7 @@ fs::dir_create("taxo")
 save(classif, file = file.path("taxo", "classif.RData"))
 ```
 
-There are 0 species, we get 211 elements in the classification
+There are 211 species, we get 211 elements in the classification
 (`sum(lengths(classif)==3)`), that is a list of data.frames:
 
 ``` r
@@ -397,28 +397,140 @@ get_info <- function(species){
 species_info <- purrr::map(species,
                            get_info)
 
-save(species_info, file.path("taxo", "species_info.RData"))
+names(species_info) <- species
+save(species_info, file = file.path("taxo", "species_info.RData"))
 ```
+
+The script above isn’t the smartest since it doesn’t retain information
+about the species names. Not too bad here because I want to get a
+general idea of birds’ habitats and threats over the county.
+
+``` r
+habitat <- purrr::map_df(species_info, "habitat")
+```
+
+Out of 0, 203 are represented in this dataset.
+
+``` r
+library("ggplot2")
+
+habitat %>%
+  janitor::clean_names() %>%
+  dplyr::group_by(id) %>%
+  dplyr::mutate(ok = all(c("breeding", "non-breeding") %in% occurrence)) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(ok, importance == "major") %>%
+  dplyr::mutate(habitat = dplyr::case_when(stringr::str_detect(habitat_level_1,
+                                                               "Marine") ~ "Marine",
+                                           stringr::str_detect(habitat_level_1,
+                                                               "Rocky") ~ "Rocky",
+                                           TRUE  ~ habitat_level_1)) %>%
+  ggplot() +
+  geom_bar(aes(occurrence, fill = habitat),
+           position = "fill") +
+  theme(legend.position = "bottom")
+```
+
+![](/img/blog-images/2018-09-04-birds-taxo-traits/unnamed-chunk-9-1.png)
+
+It seems that the birds present in the County of Constance might have
+different distributions depending on the breeding/non-breeding season.
+It’d be interesting to look at in the occurrence data, since `auk`
+allows zero-filling.
+
+Let’s have a look at threats data.
+
+``` r
+threats <- purrr::map_df(species_info, "threats")
+str(threats)
+```
+
+    ## 'data.frame':    414 obs. of  8 variables:
+    ##  $ id      : int  22696993 22696993 22696993 22696993 22696993 22696993 22696993 22696993 103888106 103888106 ...
+    ##  $ threat1 : chr  "Agriculture & aquaculture" "Biological resource use" "Biological resource use" "Biological resource use" ...
+    ##  $ threat2 : chr  "Annual & perennial non-timber crops" "Hunting & trapping terrestrial animals" "Hunting & trapping terrestrial animals" "Logging & wood harvesting" ...
+    ##  $ stresses: chr  "Ecosystem degradation, Ecosystem conversion" "Species mortality" "Species mortality" "Species disturbance, Ecosystem degradation" ...
+    ##  $ timing  : chr  "Agriculture & aquaculture" "Biological resource use" "Biological resource use" "Biological resource use" ...
+    ##  $ scope   : chr  "Annual & perennial non-timber crops" "Hunting & trapping terrestrial animals" "Hunting & trapping terrestrial animals" "Logging & wood harvesting" ...
+    ##  $ severity: chr  "Ongoing" "Ongoing" "Past, Likely to Return" "Ongoing" ...
+    ##  $ impact  : chr  "Ongoing" "Ongoing" "Past, Likely to Return" "Ongoing" ...
+
+As you can see, it is a depressing dataset since most threats are
+human-made, but such information can help conservation! Instead of
+diving into the fate of particular species, let’s get a general picture.
+There are 211 species, for 68 we get an entry in the threats data. What
+are the most common threats for them, now and in the future?
+
+``` r
+dplyr::filter(threats, severity %in% c("Future", "Ongoing")) %>%
+  dplyr::select(id, threat2, threat1) %>%
+  unique() %>%
+  dplyr::count(threat2, threat1) %>%
+  dplyr::arrange(-n) %>%
+  head(n = 5) %>%
+  knitr::kable()
+```
+
+| threat2                                | threat1                         |    n|
+|:---------------------------------------|:--------------------------------|----:|
+| Hunting & trapping terrestrial animals | Biological resource use         |   25|
+| Habitat shifting & alteration          | Climate change & severe weather |   24|
+| Renewable energy                       | Energy production & mining      |   16|
+| Agricultural & forestry effluents      | Pollution                       |   14|
+| Dams & water management/use            | Natural system modifications    |   14|
+
+It’s quite similar the ranking in this post on [BirdLife’s
+website](https://www.birdlife.org/worldwide/news/top-five-threats-birds-may-surprise-you):
+industrial farming, logging, invasive species, hunting and trapping,
+climate change. Note that these threats have been summarized by species,
+not by species and location, so this data doesn’t tell us much about the
+state of each species in the County of Constance. If we wanted to
+characterize the County a bit more via the use of open data, we could
+use e.g. `osmdata` to get land-use information via OpenStreetMap:
+instead of bird hides/blinds as in the first post we could get elements
+related to agriculture for instance.
 
 ### Conclusion
 
-#### Phylogeny in R
+#### Characterizing the local birds population
+
+From occurrence data we got names of species observed at least once in
+the area over the last year. Using taxonomy data to classify them we
+were able to see quite a few birds orders are represented, and we were
+able to visualize corresponding silhouettes. Traits data is general and
+doesn’t give information about the local context of birds in the County
+of Constance, however it could be coupled with more local data:
+localization of observations, and open geographical data. All the
+mentioned data sources are available for free, and can be obtained using
+R packages.
+
+#### Phylogeny and traits data in R
 
 There are many R packages supporting your phylogeny work! In particular,
 within the rOpenSci suite `taxize` that we used here allows to get
 taxonomy information from many sources, while
 [`taxa`](https://github.com/ropensci/taxa) defined taxonomy classes for
-R. The [`treeio` package](https://github.com/GuangchuangYu/treeio)
-provides base classes and functions for phylogenetic tree input and
-output and was onboarded. Guangchuang Yu’s other packages such as
-`ggtree` and `tidytree` are also of interest for manipulating and
-visualizing trees.
+R. The [`treeio` package](https://github.com/GuangchuangYu/treeio) by
+Guangchuang Yu provides base classes and functions for phylogenetic tree
+input and output and was onboarded. Explore more of our packages suite,
+including and beyond the geospatial category,
+[here](https://ropensci.org/packages/).
 
 Mention `taxize` book?
 
-More generally, the [Phylogenetics CRAN task
+Guangchuang Yu’s other packages such as `ggtree` and `tidytree` are also
+of interest for manipulating and visualizing trees. More generally, the
+[Phylogenetics CRAN task
 view](https://cran.r-project.org/web/views/Phylogenetics.html) provides
 a sorted useful list of packages.
+
+Based on species’ names, one can also get traits data using the `traits`
+package as we did in this post. Also of interest is the rOpenSci’s
+[`originr` package](https://github.com/ropensci/originr) providing
+different datasets about invasive and alien species.
+
+Explore more of our packages suite, including and beyond the taxonomy
+and traits category, [here](https://ropensci.org/packages/).
 
 #### More birding soon!
 
