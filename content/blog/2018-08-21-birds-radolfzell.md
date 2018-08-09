@@ -89,8 +89,8 @@ download a custum dataset is variable). While waiting, I worked on the
 
 #### API key? Not yet
 
-At the moment, `rebird` interfaces the 1.1 APIs that will be retired
-[“at some point in the
+At the moment, `rebird` interfaces the version 1.1 APIs that will be
+retired [“at some point in the
 future”](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW).
 When this happens, the `rebird` package [will use the new
 API](https://github.com/ropensci/rebird/issues/58) which will mean
@@ -118,7 +118,8 @@ landkreis_konstanz <- osmdata::getbb("Landkreis Konstanz",
 plot(landkreis_konstanz)
 ```
 
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-1-1.png)
+![Limits of the County of
+Constance](/img/blog-images/2018-08-21-birds-radolfzell/lk-1.png)
 
 Neither `rebird` nor `spocc` currently offer built-in trimming of
 occurrence data to a polygon (whereas `osmdata` does). A further
@@ -162,25 +163,25 @@ birds <- rebird::ebirdgeo(species = NULL,
 nrow(birds)
 ```
 
-    ## [1] 54
+    ## [1] 55
 
 ``` r
 str(birds)
 ```
 
-    ## Classes 'tbl_df', 'tbl' and 'data.frame':    54 obs. of  12 variables:
-    ##  $ lng            : num  9 9 9 9 9 ...
-    ##  $ locName        : chr  "Max Planck Institute" "Max Planck Institute" "Max Planck Institute" "Max Planck Institute" ...
-    ##  $ howMany        : int  1 2 4 2 2 10 1 1 1 1 ...
-    ##  $ sciName        : chr  "Sylvia atricapilla" "Fulica atra" "Columba palumbus" "Corvus corax" ...
+    ## Classes 'tbl_df', 'tbl' and 'data.frame':    55 obs. of  12 variables:
+    ##  $ lng            : num  8.94 8.94 8.94 8.94 8.94 ...
+    ##  $ locName        : chr  "Radolfzeller Aachmündung (Bodensee)" "Radolfzeller Aachmündung (Bodensee)" "Radolfzeller Aachmündung (Bodensee)" "Radolfzeller Aachmündung (Bodensee)" ...
+    ##  $ sciName        : chr  "Chroicocephalus ridibundus" "Motacilla alba" "Rallus aquaticus" "Aythya fuligula" ...
     ##  $ obsValid       : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ locationPrivate: logi  TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ obsDt          : chr  "2018-07-29 13:00" "2018-07-29 13:00" "2018-07-29 13:00" "2018-07-29 13:00" ...
+    ##  $ locationPrivate: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+    ##  $ obsDt          : chr  "2018-08-08 13:30" "2018-08-08 13:30" "2018-08-08 13:30" "2018-08-08 13:30" ...
     ##  $ obsReviewed    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
-    ##  $ comName        : chr  "Eurasian Blackcap" "Eurasian Coot" "Common Wood-Pigeon" "Common Raven" ...
-    ##  $ lat            : num  47.8 47.8 47.8 47.8 47.8 ...
-    ##  $ locID          : chr  "L2331012" "L2331012" "L2331012" "L2331012" ...
-    ##  $ locId          : chr  "L2331012" "L2331012" "L2331012" "L2331012" ...
+    ##  $ comName        : chr  "Black-headed Gull" "White Wagtail" "Water Rail" "Tufted Duck" ...
+    ##  $ lat            : num  47.7 47.7 47.7 47.7 47.7 ...
+    ##  $ locID          : chr  "L3314048" "L3314048" "L3314048" "L3314048" ...
+    ##  $ locId          : chr  "L3314048" "L3314048" "L3314048" "L3314048" ...
+    ##  $ howMany        : int  NA 2 1 1 NA 3 NA NA 8 20 ...
 
 Now that we have the occurrence data, let’s plot it to see whether
 trimming is required.
@@ -196,21 +197,20 @@ ggplot() +
   geom_sf(data = landkreis_konstanz) +
   geom_sf(data = birds_sf) +
   theme(legend.position = "bottom") +
-  hrbrthemes::theme_ipsum()
+  hrbrthemes::theme_ipsum() +
+  ggtitle("eBird observations over the last 30 days",
+          subtitle = "Observations within a circle around the County of Constance")
 ```
 
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-4-1.png)
+![map of raw observations within a
+circle](/img/blog-images/2018-08-21-birds-radolfzell/map_circle-1.png)
 
 Yes, trimming is required! It’d have been too bad not to learn how to do
 it, anyway.
 
 ``` r
 in_indices <- sf::st_within(birds_sf, landkreis_konstanz)
-```
 
-    ## although coordinates are longitude/latitude, st_within assumes that they are planar
-
-``` r
 trimmed_birds <- dplyr::filter(birds_sf,
                                lengths(in_indices) > 0)
 
@@ -222,14 +222,17 @@ ggplot() +
   geom_sf(data = landkreis_konstanz) +
   geom_sf(data = summarized_birds,
           aes(size = n), show.legend = "point") +
-  hrbrthemes::theme_ipsum()
+  hrbrthemes::theme_ipsum() +
+  ggtitle("eBird observations over the last 30 days",
+          subtitle = "County of Constance")
 ```
 
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-5-1.png)
+![trimmed observations in the
+county](/img/blog-images/2018-08-21-birds-radolfzell/trimmed1-1.png)
 
-We got 47 observations (`nrow(trimmed_birds)`) of 47 species
+We got 49 observations (`nrow(trimmed_birds)`) of 49 species
 (`length(unique(trimmed_birds$comName))`), over 2 places
-(`length(unique(trimmed_birds$locName))`) during 4 observation sessions.
+(`length(unique(trimmed_birds$locName))`) during 5 observation sessions.
 Hopefully merely an appetizer to what we can hope to get from using the
 full eBird dataset in the next section…
 
@@ -251,10 +254,13 @@ ggplot() +
           aes(size = n), show.legend = "point") +
   geom_sf(data = mpi_sf,
           shape = 2) +
-  hrbrthemes::theme_ipsum()
+  hrbrthemes::theme_ipsum()+
+  ggtitle("eBird observations over the last 30 days",
+          subtitle = "County of Constance, MPI Radolfzell as a triangle")
 ```
 
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-6-1.png)
+![trimmed observations in the county and
+MPI](/img/blog-images/2018-08-21-birds-radolfzell/trimmed2-1.png)
 
 Note that the initial query could have been made with `spocc` which
 would have helped using the rOpenSci occurrence suite.
@@ -272,9 +278,8 @@ birds2 <- spocc::occ(from = "ebird",
 mapr::map_leaflet(birds2)
 ```
 
-    ## no. taxa > 9, using single color - consider passing in colors
-
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-7-1.png)
+![mapr leaflet map of observations
+locations](/img/blog-images/2018-08-21-birds-radolfzell/mapr-1.png)
 
 Quite handy!
 
@@ -294,10 +299,10 @@ blog post about his package](https://ropensci.org/blog/2018/08/07/auk/).
 
 #### Preparing the dataset
 
-Here, the worflow is to *clean* the data and to *filter* it using an
-`auk`’s built-in filter and then polygon filtering as earlier in this
-post. All steps are quite fast, because the custom dataset for Germany
-isn’t too big (a few hundred megabytes).
+Here, the workflow is to *clean* the data and to *filter* it using one
+of `auk`’s built-in filters and then polygon filtering as earlier in
+this post. All steps are quite fast, because the custom dataset for
+Germany isn’t too big (a few hundred megabytes).
 
 Cleaning happens in the following:
 
@@ -309,7 +314,10 @@ f_clean <- file.path(ebd_dir, "ebd_DE_relMay-2018_clean.txt")
 auk::auk_clean(f, f_out = f_clean, remove_text = TRUE)
 ```
 
-Then one can filter the data.
+Then one can filter the data. Note that the `auk_extent` function that
+only retains observations within a bounding box has been renamed
+`auk_bbox` in the dev version of `auk`, the old name will be deprecated
+soon.
 
 ``` r
 ebd_dir <- "C:/Users/Maelle/Documents/ropensci/ebird"
@@ -367,11 +375,7 @@ ebd <- auk::read_ebd(f_out_ebd) %>%
                 crs = crs) 
 
 in_indices <- sf::st_within(ebd, landkreis_konstanz)
-```
 
-    ## although coordinates are longitude/latitude, st_within assumes that they are planar
-
-``` r
 ebd <- dplyr::filter(ebd, lengths(in_indices) > 0)
 
 ebd <- as.data.frame(ebd)
@@ -392,15 +396,16 @@ dim(ebd)
 
 ``` r
 ebd %>%
-  dplyr::mutate(year = as.factor(lubridate::year(observation_date))) %>%
+  dplyr::mutate(year = lubridate::year(observation_date)) %>%
 ggplot() +
-  geom_bar(aes(year)) +
-  hrbrthemes::theme_ipsum(base_size = 14,
-                          axis_title_size = 8) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  geom_bar(aes(year))  +
+  hrbrthemes::theme_ipsum(base_size = 12, axis_title_size = 12, axis_text_size = 12) +
+  xlab("No. of eBird observations") +
+  ggtitle("Full eBird dataset for the County of Constance")
 ```
 
-![](/img/blog-images/2018-08-21-birds-radolfzell/unnamed-chunk-10-1.png)
+![No. of eBird observations over the
+years](/img/blog-images/2018-08-21-birds-radolfzell/barplot-1.png)
 
 eBird started in 2002 but only became global in 2010. It allows people
 to enter older observations, though.
