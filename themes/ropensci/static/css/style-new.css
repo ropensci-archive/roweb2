@@ -671,15 +671,19 @@ q:before, q:after {
   font-weight: 700;
   padding: 5px 10px;
 }.team .label.staff{
-  background-color: #01dc0b;
+  /*background-color: #01dc0b;*/
+   background-color: #748290;
+
 }.team .label.staff:after{
   content: 'staff';
 }.team .label.leadership{
-  background-color: #ffcc00;
+  /*background-color: #ffcc00;*/
+  background-color: #90897E;
 }.team .label.leadership:after{
   content: 'leadership';
 }.team .label.advisor{
-  background-color: #fa8d44;
+  /*background-color: #fa8d44;*/
+  background-color: #BDBA85;
 }.team .label.advisor:after{
   content: 'advisor';
 }.team .label.alumnus{
@@ -687,11 +691,14 @@ q:before, q:after {
 }.team .label.alumnus:after{
   content: 'alumnus';
 }.team .label.postdoc{
-  background-color: #4b8add;
+  /*background-color: #4b8add;*/
+  background-color: #B79D71;
 }.team .label.postdoc:after{
   content: 'postdoc';
 }.team .label.editor{
-  background-color: #f17183;
+  /*background-color: #f17183;*/
+  background-color: #C6AF7F;
+
 }.team .label.editor:after{
   content: 'editor';
 }.resources {
