@@ -110,7 +110,7 @@ str(classif[[1]])
 
 Now, we’ll represent the whole taxonomy as a tree, using the handy
 `taxize::class2tree` function and the great [`ggtree` package by
-Guangchuang Yu](https://guangchuangyu.github.io/software/ggtree/)
+Guangchuang Yu](https://guangchuangyu.github.io/software/ggtree/).
 
 ``` r
 tree <- taxize::class2tree(classif)
@@ -137,11 +137,12 @@ post](https://rgriff23.github.io/2017/05/11/primate-phylogeny-ggtree.html).
 There are 18 orders and I do not intend to add the highlighting command
 for each of them by hand! I’ll streamline the process, starting by
 automatically extracting the node ID of each order. The solution below
-might be a little over-complicated, so taxonomy R experts, please chime
+might be a little over-complicated, so R taxonomy experts, please chime
 in! I transformed the tree `phylo` object to a `phylo4` from the
-`phylobase` package in order to easily retrieve all ancestor nodes for
-any group of species. Within an order, the order node ID is the highest
-common node ID.
+[`phylobase` package](https://github.com/fmichonneau/phylobase)
+maintained by François Michonneau, in order to easily retrieve all
+ancestor nodes for any group of species. Within an order, the order node
+ID is the highest common node ID.
 
 ``` r
 p4 <- phylobase::phylo4(tree$phylo)
@@ -324,7 +325,8 @@ purrr::walk(orders$order, plot_order,
 ```
 
 Once we have created all these PNGs, we can join them into a gif using
-`gifski`.
+[Jeroen Ooms’
+`gifski`](https://ropensci.org/technotes/2018/07/23/gifski-release/).
 
 ``` r
 png_files <- fs::dir_ls("taxo", regexp = "[.]png$")
@@ -333,7 +335,7 @@ gifski::gifski(png_files = png_files,
                gif_file = file.path("2018-09-04-birds-taxo-traits_files",
                                     "figure-markdown_github", "taxo.gif"),
                delay = 3,
-               width = 700, height = 700,
+               width = 500, height = 500,
                progress = FALSE)
 ```
 
@@ -350,7 +352,7 @@ silhouette](/img/blog-images/2018-09-04-birds-taxo-traits/taxo.gif)
 This gif shows many species names and order giving us a feeling for what
 we might encounter in the county of Constance, but it lacks quantitative
 information about the species. It’d be interesting to create trees such
-as the ones of the [`metacorder`
+as the ones of the [`metacoder`
 package](https://github.com/grunwaldlab/metacoder) to reflect abudance,
 possibly depending on the very local area (distance to watery area) or
 season, potentially using the `taxize::downstream` function to get all
@@ -371,8 +373,9 @@ threats.
 The different functions of `traits` have prefixes indicating with which
 data source they interact. Here we shall use `traits::birdlife_habitat`
 and `traits::birdlife_threats`. To get access to the data available for
-each species, we first need to get its IUCN ID using the `taxize`
-package (or the `rredlist` package that it wraps)
+each species, we first need to get its IUCN ID using the [`taxize`
+package](https://github.com/ropensci/taxize) (or the [`rredlist`
+package](https://github.com/ropensci/rredlist) that it wraps)
 
 ``` r
 species <-  unique(ebd$scientific_name)
@@ -409,7 +412,7 @@ general idea of birds’ habitats and threats over the county.
 habitat <- purrr::map_df(species_info, "habitat")
 ```
 
-Out of 0, 203 are represented in this dataset.
+Out of 211, 203 are represented in this dataset.
 
 ``` r
 library("ggplot2")
@@ -479,16 +482,17 @@ dplyr::filter(threats, severity %in% c("Future", "Ongoing")) %>%
 | Agricultural & forestry effluents      | Pollution                       |   14|
 | Dams & water management/use            | Natural system modifications    |   14|
 
-It’s quite similar the ranking in this post on [BirdLife’s
+It’s quite similar to the ranking in this post on [BirdLife’s
 website](https://www.birdlife.org/worldwide/news/top-five-threats-birds-may-surprise-you):
 industrial farming, logging, invasive species, hunting and trapping,
 climate change. Note that these threats have been summarized by species,
 not by species and location, so this data doesn’t tell us much about the
 state of each species in the County of Constance. If we wanted to
 characterize the County a bit more via the use of open data, we could
-use e.g. `osmdata` to get land-use information via OpenStreetMap:
-instead of bird hides/blinds as in the first post we could get elements
-related to agriculture for instance.
+use e.g. [`osmdata`](https://ropensci.github.io/osmdata/) to get
+land-use information via OpenStreetMap: instead of bird hides/blinds as
+in the first post we could get elements related to agriculture for
+instance.
 
 ### Conclusion
 
@@ -504,23 +508,24 @@ localization of observations, and open geographical data. All the
 mentioned data sources are available for free, and can be obtained using
 R packages.
 
-#### Phylogeny and traits data in R
+#### Taxonomy and traits data in R
 
-There are many R packages supporting your phylogeny work! In particular,
+There are many R packages supporting your taxonomy work! In particular,
 within the rOpenSci suite `taxize` that we used here allows to get
-taxonomy information from many sources, while
+taxonomy information from many sources and [is the topic of a WIP online
+book](https://github.com/ropensci/taxize-book), while
 [`taxa`](https://github.com/ropensci/taxa) defined taxonomy classes for
-R. The [`treeio` package](https://github.com/GuangchuangYu/treeio) by
-Guangchuang Yu provides base classes and functions for phylogenetic tree
-input and output and was onboarded. Explore more of our packages suite,
-including and beyond the geospatial category,
-[here](https://ropensci.org/packages/).
+R. rOpenSci maintains a task view of taxonomy packages
+[here](https://github.com/ropensci/taxonomy), part of which [form the
+rOpenSci taxonomy
+suite](https://ropensci.org/blog/2017/07/27/taxonomy-suite/).
 
-Mention `taxize` book?
-
-Guangchuang Yu’s other packages such as `ggtree` and `tidytree` are also
-of interest for manipulating and visualizing trees. More generally, the
-[Phylogenetics CRAN task
+Related to taxonomy are phylogenetics. The [`treeio`
+package](https://github.com/GuangchuangYu/treeio) by Guangchuang Yu
+provides base classes and functions for phylogenetic tree input and
+output and was onboarded. Guangchuang Yu’s other packages such as
+`ggtree` and `tidytree` are also of interest for manipulating and
+visualizing trees. More generally, the [Phylogenetics CRAN task
 view](https://cran.r-project.org/web/views/Phylogenetics.html) provides
 a sorted useful list of packages.
 
@@ -535,7 +540,4 @@ and traits category, [here](https://ropensci.org/packages/).
 #### More birding soon!
 
 Stay tuned for the next post in this series, about documenting the
-dataset obtained in this post! In the meantime, happy birding! Stay
-tuned for the next post in this series, about properly but easily
-documenting the dataset we’ve just created! In the meantime, happy
-birding!
+dataset obtained in this post! In the meantime, happy birding!
