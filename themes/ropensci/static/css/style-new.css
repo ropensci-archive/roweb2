@@ -473,7 +473,7 @@ q:before, q:after {
     padding: 2px 6px;
     line-height: 1.2rem;
     margin: 20px 0 10px 0;
-    background-color: #f17183;
+    background-color: #BFB18A;
     color: white;
     display: table; /* So it wont break in IE */
 
@@ -683,7 +683,7 @@ q:before, q:after {
 }.team .label.advisor:after{
   content: 'advisor';
 }.team .label.editor{
-  background-color: #f17183;
+  background-color: #BFB18A;
 }.team .label.editor:after{
   content: 'editor';
 }.team .label.postdoc{
