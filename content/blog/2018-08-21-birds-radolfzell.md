@@ -41,7 +41,7 @@ There are two ways to access eBird data with an R package for each of
 these methods,
 
 -   whole dataset download via `auk` maintained by [Matt
-    Strimas-Mackey](http://strimas.com/)
+    Strimas-Mackey](http://strimas.com/),
 
 -   APIs, via `rebird` maintained by [Sebastian
     Pardo](http://sebpardo.github.io/).
