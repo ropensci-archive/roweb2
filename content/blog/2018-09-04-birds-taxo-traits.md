@@ -8,6 +8,11 @@ date: 2018-09-04
 preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
 tags:
 - auk
+- taxize
+- traits
+- taxonomy
+- rphylopic
+- gifski
 - birder
 output: 
   md_document:
@@ -514,10 +519,10 @@ There are many R packages supporting your taxonomy work! In particular,
 within the rOpenSci suite `taxize` that we used here allows to get
 taxonomy information from many sources and [is the topic of a WIP online
 book](https://github.com/ropensci/taxize-book), while
-[`taxa`](https://github.com/ropensci/taxa) defined taxonomy classes for
-R. rOpenSci maintains a task view of taxonomy packages
-[here](https://github.com/ropensci/taxonomy), part of which [form the
-rOpenSci taxonomy
+[`taxa`](https://github.com/ropensci/taxa), maintained by Zachary
+Foster, defines taxonomy classes for R. rOpenSci maintains a task view
+of taxonomy packages [here](https://github.com/ropensci/taxonomy), part
+of which [form the rOpenSci taxonomy
 suite](https://ropensci.org/blog/2017/07/27/taxonomy-suite/).
 
 Related to taxonomy are phylogenetics. The [`treeio`
