@@ -11,6 +11,8 @@ tags:
 - spocc
 - auk
 - birder
+- ornithology
+- ebird
 output: 
   md_document:
     variant: markdown_github
@@ -35,14 +37,20 @@ are observed in the area.
 
 ### How to access eBird data?
 
-There are two ways to access eBird data, whole dataset download or APIs,
-with an R package for each of these methods, `auk` and `rebird`,
-maintained respectively by [Matt Strimas-Mackey](http://strimas.com/)
-and by [Sebastian Pardo](http://sebpardo.github.io/). Your use case will
-help you decide which entry point is the most appropriate for your use
-case. *Note that both packages have documented their respective
-applications in order to help potential users: [`rebird`
-README](https://github.com/ropensci/rebird#auk-vs-rebird), [`auk`
+There are two ways to access eBird data with an R package for each of
+these methods,
+
+-   whole dataset download via `auk` maintained by [Matt
+    Strimas-Mackey](http://strimas.com/)
+
+-   APIs, via `rebird` maintained by [Sebastian
+    Pardo](http://sebpardo.github.io/).
+
+Your use case will help you decide which entry point is the most
+appropriate for your use case. *Note that both packages have documented
+their respective applications in order to help potential users:
+[`rebird` README](https://github.com/ropensci/rebird#auk-vs-rebird),
+[`auk`
 README](https://github.com/CornellLabofOrnithology/auk#auk-vs-rebird).*
 
 -   You want to study a region, or a bird, quite deeply and you even
@@ -84,13 +92,13 @@ request), after a small dance of joy it’s time to head to eBird’s
 want nor need to download the whole eBird Basic Dataset (EBD), one can
 request a custom download, which I did, asking for only the data for
 Germany which I got after a few days (the time to receiving the link to
-download a custum dataset is variable). While waiting, I worked on the
+download a custom dataset is variable). While waiting, I worked on the
 `rebird` part of this post, among other things.
 
 #### API key? Not yet
 
-At the moment, `rebird` interfaces the version 1.1 APIs that will be
-retired [“at some point in the
+At the moment, `rebird` interfaces the version 1.1 eBird APIs that will
+be retired [“at some point in the
 future”](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW).
 When this happens, the `rebird` package [will use the new
 API](https://github.com/ropensci/rebird/issues/58) which will mean
@@ -99,12 +107,13 @@ authentication to use `rebird`.
 
 ### Using `rebird` while waiting for the eBird’s full dataset
 
-In the following, we’ll use the rOpenSci’s packages `rebird` to get and
+In the following, we’ll use the rOpenSci’s package `rebird` to get and
 map all observations in the last 30 days near Radolfzell in Germany.
 
-The *Radolfzell* part of that sentence is a bit different than in last
-post about finding bird’s hides near the MPI institute for ornithology:
-I want all observations inside the polygon of the district of Constance
+The *Radolfzell* part of that sentence is a bit different than in [the
+last post about finding bird hides near the MPI institute for
+ornithology](https://ropensci.org/blog/2018/08/14/where-to-bird/): I
+want all observations inside the polygon of the district of Constance
 (Landkreis Konstanz, including Radolfzell… and a protected natural
 area!) so I’ll first need to get it. For doing that I’ll use
 `osmdata::getbb`, that uses the free Nominatim API provided by
@@ -206,25 +215,44 @@ ggplot() +
 circle](/img/blog-images/2018-08-21-birds-radolfzell/map_circle-1.png)
 
 Yes, trimming is required! It’d have been too bad not to learn how to do
-it, anyway.
+it, anyway. We also add the MPI to the map.
 
 ``` r
+# which parts of the oject are in the county
 in_indices <- sf::st_within(birds_sf, landkreis_konstanz)
 
+# filter them
 trimmed_birds <- dplyr::filter(birds_sf,
                                lengths(in_indices) > 0)
 
+# summarize to get no. of birds by  location
 summarized_birds <- trimmed_birds %>%
   dplyr::group_by(locName) %>%
   dplyr::summarise(n = n())
 
+# MPI 
+mpi <- opencage::opencage_forward("Am Obstberg 1 78315 Radolfzell", 
+                                  limit = 1)$results
+
+coords <- data.frame(lon = mpi$geometry.lng,
+                     lat = mpi$geometry.lat)
+
+crs <- sf::st_crs(landkreis_konstanz)
+
+mpi_sf <- sf::st_as_sf(coords,
+                       coords = c("lon", "lat"), 
+                       crs = crs)
+
+# Map!
 ggplot() +
   geom_sf(data = landkreis_konstanz) +
   geom_sf(data = summarized_birds,
           aes(size = n), show.legend = "point") +
   hrbrthemes::theme_ipsum() +
   ggtitle("eBird observations over the last 30 days",
-          subtitle = "County of Constance")
+          subtitle = "County of Constance, MPI as a triangle") +
+  geom_sf(data = mpi_sf,
+          shape = 2) 
 ```
 
 ![trimmed observations in the
@@ -233,34 +261,8 @@ county](/img/blog-images/2018-08-21-birds-radolfzell/trimmed1-1.png)
 We got 49 observations (`nrow(trimmed_birds)`) of 49 species
 (`length(unique(trimmed_birds$comName))`), over 2 places
 (`length(unique(trimmed_birds$locName))`) during 5 observation sessions.
-Hopefully merely an appetizer to what we can hope to get from using the
-full eBird dataset in the next section…
-
-Before then, let’s just add the MPI on the map.
-
-``` r
-mpi <- opencage::opencage_forward("Am Obstberg 1 78315 Radolfzell", limit = 1)$results
-coords <- data.frame(lon = mpi$geometry.lng,
-                     lat = mpi$geometry.lat)
-crs <- sf::st_crs(landkreis_konstanz)
-
-mpi_sf <- sf::st_as_sf(coords,
-                       coords = c("lon", "lat"), 
-                      crs = crs)
-
-ggplot() +
-  geom_sf(data = landkreis_konstanz) +
-  geom_sf(data = summarized_birds,
-          aes(size = n), show.legend = "point") +
-  geom_sf(data = mpi_sf,
-          shape = 2) +
-  hrbrthemes::theme_ipsum()+
-  ggtitle("eBird observations over the last 30 days",
-          subtitle = "County of Constance, MPI Radolfzell as a triangle")
-```
-
-![trimmed observations in the county and
-MPI](/img/blog-images/2018-08-21-birds-radolfzell/trimmed2-1.png)
+Hopefully merely an appetizer to what we can get from using the full
+eBird dataset in the next section…
 
 Note that the initial query could have been made with `spocc` which
 would have helped using the rOpenSci occurrence suite.
@@ -280,8 +282,7 @@ mapr::map_leaflet(birds2)
 
 ![mapr leaflet map of observations
 locations](/img/blog-images/2018-08-21-birds-radolfzell/mapr-1.png)
-
-Quite handy!
+<br> Quite handy!
 
 Now, let’s explore the whole eBird dataset for Germany.
 
@@ -290,12 +291,13 @@ Now, let’s explore the whole eBird dataset for Germany.
 After getting access to a custom dataset corresponding to the EBD for
 Germany only, I used `auk`’s documentation and [this
 post](https://ropensci.org/blog/2018/08/07/auk/) to learn how to process
-it. Since I wasn’t planning on zero-filling the data, I was able to
-ignore the sampling event data that contains the checklist-level
-information (e.g. time and date, location, and search effort
-information). For an example of a more advanced `auk` workflow involving
-the **full** EBD, and sampling data, refer to [Matt Strimas-Mackey’s own
-blog post about his package](https://ropensci.org/blog/2018/08/07/auk/).
+it. Since I wasn’t planning on zero-filling the data to get
+presence/absence counts, I was able to ignore the sampling event data
+that contains the checklist-level information (e.g. time and date,
+location, and search effort information). For an example of a more
+advanced `auk` workflow involving the **full** EBD, and sampling data,
+refer to [Matt Strimas-Mackey’s own blog post about his
+package](https://ropensci.org/blog/2018/08/07/auk/).
 
 #### Preparing the dataset
 
@@ -463,7 +465,7 @@ Black Swans [are mostly present in Australia, imported and escaped in a
 few other places](https://en.wikipedia.org/wiki/Black_swan) but eBird
 mostly doesn’t accept the entry of exotic species [although it’s
 debated](https://help.ebird.org/customer/portal/questions/5390335-exclusion-of-not-native-birds-in-lists).
-In any case, eBird’s control of the data entered is quite admirable.
+In any case, eBird’s curation of the data entered is quite admirable.
 
 #### Who observed birds?
 
@@ -503,26 +505,26 @@ observer is present. The super birder of the County of Constance is
 
 #### R packages for occurrence data
 
-In this post we gave a rough view of what birds are present in the
-county around Radolfzell: Eurasian Blackbirds, Carrion Crows, Great
-Tits… but not Black Swans in eBird’s data. We mostly illustrated the use
-of two R packages accessing eBird’s data:
+In this post I gave a rough view of what birds are present in the county
+around Radolfzell: Eurasian Blackbirds, Carrion Crows, Great Tits… but
+not Black Swans in eBird’s data. We mostly illustrated the use of two R
+packages accessing eBird’s data:
 
 -   `auk` for processing the gigantic whole eBird’s dataset.
 
 -   `rebird` for getting access to recent data via an API. `rebird` is
     part of a larger collection of packages for occurrence data within
     rOpenSci’s suite, with `spocc` being an umbrella package accessing
-    several data sources; `scrubr` an helper for cleaning data obtained
-    this way; and `mapr` an utility package for mapping such data.
+    several data sources; `scrubr` a helper for cleaning data obtained
+    this way; and `mapr` a utility package for mapping such data.
 
-Explore these packages, and more rOpenSci’s packages, by checking out
+Explore these packages, and more of rOpenSci’s suite, by checking out
 our [packages page](https://ropensci.org/packages/)!
 
 #### More birding soon!
 
 Stay tuned for the next post in this series, that’ll mark a break from
-modern data since we’ll try and extract information from old natural
+modern data since we’ll try to extract information from old natural
 history bird drawings! After that, in a following post we’ll come back
 to the occurrence data obtained from eBird in order to complement it
 with open taxonomic and traits data. In the meantime, happy (e)birding!
