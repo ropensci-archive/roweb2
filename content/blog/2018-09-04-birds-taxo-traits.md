@@ -539,6 +539,9 @@ package as we did in this post. Also of interest is the rOpenSci’s
 [`originr` package](https://github.com/ropensci/originr) providing
 different datasets about invasive and alien species.
 
+Add a sentence about this cool use case of many packages
+<https://ropensci.org/blog/2017/01/25/obis/>
+
 Explore more of our packages suite, including and beyond the taxonomy
 and traits category, [here](https://ropensci.org/packages/).
 
