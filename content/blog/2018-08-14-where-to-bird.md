@@ -335,11 +335,15 @@ the nearest lakes to meet some birds.
 
 ### Conclusion
 
-#### A note about open geographical data
+#### Open geographical data in R
 
-In this post we used `opencage`, `osmdata` and `osmplotr` therefore
-mosly making use of the awesome OpenStreetMap data (The OpenCage
-Geocoder uses a bit more, but it only warrants [attributing
+In this post we showcased three rOpenSci packages helping you use open
+geographical data in R:
+[`opencage`](https://github.com/ropensci/opencage),
+[`osmdata`](https://ropensci.github.io/osmdata/),
+[`osmplotr`](https://ropensci.github.io/osmplotr), therefore mostly
+making use of the awesome OpenStreetMap data (The OpenCage Geocoder uses
+a bit more, but it only warrants [attributing
 OpenStreetMap](https://opencagedata.com/faq#legal)). We therefore added
 the annotation “Map data © OpenStreetMap contributors” to all maps of
 this post using rOpenSci’s `magick` package. You might also have noticed
@@ -352,18 +356,13 @@ that might be of interest for making maps, is
 facilitates interaction with [Natural Earth map
 data](http://www.naturalearthdata.com/).
 
-#### Geographical analyses with R
+#### Other R packages for spatial analyses
 
-In this post we showcased three rOpenSci packages helping you use
-OpenStreetMap and other open geographical data in R:
-[`opencage`](https://github.com/ropensci/opencage),
-[`osmdata`](https://ropensci.github.io/osmdata/),
-[`osmplotr`](https://ropensci.github.io/osmplotr). We also used two
-other rOpenSci packages: [`bbox`](https://github.com/ropensci/bbox) to
-get a bounding box and [`magick`](https://github.com/ropensci/magick)
-for image manipulation. Explore more of our packages suite, including
-and beyond the geospatial category,
-[here](https://ropensci.org/packages/).
+We also used two other rOpenSci packages:
+[`bbox`](https://github.com/ropensci/bbox) to get a bounding box and
+[`magick`](https://github.com/ropensci/magick) for image manipulation.
+Explore more of our packages suite, including and beyond the geospatial
+category, [here](https://ropensci.org/packages/).
 
 We also used the [`geodist`
 package](https://github.com/hypertidy/geodist) for ultra lightweight,
