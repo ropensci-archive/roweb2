@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');/* Reset *//* http://meyerweb.com/eric/tools/css/reset/ 
+@import url(https://unpkg.com/firacode/distr/fira_code.css);/* Reset *//* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */html, body, div, span, applet, object, iframe,
@@ -1183,7 +1183,7 @@ q:before, q:after {
   border-radius: 20px;
   font-weight: 700;
 }/*  Code stuff */code, pre {
-    font-family: "Space Mono";
+    font-family: "Fira Code";
     font-size: .8rem;
 }code {
     background: #f3f7ff;
