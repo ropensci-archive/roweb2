@@ -770,7 +770,6 @@ q:before, q:after {
   margin-bottom: 20px;
 }article h4{
   margin: 20px 0;
-  display: inline-block;
 }article .labels{
   width: 100%;
   display: inline-block;
