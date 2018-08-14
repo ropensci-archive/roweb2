@@ -8,6 +8,7 @@ authors:
     url: https://github.com/mpadge
 date: 2018-08-14
 preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
+topicid: 1295
 tags:
 - osmdata
 - osmplotr
