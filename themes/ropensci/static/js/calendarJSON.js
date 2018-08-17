@@ -2,15 +2,7 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [   
-    {
-      'title': '<a href="https://esa.org/neworleans/">Ecological Society of America (ESA)</a>',
-      'dateStart': 'Aug 6',
-      'dateEnd': '10, 2018',
-      'description': 'Sholler talk: <a href="https://eco.confex.com/eco/2018/webprogrampreliminary/Paper70560.html">Barriers and facilitators in the data publishing process: Evidence from an interview-based study of journal data publication</a>, Boettiger talk 1: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70519">Precaution without paralysis: A theory for decision-making under extreme events</a>, Boettiger talk 2: <a href="https://eco.confex.com/eco/2018/meetingapp.cgi/Paper/70046">Unifying resilience thinking and optimal control</a>',
-      'location': 'New Orleans, LA',
-      'attendees': 'Carl Boettiger, Dan Sholler'
-    },    
+  'eventList': [      
     {
       'title': '<a href="http://rinpharma.com/">R / Pharma</a>',
       'dateStart': 'Aug 15',

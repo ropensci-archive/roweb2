@@ -118,10 +118,10 @@ article ol {
     & .label {
         float: none;
         color: white;
-        font-weight: 700;
-        padding: 5px 10px;
+        font-weight: 600;
+        padding: 4px 10px;
         &.staff {
-            background-color: var(--main_button);
+            background-color: var(--tag_staff);
             &:after {
                 content: 'staff';
             }
@@ -132,28 +132,22 @@ article ol {
                 content: 'leadership';
             }
         }
-        &.advisor {
+        &.advisor {
             background-color: var(--tag_advisor);
             &:after {
                 content: 'advisor';
-            }
-        }
-        &.alumnus {
-            background-color: var(--bg_lightGray);
-            &:after {
-                content: 'alumnus';
-            }
-        }
-        &.postdoc {
-            background-color: var(--bg_footer);
-            &:after {
-                content: 'postdoc';
             }
         }
         &.editor {
             background-color: var(--tag_editor);
             &:after {
                 content: 'editor';
+            }
+        }
+         &.postdoc {
+            background-color: var(--tag_postdoc);
+            &:after {
+                content: 'postdoc';
             }
         }
     }
@@ -268,7 +262,6 @@ article {
     }
     & h4 {
         margin: 20px 0;
-        display: inline-block;
     }
     & .labels {
         width: 100%;

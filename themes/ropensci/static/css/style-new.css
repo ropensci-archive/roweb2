@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i');/* Reset *//* http://meyerweb.com/eric/tools/css/reset/ 
+@import url(https://unpkg.com/firacode/distr/fira_code.css);/* Reset *//* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */html, body, div, span, applet, object, iframe,
@@ -473,7 +473,7 @@ q:before, q:after {
     padding: 2px 6px;
     line-height: 1.2rem;
     margin: 20px 0 10px 0;
-    background-color: #f17183;
+    background-color: #BFB18A;
     color: white;
     display: table; /* So it wont break in IE */
 
@@ -668,32 +668,28 @@ q:before, q:after {
 }.team .label{
   float: none;
   color: white;
-  font-weight: 700;
-  padding: 5px 10px;
+  font-weight: 600;
+  padding: 4px 10px;
 }.team .label.staff{
-  background-color: #01dc0b;
+  background-color: #748290;
 }.team .label.staff:after{
   content: 'staff';
 }.team .label.leadership{
-  background-color: #ffcc00;
+  background-color: #90897E;
 }.team .label.leadership:after{
   content: 'leadership';
 }.team .label.advisor{
-  background-color: #fa8d44;
+  background-color: #BDBA85;
 }.team .label.advisor:after{
   content: 'advisor';
-}.team .label.alumnus{
-  background-color: #797f8b;
-}.team .label.alumnus:after{
-  content: 'alumnus';
-}.team .label.postdoc{
-  background-color: #4b8add;
-}.team .label.postdoc:after{
-  content: 'postdoc';
 }.team .label.editor{
-  background-color: #f17183;
+  background-color: #BFB18A;
 }.team .label.editor:after{
   content: 'editor';
+}.team .label.postdoc{
+  background-color: #B79D71;
+}.team .label.postdoc:after{
+  content: 'postdoc';
 }.resources {
 }.resources .resourcelist{
 }.resources .resourcelist li{
@@ -774,7 +770,6 @@ q:before, q:after {
   margin-bottom: 20px;
 }article h4{
   margin: 20px 0;
-  display: inline-block;
 }article .labels{
   width: 100%;
   display: inline-block;
@@ -1187,7 +1182,7 @@ q:before, q:after {
   border-radius: 20px;
   font-weight: 700;
 }/*  Code stuff */code, pre {
-    font-family: "Space Mono";
+    font-family: "Fira Code";
     font-size: .8rem;
 }code {
     background: #f3f7ff;
