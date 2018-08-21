@@ -6,6 +6,7 @@ authors:
     url: https://masalmon.eu/
 date: 2018-08-21
 preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute of Ornithology.
+topicid: 1303
 tags:
 - rebird
 - spocc
