@@ -355,8 +355,8 @@ head(data_words, n = 10)
     ##  9 study         56
     ## 10 effects       54
 
-Data is the most word which is quite logical for metadata of actual
-datasets. Let’s also have a look at a regular wordcloud.
+Data is the most common word which is quite logical for metadata of
+actual datasets. Let’s also have a look at a regular wordcloud.
 
 ``` r
 with(data_words, wordcloud(word, n, max.words = 100))
