@@ -211,7 +211,8 @@ library("wordcloud")
 with(words, wordcloud(word, n, max.words = 100))
 ```
 
-![wordcloud](/img/blog-images/2018-09-11-birds-science/unnamed-chunk-7-1.png)
+![wordcloud of titles and abstracts of scientific
+papers](/img/blog-images/2018-09-11-birds-science/wordcloud-1.png)
 
 We see that topics include ecological words such as “foraging” but also
 epidemiological questions since “influenza” and “h5n1” come up. Now, how
@@ -239,7 +240,7 @@ I wasn’t able to `webshot` the resulting html despite increasing the
 magick::image_read("screenshot.png")
 ```
 
-<img src="/img/blog-images/2018-09-11-birds-science/unnamed-chunk-8-1.png" alt="wordcloud shaped as a bird" width="1366" />
+<img src="/img/blog-images/2018-09-11-birds-science/wordcloud2-1.png" alt="wordcloud shaped as a bird" width="1366" />
 <p class="caption">
 wordcloud shaped as a bird
 </p>
@@ -259,18 +260,131 @@ search that in the next section, but looking at the data indexed on
 DataONE. Since DataONE specializes in ecological and environmental data,
 we expect to find rather ecological data.
 
+We first define a function to retrieve metadata of datasets for one
+species. It looks the species names in the abstract.
+
+``` r
+.get_meta <- function(species){
+  
+  cn <- dataone::CNode("PROD")
+  search <- list(q = glue::glue("abstract:{species}"),
+                        fl = "id,title,abstract",
+                        sort = "dateUploaded+desc")
+  
+  result <- dataone::query(cn, solrQuery = search,
+                           as="data.frame")
+  
+  if(nrow(result) == 0){
+    NULL
+  }else{
+    # otherwise one line by version
+  result <- unique(result)
+  
+  tibble::tibble(species = species,
+                 title = result$title,
+                 abstract = result$abstract)
+  }
+}
+```
+
+Note that DataONE searching could be more precise: one can choose to
+search from a data source only for instance. See the [searching DataONE
+vignette](https://github.com/DataONEorg/rdataone/blob/master/vignettes/searching-dataone.Rmd).
+
+``` r
+get_meta <- ratelimitr::limit_rate(.get_meta,
+                                     rate = ratelimitr::rate(1, 2))
+
+all_meta <- purrr::map_df(species, get_meta)
+
+nrow(all_meta)
+```
+
+    ## [1] 266
+
+``` r
+length(unique(all_meta$species))
+```
+
+    ## [1] 35
+
+35 species are represented.
+
+``` r
+all_meta <- unique(all_meta[,c("title", "abstract")])
+
+nrow(all_meta)
+```
+
+    ## [1] 104
+
+We then extract the most common words.
+
+``` r
+all_meta %>%
+  dplyr::group_by(title, abstract) %>%
+  dplyr::summarise(text = paste(title, abstract)) %>%
+  dplyr::ungroup() %>%
+  unnest_tokens(word, text) %>%
+  dplyr::filter(!word %in% stopwords) %>%
+  dplyr::count(word, sort = TRUE) -> data_words
+
+head(data_words, n = 10)
+```
+
+    ## # A tibble: 10 x 2
+    ##    word           n
+    ##    <chr>      <int>
+    ##  1 data         153
+    ##  2 species      120
+    ##  3 birds         94
+    ##  4 breeding      87
+    ##  5 feeding       75
+    ##  6 population    65
+    ##  7 bird          60
+    ##  8 genetic       58
+    ##  9 study         56
+    ## 10 effects       54
+
+Data is the most word which is quite logical for metadata of actual
+datasets. Let’s also have a look at a regular wordcloud.
+
+``` r
+with(data_words, wordcloud(word, n, max.words = 100))
+```
+
+![wordcloud of titles and abstracts of scientific
+metadata](/img/blog-images/2018-09-11-birds-science/wordcloud3-1.png)
+
+As expected, the words seem more focused on ecology than when looking at
+scientific papers. DataONE is a gigantic data catalogue, where one could
+
+-   study the results of such queries (e.g. meta studies of number of,
+    say, versions by datasets)
+
+-   or find data to integrate to a new study. If you want to *download*
+    data from DataONE, refer to the [download data
+    vignette](https://github.com/DataONEorg/rdataone/blob/master/vignettes/download-data.Rmd).
+
 ### Conclusion
+
+In this post, we used the rOpenSci `fulltext` package, and the DataONE
+`dataone` package, to search for bird species names in scientific papers
+and scientific open datasets. We were able to draw wordclouds
+representing the diversity of topics of studies in which the birds had
+been mentioned or studied. Such a search could be fun to do for your
+favourite bird(s)! And in general, you could have more serious use cases
+of such packages.
 
 #### Scientific literature access
 
 As a reminder, the pipeline to retrieve abstracts and titles of works
-mentioning a bird species was this simple:
+mentioning a bird species was quite smooth:
 
 ``` r
 species %>%
     tolower() %>%
     fulltext::ft_search() %>%
-    #fulltext::ft_links() %>%
     fulltext::ft_get() %>%
     fulltext::ft_collect() %>%
     fulltext::ft_chunks(c("title", "abstract")) %>%
