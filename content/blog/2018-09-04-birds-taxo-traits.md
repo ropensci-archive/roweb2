@@ -5,7 +5,7 @@ authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
 date: 2018-09-04
-preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Plant Institute of Ornithology.
+preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute of Ornithology.
 tags:
 - auk
 - taxize
@@ -436,7 +436,15 @@ habitat %>%
   ggplot() +
   geom_bar(aes(occurrence, fill = habitat),
            position = "fill") +
-  theme(legend.position = "bottom")
+  # palette recommended in https://github.com/clauswilke/colorblindr
+  # for people with color-vision deficiency
+  colorblindr::scale_fill_OkabeIto() +
+  theme(legend.position = "bottom") +
+  hrbrthemes::theme_ipsum(base_size = 12, 
+                          axis_title_size = 12,
+                          axis_text_size = 12) +
+  ggtitle("Habitats of birds in the county of Constance",
+          subtitle = "For birds with habitats data only for the breeding and non-breeding seasons")
 ```
 
 ![](/img/blog-images/2018-09-04-birds-taxo-traits/unnamed-chunk-9-1.png)
@@ -538,9 +546,6 @@ Based on species’ names, one can also get traits data using the `traits`
 package as we did in this post. Also of interest is the rOpenSci’s
 [`originr` package](https://github.com/ropensci/originr) providing
 different datasets about invasive and alien species.
-
-Add a sentence about this cool use case of many packages
-<https://ropensci.org/blog/2017/01/25/obis/>
 
 Explore more of our packages suite, including and beyond the taxonomy
 and traits category, [here](https://ropensci.org/packages/).
