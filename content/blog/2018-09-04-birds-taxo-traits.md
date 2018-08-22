@@ -443,7 +443,7 @@ habitat %>%
   hrbrthemes::theme_ipsum(base_size = 12, 
                           axis_title_size = 12,
                           axis_text_size = 12) +
-  ggtitle("Habitats of birds in the county of Constance",
+  ggtitle("Habitats of birds from the county of Constance",
           subtitle = "For birds with habitats data only for the breeding and non-breeding seasons") +
   ylab("Proportion") +
   xlab("Season of occurrence")
