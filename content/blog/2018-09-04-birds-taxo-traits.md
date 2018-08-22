@@ -444,7 +444,9 @@ habitat %>%
                           axis_title_size = 12,
                           axis_text_size = 12) +
   ggtitle("Habitats of birds in the county of Constance",
-          subtitle = "For birds with habitats data only for the breeding and non-breeding seasons")
+          subtitle = "For birds with habitats data only for the breeding and non-breeding seasons") +
+  ylab("Proportion") +
+  xlab("Season of occurrence")
 ```
 
 ![](/img/blog-images/2018-09-04-birds-taxo-traits/unnamed-chunk-9-1.png)
