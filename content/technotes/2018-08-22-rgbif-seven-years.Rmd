@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories:
   - technotes
-topicid: xx
+topicid: 1307
 tags:
 - R
 - biodiversity

@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories:
   - technotes
-topicid: xx
+topicid: 1307
 tags:
 - R
 - biodiversity
@@ -164,7 +164,7 @@ In another example (note the mention of removing certain records based on GBIF f
 
 ## Thanks!
 
-We all owe a large debt of gratitude to [GBIF][] for making an awesome resource for all those using their data.
+We all owe a large debt of gratitude to [GBIF][] for making an awesome resource for all those using their data, and to all the organizations/people that contribute data to GBIF.
 
 A huge thanks goes to all `rgbif` users and contributors! It's great to see how useful `rgbif` has been through the years, and we look forward to making it even better moving forward.
 
