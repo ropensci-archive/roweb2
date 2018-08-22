@@ -20,10 +20,10 @@ output:
 ---
 
 In the [second post of the series where we obtained data from
-eBird](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) we know
-what birds were observed in the county of Constance, and we complemented
-this knowledge with some taxonomic and trait information in [the fourth
-post of the
+eBird](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) we
+determined what birds were observed in the county of Constance, and we
+complemented this knowledge with some taxonomic and trait information in
+[the fourth post of the
 series](https://ropensci.org/blog/2018/09/04/birds-taxo-traits/). Now,
 we could be curious about the occurrence of these birds in *scientific
 work*. In this post, we will query the scientific literature and an open
