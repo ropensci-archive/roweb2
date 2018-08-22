@@ -22,7 +22,7 @@ output:
 In the [second post of the series where we obtained data from
 eBird](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) we know
 what birds were observed in the county of Constance, and we complemented
-this knowledge with some taxonomic and trait information in [the third
+this knowledge with some taxonomic and trait information in [the fourth
 post of the
 series](https://ropensci.org/blog/2018/09/04/birds-taxo-traits/). Now,
 we could be curious about the occurrence of these birds in *scientific
@@ -279,8 +279,8 @@ species %>%
 ```
 
 `fulltext` gives you a lot of power! Other rOpenSci accessing literature
-data include \[`europepmc`\] (<https://github.com/ropensci/europepmc>),
-R Interface to Europe PMC RESTful Web Service;
+data include [`europepmc`](https://github.com/ropensci/europepmc), R
+Interface to Europe PMC RESTful Web Service;
 [`jstor`](https://github.com/ropensci/jstor);
 [`suppdata`](https://github.com/ropensci/suppdata) for extracting
 supplemental information, and [much
@@ -310,14 +310,17 @@ This was the last post of this series, that hopefully provided an
 overview of how rOpenSci packages can help you learn more about birds,
 and can support your workflow. As a reminder, in this series we saw
 
--   How to identify spot for birding using open geographical data.
+-   [How to identify spot for birding using open geographical
+    data](https://ropensci.org/blog/2018/08/14/where-to-bird/).
 
--   How to obtain bird occurrence data in R.
+-   [How to obtain bird occurrence data in
+    R](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
 
--   How to extract text from old natural history drawings.
+-   [How to extract text from old natural history
+    drawings](https://ropensci.org/blog/2018/08/28/birds-ocr/).
 
--   How to complement an occurrence dataset with taxonomy and trait
-    information.
+-   [How to complement an occurrence dataset with taxonomy and trait
+    information](https://ropensci.org/blog/2018/09/04/birds-taxo-traits/).
 
 -   How to query the scientific literature and scientific open data
     repositories.
