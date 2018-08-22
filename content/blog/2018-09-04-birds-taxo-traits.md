@@ -554,5 +554,6 @@ and traits category, [here](https://ropensci.org/packages/).
 
 #### More birding soon!
 
-Stay tuned for the next post in this series, about documenting the
-dataset obtained in this post! In the meantime, happy birding!
+Stay tuned for the next post in this series, about querying the
+scientific literature and scientific open data for the bird species
+occurring in the county! In the meantime, happy birding!
