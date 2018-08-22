@@ -92,13 +92,22 @@ Just like rOpenSci has a taxonomic toolbelt
 ([`taxize`](https://github.com/ropensci/taxize)) and a species
 occurrence data toolkit ([`spocc`](https://github.com/ropensci/spocc)),
 it has a super package for querying :
-[`fulltext`](https://github.com/ropensci/fulltext)! We shall use it to
-retrieve the titles and abstracts of scientific articles mentioning each
-species, and will use `tidytext` to compute the most prevalent words in
-these works.
+[`fulltext`](https://github.com/ropensci/fulltext)! This package
+supports search for “PLOS via the rplos package, Crossref via the
+rcrossref package, Entrez via the rentrez package, arXiv via the aRxiv
+package, and BMC, Biorxiv, EuroPMC, and Scopus via internal helper
+functions”.
+
+We shall use `fulltext` to retrieve the titles and abstracts of
+scientific articles mentioning each species, and will use `tidytext` to
+compute the most prevalent words in these works.
 
 We first define a function retrieving the titles and abstracts of works
-obtained as result when querying one species name:
+obtained as result when querying one species name.
+
+We use `dplyr::bind_rows` because we want all results for one species at
+once, while `fulltext` returns a list of data.frames with one data.frame
+by data source.
 
 ``` r
 .get_papers <- function(species){
