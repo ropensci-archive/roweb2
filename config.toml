@@ -45,4 +45,4 @@ rssLimit = 20
   tag = "tags"
 
 [blackfriday]
-    extensions = [hardLineBreak]
+    extensions = ["hardLineBreak"]
