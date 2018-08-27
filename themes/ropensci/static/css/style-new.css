@@ -29,7 +29,8 @@ footer, header, hgroup, menu, nav, section {
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: top;
+  vertical-align: initial;
+  list-style-position: inside;
 }blockquote, q {
   quotes: none;
 }blockquote:before, blockquote:after,
