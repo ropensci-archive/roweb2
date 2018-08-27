@@ -90,7 +90,7 @@ Goldfinch and European Greenfinch
 
 Just like rOpenSci has a taxonomic toolbelt
 ([`taxize`](https://github.com/ropensci/taxize)) and a species
-occurrence data toolkit ([`spocc`](https://github.com/ropensci/spocc)),
+occurrence data toolbelt ([`spocc`](https://github.com/ropensci/spocc)),
 it has a super package for querying :
 [`fulltext`](https://github.com/ropensci/fulltext)! This package
 supports search for “PLOS via the rplos package, Crossref via the
@@ -145,7 +145,8 @@ is [“Investigating the impact of media on demand for wildlife: A case
 study of Harry Potter and the UK trade in
 owls”](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0182368)
 because it’s a fun and important scientific question, and is supported
-by open data (by the way you can access CITES trade data in R using
+by open data (by the way you can access CITES trade data (international
+trade in endangered species) in R using
 [`cites`](https://github.com/ecohealthalliance/cites/) and CITES
 Speciesplus database using
 [`rcites`](https://ibartomeus.github.io/rcites/)).
@@ -263,9 +264,8 @@ is.
 
 There are quite a few scientific open data repositories out there, among
 which the giant [DataONE](https://www.dataone.org/) that has an API
-interfaced with an R package that’s not part of rOpenSci suite but that
-we can recommend anyway, `dataone`. We shall use it to perform a similar
-search that in the next section, but looking at the data indexed on
+interfaced with an R package. We shall use it to perform a search
+similar to the previous section, but looking at the data indexed on
 DataONE. Since DataONE specializes in ecological and environmental data,
 we expect to find rather ecological data.
 
@@ -297,7 +297,8 @@ species. It looks the species names in the abstract.
 ```
 
 Note that DataONE searching could be more precise: one can choose to
-search from a data source only for instance. See the [searching DataONE
+search from a given data source only for instance. See the [searching
+DataONE
 vignette](https://github.com/DataONEorg/rdataone/blob/master/vignettes/searching-dataone.Rmd).
 
 ``` r
@@ -382,8 +383,8 @@ In this post, we used the rOpenSci `fulltext` package, and the DataONE
 and scientific open datasets. We were able to draw wordclouds
 representing the diversity of topics of studies in which the birds had
 been mentioned or studied. Such a search could be fun to do for your
-favourite bird(s)! And in general, you could have more serious use cases
-of such packages.
+favourite bird(s)! And in general, following the same approach you could
+answer your own specific research question.
 
 #### Scientific literature access
 
@@ -413,15 +414,15 @@ more](https://ropensci.org/packages/).
 
 In this post we used the [`dataone`
 package](https://github.com/DataONEorg/rdataone) to access data from
-DataONE. That same package allow uploading data to DataONE. The rOpenSci
-suite features the [`rfigshare`](https://github.com/ropensci/rfigshare)
-package for getting data from, and publishing data to,
-[Figshare](https://figshare.com/). For preparing your own data and its
-documentation for publication, check out the [`EML`
-package](https://github.com/ropensci/EML) for writing metadata
-respecting the Ecological Metadata Standard, and the [unconf `dataspice`
-project](https://github.com/ropenscilabs/dataspice) for simpler metadata
-entry.
+DataONE. That same package allows uploading data to DataONE. The
+rOpenSci suite features the
+[`rfigshare`](https://github.com/ropensci/rfigshare) package for getting
+data from, and publishing data to, [Figshare](https://figshare.com/).
+For preparing your own data and its documentation for publication, check
+out the [`EML` package](https://github.com/ropensci/EML) for writing
+metadata respecting the Ecological Metadata Standard, and the [unconf
+`dataspice` project](https://github.com/ropenscilabs/dataspice) for
+simpler metadata entry.
 
 Explore more of our packages suite, including and beyond access to
 scientific literature &data and data publication,
@@ -433,22 +434,32 @@ This was the last post of this series, that hopefully provided an
 overview of how rOpenSci packages can help you learn more about birds,
 and can support your workflow. As a reminder, in this series we saw
 
--   [How to identify spot for birding using open geographical
+-   [How to identify spots for birding using open geographical
     data](https://ropensci.org/blog/2018/08/14/where-to-bird/).
+    Featuring `opencage` for geocoding, `bbox` for bounding box
+    creation, `osmdata` for OpenStreetMap’s Overpass API querying,
+    `osmplotr` for map drawing using OpenStreetMap’s data.
 
 -   [How to obtain bird occurrence data in
     R](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
+    Featuring `rebird` for interaction with the eBird’s API, and `auk`
+    for munging of the whole eBird dataset.
 
 -   [How to extract text from old natural history
     drawings](https://ropensci.org/blog/2018/08/28/birds-ocr/).
+    Featuring `magick` for image manipulation, `tesseract` for Optical
+    Character Recognition, `cld2` and `cld3` for language detection, and
+    `taxize::gnr_resolve` for taxonomic name resolution.
 
 -   [How to complement an occurrence dataset with taxonomy and trait
     information](https://ropensci.org/blog/2018/09/04/birds-taxo-traits/).
+    Featuring `taxize`, taxonomic toolbelt for R, and `traits`,
+    providing access to species traits data.
 
 -   How to query the scientific literature and scientific open data
-    repositories.
+    repositories. This is the post you’ve just read!
 
 That’s a wrap! But now, don’t *you* hesitate to explore our packages
 suite for your own needs, and to share about your use cases of rOpenSci
 packages as a birder or not via [our friendly discussion
-forum](https://discuss.ropensci.org/c/usecases)!
+forum](https://discuss.ropensci.org/c/usecases)! Happy birding!
