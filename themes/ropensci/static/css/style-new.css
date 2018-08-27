@@ -29,7 +29,6 @@ footer, header, hgroup, menu, nav, section {
   margin: 0;
   padding: 0;
   border: 0;
-  display: list-item;
 }blockquote, q {
   quotes: none;
 }blockquote:before, blockquote:after,
@@ -608,6 +607,7 @@ q:before, q:after {
 }article ul li {
     margin-bottom: .25rem;
     list-style-type: disc;
+    display: list-item;
 }article ul {
     margin-bottom: 20px;
 }article ol li {
