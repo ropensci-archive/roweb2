@@ -525,7 +525,10 @@ doesn’t give information about the local context of birds in the County
 of Constance, however it could be coupled with more local data:
 localization of observations, and open geographical data. All the
 mentioned data sources are available for free, and can be obtained using
-R packages.
+R packages, cf [the
+first](https://ropensci.org/blog/2018/08/14/where-to-bird/) and
+[second](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) post of
+the series.
 
 #### Taxonomy and traits data in R
 
