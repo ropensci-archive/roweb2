@@ -8,7 +8,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, tt, var,
 b, u, i, center, table,
-dl, dt, dd, li,
+dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
@@ -26,9 +26,6 @@ footer, header, hgroup, menu, nav, section {
   vertical-align: sup;
 }ol, ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
 }blockquote, q {
   quotes: none;
 }blockquote:before, blockquote:after,
@@ -607,7 +604,6 @@ q:before, q:after {
 }article ul li {
     margin-bottom: .25rem;
     list-style-type: disc;
-    display: list-item;
 }article ul {
     margin-bottom: 20px;
 }article ol li {
