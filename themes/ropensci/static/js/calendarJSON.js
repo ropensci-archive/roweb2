@@ -2,15 +2,7 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [      
-    {
-      'title': '<a href="http://rinpharma.com/">R / Pharma</a>',
-      'dateStart': 'Aug 15',
-      'dateEnd': '16, 2018',
-      'description': 'Talk: <a href="http://rinpharma.com/#schedule">rOpenSci - enabling open and reproducible research</a>',
-      'location': 'Cambridge, MA',
-      'attendees': 'Stefanie Butland'
-    },    
+  'eventList': [    
     {
       'title': '<a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a>',
       'dateStart': 'Aug 27',
@@ -31,7 +23,7 @@ var calendar = {
       'title': '<a href="http://animove.org/animove-2019-evening-keynotes/">AniMove</a>',
       'dateStart': 'Sep 11, 2018',
       'dateEnd': '',
-      'description': 'Keynote: The birder’s guide to rOpenSci',
+      'description': 'Keynote: <a href="https://ropensci.org/tags/birder/">The birder’s guide to rOpenSci</a>',
       'location': 'Radolfzell, GE',
       'attendees': 'Maëlle Salmon'
     },
