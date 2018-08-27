@@ -92,7 +92,7 @@ Goldfinch and European Greenfinch
 Just like rOpenSci has a taxonomic toolbelt
 ([`taxize`](https://github.com/ropensci/taxize)) and a species
 occurrence data toolbelt ([`spocc`](https://github.com/ropensci/spocc)),
-it has a super package for querying :
+it has a super package for querying the scientific literature:
 [`fulltext`](https://github.com/ropensci/fulltext)! This package
 supports search for “PLOS via the rplos package, Crossref via the
 rcrossref package, Entrez via the rentrez package, arXiv via the aRxiv
