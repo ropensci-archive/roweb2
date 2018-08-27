@@ -25,15 +25,16 @@ eBird](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) we know
 what birds were observed in the county of Constance. Now, not all
 species’ names mean a lot to me, and even if they did, there are a lot
 of them. In this post, we shall use rOpenSci’s packages accessing
-taxonomy and trait data in order to summarize the birds’ population of
-the county: armed with scientific and common names of birds, we have
-access to plenty of open data!
+taxonomy and trait data in order to summarize some characteristics of
+the birds’ population of the county: armed with scientific and common
+names of birds, we have access to plenty of open data!
 
 ### Getting and filtering the occurrence data
 
 For more details about the following code, refer to the [previous post
 of the series](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
-We only add a step to keep only data for the most recent years.
+The single difference is our adding a step to keep only data for the
+most recent years.
 
 ``` r
 # polygon for filtering
@@ -75,10 +76,10 @@ dico <- unique(dplyr::select(ebd, scientific_name,
 
 ### Getting taxonomic information
 
-In this section I would like to get an idea of how much of the bird
-diversity is represented in the County of Constance. I want to draw a
-phylogenetic tree of the local species, and for that, I’ll first
-retrieve the classification for each species from
+In this section I would like to get an idea of how diverse the types of
+birds are in the County of Constance. I want to draw a phylogenetic tree
+of the local species, and for that, I’ll first retrieve the
+classification for each species from
 [NCBI](https://www.ncbi.nlm.nih.gov/taxonomy) using the [`taxize`
 package](https://github.com/ropensci/taxize) that “allows users to
 search over many taxonomic data sources for species names (scientific
@@ -252,7 +253,7 @@ save(ids, file = file.path("taxo", "ids.RData"))
 ```
 
 It is rather tricky to automatically get pics from Phylopic since you
-might not get one for the order itself, maybe one for the subtaxa
+might not get one for the order itself, maybe one for the subtaxon
 instead, etc, so we made decisions blindly in the script above. In real
 life one might prefer selecting IDs by hand.
 
@@ -354,11 +355,12 @@ knitr::include_graphics(file.path("2018-09-04-birds-taxo-traits_files",
 ![animated tree with species names and order
 silhouette](/img/blog-images/2018-09-04-birds-taxo-traits/taxo.gif)
 
-This gif shows many species names and order giving us a feeling for what
-we might encounter in the county of Constance, but it lacks quantitative
-information about the species. It’d be interesting to create trees such
-as the ones of the [`metacoder`
-package](https://github.com/grunwaldlab/metacoder) to reflect abudance,
+This gif shows many species names and
+[orders](https://en.wikipedia.org/wiki/Category:Bird_orders) giving us a
+feeling for what we might encounter in the county of Constance, but it
+lacks quantitative information about the species. It’d be interesting to
+create trees such as the ones of the [`metacoder`
+package](https://github.com/grunwaldlab/metacoder) to reflect abundance,
 possibly depending on the very local area (distance to watery area) or
 season, potentially using the `taxize::downstream` function to get all
 families in each order, even families not present in our occurrence
@@ -482,20 +484,22 @@ are the most common threats for them, now and in the future?
 ``` r
 dplyr::filter(threats, severity %in% c("Future", "Ongoing")) %>%
   dplyr::select(id, threat2, threat1) %>%
+  dplyr::rename(threat_category = threat1) %>%
+  dplyr::rename(threat_subcategory = threat2) %>%
   unique() %>%
-  dplyr::count(threat2, threat1) %>%
+  dplyr::count(threat_category, threat_subcategory) %>%
   dplyr::arrange(-n) %>%
   head(n = 5) %>%
   knitr::kable()
 ```
 
-| threat2                                | threat1                         |    n|
-|:---------------------------------------|:--------------------------------|----:|
-| Hunting & trapping terrestrial animals | Biological resource use         |   25|
-| Habitat shifting & alteration          | Climate change & severe weather |   24|
-| Renewable energy                       | Energy production & mining      |   16|
-| Agricultural & forestry effluents      | Pollution                       |   14|
-| Dams & water management/use            | Natural system modifications    |   14|
+| threat\_category                | threat\_subcategory                    |    n|
+|:--------------------------------|:---------------------------------------|----:|
+| Biological resource use         | Hunting & trapping terrestrial animals |   25|
+| Climate change & severe weather | Habitat shifting & alteration          |   24|
+| Energy production & mining      | Renewable energy                       |   16|
+| Natural system modifications    | Dams & water management/use            |   14|
+| Pollution                       | Agricultural & forestry effluents      |   14|
 
 It’s quite similar to the ranking in this post on [BirdLife’s
 website](https://www.birdlife.org/worldwide/news/top-five-threats-birds-may-surprise-you):
