@@ -18,6 +18,14 @@ var calendar = {
       'description': 'Maëlle Salmon (remote presentation): <a href="http://latin-r.com/cronograma/#session-26">Ciencia abierta - ¡MejoR ciencia con rOpenSci!</a>, Jenny Bryan talk: <a href="http://latin-r.com/cronograma/#session-6">Teaching R (and more) in the Era of Data Science</a>, Jenny Bryan tutorial: <a href="http://latin-r.com/cronograma/#session-3">How to repeat yourself with purr</a>',
       'location': 'Buenos Aires, AR',
       'attendees': 'Jenny Bryan, Maëlle Salmon (remote presentation)'
+    },    
+    {
+      'title': '<a href="http://r-medicine.com/">R/Medicine</a>',
+      'dateStart': 'Sep7',
+      'dateEnd': '8, 2018',
+      'description': 'Talk: The Life of a Reproducible Project in R',
+      'location': 'New Haven, CT',
+      'attendees': 'Jennifer Thompson (representing rOpenSci)'
     },
     {
       'title': '<a href="http://animove.org/animove-2019-evening-keynotes/">AniMove</a>',
