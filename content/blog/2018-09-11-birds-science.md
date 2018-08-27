@@ -35,7 +35,8 @@ to do so!
 
 For more details about the following code, refer to the [previous post
 of the series](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
-We only add a step to keep only data for the most recent years.
+The single difference is our adding a step to keep only data for the
+most recent years.
 
 ``` r
 # polygon for filtering
