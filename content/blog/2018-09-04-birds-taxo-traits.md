@@ -64,7 +64,7 @@ nrow(ebd)
 
     ## [1] 8599
 
-We’ll also need these two data.frames later: abundance by species, and
+We will also need these two data.frames later: abundance by species, and
 dictionary of names.
 
 ``` r
