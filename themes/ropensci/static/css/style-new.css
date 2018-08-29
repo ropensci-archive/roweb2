@@ -602,7 +602,6 @@ q:before, q:after {
   color: #c6deff;
   text-decoration: none;
 }article ul li {
-    margin: 15px 0;
     list-style-type: disc;
 }article ul {
     margin-bottom: 20px;
@@ -764,6 +763,7 @@ q:before, q:after {
   text-transform: capitalize;
   padding: 5px 0;
 }article p{
+  margin-bottom: 15px;
   display: inline-block;
   vertical-align: top;
 }article section{
