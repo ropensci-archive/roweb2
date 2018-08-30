@@ -44,3 +44,5 @@ rssLimit = 20
 [taxonomies]
   tag = "tags"
 
+[blackfriday]
+extensions = ["hardLineBreak"]
