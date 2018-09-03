@@ -260,7 +260,7 @@ tidyverse functions seem to be the most popular on the blog!
 After complementing our `commonmark`-`xml2` combo with `urltools` and
 with R base code parsing facilities… let’s pair it with
 [`tidytext`](https://www.tidytextmining.com/)! What are the words most
-commonly use in rOpenSci’s blog posts?
+commonly use din rOpenSci’s blog posts?
 
 ``` r
 get_text <- function(post_xml){
