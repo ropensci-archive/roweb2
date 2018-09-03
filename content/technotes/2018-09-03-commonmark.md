@@ -61,8 +61,18 @@ try to re-factor and if needed [get
 help](https://masalmon.eu/2018/07/22/wheretogethelp/).
 
 <!--html_preserve-->
-{{&lt; tweet “1035526182392000514” &gt;}}<!--/html_preserve-->
-
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">
+It’s that feeling when you want to do something that sounds simple but
+instead your code is like 10 stack overflow snippets slapped together
+that you could never explain to another human what they do 😰
+<a href="https://t.co/IF53AX6QvC">pic.twitter.com/IF53AX6QvC</a>
+</p>
+— Dr. Alison Hill (@apreshill)
+<a href="https://twitter.com/apreshill/status/1035526182392000514?ref_src=twsrc%5Etfw">31
+d’agost de 2018</a>
+</blockquote>
+<!--/html_preserve-->
 ### From Markdown to XML
 
 In this note I’ll use my local fork of rOpenSci’s website source, and
