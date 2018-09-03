@@ -138,6 +138,8 @@ all_posts %>%
   purrr::map(get_one_xml) -> blog_xml
 ```
 
+### Parsing the XML
+
 #### URLs parsing
 
 Let’s say I want to find out which domains are the most often linked
