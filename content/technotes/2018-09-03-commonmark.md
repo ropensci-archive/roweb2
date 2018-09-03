@@ -308,3 +308,8 @@ Markdown files programmatically? E.g. what if I wanted to automatically
 replace all level 1 headers with level 2 headers? We’re working on that,
 stay tuned [and if you want follow this GitHub
 thread](https://github.com/commonmark/cmark/issues/264#issuecomment-417960358)!
+
+Thanks to [Jeroen Ooms](https://github.com/jeroen), [Jenny
+Bryan](http://jennybryan.org/) and [Jim
+Hester](https://www.jimhester.com/) for their answering my XML parsing
+(meta) questions.
