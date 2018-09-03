@@ -142,7 +142,7 @@ all_posts %>%
 
 Let’s say I want to find out which domains are the most often linked
 from rOpenSci’s blog. No need for any regular expression thanks to
-`commonmark`, `xml2` and `urltools`!
+`commonmark`, [`xml2`](http://xml2.r-lib.org/) and `urltools`!
 
 ``` r
 get_urls <- function(post_xml){
