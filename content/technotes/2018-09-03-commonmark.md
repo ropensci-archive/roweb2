@@ -195,7 +195,8 @@ code](http://www.business-science.io/learning-r/2018/03/03/how_to_learn_R_pt1.ht
 In theory you could clone any of your favorite blogs ([David Robinson’s
 blog](https://github.com/dgrtwo/dgrtwo.github.com), [Julia Silge’s
 blog](https://github.com/juliasilge/blog_by_hugo), etc.) to analyze
-them, no need to even webscrape first!
+them, no need to even webscrape first! Note [that you can git clone from
+R using the `git2r` package](https://github.com/ropensci/git2r/).
 
 ``` r
 get_functions <- function(post_xml){
