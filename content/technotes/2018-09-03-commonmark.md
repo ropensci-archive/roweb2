@@ -13,8 +13,6 @@ tags:
 - RMarkdown
 - xml2
 - commonmark
-- xlst
-- gistr
 output: 
   md_document:
     variant: markdown_github
