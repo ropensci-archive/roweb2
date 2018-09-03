@@ -61,7 +61,7 @@ try to re-factor and if needed [get
 help](https://masalmon.eu/2018/07/22/wheretogethelp/).
 
 <!--html_preserve-->
-{{% tweet “1035526182392000514” %}}<!--/html_preserve-->
+{{&lt; tweet “1035526182392000514” &gt;}}<!--/html_preserve-->
 
 ### From Markdown to XML
 
