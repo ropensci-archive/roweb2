@@ -92,14 +92,14 @@ My fork master branch isn’t entirely synced. It has 202 posts.
 
 The code below uses the [`commonmark`
 package](https://github.com/jeroen/commonmark) to render Markdown to
-XML. CCommonmark is a standardized specification for Markdown syntax by
+XML. Commonmark is a standardized specification for Markdown syntax by
 [John McFarlane](https://johnmacfarlane.net/tools). The `commonmark` R
 package by Jeroen Ooms wraps the official
 [cmark](https://github.com/commonmark/cmark) library and is used by
-e.g. GitHub to render issues and readmes Note that my function still has
-a hacky element, it uses a `blogdown` unexported function to strip the
-YAML header of posts! If you know a better way [feel free to answer my
-question over at RStudio community discussion
+e.g. GitHub to render issues and readmes. Note that my function still
+has a hacky element, it uses a `blogdown` unexported function to strip
+the YAML header of posts! If you know a better way [feel free to answer
+my question over at RStudio community discussion
 forum](https://community.rstudio.com/t/does-blogdown-split-yaml-body-exist-as-an-exported-function-how-to-remove-the-yaml-of-a-markdown-r-markdown-document/13350/2).
 
 ``` r
