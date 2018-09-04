@@ -30,14 +30,15 @@ present in this note. Read on if you want to extract insights about
 text, code, links, etc. from R Markdown reports, Hugo website sources,
 GitHub issues… without writing messy and smelly code!
 
-### Introduction to Markdown rendering and parsing
+Introduction to Markdown rendering and parsing
+----------------------------------------------
 
 This note will appear to you, dear reader, as an html page, either here
 on ropensci.org or on R-Bloggers, but I’m writing it as an R Markdown
 document, using Markdown syntax. I’ll knit it to Markdown and then
 Hugo’s Markdown processor,
 [Blackfriday](https://github.com/russross/blackfriday), will transform
-it to html. Elements such as “\# blabla” thus get transformed to
+it to html. Elements such as `# blabla` thus get transformed to
 `<h1 id="blabla">blabla</h1>`. Awesome!
 
 The rendering of Markdown to html or XML can also be used as a way to
@@ -73,7 +74,8 @@ that you could never explain to another human what they do 😰
 d’agost de 2018</a>
 </blockquote>
 <!--/html_preserve-->
-### From Markdown to XML
+From Markdown to XML
+--------------------
 
 In this note I’ll use my local fork of rOpenSci’s website source, and
 use all the Markdown sources of blog posts as example data. The chunk
@@ -90,11 +92,13 @@ My fork master branch isn’t entirely synced. It has 202 posts.
 
 The code below uses the [`commonmark`
 package](https://github.com/jeroen/commonmark) to render Markdown to
-XML. Commonmark is a Markdown processor like Blackfriday, except it’s
-used by GitHub. The `commonmark` package by Jeroen Ooms offers bindings
-to Commonmark’s C library. Note that my function still has a hacky
-element, it uses a `blogdown` unexported function to strip the YAML
-header of posts! If you know a better way [feel free to answer my
+XML. CCommonmark is a standardized specification for Markdown syntax by
+[John McFarlane](https://johnmacfarlane.net/tools). The `commonmark` R
+package by Jeroen Ooms wraps the official
+[cmark](https://github.com/commonmark/cmark) library and is used by
+e.g. GitHub to render issues and readmes Note that my function still has
+a hacky element, it uses a `blogdown` unexported function to strip the
+YAML header of posts! If you know a better way [feel free to answer my
 question over at RStudio community discussion
 forum](https://community.rstudio.com/t/does-blogdown-split-yaml-body-exist-as-an-exported-function-how-to-remove-the-yaml-of-a-markdown-r-markdown-document/13350/2).
 
@@ -148,9 +152,10 @@ all_posts %>%
   purrr::map(get_one_xml) -> blog_xml
 ```
 
-### Parsing the XML
+Parsing the XML
+---------------
 
-#### URLs parsing
+### URLs parsing
 
 Let’s say I want to find out which domains are the most often linked
 from rOpenSci’s blog. No need for any regular expression thanks to
@@ -188,7 +193,7 @@ blog_xml %>%
 More Twitter than CRAN! We probably could do with less own-domain use
 since `/` would get us here too.
 
-#### R code parsing
+### R code parsing
 
 Remember [that cool post by Matt Dancho analyzing David Robinson’s
 code](http://www.business-science.io/learning-r/2018/03/03/how_to_learn_R_pt1.html)?
@@ -255,7 +260,7 @@ blog_xml %>%
 Function definititions (`function`), basic stuff (`c`, `library`) and
 tidyverse functions seem to be the most popular on the blog!
 
-#### Text parsing
+### Text parsing
 
 After complementing our `commonmark`-`xml2` combo with `urltools` and
 with R base code parsing facilities… let’s pair it with
@@ -298,7 +303,8 @@ blog_xml %>%
 This beats my old code! There’s really something to be said for
 purpose-built tools.
 
-### Conclusion
+Conclusion
+----------
 
 I hope this note will inspire you to use `commonmark` and `xml2` when
 analyzing Markdown files. As mentioned earlier, Hugo or Jekyll website
