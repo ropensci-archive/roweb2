@@ -221,8 +221,7 @@ nobadges <- dplyr::anti_join(github_cran, badges,
 ```
 
 There are 1237 packages without any badge (or rather said, without any
-badge that we identified) out of a sample of 3542 packages. I first got
-one that was the repo for several packages!
+badge that we identified) out of a sample of 3542 packages.
 
 ### Among the repos with badges, how many badges?
 
