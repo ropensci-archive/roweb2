@@ -48,9 +48,9 @@ A samping of use cases covered in `taxize` (all of these across many different d
 
 ## History
 
-`taxize` was one of our first packages. Our first commit was on [2011-05-19](#link-to-first-commit), uneventfully adding an empty README:
+`taxize` was one of our first packages. Our first commit was on [2011-05-19][firstcomm], uneventfully adding an empty README:
 
-[![first_commit](/img/blog-images/2018-05-23-taxize-seven-years/taxize-first-commit.png)](https://github.com/ropensci/taxize/commit/667004eac329869099fdccb481138f572576cb69)
+[![first_commit](/img/blog-images/2018-05-23-taxize-seven-years/taxize-first-commit.png)][firstcomm]
 
 We've come a long way since May 2011. We've added a lot of new functionality and many new contributors.
 
@@ -158,7 +158,7 @@ One example comes from the paper
 
 ## Thanks!
 
-A hug thanks goes to all `taxize` users and contributors. It's awesome to see how useful `taxize` has been through the years, and we look forward to making it even better moving forward.
+A huge thanks goes to all `taxize` users and contributors. It's awesome to see how useful `taxize` has been through the years, and we look forward to making it even better moving forward.
 
 
 [taxize]: https://github.com/ropensci/taxize
@@ -166,4 +166,4 @@ A hug thanks goes to all `taxize` users and contributors. It's awesome to see ho
 [taxa]: https://github.com/ropensci/taxa
 [pegax]: https://github.com/ropenscilabs/pegax
 [zeb]: https://github.com/arendsee
-[gn]: LINK
+[firstcomm]: https://github.com/ropensci/taxize/commit/667004eac329869099fdccb481138f572576cb69

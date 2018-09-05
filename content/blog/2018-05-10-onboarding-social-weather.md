@@ -75,6 +75,8 @@ elements that I wished to remove: code chunks, as well as parts from our
 submission and [review
 templates](https://github.com/ropensci/onboarding/blob/master/reviewer_template.md).
 
+**Edit: Find a cleaner approach to Markdown text extraction in [this tech note](https://ropensci.org/technotes/2018/09/05/commonmark/).**
+
 My biggest worry was the removal of templates from issues. I was already
 picturing my spending hours writing regular expressions to remove these
 lines… and then I realized that the word “lines” was the key! I could go

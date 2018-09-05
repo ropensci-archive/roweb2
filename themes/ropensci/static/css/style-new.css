@@ -6,7 +6,7 @@
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, strong, sub, tt, var,
 b, u, i, center, table,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -22,6 +22,8 @@ time, mark, audio, video {
 }/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
   display: block;
+}sup{
+  vertical-align: sup;
 }ol, ul {
   list-style: none;
 }blockquote, q {
@@ -600,7 +602,6 @@ q:before, q:after {
   color: #c6deff;
   text-decoration: none;
 }article ul li {
-    margin-bottom: .25rem;
     list-style-type: disc;
 }article ul {
     margin-bottom: 20px;
@@ -762,8 +763,9 @@ q:before, q:after {
   text-transform: capitalize;
   padding: 5px 0;
 }article p{
-  margin: 7px 0;
+  margin-bottom: 15px;
   display: inline-block;
+  vertical-align: top;
 }article section{
   margin-bottom: 60px;
 }article h3{
@@ -1191,7 +1193,7 @@ q:before, q:after {
     background-color: #2b303b;
     padding: 0.6rem;
     margin-bottom: 20px;
-    overflow-x: hidden
+    overflow-x: auto
 }pre code{
   background-color: #2b303b;
 }h2 code {

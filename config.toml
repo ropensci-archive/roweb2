@@ -36,7 +36,7 @@ rssLimit = 20
     url = "/index.xml"
 
 [params]
-    description = "rOpenSci - Open Tools for Open Science"
+    description = "rOpenSci - Open Tools and R Packages for Open Science"
     footer = "&copy; The rOpenSci Project"
     leadership = ["Carl Boettiger", "Karthik Ram", "Scott Chamberlain", "Jenny Bryan", "Rich FitzJohn", "Leadership Team", "Core Team"]
     staff = ["Jeroen Ooms", "Stefanie Butland", "Maëlle Salmon", "Maelle Salmon"]

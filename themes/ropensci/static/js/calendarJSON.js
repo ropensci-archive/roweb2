@@ -2,15 +2,7 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [      
-    {
-      'title': '<a href="http://rinpharma.com/">R / Pharma</a>',
-      'dateStart': 'Aug 15',
-      'dateEnd': '16, 2018',
-      'description': 'Talk: <a href="http://rinpharma.com/#schedule">rOpenSci - enabling open and reproducible research</a>',
-      'location': 'Cambridge, MA',
-      'attendees': 'Stefanie Butland'
-    },    
+  'eventList': [    
     {
       'title': '<a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a>',
       'dateStart': 'Aug 27',
@@ -26,12 +18,20 @@ var calendar = {
       'description': 'Maëlle Salmon (remote presentation): <a href="http://latin-r.com/cronograma/#session-26">Ciencia abierta - ¡MejoR ciencia con rOpenSci!</a>, Jenny Bryan talk: <a href="http://latin-r.com/cronograma/#session-6">Teaching R (and more) in the Era of Data Science</a>, Jenny Bryan tutorial: <a href="http://latin-r.com/cronograma/#session-3">How to repeat yourself with purr</a>',
       'location': 'Buenos Aires, AR',
       'attendees': 'Jenny Bryan, Maëlle Salmon (remote presentation)'
+    },    
+    {
+      'title': '<a href="http://r-medicine.com/">R/Medicine</a>',
+      'dateStart': 'Sep7',
+      'dateEnd': '8, 2018',
+      'description': 'Talk: The Life of a Reproducible Project in R',
+      'location': 'New Haven, CT',
+      'attendees': 'Jennifer Thompson (representing rOpenSci)'
     },
     {
       'title': '<a href="http://animove.org/animove-2019-evening-keynotes/">AniMove</a>',
       'dateStart': 'Sep 11, 2018',
       'dateEnd': '',
-      'description': 'Keynote: The birder’s guide to rOpenSci',
+      'description': 'Keynote: <a href="https://ropensci.org/tags/birder/">The birder’s guide to rOpenSci</a>',
       'location': 'Radolfzell, GE',
       'attendees': 'Maëlle Salmon'
     },
