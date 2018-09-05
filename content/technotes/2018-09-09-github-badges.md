@@ -392,6 +392,6 @@ Explore more of `codemetar` [in its GitHub
 repo](https://github.com/ropensci/codemetar/), and check out the
 [CodeMeta project itself](https://github.com/codemeta). Read our
 guidelines for package development and maintenance [in this
-gitbook](https://ropensci.github.io/dev_guide/). And have fun ~adding
-pretty badges to your own package repos~ upping your package development
-& maintenance game!
+gitbook](https://ropensci.github.io/dev_guide/). And have fun ~~adding
+pretty badges to your own package repos~~ upping your package
+development & maintenance game!
