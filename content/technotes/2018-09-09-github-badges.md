@@ -243,11 +243,6 @@ badges_count %>%
 
 ``` r
 library("ggplot2")
-```
-
-    ## Warning: package 'ggplot2' was built under R version 3.5.1
-
-``` r
 badges_count %>%
   ggplot() +
   geom_histogram(aes(n))+
@@ -257,30 +252,6 @@ badges_count %>%
   ggtitle("Number of badges per repo",
           subtitle = "Among repos with at least one badge")
 ```
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-
-    ## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x,
-    ## x$y, : font family not found in Windows font database
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
-
-    ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-    ## font family not found in Windows font database
 
 ![](/img/blog-images/2018-09-09-github-badges/unnamed-chunk-2-1.png)
 
