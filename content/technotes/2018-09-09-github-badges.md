@@ -345,9 +345,8 @@ parsed_image_links %>%
 | ropensci.org       |   135|
 
 Travis CI is the clear winner! rOpenSci makes an appearance, because the
-*footer* our packages get is actually formatted as a Markdown badge.
-Now, “img.shields.io” is actually a service for badges of other things…
-which?
+*footer* our packages get is formatted as a Markdown badge. Now,
+“img.shields.io” is a service for badges of other things… which?
 
 ``` r
 badges %>%
@@ -374,7 +373,7 @@ Diverse things, in particular the [Tidyverse lifecycle
 badges](https://www.tidyverse.org/lifecycle/). After some discussion, we
 at rOpenSci have adopted the repostatus.org status badges in our
 guidelines… but are actually open to repos using both types of badges
-since their nomenclature can actually complement each other!
+since their nomenclature can complement each other!
 
 Conclusion
 ----------
