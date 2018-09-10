@@ -401,6 +401,10 @@ zenodo.org.
 
 ### What are the most common badges?
 
+Note that this doesn’t take into account the fact that one domain can
+appear several times in a single README (Travis status for different
+branches for instance).
+
 ``` r
 parsed_image_links %>%
   dplyr::count(domain, sort = TRUE) %>%
