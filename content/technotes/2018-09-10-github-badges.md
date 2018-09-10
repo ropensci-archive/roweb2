@@ -45,7 +45,7 @@ badges:
 -   “review”, information about review of the software if there was one.
     `codemetar` recognizes information from the peer-review badge we add
     to the README of onboarded packages thanks to work by [Karthik
-    Ram](https://ropensci.org/about/#team).
+    Ram](/about/#team).
 
 The list might get longer, so instead of using regular expressions on
 the README text, we extract and memoize[2] all badges at once to a
@@ -53,8 +53,8 @@ data.frame that we then query. The badges extraction is based on (in the
 dev branch of `codemetar`):
 
 -   conversion to XML using `commonmark` (see [my recent tech
-    note](https://ropensci.org/technotes/2018/09/05/commonmark/)) which
-    works well for the Markdown badges e.g.
+    note](/technotes/2018/09/05/commonmark/)) which works well for the
+    Markdown badges e.g.
     `[![Travis-CI Build Status](https://travis-ci.org/ropensci/codemetar.svg?branch=master)](https://travis-ci.org/ropensci/codemetar)`.
 
 -   extraction and parsing on the first HTML table there is if there’s
@@ -156,9 +156,9 @@ github_cran$repo[which(github_cran$Package == "webp")] <- "webp"
 ```
 
 I needed a bit of string cleaning mostly to deal with the URLs of
-[Jeroen Ooms](https://ropensci.org/about/#team)’ packages, see e.g.
-[this one](https://cran.r-project.org/web/packages/antiword/index.html).
-I guess I could have cleaned even more, but it was good enough for this
+[Jeroen Ooms](/about/#team)’ packages, see e.g. [this
+one](https://cran.r-project.org/web/packages/antiword/index.html). I
+guess I could have cleaned even more, but it was good enough for this
 exploration.
 
 ### Get all badges
@@ -378,9 +378,8 @@ length(unique_domains)
 
 Not *that* many after all, so I’ll print all of them! A special mention
 to <https://github.com/ropensci/cchecksapi#badges> maintained under our
-GitHub organization by [Scott
-Chamberlain](https://ropensci.org/about/#team), to show the CRAN check
-status of your package!
+GitHub organization by [Scott Chamberlain](/about/#team), to show the
+CRAN check status of your package!
 
 Unique badge domains:
 `glue::glue_collapse(unique_domains, sep = ", ", last = " and ")`
