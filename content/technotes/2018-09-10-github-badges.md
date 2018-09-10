@@ -206,12 +206,10 @@ purrr::map2_df(github_cran$owner,
 
 ### Remove non badges from the sample
 
-The way badges are recognized by `codemetar::extract_badges` is based on
-their Markdown or html nature: an image that contains a link to another
-webpage (e.g. the Travis build). In some cases, READMEs feature such
-images… that aren’t badges. They can e.g. be local images, or images
-whose credits are stored as URL. To remove them from the sample, I used
-a strategy in two steps:
+The way badges are recognized by `codemetar::extract_badges` is not
+specific enough, it can include images formatted like badges that aren’t
+badges but instead either local images or images whose credit is shown
+as URL. To remove them from the sample, I used a strategy in two steps:
 
 -   I first had a look at the most common domains. For the 17 most
     common of them, I accepted the images. These 17 domains included
@@ -220,7 +218,9 @@ a strategy in two steps:
 
 -   For the remaining images, a bit more than 200, I used `magick` to
     obtain their width and height, and filtered actual badges based on
-    their width/height ratio.
+    their width/height ratio. Sometimes the link to the image wasn’t
+    even valid, which was also a reason for exclusion, since it revealed
+    the image was a local one.
 
 ``` r
 # extract and parse URLs
@@ -265,7 +265,8 @@ img_info <- purrr::map_df(urltools::url_compose(tbd),
 img_info <- dplyr::mutate(img_info, ratio = width/height)
 
 # filter badges from images
-img_info <- dplyr::filter(img_info, ratio < 3)
+img_info <- dplyr::filter(img_info, 
+                          ratio < 3|error)
 badges <- dplyr::filter(badges,
                         !image_link %in% img_info$image_link)
 readr::write_csv(badges, "data/aaall_badges.csv")
@@ -293,9 +294,9 @@ nobadges <- dplyr::anti_join(github_cran, badges,
                              by = c("owner", "repo"))
 ```
 
-There are 1239 packages without any badge (or rather said, without any
+There are 1240 packages without any badge (or rather said, without any
 badge that we identified) out of a sample of 3542 packages. That means
-3.5416510^{5}% have at least one badge.
+65% have at least one badge.
 
 ### Among the repos with badges, how many badges?
 
@@ -311,7 +312,7 @@ badges_count %>%
 
     ## # A tibble: 1 x 1
     ##   median
-    ##    <int>
+    ##    <dbl>
     ## 1      4
 
 ``` r
@@ -326,7 +327,8 @@ badges_count %>%
           subtitle = "Among repos with at least one badge")
 ```
 
-![](/img/blog-images/2018-09-10-github-badges/unnamed-chunk-2-1.png)
+![number of badges for READMEs with at least one
+(histogram)](/img/blog-images/2018-09-10-github-badges/unnamed-chunk-2-1.png)
 
 The median number of badges is 4, which corresponds to my gut feeling
 that the answer would be “a few”. I have a new question, what’s the repo
@@ -337,12 +339,12 @@ badges_count[1,]
 ```
 
     ## # A tibble: 1 x 3
-    ##   repo     owner               n
-    ##   <chr>    <chr>           <int>
-    ## 1 psycho.R neuropsychology    14
+    ##   repo  owner         n
+    ##   <chr> <chr>     <int>
+    ## 1 gpuR  cdeterman    13
 
-You can browse it at <https://github.com/neuropsychology/psycho.R>.
-Quite a colourful README!
+You can browse it at <https://github.com/cdeterman/gpuR>. Quite a
+colourful README!
 
 ### How many unique badges are there?
 
@@ -362,35 +364,32 @@ parsed_image_links %>%
 length(unique_domains)
 ```
 
-    ## [1] 74
+    ## [1] 58
 
 Not *that* many after all, so I’ll print all of them! A special mention
 to <https://github.com/ropensci/cchecksapi#badges> maintained under our
 GitHub organization by [Scott
 Chamberlain](https://ropensci.org/about/#team), to show the CRAN check
 status of your package!
-`glue::glue_collapse(unique_domains, sep = ", ", last = " and ")` .,
-\[pics, anaconda.org, api.codacy.com, api.travis-ci.org,
-app.wercker.com, assets.bcdevexchange.org, awesome.re, badge.fury.io,
-badge.waffle.io, badges.frapsoft.com, badges.gitter.im,
-badges.herokuapp.com, badges.ropensci.org, beerpay.io,
-bestpractices.coreinfrastructure.org, ci.appveyor.com, circleci.com,
-codeclimate.com, codecov.io, coveralls.io, cranchecks.info,
-cranlogs.r-pkg.org, d2weczhvl823v0.cloudfront.net, dependencyci.com,
-depsy.org, dl.dropboxusercontent.com, dmlc.github.io, docs,
-eddelbuettel.github.io, github.com, githubbadges.com,
+`glue::glue_collapse(unique_domains, sep = ", ", last = " and ")`
+anaconda.org, api.codacy.com, api.travis-ci.org, app.wercker.com,
+assets.bcdevexchange.org, awesome.re, badge.fury.io,
+badges.frapsoft.com, badges.gitter.im, badges.herokuapp.com,
+badges.ropensci.org, bestpractices.coreinfrastructure.org,
+ci.appveyor.com, circleci.com, codeclimate.com, codecov.io,
+coveralls.io, cranchecks.info, cranlogs.r-pkg.org, depsy.org,
+dmlc.github.io, eddelbuettel.github.io, githubbadges.com,
 githubbadges.herokuapp.com, gitlab.com, hits.dwyl.io, i.imgur.com,
-img.shields.io, inst, jhudatascience.org, joss.theoj.org, man,
-mybinder.org, pics, popmodels.cancercontrol.cancer.gov,
-pro-pulsar-193905.appspot.com, r-pkg.org, raw.githubusercontent.com,
-rclean\_demo.png, readme-example-1.png, readme-example-2.png,
-readme-example-3.png, readme-example-4.png, readme-example-5.png,
-readthedocs.org, ropensci.org, saucelabs.com, scan.coverity.com,
-semaphoreci.com, tools, travis-ci.com, travis-ci.org,
-user-images.githubusercontent.com, usgs-r.github.io, vignettes,
-www.nceas.ucsb.edu, www.ohloh.net, www.openhub.net, www.paypal.com,
-www.r-pkg.org, www.rdocumentation.org, www.repostatus.org,
-www.ropensci.org, www.rpackages.io and zenodo.org
+img.shields.io, jhudatascience.org, joss.theoj.org, mybinder.org,
+popmodels.cancercontrol.cancer.gov, pro-pulsar-193905.appspot.com,
+raw.githubusercontent.com, rclean\_demo.png, readme-example-1.png,
+readme-example-2.png, readme-example-3.png, readme-example-4.png,
+readme-example-5.png, readthedocs.org, ropensci.org, saucelabs.com,
+semaphoreci.com, travis-ci.com, travis-ci.org,
+user-images.githubusercontent.com, usgs-r.github.io, www.nceas.ucsb.edu,
+www.ohloh.net, www.openhub.net, www.paypal.com, www.r-pkg.org,
+www.rdocumentation.org, www.repostatus.org, www.ropensci.org,
+www.rpackages.io and zenodo.org
 
 ### What are the most common badges?
 
