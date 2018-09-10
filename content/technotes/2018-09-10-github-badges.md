@@ -423,8 +423,10 @@ parsed_image_links %>%
 | coveralls.io           |   156|
 | www.rdocumentation.org |    85|
 
-Travis CI is the clear winner! Now, “img.shields.io” is a service for
-badges of other things… which?
+The most common badges are Travis-CI badges, and METACRAN badges from
+[www.r-pkg.org](https://www.r-pkg.org/) and
+[cranlogs.r-pkg.org](https://cranlogs.r-pkg.org/). Now, “img.shields.io”
+is a service for badges of other things… which?
 
 ``` r
 badges %>%
