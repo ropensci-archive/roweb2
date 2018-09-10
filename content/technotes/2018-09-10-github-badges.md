@@ -271,14 +271,15 @@ img_info <- dplyr::filter(img_info,
 
 badges <- dplyr::filter(badges,
                         !tolower(image_link) %in% img_info$image_link,
+                        !tolower(image_link) %in% stringr::str_remove(img_info$image_link,
+                                                                      "/$"),
                         !stringr::str_detect(image_link,
-                                                "ropensci\\.org\\/public\\_images\\/"))
+                                             "ropensci\\.org\\/public\\_images\\/"))
 readr::write_csv(badges, "data/aaall_badges.csv")
 ```
 
-Note that at this stage we actually eliminated very few images, about
-twenty, so using badge syntax for images seem quite rare. Don’t judge me
-by my filenaming skills. I was *maybe* a bit too enthusiastic!
+Don’t judge me by my filenaming skills. I was *maybe* a bit too
+enthusiastic!
 
 Analyze badges from CRAN packages
 ---------------------------------
@@ -317,7 +318,7 @@ badges_count %>%
     ## # A tibble: 1 x 1
     ##   median
     ##    <dbl>
-    ## 1      4
+    ## 1      3
 
 ``` r
 library("ggplot2")
@@ -334,21 +335,24 @@ badges_count %>%
 ![number of badges for READMEs with at least one
 (histogram)](/img/blog-images/2018-09-10-github-badges/unnamed-chunk-2-1.png)
 
-The median number of badges is 4, which corresponds to my gut feeling
-that the answer would be “a few”. I have a new question, what’s the repo
-with the most badges?
+The median number of badges is 3, which corresponds to my gut feeling
+that the answer would be “a few”. I have a new question, what are the
+repos with the most badges?
 
 ``` r
-badges_count[1,]
+most_badges <- dplyr::filter(badges_count,
+                             n == max(n)) 
+most_badges
 ```
 
-    ## # A tibble: 1 x 3
-    ##   repo  owner         n
-    ##   <chr> <chr>     <int>
-    ## 1 gpuR  cdeterman    13
+    ## # A tibble: 2 x 3
+    ##   repo     owner               n
+    ##   <chr>    <chr>           <int>
+    ## 1 gpuR     cdeterman          13
+    ## 2 psycho.R neuropsychology    13
 
-You can browse it at <https://github.com/cdeterman/gpuR>. Quite a
-colourful README!
+You can browse them at <https://github.com/cdeterman/gpuR>,
+<https://github.com/neuropsychology/gpuR>.
 
 ### How many unique badges are there?
 
@@ -368,7 +372,7 @@ parsed_image_links %>%
 length(unique_domains)
 ```
 
-    ## [1] 58
+    ## [1] 51
 
 Not *that* many after all, so I’ll print all of them! A special mention
 to <https://github.com/ropensci/cchecksapi#badges> maintained under our
@@ -386,14 +390,12 @@ dmlc.github.io, eddelbuettel.github.io, githubbadges.com,
 githubbadges.herokuapp.com, gitlab.com, hits.dwyl.io, i.imgur.com,
 img.shields.io, jhudatascience.org, joss.theoj.org, mybinder.org,
 popmodels.cancercontrol.cancer.gov, pro-pulsar-193905.appspot.com,
-raw.githubusercontent.com, rclean\_demo.png, readme-example-1.png,
-readme-example-2.png, readme-example-3.png, readme-example-4.png,
-readme-example-5.png, readthedocs.org, ropensci.org, saucelabs.com,
+raw.githubusercontent.com, readthedocs.org, ropensci.org, saucelabs.com,
 semaphoreci.com, travis-ci.com, travis-ci.org,
 user-images.githubusercontent.com, usgs-r.github.io, www.nceas.ucsb.edu,
 www.ohloh.net, www.openhub.net, www.paypal.com, www.r-pkg.org,
-www.rdocumentation.org, www.repostatus.org, www.ropensci.org,
-www.rpackages.io and zenodo.org
+www.rdocumentation.org, www.repostatus.org, www.rpackages.io and
+zenodo.org
 
 ### What are the most common badges?
 
@@ -404,18 +406,18 @@ parsed_image_links %>%
   knitr::kable()
 ```
 
-| domain             |     n|
-|:-------------------|-----:|
-| travis-ci.org      |  1914|
-| www.r-pkg.org      |  1831|
-| cranlogs.r-pkg.org |  1306|
-| img.shields.io     |   889|
-| ci.appveyor.com    |   713|
-| codecov.io         |   672|
-| www.repostatus.org |   243|
-| zenodo.org         |   201|
-| coveralls.io       |   156|
-| ropensci.org       |   135|
+| domain                 |     n|
+|:-----------------------|-----:|
+| travis-ci.org          |  1914|
+| www.r-pkg.org          |  1831|
+| cranlogs.r-pkg.org     |  1306|
+| img.shields.io         |   889|
+| ci.appveyor.com        |   713|
+| codecov.io             |   672|
+| www.repostatus.org     |   243|
+| zenodo.org             |   201|
+| coveralls.io           |   156|
+| www.rdocumentation.org |    85|
 
 Travis CI is the clear winner! Now, “img.shields.io” is a service for
 badges of other things… which?
