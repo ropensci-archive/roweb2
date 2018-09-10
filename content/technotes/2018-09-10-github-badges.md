@@ -352,7 +352,7 @@ most_badges
     ## 2 psycho.R neuropsychology    13
 
 You can browse them at <https://github.com/cdeterman/gpuR>,
-<https://github.com/neuropsychology/gpuR>.
+<https://github.com/neuropsychology/psycho.R>.
 
 ### How many unique badges are there?
 
