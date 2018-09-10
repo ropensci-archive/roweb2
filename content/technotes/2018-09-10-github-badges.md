@@ -384,9 +384,7 @@ to <https://github.com/ropensci/cchecksapi#badges> maintained under our
 GitHub organization by [Scott Chamberlain](/about/#team), to show the
 CRAN check status of your package!
 
-Unique badge domains:
-`glue::glue_collapse(unique_domains, sep = ", ", last = " and ")`
-anaconda.org, api.codacy.com, api.travis-ci.org, app.wercker.com,
+Unique badge domains collapsed by `glue::glue_collapse(unique_domains, sep = ", ", last = " and ")`: anaconda.org, api.codacy.com, api.travis-ci.org, app.wercker.com,
 assets.bcdevexchange.org, awesome.re, badge.fury.io,
 badges.frapsoft.com, badges.gitter.im, badges.herokuapp.com,
 badges.ropensci.org, bestpractices.coreinfrastructure.org,
