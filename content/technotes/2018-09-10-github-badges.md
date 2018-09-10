@@ -269,7 +269,11 @@ img_info <- dplyr::mutate(img_info, ratio = width/height)
 img_info <- dplyr::filter(img_info, 
                           ratio < 3|error)
 
+# it'd have been wiser to use a row-wise workflow!
 badges <- dplyr::filter(badges,
+                        !image_link %in% img_info$image_link,
+                        !image_link %in% stringr::str_remove(img_info$image_link,
+                                                                      "/$"),
                         !tolower(image_link) %in% img_info$image_link,
                         !tolower(image_link) %in% stringr::str_remove(img_info$image_link,
                                                                       "/$"),
@@ -299,9 +303,9 @@ nobadges <- dplyr::anti_join(github_cran, badges,
                              by = c("owner", "repo"))
 ```
 
-There are 1240 packages without any badge (or rather said, without any
-badge that we identified) out of a sample of 3542 packages. That means
-65% have at least one badge. As a reminder, there are more than 13,000
+There are 1277 packages without any badge (or rather said, without any
+badge that we identified) out of a sample of 3541 packages. That means
+64% have at least one badge. As a reminder, there are more than 13,000
 packages on CRAN so we’re only looking at a subset.
 
 ### Among the repos with badges, how many badges?
@@ -318,8 +322,8 @@ badges_count %>%
 
     ## # A tibble: 1 x 1
     ##   median
-    ##    <dbl>
-    ## 1      3
+    ##    <int>
+    ## 1      4
 
 ``` r
 library("ggplot2")
@@ -336,7 +340,7 @@ badges_count %>%
 ![number of badges for READMEs with at least one
 (histogram)](/img/blog-images/2018-09-10-github-badges/unnamed-chunk-2-1.png)
 
-The median number of badges is 3, which corresponds to my gut feeling
+The median number of badges is 4, which corresponds to my gut feeling
 that the answer would be “a few”. I have a new question, what are the
 repos with the most badges?
 
@@ -373,7 +377,7 @@ parsed_image_links %>%
 length(unique_domains)
 ```
 
-    ## [1] 51
+    ## [1] 50
 
 Not *that* many after all, so I’ll print all of them! A special mention
 to <https://github.com/ropensci/cchecksapi#badges> maintained under our
@@ -392,7 +396,7 @@ dmlc.github.io, eddelbuettel.github.io, githubbadges.com,
 githubbadges.herokuapp.com, gitlab.com, hits.dwyl.io, i.imgur.com,
 img.shields.io, jhudatascience.org, joss.theoj.org, mybinder.org,
 popmodels.cancercontrol.cancer.gov, pro-pulsar-193905.appspot.com,
-raw.githubusercontent.com, readthedocs.org, ropensci.org, saucelabs.com,
+raw.githubusercontent.com, readthedocs.org, saucelabs.com,
 semaphoreci.com, travis-ci.com, travis-ci.org,
 user-images.githubusercontent.com, usgs-r.github.io, www.nceas.ucsb.edu,
 www.ohloh.net, www.openhub.net, www.paypal.com, www.r-pkg.org,
@@ -414,16 +418,16 @@ parsed_image_links %>%
 
 | domain                 |     n|
 |:-----------------------|-----:|
-| travis-ci.org          |  1914|
-| www.r-pkg.org          |  1831|
-| cranlogs.r-pkg.org     |  1306|
-| img.shields.io         |   889|
-| ci.appveyor.com        |   713|
-| codecov.io             |   672|
-| www.repostatus.org     |   243|
-| zenodo.org             |   201|
-| coveralls.io           |   156|
-| www.rdocumentation.org |    85|
+| travis-ci.org          |  1880|
+| www.r-pkg.org          |  1804|
+| cranlogs.r-pkg.org     |  1286|
+| img.shields.io         |   882|
+| ci.appveyor.com        |   698|
+| codecov.io             |   656|
+| www.repostatus.org     |   240|
+| zenodo.org             |   197|
+| coveralls.io           |   157|
+| www.rdocumentation.org |    86|
 
 The most common badges are Travis-CI badges, and METACRAN badges from
 [www.r-pkg.org](https://www.r-pkg.org/) and
@@ -436,20 +440,20 @@ badges %>%
   dplyr::count(text, sort = TRUE)
 ```
 
-    ## # A tibble: 134 x 2
+    ## # A tibble: 135 x 2
     ##    text                  n
     ##    <chr>             <int>
-    ##  1 Coverage Status     198
-    ##  2 License              92
-    ##  3 lifecycle            63
+    ##  1 Coverage Status     196
+    ##  2 License              91
+    ##  3 lifecycle            62
     ##  4 CoverageStatus       54
     ##  5 <NA>                 38
     ##  6 packageversion       37
     ##  7 Last-changedate      32
-    ##  8 Licence              29
+    ##  8 Licence              28
     ##  9 minimal R version    28
     ## 10 Github Stars         19
-    ## # ... with 124 more rows
+    ## # ... with 125 more rows
 
 Diverse things, in particular the [Tidyverse lifecycle
 badges](https://www.tidyverse.org/lifecycle/). After some discussion, we
