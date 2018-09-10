@@ -23,8 +23,8 @@ output:
 A while ago we
 [onboarded](https://github.com/ropensci/onboarding/issues/130) an
 exciting package, [`codemetar`](https://github.com/ropensci/codemetar/)
-by [Carl Boettiger](https://ropensci.org/about/#team). `codemetar` is an
-R specific information collector and parser for the [CodeMeta
+by [Carl Boettiger](/about/#team). `codemetar` is an R specific
+information collector and parser for the [CodeMeta
 project](https://github.com/codemeta). In particular, `codemetar` can
 digest metadata about an R package in order to fill [the terms
 recognized by CodeMeta](https://codemeta.github.io/terms/). This means
