@@ -213,9 +213,9 @@ badges but instead either local images or images whose credit is shown
 as URL. To remove them from the sample, I used a strategy in two steps:
 
 -   I first had a look at the most common domains. For the 17 most
-    common of them, I accepted the images. These 17 domains included
-    ropensci.org because the *footer* our packages get is formatted as a
-    Markdown badge. I removed these footers from badges.
+    common of them, I accepted the images except for one, ropensci.org,
+    included because the *footer* our packages get is formatted as a
+    Markdown badge.
 
 -   For the remaining images, a bit more than 200, I used `magick` to
     obtain their width and height, and filtered actual badges based on
