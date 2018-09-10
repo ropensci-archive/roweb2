@@ -1,6 +1,6 @@
 ---
 slug: "github-badges"
-title: "All the Badges One Can Earn: Parse Badges of CRAN Packages READMEs"
+title: "All the Badges One Can Earn: Parsing Badges of CRAN Packages READMEs"
 date: 2018-09-10
 authors:
   - name: Maëlle Salmon
