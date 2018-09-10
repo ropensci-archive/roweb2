@@ -2,23 +2,7 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [    
-    {
-      'title': '<a href="http://spnhc-tdwg2018.nz/">Biodiversity Information Standards (TDWG)</a>',
-      'dateStart': 'Aug 27',
-      'dateEnd': '30, 2018',
-      'description': 'Talk: <a href="https://biss.pensoft.net/article/25589/">Phylogeny Based Biodiversity Data Queries</a>',
-      'location': 'Dunedin, NZ',
-      'attendees': 'Scott Chamberlain'
-    },
-    {
-      'title': '<a href="http://latin-r.com/">LatinR</a>',
-      'dateStart': 'Sep 3',
-      'dateEnd': '7, 2018',
-      'description': 'Maëlle Salmon (remote presentation): <a href="http://latin-r.com/cronograma/#session-26">Ciencia abierta - ¡MejoR ciencia con rOpenSci!</a>, Jenny Bryan talk: <a href="http://latin-r.com/cronograma/#session-6">Teaching R (and more) in the Era of Data Science</a>, Jenny Bryan tutorial: <a href="http://latin-r.com/cronograma/#session-3">How to repeat yourself with purr</a>',
-      'location': 'Buenos Aires, AR',
-      'attendees': 'Jenny Bryan, Maëlle Salmon (remote presentation)'
-    },    
+  'eventList': [ 
     {
       'title': '<a href="http://r-medicine.com/">R/Medicine</a>',
       'dateStart': 'Sep7',
