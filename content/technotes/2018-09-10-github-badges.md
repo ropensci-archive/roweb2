@@ -64,7 +64,8 @@ dev branch of `codemetar`):
 
 Note that the CRAN version of `codemetar` already features
 `extract_badges`, but with a badges table creation based on regular
-expressions only. Here is `codemetar::extract_badges` in action below:
+expressions only. Here is `codemetar::extract_badges` in action [on the
+README of the `drake` package](https://github.com/ropensci/drake):
 
 ``` r
 library("magrittr")
@@ -301,7 +302,8 @@ nobadges <- dplyr::anti_join(github_cran, badges,
 
 There are 1240 packages without any badge (or rather said, without any
 badge that we identified) out of a sample of 3542 packages. That means
-65% have at least one badge.
+65% have at least one badge. As a reminder, there are more than 13,000
+packages on CRAN so we’re only looking at a subset.
 
 ### Among the repos with badges, how many badges?
 
@@ -379,6 +381,8 @@ to <https://github.com/ropensci/cchecksapi#badges> maintained under our
 GitHub organization by [Scott
 Chamberlain](https://ropensci.org/about/#team), to show the CRAN check
 status of your package!
+
+Unique badge domains:
 `glue::glue_collapse(unique_domains, sep = ", ", last = " and ")`
 anaconda.org, api.codacy.com, api.travis-ci.org, app.wercker.com,
 assets.bcdevexchange.org, awesome.re, badge.fury.io,
@@ -395,7 +399,7 @@ semaphoreci.com, travis-ci.com, travis-ci.org,
 user-images.githubusercontent.com, usgs-r.github.io, www.nceas.ucsb.edu,
 www.ohloh.net, www.openhub.net, www.paypal.com, www.r-pkg.org,
 www.rdocumentation.org, www.repostatus.org, www.rpackages.io and
-zenodo.org
+zenodo.org.
 
 ### What are the most common badges?
 
