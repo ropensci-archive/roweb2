@@ -49,7 +49,8 @@ badges:
 
 The list might get longer, so instead of using regular expressions on
 the README text, we extract and memoize[2] all badges at once to a
-data.frame that we then query, using (in the dev branch of `codemetar`):
+data.frame that we then query. The badges extraction is based on (in the
+dev branch of `codemetar`):
 
 -   conversion to XML using `commonmark` (see [my recent tech
     note](https://ropensci.org/technotes/2018/09/05/commonmark/)) which
@@ -214,7 +215,7 @@ as URL. To remove them from the sample, I used a strategy in two steps:
 -   I first had a look at the most common domains. For the 17 most
     common of them, I accepted the images. These 17 domains included
     ropensci.org because the *footer* our packages get is formatted as a
-    Markdown badge.
+    Markdown badge. I removed these footers from badges.
 
 -   For the remaining images, a bit more than 200, I used `magick` to
     obtain their width and height, and filtered actual badges based on
@@ -267,8 +268,11 @@ img_info <- dplyr::mutate(img_info, ratio = width/height)
 # filter badges from images
 img_info <- dplyr::filter(img_info, 
                           ratio < 3|error)
+
 badges <- dplyr::filter(badges,
-                        !image_link %in% img_info$image_link)
+                        !tolower(image_link) %in% img_info$image_link,
+                        !stringr::str_detect(image_link,
+                                                "ropensci\\.org\\/public\\_images\\/"))
 readr::write_csv(badges, "data/aaall_badges.csv")
 ```
 
