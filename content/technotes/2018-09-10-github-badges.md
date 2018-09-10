@@ -4,7 +4,6 @@ title: "All the Badges One Can Earn: Parsing Badges of CRAN Packages READMEs"
 date: 2018-09-10
 authors:
   - name: Maëlle Salmon
-    url: https://masalmon.eu/
 categories:
   - technotes
 topicid: 
