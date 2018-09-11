@@ -23,7 +23,9 @@ Sharing data sets for collaboration or publication has always been challenging, 
 
 In the vaccine space ([where I work](https://www.fredhutch.org/en/labs/vaccine-and-infectious-disease/vidd-research/biostatistics-bioinformatics-epidemiology/research-overview/visc-faculty.html)) we analyze collections of high-dimensional immunological data sets from a variety of different technologies (RNA sequencing, cytometry, multiplexed antibody binding, and others). These data often arise from clinical trials and can involve tens to hundreds of subjects. The data are analyzed by teams of researchers with a diverse variety of goals. 
 
-Data from a single study will lead to multiple manuscripts by different PIs, dozens of reports, talks, presentations. There are many different consumers of  data sets, and results and conclusions must be consistent and reproducible. 
+Data from a single study will lead to multiple manuscripts by different principal investigators, dozens of reports, talks, presentations. There are many different consumers of  data sets, and results and conclusions must be consistent and reproducible. 
+
+Data processing pipelines tend to be study specific. Even though we have great [tidyverse](https://www.tidyverse.org/) tools that make data cleaning easier, every new data set has idiosyncracies and unique features that require some bespoke code to convert them from raw to tidy data. 
 
 Best practices tell us **raw data are read-only**, and analysis is done on some form of processed and tidied data set. Conventional wisdom is that this data tidying takes a substantial amount of the time and effort in a data analysis project, so once it's done, why should every consumer of a data set repeat it?
 
@@ -35,7 +37,7 @@ How can we ensure:
 
 - Data consumers aren't reinventing the wheel and repeating work already done.
 - Data are processed and tidied consistently and reproducibly. 
-- Everyone is using the same version of data sets for their analyses.
+- Everyone is using the same versions of data sets for their analyses.
 - Reports and analyses are tied to specific versions of the data and are updated when data change.
 
 ### DataPackageR 
@@ -56,11 +58,11 @@ Much of this can be accomplished by building *R data packages*, which are formal
 
 - It maintains a reproducible record (vignettes) of the data processing along with the package. Consumers of the data package can verify how the processing was done, increasing confidence in your data.
 
-- It automates construction of the documentation and maintains a data set version and an md5 fingerprint of each data object in the package. If the data changes and the package is rebuilt, the data version is automatically updated.
+- It automates construction of the documentation and maintains a data set version and an [md5 fingerprint](https://en.wikipedia.org/wiki/MD5) of each data object in the package. If the data changes and the package is rebuilt, the data version is automatically updated.
 
-- Data packages can be version controlled on github (or other VCS sites), making for easy change tracking and sharing with collaborators. 
+- Data packages can be version controlled on GitHub (or other VCS sites), making for easy change tracking and sharing with collaborators. 
 
-- When a manuscript is submitted based on a specific version of a data package, one can make a *github release* and automatically push it to sites like [zenodo](http://zenodo.org) so that it is permanently archived. 
+- When a manuscript is submitted based on a specific version of a data package, one can make a *GitHub release* and automatically push it to sites like [zenodo](http://zenodo.org) so that it is permanently archived. 
 
 - Consumers of the data package pull analysis-ready data from a central location, ensuring all downstream results rely on consistently processed  data sets.
 
@@ -70,15 +72,15 @@ The package developed organically over the span of several years, initially as a
 
 #### rOpenSci 
 
-DataPackageR was a departure from the [usual tools](http://www.gregfinak.com/#software) we develop, which live mostly on [BioConductor](http://bioconductor.org). We thought the [rOpenSci](http://ropensci.org) community would be a good place to release the package and reach a wider, more diverse audience.
+`DataPackageR` was a departure from the [usual tools](http://www.gregfinak.com/#software) we develop, which live mostly on [BioConductor](http://bioconductor.org). We thought the [rOpenSci](http://ropensci.org) community would be a good place to release the package and reach a wider, more diverse audience.
 
 #### The onboarding process
 
-Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), [Kara Woo](https://github.com/karawoo), [Will Landau](https://github.com/wlandau), and [Noam Ross](https://github.com/noamross) volunteered their time to provide in-depth, comprehensive and careful code review, suggestions for features, documentation, and improvements in coding style and unit tests, that ultimately made the software better. It was an impressive effort (you can see the github issue thread for yourself [here](http://www.github.com/ropensci/onboarding/issues/230)).
+Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), [Kara Woo](https://github.com/karawoo), [Will Landau](https://github.com/wlandau), and [Noam Ross](https://github.com/noamross) volunteered their time to provide in-depth, comprehensive and careful code review, suggestions for features, documentation, and improvements in coding style and unit tests, that ultimately made the software better. It was an impressive effort (you can see the GitHub issue thread for yourself [here](http://www.github.com/ropensci/onboarding/issues/230)).
 
 The current version of the package has **100% test coverage** and comprehensive documentation. One great benefit is that as I develop new features in the future, I can be confident I'm not inadvertently breaking something else. 
 
-ropensci encourages a number of other best practices that I had been somewhat sloppy about enforcing on myself. One is maintaining an updated `NEWS.md` file which tracks major changes and new features, and links them to relevant github issues. I find this particularly useful as I've always appreciated an informative NEWS file to help me decide if I should install the latest version of a piece of software. The [online handbook for ropensci package development, maintenance and peer review](https://ropensci.github.io/dev_guide/collaboration.html)  is a great resource to learn about what some of those other best practices are and how you can prepare your own software for submission. 
+ropensci encourages a number of other best practices that I had been somewhat sloppy about enforcing on myself. One is maintaining an updated `NEWS.md` file which tracks major changes and new features, and links them to relevant GitHub issues. I find this particularly useful as I've always appreciated an informative NEWS file to help me decide if I should install the latest version of a piece of software. The [online handbook for ropensci package development, maintenance and peer review](https://ropensci.github.io/dev_guide/collaboration.html)  is a great resource to learn about what some of those other best practices are and how you can prepare your own software for submission. 
 
 ### Using DataPackageR
 
@@ -96,7 +98,7 @@ In this example, I'll tidy the `cars` data set by giving it more meaningful colu
 
 #### Create a data package directory structure.
 
- The first step is to create the data package directory structure. This package structure is based on [rrrpkg](https://github.com/ropensci/rrrpkg) and some [conventions introcuded by Hadlely Wickham](http://r-pkgs.had.co.nz/data.html#data-extdata).
+ The first step is to create the data package directory structure. This package structure is based on [`rrrpkg`](https://github.com/ropensci/rrrpkg) and some [conventions introcuded by Hadley Wickham](http://r-pkgs.had.co.nz/data.html#data-extdata).
 
 
 ```r
@@ -106,7 +108,7 @@ datapackage_skeleton(name = "TidyCars",
 ```
 
 ```
-## ✔ Setting active project to '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/Rtmp2FAi8h/TidyCars'
+## ✔ Setting active project to '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/RtmpXXFG1L/TidyCars'
 ## ✔ Creating 'R/'
 ## ✔ Creating 'man/'
 ## ✔ Writing 'DESCRIPTION'
@@ -126,7 +128,7 @@ The directory structure that's created is shown below.
 
 
 ```
-/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T//Rtmp2FAi8h/TidyCars
+/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T//RtmpXXFG1L/TidyCars
 ├── DESCRIPTION
 ├── R
 ├── Read-and-delete-me
@@ -179,7 +181,7 @@ use_processing_script(file = "tidy_cars.Rmd",
 ##       enabled: yes
 ##   objects: []
 ##   render_root:
-##     tmp: '981717'
+##     tmp: '100797'
 ```
 
 The script file `tidy_cars.Rmd` is created in the `data-raw` directory of the package source. The output echoed after the command is the contents of the `datapackager.yml` configuration file. It controls the build process. Here the file is added to the configuration. You can find more information about it in the [configuration vignette](https://github.com/ropensci/DataPackageR/blob/master/vignettes/YAML_CONFIG.md). 
@@ -208,7 +210,7 @@ Followed by a description of what we are doing.
 In order to read raw data sets in a reproducible manner, `DataPackageR` provides an API call:
 `project_extdata_path()` that returns the absolute path to its argument in `inst/extdata` in a reproducible way, independent of the current working directory. There are also `project_path()` and `project_data_path()` that will point to the source root and the `data` directory, respectively.
 
-
+<div class="alert alert-info">NOTE that <code style="color:green">DataPackageR</code> is not compatible with the <code style="color:green">here</code> package. Rather use the APIs above.</div>
 
 
 
@@ -216,7 +218,7 @@ This script creates the `tidy_cars` object, which is what we want to store in ou
 
 #### Let DataPackageR know about the data objects to store in the package. 
 
-We let DataPackageR know about this:
+We let `DataPackageR` know about this:
 
 
 ```r
@@ -231,7 +233,7 @@ use_data_object("tidy_cars")
 ##   objects:
 ##   - tidy_cars
 ##   render_root:
-##     tmp: '981717'
+##     tmp: '100797'
 ```
 
 Again, the `datapackager.yml` configuration is echoed, and we see the data set object has been added. 
@@ -261,7 +263,7 @@ package_build(packageName = file.path(tempdir(),"TidyCars"), install = FALSE)
 
 ```
 ## 
-## ✔ Setting active project to '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/Rtmp2FAi8h/TidyCars'
+## ✔ Setting active project to '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/RtmpXXFG1L/TidyCars'
 ## ✔ 1 data set(s) created by tidy_cars.Rmd
 ## • tidy_cars
 ## ☘ Built  all datasets!
@@ -276,7 +278,7 @@ package_build(packageName = file.path(tempdir(),"TidyCars"), install = FALSE)
 ```
 
 ```
-## Updating roxygen version in /private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/Rtmp2FAi8h/TidyCars/DESCRIPTION
+## Updating roxygen version in /private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/RtmpXXFG1L/TidyCars/DESCRIPTION
 ```
 
 ```
@@ -295,7 +297,7 @@ package_build(packageName = file.path(tempdir(),"TidyCars"), install = FALSE)
 ```
 ## '/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file  \
 ##   --no-environ --no-save --no-restore --quiet CMD build  \
-##   '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/Rtmp2FAi8h/TidyCars'  \
+##   '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/RtmpXXFG1L/TidyCars'  \
 ##   --no-resave-data --no-manual --no-build-vignettes
 ```
 
@@ -318,7 +320,7 @@ package_build(packageName = file.path(tempdir(),"TidyCars"), install = FALSE)
 ```
 
 ```
-## [1] "/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/Rtmp2FAi8h/TidyCars_1.0.tar.gz"
+## [1] "/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/RtmpXXFG1L/TidyCars_1.0.tar.gz"
 ```
 
 <div class="alert alert-info">
@@ -420,7 +422,7 @@ DataPackageR::document(package_path)
 
 ```
 ## 
-## ✔ Setting active project to '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/Rtmp2FAi8h/TidyCars'
+## ✔ Setting active project to '/private/var/folders/jh/x0h3v3pd4dd497g3gtzsm8500000gn/T/RtmpXXFG1L/TidyCars'
 ```
 
 ```
@@ -457,12 +459,18 @@ package_build(file.path(tempdir(),"TidyCars"))
 
 If you are the data package developer you may consider: 
 
-- Placing the source of the data package under version control (we like [git](https://git-scm.com/downloads) and [github](http://www.github.com)). 
+- Placing the source of the data package under version control (we like [git](https://git-scm.com/downloads) and [GitHub](http://www.github.com)). 
 - Share the package archive (`yourpackage-x.y.z.tar.gz`) 
     - on a public repository.
     - directly with collaborators.
 
-We've placed the [TidyCars data package on github](http://www.github.com/gfinak/TidyCars) so that you can see for yourself how it looks.
+We've placed the [TidyCars data package on GitHub](http://www.github.com/gfinak/TidyCars) so that you can see for yourself how it looks.
+
+#### Limitations and future work
+
+Versions of software dependencies for processing scripts are not tracked. Users **should** use `sessionInfo()` to keep track of the versions of software used to perform data processing so that the environment can be replicated if a package needs to be rebuilt far in the future. 
+
+Tools like [`packrat`](https://rstudio.github.io/packrat/) and [`Docker`](https://www.docker.com/) aim to solve these problems, and it is non-trivial. I would love to integrate these tools more closely with `DataPackageR` in the future.
 
 ### Using a data package.
 
@@ -470,7 +478,7 @@ If you are a user of a data pacakge.
 
 Install a data package in the usual manner of R package installation.
 
-- From github:
+- From GitHub:
 
 ```
 devtools::install_github("gfinak/TidyCars")
@@ -532,4 +540,19 @@ The first assertion is true, the second is not, throwing an error. In downstream
 
 A data package can be built into a package archive (`.tar.gz`) using the standard `R CMD build` process. The only difference is that the `.rda` files in `/data` won't be re-generated, and the existing vignettes describing the processing won't be rebuilt. This is useful when the processing of raw data sets is time consuming (like some biological data), or when raw data sets are too large to distribute conveniently. 
 
+### To conclude 
 
+With `DataPackageR` I've tried to implement a straightforward workflow for building data packages. One that doesn't get in the way (based on my own experience) of how people develop their data processing pipelines. The new APIs are limited and only minor changes need to be made to adapt existing code to the workflow.  
+
+With a data package in hand, data can be easily shared and distributed. In my view, the greatest benefit of building a data package is that it encourages us to use best practices, like documenting data sets, documenting code, writing unit tests, and using version control. Since we are very often our own worst enemies, these are all Good Things. 
+
+We have been eating our own dog food, so to speak. 
+We use data packages internally in the [Vaccine Immunology Statistical Center](https://www.fredhutch.org/en/labs/vaccine-and-infectious-disease/services/VISCnetwork.html) to prepare data sets for analysis, publication, and for sharing with collaborators.
+We often do so through the [Fred Hutch GitHub Organization](https://www.github.com/FredHutch) (though most data are private). 
+
+The [RGLab](http://rglab.org) has used data packages (though not built using `DataPackageR`) to share data sets together with publications: 
+
+- Combinatorial Polyfunctionality Analysis of Single Cells: [paper](https://www.nature.com/articles/nbt.3187), [data](https://doi.org/10.5281/zenodo.46009)
+- Model-based Analysis of Single-cell Trascriptomics [paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0844-5), [data](https://doi.org/10.5281/zenodo.31723)
+
+In the long run, packaging data saves us time and effort (of the sort expended trying to reproduce results of long ago and far away) by ensuring data processing is reproducible and properly tracked. It's proved extremely useful to our group and I hope it's useful to others as well.
