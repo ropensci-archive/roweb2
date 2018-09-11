@@ -63,7 +63,7 @@ dev branch of `codemetar`):
 
 Note that the CRAN version of `codemetar` already features
 `extract_badges`, but with a badges table creation based on regular
-expressions only. Here is `codemetar::extract_badges` in action [on the
+expressions only (and a small encoding bug). Here is `codemetar::extract_badges` in action [on the
 README of the `drake` package](https://github.com/ropensci/drake):
 
 ``` r
@@ -85,7 +85,7 @@ codemetar::extract_badges("https://raw.githubusercontent.com/ropensci/drake/mast
 | downloads                                                                                                  | <http://cran.rstudio.com/package=drake>                  | <http://cranlogs.r-pkg.org/badges/drake>                                              |
 | Codecov                                                                                                    | <https://codecov.io/github/ropensci/drake?branch=master> | <https://codecov.io/github/ropensci/drake/coverage.svg?branch=master>                 |
 | Zenodo                                                                                                     | <https://zenodo.org/badge/latestdoi/82609103>            | <https://zenodo.org/badge/82609103.svg>                                               |
-| Project Status: Active â€“ The project has reached a stable, usable state and is being actively developed. | <http://www.repostatus.org/#active>                      | <http://www.repostatus.org/badges/latest/active.svg>                                  |
+| Project Status: Active – The project has reached a stable, usable state and is being actively developed. | <http://www.repostatus.org/#active>                      | <http://www.repostatus.org/badges/latest/active.svg>                                  |
 
 Quite handy for our metadata collection!
 
