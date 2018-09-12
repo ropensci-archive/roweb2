@@ -68,11 +68,11 @@ Much of this can be accomplished by building *R data packages*, which are formal
 
 ### Development
 
-The package developed organically over the span of several years, initially as a proof-of-concept, with features bolted on over time. Paul Obrecht kindly contributed the data set autodocumentation code and provided in-house testing. As it gained usage internally, we thougt it might be useful to others, and so began the process of releasing it publicly. 
+The package developed organically over the span of several years, initially as a proof-of-concept, with features bolted on over time. [Paul Obrecht](https://github.com/paulobrecht) kindly contributed the data set autodocumentation code and provided in-house testing. As it gained usage internally, we thougt it might be useful to others, and so began the process of releasing it publicly. 
 
 #### rOpenSci 
 
-`DataPackageR` was a departure from the [usual tools](http://www.gregfinak.com/#software) we develop, which live mostly on [BioConductor](http://bioconductor.org). We thought the [rOpenSci](http://ropensci.org) community would be a good place to release the package and reach a wider, more diverse audience.
+`DataPackageR` was a departure from the [usual tools](http://www.gregfinak.com/#software) we develop, which live mostly on [Bioconductor](http://bioconductor.org). We thought the [rOpenSci](http://ropensci.org) community would be a good place to release the package and reach a wider, more diverse audience.
 
 #### The onboarding process
 
@@ -80,7 +80,7 @@ Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), 
 
 The current version of the package has **100% test coverage** and comprehensive documentation. One great benefit is that as I develop new features in the future, I can be confident I'm not inadvertently breaking something else. 
 
-ropensci encourages a number of other best practices that I had been somewhat sloppy about enforcing on myself. One is maintaining an updated `NEWS.md` file which tracks major changes and new features, and links them to relevant GitHub issues. I find this particularly useful as I've always appreciated an informative NEWS file to help me decide if I should install the latest version of a piece of software. The [online handbook for ropensci package development, maintenance and peer review](https://ropensci.github.io/dev_guide/collaboration.html)  is a great resource to learn about what some of those other best practices are and how you can prepare your own software for submission. 
+rOpenSci encourages a number of other best practices that I had been somewhat sloppy about enforcing on myself. One is maintaining an updated `NEWS.md` file which tracks major changes and new features, and links them to relevant GitHub issues. I find this particularly useful as I've always appreciated an informative NEWS file to help me decide if I should install the latest version of a piece of software. The [online handbook for rOpenSci package development, maintenance and peer review](https://ropensci.github.io/dev_guide/collaboration.html)  is a great resource to learn about what some of those other best practices are and how you can prepare your own software for submission. 
 
 ### Using DataPackageR
 
@@ -181,7 +181,7 @@ use_processing_script(file = "tidy_cars.Rmd",
 ##       enabled: yes
 ##   objects: []
 ##   render_root:
-##     tmp: '100797'
+##     tmp: '103469'
 ```
 
 The script file `tidy_cars.Rmd` is created in the `data-raw` directory of the package source. The output echoed after the command is the contents of the `datapackager.yml` configuration file. It controls the build process. Here the file is added to the configuration. You can find more information about it in the [configuration vignette](https://github.com/ropensci/DataPackageR/blob/master/vignettes/YAML_CONFIG.md). 
@@ -233,7 +233,7 @@ use_data_object("tidy_cars")
 ##   objects:
 ##   - tidy_cars
 ##   render_root:
-##     tmp: '100797'
+##     tmp: '103469'
 ```
 
 Again, the `datapackager.yml` configuration is echoed, and we see the data set object has been added. 
