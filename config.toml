@@ -52,7 +52,7 @@ rssLimit = 20
     anonymizeIP = true
     disable = false
     respectDoNotTrack = true
-useSessionStorage = true
+    useSessionStorage = true
   [privacy.instagram]
     disable = false
     simple = true
