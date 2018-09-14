@@ -47,7 +47,7 @@ rssLimit = 20
 #  enable GDPR settings
 [privacy]
   [privacy.disqus]
-    disable = false
+    disable = true
   [privacy.googleAnalytics]
     anonymizeIP = true
     disable = false
