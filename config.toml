@@ -44,3 +44,25 @@ rssLimit = 20
 [taxonomies]
   tag = "tags"
 
+#  enable GDPR settings
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = false
+    respectDoNotTrack = true
+useSessionStorage = true
+  [privacy.instagram]
+    disable = false
+    simple = true
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    simple = true
+  [privacy.youtube]
+    disable = false
+privacyEnhanced = true
