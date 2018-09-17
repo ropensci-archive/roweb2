@@ -18,35 +18,30 @@ We have strived to have meaningful error messages for various arguments that hav
 
 GBIF did a large overhaul of the interface, so the possible arguments to use in each function are quite different. Don't hesitate to get in touch if you have a question! They have a set of methods to look up metadata about sources (under [Registry](http://www.gbif.org/developer/registry)), a set of methods for species names (under [Species](http://www.gbif.org/developer/species)), a set of methods for occurrences (under [Occurrences](http://www.gbif.org/developer/occurrence)), and a set of methods for requesting tile map layers (under [Maps](http://www.gbif.org/developer/maps)). In `rgbif` we provide functions for the first three, Registry, Species, and Occurrences. We don't provide R interfaces to their Maps service as it only makes sense to use in a web native workflow.
 
-Tutorial for old GBIF API: [http://ropensci.org/tutorials/rgbif_tutorial.html](http://ropensci.org/tutorials/rgbif_tutorial.html)
-Tutorial for new GBIF API: [http://ropensci.org/tutorials/rgbif_tutorial_newapi.html](http://ropensci.org/tutorials/rgbif_tutorial_newapi.html)
+Tutorial for old GBIF API: [http://ropensci.org/tutorials/rgbif\_tutorial.html](http://ropensci.org/tutorials/rgbif_tutorial.html)
+Tutorial for new GBIF API: [http://ropensci.org/tutorials/rgbif\_tutorial\_newapi.html](http://ropensci.org/tutorials/rgbif_tutorial_newapi.html)
 
 *Note: the Mac OSX binary is not available yet on CRAN...*
 
-***************
+***
 
 ## Install and load rgbif
-
 
 ```r
 install.packages("rgbif")
 ```
 
-
-
 ```r
 library(rgbif)
 ```
 
-
-***************
+***
 
 ## Registry
 
 ### Look up datasets
 
 Look up specific datasets
-
 
 ```r
 out <- datasets(data = "contact", uuid = "a6998220-7e3a-485d-9cd6-73076bd85657")
@@ -62,9 +57,7 @@ ldply(out, data.frame)[, c(1:4)]  # just a few columns for brevity
 ## 4 22898                      ORIGINATOR    TRUE       Ian
 ```
 
-
 Search datasets: Get all datasets tagged with keyword "france".
-
 
 ```r
 out <- dataset_search(keyword = "france")
@@ -99,9 +92,7 @@ out$data
 ## 4 b2dbd210-90c2-11df-86a3-b8a03c50a862
 ```
 
-
 Get dataset metrics
-
 
 ```r
 dataset_metrics(uuid = "3f8a1297-3259-4700-91fc-acc4170b27ce")$countByRank
@@ -116,9 +107,7 @@ dataset_metrics(uuid = "3f8a1297-3259-4700-91fc-acc4170b27ce")$countByRank
 ##         40         12          6          2
 ```
 
-
 ### Look up nodes
-
 
 ```r
 nodes(data = "identifier", uuid = "1193638d-32d1-43f0-a855-8727c94299d8")
@@ -142,9 +131,7 @@ nodes(data = "identifier", uuid = "1193638d-32d1-43f0-a855-8727c94299d8")
 ## [1] "2013-10-24T09:06:08.312+0000"
 ```
 
-
 ### Look up organizations
-
 
 ```r
 out <- organizations(data = "contact", uuid = "4b4b2111-ee51-45f5-bf5e-f535f4a1c9dc")
@@ -162,13 +149,11 @@ ldply(out, data.frame)[, c(1:4)]  # just a few columns for brevity
 ## 3             Ramon Perez Perez
 ```
 
-
-***************
+***
 
 ## Species
 
 ### Lookup names in GBIF taxonomy backbone
-
 
 ```r
 out <- name_backbone(name = "Helianthus", rank = "genus", kingdom = "plants")
@@ -192,9 +177,7 @@ data.frame(out)  # as a data.frame
 ## 1          6        49      220      414      3065  3119134
 ```
 
-
 ### Lookup names across all taxonomies in GBIF
-
 
 ```r
 out <- name_lookup(query = "Cnaemidophor", rank = "genus")
@@ -232,9 +215,7 @@ head(out$data)
 ## 6 GENUS              0
 ```
 
-
 ### Lookup details for specific names or IDs in all taxonomies in GBIF.
-
 
 ```r
 ldply(name_usage(key = 3119195, data = "vernacular_names")$results, data.frame)
@@ -275,11 +256,9 @@ ldply(name_usage(key = 3119195, data = "vernacular_names")$results, data.frame)
 ## 15  CHINESE     FALSE
 ```
 
-
 ### Suggest names.
 
 This is meant to be a quick name suggestion function that returns up to 20 names by doing prefix matching against the scientific name. Results are ordered by relevance.
-
 
 ```r
 name_suggest(q = "Puma", fields = c("key", "canonicalName"))
@@ -309,13 +288,11 @@ name_suggest(q = "Puma", fields = c("key", "canonicalName"))
 ## 20 6164620         Puma concolor cougar
 ```
 
-
-***************
+***
 
 ## Occurrences
 
 ### Get simple count of number of records given parameters
-
 
 ```r
 occ_count(nubKey = 2435099, georeferenced = TRUE)
@@ -325,9 +302,7 @@ occ_count(nubKey = 2435099, georeferenced = TRUE)
 ## [1] 2541
 ```
 
-
 ### Get specific occurrence records with know keys
-
 
 ```r
 occ_get(key = c(773433533, 101010, 240713150, 855998194, 49819470), return = "data")
@@ -342,11 +317,9 @@ occ_get(key = c(773433533, 101010, 240713150, 855998194, 49819470), return = "da
 ## 5 Phlogophora meticulosa Linnaeus, 1758  49819470     13.28    55.72
 ```
 
-
 ### Get occurrence records
 
 This is the most common function you may use in `rgbif`.
-
 
 ```r
 key <- name_backbone(name = "Helianthus annuus", kingdom = "plants")$speciesKey
@@ -386,9 +359,7 @@ occ_search(taxonKey = key, limit = 2)
 ## 2 Helianthus annuus L. 855868468     16.42    56.58
 ```
 
-
 Another example, using Well Known Text Area as a bounding polygon to search on
-
 
 ```r
 occ_search(geometry = "POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))")$data
@@ -438,3 +409,5 @@ occ_search(geometry = "POLYGON((30.1 10.1, 10 20, 20 40, 40 40, 30.1 10.1))")$da
 ## 19    37.66
 ## 20    37.66
 ```
+
+

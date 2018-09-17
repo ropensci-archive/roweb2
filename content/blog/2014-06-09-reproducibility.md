@@ -67,7 +67,7 @@ The set of scripts that manages the above jobs is comparable in size to the actu
 
 The continuous integration approach has a huge potential to save headaches in managing computational research projects.  However, while our analysis acts as a proof-of-concept, it will be of limited general use: it requires that the project is open source (in a *public* [github](https://github.com) repository), and that the analysis is relatively quick to run (under an hour).  These limitations are reasonable given that it is a free service, but they don't match well with many research projects where development does not occur "in the open", and where computation can take many hours or days.
 
----
+***
 
 We found our reproducibility goals for this paper to be a useful exercise, and it forms the basis of [ongoing research projects](https://github.com/richfitz/modeladequacy).  However, the process is far too complicated at the moment. It is not going to be enough to simply tell people to make their projects reproducible. We need to develop tools that are *at least* as easy to use as version control before we can expect project reproducibility to become mainstream.
 
@@ -76,3 +76,5 @@ We don't disagree with Titus Brown that [partial reproducibility is better than 
 Other efforts for this simple goal of recomputibility are not much more encouraging than ours.  A study in the [UBC Reproducibility Group](http://www.zoology.ubc.ca/~repro) found that they [could not reproduce the results in 30%](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-294X.2012.05754.x/abstract) of published analyses using the population genetic package STRUCTURE, using the same data as provided by the authors.  In an even more trivial case, a [research group at Arizona University](http://reproducibility.cs.arizona.edu/) found that they could only *build* about half of the published software that they could download, without even testing that the software did what it was intended to do (note that this study is currently [being reproduced!](http://cs.brown.edu/~sk/Memos/Examining-Reproducibility/)).
 
 The process of making our study reproducible reveals that we are only part of the way to making reproducible research broadly accessible to practicing scientists.
+
+

@@ -16,20 +16,21 @@ Our mission is to expand access to scientific data and promote a culture of repr
 
 We're looking for someone who can:
 
-* **Disseminate** updates about our projects and activities to diverse communities via blog posts, Twitter, and related outlets.
+- **Disseminate** updates about our projects and activities to diverse communities via blog posts, Twitter, and related outlets.
 
-* **Engage** with the research community on discussion forums and speak at meetings.
-* **Organize** events such as our annual unconferences [locally](http://unconf16.ropensci.org/) and [internationally](http://auunconf.ropensci.org/) (We've got an admin to take care of logistics).
+- **Engage** with the research community on discussion forums and speak at meetings.
 
-* **Wrangle** our (mostly remote) team and coordinate us, our contractors, and future research fellows.
+- **Organize** events such as our annual unconferences [locally](http://unconf16.ropensci.org/) and [internationally](http://auunconf.ropensci.org/) (We've got an admin to take care of logistics).
+
+- **Wrangle** our (mostly remote) team and coordinate us, our contractors, and future research fellows.
 
 What we're looking for in our community manager:
 
-* A bachelor's degree in science. Although prior research experience is not necessary, you must have a strong understanding of the culture of science from having worked in that environment.
+- A bachelor's degree in science. Although prior research experience is not necessary, you must have a strong understanding of the culture of science from having worked in that environment.
 
-* Some evidence of community building efforts. A successful blog, an engaging Twitter account, events you've previously organized are the kinds of things we're looking for.
+- Some evidence of community building efforts. A successful blog, an engaging Twitter account, events you've previously organized are the kinds of things we're looking for.
 
-* A passion for open source/science and a hacker mentality. While the position does not involve any software development, you must be comfortable enough to use/learn various tools that are integral to our stack including R packages, Git/GitHub.
+- A passion for open source/science and a hacker mentality. While the position does not involve any software development, you must be comfortable enough to use/learn various tools that are integral to our stack including R packages, Git/GitHub.
 
 The position comes with a competitive salary and benefits and is based at the [Berkeley Institute for Data Science](http://bids.berkeley.edu/) at UC Berkeley. Remote work is also an option for the right candidate.
 
@@ -38,3 +39,5 @@ We're a [team of four](http://ropensci.org/about/#team), with a five person [lea
 
 **Apply**
 Informal questions and inquiries welcome at `jobs at ropensci org`. And if you're ready, [go ahead and apply!](https://hrw-vip-prod.is.berkeley.edu/psc/JOBSPROD/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_CE.GBL?Page=HRS_CE_JOB_DTL&Action=A&JobOpeningId=21279&SiteId=1&PostingSeq=1)
+
+

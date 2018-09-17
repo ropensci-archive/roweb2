@@ -81,10 +81,10 @@ With time and feedback from [others in the lab](https://github.com/ClaireLevy), 
 
 Eventually, I boiled it down to a small set of functions:
 
-* `read_plate`: takes a `plater` format file and gives you a tidy data frame
-* `read_plates`: takes multiple `plater` format files and gives you a big tidy data frame
-* `add_plate`: takes a `plater` format file and a tidy data frame and combines them
-* `view_plate`: takes a tidy data frame and displays selected variables from it back in plate shape
+- `read_plate`: takes a `plater` format file and gives you a tidy data frame
+- `read_plates`: takes multiple `plater` format files and gives you a big tidy data frame
+- `add_plate`: takes a `plater` format file and a tidy data frame and combines them
+- `view_plate`: takes a tidy data frame and displays selected variables from it back in plate shape
 
 ## Is this thing any good?
 
@@ -94,13 +94,15 @@ It turned out that the improvements started even before I got any feedback. As I
 
 The review process itself led to even more improvement. Two generous reviewers ([Julia Gustavsen](http://www.juliagustavsen.com/) and [Dean Attali](http://deanattali.com/)) and an [editor](https://scottchamberlain.info/) spent multiple hours reading the code, testing the functions, and thinking about how to make it more useful. Their thoughtful suggestions resulted in many changes to the package (I made 61 commits responding to the reviews) that made it more robust and useful. Among others:
 
-* Make `add_plate` more easily pipeable by reordering the arguments
-* Add a function `check_plater_format` to test if a file is formatted correctly
-* Brainstorm a Shiny tool for non-R users to use `plater`
-* Explore alternative visualizations to `view_plate`
+- Make `add_plate` more easily pipeable by reordering the arguments
+- Add a function `check_plater_format` to test if a file is formatted correctly
+- Brainstorm a Shiny tool for non-R users to use `plater`
+- Explore alternative visualizations to `view_plate`
 
 The reviewing process made `plater` a much better package and left me feeling confident in putting it up on CRAN with a stable version 1.0.0.
 
 ## Conclusion
 
 Since transferring `plater` over to rOpenSci and putting it onto CRAN, I've used the package all the time and have shared it with lab mates and colleagues. It works well and does exactly what I want, seamlessly without my needing to even notice it. This level of convenience and utility is the best testament to the efforts of the reviewers and editors of rOpenSci, who helped to make it a better package.
+
+

@@ -12,7 +12,7 @@ tags:
 - gbif
 ---
 
-`rgbif` is an R package to search and retrieve data from the Global Biodiverity Information Facilty (GBIF). `rgbif` wraps R code around the [GBIF API][gbifapi] to allow you to talk to GBIF from R.
+`rgbif` is an R package to search and retrieve data from the Global Biodiverity Information Facilty (GBIF). `rgbif` wraps R code around the \[GBIF API\]\[gbifapi\] to allow you to talk to GBIF from R.
 
 We just pushed a new verion of `rgbif` to cran - v0.5.0.  Source and binary files are now available on CRAN.
 
@@ -22,30 +22,25 @@ Functions to work with the old GBIF API remain in the package, but will be remov
 
 Note: you can see a detailed list of all changes in new versions on the releases page for `rgbif` on Githb here: [https://github.com/ropensci/rgbif/releases](https://github.com/ropensci/rgbif/releases)
 
-********************
+***
 
 ## Install rgbif and dependencies
-
 
 ```r
 install.packages("rgbif")
 ```
 
-
 ## Load rgbif and dependencies
-
 
 ```r
 library(rgbif)
 ```
 
-
-
 ## New functions
-### New function: count_facet
+
+### New function: count\_facet
 
 Does facetted count searches, as GBIF doesn't allow faceted searches against the count API. In this example, we have a set of species names, and we want counts by each of a set of 20 countries for each species. This function wraps up some code to essentially give you faceted search capability for the count service - of course this is much slower than if it was done server side.
-
 
 ```r
 spplist <- c("Geothlypis trichas", "Tiaris olivacea", "Pterodroma axillaris",
@@ -81,13 +76,11 @@ count_facet(by = "country", countries = 20, removezeros = TRUE)
 ## 20              BELGIUM  5167393
 ```
 
-
 ### New function: elevation
 
 Gets elevation data for a `data.frame` of lat/long points, or a list of lat/long points. This function uses the Google Elevation API.
 
-You can get elevation/altitude data back from the GBIF API, but that data is often missing. See the `altitude` column in data output from `occ_search` - you need to set the fields parameter to _all_ or ask for _altitude_ explicitly.
-
+You can get elevation/altitude data back from the GBIF API, but that data is often missing. See the `altitude` column in data output from `occ_search` - you need to set the fields parameter to *all* or ask for *altitude* explicitly.
 
 ```r
 key <- name_backbone(name = "Puma concolor", kingdom = "plants")$speciesKey
@@ -105,9 +98,7 @@ head(dat)
 ## 6 Puma concolor 866523280   -118.24    34.06
 ```
 
-
 Attach elevation data to the `data.frame`
-
 
 ```r
 head(elevation(dat))
@@ -123,13 +114,11 @@ head(elevation(dat))
 ## 6 Puma concolor 866523280   -118.24    34.06     93.25
 ```
 
-
 ### New function: installations
 
 Gets metdata on installations via the [installations API](http://www.gbif.org/developer/registry#installations).
 
 This example requests data for installations with the query terms 'france' in the metadata. We'll just look at the first result, and just the description and its first contact.
-
 
 ```r
 df <- installations(query = "france")
@@ -173,9 +162,7 @@ df$results[[1]]$contacts[[1]]
 ## [1] "2013-03-18T16:17:46.000+0000"
 ```
 
-
 Another example, just requesting contact data for an installation identifier (i.e. uuid).
-
 
 ```r
 installations(data = "contact", uuid = "2e029a0c-87af-42e6-87d7-f38a50b78201")
@@ -211,17 +198,19 @@ installations(data = "contact", uuid = "2e029a0c-87af-42e6-87d7-f38a50b78201")
 ## [1] "2014-01-10T20:03:03.867+0000"
 ```
 
-
 ## Minor changes
+
 ### sapply -> vapply
 
 We replaced `sapply` with `vapply` as `vapply` can be faster than `sapply`, and with `vapply` you can include a check in the function call to make sure that the returned data elements are of the correct type.
 
 ### Other minor changes
 
-* Changed name of `country_codes` function to `gbif_country_codes` to avoid conflicts with other packages.
-* `gbifmap` now plots a map with `ggplot2::coord_fixed(ratio=1)` so that you don't get wonky maps.
-* `occ_count` now accepts a call to query publishingCountry with a single parameter (country), to list occurrence counts by publishing country.
-* `occ_get` and `occ_search` lose parameter minimal, and in its place gains parameter fields, in which you can request fields='minimal' to get just name, taxon key, lat and long. Or set to 'all' to get all fields, or selection the fields you want by passing in a vector of field names.
-* Updated base url for the GIBF parser function `parsenames`
-* isocodes dataset now with documentation.
+- Changed name of `country_codes` function to `gbif_country_codes` to avoid conflicts with other packages.
+- `gbifmap` now plots a map with `ggplot2::coord_fixed(ratio=1)` so that you don't get wonky maps.
+- `occ_count` now accepts a call to query publishingCountry with a single parameter (country), to list occurrence counts by publishing country.
+- `occ_get` and `occ_search` lose parameter minimal, and in its place gains parameter fields, in which you can request fields='minimal' to get just name, taxon key, lat and long. Or set to 'all' to get all fields, or selection the fields you want by passing in a vector of field names.
+- Updated base url for the GIBF parser function `parsenames`
+- isocodes dataset now with documentation.
+
+

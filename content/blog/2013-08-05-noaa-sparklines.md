@@ -18,7 +18,6 @@ In this example, we search for stations that collect climate data, then get the 
 
 Load packages
 
-
 ```r
 library(rnoaa)
 library(scales)
@@ -32,18 +31,14 @@ library(plyr)
 library(stringr)
 ```
 
-
 Find stations to get data from
-
 
 ```r
 stations <- noaa_stations(dataset = "GHCND", enddate = "20121201")
 res <- sapply(stations$data, function(x) x$meta$id)
 ```
 
-
 Get data from stations, just searching on the first 60.
-
 
 ```r
 noaa_fw <- failwith(NULL, noaa)
@@ -52,9 +47,7 @@ dat <- compact(llply(as.character(res)[1:60], function(x) noaa_fw(dataset = "GHC
     station = x, year = 2010, month = 7), .parallel = TRUE))
 ```
 
-
 Make a data.frame and fix dates.
-
 
 ```r
 df <- ldply(dat, function(x) x$data)
@@ -62,9 +55,7 @@ df$date <- ymd(str_replace(as.character(df$date), "T00:00:00\\.000", ""))
 df <- df[df$dataType == "PRCP", ]
 ```
 
-
 Get station lat and long data so that we can put data on a map.
-
 
 ```r
 latlongs <- llply(res[1:60], function(x) noaa_stations(x, dataset = "GHCND")$data$meta[c("id",
@@ -73,15 +64,11 @@ latlongs <- ldply(latlongs, function(x) as.data.frame(x))
 df2 <- merge(df, latlongs, by.x = "station", by.y = "id")
 ```
 
-
 Here's what the first six rows of data look like
-
 
 ```r
 head(df2)
 ```
-
-
 
 ```
             station       date dataType value  atts latitude longitude
@@ -93,9 +80,7 @@ head(df2)
 6 GHCND:AQC00914000 2010-07-06     PRCP   437 01000   -14.32    -170.8
 ```
 
-
 Plot the data. Each sparkline on the map is the precipitation data for a station, where the values are tenths of mm of precipitation. The x-axis of each sparkline is number of days, where each line is the last 30 days of precipitation data. The blue line in each sparkline is the same y-axis for each line for reference. The station with the greatest value (87.6 mm) is the one in the ocean in American Somoa at (-14.31667,-170.7667).
-
 
 ```r
 world_map <- map_data("world")
@@ -109,5 +94,6 @@ p + geom_subplot(aes(longitude, latitude, group = station, subplot = geom_line(a
 
 ![center](/assets/blog-images/2013-08-05-noaa-sparklines/plotit.png)
 
-
 There is a lot more to come in this package. Keep an eye on this blog and our twitter account (@ropensci).
+
+

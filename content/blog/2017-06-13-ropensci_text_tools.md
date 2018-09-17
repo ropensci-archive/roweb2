@@ -17,9 +17,9 @@ tags:
 Textual data and natural language processing are still a niche domain within the R ecosytstem. The [NLP task view](https://cran.r-project.org/view=NaturalLanguageProcessing) gives an overview of existing work however a lot of basic infrastructure is still missing.
 At the rOpenSci [text workshop](https://ropensci.org/blog/blog/2017/05/03/textworkshop17) in April we discussed many ideas for improving text processing in R which revealed several core areas that need improvement:
 
- - Reading: better tools for extracing text and metadata from documents in various formats (doc, rtf, pdf, etc).
- - Encoding: many text packages work well for ascii text but rapidly break down when text contains Hungarian, Korean or emojis.
- - Interchange: packages don't work well together due to lack of data classes or conventions for textual data (see also [ropensci/tif](https://github.com/ropensci/tif))
+- Reading: better tools for extracing text and metadata from documents in various formats (doc, rtf, pdf, etc).
+- Encoding: many text packages work well for ascii text but rapidly break down when text contains Hungarian, Korean or emojis.
+- Interchange: packages don't work well together due to lack of data classes or conventions for textual data (see also [ropensci/tif](https://github.com/ropensci/tif))
 
 Participants also had many good suggestions for C/C++ libraries that text researchers in R might benefit from. Over the past weeks I was able to look into these suggestions and work on a few packages for reading and analyzing text. Below is an update on new and improved rOpenSci tools for text processsing in R!
 
@@ -42,7 +42,6 @@ cld2::detect_language(text)
 [Maëlle](https://maelle.github.io) has written a [cool post](https://masalmon.eu/2017/06/10/rolandgarros/) comparing language classification methods using 18000 `"#RolandGarros2017"` tweets and [Thomas](https://www.stat.auckland.ac.nz/people/tlum005) [reminds us](http://notstatschat.tumblr.com/post/161449071226/stupid-word-games) that algorithms can easily be fooled. Still I found the accuracy on real text quite astonishing given the relatively small size of these libraries.
 
 Note that the algorithm for CLD3 is still under development and the engineers at Google have recently [opened](https://github.com/google/cld3/issues) their Github issues page for feedback.
-
 
 ## (anti) word and (un)rtf
 
@@ -122,7 +121,6 @@ hunspell_suggest(bad[[1]])
 # [1] "language"  "Langeland" "Lagrange"  "Lange"     "gaugeable" "linkage"   "Langland"
 ```
 
-
 The package is also used by `devtools` to spell-check manual pages in R packages:
 
 ```r
@@ -158,5 +156,6 @@ hunspell_analyze(words)
 # [1] " st:love"
 ```
 
-
 Hunspell also suppors tokenizing words from html, latex, man, or plain text. For more advanced word extraction, check out the rOpenSci [tokenizers](https://github.com/ropensci/tokenizers#readme) package.
+
+

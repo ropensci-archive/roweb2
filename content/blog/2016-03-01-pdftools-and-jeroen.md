@@ -23,7 +23,6 @@ The pdftools slightly overlaps with the [Rpoppler](https://cran.r-project.org/we
 
 On Windows and Mac the binary packages can be installed directly from CRAN:
 
-
 ```r
 install.packages("pdftools")
 ```
@@ -47,7 +46,6 @@ brew install poppler
 ```
 
 That's it.
-
 
 ## Getting started
 
@@ -77,7 +75,6 @@ jsonlite::toJSON(toc, auto_unbox = TRUE, pretty = TRUE)
 
 Other functions provide information about fonts, attachments and metadata such as the author, creation date or tags.
 
-
 ```r
 # Author, version, etc
 info <- pdf_info("1403.2805.pdf")
@@ -88,7 +85,7 @@ fonts <- pdf_fonts("1403.2805.pdf")
 
 ## Bonus feature: rendering pdf
 
-A bonus feature on most platforms is rendering of PDF files to bitmap arrays. The poppler library provides all functionality to implement a complete PDF reader, including graphical display of the content. In R we can use pdf_render_page to render a page of the PDF into a bitmap, which can be stored as e.g. png or jpeg.
+A bonus feature on most platforms is rendering of PDF files to bitmap arrays. The poppler library provides all functionality to implement a complete PDF reader, including graphical display of the content. In R we can use pdf\_render\_page to render a page of the PDF into a bitmap, which can be stored as e.g. png or jpeg.
 
 ```r
 # renders pdf to bitmap array

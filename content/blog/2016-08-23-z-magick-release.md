@@ -79,7 +79,6 @@ image_browse(tiger)
 
 There is some functionality to convert images to R raster graphics and plot it on R's graphics display, but this doesn't always work too well yet.
 
-
 ```r
 frink <- image_read("https://jeroen.github.io/images/frink.png")
 raster <- as.raster(frink)
@@ -156,7 +155,6 @@ The examples above concern single images. However all functions in magick have b
 The standard base vector methods `[` `[[`, `$`, `c()` and `length()` are used to manipulate sets of images which can then be treated as layers or frames. This system is actually so extensive that we will do a separate blog post about it later.
 
 For now here is an example on how to generate the instant classic dancing banana on R logo (which is probably why you are here):
-
 
 ```r
 # Background image

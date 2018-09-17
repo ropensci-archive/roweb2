@@ -22,3 +22,5 @@ This workflow allows us to easily keep our changes in the functions/etc. of our 
 We do say at the top of every tutorial *This is the vignette in the XYZ package*. The CRAN versions of packages may not have the vignette yet, but should show up in the next update of the package on CRAN, and should be in the Github version of the package now.
 
 As always, let us know if you have any questions on our packages, and if you think the tutorials could use any additional examples, etc.
+
+

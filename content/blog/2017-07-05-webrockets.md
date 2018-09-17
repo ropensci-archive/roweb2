@@ -31,13 +31,11 @@ package](#cool-but-what-is-a-websocket) into context and walk you
 through a fun example where you can live plot streaming sensor data from
 a mobile device.
 
-Our Experiences
-===============
+### Our Experiences
 
-Alicia Answers Miles' Questions
--------------------------------
+### Alicia Answers Miles' Questions
 
-### Q1: What motivated you to apply for \#runconf17 and then to work on `webrockets`?
+#### Q1: What motivated you to apply for #runconf17 and then to work on `webrockets`?
 
 I first learned about rOpenSci last summer, while doing an internship at
 Genentech. [Jenny Bryan](https://ropensci.org/about/#team) came to
@@ -69,7 +67,7 @@ I needed to know about web sockets :D (and if those reading this
 don't know what web sockets are, don't worry... later in this post we'll
 [explain it to you too](#cool-but-what-is-a-websocket)!)
 
-### Q2: What were the most challenging parts of \#runconf17 for you?
+#### Q2: What were the most challenging parts of #runconf17 for you?
 
 I'm pretty shy and introverted, so I was nervous about being around so
 many new people and the packed schedule. Luckily, everyone I met was
@@ -80,17 +78,16 @@ life...) with various smaller groups. It was also really incredible to
 be able to get help on our project from some of the most knowledgeable
 people possible!
 
-### Q3: What things from \#runconf17 will stay with you into the future?
+#### Q3: What things from #runconf17 will stay with you into the future?
 
 I thing the big thing that will stay with me is knowing how kind and
 helpful people in the R community are. I'm often nervous about asking
 for help or contributing to a new project, but I feel much more
 comfortable now about doing so in the future!
 
-Miles Answers Alicia's Questions
---------------------------------
+### Miles Answers Alicia's Questions
 
-### Q1: What inspired you to work on the `webrockets` package?
+#### Q1: What inspired you to work on the `webrockets` package?
 
 It wasn't my first choice, that was actually [your suggestion for
 roxygen-like tagging for makefile
@@ -112,7 +109,7 @@ last moment Alicia Schep rocks up, keen and backing her C++ skills,
 convincing me we might be able to get something done. That as much as
 anything inspired me to work on `webrockets`.
 
-### Q2: How did working on this package during the unconference differ from your usual R development experience?
+#### Q2: How did working on this package during the unconference differ from your usual R development experience?
 
 In basically all the ways. I usually work independently and I tend to
 bang my head against something for a while before reaching for help. The
@@ -131,7 +128,7 @@ can't speak for You, but I didn't feel like the self-consciousness that
 can sometimes occur when coding in front of strangers was a noticeable
 presence. We were too focussed on getting something happening!
 
-### Q3: What was the favorite thing you learned during the unconference? (Doesn't have to be `webrockets` related!)
+#### Q3: What was the favorite thing you learned during the unconference? (Doesn't have to be `webrockets` related!)
 
 Wow. That's hard. I mean there's the little known but dedicated scene
 inhabited by the R Karaoke People group, the fact that there exists
@@ -147,8 +144,7 @@ outer of the R community. Post unconf I feel like the online community
 is so much more alive, and that has to be a result of having had the
 opportunity to commune with some of its brightest inhabitants.
 
-Cool... But what *is* a websocket?
-==================================
+### Cool... But what *is* a websocket?
 
 Websockets are communication end-points that occupy the same place in
 the network stack as HTTP. To shoehorn the protocols needed by modern
@@ -162,8 +158,7 @@ concern for HTTP headers or URL strings!
 You can read a great explanation
 [here](http://www.websocket.org/quantum.html).
 
-Webrockets <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png" height="20" width="20" align="absmiddle">
-===================
+### Webrockets <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png" height="20" width="20" align="absmiddle">
 
 We've discussed our personal motivations, but the [project
 issue](https://github.com/ropensci/unconf17/issues/43) was actually
@@ -190,29 +185,30 @@ some time through RStudio's
 use this to implement our [test data
 source](https://github.com/ropenscilabs/webrockets/blob/master/tests/random_coordintate_server.R).
 
-Streaming data as websocket client
-----------------------------------
+### Streaming data as websocket client
 
-### Initializing the connection
+#### Initializing the connection
 
 We assume that as the client, it is our role to initiate a data
 streaming session with the server. So we have a way to initialize a
 connection:
 
-    con <- ws_connect(url = "ws://localhost:5006/")
+```
+con <- ws_connect(url = "ws://localhost:5006/")
+```
 
 `con` is a handle to our websocket connection. It is passed to `read`
 methods to get data.
 
-### Getting messages
+#### Getting messages
 
 With `easywsclient` there is no concept of a buffer messages piling up
 for us. A new received message overwrites the one received prior. If we
 have not read it, it is lost. This creates some considerations for us as
 consumers of websocket data:
 
--   How often will we check the websocket for new messages?
--   How will we deal with no messages?
+- How often will we check the websocket for new messages?
+- How will we deal with no messages?
 
 Good answers to these questions depend on the characteristics of the
 data stream as well as our application. We have to consider how fast and
@@ -220,11 +216,13 @@ how predictably data are arriving, and what data we really need (e.g.
 latest vs all history). So some degrees of freedom are required, which
 is why we created a few methods to read from websockets:
 
-    msg <- ws_receive(ws_ptr = con, timeout = 10) # Check for a message waiting up to 10 milliseconds to receive.
-    msg <- ws_receive_one(ws_ptr = con, frequency = 5) #Return 1 message, check every 5 milliseconds until it arrives.
-    msg <- ws_receive_multiple(ws_ptr = con, eventlimit = 10) #Do not return until you have 10 messages.
+```
+msg <- ws_receive(ws_ptr = con, timeout = 10) # Check for a message waiting up to 10 milliseconds to receive.
+msg <- ws_receive_one(ws_ptr = con, frequency = 5) #Return 1 message, check every 5 milliseconds until it arrives.
+msg <- ws_receive_multiple(ws_ptr = con, eventlimit = 10) #Do not return until you have 10 messages.
+```
 
-### Getting messages in shiny
+#### Getting messages in shiny
 
 To continually receive messages, we could potentially put calls to
 receive messages within a while loop. However, that wouldn't work in the
@@ -244,29 +242,31 @@ call to get the message and the handling of the response in an
 event; we use the `invalidateLater` function to specify that we actually
 just want to run the code every X milliseconds.
 
-    con <- ws_connect(url = "ws://localhost:5006/")
-    ui <- fluidPage(
-        plotOutput('plot')
-    )
-    server <- function(input, output) {
-        values <- reactiveValues(x = NULL, y = NULL)
+```
+con <- ws_connect(url = "ws://localhost:5006/")
+ui <- fluidPage(
+    plotOutput('plot')
+)
+server <- function(input, output) {
+    values <- reactiveValues(x = NULL, y = NULL)
 
-        observeEvent(invalidateLater(100), {
+    observeEvent(invalidateLater(100), {
 
-            new_response <- ws_receive(con, 0)
-            if (new_response != ""){
-                new_point <- fromJSON(new_response)
-                values$x <- c(values$x, new_point$x)
-                values$y <- c(values$y, new_point$y)
-            }
-        }, ignoreNULL = FALSE)
+        new_response <- ws_receive(con, 0)
+        if (new_response != ""){
+            new_point <- fromJSON(new_response)
+            values$x <- c(values$x, new_point$x)
+            values$y <- c(values$y, new_point$y)
+        }
+    }, ignoreNULL = FALSE)
 
-        output$plot <- renderPlot({
-            ggplot(data.frame(xval = values$x, yval = values$y),
-                   aes(x = xval, y=yval)) + geom_point()
-        })
-    }
-    shinyApp(ui = ui, server = server)
+    output$plot <- renderPlot({
+        ggplot(data.frame(xval = values$x, yval = values$y),
+               aes(x = xval, y=yval)) + geom_point()
+    })
+}
+shinyApp(ui = ui, server = server)
+```
 
 Here's what the app looks like as new points are received from the
 server:
@@ -274,8 +274,7 @@ server:
 ![test
 example](/assets/blog-images/2017-07-05_launching_webrockets/wr_coord_example.gif)
 
-Streaming sensor data
----------------------
+### Streaming sensor data
 
 We were pretty happy to get the proof of concept `shiny` app that
 updates based on a test server up and running — lots of high fives and
@@ -305,20 +304,24 @@ We made styling change in `ui` to hide the "greying-out" effect of the
 plot while it was re-rendered with each new datapoint. It makes the plot
 seem more fluid:
 
-        tags$style(type="text/css",
-                   ".recalculating {opacity: 1.0;}"),
+```
+    tags$style(type="text/css",
+               ".recalculating {opacity: 1.0;}"),
+```
 
 In `server` introduced a call to `gather` so we could create a time
 series plot facetted by accelerometer axis (x,y,z). It would be better
 not to do this at each timestep. Individual plots could alleviate this.
 The plot changes to:
 
-    output$plot <- renderPlot({
-            data.frame(xval = values$x, yval = values$y,
-                       zval = values$z, time = values$time) %>%
-                gather("variable", "value", -time) %>%
-            ggplot(aes(x = time, y=value)) + geom_path() + facet_grid(~variable)
-        })
+```
+output$plot <- renderPlot({
+        data.frame(xval = values$x, yval = values$y,
+                   zval = values$z, time = values$time) %>%
+            gather("variable", "value", -time) %>%
+        ggplot(aes(x = time, y=value)) + geom_path() + facet_grid(~variable)
+    })
+```
 
 Voila! Now you can create a demo like this:
 
@@ -333,8 +336,7 @@ can hear [Nick Tierney](https://github.com/njtierney) losing his mind as
 he watches the plot update in real time, but your mileage may vary with,
 you know... non-R people.
 
-Future Work
------------
+### Future Work
 
 The project is about to get some real world use in an upcoming project
 so expect a bunch of issues and design considerations to shake out of
@@ -344,3 +346,5 @@ welcome! Feel free to engage us on Twitter
 [@milesmcbain](https://twitter.com/MilesMcBain)), rOpenSci slack
 (check out the `#webrockets` channel), or the issues on the
 [`webrockets` Github repo](https://github.com/ropenscilabs/webrockets).
+
+

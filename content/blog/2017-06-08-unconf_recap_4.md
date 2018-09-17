@@ -16,8 +16,8 @@ tags:
 
 Continuing our series of blog posts ([day 1](https://ropensci.org/blog/blog/2017/06/05/unconf_recap_1), [day 2](https://ropensci.org/blog/blog/2017/06/06/unconf_recap_2), [day 3](https://ropensci.org/blog/blog/2017/06/07/unconf_projects_3)) this week about [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017).
 
-
 ## `cityquant`
+
 **Summary:**  The goal with the `cityquant` project was to build a digital dashboard for sustainable cities.
 
 ![sustain](https://sustainsb.github.io/images/scores_flower-plot_sbcounty.png)
@@ -26,8 +26,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 **Team:** [Reka Solymosi](https://github.com/maczokni), [Ben Best](https://github.com/bbest), [Chelsea Ursaner](https://github.com/chursaner), [Tim Phan](https://github.com/timphan), [Jasmine Dumas](https://github.com/jasdumas)
 
-**Github:** <https://github.com/ropenscilabs/cityquant>
-
+**Github:** [https://github.com/ropenscilabs/cityquant](https://github.com/ropenscilabs/cityquant)
 
 <br><br>
 
@@ -38,6 +37,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 `notary`: An R package for signing and verification of R packages. It has functions for installing and verifying packages, validating GitHub releases, sourcing files with verification, and more.
 
 <!-- ![notary](/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png) -->
+
 <img src="/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png" width="300">
 
 `r-security-practices`: A [bookdown book](https://ropenscilabs.github.io/r-security-practices/index.html) targeting users, developers, and admins on R security best practices.
@@ -46,8 +46,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 **Team:** [Stephanie Locke](https://github.com/stephlocke), [Oliver Keyes](https://github.com/Ironholds), [Rich FitzJohn](https://github.com/richfitz), [Bob Rudis](https://github.com/hrbrmstr), [Joroen Ooms](https://github.com/jeroen)
 
-**Github:** <https://github.com/ropenscilabs/notary> / <https://github.com/ropenscilabs/r-security-practices>
-
+**Github:** [https://github.com/ropenscilabs/notary](https://github.com/ropenscilabs/notary) / [https://github.com/ropenscilabs/r-security-practices](https://github.com/ropenscilabs/r-security-practices)
 
 <br><br>
 
@@ -59,17 +58,15 @@ This project combined two ideas from our brainstorming stage: [Avoiding redundan
 
 ![packagemetrics](/assets/blog-images/2017-06-08-unconf_recap_4/pkgmetrics.png)
 
-
 **Team:** [Erin Grand](https://github.com/eringrand), [Sam Firke](https://github.com/sfirke), [Hannah Frick](https://github.com/hfrick), [Becca Krouse](https://github.com/bzkrouse), [Lori Shepherd](https://github.com/lshep)
 
-**Github:** <https://github.com/ropenscilabs/packagemetrics>
-
+**Github:** [https://github.com/ropenscilabs/packagemetrics](https://github.com/ropenscilabs/packagemetrics)
 
 <br><br><br>
 
 ## `pegax`
 
-**Summary:**  `pegax` is a very alpha client for parsing taxonomic names. Taxonomic names are things such as _Homo sapiens_ (human beings) [wikispecies](https://species.wikimedia.org/wiki/Homo_sapiens), or _Ursus americanus_ (american black bear) [wikispecies](https://species.wikimedia.org/wiki/Ursus_americanus), or _Balaenoptera musculus_ (blue whale) [wikispecies](https://species.wikimedia.org/wiki/Balaenoptera_musculus). Taxonomic names can be hard to parse - and thus something called [Parsing Expression Grammar (PEG)](https://en.wikipedia.org/wiki/Parsing_expression_grammar) can be employed to help. We were lucky that Oliver Keyes just started an R package for PEGs in R called [piton](https://github.com/Ironholds/piton) - which is now used in `pegax` to parse taxonomic names.
+**Summary:**  `pegax` is a very alpha client for parsing taxonomic names. Taxonomic names are things such as *Homo sapiens* (human beings) [wikispecies](https://species.wikimedia.org/wiki/Homo_sapiens), or *Ursus americanus* (american black bear) [wikispecies](https://species.wikimedia.org/wiki/Ursus_americanus), or *Balaenoptera musculus* (blue whale) [wikispecies](https://species.wikimedia.org/wiki/Balaenoptera_musculus). Taxonomic names can be hard to parse - and thus something called [Parsing Expression Grammar (PEG)](https://en.wikipedia.org/wiki/Parsing_expression_grammar) can be employed to help. We were lucky that Oliver Keyes just started an R package for PEGs in R called [piton](https://github.com/Ironholds/piton) - which is now used in `pegax` to parse taxonomic names.
 
 ![plot](/assets/blog-images/2017-06-08-unconf_recap_4/pegax.png)
 
@@ -77,5 +74,6 @@ This project combined two ideas from our brainstorming stage: [Avoiding redundan
 
 [Scott Chamberlain](https://github.com/sckott) (with help from [Oliver Keyes](https://github.com/kellobri))
 
-**Github:** <https://github.com/ropenscilabs/pegax>
+**Github:** [https://github.com/ropenscilabs/pegax](https://github.com/ropenscilabs/pegax)
+
 

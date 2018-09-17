@@ -16,8 +16,6 @@ tags:
 
 Continuing our series of blog posts ([day 1](https://ropensci.org/blog/blog/2017/06/05/unconf_recap_1), [day 2](https://ropensci.org/blog/blog/2017/06/06/unconf_recap_2)) this week about [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017).
 
-
-
 ## `available`
 
 **Summary:**  Ever have trouble naming your software package? Find a great name and realize it's already taken on CRAN, or further along in development on GitHub? The `available` package makes it easy to check for valid, available names, and also checks various sources for any unintended meanings. The package can also suggest names based on the description and title of your package.
@@ -27,7 +25,6 @@ Continuing our series of blog posts ([day 1](https://ropensci.org/blog/blog/2017
 **Team:** Jim Hester, Carl Ganz, Gábor Csárdi, Molly Lewis, Rachel Tatman
 
 **Github:** https://github.com/ropenscilabs/available
-
 
 ## `miner`
 
@@ -42,7 +39,6 @@ The `miner` package provides a nice interface to the Minecraft API and allows us
 
 **Github:** https://github.com/ROpenSciLabs/miner
 
-
 ## `rcheatsheet`
 
 **Summary:**  RStudio pioneered the idea of having beautiful cheatsheets for R packages. Creating them however, is quite time consuming and requires effort to maintain as packages evolve.  The `rcheatsheet` package makes it easy for any package author to quickly generate beautiful cheatsheets from a simple table stored on a Google sheet or a local table. This short slide deck provides a [quick overview](https://gitpitch.com/ramnathv/rcheatsheet/master?grs=github&t=moon)
@@ -52,7 +48,6 @@ The `miner` package provides a nice interface to the Minecraft API and allows us
 **Team:** Diana Ly, Ramnath Vaidyanathan
 
 **Github:** https://github.com/ropenscilabs/rcheatsheet
-
 
 ## `ponyexpress`
 
