@@ -31,11 +31,11 @@ transparent, constructive, non adversarial and open review process,
 involves a lot of work from many actors: authors, reviewers and editors;
 but *how much work*? Managing the effort involved in the peer-review
 process is a major part of ensuring its sustainability and quality. In
-this post, we’ll take a look at the effort put in by participants in the
+this post, we'll take a look at the effort put in by participants in the
 review process, and also learn something about exploring GitHub data
 along the way.
 
-### Work done by authors
+## Work done by authors
 
 We can try to quantify the development work of authors by looking at the
 number of lines deleted and added in the git repo of the package before,
@@ -46,7 +46,7 @@ package git repos (information about sizes and dates of commits) and
 information from the onboarding issue threads (start and end dates of
 the review process, as measured by open/close dates).
 
-``` r
+```r
 library("ggplot2")
 library("magrittr")
 
@@ -107,27 +107,27 @@ plot_commits <- function(package_name, commits){
 }
 ```
 
-Let’s have a look at a few packages. The x-axis represents time, and the
-grey box the onboarding period (from issue opening i.e. submission to
-issue closing i.e. approval). The salmon lines above the y-axis are the
+Let's have a look at a few packages. The x-axis represents time, and the
+grey box the onboarding period (from issue opening i.e.Â submission to
+issue closing i.e.Â approval). The salmon lines above the y-axis are the
 number of lines *added* in one commit while the blue lines below the
 y-axis are the number of lines *deleted* in one commit.
 
-``` r
+```r
 plot_commits("opencage", commits = commits)
 ```
 
 ![commits plot of the opencage
 package](/img/blog-images/2018-05-03-onboarding-is-work/unnamed-chunk-2-1.png)
 
-``` r
+```r
 plot_commits("charlatan", commits = commits)
 ```
 
 ![commits plot of the charlatan
 package](/img/blog-images/2018-05-03-onboarding-is-work/unnamed-chunk-3-1.png)
 
-When looking at all onboarded repos, we don’t see a general pattern to
+When looking at all onboarded repos, we don't see a general pattern to
 commit histories. Commits have diffent sizes, and the activity frequency
 is highly variable. While we see the updates to packages that occur
 during review, there is just as often change again after onboarding, as
@@ -141,12 +141,12 @@ about maintainability, and our process is in part an approach to onboard
 authors into a community of dedicated and supportive package
 maintainers.
 
-We do try to onboard mature packages, i.e. that are not *drafts*.
+We do try to onboard mature packages, i.e.Â that are not *drafts*.
 Furthermore, the absence of general patterns in the previous figures
 could be due to different age at submission. How old are packages at
 submission?
 
-``` r
+```r
 age <- commits %>%
   dplyr::group_by(package) %>%
   dplyr::summarise(age = difftime(min(opened), min(datetime), units = "weeks")) %>%
@@ -171,15 +171,15 @@ although often one makes an initial commit not long after having started
 to work. We needed to filter positive age because in one case the GitHub
 repo of the onboarded package was apparently deleted and re-created
 without history after approval. Such things happen, thankfully the
-package wasn’t lost, just its history!
+package wasn't lost, just its history!
 
 Many packages are submitted while still very young which might indicate
 rapid development. It might also mean some authors viewed onboarding as
-a part of development, i.e. authors knew they intended to submit quite
-rapidly. For instance, Maëlle developed `opencage` in just a few days,
+a part of development, i.e.Â authors knew they intended to submit quite
+rapidly. For instance, MaÃ«lle developed `opencage` in just a few days,
 then submitted it to get it ready for wider use by the community.
 
-### Work done by reviewers
+## Work done by reviewers
 
 How much effort is put in by reviewers in this process? Reviewer time
 and effort is one of our most precious resources (you can read more
@@ -196,7 +196,7 @@ reviewers for, so we can let new reviewers know what to expect, and so
 hopefully in the future we can measure the success of efforts to
 automate some reviewer tasks.
 
-``` r
+```r
 # airtable data
 # this is our private database of who's reviewed what
 # and of reviewers' areas of expertise
@@ -206,7 +206,7 @@ airtable <- airtable$Reviews$select_all()
 
 We have self-reported reviewing times for 136 of 184 reviews.
 
-``` r
+```r
 ggplot(airtable) +
   geom_boxplot(aes(y = review_hours, x = "")) +
   hrbrthemes::theme_ipsum(base_size = 16,
@@ -227,7 +227,7 @@ One potential question is whether reviewer time is affected by the size
 of the package reviewed as measured by for instance number of exports
 (classes and functions).
 
-``` r
+```r
 get_namespace <- function(package_name){
   message(package_name)
   local_path_archive <- paste0(getwd(), "/repos_at_submission/", package_name)
@@ -250,7 +250,7 @@ purrr::map_df(packages, get_namespace) %>%
 Interestingly, we find no relationship between the reviewing time and
 number of exports:
 
-``` r
+```r
 namespace_ro <- readr::read_csv("output/namespace.csv")
 namespace_ro <- dplyr::left_join(namespace_ro, airtable, by = "package")
 ggplot(namespace_ro) +
@@ -264,11 +264,11 @@ ggplot(namespace_ro) +
 ![](/img/blog-images/2018-05-03-onboarding-is-work/scatterplot-size-vs-reviewing-time-1.png)
 
 There are a few potential explanations to this that might be fruitful to
-explore. For instance, does this mean that there’s only so much time,
+explore. For instance, does this mean that there's only so much time,
 and so larger packages get less scrutiny per line of code or per export?
 Or does review time just depend more on the reviewer than the package?
 
-### Work done by editors
+## Work done by editors
 
 Editors manage the review process, performing initial package checks,
 identifying and contacting reviewers, and then moderating and cajoling
@@ -279,7 +279,7 @@ Looking at this over time, we can see how editor workloads changed in
 response to growing number of assignments and how we have attempted to
 manage this by expanding our editorial board:
 
-``` r
+```r
 library(tidyverse)
 library(gh)
 library(lubridate)
@@ -316,7 +316,7 @@ year](/img/blog-images/2018-05-03-onboarding-is-work/unnamed-chunk-7-1.png)
 As an side-note, the same data allows to visualize the increase in the
 number of submissions.
 
-``` r
+```r
 edits %>%
 group_by(half) %>%
 summarize(n_submissions = n()) %>%
@@ -329,13 +329,13 @@ xlab("Half / Year") + ylab("No. Submissions")+
 ![number of submissions per half a
 year](/img/blog-images/2018-05-03-onboarding-is-work/unnamed-chunk-8-1.png)
 
-### Outlook: decreasing work by automation
+## Outlook: decreasing work by automation
 
 As mentioned [in this blog post about the authors and reviewers
-survey](https://ropensci.org/blog/2018/04/17/author-survey/), we’re in
+survey](https://ropensci.org/blog/2018/04/17/author-survey/), we're in
 the process of trying to maximize automation of all than can be
 automated in order to reduce and simplify work for everyone involved.
-This way, humans can focus on what they’re best at. Our current
+This way, humans can focus on what they're best at. Our current
 automation efforts include two packages in development: one for package
 authors, [`rodev`](https://github.com/ropenscilabs/rodev), by rOpenSci
 staff, and one for package reviewers,
@@ -348,7 +348,8 @@ requiring editors to do so locally.
 
 If you liked this data exploration, stay tuned for the third and final
 post of this series, about the social weather of onboarding as
-characterized by a tidy text analysis of onboarding threads! And don’t
+characterized by a tidy text analysis of onboarding threads! And don't
 forget to check out [the first post of the series, about data
 collection](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
-if you haven’t read it yet.
+if you haven't read it yet.
+

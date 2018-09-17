@@ -12,7 +12,7 @@ tags:
 - community
 ---
 
-__UPDATE:__ Use the new discussion forum at http://discuss.ropensci.org/
+**UPDATE:** Use the new discussion forum at http://discuss.ropensci.org/
 
 ## Community
 
@@ -22,9 +22,9 @@ Most of our discussions with the broader community over the past year have been 
 
 The mailing list would be appropriate for a broad array of discussions, including:
 
-* Questions about any of our R packages, including questions like "How do I make this function do XYZ..." to "I'm getting an error with this package or function...". However, we will likely direct more basic R questions back to StackOverflow.
-* Announcements of what you've done with our software or any papers where you might have used them. Sharing your new use cases or publications (even pre publications) is a great way to get others involved.
-* Questions or thoughts about the future of rOpenSci. Do you want to see a package do XYZ in the future? Do you want a new package to do ABC in the future?
+- Questions about any of our R packages, including questions like "How do I make this function do XYZ..." to "I'm getting an error with this package or function...". However, we will likely direct more basic R questions back to StackOverflow.
+- Announcements of what you've done with our software or any papers where you might have used them. Sharing your new use cases or publications (even pre publications) is a great way to get others involved.
+- Questions or thoughts about the future of rOpenSci. Do you want to see a package do XYZ in the future? Do you want a new package to do ABC in the future?
 
 Sign up for our mailing list, ask questions, and help make this a strong community. The mailing list: [https://groups.google.com/forum/#!forum/ropensci-discuss](https://groups.google.com/forum/#!forum/ropensci-discuss)
 
@@ -38,10 +38,10 @@ We currently have R packages for a number of sources of scholarly article text, 
 
 Instead of us rOpenSci core members planning out the whole package, we'd love to get the community involved at the beginning.
 
-
-* What _use cases_ should we include in this package?
-* What data sources should/can be included?
-* What are packages that you'd use after getting data with `fulltext`? We can try to make it easy to use data from `fulltext` in your favorite packages for analysis/visualization.
-* Any other thoughts are welcome.
+- What *use cases* should we include in this package?
+- What data sources should/can be included?
+- What are packages that you'd use after getting data with `fulltext`? We can try to make it easy to use data from `fulltext` in your favorite packages for analysis/visualization.
+- Any other thoughts are welcome.
 
 This is where we tie in the mailing list above: Please do use the mailing list to let us know what you think. We can then elevate items to the [issue tracker for the package](https://github.com/ropensci/fulltext/issues) on Github as needed.
+

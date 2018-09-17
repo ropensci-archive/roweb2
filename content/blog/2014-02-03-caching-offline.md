@@ -62,17 +62,14 @@ cachefxn <- function(q="*:*", db=NULL, cache=FALSE, backend='local', path)
 
 I'll define a query term `q` that we'll pass in to the `cachefxn` function each time.
 
-
 ```r
 library(mocker)
 q <- "cell biology"
 ```
 
-
 The first and fastest option (at least in my testing) is local storage via `saveRDS`. This is the default option. The 1st run with `cache=TRUE` is the same speed as `cache=FALSE`. Then, then 2nd time the function is called with `cache=TRUE`, the call is much, much faster as your simply calling the data from local storage. Internally, the url constructed for the particular base URL and query terms is used as a key to store the data with, or converted to a hash and then stored, and then searched for in your chosen `backend`. If it is found then the value is returned. If it is not found, then the function proceeeds to send the query to the web.
 
 Here, local storage is much faster than calling from the web. The first call goes to the web, while the second returns data via `readRDS`.
-
 
 ```r
 system.time(cachefxn(q = q, cache = TRUE, path = "~/scottscache/", backend = "local"))
@@ -83,8 +80,6 @@ system.time(cachefxn(q = q, cache = TRUE, path = "~/scottscache/", backend = "lo
 ##   0.020   0.001   1.609
 ```
 
-
-
 ```r
 system.time(cachefxn(q = q, cache = TRUE, path = "~/scottscache/", backend = "local"))
 ```
@@ -93,7 +88,6 @@ system.time(cachefxn(q = q, cache = TRUE, path = "~/scottscache/", backend = "lo
 ##    user  system elapsed
 ##   0.003   0.001   0.003
 ```
-
 
 `R.cache` works about the same way, so I won't go over that.
 
@@ -105,7 +99,6 @@ redis-server
 
 Then choose `backend='redis'`:
 
-
 ```r
 system.time(cachefxn(q = q, cache = TRUE, backend = "redis"))
 ```
@@ -115,8 +108,6 @@ system.time(cachefxn(q = q, cache = TRUE, backend = "redis"))
 ##   0.023   0.002   1.973
 ```
 
-
-
 ```r
 system.time(cachefxn(q = q, cache = TRUE, backend = "redis"))
 ```
@@ -125,7 +116,6 @@ system.time(cachefxn(q = q, cache = TRUE, backend = "redis"))
 ##    user  system elapsed
 ##   0.004   0.001   0.004
 ```
-
 
 Here's some benchmarking to show all methods together:
 
@@ -152,3 +142,4 @@ Unit: milliseconds
 ```
 
 This is all moot if you do all your coding within a `knitr` context (latex or markdown), and can easily then cache everything. However, I think this approach may be useful in that it can make it seem as though you have a live internet connection when in fact there isn't one. Let's say you're on a flight where internet costs $10 for 2 hours. You're a grad student so of course you don't pay for it. But not to worry! If you've executed the code previously with caching on, then the data acquisition step is okay, and you can continue to work on any downstream data manipulation and analyses steps.
+

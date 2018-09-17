@@ -18,3 +18,4 @@ This is the first version - there are definitely changes to come. Changes are be
 The draft version of the task view is on Github [here](https://github.com/ropensci/webservices) if you want to [file an issue](https://github.com/ropensci/webservices/issues).
 
 We use many packages to do stuff with the web like XML, RCurl, httr, RJSONIO, etc., and we create many packages that grab data from the web. So it made a lot of sense to work on this task view. We hope it is a good resource for everyone.
+

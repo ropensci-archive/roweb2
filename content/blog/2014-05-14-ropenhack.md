@@ -23,27 +23,25 @@ We held [rOpenHack](http://ropensci.github.io/hackathon/), a coding un-conferenc
 
 Since this was our first time planning an event like this, we loosely followed an unconference model (similar to [Science Online](http://scienceonline.com/)) and asked participants to propose projects on the [hackathon repo](https://github.com/ropensci/hackathon/issues) in advance of the event. This approach was a really great opportunity for folks to identify projects and fellow participants, and allowed us to quickly gauge where there was the most interest. While we didn't work on every single idea over those two days, we did manage to get quite a bit done. Here are some projects where we made a lot of headway:
 
+### What we hacked on
 
-# What we hacked on
+- Gavin Simpson wrote a package called [`Dependencies`](https://github.com/ropensci/dependencies) to track package dependencies (which is still a challenge in R).
 
-* Gavin Simpson wrote a package called [`Dependencies`](https://github.com/ropensci/dependencies) to track package dependencies (which is still a challenge in R).
+- Ciera Martinez, Ben Marwick, Ed Szocs, Juan Batiz-Benet and Jeff Hollister worked on a  comprehensive [reproducibility guide](https://github.com/ropensci/reproducibility-guide).
 
-* Ciera Martinez, Ben Marwick, Ed Szocs, Juan Batiz-Benet and Jeff Hollister worked on a  comprehensive [reproducibility guide](https://github.com/ropensci/reproducibility-guide).
+- Thomas Kluyver from the IPython project (with help from Jeroen Ooms and Ramnath Vaidyanathan) made great headway in finishing up a full iteration of the R kernel (which works great at this writing)
 
-* Thomas Kluyver from the IPython project (with help from Jeroen Ooms and Ramnath Vaidyanathan) made great headway in finishing up a full iteration of the R kernel (which works great at this writing)
+- Martin Fenner, Gavin Simpson and Carl Boettiger built an rOpenSci cookbook of software recipes but this project has much wider applications. Once a few remaining bugs are ironed out, it will be an amazingly cool new knitr plugin for [Jekyll along with a Ruby gem wrapping the knitr R package](https://github.com/ropensci/docs).
 
-* Martin Fenner, Gavin Simpson and Carl Boettiger built an rOpenSci cookbook of software recipes but this project has much wider applications. Once a few remaining bugs are ironed out, it will be an amazingly cool new knitr plugin for [Jekyll along with a Ruby gem wrapping the knitr R package](https://github.com/ropensci/docs).
+- [`testdat`](https://github.com/ropensci/testdat) - An R package to run unit tests (check for missing data, missing dates, bad formatting, outliers, non-ascii characters etc) on tabular data (Karthik Ram, Hilary Parker, Aylssa Frazee, Anya Bida, Dave Harris and Winston Chang)
 
-* [`testdat`](https://github.com/ropensci/testdat) - An R package to run unit tests (check for missing data, missing dates, bad formatting, outliers, non-ascii characters etc) on tabular data (Karthik Ram, Hilary Parker, Aylssa Frazee, Anya Bida, Dave Harris and Winston Chang)
+- A [best practices guide](https://github.com/hadley/httr/blob/master/vignettes/api-packages.Rmd) for working with APIs in R ([Hadley Wickham](http://had.co.nz/)
 
-* A [best practices guide](https://github.com/hadley/httr/blob/master/vignettes/api-packages.Rmd) for working with APIs in R ([Hadley Wickham](http://had.co.nz/)
-
-* [Jure Triglav](http://www.juretriglav.si/) was an awesome remote contributor and built a Ruby gem to [search for citations to R packages](https://github.com/ScienceToolbox/code_citations).</div>
+- [Jure Triglav](http://www.juretriglav.si/) was an awesome remote contributor and built a Ruby gem to [search for citations to R packages](https://github.com/ScienceToolbox/code_citations).</div>
 
 <div class="full_fig"><a href="https://www.youtube.com/watch?v=iUcm5COsKJo&nofeather=True"><img src="/assets/blog-images/2014-05-13-ropenhack/hackathon.jpg"></a></div><div class="col-sm-8 col-sm-offset-2">
 
-
-There were several other really cool projects like a new Git binding for R (by our Swedish collaborator [Stefan Widgren](https://github.com/stewid)), spatial tools (Ramnath Vaidyanathan, Scott Chamberlain, Amelia McNamara, Ian A. Muñoz, and Ted Hart), a text-mining applications from [Carson Sievert](http://cpsievert.github.io/) (see [blog post](http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/)).
+There were several other really cool projects like a new Git binding for R (by our Swedish collaborator [Stefan Widgren](https://github.com/stewid)), spatial tools (Ramnath Vaidyanathan, Scott Chamberlain, Amelia McNamara, Ian A. MuÃ±oz, and Ted Hart), a text-mining applications from [Carson Sievert](http://cpsievert.github.io/) (see [blog post](http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/)).
 
 Hosting an event like this in the Bay Area did have other advantages. Given that many of our fantastic colleagues in the larger data science realm were local, we couldn't pass up the opportunity to bring the community together during the event. Thanks to sponsorship from [F100 Research](http://f1000research.com/) and [GitHub](https://github.com/), we invited developers from related projects like IPython and Julia, our friends at various tech companies, data non-profits, and also several PIs from the newly created [Berkeley Institute of Data Science](http://vcresearch.berkeley.edu/datascience/bids-launch-dec-12). The social and dinner was a great opportunity for many of the newer folks to connect but also just another occasion for the community to grow stronger.
 
@@ -53,6 +51,7 @@ Alyssa Frazee wrote a great summary of the event on the [Simply Statistics blog]
 
 <!-- Video embed code -->
 
-## What's next on our event calendar?
+### What's next on our event calendar?
 
 We're already looking forward to hosting the event again next year (late March 2015) at GitHub, in the very early stages of organizing something similar in London this fall (right around [Mozfest](http://2014.mozillafestival.org/)) and possibly one in Australia in February 2015. So if you live near one of these places and can help organize or sponsor any part of the event, please drop us a note. We would love to hear from you soon. Once we get the logistics and funding sorted out, we'll post a general call for participation with more lead time this year. If you're not already subscribed to our mailing list, this would be the perfect time to do it since we are gearing up for several more events this summer and fall.
+

@@ -90,5 +90,5 @@ usmex.map + geom_point(data=gbifdata(out),aes(y=decimalLatitude,x=decimalLongitu
 <br>
 ![center](/assets/blog-images/2013-07-29-rWBclimate-rgbif/gbifmap2.png)
 
-
 The map doesn't have borders because it's created at the basin level, but it would be easy enough to add an outline for the countries.  You could also plot any of your own data over climate maps because they are based on decimal lattitude and longitude coordinates, or data from multiple sources.
+

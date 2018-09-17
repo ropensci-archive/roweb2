@@ -17,7 +17,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 
 <!--more-->
 
-### Where's rOpenSci?
+## Where's rOpenSci?
 
 <table class="table">
 <thead>
@@ -37,7 +37,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 <tr>
 	<td>July 4-6, 2018</td>
-	<td>Maëlle Salmon</td>
+	<td>MaÃ«lle Salmon</td>
 	<td>Rennes, FR</td>
 	<td><a href="https://r2018-rennes.sciencesconf.org/">French R conference</a></td>
 </tr>
@@ -85,7 +85,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 <tr>
 	<td>Sep 11, 2018</td>
-	<td>Maëlle Salmon</td>
+	<td>MaÃ«lle Salmon</td>
 	<td>Radolfzell, GE</td>
 	<td><a href="http://animove.org/courses/animove-2018/">AniMove</a></td>
 </tr>
@@ -103,3 +103,4 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 </tbody>
 </table>
+

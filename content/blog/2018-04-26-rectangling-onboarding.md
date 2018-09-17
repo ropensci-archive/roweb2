@@ -37,79 +37,79 @@ giving a data-driven overview, my mission was to extract data from
 GitHub and git repositories, and to put it into nice rectangles (as
 defined [by Jenny
 Bryan](https://speakerdeck.com/jennybc/data-rectangling)) ready for
-analysis. You might call that the first step of a “tidy git analysis”
+analysis. You might call that the first step of a "tidy git analysis"
 using the term coined by [Simon
 Jackson](https://drsimonj.svbtle.com/embarking-on-a-tidy-git-analysis).
 So, how did I collect data?
 
-### A side-note about GitHub
+## A side-note about GitHub
 
-In the following, I’ll mention repositories. All of them are git
-repositories, which means they’re folders under version control, where
+In the following, I'll mention repositories. All of them are git
+repositories, which means they're folders under version control, where
 roughly said all changes are saved via commits and their messages (more
-or less) describing what’s been changed in the commit. Now, on top of
+or less) describing what's been changed in the commit. Now, on top of
 that these repositories live on GitHub which means they get to enjoy
 some infratructure such as issue trackers, milestones, starring by
 admirers, etc. If that ecosystem is brand new to you, I recommend
 reading [this book](http://happygitwithr.com/), especially its [big
 picture chapter](http://happygitwithr.com/big-picture.html).
 
-### Package review processes: weaving the threads
+## Package review processes: weaving the threads
 
 Each package submission is an issue thread in our onboarding repository,
 see an example
 [here](https://github.com/ropensci/onboarding/issues/136). The first
 comment in that issue is the submission itself, followed by many
 comments by the editor, reviewers and authors. On top of all the data
-that’s saved there, mostly text data, we have a private
+that's saved there, mostly text data, we have a private
 [Airtable](https://airtable.com/) workspace where we have a table of
 reviewers and their reviews, with direct links to the issue comments
 that are reviews.
 
-#### Getting issue threads
+### Getting issue threads
 
-Unsurprisingly, the first step here was to “get issue threads”. What do
+Unsurprisingly, the first step here was to "get issue threads". What do
 I mean? I wanted a table of all issue threads, one line per comment,
 with columns indicating the time at which something was written, and
 columns digesting the data from the issue itself, e.g. guessing the role
 from the commenter from other information: the first user of the issue
-is the “author”.
+is the "author".
 
 I used to use GitHub API V3 and then heard about [GitHub API
 V4](https://developer.github.com/v4/) which blew my mind. As if I
-weren’t impressed enough by the mere existence of this API and [its
+weren't impressed enough by the mere existence of this API and [its
 advantages](https://developer.github.com/v4/#why-is-github-using-graphql),
 
--   I discovered the rOpenSci [`ghql`
-    package](https://github.com/ropensci/ghql) allows one to interact
-    with such an API and that its docs actually use GitHub API V4 as an
-    example!
+- I discovered the rOpenSci [`ghql`
+  package](https://github.com/ropensci/ghql) allows one to interact
+  with such an API and that its docs actually use GitHub API V4 as an
+  example!
 
--   Carl Boettiger told me about [his way to rectangle JSON
-    data](http://www.carlboettiger.info/2017/12/11/data-rectangling-with-jq/),
-    using [jq](https://stedolan.github.io/jq/), a language for
-    processing JSON, via a dedicated rOpenSci package,
-    [`jqr`](https://github.com/ropensci/jqr).
+- Carl Boettiger told me about [his way to rectangle JSON
+  data](http://www.carlboettiger.info/2017/12/11/data-rectangling-with-jq/),
+  using [jq](https://stedolan.github.io/jq/), a language for
+  processing JSON, via a dedicated rOpenSci package,
+  [`jqr`](https://github.com/ropensci/jqr).
 
 I have nothing against GitHub API V3 and
 [`gh`](https://github.com/r-lib/gh) and `purrr` workflows, but I was
 curious and really enjoyed learning these new tools and writing this
 code. I had written a `gh`/`purrr` code for getting the same information
-and it felt clumsier, but it might just be because I wasn’t
+and it felt clumsier, but it might just be because I wasn't
 perfectionist enough when writing it! I achieved writing the correct
 GitHub V4 API query to get *just* what I needed by [using its online
 explorer](https://developer.github.com/v4/explorer/). I then succeeded
-in transforming the JSON output into a rectangle by reading Carl’s post
+in transforming the JSON output into a rectangle by reading Carl's post
 but also by taking advantage of another online explorer, [jq
 play](https://jqplay.org/) where I pasted my output via
-`writeClipboard`. That’s nearly always the way I learn about query
+`writeClipboard`. That's nearly always the way I learn about query
 tools: using some sort of explorer and then pasting the code into a
 script. When I am more experienced, I can skip the explorer part.
 
 The first function I wrote was one for getting the issue number of the
 last onboarding issue, because then I looped/mapped over all issues.
 
-``` r
+```r
 library("ghql")
 library("httr")
 library("magrittr")
@@ -144,11 +144,13 @@ token <- Sys.getenv("GITHUB_GRAPHQL_TOKEN")
 get_last_issue()
 ```
 
-    ## [1] 201
+```
+## [1] 201
+```
 
 Then I wrote a function for getting all the precious info I needed from
 an issue thread. At the time it lived on its own in an R script, now
-it’s gotten included in my [`ghrecipes`
+it's gotten included in my [`ghrecipes`
 package](https://github.com/ropenscilabs/ghrecipes) as
 [`get_issue_thread`](https://github.com/ropenscilabs/ghrecipes/blob/master/R/get_issue_thread.R)
 so you can check out the code there, along with other useful recipes for
@@ -156,7 +158,7 @@ analyzing GitHub data.
 
 Then I launched this code to get all data! It was very satisfying.
 
-``` r
+```r
 #get all threads
 issues <- purrr::map_df(1:get_last_issue(), get_issue_thread)
 
@@ -174,13 +176,13 @@ all_issues <- unique(all_issues)
 readr::write_csv(all_issues, "data/all_threads_v4.csv")
 ```
 
-#### Digesting them and complementing them with Airtable data
+### Digesting them and complementing them with Airtable data
 
 In the previous step we got a rectangle of all threads, with information
 from the first issue comment (such as labels) distributed to all the
 comments of the threads.
 
-``` r
+```r
 issues <- readr::read_csv("data/all_threads_v4.csv")
 issues <- janitor::clean_names(issues)
 issues <- dplyr::rename(issues, user = author)
@@ -194,28 +196,28 @@ issues %>%
 | title  | author\_association | assignee | created\_at         | closed\_at          | user     | comment\_url                                                            | package | pulled |  issue| meta | x6\_approved | out\_of\_scope | x4\_review\_s\_in\_awaiting\_changes | x0\_presubmission | question | x3\_reviewer\_s\_assigned | holding | legacy | x1\_editor\_checks | x5\_awaiting\_reviewer\_s\_response | x2\_seeking\_reviewer\_s |
 |:-------|:--------------------|:---------|:--------------------|:--------------------|:---------|:------------------------------------------------------------------------|:--------|:-------|------:|:-----|:-------------|:---------------|:-------------------------------------|:------------------|:---------|:--------------------------|:--------|:-------|:-------------------|:------------------------------------|:-------------------------|
 | rrlite | OWNER               | sckott   | 2015-03-10 23:22:45 | 2015-03-31 00:16:28 | richfitz | NA                                                                      | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-10 23:26:11 | 2015-03-31 00:16:28 | richfitz | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78170639> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 19:29:32 | 2015-03-31 00:16:28 | karthik  | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78351979> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 21:08:59 | 2015-03-31 00:16:28 | sckott   | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78372187> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 21:13:11 | 2015-03-31 00:16:28 | karthik  | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78373054> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 21:33:45 | 2015-03-31 00:16:28 | richfitz | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78377124> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-10 23:26:11 | 2015-03-31 00:16:28 | richfitz | [https://github.com/ropensci/onboarding/issues/1#issuecomment-78170639](https://github.com/ropensci/onboarding/issues/1#issuecomment-78170639) | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 19:29:32 | 2015-03-31 00:16:28 | karthik  | [https://github.com/ropensci/onboarding/issues/1#issuecomment-78351979](https://github.com/ropensci/onboarding/issues/1#issuecomment-78351979) | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 21:08:59 | 2015-03-31 00:16:28 | sckott   | [https://github.com/ropensci/onboarding/issues/1#issuecomment-78372187](https://github.com/ropensci/onboarding/issues/1#issuecomment-78372187) | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 21:13:11 | 2015-03-31 00:16:28 | karthik  | [https://github.com/ropensci/onboarding/issues/1#issuecomment-78373054](https://github.com/ropensci/onboarding/issues/1#issuecomment-78373054) | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 21:33:45 | 2015-03-31 00:16:28 | richfitz | [https://github.com/ropensci/onboarding/issues/1#issuecomment-78377124](https://github.com/ropensci/onboarding/issues/1#issuecomment-78377124) | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
 
 Now we need a few steps more:
 
--   transforming NA into FALSE for variables corresponding to labels,
+- transforming NA into FALSE for variables corresponding to labels,
 
--   getting the package name from Airtable since the titles of issues
-    are not uniformly formatted,
+- getting the package name from Airtable since the titles of issues
+  are not uniformly formatted,
 
--   knowing which comment is a review,
+- knowing which comment is a review,
 
--   deducing the role of the user writing the comment
-    (author/editor/reviewer/community manager/other).
+- deducing the role of the user writing the comment
+  (author/editor/reviewer/community manager/other).
 
 Below binary variables are transformed and only rows corresponding to
 approved packages are kept.
 
-``` r
+```r
 # labels
 replace_1 <- function(x){
  !is.na(x[1])
@@ -241,7 +243,7 @@ issues <- dplyr::select(issues, - dplyr::starts_with("x"),
 Then, thanks to the `airtabler` package we can add the name of the
 package, and identify review comments.
 
-``` r
+```r
 # airtable data
 airtable <- airtabler::airtable("appZIB8hgtvjoV99D", "Reviews")
 airtable <- airtable$Reviews$select_all()
@@ -263,7 +265,7 @@ Finally, the non elegant code below attributes a role to each user
 (commenter is its more precise version that differentiates reviewer 1
 from reviewer 2). I could have used `dplyr` `case_when`.
 
-``` r
+```r
 # non elegant code to guess role
 issues <- dplyr::group_by(issues, issue)
 issues <- dplyr::arrange(issues, created_at)
@@ -292,17 +294,17 @@ issues <- dplyr::select(issues, - author, - reviewer1, - reviewer2, - reviewer3,
 readr::write_csv(issues, "data/clean_data.csv")
 ```
 
-The role “other” corresponds to anyone chiming in, while the community
+The role "other" corresponds to anyone chiming in, while the community
 manager role is planning blog posts with the package author. We indeed
 have a [series of guest blog posts from package
 authors](https://ropensci.org/tags/review/) that illustrate the review
 process as well as their onboarded packages.
 
-Here is the final table. I unselect “body” because formatting in the
+Here is the final table. I unselect "body" because formatting in the
 text could break the output here, but I do have the text corresponding
 to each comment.
 
-``` r
+```r
 issues %>%
   dplyr::select(- body) %>%
   head() %>%
@@ -320,23 +322,23 @@ issues %>%
 
 There are 2521 comments, corresponding to 70 onboarded packages.
 
-### Submitted repositories: down to a few metrics
+## Submitted repositories: down to a few metrics
 
 As mentioned earlier, onboarded packages are most often developped on
 GitHub. After onboarding they live in the [ropensci GitHub
 organization](https://github.com/ropensci/), previously some of them
 were onboarded into [ropenscilabs](https://github.com/ropenscilabs/) but
 they should all be transferred soon. In any case, their being on GitHub
-means it’s possible to get their history to have a glimpse at work
+means it's possible to get their history to have a glimpse at work
 represented by onboarding!
 
-#### Getting all onboarded repositories
+### Getting all onboarded repositories
 
 Using rOpenSci [`git2r` package](https://github.com/ropensci/git2r) I
-cloned all onboarded repositories in a “repos” folder. Since I didn’t
+cloned all onboarded repositories in a "repos" folder. Since I didn't
 know which package was in ropensci or ropenscilabs, I tried both.
 
-``` r
+```r
 airtable <- airtabler::airtable("appZIB8hgtvjoV99D", "Reviews")
 airtable <- airtable$Reviews$select_all()
 
@@ -366,24 +368,24 @@ pkgs <- pkgs[pkgs != "rrricanes"]
 purrr::walk(pkgs, clone_repo)
 ```
 
-I didn’t clone “rrricanes” because it was too big!
+I didn't clone "rrricanes" because it was too big!
 
-#### Getting commits reports
+### Getting commits reports
 
 I then got the commit logs of each repo for various reasons:
 
--   commits themselves show how much code and documentation editing was
-    done during review
+- commits themselves show how much code and documentation editing was
+  done during review
 
--   I wanted to be able to `git reset hard` the repo at its state at
-    submission, for which I needed the commit logs.
+- I wanted to be able to `git reset hard` the repo at its state at
+  submission, for which I needed the commit logs.
 
 I used the [`gitsum`
 package](https://github.com/lorenzwalthert/gitsum/issues) to get commit
 logs because its dedicated high-level functions made it easier than with
 `git2r`.
 
-``` r
+```r
 library("magrittr")
 
 get_report <- function(package_name){
@@ -415,7 +417,7 @@ purrr::map_df(packages, get_report) %>%
    readr::write_csv("output/gitsum_reports.csv")
 ```
 
-#### Getting repositories as at submission
+### Getting repositories as at submission
 
 Crossing information from the issue threads and from commit logs, I
 could find the latest commit before submission and create a copy of each
@@ -423,7 +425,7 @@ repo before resetting it at this state. This is the closest to a
 [Time-Turner](http://harrypotter.wikia.com/wiki/Time-Turner) that I
 have!
 
-``` r
+```r
 library("magrittr")
 # get issues opening datetime
 issues <- readr::read_csv("data/clean_data.csv")
@@ -469,13 +471,13 @@ set_archive <- function(package_name, commit){
 purrr::walk2(commits$package, commits$hash, set_archive)
 ```
 
-### Outlook: getting even more data? Or analyzing this dataset
+## Outlook: getting even more data? Or analyzing this dataset
 
-There’s more data to be collected or prepared! From GitHub issues,
+There's more data to be collected or prepared! From GitHub issues,
 [using GitHub
 archive](https://masalmon.eu/2017/12/21/wherehaveyoubeen/) one could
-get the labelling history: when did an issue go from “editor-checks” to
-“seeking-reviewers” for instance? It’d help characterize the usual speed
+get the labelling history: when did an issue go from "editor-checks" to
+"seeking-reviewers" for instance? It'd help characterize the usual speed
 of the process. One could also try to investigate the formal and less
 formal links between the onboarded repository and the review: did
 commits and issues mention the onboarding review (with words), or even
@@ -484,12 +486,13 @@ active on GitHub for other activities, e.g. could we see that some
 reviewers create or revive their GitHub account especially for
 reviewing?
 
-Rather than enlarging my current dataset, I’ll present its analysis in
-two further blog posts answering the questions “How much work is
-rOpenSci onboarding?” and “How to characterize the social weather of
-rOpenSci onboarding?”. In case you’re too impatient, in the meantime you
+Rather than enlarging my current dataset, I'll present its analysis in
+two further blog posts answering the questions "How much work is
+rOpenSci onboarding?" and "How to characterize the social weather of
+rOpenSci onboarding?". In case you're too impatient, in the meantime you
 can dive into this blog post by Augustina Ragwitz about [measuring
 open-source influence beyond
 commits](https://developer.ibm.com/code/2018/03/01/countering-bean-counting-open-source-influence-beyond-commits/)
 and this one by rOpenSci co-founder Scott Chamberlain about [exploring
 git commits with `git2r`](https://recology.info/2018/02/git-commits/).
+

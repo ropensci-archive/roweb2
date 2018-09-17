@@ -19,8 +19,6 @@ tags:
   - onboarding
 ---
 
-
-
 There is no problem in science quite as frustrating as *other peoples' data*. Whether it's malformed spreadsheets, disorganized documents, proprietary file formats, data without metadata, or any other data scenario created by someone else, [scientists have taken to Twitter to complain about it](https://twitter.com/hashtag/otherpeoplesdata?src=hash). As a political scientist who regularly encounters so-called "open data" in PDFs, this problem is particularly irritating. PDFs may have "portable" in their name, making them display consistently on various platforms, but that portability means any information contained in a PDF is irritatingly difficult to extract computationally. Encountering "open data" PDFs therefore makes me shout things like this repeatedly:
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">HEY US GOVERNMENT! Tables in PDF documents aren&#39;t &quot;Open Data.&quot; Please provide machine-readable formats or it doesn&#39;t count.</p>&mdash; Anthony A. Boyles (@AABoyles) <a href="https://twitter.com/AABoyles/status/776428077123506176">September 15, 2016</a></blockquote>
@@ -49,9 +47,9 @@ But it does mean that a substantial amount of difficult-to-parse tabular informa
 
 Before doing that, I would encourage users to make sure they have rJava installed (from CRAN) and that it works correctly on their platform. A lot of users report difficulties installing `tabulizer` that ultimately boil down to being Java and rJava issues that need to be resolved first. The [package README](https://github.com/ropensci/tabulizer#installation) provides a number of details on installation, which requires a strictly ordered set of steps:
 
- 1. Install the Java Development Kit, if you don't already have it on your system. (Note that the JDK is different from the Java Runtime Environment (JRE) that you almost certainly already have.) Details of how to do this vary a lot between platforms, so see the [README](https://github.com/ropensci/tabulizer#installation) for details.
- 2. Install rJava using `install.packages("rJava")` and resolve any issues surrounding the `JAVA_HOME` environment variable that may need to be set before and/or after installing rJava. Again, see the [README](https://github.com/ropensci/tabulizer#installation) or [various question/answer pairs on StackOverflow](http://stackoverflow.com/search?q=%5Br%5D+rjava+install) for platform-specific instructions.
- 3. Install `tabulizer` and `tabulizerjars` (the package containing the tabula java library) using your favorite GitHub package installer:
+1. Install the Java Development Kit, if you don't already have it on your system. (Note that the JDK is different from the Java Runtime Environment (JRE) that you almost certainly already have.) Details of how to do this vary a lot between platforms, so see the [README](https://github.com/ropensci/tabulizer#installation) for details.
+2. Install rJava using `install.packages("rJava")` and resolve any issues surrounding the `JAVA_HOME` environment variable that may need to be set before and/or after installing rJava. Again, see the [README](https://github.com/ropensci/tabulizer#installation) or [various question/answer pairs on StackOverflow](http://stackoverflow.com/search?q=%5Br%5D+rjava+install) for platform-specific instructions.
+3. Install `tabulizer` and `tabulizerjars` (the package containing the tabula java library) using your favorite GitHub package installer:
 
 ```R
 library("ghit")
@@ -68,7 +66,6 @@ Elections data are the bread and butter of a lot of quantitative political scien
 
 As a simple example, [this PDF from the California Secretary of State's office](http://elections.cdn.sos.ca.gov/sov/2016-general/sov/04-historical-voter-reg-participation.pdf) contains historical voter registration and turnout data in a well-formatted table. Why this is a PDF nobody knows. But extracting the tables using `tabulizer`'s `extract_tables()` function is a breeze with no need to even download the file:
 
-
 ```r
 library("tabulizer")
 sos_url <- "http://elections.cdn.sos.ca.gov/sov/2016-general/sov/04-historical-voter-reg-participation.pdf"
@@ -83,7 +80,6 @@ str(tab1)
 ```
 
 The (default) result is a list of two matrices, each containing the tables from pages 1 and 2 of the document, respectively. A couple of quick cleanups and this becomes a well-formatted data frame:
-
 
 ```r
 # save header
@@ -112,7 +108,6 @@ str(tab1df)
 
 Which is very easy to then quickly turn into a time-series visualization of registration rates:
 
-
 ```r
 library("ggplot2")
 years <- regexpr("[[:digit:]]{4}",tab1df[["Election Date"]])
@@ -139,7 +134,6 @@ ggplot(tab1df, aes(x = Year, y = RegPerc)) +
 ## Optional arguments
 
 The `extract_tables()` has several arguments that control extraction and the return value of the function. They performed reasonably well here, but it's worth seeing a few of the other options. The `method` argument controls the return value. For extremely well-formatted tables, setting this to "data.frame" can be convenient, though it doesn't work perfectly here:
-
 
 ```r
 str(tab2 <- extract_tables(sos_url, method = "data.frame"))
@@ -171,7 +165,6 @@ str(tab2 <- extract_tables(sos_url, method = "data.frame"))
 
 Setting `method = "character"` returns a list of character vectors with white space reflecting the positioning of text within the PDF's tabular representation:
 
-
 ```r
 str(tab3 <- extract_tables(sos_url, method = "character"))
 ```
@@ -185,7 +178,6 @@ str(tab3 <- extract_tables(sos_url, method = "character"))
 This argument can also be set to `"csv"`, `"tsv"`, or `"json"` to use a java-level utility to write the table to files in the working directory but this tends to be inconvenient. (For advanced users, `method = "asis"` returns an rJava object reference for those who want to manipulate the Java representation of the table directly.)
 
 The other most important option to be aware of is `guess`, which indicates whether a column-finding algorithm should be used to identify column breaks. This should almost always be `TRUE`, setting it to `FALSE` will tend to return a less useful structure:
-
 
 ```r
 head(extract_tables(sos_url, guess = FALSE)[[1]], 10)
@@ -229,7 +221,6 @@ head(extract_tables(sos_url, guess = FALSE)[[1]], 10)
 
 However, it can be useful if users want to specify the locations of tables manually. The `area` argument allows users to specifying a `c(top,left,bottom,right)` vector of coordinates for the location of tables on a page (which is useful if pages also contain other non-tabular content); setting `columns` with `guess = FALSE` indicates where the column breaks are within a table. With a little care in specifying column positions we can successfully separate the "P" flags specifying Presidential elections that were earlier concatenated with the election dates:
 
-
 ```r
 cols <- list(c(76,123,126,203,249,297,342,392,453,498,548))
 tab4 <- extract_tables(sos_url, guess = FALSE, columns = cols)
@@ -264,14 +255,12 @@ Figuring out columns positions and/or table areas is quite challenging to do by 
 
 In addition to the core functionality around `extract_tables()`, `tabulizer` also provides some functions for working with PDFs that might be useful to those trapped in other peoples' data. We'll download the file first just to save some time:
 
-
 ```r
 tmp <- tempfile(fileext = ".pdf")
 download.file(sos_url, destfile = tmp, mode = "wb", quiet = TRUE)
 ```
 
 The `extract_text()` function extracts text content of the PDF, separately by page, as character strings:
-
 
 ```r
 extract_text(tmp)
@@ -282,7 +271,6 @@ extract_text(tmp)
 ```
 
 This can be useful for non-tabular content, getting a sense of the document's contents, or troubleshooting the main extraction function (e.g., sometimes there is non-visible text that confuses `extract_tables()`). `extract_metadata()` returns a list of the PDF's embedded document metadata:
-
 
 ```r
 str(extract_metadata(tmp))
@@ -303,7 +291,6 @@ str(extract_metadata(tmp))
 ```
 
 The `make_thumbnails()` function produces images (by default PNG) of pages, which can also be useful for debugging or just for the mundane purpose of image conversion:
-
 
 ```r
 thumb <- make_thumbnails(tmp, pages = 1)
@@ -328,20 +315,21 @@ As always, the [issue tracker](https://github.com/ropensci/tabulizer/issues) on 
 
 I've flagged some specific issues on GitHub which interested users might want to help out with. These range from some basic issues:
 
- - Identifying and creating [example use cases for the new `tabulizer` wiki](https://github.com/ropensci/tabulizer/issues/47) to showcase how the package works
- - Adding [comprehensive, cross-platform installation instructions](https://github.com/ropensci/tabulizer/issues/46) to deal with the various intricacies of Java and rJava on various platforms
+- Identifying and creating [example use cases for the new `tabulizer` wiki](https://github.com/ropensci/tabulizer/issues/47) to showcase how the package works
+- Adding [comprehensive, cross-platform installation instructions](https://github.com/ropensci/tabulizer/issues/46) to deal with the various intricacies of Java and rJava on various platforms
 
 To moderately difficult issues, like:
 
- - [Improving the functionality and attractiveness of the Shiny-based `extract_areas()` graphical interface](https://github.com/ropensci/tabulizer/issues/49)
+- [Improving the functionality and attractiveness of the Shiny-based `extract_areas()` graphical interface](https://github.com/ropensci/tabulizer/issues/49)
 
 To more advanced topics that more experienced developers - especially those with Java experience - might be interested in working on:
 
- - Improving handling of [non-latin encodings](https://github.com/ropensci/tabulizer/issues/10) including adding tests thereof
- - Preparing `tabulizer` for [the migration of the tabula-java library to PDFBox 2.0](https://github.com/ropensci/tabulizer/issues/48), which will change some of the underlying classes (and methods thereof) that `tabulizer` calls from both tabula-java and PDFBox
+- Improving handling of [non-latin encodings](https://github.com/ropensci/tabulizer/issues/10) including adding tests thereof
+- Preparing `tabulizer` for [the migration of the tabula-java library to PDFBox 2.0](https://github.com/ropensci/tabulizer/issues/48), which will change some of the underlying classes (and methods thereof) that `tabulizer` calls from both tabula-java and PDFBox
 
 Help of any kind on these issues will be very useful for getting the package ready for CRAN release!
 
 ### Acknowledgments
 
 Many, many thanks to the Tabula team who have done considerable work to make the tabula-java library on which `tabulizer` depends. I also want to express considerable thanks to [David Gohel](https://github.com/davidgohel) and [Lincoln Mullen](https://github.com/lmullen) for their feedback during the [rOpenSci onboarding process](https://github.com/ropensci/onboarding/issues/42), which resulted in numerous improvements to the package and its usability, not least of which is the interactive shiny widget. Thanks, too, to [Scott Chamberlain](https://github.com/sckott) for overseeing the review process and to the whole of rOpenSci for their support of the R community.
+

@@ -16,15 +16,15 @@ Real use cases from people using our software are awesome. They are important fo
 
 If someone has a question, others are likely to have the same, or a similar question. Thus, we are sharing use cases on our blog.
 
-***************
+***
 
-### The use case: How do I get GBIF occurrences for all species in a genus?
+## The use case: How do I get GBIF occurrences for all species in a genus?
 
-The best way to approach this right now is to use the `scientificname` argument in the `occurrencelist()` function. For example, use an asterisk "*" after _Abies_, which will get you everything in the genus _Abies_.
+The best way to approach this right now is to use the `scientificname` argument in the `occurrencelist()` function. For example, use an asterisk "\*" after *Abies*, which will get you everything in the genus *Abies*.
 
-***************
+***
 
-### Install rgbif from Github
+## Install rgbif from Github
 
 ```r
 # install_github('rgbif', 'ropensci') # uncomment if you don't have it
@@ -32,11 +32,9 @@ The best way to approach this right now is to use the `scientificname` argument 
 library(rgbif)
 ```
 
-
-### Lets see how many records there are in the genus with lat/long data in Spain
+## Lets see how many records there are in the genus with lat/long data in Spain
 
 There are only 2975, so we can just set maxresults below to this number
-
 
 ```r
 occurrencecount("Abies*", coordinatestatus = TRUE, originisocountrycode = "ES")
@@ -46,10 +44,9 @@ occurrencecount("Abies*", coordinatestatus = TRUE, originisocountrycode = "ES")
 ## [1] 2975
 ```
 
+***
 
-***************
-
-### Lets get some data
+## Lets get some data
 
 ```r
 dataout <- occurrencelist(scientificname = "Abies*", coordinatestatus = TRUE,
@@ -69,10 +66,9 @@ head(dataout[, 1:4])
 ## 6 Abies alba Mill.      ES           42.76          -0.8810
 ```
 
+***
 
-***************
-
-### In the dataout data.frame there are 31 unique names
+## In the dataout data.frame there are 31 unique names
 
 ```r
 length(unique(dataout$taxonName))
@@ -82,10 +78,9 @@ length(unique(dataout$taxonName))
 ## [1] 31
 ```
 
+***
 
-***************
-
-### But some are duplicates just spelled in different ways, or with whitespace
+## But some are duplicates just spelled in different ways, or with whitespace
 
 ```r
 unique(dataout$taxonName)
@@ -125,10 +120,9 @@ unique(dataout$taxonName)
 ## [31] "Abies cephalonica Loudon"
 ```
 
+***
 
-***************
-
-### So you can exlude ones you don't want or change names using regex, for example (notice one name replaced)
+## So you can exlude ones you don't want or change names using regex, for example (notice one name replaced)
 
 ```r
 library(stringr)
@@ -168,10 +162,11 @@ unique(gsub("Abies pinsapo Boiss", "Abies pinsapo", dataout$taxonName, fixed = T
 ## [30] "Abies cephalonica Loudon"
 ```
 
-***************
+***
 
-### That's it!
+## That's it!
 
 Let us know if you have any questions on this tutorial.
 
 And keep those use cases/questions coming!
+

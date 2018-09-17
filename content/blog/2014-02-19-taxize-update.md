@@ -17,17 +17,13 @@ We just released a new version of `taxize` - version 0.2.0. This release contain
 
 ## First, install and load taxize
 
-
 ```r
 install.packages("rgbif")
 ```
 
-
-
 ```r
 library(taxize)
 ```
-
 
 ## New things
 
@@ -36,7 +32,6 @@ library(taxize)
 Sometimes you just want to have a visual of the taxonomic relationships among taxa. If you don't know how to build a molecular phylogeny, don't have time, or there just isn't molecular data, you can sorta build one using taxonomy. Building on our `classification` function, you can get a bunch of taxonomic hierarchies from the `classification` function, then pass them to the new function `class2tree`. Like so:
 
 Define a species list
-
 
 ```r
 spnames <- c("Latania lontaroides", "Randia cubana", "Blumea brevipes", "Commelina erecta",
@@ -48,18 +43,14 @@ spnames <- c("Latania lontaroides", "Randia cubana", "Blumea brevipes", "Commeli
     "Tetrastigma hypoglaucum", "Paphiopedilum vietnamense", "Goodenia glabra")
 ```
 
-
 Then collect taxonomic hierarchies for each taxon, and remove those with no results (those with no results are just `NA`) (I'm setting `verbose=TRUE` to suppress messages for this example)
-
 
 ```r
 out <- classification(spnames, db = "ncbi", verbose = FALSE)
 out <- out[!is.na(out)]
 ```
 
-
 Use `class2tree` to automagically convert the list of hierarchies to a ape `phylo` object, then plot
-
 
 ```r
 tr <- class2tree(out)
@@ -68,13 +59,11 @@ plot(tr, no.margin = TRUE)
 
 ![](/assets/blog-images/2014-02-19-taxize-update/unnamed-chunk-5.png)
 
-
-### New functions: get_gbfid
+### New functions: get\_gbfid
 
 The Global Biodiversity Information Facility (GBIF) has their own taxonomy. They allow programmatic access to their taxonomy, see [here](http://www.gbif.org/developer/summary) for details. Also see our [`rgbif` package](https://github.com/ropensci/rgbif) that wraps all their API services.
 
 We added a similar function to our `get_tsn`, `get_uid`, etc. functions for various taxonomies, but for the GBIF taxonomy. Here are some example calls:
-
 
 ```r
 get_gbifid(sciname = "Poa annua", verbose = FALSE)
@@ -119,9 +108,7 @@ get_gbifid(c("Poa annua", "Pinus contorta"), verbose = FALSE)
 ## [1] "gbifid"
 ```
 
-
 This could be useful if you for example, want to have the exact IDs GBIF uses for your set of species to use at some later point - and at that later point you could use our `rgbif` package and search for biodiversity occurrence data with the IDs you collected. For example:
-
 
 ```r
 library(rgbif)
@@ -190,7 +177,6 @@ occ_search(id)
 ## 20 Puma concolor 866558112   -103.13    29.65
 ```
 
-
 In addition, `get_ids` now accepts 'gbif' as an option for the `db` parameter - `get_ids` is our omnibus function to search for taxon ids across all sources available in `taxize`.
 
 ### New functions: rbind and cbind for classification
@@ -198,7 +184,6 @@ In addition, `get_ids` now accepts 'gbif' as an option for the `db` parameter - 
 The `classification` function gives back taxonomic hierarchies from a variety of sources, including NCBI, ITIS, Catalogue of Life, Tropicos, EOL, and now GBIF. If you pass in many taxonomic IDs or taxon names, you get back a list of hierarchies. We added two functions to make it convenient to mash these outputs together, `rbind` for basically stacking hierarchies on top of one another, and `cbind` for making a width-wise combination of hierarchies. Our `cbind` doesn't do exactly what your used to cbind doing for data.frame's. The examples below are based on some changed code since the newest CRAN version, but you can install the development version with the changes from Github (see [here](https://github.com/ropensci/taxize#install-taxize) for instructions).
 
 From a call to `get_ids`, then passed on to `classification`, we get a object of class `classification_ids`
-
 
 ```r
 (out <- get_ids(names = "Puma concolor", db = c("ncbi", "gbif"), verbose = FALSE))
@@ -283,9 +268,7 @@ From a call to `get_ids`, then passed on to `classification`, we get a object of
 ## [1] "classification_ids"
 ```
 
-
 We can bind width-wise
-
 
 ```r
 cbind(cl)
@@ -303,9 +286,7 @@ cbind(cl)
 ## 2      <NA>  Puma Puma concolor Mammalia
 ```
 
-
 Or bind length-wise
-
 
 ```r
 rbind(cl)
@@ -350,9 +331,7 @@ rbind(cl)
 ## 35   gbif 2435099        Puma concolor      species
 ```
 
-
 Or we can do the same thing on the class `classification` that we get back from a call to one of `get_colid`, `get_tsn`, `get_eolid`, `get_tpsid`, `get_gbifid`, or `get_uid`, that's then passed on to `classification`
-
 
 ```r
 cl_col <- classification(get_colid(c("Puma concolor", "Accipiter striatus"),
@@ -386,5 +365,5 @@ cbind(cl_col)
 ## 2 Animalia Chordata     Aves Accipitriformes Accipitridae Accipiter
 ```
 
-
 Read more about changes in v0.2 [at Github](https://github.com/ropensci/taxize/releases/tag/v0.2.0).
+

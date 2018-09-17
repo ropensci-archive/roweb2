@@ -22,7 +22,7 @@ wanting to volunteer was to learn something new and to
 contribute to the R open source community. If you are wondering why the
 people behind rOpenSci are doing this, you can read [How rOpenSci uses Code Review to Promote Reproducible Science](https://www.numfocus.org/blog/how-ropensci-uses-code-review-to-promote-reproducible-science/).
 
-Three months later I was contacted by [Maëlle Salmon](https://twitter.com/masalmon) asking whether I was interested in
+Three months later I was contacted by [MaÃ«lle Salmon](https://twitter.com/masalmon) asking whether I was interested in
 reviewing the R package [`patentsview`](https://github.com/ropensci/patentsview) for rOpenSci. And yes, I
 was! To be honest I was a little bit thrilled.
 
@@ -65,7 +65,7 @@ At the beginning I had an issue with `goodpractice::gp()` but Maelle Salmon
 In the rest of this article you can read what I gained personally from doing a
 review.
 
-### Contributing to the open source community
+## Contributing to the open source community
 
 When people think about contributing to the open source community, the
 first thought is about creating a new R package or contributing to one
@@ -84,8 +84,7 @@ obvious to the package author or detect code pieces that require more
 testing. I had a great feeling when I finished the review, since I had
 helped improve an already amazing R package a little bit more.
 
-
-### Reviewing helps improve your own coding style
+## Reviewing helps improve your own coding style
 
 When I write R code I usually try to do it in the best way possible.
 [Google's R Style Guide](https://google.github.io/styleguide/Rguide.xml)
@@ -109,12 +108,11 @@ found a better (much faster)
 And with respect to this you
 can learn a lot from someone else's code. What I found really cool in
 the package I reviewed was the usage of small helper functions (see
-[utils.R](
-https://github.com/ropensci/patentsview/blob/c03e1ab2537873d7a9b76025b0072953efb475c1/R/utils.R)).
+[utils.R](https://github.com/ropensci/patentsview/blob/c03e1ab2537873d7a9b76025b0072953efb475c1/R/utils.R)).
 Functions like `paste0_stop` and `paste0_message` make the rest of the
 code a lot easier to read.
 
-### Good start for writing your own packages
+## Good start for writing your own packages
 
 When reviewing an R package, you check the code like a really observant
 user. I noticed many things that you usually don't care about when using
@@ -123,20 +121,21 @@ examples are, and also how well unit tests cover the code. I think that
 reviewing a few good packages can prepare you very well for writing your
 own packages.
 
-### Do you want to contribute to rOpenSci yourself?
+## Do you want to contribute to rOpenSci yourself?
 
 If I motivated you to become an rOpenSci reviewer, please sign up! Here
 is a list of useful things if you want to become an rOpenSci reviewer
 like me.
 
--   [Form to sign up (just takes a minute)](https://ropensci.org/onboarding/)
+- [Form to sign up (just takes a minute)](https://ropensci.org/onboarding/)
 
--   [Information for reviewers](http://onboarding.ropensci.org/)
+- [Information for reviewers](http://onboarding.ropensci.org/)
 
--   [Mozilla reviewing guide](https://mozillascience.github.io/codeReview/review.html)
+- [Mozilla reviewing guide](https://mozillascience.github.io/codeReview/review.html)
 
 - While writing this blog post I found a nice article about [contributing
-to the tidyverse](http://www.tidyverse.org/articles/2017/08/contributing/) which is
-mostly also applicable to other R packages in my opinion.
+  to the tidyverse](http://www.tidyverse.org/articles/2017/08/contributing/) which is
+  mostly also applicable to other R packages in my opinion.
 
 If you are generally interested in either submitting or reviewing an R package, I would like to invite you to the [ Community Call on rOpenSci software review and onboarding](https://ropensci.org/blog/blog/2017/08/31/comm-call-v14).
+

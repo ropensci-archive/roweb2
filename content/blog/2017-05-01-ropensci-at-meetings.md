@@ -17,8 +17,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 
 <!--more-->
 
-### Where's rOpenSci?
-
+## Where's rOpenSci?
 
 <table class="table">
 <thead>
@@ -105,3 +104,4 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 </tbody>
 </table>
+

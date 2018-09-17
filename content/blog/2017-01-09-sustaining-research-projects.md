@@ -16,8 +16,8 @@ A research project often starts with a bright idea and an initial commitment of 
 a fixed term grant. But what happens after that initial activity? How can the project continue to
 sustain itself? (We define sustainability as the capacity to endure. Software is sustainable if it
 will continue to be available in the future, on new platforms, and meeting new needs.
-[This is from slide 23 of http://www.slideshare.net/danielskatz/scientific-software-challenges-and-community-responses,
-though it may have been taken from somewhere else earlier - if you know where, let me know.])
+\[This is from slide 23 of http://www.slideshare.net/danielskatz/scientific-software-challenges-and-community-responses,
+though it may have been taken from somewhere else earlier - if you know where, let me know.\])
 
 ## A guide to sustainability models for research software projects
 
@@ -26,7 +26,7 @@ Based on work from Nadia Eghbal (@nayafia on GitHub), who studied how people fun
 the projects themselves are sustained. Nadia thought this was out of scope for her document
 (see https://github.com/nayafia/lemonade-stand/issues/1), so I forked her work and created
 
-  https://github.com/danielskatz/sustaining-research-projects
+https://github.com/danielskatz/sustaining-research-projects
 
 My intent has been to list how projects support themselves over time. Each funding category
 ideally links to several real examples, and when possible, to a useful article or page instead of just a homepage.
@@ -50,6 +50,7 @@ size, research domain, general purpose vs specific, etc.)
 - If you have examples to add or other changes to suggest to the current document, please do so via pull requests
 
 - If you have suggestions for how to start addressing the suitability of each model for a project or phase of a project,
-please contribute to the existing issue (https://github.com/danielskatz/sustaining-research-projects/issues/3)
+  please contribute to the existing issue (https://github.com/danielskatz/sustaining-research-projects/issues/3)
 
 - Of course, any other comments and suggestions are also welcome.
+

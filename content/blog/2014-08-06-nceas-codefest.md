@@ -16,11 +16,12 @@ Our [hackathon](http://ropensci.github.io/hackathon/) last March was a great suc
 
 There are some great projects already proposed, including:
 
-* [Automated Metadata Extraction from R objects](https://github.com/NCEAS/open-science-codefest/issues/21)
-* [Distributing Data via Web Services](https://github.com/NCEAS/open-science-codefest/issues/19)
-* [Make an R client for the Pangaea database](https://github.com/NCEAS/open-science-codefest/issues/16)
-* [Techniques and Technologies for Visualizing Scientific Data on the Web](https://github.com/NCEAS/open-science-codefest/issues/2)
+- [Automated Metadata Extraction from R objects](https://github.com/NCEAS/open-science-codefest/issues/21)
+- [Distributing Data via Web Services](https://github.com/NCEAS/open-science-codefest/issues/19)
+- [Make an R client for the Pangaea database](https://github.com/NCEAS/open-science-codefest/issues/16)
+- [Techniques and Technologies for Visualizing Scientific Data on the Web](https://github.com/NCEAS/open-science-codefest/issues/2)
 
 If you have other ideas that you want to toss into the bag for the Open Science Codefest, post as a new issue in [the Github repo for the event](https://github.com/NCEAS/open-science-codefest/issues/new).
 
 Ted Hart and I will be at this event representing the rOpenSci core so please come chat with us about ideas for packages or other new collaborations. We're looking forward to contributing to discussions, writing code, and making new connections.
+

@@ -33,7 +33,7 @@ track participant opinions year-to-year. In this post we summarize the
 45 responses that we received and what we're doing to address your
 feedback.
 
-### Section 1: Satisfaction with the review and onboarding process
+## Section 1: Satisfaction with the review and onboarding process
 
 ![](https://i.imgur.com/x4ICORq.png)![](https://i.imgur.com/pUF0kS0.png)
 
@@ -42,7 +42,7 @@ onboarding process. We primarily ask this question to establish a
 baseline to compare year-to-year, and hope that we can maintain high
 satisfaction as we continue to grow.
 
-###  Section 2: Guidelines for authors and reviewers
+## Section 2: Guidelines for authors and reviewers
 
 ![](https://i.imgur.com/Vx0HtQ9.png)![](https://i.imgur.com/N6rYblm.png)
 
@@ -59,7 +59,7 @@ organized, including a suggestion that the collection of markdown files
 be converted to a bookdown website for easier navigation. We thought
 this was a great suggestion, and have begun the process of porting all
 our documentation for packaging and reviewing, into a common bookdown
-book. Editor Maëlle Salmon is leading this work, and you can find the
+book. Editor MaÃ«lle Salmon is leading this work, and you can find the
 in-progress book, *rOpenSci Packages: Development, Maintenance, and Peer
 Review*, [here](https://ropensci.github.io/dev_guide/).
 
@@ -77,8 +77,7 @@ all these suggestions into the book. There are [great posts about how to
 tackle a peer review on our blog](https://ropensci.org/tags/reviewer/)
 that we will incorporate.
 
-### Section 3: The review process
-
+## Section 3: The review process
 
 ![](https://i.imgur.com/zNSsW2V.png)![](https://i.imgur.com/noxbYih.png)
 
@@ -108,7 +107,7 @@ under a fully open system, and one suggestion was to consider a single
 blinded system in order to allow reviewers (especially more early career
 folks) to provide critical comments without fear of retaliation.
 
-#### Automated checking
+### Automated checking
 
 ![](https://i.imgur.com/boRl02k.png)![](https://i.imgur.com/NGtsJpX.png)
 
@@ -122,7 +121,7 @@ be ignored. We're adding
 the new bookdown book.
 
 There were also suggestions for improvement of **goodpractice** itself.
-**goodpractice** was created by [Gábor Csárdi](http://gaborcsardi.org/)
+**goodpractice** was created by [GÃ¡bor CsÃ¡rdi](http://gaborcsardi.org/)
 and is maintained by [Mango
 Solutions](https://www.mango-solutions.com/). Thankfully Mango data
 scientist [Hannah
@@ -138,8 +137,7 @@ checks that will align better align with our packaging guide. Finally,
 we hope to have these checks run automatically upon submission, reducing
 effort for both authors and editors.
 
-### Section 4: Value of software review
-
+## Section 4: Value of software review
 
 ![](https://i.imgur.com/TFSA7RZ.png)![](https://i.imgur.com/GME7Kny.png)![](https://i.imgur.com/WPNhiLS.png)![](https://i.imgur.com/plB1hoL.png)
 
@@ -148,31 +146,31 @@ of Open Source Software (JOSS) for publication.
 
 ![](https://i.imgur.com/gE6PNRf.png)
 
-#### The good and the bad with onboarding
+### The good and the bad with onboarding
 
 We asked authors to tell us some of the best and worst attributes of
 participating in onboarding.
 
 *Aspects of onboarding that were challenging?*
 
--   Deciding when to submit (see above)
--   Package review is quite time consuming.
--   Keeping up with ongoing revisions to the package during submission.
--   Long time lag between review and revision.
+- Deciding when to submit (see above)
+- Package review is quite time consuming.
+- Keeping up with ongoing revisions to the package during submission.
+- Long time lag between review and revision.
 
 *Aspects of onboarding that were great*
 
--   The opportunity to network and share ideas.
--   The openness and transparency of the entire review process.
--   Learning about software design, package development, and improving
-    one's own coding skills.
--   The opportunity to have two thorough code reviews which are quite
-    difficult to get elsewhere.
--   The collegial and non-adversarial nature of the process.
+- The opportunity to network and share ideas.
+- The openness and transparency of the entire review process.
+- Learning about software design, package development, and improving
+  one's own coding skills.
+- The opportunity to have two thorough code reviews which are quite
+  difficult to get elsewhere.
+- The collegial and non-adversarial nature of the process.
 
 ![](https://i.imgur.com/YtgnBO0.png)![](https://i.imgur.com/2cBNR2z.png)
 
-#### Did blogging post-acceptance have any impact?
+### Did blogging post-acceptance have any impact?
 
 At the completion of each review, the editors invite package authors to
 submit either a long-form blog post aimed at a general reader, or a
@@ -180,28 +178,29 @@ shorter technical note. Most authors who wrote posts reported greater
 visibility for their package and some also enjoyed reflecting on the
 development process.
 
-#### Upcoming improvements to onboarding
+### Upcoming improvements to onboarding
 
 We're grateful to all the authors and reviewers that took this survey.
 The responses have helped us improve our workflow quite a bit and we are
 excited to roll out several improvements in the coming weeks to months.
 Here are a few things to look forward to:
 
--   A [much improved (bookdown)
-    guide](https://github.com/ropenscilabs/dev_guide) for both package
-    development and package reviewing.
--   Improvements to `goodpractice` thanks to Mango The Cat's [Hannah
-    Frick](https://rladies.org/united-kingdom-rladies/name/hannah-frick/)
-    and also a `goodpractice` API down the line.
--   A new and improved reviewer sign up form that will make it much
-    easier for editors to match reviewers to submissions.
--   Suggestions are always welcome even if you missed this round of the
-    survey. Chime in in the [issue tracker of our in-progress
-    guide](https://github.com/ropenscilabs/dev_guide/issues) or in [this
-    other issue
-    tracker](https://github.com/ropensci/onboarding-meta/issues) where
-    we keep track of more general questions & suggestions about
-    onboarding.
+- A [much improved (bookdown)
+  guide](https://github.com/ropenscilabs/dev_guide) for both package
+  development and package reviewing.
+- Improvements to `goodpractice` thanks to Mango The Cat's [Hannah
+  Frick](https://rladies.org/united-kingdom-rladies/name/hannah-frick/)
+  and also a `goodpractice` API down the line.
+- A new and improved reviewer sign up form that will make it much
+  easier for editors to match reviewers to submissions.
+- Suggestions are always welcome even if you missed this round of the
+  survey. Chime in in the [issue tracker of our in-progress
+  guide](https://github.com/ropenscilabs/dev_guide/issues) or in [this
+  other issue
+  tracker](https://github.com/ropensci/onboarding-meta/issues) where
+  we keep track of more general questions \& suggestions about
+  onboarding.
 
 We hope to see your package or review expertise on the onboarding repo
 soon!
+

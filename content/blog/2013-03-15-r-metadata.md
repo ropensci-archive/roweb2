@@ -22,15 +22,15 @@ In addition, CrossRef provides a number of metadata search services: [metadata s
 
 What about the other publishers? (please tell me if I'm wrong about these three)
 
-+ Springer has [a metadata API](http://dev.springer.com/docs), but it is terrible, soooo...
-+ Elsevier, are you kidding? Well, they do have some sort of API service, but its a pain in the ass.
-+ Wiley, no better than Elsevier.
+- Springer has [a metadata API](http://dev.springer.com/docs), but it is terrible, soooo...
+- Elsevier, are you kidding? Well, they do have some sort of API service, but its a pain in the ass.
+- Wiley, no better than Elsevier.
 
 Note that metadata can live in other places:
 
-+ Another package being developed by David Springate, [rpubmed](https://github.com/ropensci/rpubmed) can get PubMed metadata.
-+ Our wrapper to the Mendeley API, [RMendeley](https://github.com/ropensci/rmendeley), gets article metadata via Mendeley's database.
-+ Our wrapper to the Biodiversity Heritage Library API [here](http://www.biodiversitylibrary.org/api2/docs/docs.html) gets their metadata.
+- Another package being developed by David Springate, [rpubmed](https://github.com/ropensci/rpubmed) can get PubMed metadata.
+- Our wrapper to the Mendeley API, [RMendeley](https://github.com/ropensci/rmendeley), gets article metadata via Mendeley's database.
+- Our wrapper to the Biodiversity Heritage Library API [here](http://www.biodiversitylibrary.org/api2/docs/docs.html) gets their metadata.
 
 No, you can't get metadata via Google Scholar - the don't allow scraping, and don't have expose their data via an API.
 
@@ -38,20 +38,18 @@ I have discussed this package [in a previous blog post](http://sckott.github.com
 
 You can see a tutorial for this package [here](http://ropensci.github.com/rmetadata/), and contribute to the code [here](https://github.com/ropensci/rmetadata).
 
-***************
+***
 
-### Install rmetadata
+## Install rmetadata
 
 ```r
 # install_github('rmetadata', 'ropensci') # uncomment to install
 library(rmetadata)
 ```
 
+***
 
-***************
-
-### Count OAI-PMH identifiers for a data provider.
-
+## Count OAI-PMH identifiers for a data provider.
 
 ```r
 # For DataCite.
@@ -61,13 +59,11 @@ count_identifiers("datacite")
 1 datacite 1216193
 ```
 
+***
 
-*********
+## Lookup article info via CrossRef with DOI and get a citation.
 
-### Lookup article info via CrossRef with DOI and get a citation.
-
-#### As Bibtex
-
+### As Bibtex
 
 ```r
 print(crossref_citation("10.3998/3336451.0009.101"), style = "Bibtex")
@@ -83,9 +79,7 @@ print(crossref_citation("10.3998/3336451.0009.101"), style = "Bibtex")
 }
 ```
 
-
-#### As regular text
-
+### As regular text
 
 ```r
 print(crossref_citation("10.3998/3336451.0009.101"), style = "text")
@@ -95,13 +89,11 @@ Publishing_, *9*. <URL:
 http://dx.doi.org/10.3998/3336451.0009.101>.
 ```
 
+***
 
-*********
+## Search the CrossRef Metatdata for DOIs using free form references.
 
-### Search the CrossRef Metatdata for DOIs using free form references.
-
-#### Search with title, author, year, and journal
-
+### Search with title, author, year, and journal
 
 ```r
 crossref_search_free(query = "Piwowar Sharing Detailed Research Data Is Associated with Increased Citation Rate PLOS one 2007")
@@ -112,9 +104,7 @@ crossref_search_free(query = "Piwowar Sharing Detailed Research Data Is Associat
 1  TRUE 10.1038/npre.2007.361 4.905
 ```
 
-
-#### Get a DOI and get the citation using \code{crossref_search}
-
+### Get a DOI and get the citation using \\code{crossref\_search}
 
 ```r
 # Get a DOI for a paper
@@ -127,11 +117,9 @@ crossref_search(doi = doi)[, 1:3]
 1 10.1371/journal.pone.0000308 18.19             100
 ```
 
+***
 
-*********
-
-### Get a random set of DOI's through CrossRef.
-
+## Get a random set of DOI's through CrossRef.
 
 ```r
 # Default search gets 20 random DOIs
@@ -158,8 +146,6 @@ crossref_r()
 [19] "10.1007/s12262-012-0724-0"
 [20] "10.1007/bf02192860"
 ```
-
-
 
 ```r
 
@@ -188,11 +174,9 @@ crossref_r(type = "journal_article")
 [20] "10.1080/19407963.2011.539385"
 ```
 
+***
 
-*********
-
-### Search the CrossRef Metatdata API.
-
+## Search the CrossRef Metatdata API.
 
 ```r
 # Search for two different query terms
@@ -204,8 +188,6 @@ crossref_search(query = c("renear", "palmer"), rows = 4)[, 1:3]
 3 10.4242/BalisageVol3.Renear01 2.102              64
 4 10.4242/BalisageVol5.Renear01 2.102              64
 ```
-
-
 
 ```r
 
@@ -235,11 +217,9 @@ crossref_search(query = c("renear", "palmer"), year = 2010)[, 1:3]
 20                 10.1353/mpq.0.0048 0.5167              49
 ```
 
+***
 
-*********
-
-### Get a short DOI from shortdoi.org.
-
+## Get a short DOI from shortdoi.org.
 
 ```r
 # Geta a short DOI, just the short DOI returned
@@ -247,8 +227,6 @@ short_doi(doi = "10.1371/journal.pone.0042793")
 
 [1] "10/f2bfz9"
 ```
-
-
 
 ```r
 
@@ -265,11 +243,9 @@ $IsNew
 [1] FALSE
 ```
 
+***
 
-*********
-
-### Get a record from a OAI-PMH data provider.
-
+## Get a record from a OAI-PMH data provider.
 
 ```r
 # Single provider, one identifier
@@ -278,10 +254,8 @@ md_getrecord(provider = "pensoft", identifier = "10.3897/zookeys.1.10")
                                                                                                 title
 1 A new candidate for a Gondwanaland distribution in the Zodariidae (Araneae): Australutica in Africa
       creator date             type
-1 Jocqué,Rudy 2008 Research Article
+1 JocquÃ©,Rudy 2008 Research Article
 ```
-
-
 
 ```r
 
@@ -292,15 +266,13 @@ md_getrecord(provider = "pensoft", identifier = c("10.3897/zookeys.1.10", "10.38
 1    A new candidate for a Gondwanaland distribution in the Zodariidae (Araneae): Australutica in Africa
 2 Studies of Tiger Beetles. CLXXVIII. A new Lophyra (Lophyra) from Somaliland (Coleoptera, Cicindelidae)
         creator date             type
-1   Jocqué,Rudy 2008 Research Article
+1   JocquÃ©,Rudy 2008 Research Article
 2 Cassola,Fabio 2008 Research Article
 ```
 
+***
 
-*********
-
-### List available metadata formats from various providers.
-
+## List available metadata formats from various providers.
 
 ```r
 # List metadata formats for a provider
@@ -323,8 +295,6 @@ md_listmetadataformats(provider = "dryad")
 4                    http://www.loc.gov/METS/
 ```
 
-
-
 ```r
 
 # List metadata formats for a specific identifier for a provider
@@ -341,13 +311,11 @@ md_listmetadataformats(provider = "pensoft", identifier = "10.3897/zookeys.1.10"
 2                  http://www.loc.gov/mods/v3
 ```
 
+***
 
-*********
-
-### Some plotting - mean number of authors per paper
+## Some plotting - mean number of authors per paper
 
 Okay, so this isn't a super useful visualization, but you can surely think of something better.
-
 
 ```r
 library(ggplot2)
@@ -368,3 +336,4 @@ ggplot(toplot_, aes(articletype, authors)) + theme_tufte(base_size = 16) + geom_
 ```
 
 ![center](/assets/blog-images/someplotting.png)
+

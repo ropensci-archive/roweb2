@@ -16,9 +16,9 @@ We have been writing code for R packages for a couple years, so it is time to ta
 
 Using the [Github commits API](http://developer.github.com/v3/repos/commits/) we can gather data on who commited code to a Github repository, and when they did it. Then we can visualize this hitorical record.
 
-***************
+***
 
-### Install some functions for interacting with the Github API via R
+## Install some functions for interacting with the Github API via R
 
 ```r
 
@@ -40,19 +40,17 @@ library(picante)
 github_auth()
 ```
 
+***
 
-***************
-
-### Get all repos for an organization, here ropensci of course
+## Get all repos for an organization, here ropensci of course
 
 ```r
 ropensci_repos <- github_allrepos(userorg = "ropensci")
 ```
 
+***
 
-***************
-
-### Get commits broken down in to additions and deletions, though below we just collapse them to all commits
+## Get commits broken down in to additions and deletions, though below we just collapse them to all commits
 
 ```r
 registerDoMC(cores = 4)
@@ -64,10 +62,9 @@ out2 <- compact(out)
 outdf <- ldply(out2)
 ```
 
+***
 
-***************
-
-### Plot commits by date and repo
+## Plot commits by date and repo
 
 ```r
 outdf_subset <- outdf[!outdf$.id %in% c("citeulike", "challenge", "docs", "ropensci-book",
@@ -102,17 +99,15 @@ ggplot(outdf_subset, aes(date, value, fill = .id)) +
         panel.border = element_blank())
 ```
 
-
 ![center](/assets/blog-images/commitsbydate.png)
-
 
 The plot above plots the sum of additions+deletions, and is sorted by the first commit date of reach repo, with the first being [treebase](https://github.com/ropensci/treeBASE), which wraps the [Treebase API](http://treebase.org/treebase-web/urlAPI.html), and the most recent being [rwbclimate](https://github.com/ropensci/rWBclimate), which wraps the [World Blank climate data API](http://data.worldbank.org/developers/climate-data-api).
 
 You can see that some repos have recieved commits more or less consistently over their life time, while others have seen a little development here and there.
 
-***************
+***
 
-### In addition, there are quite a few people that have committed code now to rOpenSci repos, calling for a network vizualization of course.
+## In addition, there are quite a few people that have committed code now to rOpenSci repos, calling for a network vizualization of course.
 
 ```r
 outdf_network <- droplevels(outdf[!outdf$.id %in% c("citeulike", "challenge",
@@ -132,7 +127,7 @@ plotweb(sortweb(mat, sort.order = "dec"), method = "normal", text.rot = 90,
 
 ![center](/assets/blog-images/collabnetwork.png)
 
-
 The plot above shows repos on one side and contributors on the other. Some folks (the core rOpenSci team: cboettig, karthikram, emhart, and sckott) have committed quite a lot to many packages. We also have many awesome contributors to our packages (some contributors and repos have been removed for clarity).
 
 rOpenSci is truly a collaborative effort to develop tools for open science, so thanks to all our contributors - keep on forking, pull requesting, and commiting.
+

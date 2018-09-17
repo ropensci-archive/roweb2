@@ -20,7 +20,7 @@ The event will take place in sunny Brisbane, on April 21-22 2016 hosted at the [
 
 I was completely and unceremoniously thrown into the deep end when I first started learning R. Contrary to what I initially thought possible, I am now irreversibly converted to the ideology of open source. Create tools to make other people's lives easier? Make methods easily reproducible? Get your hands on state-of-the-art methodology, hot off the presses? Yes please! Can I have some more?
 
-The idea of attending the rOpenSci Unconference, watching on as people throw around ideas in their raw form, not the nicely arranged thoughts that we see on a blog, vignette, or a journal article. The idea of taking part in that process, those successes, failures, __experiments__, and the ongoing development that helps make open source awesome. That _idea_ made me want to be there, to be a part of it as it happened.
+The idea of attending the rOpenSci Unconference, watching on as people throw around ideas in their raw form, not the nicely arranged thoughts that we see on a blog, vignette, or a journal article. The idea of taking part in that process, those successes, failures, **experiments**, and the ongoing development that helps make open source awesome. That *idea* made me want to be there, to be a part of it as it happened.
 
 Unfortunately, there was nothing like it on my side of the world.
 
@@ -34,8 +34,9 @@ And now it's happening. This will be the first R and Open Science focused event 
 
 What is our goal? To us, the goal of the unconference is to foster collaborations and discussions about how to extend and improve R so that we can make data, methods, and science more open and accessible. Beginning this is exciting, and we can't wait to see what happens afterwards.
 
-So for all of those R programmers hiding in the woodworks in Brisbane and around Australia, please get in touch or apply through the website. This is our first trial run so we will keep numbers to 40, but we will keep all of those who apply informed about future events…this is just the beginning!
+So for all of those R programmers hiding in the woodworks in Brisbane and around Australia, please get in touch or apply through the website. This is our first trial run so we will keep numbers to 40, but we will keep all of those who apply informed about future eventsâ€¦this is just the beginning!
 
 It's been a pleasure to partner with rOpenSci, thanks to the team for their support. Special thanks also to Miles McBain and Jessie Roberts, my Australian co-pilots without whom I'd be lost over the Atlantic.
 
 See you at the Unconference!
+

@@ -16,9 +16,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 
 <!--more-->
 
-### Where's rOpenSci?  November 2016 to February 2017
-
-
+## Where's rOpenSci?  November 2016 to February 2017
 
 <table class="table">
 <thead>
@@ -75,3 +73,4 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 </tbody>
 </table>
+

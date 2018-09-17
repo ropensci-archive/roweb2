@@ -32,11 +32,10 @@ Commonmark is extremely reliable and optimized, but the disadvantage of the form
 
 For this reason many commonmark implementations include 'extensions' to enable features which are not (yet) part of the official specification. The current version of the commonmark R package offers 4 such extensions:
 
-
- - **table** support rendering of tables
- - **strikethough** via `~sometext~` syntax
- - **autolink** automatically turn URLs into hyperlinks
- - **tagfilter** blacklist html tags: `title` `textarea` `style` `xmp` `iframe`
+- **table** support rendering of tables
+- **strikethough** via `~sometext~` syntax
+- **autolink** automatically turn URLs into hyperlinks
+- **tagfilter** blacklist html tags: `title` `textarea` `style` `xmp` `iframe`
   `noembed` `noframes` `script` `plaintext`.
 
 These extensions were added by Github to support [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
@@ -59,3 +58,4 @@ devtools::install_github("klutometis/roxygen")
 
 To enable markdown roxygen for a given package, all you need to do is add a line with `Roxygen: list(markdown = TRUE)` to the package DESCRIPTION file. For more details check out the [vignette](https://github.com/klutometis/roxygen/blob/master/vignettes/markdown.Rmd).
 There is also package [roxygen2md](https://github.com/r-pkgs/roxygen2md) which will automatically convert existing roxygen code to markdown.
+

@@ -13,7 +13,6 @@ tags:
   - databases
 ---
 
-
 After 2.5 years of development, version 1.0 of the [mongolite](https://cran.r-project.org/web/packages/mongolite/index.html) package has been released to CRAN. The package is now stable, well documented, and will soon be submitted for peer review to be onboarded in the rOpenSci suite.
 
 ## MongoDB in R and mongolite
@@ -73,35 +72,34 @@ The bookdown is now the primary documentation source for mongolite.
 
 ## Why MongoDB
 
-MongoDB is the [most popular]((http://db-engines.com/en/ranking)) nosql database (by market share), and the 5th most popular database allround. Mongo is relatively young in comparison with the traditional engines (Oracle, Microsoft, MySQL, Postgres), yet well established, fully open source, and backed by a professional company.
+MongoDB is the [most popular](\(http://db-engines.com/en/ranking\)) nosql database (by market share), and the 5th most popular database allround. Mongo is relatively young in comparison with the traditional engines (Oracle, Microsoft, MySQL, Postgres), yet well established, fully open source, and backed by a professional company.
 
 MongoDB provides a modern high-performance DB engine with cool features that cannot be found anywhere else. The high quality client drivers are a pleasure to work with, and actively maintained by professional engineers. Writing bindings, it quickly became obvious that Mongo does not suffer from the legacy bloat that I have come to associate with traditional DB engines.
 
 At the same time the ecosystem is mature and offers reliability and continuity that makes it stand out from the proliferation of nosql systems. MongoDB has been widely adopted by users and distributions, so I am pretty confident it will still be around 5 or 10 years from now.
 
-
 ## Changes in 1.0
 
 The [NEWS](https://github.com/jeroen/mongolite/blob/master/NEWS) file on Github lists what has changed in this release:
 
- - New mongo bookdown docs at https://jeroen.github.io/mongolite
- - Update mongo-c-driver to upstream 1.6.0
- - Add basic decimal 128 support (coerce to double)
- - Improve enterprise authentication for LDAP, X509 and Kerberos
- - Windows: build with SSPI instead of SASL
- - Added `allow_invalid_hostname` parameter to `ssl_options()`
- - Option `bigint_as_char` to parse int64 into string instead of double
- - New function `mongo_options()` to get/set global options
- - Function `mongo_log_level()` is removed (use `mongo_options()` instead)
- - `insert()` now substitutes dots in key (column) names with underscores
- - Various fixes in `update()`, support for upsert
- - Add unit tests from bson spec (some tests fail in mongo-c-driver)
- - Switch to new C driver API mongoc_collection_find_with_opts()
- - Add R_registerRoutines() call to please CMD check
-
+- New mongo bookdown docs at https://jeroen.github.io/mongolite
+- Update mongo-c-driver to upstream 1.6.0
+- Add basic decimal 128 support (coerce to double)
+- Improve enterprise authentication for LDAP, X509 and Kerberos
+- Windows: build with SSPI instead of SASL
+- Added `allow_invalid_hostname` parameter to `ssl_options()`
+- Option `bigint_as_char` to parse int64 into string instead of double
+- New function `mongo_options()` to get/set global options
+- Function `mongo_log_level()` is removed (use `mongo_options()` instead)
+- `insert()` now substitutes dots in key (column) names with underscores
+- Various fixes in `update()`, support for upsert
+- Add unit tests from bson spec (some tests fail in mongo-c-driver)
+- Switch to new C driver API mongoc\_collection\_find\_with\_opts()
+- Add R\_registerRoutines() call to please CMD check
 
 ## Tell us what you think
 
 At rOpenSci we're interested to hear who is using R and how. If you decide to give mongolite a try, please share your experiences and suggestions. Open an [issue on github](https://github.com/jeroen/mongolite/issues) for specific problems and feature requests, or join the rOpenSci [slack](https://ropensci.slack.com) to talk about mongolite or other rOpenSci packages. Or just come say hi and hang out :)
 
 We both love hearing from academic users, but also industry applications of R and synergy between the industry and open source scientific software.
+

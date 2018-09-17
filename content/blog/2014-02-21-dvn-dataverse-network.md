@@ -15,7 +15,6 @@ tags:
 - archiving
 ---
 
-
 Reproducible research involves the careful, annotated preservation of data, analysis code, and associated files, such that statistical procedures, output, and published results can be directly and fully replicated. As the push for reproducible research has grown, the R community has responded with an increasingly large set of tools for engaging in reproducible research practices (see, for example, the [ReproducibleResearch Task View](http://cran.r-project.org/web/views/ReproducibleResearch.html) on CRAN). Most of these tools focus on improving one's own workflow through closer integration of data analysis and report generation. But reproducible research also requires the persistent - and perhaps indefinite - storage of research files so that they can be used to recreate or modify future analyses and reports.
 
 It is therefore critical that R include functionality for the persistent storage of reproducible research files. And I'm pleased to announce here that the **dvn** package ([CRAN](http://cran.r-project.org/web/packages/dvn/index.html), [GitHub](http://ropensci.org/dvn.html)) has now been integrated into the rOpenSci project. **dvn** provides simple, programmatic access to [The Dataverse Network Project](http://thedata.org/), an open-source data archive project created by Harvard University's [Institute for Quantitative Social Science](http://www.iq.harvard.edu/). Full details about **dvn** are forthcoming in [The R Journal](http://journal.r-project.org/), and this post provides a basic overview of the package's core functionality.
@@ -108,7 +107,6 @@ Files:
 4 application/msword        2014-02-19T10:18:53.489Z 2341891
 ```
 
-
 And `dvUserStudies` can retrieve a listing of all studies in one's dataverse:
 
 ```r
@@ -182,3 +180,4 @@ files[, c('fileName', 'fileId')]
 ```
 
 Generally, files cannot be directly downloaded into R because of Terms of Use restrictions currently placed on studies. In the future this may change, so **dvn** provides forward-compatible functions `dvDownloadInfo` and `dvDownload` to check whether files can be downloaded and to perform the download if allowed, respectively.
+

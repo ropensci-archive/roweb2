@@ -20,11 +20,9 @@ tags:
   - weather
 ---
 
+## What is rrricanes
 
-
-### What is rrricanes
-
-#### Why Write rrricanes?
+### Why Write rrricanes?
 
 There is a tremendous amount of weather data available on the internet. Much of it is in raw format and not very easy to obtain. Hurricane data is no different. When one thinks of this data they may be inclined to think it is a bunch of map coordinates with some wind values and not much else. A deeper look will reveal structural and forecast data. An even deeper look will find millions of data points from hurricane reconnaissance, computer forecast models, ship and buoy observations, satellite and radar imagery, ...
 
@@ -38,7 +36,7 @@ In this article, I will take you on a lengthy tour of the most important feature
 
 `rrricanes` will not be available in CRAN for quite some time. The current schedule is May 15, 2018 (the "start" of the East Pacific hurricane season). This year is soley for testing under real-time conditions.
 
-#### And rrricanesdata
+### And rrricanesdata
 
 The NHC archives text products dating back to at least 1998 (some earlier years exist but yet to be implemented in this package). Accessing this data is a time-consuming process on any computer. A limit of 4 requests per second is put in place to avoid being banned (or restricted) from the archives. So, if a hurricane has 20 text products you wish to pull and parse, this will take 5 seconds. Most cyclones have more and some, far more.
 
@@ -46,9 +44,9 @@ The NHC archives text products dating back to at least 1998 (some earlier years 
 
 `rrricanesdata` will be updated monthly if an advisory has been issued the previous month. There will be regular monthly updates approximately from May through November - the typical hurricane season. In some cases, a cyclone may develop in the off-season. `rrricanesdata` will be updated on the same schedule.
 
-#### ELI5 the Data
+### ELI5 the Data
 
-This package covers tropical cyclones that have developed in the Atlantic basin (north Atlantic ocean) or East Pacific basin (northeast Pacific east of 140#&deg;W). Central Pacific (140#&deg;W - 180#&deg;W) may be mixed in if listed in the NHC archives.
+This package covers tropical cyclones that have developed in the Atlantic basin (north Atlantic ocean) or East Pacific basin (northeast Pacific east of 140#Â°W). Central Pacific (140#Â°W - 180#Â°W) may be mixed in if listed in the NHC archives.
 
 While traditionally the hurricane season for each basin runs from mid-May or June through November, some cyclones have developed outside of this time frame.
 
@@ -58,33 +56,33 @@ Much of this data has changed in format over the years. Some products have been 
 
 I have done my best to ensure data is high quality. But, I cannot guarantee it is perfect. If you do believe you have found an error, please [let me know](https://github.com/ropensci/rrricanes/issues); even if it seems small. I would rather be notified of a false error than ignore a true one.
 
-#### The Products
+### The Products
 
 Each advisory product is listed below with an abbreviation in parentheses. Unless otherwise noted, these products are issued every six hours. Generally, the times issued are 03:00, 09:00, 15:00 and 21:00 UTC. Some products may be issued in three-hour increments and, sometimes, two-hour increments. `update` can be issued at any time.
 
-  * Storm Discussion (`discus`) - These are technical discussions centered on the current structure of the cyclone, satellite presentation, computer forecast model tendencies and more. These products are not parsed.
+- Storm Discussion (`discus`) - These are technical discussions centered on the current structure of the cyclone, satellite presentation, computer forecast model tendencies and more. These products are not parsed.
 
-  * Forecast/Adivsory (`fstadv`) - This data-rich product lists the current location of the cyclone, its wind structure, forecast and forecast wind structure.
+- Forecast/Adivsory (`fstadv`) - This data-rich product lists the current location of the cyclone, its wind structure, forecast and forecast wind structure.
 
-  * Public Advisory (`public`) - These are general text statements issued for the public-at-large. Information in these products is a summary of the Forecast/Advisory product along with any watches and warnings issued, changed, or cancelled. Public Advisory products are the only regularly-scheduled product that may be issued intermittently (every three hours and, occasionally, every two hours) when watches and warnings are in effect. These products are not parsed.
+- Public Advisory (`public`) - These are general text statements issued for the public-at-large. Information in these products is a summary of the Forecast/Advisory product along with any watches and warnings issued, changed, or cancelled. Public Advisory products are the only regularly-scheduled product that may be issued intermittently (every three hours and, occasionally, every two hours) when watches and warnings are in effect. These products are not parsed.
 
-  * Wind Speed Probabilities (`wndprb`) - These products list the probability of a minimum sustained wind speed expected in a given forecast window. This product replaces the Strike Probabilities product beginning in 2006 (see below).
+- Wind Speed Probabilities (`wndprb`) - These products list the probability of a minimum sustained wind speed expected in a given forecast window. This product replaces the Strike Probabilities product beginning in 2006 (see below).
 
-  * Updates (`update`) - Tropical Cyclone Updates may be issued at any time if a storm is an immediate threat to land or if the cyclone undergoes a significant change of strength or structure. The information in this product is general. These products are not parsed.
+- Updates (`update`) - Tropical Cyclone Updates may be issued at any time if a storm is an immediate threat to land or if the cyclone undergoes a significant change of strength or structure. The information in this product is general. These products are not parsed.
 
-#### Discontinued Products
+### Discontinued Products
 
-  * Strike Probabilities (`prblty`) - List the probability of a tropical cyclone passing within 65 nautical miles of a location within a forecast window. Replaced in 2006 by the Wind Speed Probabilities product.
+- Strike Probabilities (`prblty`) - List the probability of a tropical cyclone passing within 65 nautical miles of a location within a forecast window. Replaced in 2006 by the Wind Speed Probabilities product.
 
-  * Position Estimates (`posest`) - Typically issued as a storm is threatening land but generally rare (see Hurricane Ike 2008, Key AL092008). It is generally just an update of the current location of the cyclone. After the 2011 hurricane season, this product was discontinued; Updates are now issued in their place. These products are not parsed.
+- Position Estimates (`posest`) - Typically issued as a storm is threatening land but generally rare (see Hurricane Ike 2008, Key AL092008). It is generally just an update of the current location of the cyclone. After the 2011 hurricane season, this product was discontinued; Updates are now issued in their place. These products are not parsed.
 
-#### Primary Key
+### Primary Key
 
 Every cyclone has a `Key`. However, not all products contain this value (`prblty`, for example). Products issued during and after the 2005 hurricane season contain this variable.
 
 Use `Key` to tie datasets together. If `Key` does not exist, you will need to use a combination of `Name` and `Date`, depending on your requirements. Keep in mind that, unless a name is retired, names are recycled every seven years. For example, there are multiple cyclones named Katrina but you may want to isolate on Katrina, 2005.
 
-### Installation
+## Installation
 
 `rrricanes` will not be submitted to CRAN until prior to the hurricane season, 2018. It can be installed via github using `devtools`:
 
@@ -92,7 +90,7 @@ Use `Key` to tie datasets together. If `Key` does not exist, you will need to us
 devtools::install_github("ropensci/rrricanes", build_vignettes = TRUE)
 ```
 
-#### Optional Supporting Packages
+### Optional Supporting Packages
 
 `rrricanesdata` uses a drat repository to host the large, pre-processed datasets.
 
@@ -102,7 +100,7 @@ install.packages("rrricanesdata",
                  type = "source")
 ```
 
-To use high resolution tracking charts, you may also wish to install the `rnaturalearthhires' package:
+To use high resolution tracking charts, you may also wish to install the \`rnaturalearthhires' package:
 
 ```r
 install.packages("rnaturalearthhires",
@@ -112,20 +110,19 @@ install.packages("rnaturalearthhires",
 
 Linux users may also need to install:
 
-  * `libgdal-dev`
-  * `libproj-dev`
-  * `libxml2-dev`
+- `libgdal-dev`
+- `libproj-dev`
+- `libxml2-dev`
 
-### Get a List of Storms
+## Get a List of Storms
 
 We start exploring `rrricanes` by finding a storm (or storms) we wish to analyze. For this, we use `get_storms`. There are two optional parameters:
 
-  * `years` Between 1998 and current year
+- `years` Between 1998 and current year
 
-  * `basins` One or both "AL" and "EP"
+- `basins` One or both "AL" and "EP"
 
 An empty call to the function will return storms for both the Atlantic and East Pacific basin for the current year.
-
 
 ```r
 library(dplyr)
@@ -175,26 +172,25 @@ get_storms() %>% print(n = nrow(.))
 
 Function `get_storms` returns four variables:
 
-  * Year - year of the cyclone.
+- Year - year of the cyclone.
 
-  * Name - name of the cyclone.
+- Name - name of the cyclone.
 
-  * Basin - basin the cyclone developed (AL for Atlantic, EP for east Pacific).
+- Basin - basin the cyclone developed (AL for Atlantic, EP for east Pacific).
 
-  * Link - URL to the cyclone's archive page.
+- Link - URL to the cyclone's archive page.
 
 The variables `Name` and `Link` are the only variables that could potentially change. For example, you'll notice a `Name` value of <u>Potential Tropical Cyclone Ten</u>. If this storm became a tropical storm then it would receive a new name and the link to the archive page would change as well.
 
 For this example we will explore <u>Hurricane Harvey</u>.
 
-### Text Products
+## Text Products
 
-#### Current Data
+### Current Data
 
 Once we have identified the storms we want to retrieve we can begin working on getting the products. In the earlier discussion of the available products, recall I used abbreviations such as `discus`, `fstadv`, etc. These are the terms we will use when obtaining data.
 
 The easiest method to getting storm data is the function `get_storm_data`. This function can take multiple storm archive URLs and return multiple datasets within a list.
-
 
 ```r
 ds <- get_storms() %>%
@@ -211,7 +207,6 @@ An additional option is `rrricanes.working_msg`; FALSE by default. This option w
 
 At this point, we have a list - `ds` - of dataframes. Each dataframe is named after the product.
 
-
 ```r
 names(ds)
 ```
@@ -221,7 +216,6 @@ names(ds)
 ```
 
 `discus` is one of the products that isn't parsed; the full text of the product is returned.
-
 
 ```r
 str(ds$discus)
@@ -238,7 +232,6 @@ str(ds$discus)
 ```
 
 The `fstadv` dataframes, however, are parsed and contain the bulk of the information for the storm.
-
 
 ```r
 str(ds$fstadv)
@@ -354,13 +347,13 @@ To understand the variable definitions, access the help file for each of these f
 
 As you can see, the `fstadv` dataframe is very wide. There may be instances you only want to focus on specific pieces of the product. I've developed tidy functions to help trim these datasets:
 
-  * `tidy_fcst`
+- `tidy_fcst`
 
-  * `tidy_fcst_wr`
+- `tidy_fcst_wr`
 
-  * `tidy_fstadv`
+- `tidy_fstadv`
 
-  * `tidy_wr`
+- `tidy_wr`
 
 These datasets exist in `rrricanesdata` as `fcst`, `fcst_wr`, `adv`, and `wr`, respectively (see below).
 
@@ -369,7 +362,6 @@ Most tropical cyclone forecast/advisory products will contain multiple forecast 
 If a storm is not expected to survive the full forecast period, then only relevant forecasts will be issued.
 
 We use `tidy_fcst` to return these forecast points in a tidy fashion from `fstadv`.
-
 
 ```r
 str(tidy_fcst(ds$fstadv))
@@ -395,7 +387,6 @@ Wind radius values are further seperated by quadrant; NE (northeast), SE, SW and
 
 When appropriate, a forecast/advisory product will contain these values for the current position and for each forecast position. Use `tidy_wr` and `tidy_fcst_wr`, respectively, for these variables.
 
-
 ```r
 str(tidy_wr(ds$fstadv))
 ```
@@ -411,7 +402,6 @@ str(tidy_wr(ds$fstadv))
 ##  $ SW       : num  0 0 0 0 0 0 0 0 0 20 ...
 ##  $ NW       : num  30 50 50 60 60 60 60 60 50 50 ...
 ```
-
 
 ```r
 str(tidy_fcst_wr(ds$fstadv))
@@ -431,7 +421,6 @@ str(tidy_fcst_wr(ds$fstadv))
 ```
 
 Lastly, you may only want to focus on current storm details. For this, we use `tidy_fstadv`:
-
 
 ```r
 str(tidy_fstadv(ds$fstadv))
@@ -463,14 +452,13 @@ In release 0.2.1, `tidy_fstadv` will be renamed to `tidy_adv`.
 
 One final note on the data: all speed variables are measured in knots, distance variables in nautical miles, and pressure variables in millibars. Functions `knots_to_mph` and `mb_to_in` are available for speed/pressure conversions. Function `nm_to_sm` to convert nautical miles to survey miles will be included in release 0.2.1.
 
-#### Archived Data
+### Archived Data
 
 `rrricanesdata` was built to make it easier to get pre-processed datasets. As mentioned earlier, `rrricanesdata` will be updated the first of every month if any advisory was issued for the previous month. (As I am now writing this portion in September, all of Hurricane Harvey's advisories - the last one issued the morning of August 31 - exist in `rrricanesdata` release 0.0.1.4.)
 
 As with `rrricanes`, `rrricanesdata` is not available in CRAN (nor will be due to size limitations).
 
 I'll load all datasets with the call:
-
 
 ```r
 library(rrricanesdata)
@@ -479,12 +467,11 @@ data(list = data(package = "rrricanesdata")$results[,3])
 
 All core product datasets are available. The dataframes `adv`, `fcst`, `fcst_wr` and `wr` are the dataframes created by `tidy_fstadv`, `tidy_fcst`, `tidy_fcst_wr` and `tidy_wr`, respectively.
 
-### Tracking Charts
+## Tracking Charts
 
 `rrricanes` also comes with helper functions to quickly generate tracking charts. These charts use `rnaturalearthdata` (for high resolution maps, use package `rnaturalearthhires`). These charts are not required - [Bob Rudis demonstrates](https://twitter.com/hrbrmstr/status/900762714477350913) demonstrates succintly - so feel free to experiment.
 
 You can generate a default plot for the entire globe with `tracking_chart`:
-
 
 ```r
 tracking_chart()
@@ -496,14 +483,13 @@ You may find this handy when examining cyclones that cross basins (from the Atla
 
 `tracking_chart` takes three parameters (in addition to dots for other `ggplot` calls):
 
-  * `countries` - By default, show country borders
+- `countries` - By default, show country borders
 
-  * `states` - By default, show state borders
+- `states` - By default, show state borders
 
-  * `res` - resolution; default is 110nm.
+- `res` - resolution; default is 110nm.
 
 We do not see countries and states in the map above because of the ggplot defaults. Let's try it again:
-
 
 ```r
 tracking_chart(color = "black", size = 0.1, fill = "white")
@@ -513,13 +499,11 @@ tracking_chart(color = "black", size = 0.1, fill = "white")
 
 We can "zoom in" on each basin with helper functions `al_tracking_chart` and `ep_tracking_chart`:
 
-
 ```r
 al_tracking_chart(color = "black", size = 0.1, fill = "white")
 ```
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
-
 
 ```r
 ep_tracking_chart(color = "black", size = 0.1, fill = "white")
@@ -527,21 +511,21 @@ ep_tracking_chart(color = "black", size = 0.1, fill = "white")
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
 
-### GIS Data
+## GIS Data
 
 GIS data exists for some cyclones and varies by year. This is a relatively new archive by the NHC and is inconsistent from storm to storm.
 
 The "gis" functions are as follows:
 
-  * `gis_advisory`
+- `gis_advisory`
 
-  * `gis_latest`
+- `gis_latest`
 
-  * `gis_prob_storm_surge`
+- `gis_prob_storm_surge`
 
-  * `gis_windfield`
+- `gis_windfield`
 
-  * `gis_wsp`
+- `gis_wsp`
 
 Another area of inconsistency with these products is how they are organized. For example, `gis_advisory`, `gis_prob_storm_surge` and `gis_windfield` can be retrieved with a storm `Key` (unique identifier for every cyclone; see `fstadv$Key`). Except for `gis_prob_storm_surge`, you can even pass an advisory number (see `fstadv$Adv`).
 
@@ -551,24 +535,22 @@ All above functions only return URL's to their respective datasets. This was don
 
 Let's go through each of these. First, let's get the `Key` of Hurricane Harvey:
 
-
 ```r
 # Remember that ds already and only contains data for Hurricane Harvey
 key <- ds$fstadv %>% pull(Key) %>% first()
 ```
 
-#### gis_advisory
+### gis\_advisory
 
 `gis_advisory` returns a dataset package containing past and forecast plot points and lines, a forecast cone (area representing where the cyclone could track), wind radius data and current watches and warnings.
 
 `gis_advisory` takes two parameters:
 
-  * `Key`
+- `Key`
 
-  * `advisory` (optional)
+- `advisory` (optional)
 
 If we leave out advisory we get all related datasets for Hurricane Harvey:
-
 
 ```r
 x <- gis_advisory(key = key)
@@ -593,7 +575,6 @@ head(x, n = 5L)
 
 As you can see, there is quite a bit (and why the core gis functions only return URLs rather than the actual datasets). Let's trim this down a bit. Sneaking a peek ([cheating](http://www.nhc.noaa.gov/archive/2017/HARVEY_graphics.php?product=5day_cone_with_line_and_wind)) I find advisory 19 seems a good choice.
 
-
 ```r
 gis_advisory(key = key, advisory = 19)
 ```
@@ -603,7 +584,6 @@ gis_advisory(key = key, advisory = 19)
 ```
 
 Good; there is a data package available for this advisory. Once you have confirmed the package you want to retrieve, use `gis_download` to get the data.
-
 
 ```r
 gis <- gis_advisory(key = key, advisory = 19) %>%
@@ -630,7 +610,6 @@ gis <- gis_advisory(key = key, advisory = 19) %>%
 ```
 
 Let's see what we have.
-
 
 ```r
 str(gis)
@@ -770,7 +749,6 @@ str(gis)
 
 We get four spatial dataframes - points, polygons and lines.
 
-
 ```r
 names(gis)
 ```
@@ -782,8 +760,7 @@ names(gis)
 
 With the expection of point spatial dataframes (which can be converted to dataframe using `tibble::as_data_frame`, use helper function `shp_to_df` to convert the spatial dataframes to dataframes.
 
-#### Forecast Track
-
+### Forecast Track
 
 ```r
 library(ggplot2)
@@ -797,8 +774,7 @@ Use `geom_path` instead of `geom_line` to keep the positions in order.
 
 You can "zoom in" even further using `ggplot2::coord_equal`. For that, we need to know the limits of our objects (minimum and maximum latitude and longitude) or bounding box. Thankfully, the `sp` package can get us this information with the `bbox` function.
 
-But, we don't want to use the "al092017_019_5day_lin" dataset. Our `gis` dataset contains a forecast cone which expands well beyond the lines dataset.  Take a look:
-
+But, we don't want to use the "al092017\_019\_5day\_lin" dataset. Our `gis` dataset contains a forecast cone which expands well beyond the lines dataset.  Take a look:
 
 ```r
 sp::bbox(gis$al092017_019_5day_lin)
@@ -809,7 +785,6 @@ sp::bbox(gis$al092017_019_5day_lin)
 ## x -97.5 -94.6
 ## y  25.2  29.5
 ```
-
 
 ```r
 sp::bbox(gis$al092017_019_5day_pgn)
@@ -822,7 +797,6 @@ sp::bbox(gis$al092017_019_5day_pgn)
 ```
 
 So, let's get the bounding box of our forecast cone dataset and zoom in on our map.
-
 
 ```r
 bb <- sp::bbox(gis$al092017_019_5day_pgn)
@@ -837,17 +811,15 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 That's much better. For simplicity I'm going to save the base map, `bp`, without the line plot.
 
-
 ```r
 bp <- al_tracking_chart(color = "black", size = 0.1, fill = "white") +
   coord_equal(xlim = c(bb[1,1], bb[1,2]),
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-#### Forecast Points
+### Forecast Points
 
 Forecast points identify each forecast position along with forecast winds and date. Remember that for point spatial dataframes you use `tibble::as_data_frame` rather than `sp_to_df`.
-
 
 ```r
 bp +
@@ -863,7 +835,6 @@ Error in FUN(X[[i]], ...) : object 'long' not found
 
 Why? The variable `long` does not exist as it does in other GIS datasets; it is `lon`. This is one of the inconsistencies I was referring to previously. Additionally, the variables are all uppercase.
 
-
 ```r
 names(gis$al092017_019_5day_pts)
 ```
@@ -878,7 +849,6 @@ names(gis$al092017_019_5day_pts)
 
 Let's try it again.
 
-
 ```r
 bp +
   geom_point(data = tibble::as_data_frame(gis$al092017_019_5day_pts),
@@ -889,12 +859,11 @@ bp +
 
 Better.
 
-#### Forecast Cone
+### Forecast Cone
 
 A forecast cone identifies the probability of error in a forecast. Forecasting tropical cyclones is tricky business - errors increase the further out a forecast is issued. Theoretically, any area within a forecast cone is at risk of seeing cyclone conditions within the given period of time.
 
 Generally, a forecast cone package contains two subsets: 72-hour forecast cone and 120-hour forecast cone. This is identified in the dataset under the variable `FCSTPRD`. Let's take a look at the 72-hour forecast period:
-
 
 ```r
 bp +
@@ -908,7 +877,6 @@ bp +
 Nothing there!
 
 As mentioned earlier, these are experimental products issued by the NHC and they do contain inconsistencies. To demonstrate, I'll use Hurricane Ike advisory 42.
-
 
 ```r
 df <- gis_advisory(key = "AL092008", advisory = 42) %>%
@@ -945,7 +913,6 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 We do, however, have a 120-hour forecast cone for Hurricane Harvey. Let's go ahead and plot that.
 
-
 ```r
 bp +
   geom_polygon(data = gis$al092017_019_5day_pgn,
@@ -956,10 +923,9 @@ bp +
 
 It's an odd-looking forecast cone, for sure. But this demonstrates the entire area that Harvey could have potentially traveled.
 
-#### Watches and Warnings
+### Watches and Warnings
 
-Our last dataset in this package is "al092017_09_ww_wlin". These are the current watches and warnings in effect. This is a spatial lines dataframe that needs `shp_to_df`. Again, we use `geom_path` instead of `geom_line`. And we want to group our paths by the variable `TCWW`.
-
+Our last dataset in this package is "al092017\_09\_ww\_wlin". These are the current watches and warnings in effect. This is a spatial lines dataframe that needs `shp_to_df`. Again, we use `geom_path` instead of `geom_line`. And we want to group our paths by the variable `TCWW`.
 
 ```r
 bp +
@@ -970,7 +936,6 @@ bp +
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-32-1.png"  style="display: block; margin: auto;" />
 
 The paths won't follow our coastlines exactly but you get the idea. The abbreviations don't really give much information, either. Convert `TCWW` to factor and provide better labels for your legend.
-
 
 ```r
 ww_wlin <- shp_to_df(gis$al092017_019_ww_wwlin)
@@ -990,13 +955,13 @@ bp +
 
 See [Forecast/Adivsory GIS](https://ropensci.github.io/rrricanes/articles/articles/forecast_advisory.html) on the `rrricanes` website for an example of putting all of this data together in one map.
 
-#### gis_prob_storm_surge
+### gis\_prob\_storm\_surge
 
 We can also plot the probablistic storm surge for given locations. Again, you will need the storm `Key` for this function. There are two additional parameters:
 
-  * `products`
+- `products`
 
-  * `datetime`
+- `datetime`
 
 `products` can be one or both of "esurge" and "psurge". esurge shows the probability of the cyclone exceeding the given storm surge plus tide within a given forecast period. psurge shows the probability of a given storm surge within a specified forecast period.
 
@@ -1005,7 +970,6 @@ One or more products may not exist depending on the cyclone and advisory.
 The `products` parameter expects a list of values for each product. For esurge products, valid values are 10, 20, 30, 40 or 50. For psurge products, valid values are 0, 1, 2, ..., 20.
 
 Let's see if any esurge products exist for Harvey.
-
 
 ```r
 length(gis_prob_storm_surge(key = key,
@@ -1018,7 +982,6 @@ length(gis_prob_storm_surge(key = key,
 
 And psurge:
 
-
 ```r
 length(gis_prob_storm_surge(key = key, products = list("psurge" = 0:20)))
 ```
@@ -1029,7 +992,6 @@ length(gis_prob_storm_surge(key = key, products = list("psurge" = 0:20)))
 
 So, we have access to a ton of data here. When discussing `gis_advisory`, we were able to filter by advisory number. With `gis_prob_storm_surge`, this is not an option; we have to use the `datetime` parameter to filter. Let's find the `Date` for advisory 19.
 
-
 ```r
 (d <- ds$fstadv %>% filter(Adv == 19) %>% pull(Date))
 ```
@@ -1038,10 +1000,9 @@ So, we have access to a ton of data here. When discussing `gis_advisory`, we wer
 ## [1] "2017-08-25 03:00:00 UTC"
 ```
 
-##### esurge
+### esurge
 
 Now, let's view all esurge products for date only (exlude time).
-
 
 ```r
 gis_prob_storm_surge(key = key,
@@ -1074,7 +1035,6 @@ gis_prob_storm_surge(key = key,
 
 That's still quite a bit. We can filter it to more by adding hour to the `datetime` parameter.
 
-
 ```r
 gis_prob_storm_surge(key = key,
                      products = list("esurge" = seq(10, 50, by = 10)),
@@ -1093,7 +1053,6 @@ But, this isn't entirely correct. When an advisory package is issued it contains
 
 Let's try it again with the math:
 
-
 ```r
 gis_prob_storm_surge(key = key,
                      products = list("esurge" = seq(10, 50, by = 10)),
@@ -1110,7 +1069,6 @@ gis_prob_storm_surge(key = key,
 ```
 
 As I don't want to get all of these datasets, I'll limit my esurge to show surge values with at least a 50% chance of being exceeded:
-
 
 ```r
 gis <- gis_prob_storm_surge(key = key,
@@ -1129,12 +1087,10 @@ gis <- gis_prob_storm_surge(key = key,
 
 This will bring us a spatial polygon dataframe.
 
-
 ```r
 df <- shp_to_df(gis$al092017_2017082500_e50)
 bb <- sp::bbox(gis$al092017_2017082500_e50)
 ```
-
 
 ```r
 str(df)
@@ -1153,7 +1109,6 @@ str(df)
 ##  $ TCSRG50: num  0 0 0 0 0 0 0 0 0 0 ...
 ```
 
-
 ```r
 al_tracking_chart(color = "black", size = 0.1, fill = "white") +
   geom_polygon(data = df,
@@ -1166,10 +1121,9 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 This plot tells us that, along the central Texas coast, the expected storm surge along with tides is greater than 7.5 feet and there is a 50% chance of this height being exceeded.
 
-#### psurge
+### psurge
 
 The psurge product gives us the probabilistic storm surge for a location within the given forecast period.
-
 
 ```r
 gis <- gis_prob_storm_surge(key = key,
@@ -1188,12 +1142,10 @@ gis <- gis_prob_storm_surge(key = key,
 
 This will bring us a spatial polygon dataframe.
 
-
 ```r
 df <- shp_to_df(gis$al092017_2017082500_gt20)
 bb <- sp::bbox(gis$al092017_2017082500_gt20)
 ```
-
 
 ```r
 str(df)
@@ -1212,7 +1164,6 @@ str(df)
 ##  $ PSurge20c: num  1 1 1 1 1 1 1 1 1 1 ...
 ```
 
-
 ```r
 al_tracking_chart(color = "black", size = 0.1, fill = "white") +
   geom_polygon(data = df,
@@ -1227,7 +1178,6 @@ This map shows the cumulative probability that a storm surge of greater than 20 
 
 This particular map doesn't help much as we've zoomed in too far. What may provide use is a list of probability stations as obtained from the NHC. For this, you can use `al_prblty_stations` (`ep_prblty_stations` returns FALSE since, as of this writing, the format is invalid).
 
-
 ```r
 stations <- al_prblty_stations()
 
@@ -1241,10 +1191,9 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-48-1.png" title="plot of chunk unnamed-chunk-48" alt="plot of chunk unnamed-chunk-48" style="display: block; margin: auto;" />
 
-#### gis_windfield
+### gis\_windfield
 
 When possible, there may also be a cyclone wind radius dataset for the current and forecast positions. With this function we can resort back to `Key` and an advisory number.
-
 
 ```r
 gis <- gis_windfield(key = key, advisory = 19) %>%
@@ -1262,7 +1211,6 @@ gis <- gis_windfield(key = key, advisory = 19) %>%
 ## It has 13 fields
 ```
 
-
 ```r
 names(gis)
 ```
@@ -1272,7 +1220,6 @@ names(gis)
 ```
 
 Let's get the bounding box and plot our initialradii dataset.
-
 
 ```r
 bb <- sp::bbox(gis$al092017_2017082503_initialradii)
@@ -1288,7 +1235,6 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-51-1.png" title="plot of chunk unnamed-chunk-51" alt="plot of chunk unnamed-chunk-51" style="display: block; margin: auto;" />
 
 And add the forecast wind radii data onto the chart (modifying `bb`):
-
 
 ```r
 bb <- sp::bbox(gis$al092017_2017082503_forecastradii)
@@ -1307,20 +1253,19 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-52-1.png" title="plot of chunk unnamed-chunk-52" alt="plot of chunk unnamed-chunk-52" style="display: block; margin: auto;" />
 
-#### gis_wsp
+### gis\_wsp
 
 Our last GIS dataset is wind speed probabilities. This dataset is not storm specific nor even basin-specific; you may get results for cyclones halfway across the world.
 
 The two parameters needed are:
 
-  * `datetime` - again, using the %Y%m%d%H format (not all values are required)
+- `datetime` - again, using the %Y%m%d%H format (not all values are required)
 
-  * `res` - Resolution of the probabilities; 5 degrees, 0.5 degrees and 0.1 degrees.
+- `res` - Resolution of the probabilities; 5 degrees, 0.5 degrees and 0.1 degrees.
 
 Wind fields are for 34, 50 and 64 knots. Not all resolutions or windfields will be available at a given time.
 
 Sticking with our variable `d`, let's first make sure there is a dataset that exists for that time.
-
 
 ```r
 gis_wsp(datetime = strftime(d - 60 * 60 * 3, format = "%Y%m%d%H", tz = "UTC"))
@@ -1333,8 +1278,7 @@ gis_wsp(datetime = strftime(d - 60 * 60 * 3, format = "%Y%m%d%H", tz = "UTC"))
 For this article, we'll stick to the higher resolution plot.
 
 > we need a temporarily fixed function to replace `gis_wsp()`, which will be
-fixed in package soon
-
+> fixed in package soon
 
 ```r
 gis_wsp_2 <- function(datetime, res = c(5, 0.5, 0.1)) {
@@ -1362,8 +1306,6 @@ gis_wsp_2 <- function(datetime, res = c(5, 0.5, 0.1)) {
 }
 ```
 
-
-
 ```r
 gis <- gis_wsp_2(
   datetime = strftime(d - 60 * 60 * 3, format = "%Y%m%d%H", tz = "UTC"),
@@ -1388,13 +1330,11 @@ gis <- gis_wsp_2(
 
 All of these datasets are spatial polygon dataframes. Again, we will need to convert to dataframe using `shp_to_df`.
 
-
 ```r
 bb <- sp::bbox(gis$`2017082500_wsp34knt120hr_5km`)
 ```
 
 Examine the structure.
-
 
 ```r
 df <- shp_to_df(gis$`2017082500_wsp34knt120hr_5km`)
@@ -1413,7 +1353,6 @@ str(df)
 ##  $ PERCENTAGE: chr  "<5%" "<5%" "<5%" "<5%" ...
 ```
 
-
 ```r
 al_tracking_chart(color = "black", size = 0.1, fill = "white") +
   geom_polygon(data = df,
@@ -1426,7 +1365,6 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" style="display: block; margin: auto;" />
 
 There aren't many ways we can narrow this down other than using arbitrary longitude values. The observations in the dataset do not have a variable identifying which storm each set of values belongs to. So, I'll remove the `coord_equal` call so we're only focused on the Atlantic basin.
-
 
 ```r
 al_tracking_chart(color = "black", size = 0.1, fill = "white") +
@@ -1441,10 +1379,9 @@ Of course, you can narrow it down further as you see fit.
 
 Do not confuse this GIS dataset with the `wndprb` product or similar `prblty` products; both of which only identify probabilities for given locations.
 
-#### gis_latest
+### gis\_latest
 
 For active cyclones, you can retrieve all available GIS datasets using `gis_latest`. Note that, unlike the previous GIS functions, this function will return a list of all GIS dataframes available.
-
 
 ```r
 gis <- gis_latest()
@@ -1456,31 +1393,31 @@ Second, I have found this data fluctuates even from minute to minute. Earlier th
 
 Of course, that doesn't mean it is not valuable, and why it has been included. You can easily perform checks for specific data you are looking for. If it doesn't exist, bail and try again in a few minutes.
 
-### Potential Issues Using rrricanes
+## Potential Issues Using rrricanes
 
 I cannot stress enough that `rrricanes` **is not intended for use during emergency situations**, as I myself learned [during Hurricane Harvey](https://twitter.com/timtrice/status/901025869367586816). The package currently relies on the NHC website which, I truly believe, is curated by hand.
 
 The most common problems I've noticed are:
 
-  * The NHC website unable to load or slow to respond. This was a hassle in previous releases but seems to be ironed out as of release 0.2.0.6. Nonetheless, there may be instances where response time is slow.
+- The NHC website unable to load or slow to respond. This was a hassle in previous releases but seems to be ironed out as of release 0.2.0.6. Nonetheless, there may be instances where response time is slow.
 
-  * Incorrect storm archive links. Another example would be during Harvey when the link to Harvey's archive page was [listed incorrectly](https://twitter.com/PutmanSteve/status/900777826412105729). If I manually typed the link as it should be, the storm's correct archive page would load. However, the NHC website listed it incorrectly on the annual archives page.
+- Incorrect storm archive links. Another example would be during Harvey when the link to Harvey's archive page was [listed incorrectly](https://twitter.com/PutmanSteve/status/900777826412105729). If I manually typed the link as it should be, the storm's correct archive page would load. However, the NHC website listed it incorrectly on the annual archives page.
 
 As I become more aware of potential problems, I will look for workarounds. I would be greatly appreciative of any problems being posted to the [rrricanes repository](https://github.com/ropensci/rrricanes/issues).
 
-I will also post known issues beyond my control (such as NHC website issues) to Twitter using the [#rrricanes hashtag](https://twitter.com/search?f=tweets&vertical=default&q=%23rrricanes&src=typd).
+I will also post known issues beyond my control (such as NHC website issues) to Twitter using the [\#rrricanes hashtag](https://twitter.com/search?f=tweets&vertical=default&q=%23rrricanes&src=typd).
 
-### Future Plans
+## Future Plans
 
 The following data will be added to `rrricanes` as time allows:
 
-  * Reconnaissance data (release 0.2.2)
+- Reconnaissance data (release 0.2.2)
 
-  * Computer forecast model data (release 0.2.3)
+- Computer forecast model data (release 0.2.3)
 
-  * Archived satellite images (tentative)
+- Archived satellite images (tentative)
 
-  * Ship and buoy data (tentative)
+- Ship and buoy data (tentative)
 
 Reconnaissance data itself will be a massive project. There are numerous types of products. And, as advisory product formats have changed over the years, so have these. Any help in this task would be tremendously appreciated!
 
@@ -1488,7 +1425,7 @@ Some computer forecast models are in the public domain and can certainly be of t
 
 Additionally, data may be added as deemed fitting.
 
-### Contribute
+## Contribute
 
 Anyone is more than welcome to contribute to the package. I would definitely appreciate any help. See [Contributions](https://github.com/ropensci/rrricanes/blob/master/.github/CONTRIBUTING.md) for more information.
 
@@ -1496,7 +1433,7 @@ I would ask that you follow the [Tidyverse style guide](http://style.tidyverse.o
 
 You do not need to submit code in order to be listed as a contributor. If there is a data source (that can legally be scraped) that you feel should be added, please feel free to submit a request. Submitting bug reports and feature requests are all extremely valuable to the success of `rrricanes`.
 
-### Acknowledgments
+## Acknowledgments
 
 I want to thank the [rOpenSci](https://ropensci.org/) community for embracing `rrricanes` and accepting the package into their vast portfolio. This is my first attempt and putting a project into part of a larger community and the lessons learned have been outstanding.
 
@@ -1505,3 +1442,4 @@ I want to thank [Maelle Salmon](https://github.com/maelle) who, in a sense, has 
 I want to give a very special thanks to [Emily Robinson](https://github.com/robinsones) and [Joseph Stachelek](https://github.com/jsta) for taking the time to put `rrricanes` to the test, giving valuable insight and recommendations on improving it.
 
 And a thank-you also to [James Molyneux](https://github.com/jimmylovestea), [Mark Padgham](https://github.com/mpadge), and [Bob Rudis](https://github.com/hrbrmstr), all of whom have offered guidance or input that has helped make `rrricanes` far better than it would have been on my own.
+

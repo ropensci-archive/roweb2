@@ -13,8 +13,7 @@ tags:
   - infrastructure
 ---
 
-
-I’m happy to announce that I’ve started a project with [rOpenSci](https://ropensci.org)
+I'm happy to announce that I've started a project with [rOpenSci](https://ropensci.org)
 under [their recent award from the Helmsley Foundation](https://ropensci.org/blog/2015/11/19/helmsley-trust-funding/).
 
 My work with rOpenSci will focus on sustainability of the project itself.  Sustainability can be defined as having the
@@ -23,9 +22,9 @@ rOpenSci and for many other research software projects.
 
 rOpenSci has a very broad and very ambitious goal, as stated on their web site, "Transforming science through open data."
 In practice, the work being done by rOpenSci is "creating packages that allow access to data repositories through the
-R statistical programming environment" with tools that “not only facilitate drawing data into an environment where it
+R statistical programming environment" with tools that "not only facilitate drawing data into an environment where it
 can readily be manipulated, but also one in which those analyses and methods can be easily shared, replicated, and
-extended by other researchers.”
+extended by other researchers."
 An interesting question is how much rOpenSci will choose to move beyond R to meet its goal, which I would encourage as
 much as possible.  I actually might rephrase the goal as "Transforming science through open data and open software"
 better matching what is now happening in the project while not calling out R, since I would prefer to try to affect
@@ -74,7 +73,7 @@ under the [WSSSPE](http://wssspe.researchcomputing.org.uk/) umbrella.
 I will also work with rOpenSci to attempt to promote and encourage software
 metrics. A number of projects, including [sempervirens](https://github.com/njsmith/sempervirens) and
 [Depsy](http://depsy.org), have begun to focus on particular parts of the problem space, but more general work and
-tools are needed, in particular to impact those outside of just the R and python communities.  There’s also some
+tools are needed, in particular to impact those outside of just the R and python communities.  There's also some
 related work underway at NCSA and RENCI (that came out of WSSSPE3) to survey a set of developers on what impact
 metrics they find useful, and I think the results of the survey will also help this overall community.
 
@@ -88,3 +87,4 @@ developers in some way.  This is part of the larger sustainability discussion, s
 source projects can gain more resources and reduce the amount of work that they have to do internally.
 
 Any thoughts, comments, or suggestions are welcome. This is also cross-posted on [Dan's blog](https://danielskatzblog.wordpress.com/2016/05/25/software-sustainability-research-with-ropensci/)
+

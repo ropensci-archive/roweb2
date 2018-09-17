@@ -16,18 +16,15 @@ tags:
 
 Continuing our series of blog posts ([day 1](https://ropensci.org/blog/blog/2017/06/05/unconf_recap_1), [day 2](https://ropensci.org/blog/blog/2017/06/06/unconf_recap_2)) this week about [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017).
 
-
-
 ## `available`
 
 **Summary:**  Ever have trouble naming your software package? Find a great name and realize it's already taken on CRAN, or further along in development on GitHub? The `available` package makes it easy to check for valid, available names, and also checks various sources for any unintended meanings. The package can also suggest names based on the description and title of your package.
 
 ![available Package](https://i.imgur.com/k6J5hQr.png)
 
-**Team:** Jim Hester, Carl Ganz, Gábor Csárdi, Molly Lewis, Rachel Tatman
+**Team:** Jim Hester, Carl Ganz, GÃ¡bor CsÃ¡rdi, Molly Lewis, Rachel Tatman
 
 **Github:** https://github.com/ropenscilabs/available
-
 
 ## `miner`
 
@@ -36,12 +33,11 @@ The `miner` package provides a nice interface to the Minecraft API and allows us
 
 [![Inserting ggplots into MineCraft](https://i.imgur.com/G0PComZ.png)](https://www.youtube.com/watch?v=zggCAYAfjXE "ggplot2 with Minecraft")
 
-**Team:** Brooke Anderson, Karl Broman, Gergely Daróczi, Mario Inchiosa, David Smith, Ali Zaidi
+**Team:** Brooke Anderson, Karl Broman, Gergely DarÃ³czi, Mario Inchiosa, David Smith, Ali Zaidi
 
 ![miner team](https://i.imgur.com/EBVkz7G.jpg)
 
 **Github:** https://github.com/ROpenSciLabs/miner
-
 
 ## `rcheatsheet`
 
@@ -53,7 +49,6 @@ The `miner` package provides a nice interface to the Minecraft API and allows us
 
 **Github:** https://github.com/ropenscilabs/rcheatsheet
 
-
 ## `ponyexpress`
 
 **Summary:**
@@ -64,5 +59,4 @@ The package also provides custom template to make it easy to write rich html ema
 **Team:** Karthik Ram, Lucy D'Agostino McGowan
 
 **Github:** https://github.com/ropenscilabs/ponyexpress
-
 

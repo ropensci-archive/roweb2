@@ -21,7 +21,6 @@ People looking to extract text and metadata from pdf files in R should try our [
 
 The package links to the libtesseract C++ library and works out of the box on Windows and Mac without installing any third party software.
 
-
 ```r
 install.packages("tesseract")
 ```
@@ -69,7 +68,6 @@ On Windows/MacOS you have to manually download training data for other langauges
 Besides training data, the most important aspect of OCR performance is the quality of the input image. High resolution images with horizontal text, high contrast and little noise will achieve the best accuracy. The official [Tesseract Wiki](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality) has some advice on how to improve the image quality.
 
 [![dogs](http://jeroen.github.io/files/dog_hq.png)](http://jeroen.github.io/files/dog_hq.png)
-
 
 To put this to the test, we made two screenshots from the Wikipedia page above. The high quality image in the code below has approximately double the resolution of the low quality image. In addition the font rendering seems slightly better for the high quality image.
 

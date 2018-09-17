@@ -16,13 +16,11 @@ rOpenSci's mission is to promote a culture of open, transparent, and reproducibl
 
 The rOpenSci Fellowship presents a unique opportunity for researchers who are engaged in open source to have a bigger voice in their communities. These fellowships are designed to support individual researchers and collaborative efforts to help them do better science, build community around projects or best practices, or develop some tools as part of ongoing research that could impact one or more research domains. Two areas that are of particular interest to us are:
 
-
 - **Reproducibility**
-The first type of fellowship we seek to support includes any activities (software development, best practices, guidelines) that promote reproducibility with one or more research communities. Funds from this fellowship can be used for activities such as finishing development of software, documentation or developing guidelines and best practices around methods and approaches. Your proposal will need to clearly identify how these funds will impact others in your research community and beyond.
+  The first type of fellowship we seek to support includes any activities (software development, best practices, guidelines) that promote reproducibility with one or more research communities. Funds from this fellowship can be used for activities such as finishing development of software, documentation or developing guidelines and best practices around methods and approaches. Your proposal will need to clearly identify how these funds will impact others in your research community and beyond.
 
 - **Working groups**
-The second type of activity we seek to support is working groups, based on [a highly successful problem-solving model](https://www.nceas.ucsb.edu/system/files/HamptonParker_BioSci_2011.pdf) pioneered by the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu/). You propose a critical challenge in the area of scientific open source and reproducibility, and a team of experts, to collaborate intensively for a week at a time. The knowledge and insight your team develops must be broadly relevant to the research community.
-
+  The second type of activity we seek to support is working groups, based on [a highly successful problem-solving model](https://www.nceas.ucsb.edu/system/files/HamptonParker_BioSci_2011.pdf) pioneered by the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu/). You propose a critical challenge in the area of scientific open source and reproducibility, and a team of experts, to collaborate intensively for a week at a time. The knowledge and insight your team develops must be broadly relevant to the research community.
 
 Our first fellowship was awarded to [Dr. Nick Golding](https://ropensci.org/blog/blog/2016/12/12/ropensci-fellowship-zoon) in suppport of a reproducibility project. Each fellowship will be in the range of $30,000 to $50,000.  We plan to award 2-3 fellowships (exact number to be determined by the size, scope, and quality of applications we receive) in 2017. We expect to have a similar call in 2018. All successful fellows will also receive additional travel support to participate in our [annual unconference](https://ropensci.org/blog/blog/2017/06/02/unconf2017).
 
@@ -36,20 +34,20 @@ Our first fellowship was awarded to [Dr. Nick Golding](https://ropensci.org/blog
 
 ## Fellowship selection committee
 
-* [**Karthik Ram**](https://ropensci.org/about/#team), Committee Chair
-Karthik is a co-founder of rOpenSci and the project lead. Karthik is also a fellow at the Berkeley Institute for Data Science and the Berkeley Initiative in Global Change Biology at UC Berkeley. Prior to joining Berkeley, he earned his PhD in ecology & evolution from the University of California, Davis. Karthik's interests are focused on reproducible research, especially as it applies to global change. Much of his recent work focuses on building tools and services around open data and growing diverse data science communities.
+- [**Karthik Ram**](https://ropensci.org/about/#team), Committee Chair
+  Karthik is a co-founder of rOpenSci and the project lead. Karthik is also a fellow at the Berkeley Institute for Data Science and the Berkeley Initiative in Global Change Biology at UC Berkeley. Prior to joining Berkeley, he earned his PhD in ecology \& evolution from the University of California, Davis. Karthik's interests are focused on reproducible research, especially as it applies to global change. Much of his recent work focuses on building tools and services around open data and growing diverse data science communities.
 
-* [**Mine Cetinkaya-Rundel**](http://www2.stat.duke.edu/~mc301/), Duke University
-Mine is Associate Professor of the Practice at Duke University and a Professional Educator at RStudio. Her work focuses on innovation in statistics pedagogy, with an emphasis on computation, reproducible research, open-source education, and student-centered learning. She is the author of three open-source introductory statistics textbooks as part of the OpenIntro project and teaches the popular Statistics with R MOOC on Coursera.
+- [**Mine Cetinkaya-Rundel**](http://www2.stat.duke.edu/~mc301/), Duke University
+  Mine is Associate Professor of the Practice at Duke University and a Professional Educator at RStudio. Her work focuses on innovation in statistics pedagogy, with an emphasis on computation, reproducible research, open-source education, and student-centered learning. She is the author of three open-source introductory statistics textbooks as part of the OpenIntro project and teaches the popular Statistics with R MOOC on Coursera.
 
-* [**Ken Benoit**](http://www.kenbenoit.net/), London School of Economics
-Kenneth Benoit is Professor of Quantitative Social Research Methods at the London School of Economics and Political Science. He is active in data science and natural language processing and quantitative text analysis for social research. He is the creator of the quanteda, readtext, and spacyr R packages for text analysis.
+- [**Ken Benoit**](http://www.kenbenoit.net/), London School of Economics
+  Kenneth Benoit is Professor of Quantitative Social Research Methods at the London School of Economics and Political Science. He is active in data science and natural language processing and quantitative text analysis for social research. He is the creator of the quanteda, readtext, and spacyr R packages for text analysis.
 
-* [**Matthew Jones**](https://www.nceas.ucsb.edu/ecoinfo#team), National Center for Ecological Analysis and Synthesis
-Matt is the Director of Research and Informatics at the National Center for Ecological Analysis and Synthesis and has spent more than a decade developing various global data sharing infrastructure projects such as the KNB Repository and the DataONE federation.
+- [**Matthew Jones**](https://www.nceas.ucsb.edu/ecoinfo#team), National Center for Ecological Analysis and Synthesis
+  Matt is the Director of Research and Informatics at the National Center for Ecological Analysis and Synthesis and has spent more than a decade developing various global data sharing infrastructure projects such as the KNB Repository and the DataONE federation.
 
-* [**Di Cook**](http://dicook.org/),  Monash University
-Di is Professor of Business Analytics at Monash University in Australia. Her expertise is in data visualisation, exploratory data analysis, and interactive graphics. She is an Ordinary Member of the R Foundation and a Fellow of the American Statistical Association.
+- [**Di Cook**](http://dicook.org/),  Monash University
+  Di is Professor of Business Analytics at Monash University in Australia. Her expertise is in data visualisation, exploratory data analysis, and interactive graphics. She is an Ordinary Member of the R Foundation and a Fellow of the American Statistical Association.
 
 ## Applying for the fellowship
 

@@ -15,7 +15,6 @@ tags:
 - NCBI
 ---
 
-
 A new version of `rentrez`, our package for the NCBI's EUtils API, is making
 it's way around the CRAN mirrors. This release represents a substantial
 improvement to `rentrez`, including a [new vignette](https://cran.r-project.org/web/packages/rentrez/vignettes/rentrez_tutorial.html)
@@ -33,9 +32,9 @@ your contributions have been an important part of the package's development. In 
 an issue that brought the `by_id` mode for `entrez_link`  (discussed below) to our
 attention.
 
-##The New Stuff
+\##The New Stuff
 
-###Extract elements from the results of `entrez_summary()`
+\###Extract elements from the results of `entrez_summary()`
 
 The NCBI's "summary records" are very useful -- they provide the most important
 information about a given record in a relatively small and simple file. `rentrez`
@@ -43,7 +42,6 @@ provides the function `entrez_summary()` to retrieve these records. When more
 than one unique ID is passed to `entrez_summary` the function returns a list of
 esummary objects. For instance, you could find all the genetic variants associated
 with asthma by finding links between the [OMIM record for asthma](http://www.omim.org/entry/600807) and records in the database dbSNP:
-
 
 ```r
 snps <- entrez_link(dbfrom="omim", db="snp", id= 600807)
@@ -54,7 +52,6 @@ A very common use-case for `entrez_summary()` is to extract a subset of the
 elements from each record in that list. This release includes the function
 `extract_from_esummary` to make this as straightforward as possible. It works with
 a single element to extract:
-
 
 ```r
 extract_from_esummary(snp_summs, "chr")
@@ -81,7 +78,7 @@ t(summary_table)
 ## 545659   "11" "C=0.3419/1712" "utr-variant-3-prime"
 ```
 
-###`entrez_link` can find external links
+\###`entrez_link` can find external links
 
 In addition to discovering links between records in NCBI databases, the function
 `entrez_link` now provides support for finding external links ('linkouts' in
@@ -91,7 +88,6 @@ full text of articles in PubMed.
 Let's try and find the full text of the paper describing [taxize](https://github.com/ropensci/taxize) (using that article's PMID). To
 override the functions default behaviour (finding links within NCBI databases)
 we set the `cmd` argument to `llinks` (short for library links):
-
 
 ```r
 taxize_links <- entrez_link(dbfrom="pubmed", id= 24555091, cmd="llinks")
@@ -104,7 +100,6 @@ taxize_links
 ```
 
 The print function for this object tells you were the links live.
-
 
 ```r
 taxize_links$linkouts
@@ -133,7 +128,6 @@ Each of those elements has a lot of information, but the URLs for each object
 are probably the most important. For this reason, `rentrez` provides a function
 to get just the URLs:
 
-
 ```r
 linkout_urls(taxize_links)
 ```
@@ -146,7 +140,7 @@ linkout_urls(taxize_links)
 ## [4] "http://pubmedcentralcanada.ca/pmcc/articles/pmid/24555091"
 ```
 
-###Web History features are easier to use
+\###Web History features are easier to use
 
 The NCBI provides a "Web History" feature to let users store the results of their
 searches on the NCBI's severs and refer to those results without having to
@@ -158,9 +152,7 @@ functions will return a `web_history` object which can be used in the place of u
 IDs in calls to `entrez_fetch`, `entrez_summary` or `entrez_link`.
 
 To demonstrate, let's search for PubMed articles about the ciliate genus
-_Tetrahymena_:
-
-
+*Tetrahymena*:
 
 ```r
 Tet_papers <- entrez_search(db="pubmed", term="Tetrahymena[ORGN]", use_history=TRUE)
@@ -171,9 +163,9 @@ Tet_papers
 ## Entrez search result with 6599 hits (object contains 20 IDs and a web_history object)
 ##  Search term (as translated):  "tetrahymena"[MeSH Terms] OR "tetrahymena"[All Fie ...
 ```
-Now that we have a web_history object, we can use that to retrieve XML representations
-of the first 10 records:
 
+Now that we have a web\_history object, we can use that to retrieve XML representations
+of the first 10 records:
 
 ```r
 recs <- entrez_fetch(db="pubmed",
@@ -181,10 +173,10 @@ recs <- entrez_fetch(db="pubmed",
                      retmax=10, rettype="xml")
 ```
 
-###It's easier to keep track of which records are linked to other records
+\###It's easier to keep track of which records are linked to other records
 
 By default, when `entrez_link` gets a vector of more than one unique ID, it
-returns sets of linked-IDs that match _any_ of the IDs in the original call.
+returns sets of linked-IDs that match *any* of the IDs in the original call.
 That means the user loses track of the mapping between the original IDs and those
 from the linked database.
 
@@ -192,8 +184,6 @@ As of this release, `rentrez` supports the NCBI's `by_id` mode, which solves thi
 Setting the new argument `by_id` to `TRUE` returns a list, with each element of
 that list containing links for only one ID. To demonstrate, let's find protein
 sequences associated with specific genes in the NCBI `gene` database:
-
-
 
 ```r
 all_links  <- entrez_link(db="protein",
@@ -213,7 +203,6 @@ all_links
 As you can see, printing the returned object let's you know what each element
 contains, and you can extract the specific links you are looking for easily:
 
-
 ```r
 lapply(all_links, function(x) x$links$gene_protein)
 ```
@@ -230,9 +219,9 @@ lapply(all_links, function(x) x$links$gene_protein)
 ##  [6] "37787317"  "37589273"  "31982089"  "26339824"  "26329351"
 ```
 
-
 ## The rest
 
 There are also numerous small changes that improve `rentrez`, fix bugs and
 extend the package's documentation. We hope you find this new release helpful,
 and as always we welcome bug reports via the [package's github repository](https://github.com/ropensci/rentrez/issues).
+

@@ -16,8 +16,8 @@ tags:
 
 Following up on Stefanie's recap of [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017), we are following up this entire week with summaries of projects developed at the event. We plan to highlight 4-5 projects each day, with detailed posts from a handful of teams to follow.
 
-
 ## `skimr`
+
 **Summary:**  `skimr`, a package inspired by Hadley Wickham's [precis package](https://github.com/hadley/precis), aims to provide summary statistics iteratively and interactively as part of a pipeline. The package provides easily skimmable summary statistics to help you better understand your data and see what is missing.
 
 ![](https://i.imgur.com/abwJOHh.png)
@@ -29,15 +29,13 @@ Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, Julia Lowndes, Shannon Elli
 
 **Github:** [https://github.com/ropenscilabs/skimr](https://github.com/ropenscilabs/skimr)
 
-
 ## `emldown`
 
 **Summary:** `emldown` is a package for creating a helpful website based on EML metadata. Ecological Metadata Language (EML) is a metadata specification developed by the ecology discipline and for the ecology discipline. EML is implemented as a series of XML document types that can by used in a modular and extensible manner to document ecological data.
 
-**Team:** Maëlle Salmon, Kara Woo, Andrew McDonald, Carl Boettiger
+**Team:** MaÃ«lle Salmon, Kara Woo, Andrew McDonald, Carl Boettiger
 
 **Github:** [https://github.com/ropenscilabs/emldown](https://github.com/ropenscilabs/emldown)
-
 
 ## `testrmd`
 
@@ -48,8 +46,6 @@ Amelia McNamara, Eduardo Arino de la Rubia, Hao Zhu, Julia Lowndes, Shannon Elli
 **Team:** Mara Averick, Christopher Tull, Joe Cheng, Robert Flight
 
 **Github:** [https://github.com/ropenscilabs/testrmd](https://github.com/ropenscilabs/testrmd)
-
-
 
 ## `webrockets`
 

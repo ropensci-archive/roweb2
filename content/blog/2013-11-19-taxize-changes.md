@@ -16,29 +16,24 @@ We are building a taxonomic toolbelt for R called taxize - which gives you progr
 
 *Note: the windows binary may not be available yet...*
 
-***************
+***
 
 ## Install and load taxize
-
 
 ```r
 install.packages("taxize")
 library(taxize)
 ```
 
-
-***************
+***
 
 ## Taxonomic identifiers
 
 Each taxonomic service has their own unique ID for a taxon. We had a way to get ITIS and NCBI identifiers before - we now have functions for Tropicos, EOL, and the Catalogue of Life.
 
-
 ```r
 get_tpsid(sciname = "Helianthus petiolaris patens")
 ```
-
-
 
 ```
 ##        1
@@ -47,13 +42,9 @@ get_tpsid(sciname = "Helianthus petiolaris patens")
 ## [1] "tpsid"
 ```
 
-
-
 ```r
 get_colid(sciname = "Pinus contorta")
 ```
-
-
 
 ```
 ##          1
@@ -62,15 +53,11 @@ get_colid(sciname = "Pinus contorta")
 ## [1] "colid"
 ```
 
-
 And we have a new function to get identifiers across all sources. And it's vectorized so you can pass in many names.
-
 
 ```r
 get_ids(names = c("Chironomus riparius", "Poa annua"), db = c("ncbi", "itis"))
 ```
-
-
 
 ```
 ## $ncbi
@@ -93,20 +80,16 @@ get_ids(names = c("Chironomus riparius", "Poa annua"), db = c("ncbi", "itis"))
 ## [1] "ids"
 ```
 
-
-***************
+***
 
 ## Taxonomic classifications
 
 We had a function called `classification` to get a taxonomic hierarchy from a particular source, ITIS or NCBI. We now have functions for Tropicos, EOL, and the Catalogue of Life. In addition, we have a function to get classifications across sources.
 
-
 ```r
 out <- get_ids(names = "Poa annua", db = c("ncbi", "itis"))
 classification(out)
 ```
-
-
 
 ```
 ## $ncbi
@@ -151,19 +134,15 @@ classification(out)
 ## 12       Species       Poa annua  41107
 ```
 
-
-***************
+***
 
 ## Synonyms
 
 Just like the `classification` function, synonyms now searches across sources for synonym names. However, this function only has methods for ITIS and Tropicos.
 
-
 ```r
 synonyms(c("Poa annua", "Pinus contorta", "Puma concolor"), db = "itis")
 ```
-
-
 
 ```
 ## $`Poa annua`
@@ -189,19 +168,15 @@ synonyms(c("Poa annua", "Pinus contorta", "Puma concolor"), db = "itis")
 ## 1 Felis concolor 180587
 ```
 
-
-***************
+***
 
 ## Common names from scientific names and vice versa
 
 We have a variety of ways to get common names from scientific names for different sources. To simply things, there are two new functions to work across sources.
 
-
 ```r
 sci2comm(scinames = "Helianthus annuus", db = "itis")
 ```
-
-
 
 ```
 ## $`Helianthus annuus`
@@ -212,15 +187,11 @@ sci2comm(scinames = "Helianthus annuus", db = "itis")
 ## 4 annual sunflower English 36616
 ```
 
-
 And vice versa
-
 
 ```r
 comm2sci(commnames = "annual blue grass", db = "tropicos")
 ```
-
-
 
 ```
 ## $`annual blue grass`
@@ -232,8 +203,7 @@ comm2sci(commnames = "annual blue grass", db = "tropicos")
 ## 1     L.    Sp. Pl. 1: 68        1753         1
 ```
 
-
-***************
+***
 
 ## ITIS functions
 
@@ -241,12 +211,9 @@ We reworked the functions that interact with the ITIS service. We still have all
 
 Get references associated with names.
 
-
 ```r
 itis_refs(c(202385, 70340))
 ```
-
-
 
 ```
 ## [[1]]
@@ -299,15 +266,11 @@ itis_refs(c(202385, 70340))
 ## 2 2013-11-04
 ```
 
-
 Get hierarchy: full, up (immediate), and down (immediate)
-
 
 ```r
 itis_hierarchy(tsn = 180543)
 ```
-
-
 
 ```
 ##       parentName parentTsn     rankName                 taxonName    tsn
@@ -344,26 +307,18 @@ itis_hierarchy(tsn = 180543)
 ## 31  Ursus arctos    180543   Subspecies     Ursus arctos syriacus 726996
 ```
 
-
-
 ```r
 itis_hierarchy(tsn = 180543, what = "up")
 ```
-
-
 
 ```
 ##   parentName parentTsn rankName    taxonName    tsn
 ## 1      Ursus    180541  Species Ursus arctos 180543
 ```
 
-
-
 ```r
 itis_hierarchy(tsn = 180543, what = "down")
 ```
-
-
 
 ```
 ##      parentName parentTsn   rankName                 taxonName    tsn
@@ -384,3 +339,4 @@ itis_hierarchy(tsn = 180543, what = "down")
 ## 15 Ursus arctos    180543 Subspecies Ursus arctos stikeenensis 726995
 ## 16 Ursus arctos    180543 Subspecies     Ursus arctos syriacus 726996
 ```
+

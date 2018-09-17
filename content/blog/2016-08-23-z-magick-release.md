@@ -79,7 +79,6 @@ image_browse(tiger)
 
 There is some functionality to convert images to R raster graphics and plot it on R's graphics display, but this doesn't always work too well yet.
 
-
 ```r
 frink <- image_read("https://jeroen.github.io/images/frink.png")
 raster <- as.raster(frink)
@@ -157,7 +156,6 @@ The standard base vector methods `[` `[[`, `$`, `c()` and `length()` are used to
 
 For now here is an example on how to generate the instant classic dancing banana on R logo (which is probably why you are here):
 
-
 ```r
 # Background image
 logo <- image_read("https://www.r-project.org/logo/Rlogo.png")
@@ -179,5 +177,4 @@ image_write(animation, "Rlogo-banana.gif")
 ```
 
 If time permits we will demonstrate more examples during our [community call](https://github.com/ropensci/commcalls/issues/11) on Wednesday!
-
 

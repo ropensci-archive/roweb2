@@ -15,15 +15,11 @@ tags:
 - climate
 ---
 
-
 One of the goals of the rOpenSci is to facilitate interoperability between different data sources around web with our tools.  We can achieve this by providing functionality within our packages that converts data coming down via web APIs in one format (often a provider specific schema) into a standard format.  The new version of [rWBclimate](http://github.com/ropensci/rwbclimate) that we just posted to [CRAN](http://cran.r-project.org/web/packages/rWBclimate/index.html) does just that.  In an [earlier post](http://www.ropensci.org/blog/2013/07/29/rWBclimate-rgbif/) I wrote about how users could combine data from both [rgbif](http://github.com/ropensci/rgbif) and `rWBclimate`. Back then I just thought it was pretty cool that you could overlay the points on a nice climate map.  Now we've come a long way, with the development of an easier to use and more comprehensive package for accessing species occurrence data, [spocc](http://github.com/ropensci/spocc), and added conversion functions to create spatial objects out of both climate data maps, and species occurrence data.  The result is that you can grab data from both sources, and then extract climate information about your species occurrence data.
 
 In the example below I'm going to download climate data at the basin level for the US and Mexico, and then species occurrences for eight different tree species.  I'll then extract the temperature from each point data with an spatial overlay and look at the distribution of temperatures for each species.  Furthermore the conversion to spatial objects functions will allow you to use our data with any [shape files](http://en.wikipedia.org/wiki/Shapefile) you might have.
 
-
-
 The first step is to grab the [KML](https://developers.google.com/kml/documentation/) files for each river basin making up the US and Mexico, which we [identify with an integer](http://data.worldbank.org/sites/default/files/climate_data_api_basins.pdf).
-
 
 ```r
 
@@ -64,9 +60,7 @@ temp.dat <- subset(temp.dat, temp.dat$year == 2000)
 usmex.map.df <- climate_map(usmex.basin, temp.dat, return_map = F)
 ```
 
-
 Now we have created a map of the US and Mexico, downloaded the average temperature in each basin between 1990 and 2000, and bound them together.  Next let's grab occurrence data using `spocc` for our eight tree species (*Note:  `rgbif` > 0.6.0 needs to be installed to work properly*)
-
 
 ```r
 
@@ -86,10 +80,7 @@ out <- fixnames(out, how = "query")
 out_df <- occ2df(out)
 ```
 
-
 Now we've downloaded the data using their latin names, we might want to know the common names.  Luckily the `taxize` package is great for that, and we can grab them with just a couple of lines of code.
-
-
 
 ```r
 
@@ -108,9 +99,7 @@ out_df$common <- rep(cname, table(out_df$name))
 
 ```
 
-
 Now we have all the components we need, species data and spatial polygons with temperature data bound to them.  Before we do the spatial over lay, let's have do a quick visualization.
-
 
 ```r
 
@@ -132,9 +121,7 @@ print(usmex.map)
 
 ![plot of chunk mapping](/assets/blog-images/2014-04-22-rwbclimate-sp/mapping_2.png)
 
-
 Now the question is, what's the temperature at each point for each tree species?  We can convert our species data to spatial points with `occ_to_sp`, and our data from `rWBclimate` can be converted to spatial polygons with `kml_to_sp`.  Next we can loop through each grouping of species, and call the `over` function to get the temperature at each point.
-
 
 ```r
 ## Create a spatial polygon dataframe binding kml polygons to temperature
@@ -152,9 +139,7 @@ for (i in 1:length(splist)) {
 }
 ```
 
-
 The last step is to create a new data frame with our data.  Unfortunately the size of our old data frame `out_df` won't be the same size due to some invalid lat/long's that came down with our data so the entire data frame will be reassembled.  After we assemble the data frame we can summarize our it with plyr, getting the mean temperature and latitude for each species.
-
 
 ```r
 
@@ -177,9 +162,7 @@ summary_data <- ddply(spDF, .(cname), summarise, mlat = mean(latitude), mtemp = 
     sdlat = sd(latitude), sdtemp = sd(temp))
 ```
 
-
 First let's look at a plot of mean temperature vs latititude, and to identify the points we'll plot their common names.
-
 
 ```r
 ggplot(summary_data, aes(x = mlat, y = mtemp, label = cname)) +
@@ -192,10 +175,7 @@ ggplot(summary_data, aes(x = mlat, y = mtemp, label = cname)) +
 
 ![plot of chunk means](/assets/blog-images/2014-04-22-rwbclimate-sp/means.png)
 
-
 This gives us a sense about how the means of each value are related, but we can also look at the distribution of temperatures with boxplots.
-
-
 
 ```r
 ggplot(spDF, aes(as.factor(cname), temp)) +
@@ -208,5 +188,5 @@ ggplot(spDF, aes(as.factor(cname), temp)) +
 
 ![plot of chunk boxplots](/assets/blog-images/2014-04-22-rwbclimate-sp/boxplots.png)
 
-
 This gives a sense of how wide the temperature distributions are, as well as looking at some of the outliers.  The distributions look pretty skewed, and this probably reflects the large spatial granularity of our temperature data compared to the occurrence data.  However this example shows how you can easily combine data from multiple rOpenSci packages.  We will continue to work towards enhancing the interoperability of heterogeneous data streams via our tools.
+

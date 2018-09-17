@@ -27,6 +27,7 @@ a wishlist of scientific R packages - appropriately named ["wishlist"](https://g
 "meta" documentation together, but it's open and accepting ideas!
 
 ## How to contribute
+
 If you've got an idea for a package, but are looking for collaborators, [open an issue](https://github.com/ropensci/wishlist/issues)! Explain what the package does, what its necessary features are, and what the use cases are. What sort of help are you looking for - someone to write the entire thing? Someone to work on integrating a particularly thorny piece of C++? A statistics expert to check the
 implementation of an algorithm? Are there any C or C++ libraries we could integrate? Are there libraries in other, less-easily-integrated
 languages which we could use as a template for what the package should do?
@@ -37,6 +38,8 @@ repository somewhere, and have fun! Just make sure to note ''on'' the wiki that 
 for the sake of future readers :).
 
 ## What to contribute
+
 The only criteria for an idea's inclusion is that the package serve a clear scientific use (as an example:
 "wouldn't it be nice if we had an API client for this data repository?" qualifies. [rfoaas](http://cran.r-project.org/web/packages/rfoaas/index.html) probably wouldn't). A good heuristic would be: if you can explain how this package would benefit scientists or
 researchers in a way that's convincing to you, propose it!
+

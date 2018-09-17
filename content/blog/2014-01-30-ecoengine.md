@@ -18,10 +18,9 @@ Natural history museums have long been valuable repositories of data on species 
 
 The engine is a [fast and open API](http://ecoengine.berkeley.edu/) that provides access to over 3 million specimens and vegetation data from surveys. Many of these specimens have already been georeferenced opening up several use cases for such data. In addition, the engine also provides access to species checklists and sensor data from the Keck Hydrowatch project from the Eel river field station. Our newest package, `ecoengine`, provides an easy interface to these data.
 
-### Installing the package
+## Installing the package
 
 A stable version of the package (`1.1`) is now [available on CRAN](http://cran.r-project.org/web/packages/ecoengine/index.html). To install:
-
 
 ```r
 install.packages("ecoengine")
@@ -29,20 +28,16 @@ install.packages("ecoengine")
 options(stringsAsFactors = FALSE)
 ```
 
-
 You can also install a development version of the package that has additional features (more below), with several new updates that will appear on the next CRAN version (ETA mid-March). To install the development version:
-
 
 ```r
 library(devtools)
 install_github("ropensci/ecoengine")
 ```
 
-
 **Observation data**
 
 The workhorse function of the package is `ee_observations()` which provides a way to query any taxonomic field. Searches for any field are automatically fuzzy but one can request exact searches by adding `__exact` (note the two underscores) to any field being searched. So for example, if you are interested in data on the genus lynx, one can query those data like so:
-
 
 ```r
 library(ecoengine)
@@ -69,9 +64,7 @@ lynx_data
 ## [Number of results]: 25
 ```
 
-
 All ecoengine queries are returned as `S3` objects of class `ecoengine`. The object includes a total number of results available, the arguments used (so someone else can reconstruct the same query), the type of data returned (`photos`, `observations`, `checklists`, `sensor`), and the actual data itself. The results are paginated to prevent large requests from hanging part way. Each call returns 25 observations (can be overridden) and one can request more data by passing a page argument (e.g. `page = 1`). Pages can also be ranges, or "all" to request all available data for a query. The pagination method allows calls to be parallelized and reassembled easily, especially when requests may return tens of thousand of records. In this case there are only `795` records so we can request everything in one go.
-
 
 ```r
 library(ecoengine)
@@ -84,7 +77,7 @@ lynx_data <- ee_observations(genus = "lynx", progress = FALSE, page = "all")
 
 ```r
 # The progress bar is useful on the command line but tends to clutter up
-# documentation which is why it’s been turned off here. Messages can also be
+# documentation which is why it's been turned off here. Messages can also be
 # turned off with quiet = TRUE
 lynx_data
 ```
@@ -101,11 +94,9 @@ lynx_data
 ## [Number of results]: 795
 ```
 
-
-Other fields (all documented and available from `?ee_observations`) include kingdom, phylum, clss (intentionally misspelled to avoid conflict with a sql keyword), genus and scientific_name. Any of these fields can also be searched exactly by adding `__exact` at the end.
+Other fields (all documented and available from `?ee_observations`) include kingdom, phylum, clss (intentionally misspelled to avoid conflict with a sql keyword), genus and scientific\_name. Any of these fields can also be searched exactly by adding `__exact` at the end.
 
 We can request georeferenced data only for visualization purposes.
-
 
 ```r
 lynx_data <- ee_observations(genus = "lynx", progress = FALSE, page = "all",
@@ -116,9 +107,7 @@ lynx_data <- ee_observations(genus = "lynx", progress = FALSE, page = "all",
 ## Search contains 714 observations (downloading 29 of 29 pages)
 ```
 
-
-and it’s easy to examine these data as an interactive map using the `ee_map` function (the function is currently only available in the dev version).
-
+and it's easy to examine these data as an interactive map using the `ee_map` function (the function is currently only available in the dev version).
 
 ```r
 ee_map(lynx_data)
@@ -129,7 +118,6 @@ This generates an interactive Leaflet JS map and renders to your default browser
 ![Map of Lynx observations across North America](/assets/blog-images/2014-01-30-ecoengine/ecoengine_map.png)
 
 The search possibilities are endless and the data can be supplemented by many other sources in our site (e.g. taxize). Here are a few example queries.
-
 
 ```r
 pinus <- ee_observations(scientific_name = "Pinus")
@@ -148,12 +136,9 @@ chordata <- ee_observations(phylum = "chordata")
 aves <- ee_observations(clss = "aves")
 ```
 
-
-
 **Checklist data**
 
 The museum contains checklists of species spanning a long time scale. To query checklists, use `ee_checklists()`
-
 
 ```r
 all_lists <- ee_checklists()
@@ -184,9 +169,7 @@ head(all_lists[, c("footprint", "subject")])
 ## 6       Ants
 ```
 
-
 Currently there are 57 lists available. We can drill deeper into any list to get all the available data. We can also narrow our checklist search to groups of interest (see `unique(all_lists$subject)`). For example, to get the list of Spiders:
-
 
 ```r
 spiders <- ee_checklists(subject = "Spiders")
@@ -215,9 +198,7 @@ spiders
 ## 10 http://ecoengine.berkeley.edu/api/sources/18/ Spiders
 ```
 
-
 Now we can drill deep into each list. For this tutorial I'll just retrieve data from the the two lists returned above.
-
 
 ```r
 library(plyr)
@@ -287,12 +268,9 @@ unique(spider_details$scientific_name)
 ## [79] "hyptiotes gertschi"        "mexigonus morosus"
 ```
 
-
-
 **Photo data**
 
 The ecoengine also contains a large number of photos from various sources. It's easy to query the photo database using similar arguments as above. One can search by taxa, location, source, collection and much more. To get all pictures of the California condor from the database:
-
 
 ```r
 condor <- ee_photos(scientific_name = "Gymnogyps californianus", quiet = TRUE, progress = FALSE)
@@ -315,11 +293,9 @@ condor
 
 The package also provides functionality to quickly browse photos in the default browser. By calling `view_photos()` on any `ecoengine` object of type `photos`, R will render a static html page with thumbnails and metadata and launch a default browser with additional links.
 
-
 ```r
 view_photos(ee_photos(scientific_name = "Gymnogyps californianus", quiet = TRUE))
 ```
-
 
 ![Ecoengine photo viewer](/assets/blog-images/2014-01-30-ecoengine/ecoengine_photo_viewer.png)
 
@@ -327,11 +303,11 @@ view_photos(ee_photos(scientific_name = "Gymnogyps californianus", quiet = TRUE)
 
 Sensor data come from the [Keck HydroWatch Center](http://nrs.ucop.edu/research/special_projects/Keck_HydroWatchl.htm). Retrieving the data are simple. Three functions provides all the necessary functionality.
 
-* `ee_list_sensors()`  - provides a list of sensors and the data they provide.
-* `ee_sensor_data()` - retrieves data for any of these sensors (ids obtained by the previous function) and a date window.
-* `ee_sensor_agg` - provides aggregated data that can be requested in any interval (minutes, days, weeks, months, years).
+- `ee_list_sensors()`  - provides a list of sensors and the data they provide.
+- `ee_sensor_data()` - retrieves data for any of these sensors (ids obtained by the previous function) and a date window.
+- `ee_sensor_agg` - provides aggregated data that can be requested in any interval (minutes, days, weeks, months, years).
 
-### Searching the engine
+## Searching the engine
 
 The search is [elastic](http://www.elasticsearch.org/) by default. One can search for any field in `ee_observations()` across all available resources. For example,
 
@@ -343,9 +319,9 @@ lynx_results[, -3]
 # This gives you a breakdown of what's available allowing you dig deeper.
 ```
 
-
 **Upcoming features**
 
 In the next CRAN update we will add methods to retrieve all the vegetation data, the interactive maps, searching the data directly from the map (for example by drawing bounding boxes) and having a formatted query returned back to your R prompt for inclusion in a script.
 
 As with all of our packages we welcome contributions to the [GitHub repository](https://github.com/ropensci/ecoengine) as [issues](https://github.com/ropensci/ecoengine/issues?page=1&state=open) or [pull requests](https://github.com/ropensci/ecoengine/pulls).
+

@@ -20,27 +20,27 @@ What is the difference between SQL and NoSQL (key-value, document)? A diagram ma
 
 ![diagram](/assets/blog-images/2015-05-20-database-interfaces/databases_diagram.jpg)
 
-NoSQL is often interpreted as _Not only SQL_ - meaning a database that is called a NoSQL database may contain some notion of row-column storage, but other details diverge from traditional SQL databases. See [Wikipedia](http://en.wikipedia.org/wiki/NoSQL) for more information.
+NoSQL is often interpreted as *Not only SQL* - meaning a database that is called a NoSQL database may contain some notion of row-column storage, but other details diverge from traditional SQL databases. See [Wikipedia](http://en.wikipedia.org/wiki/NoSQL) for more information.
 
 If you aren't already using databases, why care about databases? We'll answer this through a number of use cases:
 
-* Use case 1: Let's say you are producing a lot of data in your lab - millions of rows of data. Storing all this data in `.xls` or `.csv` files would definitely get cumbersome. If the data is traditional row-column spreadsheet data, a SQL database is perfect, perhaps PostgreSQL. Putting your data in a database allows the data to scale up easily while maintaining speedy data access, many tables can be linked together if needed, and more. Of course if your data will always fit in memory of the machine you're working on, a database may be too much complexity.
-* Use case 2: You already have data in a database, whether SQL or NoSQL. Of course it makes sense to interface with the database from R instead of e.g., exporting files from the database, then into R.
-* Use case 3: A data provider gives dumps of data that you need for your research/work problem. You download the data and it's hundreds of `.csv` files. It sure would be nice to be able to efficiently search this data. Simple searches like _return all records with variable X < 10_ are ideal for a SQL database. If instead the files are blobs of XML, JSON, or something else non-tabular, a document database is ideal.
-* Use case 4: You need to perform more complicated searches than SQL can support. Some NoSQL databases have very powerful search engines, e.g., Elasticsearch.
-* Use case 5: Sometimes you just need to cache stuff. Caching is a good use case for key-value stores. Let's say you are requesting data from a database online, and you want to make a derivative data thing from the original data, but you don't want to lose the original data. Simply storing the original data on disk in files is easy and does the job. Sometimes though, you may need something more structured. Redis and etcd are two key-value stores we make clients for and can make caching easy. Another use for caching is to avoid repeating time-consuming queries or queries that may cost money.
-* Use case 6: Indexable serialization. Related to the previous discussion of caching, this is caching, but better. That is, instead of dumping an R object to a cache, then retrieving the entire object later, NoSQL DB's make it easy to serialize an R object, and retrieve only what you need. See Rich FitzJohn's  [storr](http://htmlpreview.github.io/?https://raw.githubusercontent.com/richfitz/storr/master/inst/doc/storr.html#lists-and-indexable-serialisation) for an example of this.
+- Use case 1: Let's say you are producing a lot of data in your lab - millions of rows of data. Storing all this data in `.xls` or `.csv` files would definitely get cumbersome. If the data is traditional row-column spreadsheet data, a SQL database is perfect, perhaps PostgreSQL. Putting your data in a database allows the data to scale up easily while maintaining speedy data access, many tables can be linked together if needed, and more. Of course if your data will always fit in memory of the machine you're working on, a database may be too much complexity.
+- Use case 2: You already have data in a database, whether SQL or NoSQL. Of course it makes sense to interface with the database from R instead of e.g., exporting files from the database, then into R.
+- Use case 3: A data provider gives dumps of data that you need for your research/work problem. You download the data and it's hundreds of `.csv` files. It sure would be nice to be able to efficiently search this data. Simple searches like *return all records with variable X \< 10* are ideal for a SQL database. If instead the files are blobs of XML, JSON, or something else non-tabular, a document database is ideal.
+- Use case 4: You need to perform more complicated searches than SQL can support. Some NoSQL databases have very powerful search engines, e.g., Elasticsearch.
+- Use case 5: Sometimes you just need to cache stuff. Caching is a good use case for key-value stores. Let's say you are requesting data from a database online, and you want to make a derivative data thing from the original data, but you don't want to lose the original data. Simply storing the original data on disk in files is easy and does the job. Sometimes though, you may need something more structured. Redis and etcd are two key-value stores we make clients for and can make caching easy. Another use for caching is to avoid repeating time-consuming queries or queries that may cost money.
+- Use case 6: Indexable serialization. Related to the previous discussion of caching, this is caching, but better. That is, instead of dumping an R object to a cache, then retrieving the entire object later, NoSQL DB's make it easy to serialize an R object, and retrieve only what you need. See Rich FitzJohn's  [storr](http://htmlpreview.github.io/?https://raw.githubusercontent.com/richfitz/storr/master/inst/doc/storr.html#lists-and-indexable-serialisation) for an example of this.
 
 rOpenSci has an increasing suite of database tools:
 
-* [elastic](https://github.com/ropensci/elastic) (document database) (on CRAN)
-* [sofa](https://github.com/ropensci/sofa) (document database)
-* [solr](https://github.com/ropensci/solr) (document database) (on CRAN)
-* [etseed](https://github.com/ropensci/etseed) (key-value store)
-* [rrlite](https://github.com/ropensci/rrlite) (key-value store)
-* [rerddap](https://github.com/ropensci/rerddap) (SQL database as a service, open source) (on CRAN)
-* [ckanr](https://github.com/ropensci/ckanr) (SQL database as a service, open source)
-* [nodbi](https://github.com/ropensci/nodbi) (DBI, but for NoSQL DB's)
+- [elastic](https://github.com/ropensci/elastic) (document database) (on CRAN)
+- [sofa](https://github.com/ropensci/sofa) (document database)
+- [solr](https://github.com/ropensci/solr) (document database) (on CRAN)
+- [etseed](https://github.com/ropensci/etseed) (key-value store)
+- [rrlite](https://github.com/ropensci/rrlite) (key-value store)
+- [rerddap](https://github.com/ropensci/rerddap) (SQL database as a service, open source) (on CRAN)
+- [ckanr](https://github.com/ropensci/ckanr) (SQL database as a service, open source)
+- [nodbi](https://github.com/ropensci/nodbi) (DBI, but for NoSQL DB's)
 
 Some of these packages (e.g., `rrlite`, `nodbi`) can be thought of as infrastructure, just like clients for PostgreSQL or SQLite, for which other R packages can be created - or that can be used to interface with a database. Other packages (e.g., `ckanr`) are more likely to be useful to end users for retrieving data for a project.
 
@@ -54,14 +54,13 @@ If you're wondering what database to use:
 
 SQL databases have many advantages - one important advantage is that SQL syntax is widely used, and there are probably clients in every concievable language for interacting with SQL databases. However, NoSQL can be a better fit in many cases, overriding this SQL syntax familiarity.
 
-There is another type of NoSQL database, the graph database, including [Neo4j][neo4j] and [Titan][titan]. We didn't talk much about them here, but they can be useful when you have naturally graph like data. A science project using a graph database is [Open Tree of Life][opentree]. There is an R client for Neo4J: [RNeo4j](https://github.com/nicolewhite/RNeo4j).
+There is another type of NoSQL database, the graph database, including [Neo4j](http://neo4j.com/) and [Titan](https://github.com/thinkaurelius/titan/). We didn't talk much about them here, but they can be useful when you have naturally graph like data. A science project using a graph database is [Open Tree of Life](http://opentreeoflife.github.io/). There is an R client for Neo4J: [RNeo4j](https://github.com/nicolewhite/RNeo4j).
 
 Let us know if you have any feedback on these packages, and/or if you think there's anything else we should be thinking about making in this space. Now on to some examples of rOpenSci packages.
 
 ## Get devtools
 
 We'll need `devtools` to install some of these packages, as not all are on CRAN. If you are on Windows, see [these notes](https://github.com/hadley/devtools#updating-to-the-latest-version-of-devtools).
-
 
 ```r
 install.packages("devtools")
@@ -71,11 +70,9 @@ install.packages("devtools")
 
 [elastic](https://github.com/ropensci/elastic) - Interact with Elasticsearch.
 
-
 ```r
 install.packages("elastic")
 ```
-
 
 ```r
 library("elastic")
@@ -87,7 +84,6 @@ library("elastic")
 
 In a quick example, here's going from a data.frame in R, putting data into `elastic`, then querying on that data.
 
-
 ```r
 library("ggplot2")
 invisible(connect())
@@ -96,14 +92,12 @@ res <- docs_bulk(diamonds, "diam")
 
 About 54K records in Elasticsearch for the dataset.
 
-
 ```r
 count("diam")
 #> [1] 53940
 ```
 
 We don't have time to go through hardly any of the diverse and powerful Elasticsearch query interface, so as an example, let's plot the price of diamonds in $300 buckets using the [Elasticsearch aggregations search API](http://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html)
-
 
 ```r
 aggs <- '{
@@ -132,11 +126,9 @@ We have a package in developmented called [elasticdsl](https://github.com/ropens
 
 [sofa](https://github.com/ropensci/sofa) - Interact with CouchDB.
 
-
 ```r
 devtools::install_github("ropensci/sofa")
 ```
-
 
 ```r
 library("sofa")
@@ -146,13 +138,11 @@ library("sofa")
 
 Connect to your running CouchDB instance:
 
-
 ```r
 ?cushion
 ```
 
 Create a database
-
 
 ```r
 db_create(dbname = 'sofadb')
@@ -160,13 +150,11 @@ db_create(dbname = 'sofadb')
 
 Create a document in that database
 
-
 ```r
 doc_create('{"name":"sofa","beer":"IPA"}', dbname = "sofadb", docid = "a_beer")
 ```
 
 Get the document
-
 
 ```r
 doc_get(dbname = "sofadb", docid = "a_beer")
@@ -180,11 +168,9 @@ There's a similar interface to inserting data within R directly into CouchDB, ju
 
 `solr` focuses on reading data from Solr engines. We are working on adding functionality for working with more Solr features, including writing documents. Adding support for writing to `solr` is a bit trickier than reading data, since writing data requires specifying a schema.
 
-
 ```r
 install.packages("solr")
 ```
-
 
 ```r
 library("solr")
@@ -193,7 +179,6 @@ library("solr")
 ### Example
 
 A quick example using a remote Solr server the Public Library of Science search engine.
-
 
 ```r
 solr_search(q = '*:*', fl = c('id', 'journal', 'publication_date'), base = 'http://api.plos.org/search', verbose = FALSE)
@@ -229,11 +214,9 @@ solr_search(q = '*:*', fl = c('id', 'journal', 'publication_date'), base = 'http
 
 This package is still in early days, and isn't exactly the fastest option in the bunch here - but upcoming changes (including allowing bulk writing and retrieval) in `etcd` should help.
 
-
 ```r
 devtools::install_github("ropensci/etseed")
 ```
-
 
 ```r
 library("etseed")
@@ -244,7 +227,6 @@ library("etseed")
 ### Example
 
 Save a value to a key
-
 
 ```r
 create(key = "/mykey", value = "this is awesome")
@@ -281,7 +263,6 @@ create(key = "/mykey", value = "this is awesome")
 
 Fetch the value given a key
 
-
 ```r
 key(key = "/mykey")
 #> $action
@@ -305,11 +286,9 @@ key(key = "/mykey")
 
 [rrlite](https://github.com/ropensci/rrlite) - An R client for the Redis C library [rlite](https://github.com/seppo0010/rlite)
 
-
 ```r
 devtools::install_github("ropensci/rrlite")
 ```
-
 
 ```r
 library("rrlite")
@@ -320,7 +299,6 @@ This package may be more interesting than other R Redis clients because there is
 ### Example
 
 Here, we initialize, then put 20 values into rlite, assigned to the key `foo`, then retrieve the values by the same key.
-
 
 ```r
 r <- RedisAPI::rdb(rrlite::hirlite)
@@ -340,11 +318,9 @@ This is a good candidate for using within other R packages for more sophisticate
 
 ERDDAP servers
 
-
 ```r
 install.packages("rerddap")
 ```
-
 
 ```r
 library("rerddap")
@@ -357,7 +333,6 @@ ERDDAP is a server built on top of [OPenDAP](http://www.opendap.org/). NOAA serv
 ### Example
 
 In this example, we search for gridded datasets
-
 
 ```r
 ed_search(query = 'size', which = "grid")
@@ -373,7 +348,6 @@ ed_search(query = 'size', which = "grid")
 
 Get more information on a single dataset of interest
 
-
 ```r
 info('noaa_esrl_027d_0fb5_5d38')
 #> <ERDDAP info> noaa_esrl_027d_0fb5_5d38
@@ -388,7 +362,6 @@ info('noaa_esrl_027d_0fb5_5d38')
 ```
 
 Then fetch the dataset
-
 
 ```r
 griddap('noaa_esrl_027d_0fb5_5d38',
@@ -421,13 +394,11 @@ More information on ERDDAP: [http://upwell.pfeg.noaa.gov/erddap/information.html
 
 [ckanr](https://github.com/ropensci/ckanr) - A general purpose R client for any CKAN server.
 
-[CKAN](http://ckan.org/) is similar to ERDDAP in being an open source system to store and provide data via web services (and web interface, but we don't need that here). CKAN bills itself as an _open-source data portal platform_.
-
+[CKAN](http://ckan.org/) is similar to ERDDAP in being an open source system to store and provide data via web services (and web interface, but we don't need that here). CKAN bills itself as an *open-source data portal platform*.
 
 ```r
 devtools::install_github("ropensci/ckanr")
 ```
-
 
 ```r
 library("ckanr")
@@ -438,7 +409,6 @@ library("ckanr")
 > Examples use the CKAN server at [http://data.techno-science.ca](http://data.techno-science.ca)
 
 Show changes in a CKAN server
-
 
 ```r
 changes(limit = 10, as = "table")[, 1:2]
@@ -456,7 +426,6 @@ changes(limit = 10, as = "table")[, 1:2]
 ```
 
 Search for data packages
-
 
 ```r
 package_search(q = '*:*', rows = 2, as = "table")$results[, 1:7]
@@ -476,19 +445,17 @@ More information on CKAN: [http://docs.ckan.org/en/latest/contents.html](http://
 
 `nodbi` has five backends at the moment:
 
-* Redis
-* etcd
-* MongoDB
-* CouchDB
-* Elasticsearch
+- Redis
+- etcd
+- MongoDB
+- CouchDB
+- Elasticsearch
 
 `nodbi` is in early development, so expect changes - but that also means it's a good time to give your input. What use cases you can think of for this package?  What database do you think should be added as a backend?
-
 
 ```r
 devtools::install_github("ropensci/nodbi")
 ```
-
 
 ```r
 library("nodbi")
@@ -502,7 +469,6 @@ We'll use MongoDB to store some data, then pull it back out. First, start up you
 mongod
 ```
 
-
 ```r
 (src <- src_mongo())
 #> MongoDB 3.0.2 (uptime: 230s)
@@ -510,7 +476,6 @@ mongod
 ```
 
 Insert data
-
 
 ```r
 library("ggplot2")
@@ -521,7 +486,6 @@ docdb_create(src, key = "diam", value = diamonds)
 ```
 
 Pull data back out
-
 
 ```r
 res <- docdb_get(src, "diam")
@@ -537,14 +501,8 @@ head(res)
 
 Data is identical:
 
-
 ```r
 identical(diamonds, res)
 #> [1] TRUE
 ```
 
-
-[dcsql]: https://github.com/datacarpentry/R-ecology/blob/gh-pages/06-r-and-sql.Rmd
-[neo4j]: http://neo4j.com/
-[titan]: https://github.com/thinkaurelius/titan/
-[opentree]: http://opentreeoflife.github.io/
