@@ -2,23 +2,7 @@ var calendar = {
   'title': 'rOpenSci Public Calendar',
   'link': 'https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles',
   'description': 'the rOpenSci public events calendar',
-  'eventList': [ 
-    {
-      'title': '<a href="http://r-medicine.com/">R/Medicine</a>',
-      'dateStart': 'Sep7',
-      'dateEnd': '8, 2018',
-      'description': 'Talk: The Life of a Reproducible Project in R',
-      'location': 'New Haven, CT',
-      'attendees': 'Jennifer Thompson (representing rOpenSci)'
-    },
-    {
-      'title': '<a href="http://animove.org/animove-2019-evening-keynotes/">AniMove</a>',
-      'dateStart': 'Sep 11, 2018',
-      'dateEnd': '',
-      'description': 'Keynote: <a href="https://ropensci.org/tags/birder/">The birder’s guide to rOpenSci</a>',
-      'location': 'Radolfzell, GE',
-      'attendees': 'Maëlle Salmon'
-    },
+  'eventList': [
     {
       'title': '<a href="https://www.aanmelder.nl/uros2018#.WyFyd1MvyEI">Use of R in Official Statistics (uRos2018)</a>',
       'dateStart': 'Sep 12',
@@ -26,6 +10,14 @@ var calendar = {
       'description': 'Keynote',
       'location': 'The Hague, NL',
       'attendees': 'Jeroen Ooms'
+    },
+    {
+      'title': '<a href="https://openconswiss.github.io/schedule/">OpenCon Switzerland</a>',
+      'dateStart': 'Sep 21',
+      'dateEnd': '22, 2018',
+      'description': 'Sharing code with rOpenSci',
+      'location': 'Bern, CH',
+      'attendees': 'Julia Gustavsen'
     },
     {
       'title': '<a href="https://numfocus.org/forum2018">NumFOCUS Project Forum 2018</a>',
@@ -42,6 +34,14 @@ var calendar = {
       'description': 'Talk',
       'location': 'Seoul, KR',
       'attendees': 'Nick Tierney (representing rOpenSci)'
+    },
+    {
+      'title': '<a href="http://ozunconf18.ropensci.org/">rOpenSci OzUnconf 2018</a>',
+      'dateStart': 'Nov 22',
+      'dateEnd': '23, 2018',
+      'description': 'satellite unconference',
+      'location': 'Melbourne, AU',
+      'attendees': 'Nick Tierney (organizer)'
     },
     {
       'title': '<a href="http://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx">rstudio::conf</a>',
