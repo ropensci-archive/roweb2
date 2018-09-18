@@ -7,6 +7,7 @@ authors:
     url: https://github.com/gfinak
 date: '2018-09-18'
 categories: blog
+topicid: 1355
 tags:
   - rstats
   - reproducibility
@@ -15,6 +16,7 @@ tags:
   - datasharing
   - software
   - onboarding
+  - review
   - package
   - bioinformatics
 ---
