@@ -65,4 +65,4 @@ rssLimit = 20
     simple = true
   [privacy.youtube]
     disable = false
-privacyEnhanced = true
+    privacyEnhanced = true
