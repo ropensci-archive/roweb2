@@ -19,23 +19,17 @@ You can quickly get a lot of results back using `rplos`, so perhaps it is useful
 
 ## Installation
 
-
 ```r
 install.packages("devtools")
 library(devtools)
 install_github("rplos", "ropensci")
 ```
 
-
-
-
 ```r
 library(rplos)
 ```
 
-
 ## Search PLOS articles
-
 
 ```r
 out <- highplos(q = "alcohol", hl.fl = "abstract", hl.snippets = 5, rows = 10)
@@ -51,16 +45,13 @@ out[[1]]
 ## [5] " from five regulatory domains—physical availability of <em>alcohol</em>, drinking context, <em>alcohol</em> prices"
 ```
 
-
 ## Preview results in your browser
 
 The new function `highbrow` (*snickers quietly*) automagically creates an easy to digest html page, and opens in your default browser.
 
-
 ```r
 highbrow(out)
 ```
-
 
 Here's a screenshot similar to what you should see after the last command
 
@@ -68,6 +59,8 @@ Here's a screenshot similar to what you should see after the last command
 
 `highbrow` uses the `whisker` package to fill in a template for a bootstrap html page to make a somewhat pleasing interface to look at your data. In addition, the DOIs are wrapped in a `<a>` tag with a [http://dx.doi.org/](http://doi.org/) prefix so that you can go directly to the paper if you are so inclined. Also note that the `<em>` tags (italicized) are replaced with `<strong>` tags (bold) to make the search term pop out from the screen more.
 
----------------
+***
 
 Let us know what you think.
+
+

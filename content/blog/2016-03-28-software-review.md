@@ -26,7 +26,7 @@ peer review, often have little exposure to code review due to lack of training a
 historically little incentive to share the source code from their research. So
 scientific code, from one-off scripts to reusable R packages, is rarely subject
 to review. Most R packages are subject only to the automated checks required by
-  CRAN, which primarily ensure that packages can be installed on multiple systems.
+CRAN, which primarily ensure that packages can be installed on multiple systems.
 As such, The burden is on software users to discern well-written and efficient
 packages from poorly written ones.
 
@@ -55,7 +55,7 @@ an issue](https://github.com/ropensci/onboarding/issues/new). Reviewers post
 reviews as comments on that issue. This means the entire process is open and
 public from the start. Reviewers and authors are known to each other and free
 to communicate directly in the issue thread. GitHub-based reviews have some
-other nice features: reviewers can publicly consult others by **\@tagging**
+other nice features: reviewers can publicly consult others by **@tagging**
 if outside expertise is wanted. Reviewers can also contribute to the package
 directly via a pull request when this is more efficient than describing the
 changes they suggest.
@@ -65,7 +65,7 @@ This system deliberately combines elements of traditional academic peer review
 goal was to keep reviews *non-adversarial* - to focus on improving software
 quality rather than judging the package or authors. We think the openness
 of the process has something to do with this, as reviews are public and this
-incentivizes reviewers to do good work and abide by our [code of conduct]
+incentivizes reviewers to do good work and abide by our \[code of conduct\]
 (https://github.com/ropensci/policies#code-of-conduct). We also do not
 explicitly reject packages, except for turning some away prior review when they
 are out-of-scope. We do this because submitted packages are already public and
@@ -95,7 +95,7 @@ choice quotes:
 > "I don't really see myself writing another serious package without having it go through code review."
 
 > "I learnt that code review is the best thing that can ever happen to your
-package!"
+> package!"
 
 Authors appreciated that their reviews were thorough, that they were able to
 converse with (nice) reviewers, and that they picked up best practices from
@@ -155,40 +155,41 @@ deadline for package authors to respond.
 We asked both reviewers and reviewees to tell us what they learned. While there
 was a lot of variety in the responses, one common thread was learning and
 appreciating best practices: continuous integration, documentation,
-"the right way to do [X]", were the common responses.[^RefC]
+"the right way to do \[X\]", were the common responses.\[^RefC\]
 
 Importantly, a number of reviewers and reviewees commented that they *learned
 the value of review* through this process.
 
-[^RefC]: Also, "RefClasses are the devil", said one reviewer.  Interpret that as you may.
+\[^RefC\]: Also, "RefClasses are the devil", said one reviewer.  Interpret that as you may.
 
 ## Questions and ideas for the future
 
 - *Scaling and reviewer incentives.* Like academic paper review or contributing
-to free open-source projects, our package review is a volunteer activity.
-How do we build an experienced reviewer base, maintain enthusiasm, and
-avoid overburdening our reviewers? We will need to expand our reviewer pool in
-order to spread the load. As such, we are moving to a system
-of multiple "handling editors" to assign and keep up with reviews. Hopefully we
-will be able to bring in more reviewers through their networks.
+  to free open-source projects, our package review is a volunteer activity.
+  How do we build an experienced reviewer base, maintain enthusiasm, and
+  avoid overburdening our reviewers? We will need to expand our reviewer pool in
+  order to spread the load. As such, we are moving to a system
+  of multiple "handling editors" to assign and keep up with reviews. Hopefully we
+  will be able to bring in more reviewers through their networks.
 
 - *Author incentives.* Our small pool of early adopters indicated that they
-valued the review process itself, but will this be enough incentive to draw more
-package authors to do the extra work it takes? An area to explore is finding
-ways to help package authors gain greater visibility and credit for their work
-after their packages pass review. This could take the form of "badges", such
-as those being developed by [The Center for Open Science](https://osf.io/tvyxz/wiki/home/)
-and [Mozilla Science Lab](https://www.mozillascience.org/projects/contributorship-badges), or providing an easier route to publishing software papers.
+  valued the review process itself, but will this be enough incentive to draw more
+  package authors to do the extra work it takes? An area to explore is finding
+  ways to help package authors gain greater visibility and credit for their work
+  after their packages pass review. This could take the form of "badges", such
+  as those being developed by [The Center for Open Science](https://osf.io/tvyxz/wiki/home/)
+  and [Mozilla Science Lab](https://www.mozillascience.org/projects/contributorship-badges), or providing an easier route to publishing software papers.
 
 - *Automation.* How can we automate more parts of the review process so as to
-get more value out of reviewer and reviewees time? One suggestion has been to submit packages
-[*as* pull requests](https://discuss.ropensci.org/t/how- could-the-onboarding-package-review-process-be-even-better/302/3) to take more advantage of GitHub
-review features such as in-line commenting. This may allow us to move the burden
-of setting up continuous integration and testing away from the authors and onto
-our own pipeline, and allow us to add rOpenSci-specific tests. We've also started using [automated reminders](https://github.com/ropenscilabs/heythere) to keep up with reviewers, which reduces the
-burden on our editors to keep up with everyone.
+  get more value out of reviewer and reviewees time? One suggestion has been to submit packages
+  \[*as* pull requests\](https://discuss.ropensci.org/t/how- could-the-onboarding-package-review-process-be-even-better/302/3) to take more advantage of GitHub
+  review features such as in-line commenting. This may allow us to move the burden
+  of setting up continuous integration and testing away from the authors and onto
+  our own pipeline, and allow us to add rOpenSci-specific tests. We've also started using [automated reminders](https://github.com/ropenscilabs/heythere) to keep up with reviewers, which reduces the
+  burden on our editors to keep up with everyone.
 
 We have learned a ton from this experiment and look forward to making review
 better! Many, many thanks to the authors who have contributed to the rOpenSci
 package ecosystem and the reviewers who have lent their time to this project.
+
 

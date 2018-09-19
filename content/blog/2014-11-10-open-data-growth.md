@@ -11,8 +11,6 @@ tags:
 - data
 ---
 
-
-
 ## Why open data growth
 
 At rOpenSci we try to make it easier for people to use open data and contribute open data to the community. The question often arises: How much open data do we have? Another angle on this topic is: How much is open data growing?
@@ -21,15 +19,9 @@ We provide access to dozens of data respositories through our various packages. 
 
 We collated data from the different sources, and made some pretty graphs using the data. Here's what we learned (see last section on how to reproduce this analysis):
 
-
 ## Size of open data
 
 Of the data sources we have data for, how much data is there? The expression of size of data is somewhat different for different sources, so the below is a bit heterogeous, but nonetheless coveys that there is a lot of open data.
-
-
-
-
-
 
 ```r
 rbind(df1, df2) %>%
@@ -165,22 +157,16 @@ rbind(df1, df2) %>%
 
 ## Growth in open data
 
-First, we have to convert all the date-like fields to proper date classes. The work is not shown - look at [the code][thecode] if you want the details.
-
-
-
-
-
+First, we have to convert all the date-like fields to proper date classes. The work is not shown - look at [the code](https://github.com/ropensci/dbgrowth) if you want the details.
 
 ## Run down of each data source
 
 ### Dryad
 
-* Website: http://datadryad.org/
-* R package: `rdryad`
+- Website: http://datadryad.org/
+- R package: `rdryad`
 
 Dryad is a repository of datasets associated with published papers. We do have an R package on CRAN (`rdryad`), but it is waiting on an update for the new API services being built by the Dryad folks. We did recently add in access to their Solr endpoint - [check it out](https://github.com/ropensci/rdryad/blob/master/R/dryad_solr.r#L8-L41).
-
 
 ```r
 dryad %>% sort_count %>% gp
@@ -190,11 +176,10 @@ dryad %>% sort_count %>% gp
 
 ### OpenSNP
 
-* Website: https://opensnp.org/
-* R package: `rsnps`
+- Website: https://opensnp.org/
+- R package: `rsnps`
 
 OpenSNP is a collator of SNP datasets that individuals donate to the site/database. They're an awesome group, and they even won the PLOS/Mendeley code contest a few years back.
-
 
 ```r
 opensnp_genotypes <- opensnp_genotypes %>% mutate(type = "genotyptes") %>% sort_count
@@ -213,11 +198,10 @@ os_all %>%
 
 ### Datacite
 
-* Website: https://www.datacite.org/
-* R package: `rdatacite`
+- Website: https://www.datacite.org/
+- R package: `rdatacite`
 
 DataCite mints DOIs for datasets, and holds metadata for those datasets provided by data publishers. They have
-
 
 ```r
 dcite %>% sort_count %>% gp
@@ -227,11 +211,10 @@ dcite %>% sort_count %>% gp
 
 ### US National Phenology Network (USNPN or NPN)
 
-* Website: https://www.usanpn.org/
-* R package: `rnpn`
+- Website: https://www.usanpn.org/
+- R package: `rnpn`
 
 The US National Phenology Network is a project under the USGS. They collect phenology observations across both plants and animals.
-
 
 ```r
 npn %>% arrange(date) %>% mutate(count = cumsum(Number_Records)) %>% gp
@@ -241,11 +224,10 @@ npn %>% arrange(date) %>% mutate(count = cumsum(Number_Records)) %>% gp
 
 ### TreeBASE
 
-* Website: http://treebase.org/
-* R package: `treebase`
+- Website: http://treebase.org/
+- R package: `treebase`
 
-TreeBASE is a database of phylogenetic trees, had a total of 1515 new trees added in 2013, and has been growing at a good pace. Note that these aren't numbers of total phylogenetic trees, but _new trees added each year_ - we couldn't get our hands on total number of trees by year. The current number of total trees as of 2015-03-10 is 12,817.
-
+TreeBASE is a database of phylogenetic trees, had a total of 1515 new trees added in 2013, and has been growing at a good pace. Note that these aren't numbers of total phylogenetic trees, but *new trees added each year* - we couldn't get our hands on total number of trees by year. The current number of total trees as of 2015-03-10 is 12,817.
 
 ```r
 treebase %>% arrange(date) %>% rename(count = New.Trees.Added) %>% gp
@@ -255,11 +237,10 @@ treebase %>% arrange(date) %>% rename(count = New.Trees.Added) %>% gp
 
 ### Integrated Taxonomic Information Service (ITIS)
 
-* Website: http://www.itis.gov/
-* R package: `taxize`
+- Website: http://www.itis.gov/
+- R package: `taxize`
 
 The ITIS database is under the USGS, and holds taxonomic names for mostly North American species. This dataset is interesting, because data goes back to 1977, when they had 16000 names. As of Aug 2013 they had 624282 names.
-
 
 ```r
 itis %>% arrange(date) %>% rename(count = total_names) %>% gp
@@ -269,11 +250,10 @@ itis %>% arrange(date) %>% rename(count = total_names) %>% gp
 
 ### eBird
 
-* Website: http://www.catalogueoflife.org/
-* R package: `taxize`
+- Website: http://www.catalogueoflife.org/
+- R package: `taxize`
 
 eBird is a database of bird occurence records. They don't give access to all the data they have, but some recent data. Data growth goes up and down through time because we don't have access to all data on each data request, but the overall trend is increasing.
-
 
 ```r
 ebird_observations %>% arrange(date) %>% mutate(count = cumsum(COUNT.OBS_ID.)) %>% gp
@@ -283,13 +263,12 @@ ebird_observations %>% arrange(date) %>% mutate(count = cumsum(COUNT.OBS_ID.)) %
 
 ### Catalogue of Life (COL)
 
-* Website: https://www.datacite.org/
-* R package: `rdatacite`
+- Website: https://www.datacite.org/
+- R package: `rdatacite`
 
 COL is a database of taxonomic names, similar to ITIS, uBio, or Tropicos. The number of species (1352112) has continually increased (the slight level off is because we got data in Oct last year before the year was over), but number of data sources (1352112) was still growing as of 2013.
 
-__Number of species__
-
+**Number of species**
 
 ```r
 col %>% arrange(date) %>% rename(count = species) %>% gp
@@ -297,8 +276,7 @@ col %>% arrange(date) %>% rename(count = species) %>% gp
 
 ![plot of chunk unnamed-chunk-14](/assets/blog-images/2014-11-10-open-data-growth/unnamed-chunk-14-1.png)
 
-__Number of data sources__
-
+**Number of data sources**
 
 ```r
 col %>% arrange(date) %>% rename(count = source_databases) %>% gp
@@ -308,11 +286,10 @@ col %>% arrange(date) %>% rename(count = source_databases) %>% gp
 
 ### Public Library of Science (PLOS)
 
-* Website: http://www.plos.org/
-* R package: `rplos`, `fulltext`
+- Website: http://www.plos.org/
+- R package: `rplos`, `fulltext`
 
 PLOS has had tremendous growth, with a very steep hockey stick growth curve. This year (2014) is left out because the year is not over yet.
-
 
 ```r
 plos_years %>%
@@ -326,11 +303,10 @@ plos_years %>%
 
 ### Biodiversity Heritage Library (BHL)
 
-* Website: http://www.biodiversitylibrary.org/
-* R package: `rbhl`
+- Website: http://www.biodiversitylibrary.org/
+- R package: `rbhl`
 
 BHL has grown tremendously, with 155891133 names, 43650663 pages, 139003 items, and 77169 titles.
-
 
 ```r
 bhl_titles <- bhl_titles %>% mutate(type = "titles") %>% arrange(date) %>% mutate(count = cumsum(Titles))
@@ -349,13 +325,12 @@ bhl_all %>%
 
 ### Global Biodiversity Information Facility (GBIF)
 
-* Website: http://www.gbif.org/
-* R package: `rgbif`, `spocc`
+- Website: http://www.gbif.org/
+- R package: `rgbif`, `spocc`
 
 GBIF is the largest warehouse of biodiversity occurrence records, pulling in data from 578, and 420 million occurrence records as of Oct. 2013. Growth through time has been dramatic.
 
-__Number of records__
-
+**Number of records**
 
 ```r
 gbif_data %>%
@@ -366,8 +341,7 @@ gbif_data %>%
 
 ![plot of chunk unnamed-chunk-18](/assets/blog-images/2014-11-10-open-data-growth/unnamed-chunk-18-1.png)
 
-__Number of data publishers__
-
+**Number of data publishers**
 
 ```r
 gbif_publishers %>%
@@ -380,11 +354,10 @@ gbif_publishers %>%
 
 ### Neotoma
 
-* Website: http://www.neotomadb.org/
-* R package: `neotoma`
+- Website: http://www.neotomadb.org/
+- R package: `neotoma`
 
 The Neotoma database holds paleoecology records of various kinds, including pollen and fossil records. The R package `neotoma` allows access to data from Neotoma.  Data and datasets have grown rather dramatically, while number of taxa has flattened off recently.
-
 
 ```r
 rbind(neotoma_data %>% mutate(type = "data") %>% arrange(date),
@@ -402,10 +375,9 @@ Okay, so a lot of data isn't that meaningful in itself. But, this is open data t
 
 ## Reproduce this analysis
 
-* Option 1: If you are comfortable with git, simply clone the [dbgrowth repository][thecode] to your machine, uncompress the compressed file, `cd` to the directory, and run `R`. Running R should enter _packrat mode_, which will install packages from within the directory, after which point you can reproduce what we have done above.
-* Option 2: Install the `packrat` R package if you don't have it already. Download [this compressed file][bundle] (a _packrat bundle_), then in R, run `packrat::unbundle("<path to tar.gz>", "<path to put the contents>")`, which will uncompress the file, and install packages, and you're ready to go.
+- Option 1: If you are comfortable with git, simply clone the [dbgrowth repository](https://github.com/ropensci/dbgrowth) to your machine, uncompress the compressed file, `cd` to the directory, and run `R`. Running R should enter *packrat mode*, which will install packages from within the directory, after which point you can reproduce what we have done above.
+- Option 2: Install the `packrat` R package if you don't have it already. Download [this compressed file](https://www.dropbox.com/s/226onvf8zw06r0f/dbgrowth-2014-11-10.tar.gz?dl=0) (a *packrat bundle*), then in R, run `packrat::unbundle("<path to tar.gz>", "<path to put the contents>")`, which will uncompress the file, and install packages, and you're ready to go.
 
 Once you have the files, you should be able to run `knitr::knit("dbgrowth.Rmd")` to reproduce this post.
 
-[thecode]: https://github.com/ropensci/dbgrowth
-[bundle]: https://www.dropbox.com/s/226onvf8zw06r0f/dbgrowth-2014-11-10.tar.gz?dl=0
+

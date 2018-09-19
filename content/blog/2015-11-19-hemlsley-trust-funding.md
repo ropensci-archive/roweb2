@@ -15,8 +15,8 @@ tools that allow researchers to access, visualize, document, and publish
 open data on the Web, is pleased to announce that it has been awarded a
 grant of nearly $2.9 million over three years from [The Leona M. and
 Harry B. Helmsley Charitable Trust](http://helmsleytrust.org/). The
-grant, which was awarded through the Trust’s [Biomedical Research
-Infrastructure Program](http://helmsleytrust.org/programs/health-biomedical-research-infrastructure), will be used to expand rOpenSci’s mission of developing tools and community around open data and reproducible research practices.
+grant, which was awarded through the Trust's [Biomedical Research
+Infrastructure Program](http://helmsleytrust.org/programs/health-biomedical-research-infrastructure), will be used to expand rOpenSci's mission of developing tools and community around open data and reproducible research practices.
 
 rOpenSci is a project at the University of California, Berkeley that
 began a little over three years ago as a small collaboration among a few
@@ -40,7 +40,7 @@ Funding from the Helmsley Charitable Trust will allow the rOpenSci team to devel
 To scale up efforts in all of these areas, rOpenSci will be expanding
 its team over the coming months. New job postings, including those for a
 community manager, software engineer, and postdoctoral fellow, among
-various other short-term positions, will be posted on rOpenSci’s
+various other short-term positions, will be posted on rOpenSci's
 website. Over the coming months, the rOpenSci team will also announce
 details of a new fellowship program.
 
@@ -51,9 +51,9 @@ We also offer a special thanks to [Ethan White](http://weecology.org),
 Wilson](http://third-bit.com) for the feedback, advice, and
 encouragement they provided as we developed this proposal.
 
-
 **The rOpenSci project** *is a project based at UC* [Berkeley's
-Institute for Data Science](http://bids.berkeley.edu/) *and Berkeley Initiative for Global Change Biology with previous funding from the Alfred P. Sloan Foundation. Founded in 2011, the project develops tools to support key parts of the data life cycle, from lowering barriers to access to validation and permanent archiving. A key part of rOpenSci’s mission is also to train the next generation of researchers as both consumers of data and developers of scientific software.*
+Institute for Data Science](http://bids.berkeley.edu/) *and Berkeley Initiative for Global Change Biology with previous funding from the Alfred P. Sloan Foundation. Founded in 2011, the project develops tools to support key parts of the data life cycle, from lowering barriers to access to validation and permanent archiving. A key part of rOpenSci's mission is also to train the next generation of researchers as both consumers of data and developers of scientific software.*
 
-**The Leona M. and Harry B. Helmsley Charitable Trust** *aspires to improve lives by supporting effective nonprofits in health, place-based initiatives, and education and human services. Since 2008, when the Trust began its active grantmaking, it has committed more than $1.5 billion for a wide range of charitable purposes. The Trust’s Biomedical Research Infrastructure Program seeks to lower barriers for biomedical discovery through the development of research tools, training and collaborative platforms that improve the quality and reproducibility of preclinical research. For more information, visit [helmsleytrust.org](http://helmsleytrust.org).*
+**The Leona M. and Harry B. Helmsley Charitable Trust** *aspires to improve lives by supporting effective nonprofits in health, place-based initiatives, and education and human services. Since 2008, when the Trust began its active grantmaking, it has committed more than $1.5 billion for a wide range of charitable purposes. The Trust's Biomedical Research Infrastructure Program seeks to lower barriers for biomedical discovery through the development of research tools, training and collaborative platforms that improve the quality and reproducibility of preclinical research. For more information, visit [helmsleytrust.org](http://helmsleytrust.org).*
+
 

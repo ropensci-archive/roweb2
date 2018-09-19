@@ -26,5 +26,6 @@ The rOpenSci team will provide you with as much training material as you need (i
 - Free schwag. Currently only stickers but hopefully more.
 - Satisfaction that you're playing an important role in supporting open science.
 
+If you're excited about organizing such an event, please [get in touch with us](http://ropensci.org/contact.html) or spread the word to your colleagues.
 
- If you're excited about organizing such an event, please [get in touch with us](http://ropensci.org/contact.html) or spread the word to your colleagues.
+

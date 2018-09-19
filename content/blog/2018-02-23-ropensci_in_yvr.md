@@ -11,11 +11,13 @@ tags:
 - meetings
 
 ---
-[rOpenSci](https://ropensci.org/) is holding our annual [staff and leadership](https://ropensci.org/about/#team) meeting in Vancouver, so we’re taking the opportunity to share what we do and, if you’re interested, how you can get involved. Join us for a series of 7 short talks and demos followed by informal networking over snacks & refreshments.
+
+[rOpenSci](https://ropensci.org/) is holding our annual [staff and leadership](https://ropensci.org/about/#team) meeting in Vancouver, so we're taking the opportunity to share what we do and, if you're interested, how you can get involved. Join us for a series of 7 short talks and demos followed by informal networking over snacks \& refreshments.
 
 rOpenSci is a non-profit initiative that promotes open and reproducible research using shared data and reusable software. We are creating technical infrastructure in the form of carefully vetted, staff- and community-contributed R software tools that lower barriers to working with scientific data sources on the web, and building a welcoming and diverse global community of R users and developers from a range of research domains.
 
-### What
+## What
+
 - **Introduction to [rOpenSci](https://ropensci.org/)**
   - Karthik Ram: [Web](http://inundata.org/), [GitHub](https://github.com/karthik), [Twitter](https://Twitter.com/_inundata)
 - **Leveraging scholarly text and metadata**
@@ -30,14 +32,17 @@ rOpenSci is a non-profit initiative that promotes open and reproducible research
   - Carl Boettiger: [Web](http://www.carlboettiger.info/), [GitHub](https://github.com/cboettig), [Twitter](https://Twitter.com/cboettig)
 - **Connect with your rOpenSci and local [communities](https://ropensci.org/community/)**
   - Stefanie Butland: [Twitter](https://Twitter.com/StefanieButland)
-- **Q & A**
+- **Q \& A**
 - **Casual networking**, chat with the rOpenSci team, and meet your local community
 
-### When
+## When
 
-Monday, March 12, 2018. Talks, demos, Q&A, 5:30-7:30. Networking & snacks till 9pm
+Monday, March 12, 2018. Talks, demos, Q\&A, 5:30-7:30. Networking \& snacks till 9pm
 
-### Where
+## Where
+
 Ground floor lecture theatre, BC Cancer Research Centre, 675 West 10th Avenue.
 
 <div><a href="https://goo.gl/maps/DV8BNvxT8Ay"><img src="/img/blog-images/2018-02-23-ropensci-in-yvr/map_ropensci_yvr.png" width="600"/></a></div>
+
+

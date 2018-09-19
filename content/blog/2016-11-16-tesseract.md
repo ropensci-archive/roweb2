@@ -21,7 +21,6 @@ People looking to extract text and metadata from pdf files in R should try our [
 
 The package links to the libtesseract C++ library and works out of the box on Windows and Mac without installing any third party software.
 
-
 ```r
 install.packages("tesseract")
 ```
@@ -70,7 +69,6 @@ Besides training data, the most important aspect of OCR performance is the quali
 
 [![dogs](http://jeroen.github.io/files/dog_hq.png)](http://jeroen.github.io/files/dog_hq.png)
 
-
 To put this to the test, we made two screenshots from the Wikipedia page above. The high quality image in the code below has approximately double the resolution of the low quality image. In addition the font rendering seems slightly better for the high quality image.
 
 ```r
@@ -90,4 +88,5 @@ Running this example in R shows that the accuracy of text extraction from the fi
 The current version of the 'tesseract' package is stable and essentially feature complete. We may release an update in the future to include additional utitlities for downloading and managing training data. These updates may also include some integration with the rOpenSci's [magick](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) package to help with preprocessing images.
 
 All of our development at rOpenSci is driven by user feedback. If you find a problem or have suggestions for improvement, we would love to hear about it on our [Github page](https://github.com/ropensci/tesseract/issues)!
+
 

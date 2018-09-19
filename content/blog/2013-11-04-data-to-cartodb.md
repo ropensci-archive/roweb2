@@ -20,10 +20,9 @@ A different approach is to use [CartoDB](http://cartodb.com/), [a freemium servi
 
 We'll first get some data from GBIF, ~500 occurrences of *Puma concolor* in the US, then push that data to a CartoDB table. There are a couple more non-programmatic steps in this workflow than with pushing geojson file to Github as outlined in the previous linked above (i.e., going to the CartoDB site and making a visualization, and making it public).
 
-***************
+***
 
 ## Install packages
-
 
 ```r
 install.packages("devtools")
@@ -32,22 +31,18 @@ install_github("rgbif", "ropensci", ref = "newapi")
 install_github("cartodb-r", "Vizzuality", subdir = "CartoDB")
 ```
 
-
 ## Load em
-
 
 ```r
 library(rgbif)
 library(CartoDB)
 ```
 
-
-***************
+***
 
 ## Get some data from GBIF
 
 Here, we'll get data for Puma concolor, the *hello, world* for biodiversity data.
-
 
 ```r
 key <- gbif_lookup(name = "Puma concolor", kingdom = "animals")$speciesKey
@@ -77,31 +72,26 @@ str(data)
 ##  $ latitude : num  32.7 32.9 33 33.6 33 ...
 ```
 
-
 Great, we have some data. Now let's make a map.
 
-***************
+***
 
 ## Push data up to CartoDB
 
 I frist crated a table in my CartoDB account named `pumamap`. Then, I need to initialize the connection with CartoDB with my account name and API key. Note that I am pulling up my key from my .Rprofile file on my machine for ease and so it's not revealed to you :)
-
 
 ```r
 key = getOption("mycartodbkey")
 cartodb("recology", api.key = key)
 ```
 
-
 Now we need to push data to our `pumamap` table using the function `cartodb.row.insert`. It accepts one row of data, so we'll pass each row of data with an `lapply` call.
-
 
 ```r
 rows <- apply(data, 1, as.list)
 lapply(rows, function(x) cartodb.row.insert(name = "pumamap", columns = list("name",
     "longitude", "latitude"), values = x))
 ```
-
 
 After the upload is finished, I had to make sure the table was georeferenced, and played with settings to suit my style. And then I made a visualization from the `pumamap` dataset and made it public. And that's it!  You can find the map <a href="http://cdb.io/1fbvgCG">here</a>, and it can be embedded:
 
@@ -112,7 +102,6 @@ After the upload is finished, I had to make sure the table was georeferenced, an
 <br><br>
 
 And we can examine a row from the table in our CartoDB account with a single line of code
-
 
 ```r
 cartodb.row.get(name = "pumamap", cartodb_id = 10)
@@ -128,3 +117,5 @@ cartodb.row.get(name = "pumamap", cartodb_id = 10)
 ##   latitude longitude
 ## 1     32.7    -108.9
 ```
+
+

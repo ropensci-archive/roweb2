@@ -20,3 +20,5 @@ The week after labor day, we had the pleasure of attending the [NCEAS open scien
 5. [datapackage](https://github.com/ropensci/datapackage) - An R package to create and read data packages (similar to [OKFN's data packages](http://data.okfn.org/doc/data-package))
 
 One great thing about this event was mixing more experienced programmers with less experienced ones. In addition to making software, there was a fair amount of training going on. For example, a few people were interested in how to make an R package, so we went through the whole process with [pangear](https://github.com/ropensci/pangaear), and now we have [5 awesome contributors on the package](https://github.com/ropensci/pangaear/graphs/contributors). Overall we had a great time, were able to begin some new projects, and contribute to some important existing ones. We hope to continue to build out what we started at codefest and integrate it into our existing tool set and workflows.
+
+

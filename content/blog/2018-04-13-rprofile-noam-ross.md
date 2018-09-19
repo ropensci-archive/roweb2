@@ -18,19 +18,19 @@ tags:
 <img src="/img/blog-images/2018-04-13-rprofile-noam-ross/noam-ross.jpg" alt="Noam Ross" style="margin: 0px 20px; width: 250px;" align="left">
 _Dr. Noam Ross [@noamross on Twitter] is a disease ecologist at [EcoHealth Alliance](https://www.ecohealthalliance.org/) in NYC, as well as an editor for rOpenSci. Topics of discussion included Noam's history with R and rOpenSci, working in a team-driven research environment, and inspirations for pushing research processes and rOpenSci projects in exciting new directions._
 
----
+***
 
 KO: What is your name, job title, and how long have you been using R?
 
 NR: I'm Noam Ross, I'm a Senior Research Scientist at [EcoHealth Alliance](https://www.ecohealthalliance.org/), a non-profit that works at the intersection of conservation and health. I've done work in R for about 8 years, which is essentially from the start of graduate school (five years) and three years of work.
 
-KO: Did you love it [R] immediately?
+KO: Did you love it \[R\] immediately?
 
 NR: No! And I'm mixed on whether I love it now. Ultimately it's using R in the service of the work that I do that I love. It was very frustrating learning R at first. Even eight years ago, the tooling was much much rougher to work with, and R was the first programming language that I used to any significant extent. It took a long time before I was able to express my ideas through code and accomplish the things I do as opposed to fighting with it all the time.
 
 KO: How did you get started with rOpenSci?
 
-NR: [Carl Boettiger](https://twitter.com/cboettig) [one of the rOpenSci co-founders] was my lab mate and he was in his third or fourth year in grad school when I started. He was my example of how to be a grad student. I didn't realize until later that Carl was, as someone once put it, "someone who had drunk all of the kool-aid" in terms of R and also reproducible research, and thus not a typical example! But he was a very good role model and he provided a lot of guidance for my work, and introduced me into the open-source science ecosystem and community. I guess my first real interaction [with rOpenSci] was when he asked me to review an R package. That's when I started really being involved.
+NR: [Carl Boettiger](https://twitter.com/cboettig) \[one of the rOpenSci co-founders\] was my lab mate and he was in his third or fourth year in grad school when I started. He was my example of how to be a grad student. I didn't realize until later that Carl was, as someone once put it, "someone who had drunk all of the kool-aid" in terms of R and also reproducible research, and thus not a typical example! But he was a very good role model and he provided a lot of guidance for my work, and introduced me into the open-source science ecosystem and community. I guess my first real interaction \[with rOpenSci\] was when he asked me to review an R package. That's when I started really being involved.
 
 KO: Do you have a favorite rOpenSci project you've worked on?
 
@@ -38,7 +38,7 @@ NR: My favorite thing is the onboarding process and peer-review. Most of what I 
 
 KO: What would that look like?
 
-NR: We [rOpenSci] have a limited scope. There are areas of expertise that we, and our network of reviewers have, so we focus on those to have coherent offering and ensure quality. But we don't cover a lot of other areas, such as statistical methods. If someone has a package that implements a new statistical method, we don't review it because our pool of reviewers aren't primarily statisticians. We would love to have a group in a statistical sub-field or other computational sub-fields adopt our process. rOpenSci could support them in setting up a reviewer network and with some of our experience and tooling for managing the process.
+NR: We \[rOpenSci\] have a limited scope. There are areas of expertise that we, and our network of reviewers have, so we focus on those to have coherent offering and ensure quality. But we don't cover a lot of other areas, such as statistical methods. If someone has a package that implements a new statistical method, we don't review it because our pool of reviewers aren't primarily statisticians. We would love to have a group in a statistical sub-field or other computational sub-fields adopt our process. rOpenSci could support them in setting up a reviewer network and with some of our experience and tooling for managing the process.
 
 KO: Do you have any groups you're currently targeting?
 
@@ -46,7 +46,7 @@ NR: We've started what we're calling a "Special Interest Group" focused on natur
 
 KO: How long have you been out of grad school now?
 
-NR: Not that long! 18 months? 20 months? Something like that? [Ed: It has now been 32 months. How time flies!]
+NR: Not that long! 18 months? 20 months? Something like that? \[Ed: It has now been 32 months. How time flies!\]
 
 KO: Oh wow, congratulations! And now that you're out, has your work changed? Do you go to an office, are you working from home?
 
@@ -81,4 +81,6 @@ NR: I really like the 'review' tool in GitHub. It's not quite what we use in rOp
 
 <br>
 
-_This interview occurred at the 2017 rOpenSci unconference. Special thanks to [Noam Ross](https://twitter.com/noamross) for participating in the project!_
+*This interview occurred at the 2017 rOpenSci unconference. Special thanks to [Noam Ross](https://twitter.com/noamross) for participating in the project!*
+
+

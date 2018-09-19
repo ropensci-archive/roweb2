@@ -18,16 +18,13 @@ What's even more awesome is some OA publishers provide API (application programm
 
 What if you want to find similar papers based on their text content?  This can be done using the PLOS search API, with help from the `tm` R package. These are basic examples just to demonstrate that you can quickly go from a search of PLOS data to a visualization or analysis.
 
-### Install rplos and other packages from CRAN
-
+## Install rplos and other packages from CRAN
 
 ```r
 install.packages(c("rplos", "tm", "wordcloud", "RColorBrewer", "proxy", "plyr"))
 ```
 
-
-### Get some text
-
+## Get some text
 
 ```r
 library(rplos)
@@ -37,9 +34,7 @@ out$idshort <- sapply(out$id, function(x) strsplit(x, "\\.")[[1]][length(strspli
     "\\.")[[1]])], USE.NAMES = FALSE)
 ```
 
-
 The result is a list of length `limit` defined in the previous call.
-
 
 ```r
 nrow(out)
@@ -49,12 +44,9 @@ nrow(out)
 [1] 20
 ```
 
-
-
-### Word dictionaries.
+## Word dictionaries.
 
 Next, we'll use the tm package to create word dictionaries for each paper.
-
 
 ```r
 library(tm)
@@ -87,9 +79,7 @@ ggplot(dissmatdf, aes(one, two)) + geom_tile(aes(fill = value), colour = "white"
 
 ![plot of chunk tmit](/assets/blog-images/2013-10-22-oaweek-rplos-2/tmit.png)
 
-
 Picking two with low values (=high similarity), dois 10.1371/journal.pone.0000184 and 10.1371/journal.pone.0004148, here's some of the most common terms used (some overlap).
-
 
 ```r
 library(plyr)
@@ -106,11 +96,9 @@ ggplot(dfboth, aes(x = terms, y = vals)) + geom_histogram(stat = "identity") +
 
 ![plot of chunk words](/assets/blog-images/2013-10-22-oaweek-rplos-2/words.png)
 
-
-### Determine similarity among papers
+## Determine similarity among papers
 
 Using a wordcloud
-
 
 ```r
 library(wordcloud)
@@ -128,3 +116,5 @@ wordcloud(d$word, d$freq, scale = c(3, 0.1), min.freq = 2, max.words = 250,
 ```
 
 ![plot of chunk wordcloud](/assets/blog-images/2013-10-22-oaweek-rplos-2/wordcloud.png)
+
+

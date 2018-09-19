@@ -26,7 +26,7 @@ This year's [rOpenSci ozunconf](https://ozunconf17.ropensci.org/) was held in Me
 
 I've been to a few unconfs now and I treasure the time I get to spend with new people, new ideas, new backgrounds, new approaches, and new insights. That's not to take away from the time I get to spend with people I met at previous unconfs; I've gained great friendships and started collaborations on side projects with these wonderful people.
 
-When the call for nominations came around this year it was an easy decision. I don't have employer support to attend these things so I take time off work and pay my own way. This is my networking time, my development time, and my skill-building time. I wasn't sure what sort of project I'd be interested in but I had no doubts something would come up that sounded interesting. 
+When the call for nominations came around this year it was an easy decision. I don't have employer support to attend these things so I take time off work and pay my own way. This is my networking time, my development time, and my skill-building time. I wasn't sure what sort of project I'd be interested in but I had no doubts something would come up that sounded interesting.
 
 As it happened, I had been playing around with a bit of code, purely out of interest and hoping to learn how [`htmlwidgets`](https://www.htmlwidgets.org/) work. The idea I had was to make a classic graphic equaliser visualisation like this
 
@@ -70,13 +70,13 @@ Others formalised the code so that it can be piped into different 'themes', and 
 
 These were still toy examples of course, but they highlight what's possible. They were each constructed using an offshoot of the `p5` package whereby the `javascript` is re-written to include various features each time the plot is generated.
 
-Another route we took is to use the direct `javascript` binding API with factory functions. This had less flexibility in terms of adding modular components, but meant that the `javascript` could be modified without worrying about how it needed to interact with `p5` so much. This resulted in some outstanding features such as side-scrolling and date-time stamps. We also managed to pipe the data off to another thread for additional processing (in R) before being sent to the plot. 
+Another route we took is to use the direct `javascript` binding API with factory functions. This had less flexibility in terms of adding modular components, but meant that the `javascript` could be modified without worrying about how it needed to interact with `p5` so much. This resulted in some outstanding features such as side-scrolling and date-time stamps. We also managed to pipe the data off to another thread for additional processing (in R) before being sent to the plot.
 
 The example we ended up with reads the live-feed of Twitter posts under a given hashtag, computes a sentiment analysis on the words with R, and live-plots the result:
 
 ![](/img/blog-images/2017-11-14-realtime/auspol.gif)
 
-Overall I was amazed at the progress we made over just two days. Starting from a silly idea/demo, we built a package which can plot realtime data, and can even serve up some data to be plotted. I have no expectations that this will be the way of the future, but it's been a fantastic learning experience for me (and hopefully others too). It's highlighted that there's ways to achieve realtime plots, even if we've used a library built for drawing rather than one built for plotting per se. 
+Overall I was amazed at the progress we made over just two days. Starting from a silly idea/demo, we built a package which can plot realtime data, and can even serve up some data to be plotted. I have no expectations that this will be the way of the future, but it's been a fantastic learning experience for me (and hopefully others too). It's highlighted that there's ways to achieve realtime plots, even if we've used a library built for drawing rather than one built for plotting per se.
 
 It's even inspired offshoots in the form of some R packages;  [`tRainspotting`](https://github.com/ropenscilabs/tRainspotting) which shows realtime data on New South Wales public transport using `leaflet` as the canvas
 
@@ -93,3 +93,5 @@ The possibilities are truly astounding. My list of 'things to learn' has grown s
 I had a great time at the unconf, and I can't wait until the next one. My hand will be going up to help out, attend, and help start something new.
 
 My thanks and congratulations go out to each of the [`realtime`](https://github.com/ropenscilabs/realtime) developers: [Richard Beare](https://github.com/richardbeare), [Jonathan Carroll](https://github.com/jonocarroll), [Kim Fitter](https://github.com/kimnewzealand), [Charles Gray](https://github.com/softloud), [Jeffrey O Hanson](https://github.com/jeffreyhanson), [Yan Holtz](https://github.com/holtzy), [Jackson Kwok](https://github.com/kcf-jackson), [Miles McBain](https://github.com/MilesMcBain) and the entire cohort of [2017 rOpenSci ozunconf attendees](https://ozunconf17.ropensci.org). In particular, my thanks go to the organisers of such a wonderful event; [Nick Tierney](https://github.com/njtierney), [Rob Hyndman](https://github.com/robjhyndman), [Di Cook](https://github.com/dicook), and [Miles McBain](https://github.com/MilesMcBain).
+
+

@@ -16,9 +16,9 @@ We recently had a paper come out in [a special issue](http://www.niso.org/public
 
 To get data from the *article-level metrics* providers we used one R package we created to get DOIs for PLOS articles ([rplos](https://github.com/ropensci/rplos)) and three R packages we created to get metrics: [alm](https://github.com/ropensci/alm), [rImpactStory](https://github.com/ropensci/rimpactstory), and [rAltmetric](https://github.com/ropensci/rAltmetric). Here, we will show how we produced visualizations in the paper. The code here is basically that used in the paper - but modified to make it useable by you hopefully.
 
-Note that this entire workflow is in a Github gist [here][gist]. In addition, you will need to sign up for API keys for [ImpactStory](http://impactstory.org/api-docs) and [Altmetric](http://api.altmetric.com/index.html#keys).
+Note that this entire workflow is in a Github gist [here](https://gist.github.com/sckott/6136591). In addition, you will need to sign up for API keys for [ImpactStory](http://impactstory.org/api-docs) and [Altmetric](http://api.altmetric.com/index.html#keys).
 
-### First, let's get some data
+## First, let's get some data
 
 Install these packages if you don't have them. Most packages are on CRAN, but install the following packages from Github: `rplos`, `alm`, `rImpactStory`, and `rAltmetric` by running `install_github("PACKAGE_NAME", "ropensci")`.
 
@@ -37,12 +37,12 @@ library(lubridate)
 <br>
 Define a function `parse_is` to parse ImpactStory results
 
-*See [this gist][gist] for the function*
+*See [this gist](https://gist.github.com/sckott/6136591) for the function*
 
 <br>
 Define a function `compare_altmet_prov` to collect altmetrics from three providers
 
-*See [this gist][gist] for the function*
+*See [this gist](https://gist.github.com/sckott/6136591) for the function*
 
 <br>
 Safe version in case of errors
@@ -67,10 +67,10 @@ dat <- ldply(dat)
 ```
 
 <br><br>
-### Plot differences
+
+## Plot differences
 
 Great, we have data! Next, let's make a plot of the difference between max and min value across the three providers for 7 article-level metrics.
-
 
 ```r
 alldat <- sort_df(dat, "doi")
@@ -109,9 +109,10 @@ ggplot(dat_split_df_melt, aes(x = log10(value), fill = variable)) +
 ![center](/assets/blog-images/2013-08-01-altmetrics/dataconst_plot1.png)
 
 <br><br>
-### Different collection dates?
-Okay, so there are some inconsistencies in data from different providers. Perhaps the same metric (e.g., tweets) were collected on different days for each provider? Let's take a look. We first define a function to get the difference in days between a vector of values, then apply that function over the data for each metric. We then reshape the data a bit using the `reshape2` package, and make the plot.
 
+## Different collection dates?
+
+Okay, so there are some inconsistencies in data from different providers. Perhaps the same metric (e.g., tweets) were collected on different days for each provider? Let's take a look. We first define a function to get the difference in days between a vector of values, then apply that function over the data for each metric. We then reshape the data a bit using the `reshape2` package, and make the plot.
 
 ```r
 datediff <- function(x) {
@@ -142,9 +143,10 @@ ggplot(dat_split_df_melt, aes(x = datediff, y = log10(value + 1), colour = varia
 ![center](/assets/blog-images/2013-08-01-altmetrics/dataconst_plot2.png)
 
 <br><br>
-### Diggin' in
-Let's dig in to indivdual articles. Here, we reshape some data, selecting just 20 DOIs (i.e., papers), and plot the values of each metric for each DOI, coloring points by provider. Note that points are slightly offset horizontally to make them easier to see.
 
+## Diggin' in
+
+Let's dig in to indivdual articles. Here, we reshape some data, selecting just 20 DOIs (i.e., papers), and plot the values of each metric for each DOI, coloring points by provider. Note that points are slightly offset horizontally to make them easier to see.
 
 ```r
 alldat_m <- melt(dat_split_df[1:60,], id.vars=c(1,2,11))
@@ -167,4 +169,4 @@ ggplot(na.omit(alldat_m[,-3]), aes(x=doi, y=value, colour=provider)) +
 
 ![center](/assets/blog-images/2013-08-01-altmetrics/dataconst2.png)
 
-[gist]: https://gist.github.com/sckott/6136591
+

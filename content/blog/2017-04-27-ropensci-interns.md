@@ -17,14 +17,14 @@ There's a lot of work that goes in to making software: the code that does the th
 ## The interns
 
 - Katie Rice:
-    - Is a third-year undergraduate student doing a major in Environmental Sciences and a minor in Sustainable Design
-    - [Katie on GitHub](https://github.com/katieroserice)
+  - Is a third-year undergraduate student doing a major in Environmental Sciences and a minor in Sustainable Design
+  - [Katie on GitHub](https://github.com/katieroserice)
 - Diana Ly:
-    - Is a third-year undergraduate student doing a major in Mathematics.
-	- [Diana on GitHub](https://github.com/diana-ly)
+  - Is a third-year undergraduate student doing a major in Mathematics.
+  - [Diana on GitHub](https://github.com/diana-ly)
 - Siwei (Steven) Ye:
-    - Is a second-year undergraduate student doing a double major in Mathematics and Statistics
-    - [Steven on GitHub](https://github.com/steven2249)
+  - Is a second-year undergraduate student doing a double major in Mathematics and Statistics
+  - [Steven on GitHub](https://github.com/steven2249)
 
 ## What they're working on
 
@@ -39,7 +39,6 @@ Most software maintainers do a good job with how to install and how to give feed
 This is where Katie comes in! She's been going through [rOpenSci repositories](https://github.com/ropensci) on GitHub, improving the high level description of the software and then sending pull requests with changes to the README's.
 
 Check out Katie's [GitHub activity for rOpenSci related work](https://github.com/search?p=1&q=is%3Apr+involves%3Akatieroserice+user%3Aropensci&type=Issues)
-
 
 ### Diana
 
@@ -72,3 +71,5 @@ Check out Steven's [GitHub activity for rOpenSci related work](https://github.co
 ## Want to be an rOpenSci intern?
 
 We'll be looking for new interns from time to time. Contact us at [info@ropensci.org](mailto:info@ropensci.org) with any questions.
+
+

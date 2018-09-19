@@ -13,9 +13,7 @@ tags:
 - spatial
 ---
 
-
-
-Geospatial data input/output, manipulation, and vizualization are tasks that are common to many disciplines. Thus, we're keenly interested in making great tools in this space. We have an increasing set of spatial tools, each of which we'll cover sparingly. See the __cran__ and __github__ badges for more information.
+Geospatial data input/output, manipulation, and vizualization are tasks that are common to many disciplines. Thus, we're keenly interested in making great tools in this space. We have an increasing set of spatial tools, each of which we'll cover sparingly. See the **cran** and **github** badges for more information.
 
 We are not trying to replace the current R geospatial libraries - rather, we're trying to fill in gaps and create smaller tools to make it easy to plug in just the tools you need to your workflow.
 
@@ -26,7 +24,6 @@ We are not trying to replace the current R geospatial libraries - rather, we're 
 [geojsonio](https://github.com/ropensci/geojsonio) - A tool for converting to and from geojson data. Convert data to/from GeoJSON from various R classes, including vectors, lists, data frames, shape files, and spatial classes.
 
 e.g.
-
 
 ```r
 library("geojsonio")
@@ -54,7 +51,6 @@ geojson_json(c(-99.74, 32.45), pretty = TRUE)
 
 e.g.
 
-
 ```r
 library("wellknown")
 point(data.frame(lon = -116.4, lat = 45.2))
@@ -69,7 +65,6 @@ point(data.frame(lon = -116.4, lat = 45.2))
 
 e.g. using `geojsonio` from above
 
-
 ```r
 library("gistr")
 cat(geojson_json(us_cities[1:100,], lat = 'lat', lon = 'long'), file = "map.geojson")
@@ -82,16 +77,15 @@ gist_create("map.geojson")
 
 <a href="https://cran.rstudio.com/web/packages/lawn/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/lawn"><span class="label label-info">github</span></a>
 
-An R client for [turf.js](http://turfjs.org/), an _Advanced geospatial analysis for browsers and node_
+An R client for [turf.js](http://turfjs.org/), an *Advanced geospatial analysis for browsers and node*
 
 `lawn` has a function for every method in `turf.js`. In addition, there's:
 
-* a few functions wrapping the
-Node package `geojson-random` [https://github.com/mapbox/geojson-random](https://github.com/mapbox/geojson-random) for making random geojson features
-* a helper function `view()` to easily visualize results from calls to `lawn` functions
+- a few functions wrapping the
+  Node package `geojson-random` [https://github.com/mapbox/geojson-random](https://github.com/mapbox/geojson-random) for making random geojson features
+- a helper function `view()` to easily visualize results from calls to `lawn` functions
 
 e.g.
-
 
 ```r
 library("lawn")
@@ -108,7 +102,6 @@ An R client for splitting geospatial objects into pieces.
 
 e.g.
 
-
 ```r
 library("geoaxe")
 library("rgeos")
@@ -122,14 +115,11 @@ plot(poly, lwd = 6, mar = c(0, 0, 0, 0))
 
 Add chopped up polygon bits
 
-
 ```r
 plot(polys, add = TRUE, mar = c(0, 0, 0, 0))
 ```
 
 ![plot of chunk unnamed-chunk-7](/assets/blog-images/2016-03-17-ropensci-geospatial-stack/unnamed-chunk-7-1.png)
-
-
 
 ## proj
 
@@ -144,7 +134,6 @@ An R client for [proj4js](https://github.com/proj4js/proj4js), a Javascript libr
 An R client to fetch Landsat data from AWS public data sets. `getlandsat` is not on CRAN yet.
 
 e.g.
-
 
 ```r
 library("getlandsat")
@@ -178,7 +167,6 @@ head(lsat_scenes())
 
 Slice and dice GeoJSON just as easily as you would a data.frame. This is built on top of `jqr`, an R wrapper for [jq](https://stedolan.github.io/jq/), a JSON processor.
 
-
 ```r
 library("siftgeojson")
 # get sample data
@@ -209,7 +197,6 @@ rOpenSci has an offering in this space: `plotly`
 
 [plotly](https://github.com/ropensci/plotly) is an R client for [Plotly](https://plot.ly/) - a web interface and API for creating interactive graphics.
 
-
 ```r
 library("plotly")
 plot_ly(iris, x = Petal.Length, y = Petal.Width,
@@ -223,3 +210,5 @@ plot_ly(iris, x = Petal.Length, y = Petal.Width,
 <a href="https://github.com/ropensci/maptools"><span class="label label-info">github</span></a>
 
 [Jeff Hollister](http://jwhollister.com/) is leading the [maptools task view](https://github.com/ropensci/maptools) to organize R mapping tools packages, sources of data, projections, static and interactive mapping, data transformation, and more.
+
+

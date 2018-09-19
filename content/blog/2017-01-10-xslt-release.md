@@ -21,9 +21,7 @@ XML schemas and stylesheets are not exactly new; both [xslt 1.1](https://www.w3.
 
 XML schema, also referred to as XSD (XML Schema Definition) is standard for defining the fields and formats that are supposed to appear within an XML document. This provides a formal method for validating XML messages. The schema itself is also written in XML (there is even an [xsd schema](https://www.w3.org/2001/XMLSchema.xsd) for validating xml schemas).
 
-This [example](https://msdn.microsoft.com/en-us/library/ms256129(v=vs.110).aspx) from msdn illustrates the idea using a schema for a hypothetical purchase order. Imagine a vendor has an XML api for retailers to automatically order products. The order can be quite complex but the schema formally describes what constitutes a valid XML order message. It contains fields like this:
-
-
+This [example](https://msdn.microsoft.com/en-us/library/ms256129\(v=vs.110\).aspx) from msdn illustrates the idea using a schema for a hypothetical purchase order. Imagine a vendor has an XML api for retailers to automatically order products. The order can be quite complex but the schema formally describes what constitutes a valid XML order message. It contains fields like this:
 
 ```xml
  <xs:complexType name="PurchaseOrderType">
@@ -35,10 +33,9 @@ This [example](https://msdn.microsoft.com/en-us/library/ms256129(v=vs.110).aspx)
   </xs:sequence>
   <xs:attribute name="orderDate" type="xs:date"/>
  </xs:complexType>
- ```
+```
 
 Both the client and server can easily validate an XML order against this schema to ensure that all required fields are present and contain the correct format. A copy of this example is included with the `xml2` package:
-
 
 ```r
 # Example order
@@ -95,7 +92,7 @@ This example is explained in more detail on [w3schools](http://www.w3schools.com
 
 ## Why Use XSLT?
 
-As the name implies, XSLT is designed to apply styling so that we can separate data of a document from its presentation markup. Take this [example](https://msdn.microsoft.com/nl-nl/library/ms765388(v=vs.85).aspx) of an XSLT document from the msdn homepage:
+As the name implies, XSLT is designed to apply styling so that we can separate data of a document from its presentation markup. Take this [example](https://msdn.microsoft.com/nl-nl/library/ms765388\(v=vs.85\).aspx) of an XSLT document from the msdn homepage:
 
 ```xml
 <?xml version="1.0"?>
@@ -146,3 +143,5 @@ We get the following output:
 When XSLT was introduced in [1999](https://www.w3.org/TR/xslt), it was expected that xml would replace html. Computer scientists envisioned that dynamic content of websites would be served via semantically structured xmls feeds (such as RSS), and presentation markup (i.e. a nice html page) could be added on the client by applying a fixed transformation.
 
 Unfortunately that's now how it went. It turned out that xslt was overly complex and never really found wide adoption. Instead people started writing dynamic HTML pages using PHP, which was slow and insecure, but considerably easier to learn. And that brings us back to R :)
+
+
