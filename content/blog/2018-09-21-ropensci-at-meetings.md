@@ -5,11 +5,11 @@ date: '2018-09-21'
 authors:
   - name: Stefanie Butland
 categories: blog
-topicid:
+topicid: 1365
 tags:
   - rOpenSci
   - community
-  - meetings
+  - meeting
   - R
 ---
 
