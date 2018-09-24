@@ -4,22 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="https://www.aanmelder.nl/uros2018#.WyFyd1MvyEI">Use of R in Official Statistics (uRos2018)</a>',
-      'dateStart': 'Sep 12',
-      'dateEnd': '14, 2018',
-      'description': 'Keynote',
-      'location': 'The Hague, NL',
-      'attendees': 'Jeroen Ooms'
-    },
-    {
-      'title': '<a href="https://openconswiss.github.io/schedule/">OpenCon Switzerland</a>',
-      'dateStart': 'Sep 21',
-      'dateEnd': '22, 2018',
-      'description': 'Sharing code with rOpenSci',
-      'location': 'Bern, CH',
-      'attendees': 'Julia Gustavsen'
-    },
-    {
       'title': '<a href="https://numfocus.org/forum2018">NumFOCUS Project Forum 2018</a>',
       'dateStart': 'Sep 24',
       'dateEnd': '25, 2018',
