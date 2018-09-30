@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="https://numfocus.org/forum2018">NumFOCUS Project Forum 2018</a>',
-      'dateStart': 'Sep 24',
-      'dateEnd': '25, 2018',
-      'description': 'NumFOCUS Project Forum for Core Developers and Critical Users',
-      'location': 'New York, NY',
-      'attendees': 'Karthik Ram'
-    },
-    {
       'title': '<a href="http://communitycalls.ropensci.org/">rOpenSci Community Call</a>',
       'dateStart': 'Oct 16, 2018',
       'dateEnd': '',
