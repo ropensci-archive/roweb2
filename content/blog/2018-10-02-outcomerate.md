@@ -45,7 +45,7 @@ Sounds straightforward. But for a long time, it was [common to find disparate de
 
 The package calculates standard outcome rates in R in order to encourage transparent research, open methods, and scientific comparability. It does so using the [_American Association of Public Opinion Research_](https://www.aapor.org)'s (AAPOR) [definitions](https://www.aapor.org/Standards-Ethics/Standard-Definitions-(1).aspx) of the rates,  which are the industry standard. By collecting them in one package, it saves you the time of repetitively looking up each rate and calculating them separately.
 
-As a contrived example, let's assume we draw a sample of 10 people. Five individuals provide a complete interview (`I`), one provides a partial interview (`P`), one refuses to participate (`R`), and two are unreachable but known to be eligible (`NC`). Our 10th case is also unreachable but we don't know if he/she is illegible to begin with (`UH`).
+As a contrived example, let's assume we draw a sample of 10 people. Five individuals provide a complete interview (`I`), one provides a partial interview (`P`), one refuses to participate (`R`), and two are unreachable but known to be eligible (`NC`). Our 10th case is also unreachable but we don't know if they is illegible to begin with (`UH`).
 
 ``` r
 library(outcomerate)
@@ -55,9 +55,9 @@ outcomerate(x)
 #>   RR1   RR2   RR5   RR6 COOP1 COOP2 COOP3 COOP4  REF1  REF3  CON1  CON3  LOC1
 #>  0.50  0.60  0.56  0.67  0.71  0.86  0.71  0.86  0.10  0.11  0.70  0.78  0.90
 ```
-By default, the function returns only the rates that are defined based on the input. Here, we see that the example case achieved a __Response Rate 2__ of 60%, and a __Cooperation Rate 1__ of 71%. Other rates, such as __Response Rate 3__, are not returned as they only become available if you specify additional parameters (see `?outcomerate` for details).
+By default, the function returns only the rates that are defined based on the input. Here, we see that the example case achieved a __Response Rate 2 (RR2)__ of 60%, and a __Cooperation Rate 1 (COOP1)__ of 71%. Other rates, such as __Response Rate 3 (RR3)__, are not returned as they only become available if you specify additional parameters (see `?outcomerate` for details).
 
-The same output can be obtained by specifying the input as a vector of cases. This format may be more natural if you have a dataframe of interviews, or a stream of daily data from coming from a server:
+The same output can be obtained by specifying the input as a vector of cases. This format may be more natural if you have a dataframe of interviews, or a stream of daily data coming from a server:
 
 ``` r
 y <- c("I", "I", "I", "I", "I", "P", "R", "NC", "NC", "UH")
