@@ -45,7 +45,7 @@ Sounds straightforward. But for a long time, it was [common to find disparate de
 
 The package calculates standard outcome rates in R in order to encourage transparent research, open methods, and scientific comparability. It does so using the [_American Association of Public Opinion Research_](https://www.aapor.org)'s (AAPOR) [definitions](https://www.aapor.org/Standards-Ethics/Standard-Definitions-(1).aspx) of the rates,  which are the industry standard. By collecting them in one package, it saves you the time of repetitively looking up each rate and calculating them separately.
 
-As a contrived example, let's assume we draw a sample of 10 people. Five individuals provide a complete interview (`I`), one provides a partial interview (`P`), one refuses to participate (`R`), and two are unreachable but known to be eligible (`NC`). Our 10th case is also unreachable but we don't know if they is illegible to begin with (`UH`).
+As a contrived example, let's assume we draw a sample of 10 people. Five individuals provide a complete interview (`I`), one provides a partial interview (`P`), one refuses to participate (`R`), and two are unreachable but known to be eligible (`NC`). Our 10th case is also unreachable but we don't know if they are illegible to begin with (`UH`).
 
 ``` r
 library(outcomerate)
@@ -55,7 +55,7 @@ outcomerate(x)
 #>   RR1   RR2   RR5   RR6 COOP1 COOP2 COOP3 COOP4  REF1  REF3  CON1  CON3  LOC1
 #>  0.50  0.60  0.56  0.67  0.71  0.86  0.71  0.86  0.10  0.11  0.70  0.78  0.90
 ```
-By default, the function returns only the rates that are defined based on the input. Here, we see that the example case achieved a __Response Rate 2 (RR2)__ of 60%, and a __Cooperation Rate 1 (COOP1)__ of 71%. Other rates, such as __Response Rate 3 (RR3)__, are not returned as they only become available if you specify additional parameters (see `?outcomerate` for details).
+By default, the function returns only the rates that are defined based on the input. Here, we see that the example case achieved a __Response Rate 2 (RR2)__ of 60%, and a __Cooperation Rate 1 (COOP1)__ of 71%. Other rates, such as __Response Rate 3 (RR3)__, are not returned as they only become available if you specify additional parameters (see [`?outcomerate`](https://ropensci.github.io/outcomerate/reference/outcomerate.html) for details).
 
 The same output can be obtained by specifying the input as a vector of cases. This format may be more natural if you have a dataframe of interviews, or a stream of daily data coming from a server:
 
@@ -67,7 +67,7 @@ outcomerate(y)
 #>  0.50  0.60  0.56  0.67  0.71  0.86  0.71  0.86  0.10  0.11  0.70  0.78  0.90
 ```
 
-[`outcomerate`](https://github.com/ropensci/outcomerate) replicates some of the functionality that AAPOR already makes available in their [Excel-based calculator](https://www.aapor.org/Education-Resources/For-Researchers/Poll-Survey-FAQ/Response-Rates-An-Overview.aspx). It is a wonderful free tool, but has some limitations. For one, the Excel calculator is not designed to compute many rates by sub-domain. In my own work, I often need rates in real time by day, by researcher/enumerator, and by geography. Doing each analysis in a separate Excel workbook is impractical. Instead, [`outcomerate`](https://github.com/ropensci/outcomerate) makes it easy to achieve this with `dplyr`, `aggregate()`, or `data.table` (see vignette for examples).
+[`outcomerate()`](https://ropensci.github.io/outcomerate/reference/outcomerate.html) replicates some of the functionality that AAPOR already makes available in their [Excel-based calculator](https://www.aapor.org/Education-Resources/For-Researchers/Poll-Survey-FAQ/Response-Rates-An-Overview.aspx). Theirs is a wonderful free tool, but has some limitations. For one, the Excel calculator is not designed to compute many rates by sub-domain. In my own work, I often need rates in real time by day, by researcher/enumerator, and by geography. Doing each analysis in a separate Excel workbook is impractical. Instead, [`outcomerate()`](https://ropensci.github.io/outcomerate/reference/outcomerate.html) makes it [easy to achieve this](https://ropensci.github.io/outcomerate/articles/intro-to-outcomerate.html#more-advanced-uses) with `dplyr`, `aggregate()`, or `data.table`.
 
 Another problem is that Excel is notorious for failing silently. It will give you a result even if the input contains errors or inconsistencies. Especially when I am updating this information daily, those mistakes are quick to slip in. [`outcomerate`](https://github.com/ropensci/outcomerate) helps overcome this by failing fast and failing helpfully:
 
