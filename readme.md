@@ -85,7 +85,7 @@ The current version of `hugo` on the server uses is defined in [netlify.toml](ne
 brew install hugo
 ```
 
-Then run `hugo serve` in the repo directory to start a local server on [http://localhost:1313](http://localhost:1313)
+Then run `hugo serve` in the repo directory to start a local server on [http://localhost:1313](http://localhost:1313). To view a future-dated blog post, use `hugo serve -F`.
 
 
 #### Updating page templates 
