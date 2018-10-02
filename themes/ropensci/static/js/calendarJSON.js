@@ -4,7 +4,7 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://communitycalls.ropensci.org/">rOpenSci Community Call</a>',
+      'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
       'dateStart': 'Oct 16, 2018',
       'dateEnd': '',
       'description': 'How do you review code that accompanies a research project or paper?',
@@ -18,6 +18,14 @@ var calendar = {
       'description': 'Talk',
       'location': 'Seoul, KR',
       'attendees': 'Nick Tierney (representing rOpenSci)'
+    },
+    {
+      'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
+      'dateStart': 'Nov 15, 2018',
+      'dateEnd': '',
+      'description': 'Jeroen Ooms on Working with images in R, including audio and video',
+      'location': 'Video conference',
+      'attendees': 'All are welcome'
     },
     {
       'title': '<a href="http://ozunconf18.ropensci.org/">rOpenSci OzUnconf 2018</a>',
