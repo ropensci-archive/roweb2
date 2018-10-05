@@ -2,6 +2,7 @@
 slug: "av-release"
 title: "The av Package: Production Quality Video in R"
 date: 2018-10-06
+topicid: 1388
 authors:
   - name: Jeroen Ooms
 categories: technotes
