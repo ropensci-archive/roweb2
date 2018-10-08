@@ -44,7 +44,7 @@ $(document).ready( function () {
         "pageLength": 18,
         "lengthChange": false, // Disables ability to change results number per page
         "columnDefs": [{ 
-            "searchable": false, 
+            "searchable": true, 
             "targets": 3 
         }],
         "language": {
