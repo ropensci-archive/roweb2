@@ -29,7 +29,7 @@
   <meta name="twitter:image" content="http://ropensci.org/assets/common-files/img/content/blog_header_logo.png" >
   {{ end }}
   
-{{ $defaultDescription := printf "Article posted by %s, on %s" .Params.author (.Date.Format "Monday, January 2nd, 2006") }}
+{{ $defaultDescription := printf "Article posted by %s, on %s" .Params.authors (.Date.Format "Monday, January 2nd, 2006") }}
 <meta property="description" content="{{ .Description | default $defaultDescription }}">
 <meta property="og:description" content="{{ .Description | default $defaultDescription }}">
 {{ end }}
