@@ -6,6 +6,15 @@
     {{ partial "style-path.html" }}
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
     {{ partial "ga.html" . }}
+    <title>{{ .Site.Title }}</title>
+<meta property="og:title" content="rOpenSci packages">
+<meta property="og:type" content="website">
+<meta property="description" content="Full list of our package suite">
+<meta property="og:description" content="Full list of our package suite">
+<meta name="twitter:card" content="">
+<meta name="twitter:image" content="http://ropensci.org/android-chrome-512x512.png" >
+<meta name="twitter:creator" content="@rOpenSci">
+<meta name="twitter:site" content="@rOpenSci">
 </head>
 
 <body>
