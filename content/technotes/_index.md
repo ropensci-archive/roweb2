@@ -1,7 +1,7 @@
 +++
 date = "2017-07-13T22:00:37-07:00"
-title = "rOpenSci Tech Notes"
-description = "Technical Notes"
+title = "Tech Notes"
+description = "rOpenSci Technical Notes"
 
 +++
 
