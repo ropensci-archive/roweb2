@@ -11,6 +11,6 @@ We are building a welcoming and diverse global community of software users and d
 
 **Use** [our software](/packages/). **Improve** package [documentation or code](https://github.com/ropensci). **Review** [a package](http://onboarding.ropensci.org/#why-review). **Submit** your package for [open peer review](http://onboarding.ropensci.org/) and onboarding. **Apply** to participate in our [annual unconference](http://unconf18.ropensci.org/).
 
-{{ partial "community-fancy.html" . }}
+{{ readFile "/themes/ropensci/layouts/partials/community-fancy.html" }}
 {{ partial "mailkimp.html" . }}
 {{ partial "footer.html" . }}
