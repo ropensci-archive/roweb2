@@ -38,8 +38,10 @@
 
 
 <!-- {{ partial "sidebar.html" . }} -->
-
-{{ partial "footer.html" . }}
-
+{{ if .Params.partials }}
+{{ range $elem_val := $.Params.partials }}
+    {{ partial $elem_val . }}
+  {{ end }}
+{{ end }}
 </body>
 </html>
