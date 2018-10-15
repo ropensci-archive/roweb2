@@ -4,6 +4,15 @@ twitterImg="img/community-scroll/c6.jpg"
 +++
 
 <section>
+<div class="container">
+<div class="row center">
+                <div class="col-10 top-20">
+                    <h2>Our community is our best asset</h2>
+                </div>
+</div>
+<div class="row">
+
+<div class="col-8 col-offset-2 top-4">
 
 We are building a welcoming and diverse global community of software users and developers from a range of research domains. We aim to build capacity of novices, experts, and the “nexperts” in between. We welcome participation and civil conversations that adhere to our [code of conduct](/coc). There are many ways to get involved.
 
@@ -13,6 +22,9 @@ We are building a welcoming and diverse global community of software users and d
 
 **Use** [our software](/packages/). **Improve** package [documentation or code](https://github.com/ropensci). **Review** [a package](http://onboarding.ropensci.org/#why-review). **Submit** your package for [open peer review](http://onboarding.ropensci.org/) and onboarding. **Apply** to participate in our [annual unconference](http://unconf18.ropensci.org/).
 
+</div>
+            </div>
+        </div>
 </section>
 
 {{< partial "community-fancy.html" >}}
