@@ -6,13 +6,40 @@
 <body>
 {{ partial "header.html" . }}
 
-{{ .Content }}
+    <div class="container">
+        <div class="row">
+            <div class="col-2 sidebar top-5">
+                <ul class="autoSidebar"></ul>
+            </div> <!-- /navigation sidebar -->
+        </div>
+        <div class="row">
+            <div class="col-offset-2 col-8 top-20">
+                <h2 style="text-align: center;">{{ .Title }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
+              
+            <div class="col-offset-2 col-8 top-2">
+
+                {{ if .Params.preface }}
+                <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
+                {{ end }}
+
+                {{ .Content }}
+            </div>
+            <br>
+            <div class="col-offset-2 col-8 top-4 labels">
+            </div>
+        </div>
+        <br>
+    </div>
+
+
+
 <!-- {{ partial "sidebar.html" . }} -->
 
 {{ partial "footer.html" . }}
 
 </body>
 </html>
-
-
-
