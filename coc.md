@@ -10,7 +10,7 @@ description = "rOpenSci Code of Conduct"
                     <p class="bodybig">This code of conduct applies to all participants, including rOpenSci staff and leadership and applies to all modes of interaction, both in-person and online, including GitHub project repos, the rOpenSci discussion forum, Slack channels, and Twitter.</p>
 
 
-rOpenSci participants agree to:
+*rOpenSci participants agree to:*
 
 * Be considerate in speech and actions, and actively seek to acknowledge and respect the boundaries of fellow community members.
 *Refrain from demeaning, discriminatory, or harassing behavior and speech. Harassment includes, but is not limited to: deliberate intimidation; stalking; unwanted photography or recording; sustained or willful disruption of talks or other events; inappropriate physical contact; use of sexual or discriminatory imagery, comments, or jokes; and unwelcome sexual attention. If you feel that someone has harassed you or otherwise treated you inappropriately, please alert any member of the project team in person.
