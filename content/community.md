@@ -1,10 +1,8 @@
 +++
-title="rOpenSci community"
+title="Our community is our best asset"
 description="Our community is our best asset"
 twitterImg="img/community-scroll/c6.jpg"
 +++
-
-## Our community is our best asset
 
 We are building a welcoming and diverse global community of software users and developers from a range of research domains. We aim to build capacity of novices, experts, and the “nexperts” in between. We welcome participation and civil conversations that adhere to our [code of conduct](/coc). There are many ways to get involved.
 
