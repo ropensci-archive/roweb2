@@ -1,6 +1,6 @@
 +++
 title="Our community is our best asset"
-description="Our community is our best asset"
+description="Find how to get involved!"
 twitterImg="img/community-scroll/c6.jpg"
 +++
 
