@@ -1,5 +1,5 @@
 +++
-title="Our community is our best asset"
+title="rOpenSci Community Page"
 twitterImg="img/community-scroll/c6.jpg"
 +++
 
