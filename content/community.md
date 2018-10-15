@@ -1,6 +1,5 @@
 +++
 title="Our community is our best asset"
-summary="Find how to get involved!"
 twitterImg="img/community-scroll/c6.jpg"
 +++
 
@@ -15,5 +14,3 @@ We are building a welcoming and diverse global community of software users and d
 {{ partial "community-fancy.html" . }}
 {{ partial "mailkimp.html" . }}
 {{ partial "footer.html" . }}
-</body>
-</html>
