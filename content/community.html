@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{$scratch := newScratch}}
-    {{ .Scratch.Set "Title" "community page" }}
-    {{ .Scratch.Set "Site.Title" "rOpenSci" }}
-    {{ .Scratch.Set "Description" "Find how to get involved with rOpenSci" }}
-    {{ partial "head.html"}}
+    {{ partial "head.html" (dict "context" . "Site.Title" "rOpenSci" "Title" "Community page" "Description" "Find how to get involved!")}}
     {{ partial "style-path.html" }}
 </head>
 <body>
