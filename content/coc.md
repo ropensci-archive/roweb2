@@ -11,12 +11,16 @@ date = ""
 <center> **rOpenSci participants agree to:** </center>
 
 * Be considerate in speech and actions, and actively seek to acknowledge and respect the boundaries of fellow community members.
+<br></br>
 
 * Refrain from demeaning, discriminatory, or harassing behavior and speech. Harassment includes, but is not limited to: deliberate intimidation; stalking; unwanted photography or recording; sustained or willful disruption of talks or other events; inappropriate physical contact; use of sexual or discriminatory imagery, comments, or jokes; and unwelcome sexual attention. If you feel that someone has harassed you or otherwise treated you inappropriately, please alert any member of the project team in person.
+<br></br>
 
 * Take care of each other. Alert a member of the project team if you notice a dangerous situation, someone in distress, or violations of this code of conduct, even if they seem inconsequential.
+<br></br>
 
 If any attendee or project participant engages in harassing behavior, the project staff may take any lawful action we deem appropriate, including but not limited to warning the offender or asking the offender to leave the event/project. (If you feel you have been unfairly accused of violating this code of conduct, you should contact the project team with a concise description of your grievance.)
+<br></br>
 
 We welcome your [feedback](http://ropensci.org/contact.html) on this and every other aspect of rOpenSci's work, and we thank you for working with us to make it a safe, enjoyable, and friendly experience for everyone who participates.
 
