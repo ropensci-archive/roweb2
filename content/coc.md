@@ -8,7 +8,7 @@ date = ""
                     <p class="bodybig">This code of conduct applies to all participants, including rOpenSci staff and leadership and applies to all modes of interaction, both in-person and online, including GitHub project repos, the rOpenSci discussion forum, Slack channels, and Twitter.</p>
 
 
-*rOpenSci participants agree to:*
+<center> **rOpenSci participants agree to:** </center>
 
 * Be considerate in speech and actions, and actively seek to acknowledge and respect the boundaries of fellow community members.
 
