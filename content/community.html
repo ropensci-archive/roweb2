@@ -107,11 +107,12 @@
 <!-- / ends upcoming events calendar section
  ******** IMPORTANT: this section requires calinit.js and calendarJSON.js please see bottom of the page [or search for `calendar] for required scripts ********* -->
 
-{{ partial "mailkimp.html" . }}
-{{ partial "footer.html" . }}
 
 <!-- Loads `calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
 <script type="text/javascript" src="/js/calendarJSON.js"></script>
 <script type="text/javascript" src="/js/calinit.js"></script>
+
+{{ partial "mailkimp.html" . }}
+{{ partial "footer.html" . }}
 </body>
 </html>
