@@ -16,15 +16,11 @@
   </div>
 <div class="row">
             <div class="col-8 col-offset-2 top-4">
-  <ul>
   {{ $data := .Data }}
   {{ range $key, $value := .Data.Terms.ByCount }}
-    <li>
       <a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a>
-      <span>&#40;{{ $value.Count }}&#41;</span>
-    </li>
+      <span>&#40;{{ $value.Count }}&#41; </span>
   {{ end }}
-</ul>
 </div>
             </div>
         </div>
