@@ -6,7 +6,7 @@
 <body>
   {{ partial "header.html" . }}
 <div class="article">
-  {{ range .Data.Pages }}
+  {{ range .Pages }}
     {{ .Render "summary"}}
   {{ end }}
 </div>
