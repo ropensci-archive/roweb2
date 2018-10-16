@@ -5,7 +5,7 @@
 </head>
 <body>
   {{ partial "header.html" . }}
-<div class="content">
+<div class="article">
   {{ range .Data.Pages }}
     {{ .Render "summary"}}
   {{ end }}
