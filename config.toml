@@ -34,6 +34,9 @@ rssLimit = 20
 [[menu.main]]
     name = "Subscribe"
     url = "/index.xml"
+    
+[indexes]
+    tag = "tags"
 
 [params]
     title = "rOpenSci"
