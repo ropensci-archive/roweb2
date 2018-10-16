@@ -5,11 +5,12 @@
 </head>
 <body>
   {{ partial "header.html" . }}
+  <br></br>
 <div class="section">
   {{ range .Pages }}
                         <div class="excerpt">
-                        <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
-                      
+                        <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+  <br></br>            
 </div>
   {{ end }}
 </div>

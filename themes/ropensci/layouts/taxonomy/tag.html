@@ -15,7 +15,7 @@
                 <div class="col-8 top-10 bottom-10 maintext mainpostlist">
 
                 {{ if le $paginator.PageNumber 1 }}
-                <!--<p> This is our main blog. Package updates and software announcements are posted in <a href="/technotes">Tech Notes.</a> </p>-->
+               
                 {{ end }}
 
                {{ range $paginator.Pages }}
@@ -59,7 +59,7 @@
                 {{ end }}
                 </div><!-- /maintext -->
 
-                {{ partial "technotebar.html" . }}
+                
 
             </div>
         </div>
