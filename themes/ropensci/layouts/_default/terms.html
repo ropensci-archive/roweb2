@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <br></br>
+<div class="section">
+  <ul>
+  {{ $data := .Data }}
+  {{ range $key, $value := .Data.Terms.ByCount }}
+    <li>
+      <a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a>
+      <span>&#40;{{ $value.Count }}&#41;</span>
+    </li>
+  {{ end }}
+</ul>
+</div>
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>
