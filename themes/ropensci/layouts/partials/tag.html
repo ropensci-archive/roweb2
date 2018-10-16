@@ -1,6 +1,6 @@
 <section>
 <ul id="all-tags">
-    {{ range $name, $taxonomy := .Site.taxonomies.tags }}
+    {{ range $name, $taxonomy := .Site.taxonomies.tag }}
         {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
             <li><a href="{{ .Permalink }}">{{ $name }}</a></li>
         {{ end }}
