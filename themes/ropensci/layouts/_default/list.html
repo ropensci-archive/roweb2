@@ -7,7 +7,42 @@
   {{ partial "header.html" . }}
 <div class="article">
   {{ range .Pages }}
-    {{ .Render "summary"}}
+                        <div class="excerpt">
+                        <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
+
+                        <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
+
+                        <p class="lighter authors">By:
+                            {{ range $i, $e := .Params.authors }}
+                                {{ if $i }}&nbsp;|&nbsp;{{ end }}
+                                {{ if in $.Site.Params.leadership .name }}
+                                  <a href="/about/#team">{{ .name }}</a>
+                                {{ else if in $.Site.Params.staff .name }}
+                                  <a href="/about/#team">{{ .name }}</a>
+                                {{ else if eq .name "Ted Hart" }}
+                                  <a href="/about/#team">{{ .name }}</a>
+                                {{ else }}
+                                  <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                                {{ end }}
+                            {{ end }}
+
+                        </p>
+                        <div style="font-style: italic; text-align: justify;">
+                            <p>{{ .Summary }}</p>
+                        </div>
+                        <div class="labels">
+                            {{ range .Params.tags }}
+                                {{ $targetUrl := (print ("/tags/" | relLangURL) (. | urlize) "/") }}
+                                {{ if eq $.Page.URL $targetUrl }}
+                                <a href="{{ $targetUrl }}"><span class="label active">{{ . }}</span></a>
+                                {{ else }}
+                                <a href="{{ $targetUrl }}"><span class="label">{{ . }}</span></a>
+                                {{ end }}
+                            {{ end }}
+                        </div><!-- /labels -->
+
+
+</div><!-- /excerpt -->
   {{ end }}
 </div>
 
