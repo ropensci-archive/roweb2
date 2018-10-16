@@ -244,7 +244,7 @@ with e.g. `rbind` or `data.table::rbindlist` or `dplyr::bind_rows`. Here's an ex
 `data.table::rbindlist`:
 
 ```{r}
-data.table::rbindlist(pub_tabularize(out))
+data.table::rbindlist(pub_tabularize(out), fill = TRUE)
 ```
 
 <br>

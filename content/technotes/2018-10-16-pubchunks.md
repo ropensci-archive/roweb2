@@ -347,16 +347,12 @@ out <- pub_chunks(
 )
 pub_tabularize(out)
 #> [[1]]
-#>                        doi
-#> 1 10.3897/zookeys.466.7283
 #>                                                                                                     title
 #> 1 Contribution to the knowledge of seed-beetles (Coleoptera, Chrysomelidae, Bruchinae) in Xinjiang, China
 #>   .publisher
 #> 1    pensoft
 #> 
 #> [[2]]
-#>                  doi
-#> 1 10.7717/peerj.3360
 #>                                                                                                title
 #> 1 Storm effects on intertidal invertebrates: increased beta diversity of few individuals and species
 #>   .publisher
@@ -381,22 +377,17 @@ with e.g. `rbind` or `data.table::rbindlist` or `dplyr::bind_rows`. Here's an ex
 
 
 ```r
-data.table::rbindlist(pub_tabularize(out))
-#>                         doi
-#> 1: 10.3897/zookeys.466.7283
-#> 2:       10.7717/peerj.3360
-#> 3:   10.5194/asr-12-23-2015
-#> 4: 10.3389/fmicb.2012.00403
+data.table::rbindlist(pub_tabularize(out), fill = TRUE)
 #>                                                                                                      title
 #> 1: Contribution to the knowledge of seed-beetles (Coleoptera, Chrysomelidae, Bruchinae) in Xinjiang, China
 #> 2:      Storm effects on intertidal invertebrates: increased beta diversity of few individuals and species
 #> 3:                                                 Quality control of 10-min soil temperatures data at RMI
 #> 4:                                              Metagenomic Analysis of a Southern Maritime Antarctic Soil
-#>    .publisher
-#> 1:    pensoft
-#> 2:      peerj
-#> 3: copernicus
-#> 4:  frontiers
+#>    .publisher                      doi
+#> 1:    pensoft                     <NA>
+#> 2:      peerj                     <NA>
+#> 3: copernicus   10.5194/asr-12-23-2015
+#> 4:  frontiers 10.3389/fmicb.2012.00403
 ```
 
 <br>
