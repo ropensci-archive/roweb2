@@ -15,14 +15,13 @@
                 <div class="col-8 top-10 bottom-10 maintext mainpostlist">
 
                 {{ if le $paginator.PageNumber 1 }}
-                <!--<p> This is our main blog. Package updates and software announcements are posted in <a href="/technotes">Tech Notes.</a> </p>-->
+                
                 {{ end }}
 
                {{ range $paginator.Pages }}
                     <div class="excerpt">
                         <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
 
-                        <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
 
                         <p class="lighter authors">By:
                             {{ range $i, $e := .Params.authors }}
@@ -59,7 +58,7 @@
                 {{ end }}
                 </div><!-- /maintext -->
 
-                {{ partial "technotebar.html" . }}
+                
 
             </div>
         </div>
