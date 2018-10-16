@@ -4,6 +4,14 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
+      'title': '<a href="https://www.uni-muenster.de/Geoinformatics/en/GI-Forum/index.php">Geoinformatics Forum seminar</a>',
+      'dateStart': 'Oct 16, 2018',
+      'dateEnd': '',
+      'description': 'talk: Working with Images in R',
+      'location': 'Münster, GE',
+      'attendees': 'Jeroen Ooms'
+    },
+    {
       'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
       'dateStart': 'Oct 16, 2018',
       'dateEnd': '',
