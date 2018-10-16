@@ -7,12 +7,16 @@
   {{ partial "header.html" . }}
   <br></br>
 <div class="section">
+  <ul>
   {{ range .Pages }}
+  <li>
                         <div class="excerpt">
-                        <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+                        <a href="{{ .URL | relURL }}">{{ .Title }}</a><span>&#40;{{ .Count }}&#41;</span>
   <br></br>            
 </div>
+</li>
   {{ end }}
+  </ul>
 </div>
 
 {{ partial "footer.html" . }}
