@@ -4,8 +4,12 @@
 {{ partial "head.html" . }}
 </head>
 <body>
-{{ partial "header.html" . }}
-
+  {{ partial "header.html" . }}
+<div class="content">
+  {{ range .Data.Pages }}
+    {{ .Render "summary"}}
+  {{ end }}
+</div>
 
 {{ partial "footer.html" . }}
 
