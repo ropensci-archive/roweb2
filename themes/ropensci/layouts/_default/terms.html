@@ -4,9 +4,16 @@
 {{ partial "head.html" . }}
 </head>
 <body>
+  <article>
+    <div class="container">
+        <div class="row">
   {{ partial "header.html" . }}
-  <br></br>
-<div class="section">
+  <div class="header">
+  <h2>{{ .Title }}</h2>
+</div>
+  </div>
+<div class="row">
+            <div class="col-8 col-offset-2 top-4">
   <ul>
   {{ $data := .Data }}
   {{ range $key, $value := .Data.Terms.ByCount }}
@@ -17,6 +24,9 @@
   {{ end }}
 </ul>
 </div>
+            </div>
+        </div>
+</article>
 
 {{ partial "footer.html" . }}
 
