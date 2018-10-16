@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+<!-- {{ .Content }} -->
+
+{{ $paginator := .Paginator }}
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 top-10 bottom-10 maintext mainpostlist">
+
+                {{ if le $paginator.PageNumber 1 }}
+                <!--<p> This is our main blog. Package updates and software announcements are posted in <a href="/technotes">Tech Notes.</a> </p>-->
+                {{ end }}
+
+               {{ range $paginator.Pages }}
+                    <div class="excerpt">
+                        <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
+
+                        <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
+
+                        <p class="lighter authors">By:
+                            {{ range $i, $e := .Params.authors }}
+                                {{ if $i }}&nbsp;|&nbsp;{{ end }}
+                                {{ if in $.Site.Params.leadership .name }}
+                                  <a href="/about/#team">{{ .name }}</a>
+                                {{ else if in $.Site.Params.staff .name }}
+                                  <a href="/about/#team">{{ .name }}</a>
+                                {{ else if eq .name "Ted Hart" }}
+                                  <a href="/about/#team">{{ .name }}</a>
+                                {{ else }}
+                                  <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                                {{ end }}
+                            {{ end }}
+
+                        </p>
+                        <div style="font-style: italic; text-align: justify;">
+                            <p>{{ .Summary }}</p>
+                        </div>
+                        <div class="labels">
+                            {{ range .Params.tags }}
+                                {{ $targetUrl := (print ("/tags/" | relLangURL) (. | urlize) "/") }}
+                                {{ if eq $.Page.URL $targetUrl }}
+                                <a href="{{ $targetUrl }}"><span class="label active">{{ . }}</span></a>
+                                {{ else }}
+                                <a href="{{ $targetUrl }}"><span class="label">{{ . }}</span></a>
+                                {{ end }}
+                            {{ end }}
+                        </div><!-- /labels -->
+
+
+                    </div><!-- /excerpt -->
+
+                {{ end }}
+                </div><!-- /maintext -->
+
+                {{ partial "technotebar.html" . }}
+
+            </div>
+        </div>
+    </article>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ if $paginator.HasPrev }}
+                <span class="label pull-left"><a href="{{ $paginator.Prev.URL }}"><i class="fa fa-chevron-left" aria-hidden="true"></i> Previous</a></span>
+                {{ end }}
+            </div>
+            <div class="col">
+                <center><p>Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</p></center>
+            </div>
+
+            <div class="col">
+                {{ if $paginator.HasNext }}
+                <span class="label pull-right"><a href="{{ $paginator.Next.URL }}">Next&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></span>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>
