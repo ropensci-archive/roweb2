@@ -18,12 +18,10 @@
             <div class="col-offset-2 col-8 top-20">
                 <h2 style="text-align: center;">Posts with the "{{ .Title }}" tag</h2>
             </div>
-            <br></br>
-            <br></br>
         </div>
 
                {{ range $paginator.Pages }}
-                    <div class="excerpt">
+                    <div class="col-offset-2 col-8 top-10 bottom-5">
                         <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
 
                         <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
