@@ -33,7 +33,7 @@ $(document).ready( function () {
                 } else if(row.on_bioc){
                     src = '<a target="_blank" href="https://bioconductor.org/packages/release/bioc/html/' + row.name + '.html"><p class="label bioc">bioc</p></a>' + src;
                 } else {
-                    src = '<p class="label nocran">cran</p>' + src;
+                    src = '';
                 }
                 return src;
             }},
