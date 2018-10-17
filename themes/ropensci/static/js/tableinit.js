@@ -20,9 +20,6 @@ $(document).ready( function () {
                 return markdown.makeHtml(row.description);
             }},
             { "data": function(row, type, set, meta){
-                return row.onboarding;
-            }},
-            { "data": function(row, type, set, meta){
                 var src = '<a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
                 if(row.on_cran){
                     src = '<a target="_blank" href="https://cran.r-project.org/package=' + row.name + '"><p class="label cran">cran</p></a>' + src;
@@ -32,6 +29,9 @@ $(document).ready( function () {
                     src = '<p class="label nocran">cran</p>' + src;
                 }
                 return src;
+            }},
+            { "data": function(row, type, set, meta){
+                return markdown.makeHtml(row.onboarding);
             }}
         ],
         "createdRow" : function( row, data, index ){
