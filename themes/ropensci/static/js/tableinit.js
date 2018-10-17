@@ -14,10 +14,10 @@ $(document).ready( function () {
                 return row.name + ' <a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
             }},
             { "data": function(row, type, set, meta){
-                return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
+                return markdown.makeHtml(row.status);
             }},
             { "data": function(row, type, set, meta){
-                return markdown.makeHtml(row.status);
+                return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
             }},
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.description);
