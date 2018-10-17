@@ -6,16 +6,20 @@ $(document).ready( function () {
 
     oTable = $('#packagestable').DataTable({
         "ajax" : {
-            "url" : "https://gist.githubusercontent.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/68cba8ebe4e0489e81338c136483875ac402743f/registry.json",
+            "url" : "https://gist.githubusercontent.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/d929066b13efee082d8d8b5ad120ed3501bbdd99/registry.json",
             "dataSrc": "packages"
         },
         "columns": [
             { "data" : function(row, type, set, meta){
                 return '<a href="' + row.url + '">' + row.name + '</a>';
             }},
-            { "data": function(row, type, set, meta){
-                return markdown.makeHtml(row.status);
-            }},
+            { data: 'status',
+    render: {
+        display: 'badge',
+        sort: 'status',
+        filter: 'status',
+        type: 'status'
+    }},
             { "data": function(row, type, set, meta){
                 return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
             }},
@@ -33,9 +37,13 @@ $(document).ready( function () {
                 }
                 return src;
             }},
-            { "data": function(row, type, set, meta){
-                return markdown.makeHtml(row.onboarding);
-            }},
+            { data: 'onboarding',
+    render: {
+        display: 'badge',
+        sort: 'review',
+        filter: 'review',
+        type: 'review'
+    }},
             { "data": function(row, type, set, meta){
                 return row.keywords;
             }}
