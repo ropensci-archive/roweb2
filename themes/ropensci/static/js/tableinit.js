@@ -59,7 +59,13 @@ $(document).ready( function () {
             {
                 "targets": 6,
                 "visible": false
-            }],
+            },
+            { "title": "Package",   "targets": 0 },
+    { "title": "Status",  "targets": 1 },
+    { "title": "Maintainer", "targets": 2 },
+    { "title": "Description",  "targets": 3 },
+    { "title": "CRAN/Bioc",    "targets": 4 },
+    { "title": "Onboarding",  "targets": 5 }],
         "language": {
             "search": ' ', // Changes 'Search' label value
             "searchPlaceholder": "Type to search…", // adds placeholder text to search field
