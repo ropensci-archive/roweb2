@@ -11,7 +11,7 @@ $(document).ready( function () {
         },
         "columns": [
             { "data" : function(row, type, set, meta){
-                return '<a href="' + row.url + '">' + row.name + '</a>';
+                return row.name + '<a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
             }},
             { "data": function(row, type, set, meta){
                 return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
@@ -20,7 +20,7 @@ $(document).ready( function () {
                 return markdown.makeHtml(row.description);
             }},
             { "data": function(row, type, set, meta){
-                var src = '<a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
+                var src = '';
                 if(row.on_cran){
                     src = '<a target="_blank" href="https://cran.r-project.org/package=' + row.name + '"><p class="label cran">cran</p></a>' + src;
                 } else if(row.on_bioc){
