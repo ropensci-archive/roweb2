@@ -90,7 +90,7 @@ Then run `hugo serve` in the repo directory to start a local server on [http://l
 
 #### Updating page templates 
 
-For other website issues and updates, see [aeveloper-notes(]aeveloper-notesm.d)
+For other website issues and updates, see [developer-notes](developer-notes.md)
 .
 ## Acknowledgements
 
