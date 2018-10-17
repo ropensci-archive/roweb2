@@ -57,7 +57,7 @@ $(document).ready( function () {
             "targets": 3 
         },
             {
-                "targets": [ 7 ],
+                "targets": 7,
                 "visible": false
             }],
         "language": {
