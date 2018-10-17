@@ -11,7 +11,7 @@ $(document).ready( function () {
         },
         "columns": [
             { "data" : function(row, type, set, meta){
-                return '<a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a> ' + row.name;
+                return row.name + ' <a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
             }},
             { "data": function(row, type, set, meta){
                 return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
