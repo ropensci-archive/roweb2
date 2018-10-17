@@ -35,6 +35,9 @@ $(document).ready( function () {
             }},
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.onboarding);
+            }},
+            { "data": function(row, type, set, meta){
+                return row.keywords;
             }}
         ],
         "createdRow" : function( row, data, index ){
@@ -52,7 +55,11 @@ $(document).ready( function () {
         "columnDefs": [{ 
             "searchable": true, 
             "targets": 3 
-        }],
+        },
+            {
+                "targets": [ 7 ],
+                "visible": false
+            }],
         "language": {
             "search": ' ', // Changes 'Search' label value
             "searchPlaceholder": "Type to search…", // adds placeholder text to search field
