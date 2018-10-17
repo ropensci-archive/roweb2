@@ -90,8 +90,8 @@ Then run `hugo serve` in the repo directory to start a local server on [http://l
 
 #### Updating page templates 
 
-For other website issues and updates, see [advanced-theming](advanced-theming.md)
-
+For other website issues and updates, see [aeveloper-notes(]aeveloper-notesm.d)
+.
 ## Acknowledgements
 
 The rOpenSci project is a fiscally sponsored project of [NumFOCUS](https://www.numfocus.org/) and based at the University of California, Berkeley. The project is funded by grants from various public and private institutions and from [donations](https://ropensci.org/donate/). 

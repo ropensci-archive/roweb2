@@ -1,23 +1,41 @@
+## Deployment
 
+The website is setup to automatically deploy as soon as a PR is merged. Each PR also generates a preview of the website with changes (see deployment preview in the PR) so that any problems can be fixed before hitting the merge button. Once merged, the website is rendered live within minutes.
 
 ## Key Files For Templating
 
-- [header navbar](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/navbar.html)
-- [footer](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/footer.html)
+Apart from the [homepage](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/index.html) all content is built from Markdown files stored under content/, templated as explained below, and with the inclusion of html partials.
+
+### Templates
+
+They use partials, e.g. all templates use the same header, head and footer. Partials are presented in the next subsection.
+
+- **default pages** e.g. about, donate
+  - [single page template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_default/list.html) -- it includes  a loop to include all partials mentioned in the frontmatter, e.g. in the community.md you see `partials=["community-fancy.html","mailkimp.html"]` that will include the team, collaborators, and form to subscribe to the newsletter.
 - **blog**
-	- [blog list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_default/list.html)
-	- single blog page template
+	- [blog list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/blog/list.html)
+	- [single blog page template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/blog/single.html)
 - **tutorials**
 	- [tutorial list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/tutorials/list.html)
 	- [single tutorial page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/tutorials/single.html)
+- **tags page**
+  - [taxonomy list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_defaults/terms.html)
+  - [template for each tag page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/taxonomy/tag.html)
 - **use cases**
 	- [use case list page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/usecases/list.html)
 	- [single use case page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/usecases/single.html)
 - **tech notes**
 	- [tech notes list](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/technotes/list.html)
-	- Single tech notes page
+	- [Single tech notes page]((https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/technotes/single.html))
 
-For non-blog changes, this is where most updates will occur.
+### Partials
+
+All under https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/
+
+- [header](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/header.html)
+- [navbar](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/navbar.html)
+- [head](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/head.html)
+- [footer](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/partials/footer.html)
 
 ## Updating The Calendar Of Events
 
@@ -59,6 +77,4 @@ The [\_redirects](public/_redirects) file is used to proxy or redirect content f
 
 
 **Legacy website**  
-The old website has been archived over at [link]() and continues to maintain the full history of commits, contributors, and issues from the early days of the project. The history of this repo begins anew with this major update. Archiving the old copy allowed us to preserve the old website, while allowing this repo (`roweb`) to evolve without losing watchers/stars/history.
-
-The website is setup to automatically deploy as soon as a PR is merged. Each PR also generates a preview of the website with changes (see deployment preview in the PR) so that any problems can be fixed before hitting the merge button. Once merged, the website is rendered live within minutes.
+The old website has been archived over at [`ropensci/roweb`](https://github.com/ropensci/roweb) and continues to maintain the full history of commits, contributors, and issues from the early days of the project. 
