@@ -465,7 +465,7 @@ q:before, q:after {
 }.label.nocran{
   background-color: #dfe3eb;
 }.label.bioc{
-  background-color: #3d98ff;
+  background-color: #40BA12;
   color: white;
 }.technote {
     text-transform: uppercase;
@@ -494,7 +494,7 @@ q:before, q:after {
     background-color: #fff8a4;
     color: #d29f3d;
 }a[href^="https://cran"] p {
-    background-color: #01dc0b;
+    background-color: #40BA12;
     color: white;
 }a[href^="https://git"] p {
     color: #01dc0b;
