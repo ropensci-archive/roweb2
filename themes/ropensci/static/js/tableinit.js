@@ -11,7 +11,7 @@ $(document).ready( function () {
         },
         "columns": [
             { "data" : function(row, type, set, meta){
-                return row.name + ' <a target="_blank" href="' + row.url + '"><p class="label icon-github"></p></a>';
+                return '<a href="' + row.url + '">' + row.name + '</a>';
             }},
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.status);
