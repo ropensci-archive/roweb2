@@ -84,9 +84,6 @@ $(document).ready(function() {
                 "previous": "Prev", //changes 'Previous' label value
             }
         }
-    }).on('search', function(){
-        if(oTable.search())
-            radio.prop('checked', false);
     });
     
     yadcf.init(oTable, [{
