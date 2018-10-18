@@ -20,14 +20,16 @@ $(document).ready(function() {
                     display: 'badge',
                     sort: 'status',
                     filter: 'status',
-                    type: 'status'
-                },
+                    type: 'status',
+                    _: 'status'
+                    },
                 title: "status",
                 name: "select"
             },
             {
                 "data": 'maintainer',
-                "title": "maintainer"
+                "title": "maintainer",
+                "name": "select"
             },
             {
                 "data": function(row, type, set, meta) {
@@ -68,10 +70,28 @@ $(document).ready(function() {
         "lengthChange": false, // Disables ability to change results number per page
         "language": {
             "search": ' ', // Changes 'Search' label value
-            "searchPlaceholder": "Type to searchâ€¦", // adds placeholder text to search field
+            "searchPlaceholder": "Type to search...", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }
+        },
+        initComplete: function () {
+            this.api().columns('select:name').every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.header()) )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )} );
+            } );
         }
     });
 
