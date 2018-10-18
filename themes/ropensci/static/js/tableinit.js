@@ -32,7 +32,6 @@ $(document).ready(function() {
                     return markdown.makeHtml(row.description);
                 },
                 "title": "description",
-                "searchable": "true"
             },
             {
                 data: 'on_cran',
