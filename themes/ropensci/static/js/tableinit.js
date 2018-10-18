@@ -56,7 +56,7 @@ $(document).ready(function() {
             },
             {
                 "data": 'keywords',
-                "visible": "false"
+                "visible": false
             }
         ],
         "info": false, // won't display showed entries of total
