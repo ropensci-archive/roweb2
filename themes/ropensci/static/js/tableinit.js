@@ -79,7 +79,7 @@ $(document).ready(function() {
         "lengthChange": false, // Disables ability to change results number per page
                 "language": {
             "search": ' ', // Changes 'Search' label value
-            "searchPlaceholder": "Incl. hidden fields like keywords", // adds placeholder text to search field
+            "searchPlaceholder": "Type to search on all fields incl. hidden fields like keywords", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }
@@ -115,6 +115,7 @@ $(document).ready(function() {
    yadcf.exFilterColumn(oTable, [
      [1, "active"]
    ]);  
+  
    
    $(radio).change(function() {
         oTable.search("").draw();
