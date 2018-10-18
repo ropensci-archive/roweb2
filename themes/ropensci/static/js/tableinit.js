@@ -138,4 +138,12 @@ $(document).ready(function() {
         oTable.search("").draw();
     });
 
+    /* Custom filtering function */
+    $.fn.dataTableExt.afnFiltering.push(
+        function (oSettings, aData, iDataIndex) {
+            var selected = $('input:checked')
+            var filter = selected.attr('class')
+            return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
+        }
+    );
 });
