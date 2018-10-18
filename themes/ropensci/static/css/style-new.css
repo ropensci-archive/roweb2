@@ -467,6 +467,30 @@ q:before, q:after {
 }.label.bioc{
   background-color: #40BA12;
   color: white;
+}.label.abandoned{
+  background-color: #40BA12;
+  color: white;
+}.label.concept{
+  background-color: #E9E9E9;
+  color: #E9E9E9;
+}.label.wip{
+  background-color: #CDA61A;
+  color: white;
+}.label.suspended{
+  background-color: #F27E40;
+  color: white;
+}.label.active{
+  background-color: #4BC51D;
+  color: white;
+}.label.inactive{
+  background-color: #A1A328;
+  color: white;
+}.label.unsupported{
+  background-color: #9D9D9D;
+  color: white;
+}.label.moved{
+  background-color: #D7624B;
+  color: white;
 }.technote {
     text-transform: uppercase;
     font-size: .68rem;
