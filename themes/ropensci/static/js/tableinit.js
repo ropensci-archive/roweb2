@@ -6,7 +6,7 @@ $(document).ready( function () {
 
     oTable = $('#packagestable').DataTable({
         "ajax" : {
-            "url" : "https://gist.github.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/89dc67b28d84cc504006de7e679cdec249db211c/registry.json",
+            "url" : "https://gist.github.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/18e1d46bb3b5e365786994a83c76606f3683cc6e/registry.json",
             "dataSrc": "packages"
         },
         "columns": [
@@ -26,17 +26,13 @@ $(document).ready( function () {
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.description);
             }},
-            { "data": function(row, type, set, meta){
-                var src = '';
-                if(row.on_cran){
-                    src = '<a target="_blank" href="https://cran.r-project.org/package=' + row.name + '"><p class="label cran">cran</p></a>' + src;
-                } else if(row.on_bioc){
-                    src = '<a target="_blank" href="https://bioconductor.org/packages/release/bioc/html/' + row.name + '.html"><p class="label bioc">bioc</p></a>' + src;
-                } else {
-                    src = '';
-                }
-                return src;
-            }},
+            { data: 'on_cran',
+    render: {
+        display: 'badge',
+        sort: 'on_cran',
+        filter: 'on_cran',
+        type: 'on_cran'
+    }},
             { data: 'onboarding',
     render: {
         display: 'badge',
