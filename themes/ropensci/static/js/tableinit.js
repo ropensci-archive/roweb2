@@ -79,7 +79,7 @@ $(document).ready(function() {
         "lengthChange": false, // Disables ability to change results number per page
                 "language": {
             "search": ' ', // Changes 'Search' label value
-            "searchPlaceholder": "Type to search (including hidden fields like keywords)...", // adds placeholder text to search field
+            "searchPlaceholder": "Incl. hidden fields like keywords", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }
