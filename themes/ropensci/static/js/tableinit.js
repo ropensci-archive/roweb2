@@ -10,37 +10,50 @@ $(document).ready( function () {
         "columns": [
             { "data" : function(row, type, set, meta){
                 return '<a href="' + row.url + '">' + row.name + '</a>';
-            }},
+            },
+              "title": "name"
+            },
             { data: 'status',
     render: {
         display: 'badge',
         sort: 'status',
         filter: 'status',
         type: 'status'
-    }},
-            { "data": function(row, type, set, meta){
-                return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
-            }},
+    },
+              title: "status"
+            },
+            { "data": 'maintainer',
+            "title": "maintainer"
+            },
             { "data": function(row, type, set, meta){
                 return markdown.makeHtml(row.description);
-            }},
+            },
+              "title": "description",
+              "searchable": "true"
+            },
             { data: 'on_cran',
     render: {
         display: 'badge',
         sort: 'on_cran',
         filter: 'on_cran',
         type: 'on_cran'
-    }},
+    },
+              title: "CRAN/Bioc"
+            },
             { data: 'onboarding',
     render: {
         display: 'badge',
         sort: 'review',
         filter: 'review',
         type: 'review'
-    }},
+    },
+              title: "onboarding"
+            },
             { "data": function(row, type, set, meta){
                 return row.keywords;
-            }}
+            },
+              "visible": "false"
+            }
         ],
         "createdRow" : function( row, data, index ){
             // combine some small categories
@@ -54,20 +67,6 @@ $(document).ready( function () {
         "pagingType": "simple_numbers",
         "pageLength": 18,
         "lengthChange": false, // Disables ability to change results number per page
-        "columnDefs": [{ 
-            "searchable": true, 
-            "targets": 3 
-        },
-            {
-                "targets": 6,
-                "visible": false
-            },
-            { "title": "Package",   "targets": 0 },
-    { "title": "Status",  "targets": 1 },
-    { "title": "Maintainer", "targets": 2 },
-    { "title": "Description",  "targets": 3 },
-    { "title": "CRAN/Bioc",    "targets": 4 },
-    { "title": "Onboarding",  "targets": 5 }],
         "language": {
             "search": ' ', // Changes 'Search' label value
             "searchPlaceholder": "Type to search…", // adds placeholder text to search field
