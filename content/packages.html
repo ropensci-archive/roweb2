@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>paaackages</title>
+    <title>packages</title>
     {{ partial "style-path.html" }}
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
     {{ partial "ga.html" . }}
@@ -24,6 +24,28 @@
                     <p>Curious about contributing your package? See <a href="http://onboarding.ropensci.org">onboarding</a> for details. We welcome <a href="http://onboarding.ropensci.org/#why-review">volunteers to review</a> packages submitted to our open peer review process.</p>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-10 col-offset-1 top-20">
+                    <form class="filter">
+                        <a class="panel">Filters</a>
+                        <label><input type="radio" name="filter" class="all" checked />All</label>
+                        <label><input type="radio" name="filter" class="altmetrics" />Altmetrics</label>
+                        <label><input type="radio" name="filter" class="data-publication" />Data Publication</label>
+                        <label><input type="radio" name="filter" class="data-tools" />Tools</label>
+                        <label><input type="radio" name="filter" class="data-visualization" />Visualization</label>
+                        <label><input type="radio" name="filter" class="databases" />Databases</label>
+                        <!--<label><input type="radio" name="filter" class="developer-tools" />Developer Tools</label>-->
+                        <label><input type="radio" name="filter" class="geospatial" />Geospatial</label>
+                        <label><input type="radio" name="filter" class="http-tools" />Web</label>
+                        <label><input type="radio" name="filter" class="image-processing" />Images Processing</label>
+                        <label><input type="radio" name="filter" class="literature" />Literature</label>
+                        <!--<label><input type="radio" name="filter" class="metadata" />Metadata</label>-->
+                        <label><input type="radio" name="filter" class="scalereprod" />Computing Infrastructure</label>
+                        <label><input type="radio" name="filter" class="security" />Security</label>
+                        <label><input type="radio" name="filter" class="taxonomy" />Taxonomy</label>
+                    </form>
+                </div>
+</div>
             <div class="row center">
                 <div class="col-10 top-4">
                 <!-- begins packages table -->

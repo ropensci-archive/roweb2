@@ -1,5 +1,6 @@
 var oTable;
 $(document).ready(function() {
+    var radio = $('input[type=radio]')
     var markdown = new showdown.Converter();
 
     oTable = $('#packagestable').DataTable({
@@ -66,6 +67,12 @@ $(document).ready(function() {
                 "visible": false
             }
         ],
+        "createdRow" : function( row, data, index ){
+            // combine some small categories
+            if(data.ropensci_category == "data-analysis" || data.ropensci_category == "metadata")
+               data.ropensci_category =  "data-tools";
+            $(row).addClass(data.ropensci_category);
+        },
         "info": false, // won't display showed entries of total
         "pagingType": "simple_numbers",
         "pageLength": 18,
@@ -123,6 +130,10 @@ $(document).ready(function() {
         filter_reset_button_text: false
     }
 ], 'header');
-
+   
+   
+   $(radio).change(function() {
+        oTable.search("").draw();
+    });
 
 });
