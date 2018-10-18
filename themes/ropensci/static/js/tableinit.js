@@ -64,6 +64,8 @@ $(document).ready(function() {
         "pageLength": 18,
         "lengthChange": false, // Disables ability to change results number per page
         "language": {
+            "search": ' ', // Changes 'Search' label value
+            "searchPlaceholder": "Type to searchâ€¦", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }
