@@ -87,24 +87,6 @@ $(document).ready(function() {
     });
     
     yadcf.init(oTable, [{
-        column_number: 0,
-        filter_type: "text",
-        style_class: "footer",
-        filter_default_label: "",
-        filter_reset_button_text: false
-    },{
-        column_number: 2,
-        filter_type: "text",
-        style_class: "footer",
-        filter_default_label: "",
-        filter_reset_button_text: false
-    },{
-        column_number: 3,
-        filter_type: "text",
-        style_class: "footer",
-        filter_default_label: "",
-        filter_reset_button_text: false
-    },{
         column_number: 1,
         column_data_type: "rendered_html",
         filter_type: "select",
