@@ -55,9 +55,7 @@ $(document).ready(function() {
                 title: "onboarding"
             },
             {
-                "data": function(row, type, set, meta) {
-                    return row.keywords;
-                },
+                "data": 'keywords',
                 "visible": "false"
             }
         ],
