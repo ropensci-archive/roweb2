@@ -130,6 +130,9 @@ $(document).ready(function() {
     }
 ], 'header');
    
+   yadcf.exFilterColumn(oTable, [
+     [1, "active"]
+   ]);  
    
    $(radio).change(function() {
         oTable.search("").draw();
@@ -143,4 +146,5 @@ $(document).ready(function() {
             return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
         }
     );
+    
 });
