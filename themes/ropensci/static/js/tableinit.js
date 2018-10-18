@@ -77,14 +77,16 @@ $(document).ready(function() {
         "pagingType": "simple_numbers",
         "pageLength": 18,
         "lengthChange": false, // Disables ability to change results number per page
-        "language": {
+                "language": {
             "search": ' ', // Changes 'Search' label value
             "searchPlaceholder": "Type to search...", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }
-        },
-        
+        }
+    }).on('search', function(){
+        if(oTable.search())
+            radio.prop('checked', false);
     });
     
     yadcf.init(oTable, [{
