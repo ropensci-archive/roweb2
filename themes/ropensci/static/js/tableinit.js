@@ -6,7 +6,7 @@ $(document).ready( function () {
 
     oTable = $('#packagestable').DataTable({
         "ajax" : {
-            "url" : "https://gist.githubusercontent.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/0adb14f7b6c1d5342bdf87580c5e0b5224826e48/registry.json",
+            "url" : "https://gist.github.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/89dc67b28d84cc504006de7e679cdec249db211c/registry.json",
             "dataSrc": "packages"
         },
         "columns": [
