@@ -85,21 +85,24 @@ $(document).ready(function() {
         column_data_type: "rendered_html",
         filter_type: "select",
         style_class: "footer",
-        filter_default_label: ""
+        filter_default_label: "",
+        filter_reset_button_text: false
     },
     {
         column_number: 4,
         column_data_type: "rendered_html",
         filter_type: "select",
         style_class: "footer",
-        filter_default_label: ""
+        filter_default_label: "",
+        filter_reset_button_text: false
     },
     {
         column_number: 5,
         column_data_type: "rendered_html",
         filter_type: "select",
         style_class: "footer",
-        filter_default_label: ""
+        filter_default_label: "",
+        filter_reset_button_text: false
     }
 ], 'header');
 
