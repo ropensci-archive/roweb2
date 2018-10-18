@@ -1,6 +1,5 @@
 var oTable;
 $(document).ready( function () {
-    var radio = $('input[type=radio]')
     var markdown = new showdown.Converter();
 
     oTable = $('#packagestable').DataTable({
@@ -76,14 +75,7 @@ $(document).ready( function () {
                 "previous": "Prev", //changes 'Previous' label value
             }
         }
-    }).on('search', function(){
-        if(oTable.search())
-            radio.prop('checked', false);
-    });
-
-    $(radio).change(function() {
-        oTable.search("").draw();
-    });
+    })
 
 
 });
