@@ -61,14 +61,6 @@ $(document).ready(function() {
                 "visible": "false"
             }
         ],
-        "createdRow": function(row, data, index) {
-            // combine some small categories
-            if (data.ropensci_category == "data-analysis" || data.ropensci_category == "metadata")
-                data.ropensci_category = "data-tools";
-            $(row).addClass(data.ropensci_category);
-            if (data.on_cran)
-                $(row).addClass('on_cran');
-        },
         "info": false, // won't display showed entries of total
         "pagingType": "simple_numbers",
         "pageLength": 18,
