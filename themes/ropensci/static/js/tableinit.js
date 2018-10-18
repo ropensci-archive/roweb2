@@ -27,7 +27,9 @@ $(document).ready(function() {
                 name: "select"
             },
             {
-                "data": 'maintainer',
+                "data": function(row, type, set, meta){
+                return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
+},
                 "title": "maintainer",
                 "name": "select"
             },
@@ -75,25 +77,31 @@ $(document).ready(function() {
                 "previous": "Prev", //changes 'Previous' label value
             }
         },
-        initComplete: function () {
-            this.api().columns('select:name').every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.header()) )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )} );
-            } );
-        }
+        
     });
+    
+    yadcf.init(oTable, [{
+        column_number: 1,
+        column_data_type: "rendered_html",
+        filter_type: "select",
+        style_class: "footer",
+        filter_default_label: ""
+    },
+    {
+        column_number: 4,
+        column_data_type: "rendered_html",
+        filter_type: "select",
+        style_class: "footer",
+        filter_default_label: ""
+    },
+    {
+        column_number: 5,
+        column_data_type: "rendered_html",
+        filter_type: "select",
+        style_class: "footer",
+        filter_default_label: ""
+    }
+], 'header');
 
 
 });
