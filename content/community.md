@@ -1,7 +1,7 @@
 +++
 title="Our community is our best asset"
 twitterImg="img/community-scroll/c6.jpg"
-partials=["community-fancy.html","mailkimp.html"]
+partials=["community.html","mailkimp.html"]
 +++
 
 We are building a welcoming and diverse global community of software users and developers from a range of research domains. We aim to build capacity of novices, experts, and the “nexperts” in between. We welcome participation and civil conversations that adhere to our [code of conduct](/coc). There are many ways to get involved.

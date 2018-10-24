@@ -11,7 +11,7 @@ Apart from the [homepage](https://github.com/ropensci/roweb2/blob/master/themes/
 They use partials, e.g. all templates use the same header, head and footer. Partials are presented in the next subsection.
 
 - **default pages** e.g. about, donate
-  - [single page template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_default/list.html) -- it includes  a loop to include all partials mentioned in the frontmatter, e.g. in the community.md you see `partials=["community-fancy.html","mailkimp.html"]` that will include the team, collaborators, and form to subscribe to the newsletter.
+  - [single page template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_default/list.html) -- it includes  a loop to include all partials mentioned in the frontmatter, e.g. in the community.md you see `partials=["community.html","mailkimp.html"]` that will include the team, collaborators, and form to subscribe to the newsletter.
 - **blog**
 	- [blog list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/blog/list.html)
 	- [single blog page template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/blog/single.html)
