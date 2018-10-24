@@ -32,7 +32,6 @@
 {{ if .Params.partials }}
 {{ range $elem_val := $.Params.partials }}
     <br></br>
-    <br></br>
     {{ partial $elem_val . }}
   {{ end }}
 {{ end }}
