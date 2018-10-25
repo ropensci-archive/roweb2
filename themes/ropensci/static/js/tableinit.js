@@ -18,14 +18,20 @@ $(document).ready( function () {
             },
             {
                 data: 'status',
-                visible: false
+                render: {
+                    display: 'badge',
+                    sort: 'status',
+                    filter: 'status',
+                    type: 'status',
+                    _: 'status'
+                    },
+                title: "status"
             },
             {
                 "data": function(row, type, set, meta){
                 return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
 },
-                "title": "maintainer",
-                "name": "select"
+                "title": "maintainer"
             },
             {
                 "data": function(row, type, set, meta) {
