@@ -462,10 +462,13 @@ q:before, q:after {
   font-size: 1.2rem;
   margin-left: 5px;
   padding: 0;
+}.label.icon-notebook{
+  font-size: 1.2rem;
+  margin-left: 5px;
 }.label.nocran{
   background-color: #dfe3eb;
 }.label.bioc{
-  background-color: #40BA12;
+  background-color: #01dc0b;
   color: white;
 }.label.abandoned{
   background-color: #40BA12;
@@ -518,7 +521,7 @@ q:before, q:after {
     background-color: #fff8a4;
     color: #d29f3d;
 }a[href^="https://cran"] p {
-    background-color: #40BA12;
+    background-color: #01dc0b;
     color: white;
 }a[href^="https://git"] p {
     color: #01dc0b;
@@ -592,6 +595,8 @@ q:before, q:after {
   line-height: 0rem;
   float: left;
   margin-top: 9px;
+}.icon-notebook:before {
+  font-size: 1.2rem;
 }.icon-id:before {
   content: "\6d";
 }.icon-message:before {
@@ -1332,7 +1337,7 @@ q:before, q:after {
             justify-content: start;
   }
 
-    #upcoming-events {
+    #upcoming-events {
     }
 
     #upcoming-events th, #upcoming-events td{
@@ -1540,7 +1545,7 @@ q:before, q:after {
             justify-content: start;
   }
 
-    #upcoming-events {
+    #upcoming-events {
     }
 
     #upcoming-events th, #upcoming-events td{

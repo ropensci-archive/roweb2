@@ -6,7 +6,7 @@ $(document).ready( function () {
 
     oTable = $('#packagestable').DataTable({
         "ajax": {
-            "url": "https://gist.githubusercontent.com/maelle/9d7542859d1c998d0b4c4ad3905cfc70/raw/18e1d46bb3b5e365786994a83c76606f3683cc6e/registry.json",
+            "url": "https://raw.githubusercontent.com/ropensci/roregistry/ex/registry2.json",
             "dataSrc": "packages"
         },
         "columns": [
@@ -18,14 +18,7 @@ $(document).ready( function () {
             },
             {
                 data: 'status',
-                render: {
-                    display: 'badge',
-                    sort: 'status',
-                    filter: 'status',
-                    type: 'status',
-                    _: 'status'
-                    },
-                title: "status"
+                visible: false
             },
             {
                 "data": function(row, type, set, meta){
@@ -41,24 +34,8 @@ $(document).ready( function () {
                 "title": "description",
             },
             {
-                data: 'on_cran',
-                render: {
-                    display: 'badge',
-                    sort: 'on_cran',
-                    filter: 'on_cran',
-                    type: 'on_cran'
-                },
-                title: "CRAN/Bioc"
-            },
-            {
-                data: 'onboarding',
-                render: {
-                    display: 'badge',
-                    sort: 'review',
-                    filter: 'review',
-                    type: 'review'
-                },
-                title: "onboarding"
+                data: 'details',
+                title: "Details"
             },
             {
                 "data": 'keywords',
@@ -72,7 +49,7 @@ $(document).ready( function () {
             $(row).addClass(data.ropensci_category);
             if(data.on_cran)
                 $(row).addClass('on_cran');
-            if(data.status == "active")
+            if(data.status.status == "active")
                 $(row).addClass('active');
         },
         "info": false, // won't display showed entries of total
