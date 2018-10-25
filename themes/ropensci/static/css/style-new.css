@@ -948,7 +948,7 @@ q:before, q:after {
     width: 100%
 }form input{
   font-family: "ProximaNova";
-  color: #333E50;
+  color: #a1a8b7;
   font-size: 1rem;
   font-style: italic;
   border: 1px solid #e8edf7;
@@ -983,7 +983,7 @@ q:before, q:after {
 }form textarea{
   width: 100%;
   font-family: "ProximaNova";
-  color: #333E50;
+  color: #a1a8b7;
   font-size: 1rem;
   padding: 15px 15px 15px 40px;
   min-height: 30vh;
@@ -1023,7 +1023,7 @@ q:before, q:after {
 }form.newsletter, form.tutorial{
 }form.newsletter input, form.tutorial input{
   font-family: "ProximaNova";
-  color: #333E50;
+  color: #a1a8b7;
   font-size: 1rem;
   font-style: italic;
   border: 1px solid #e8edf7;
@@ -1080,7 +1080,7 @@ q:before, q:after {
   content: 'Apply';
 }input[type="search"]{
     font-family: "ProximaNova";
-    color: #333E50;
+    color: #a1a8b7;
     font-size: 1rem;
     font-style: italic;
     border: 1px solid #e8edf7;
