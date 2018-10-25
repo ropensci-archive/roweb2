@@ -1,6 +1,6 @@
 +++
-title = "About rOpenSci"
-description = "Our vision and mission"
+title = "About us"
+description = "rOpenSci's vision and mission, team, and collaborators"
 partials = ["about.html"]
 +++
 
