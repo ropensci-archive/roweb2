@@ -53,7 +53,7 @@ $(document).ready( function () {
             if(data.ropensci_category == "data-analysis" || data.ropensci_category == "metadata")
                data.ropensci_category =  "data-tools";
             $(row).addClass(data.ropensci_category);
-            if(data.on_cran)
+            if(data.on_cran.on_cran)
                 $(row).addClass('on_cran');
             if(data.status.status == "active")
                 $(row).addClass('active');
