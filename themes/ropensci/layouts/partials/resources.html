@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>rOpenSci | Resources</title>
-    {{ partial "style-path.html" }}
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
-    <!-- Fonts.com imports -->
-    {{ partial "ga.html" . }}
-</head>
-<body>
-{{ partial "header.html" . }}
 
 <!-- begins resources section -->
     <section class="resources">
         <div class="container">
-            <div class="row center">
-                <div class="col-8 top-20">
-                    <h2>Resource List</h2>
-                </div>
-                <div class="col-8 top-4">
-                    <p>This collection includes talks, publications and searchable places to ask and answer questions.</p>
-                    <p>If you have ideas for what you'd like to see here, <a href="https://discuss.ropensci.org" target="_blank">please drop us a note</a>.</p>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-3 col-offset-2 top-12">
                     <h5><i class="ropensci-icons">r</i> StackOverflow</h5>
@@ -163,30 +142,3 @@
         </div>
     </section>
     <!-- ends resources section -->
-
-
-<!-- begins newsletter section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="row center">
-                <div class="col-4 top-9">
-                    <form class="newsletter">
-                        <input type="email" name="email" placeholder="email@domain.net" />
-                        <button class="sumbit" name="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row center">
-                <div class="col-6 top-4 bottom-9">
-                    <p>Stay up to date on our projects and events by subscribing to our mailing list</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- /newsletter -->
-
-
-{{ partial "footer.html" . }}
-
-</body>
-</html>

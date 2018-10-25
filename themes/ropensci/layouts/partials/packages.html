@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>rOpenSci | Packages</title>
-    {{ partial "style-path.html" }}
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
-    {{ partial "ga.html" . }}
-    <title>{{ .Site.Title }}</title>
-<meta property="og:title" content="rOpenSci packages">
-<meta property="og:type" content="website">
-<meta property="description" content="Full list of our package suite">
-<meta property="og:description" content="Full list of our package suite">
-<meta name="twitter:card" content="">
-<meta name="twitter:image" content="http://ropensci.org/android-chrome-512x512.png" >
-<meta name="twitter:creator" content="@rOpenSci">
-<meta name="twitter:site" content="@rOpenSci">
-</head>
-
-<body>
-{{ partial "header.html" . }}
-
-<!-- begins packages section -->
-    <section class="packages">
-        <div class="container">
-            <div class="row center">
-                <div class="col-10 top-20">
-                    <h2>rOpenSci Packages</h2>
-                </div>
-                <div class="col-8 top-4">
-                    <p>Our packages are carefully vetted, staff- and community-contributed R software tools that lower barriers to working with scientific data sources and data that support research applications on the web. Read our <a href="/blog/">blog</a> to learn how to use specific packages or contribute to their improvement. Browse our <a href="/tutorials/">tutorials</a> and <a href="/usecases/">use cases</a>.</p><br>
-
-                    <p>Curious about contributing your package? See <a href="http://onboarding.ropensci.org">onboarding</a> for details. We welcome <a href="http://onboarding.ropensci.org/#why-review">volunteers to review</a> packages submitted to our open peer review process.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-10 col-offset-1 top-20">
+<section>
+<div class="row">
+                <div class="col-10 col-offset-1 top-0">
                     <form class="filter">
                         <a class="panel">Filters</a>
                         <label><input type="radio" name="filter" class="all" checked />All</label>
@@ -80,10 +46,6 @@
         </div><!-- /container -->
     </section>
 <!-- ends packages section -->
-
-{{ partial "footer.html" . }}
-
-
     <!-- Loads table functions -->
     <!-- ***************************************************** IMPORTANT: This page loads the dataTables and jquery for table functionality -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -91,6 +53,3 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <!-- initializes table customizing -->
     <script type="text/javascript" src="/js/tableinit.js"></script>
-
-</body>
-</html>

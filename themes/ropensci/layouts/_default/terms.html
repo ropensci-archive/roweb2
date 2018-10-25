@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <article>
+    <div class="container">
+        <div class="row">
+          <div class="col-8 col-offset-2 top-4">
+  <div class="header">
+  <h2>{{ .Title }}</h2>
+  </div>
+</div>
+  </div>
+<div class="row">
+            <div class="col-8 col-offset-2 top-4 bottom-10">
+  {{ $data := .Data }}
+  {{ range $key, $value := .Data.Terms.ByCount }}
+      <a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a>
+      <span>&#40;{{ $value.Count }}&#41; </span>
+  {{ end }}
+</div>
+            </div>
+        </div>
+</article>
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>

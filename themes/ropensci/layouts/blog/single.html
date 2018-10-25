@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 sidebar top-5">
+                <ul class="autoSidebar"></ul>
+            </div> <!-- /navigation sidebar -->
+        </div>
+        <div class="row">
+            <div class="col-offset-2 col-8 top-20">
+                <h2 style="text-align: center;">{{ .Title }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
+                <p class="authors" style="text-align: center;">
+                    {{ range .Params.authors }}
+                        {{ if in $.Site.Params.leadership .name }}
+                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
+                        {{ else if in $.Site.Params.staff .name }}
+                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
+                        {{ else if eq .name "Ted Hart" }}
+                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
+                        {{ else }}
+                          <a href="{{ .url }}" target="_blank"> {{ .name }} </a>&nbsp;
+                        {{ end }}
+                    {{ end }}
+                </p>
+                <br>
+            </div>
+            <div class="col-offset-2 col-8 top-2">
+
+                {{ if .Params.preface }}
+                <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
+                {{ end }}
+
+                {{ .Content }}
+            </div>
+            <br>
+            <div class="col-offset-2 col-8 top-4 labels">
+                {{ range .Params.tags }}
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
+                {{ end }}
+        </div>
+        <br>
+    </div>
+</article>
+
+
+<!-- {{ partial "sidebar.html" . }} -->
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>
+
+
+
