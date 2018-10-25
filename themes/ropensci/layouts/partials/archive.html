@@ -1,0 +1,10 @@
+<section>
+<ul class="allposts">
+{{ range .pages }}
+    {{ if or (eq .Params.categories "blog") (eq .Params.categories "technotes")}}
+   <li>{{.Title}}</li>
+    {{end}}
+{{ end }}
+</ul>   
+ </section>
+ 
