@@ -746,7 +746,7 @@ q:before, q:after {
 }article .autoSidebar a{
   display: block;
   color: #333E50;
-  border-bottom: 1px solid #a1a8b7;
+  border-bottom: 1px solid #5a6376;
 }article .autoSidebar ul{
   margin: 0;
   padding: 0;
@@ -951,7 +951,7 @@ q:before, q:after {
   color: #333E50;
   font-size: 1rem;
   font-style: italic;
-  border: 1px solid #a1a8b7;
+  border: 1px solid #5a6376;
   padding: 13px 15px 15px 40px;
   border-radius: 2px;
   background-color: white;
@@ -989,7 +989,7 @@ q:before, q:after {
   min-height: 30vh;
   box-sizing: border-box;
   border-radius: 2px;
-  border: 1px solid #a1a8b7;
+  border: 1px solid #5a6376;
   resize: none;
   background: url('../img/message.svg') 15px 18px no-repeat white;
   background-size: 15px;
@@ -1026,7 +1026,7 @@ q:before, q:after {
   color: #333E50;
   font-size: 1rem;
   font-style: italic;
-  border: 1px solid #a1a8b7;
+  border: 1px solid #5a6376;
   padding: 16px 15px 15px 40px;
   border-radius: 2px;
   background-color: white;
@@ -1083,7 +1083,7 @@ q:before, q:after {
     color: #333E50;
     font-size: 1rem;
     font-style: italic;
-    border: 1px solid #a1a8b7;
+    border: 1px solid #5a6376;
     padding: 13px 15px 15px 40px;
     border-radius: 2px;
     background-color: white;
