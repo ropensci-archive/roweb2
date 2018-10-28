@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://communitycalls.ropensci.org/#2018-10-16">rOpenSci Community Call</a>',
-      'dateStart': 'Oct 16, 2018',
-      'dateEnd': '',
-      'description': 'How do you review code that accompanies a research project or paper?',
-      'location': 'Video conference',
-      'attendees': 'All are welcome'
-    },
-    {
       'title': '<a href="https://translate.google.com/translate?sl=ko&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fruck2018.r-kor.org">R User Conference in Korea 2018</a>',
       'dateStart': 'Oct 26, 2018',
       'dateEnd': '',
