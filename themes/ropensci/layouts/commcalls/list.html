@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row center">
                 <div class="col-8 top-20">
-                    <h2>Upcoming Events</h2>
+                    <h2>Community Calls</h2>
                 </div>
                 <div class="col-8 top-4 bottom-12">
                     <p><i>rOpenSci comm calls <a href="{{.URL}}index.ics" target="_blank">iCal feed of the full calendar</a></i></p>
@@ -20,7 +20,9 @@
 
             <div class="row">
                 
-
+            <div class="col-10 top-0">
+<h3> Upcoming call(s) </h3>
+<ul>
   {{ range .Data.Pages }}
   {{ $end := (time .Params.dateEnd) }}
   {{ $diff := (now.Sub $end) }}
@@ -30,9 +32,26 @@
   <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Params.dateStart | upper }}</small></div>
   {{ end }}
   {{ end }}
+</ul>
+</div> 
 
-                
-
+            <div class="col-10 top-0">
+<h3> Past calls </h3>
+<ul>
+  {{ range .Data.Pages }}
+  {{ $end := (time .Params.dateEnd) }}
+  {{ $diff := (now.Sub $end) }}
+  {{ $diff := $diff.Hours }}
+  {{ if or ($end.Before now) (ge $diff 48 )}}
+  <p><a href="{{ .URL }}">{{ .Title }}</a>
+  <small class="date lighter">{{ .Params.dateStart | upper }}</small></p>
+  <iframe src="https://player.vimeo.com/video/{{.Params.vimeo}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/{{.Params.vimeo}}">Video recording</a>.</p>
+  {{ end }}
+  {{ end }}            
+</ul>
+</div>
+</div>
             </div> 
         </div><!-- /container -->
     </section>
