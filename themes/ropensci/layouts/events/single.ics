@@ -10,7 +10,7 @@ UID:{{.Params.dateStart}}@ropensci.org
 SEQUENCE:0
 STATUS:CONFIRMED
 DTSTART;TZID={{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateStart}}
-DTEND;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.dateEnd}}
+DTEND;TZID={{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateEnd}}
 LOCATION:{{.Params.location}}
 URL:{{.Params.details}}
 END:VEVENT
