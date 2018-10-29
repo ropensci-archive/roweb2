@@ -13,7 +13,7 @@ STATUS:CONFIRMED
 DTSTART;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.slot.dateStart}}
 DTEND;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.dateEnd}}
 LOCATION:{{.Params.location}}
-URL:{{.Params.url}}
+URL:{{.Params.details}}
 END:VEVENT
 {{end -}}
 END:VCALENDAR
