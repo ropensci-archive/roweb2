@@ -21,15 +21,13 @@
             <div class="row">
                 
 
-  {{ range .Site.Pages }}
-  {{ if .Params.dateEnd}}
+  {{ range .Data.Pages }}
   {{ $end := (time .Params.dateEnd) }}
   {{ $diff := (now.Sub $end) }}
   {{ $diff := $diff.Hours }}
   {{ if or ($end.After now) (le $diff 48 )}}
   <div class="col-10"><p><a href="{{ .URL }}">{{ .Title }}</a></p></div>
   <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Params.dateStart | upper }}</small></div>
-  {{ end }}
   {{ end }}
   {{ end }}
 
