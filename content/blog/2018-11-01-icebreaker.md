@@ -1,12 +1,12 @@
 ---
 slug: icebreaker
 title: Sharing the Recipe for rOpenSci's Unconf Ice Breaker
-date: '2018-11-xx'
+date: '2018-11-01'
 authors:
   - name: Stefanie Butland
 categories: blog
 topicid:
-twitterImg: img/blog-images/??
+twitterImg:
 tags:
   - community
   - events
@@ -66,15 +66,15 @@ The “I know where I fit as a member of the R community” question was ideal c
 
 This exercise was the perfect segue into the project group self-selection and eased the way for plenty of informal conversations later in the day.
 
-img/blah blah
+<img src="/img/blog-images/2018-10-24-commcall-nov2018/ropensci-unconf17-community-nistara-randhawa.jpg" alt="unconf17 photo(c) Nistara Randhawa" style="margin: 0px 20px;">
 
-This photo may look like a "we're a happy community" picture, but it's actually the response to "who here feels like they have imposter syndrome"?
+The photo above might look like a "we're a happy community" picture, but it's actually the response to "who here feels like they have imposter syndrome"?
 
 ## Who else in our community has used it?
 Some people who participated in this ice breaker at our unconferences have adapted it for their own events.
 
 - Julia Stewart-Lowndes at xxx
-- [Reka Solymosi](https://twitter.com/r_solymosi) used it with (insert # people) at welcome week activities for graduate students in Criminology and Social Statistics at the University of Manchester
+- [Reka Solymosi](https://twitter.com/r_solymosi) uses it with 20 to 30 people at welcome week activities for graduate students in Criminology and Social Statistics at the University of Manchester. The questions she uses are: 1) I have a previous degree in/ have worked in a career related to criminology; 2) I know exactly what I want to gain out of this masters programme.
 - [Miles McBain](https://twitter.com/milesmcbain) used it with 35 people at the 2018 [R Foundation](https://www.r-project.org/foundation/) Summit
 - [Sam Albers](https://twitter.com/big_bad_sam) used it with 30 people at an ____ event/workshop for the ____ (e.g. R users in the British Columbia government dept xyz)
 - [Nick Tierney](https://twitter.com/nj_tierney) used it with 45 people at [ozunconf17](https://ropensci.org/blog/2017/10/31/ozunconf2017/)
@@ -84,7 +84,7 @@ Some people who participated in this ice breaker at our unconferences have adapt
 1. Write a script for yourself; it forces you to think through the excercise.
 1. Explain how the exercise works and find two volunteers to demonstrate
 1. Use a timer to limit the small-group introductions to ~3 minutes and limit the exercise to 45 to 60 minutes.
-1. Encourage people to introduce themselves using first and last names; it helps minimize assumptions about who everyone ought to know
+1. Encourage people to introduce themselves using first and last names; it helps minimize assumptions about who everyone ought to know.
 1. Visually keep track of who has not yet spoken up and call on them at the end. (A strong memory for faces and names helps.)
 
 Have you used a version of this ice breaker? Tell us about it in the comments.
