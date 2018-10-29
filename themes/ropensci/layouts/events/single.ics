@@ -3,7 +3,6 @@ VERSION:2.0
 PRODID:-//elm-conf//speaker calendar//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-{{range .Pages -}}
 BEGIN:VEVENT
 ORGANIZER;CN="Stefanie Butland":mailto:stefanie@ropensci.org
 SUMMARY:{{.Params.title}} – {{.Params.description}}
@@ -15,5 +14,4 @@ DTEND;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.dateEnd}}
 LOCATION:{{.Params.location}}
 URL:{{.Params.details}}
 END:VEVENT
-{{end -}}
 END:VCALENDAR
