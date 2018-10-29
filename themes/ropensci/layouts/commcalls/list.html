@@ -32,12 +32,24 @@
 <h3> Next call(s) </h3>
 <ul>
   {{ range .Data.Pages }}
+  {{ $start := (time .Params.dateStart)}}
+  {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
+  {{ $start:= $start.Format "20060102T15"}}
   {{ $end := (time .Params.dateEnd) }}
   {{ $diff := (now.Sub $end) }}
   {{ $diff := $diff.Hours }}
   {{ if or ($end.After now) (le $diff 48 )}}
-  <div class="col-10"><p><a href="{{ .URL }}">{{ .Title }}</a></p></div>
-  <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Params.dateStart | upper }}</small></div>
+  <li>
+  <ul>
+  <li> {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}">Find your timezone</a>. </li>
+  <li> <strong>Topic</strong>: {{ .Params.description | safeHTML}}. <li>
+
+</li> <strong>Speaker(s)</strong>: <ul>
+  {{ range .Params.speakers }}
+  <li>{{ .name }}, {{ .url }}, {{ .details }}</li>
+  {{end}}
+</ul> </li>
+</li>
   {{ end }}
   {{ end }}
 </ul>

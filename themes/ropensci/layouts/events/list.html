@@ -39,7 +39,7 @@
     <td>{{.Params.dateStart}}</td>
     <td>{{.Params.location}}</td>
     <td>{{.Params.attendees}}</td>
-    <td>{{.Params.description}}</td>
+    <td>{{.Params.description | safeHTML}}</td>
   </tr>
   {{ end }}
   {{ end }}
