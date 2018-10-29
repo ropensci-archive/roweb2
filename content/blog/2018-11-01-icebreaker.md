@@ -58,7 +58,7 @@ Does anyone wish to move based on what you’ve heard?
 
 *Near end of the exercise, ask anyone who did not speak up to introduce themselves to the group.*
 
-## Reflecting on the success of this ice breaker:
+## Reflection
 
 > Really work on the questions - they're the key to shifting it from being an ok ice breaker to a really provocative and useful workshop starter. Think about the questions that underpin the workshop, what are the issues people are worried about but unsure how to raise? Can you frame a slightly humorous question that makes it ok to talk about? - Cameron Neylon
 
@@ -66,11 +66,11 @@ The “I know where I fit as a member of the R community” question was ideal c
 
 This exercise was the perfect segue into the project group self-selection and eased the way for plenty of informal conversations later in the day.
 
-<img src="/img/blog-images/2018-10-24-commcall-nov2018/ropensci-unconf17-community-nistara-randhawa.jpg" alt="unconf17 photo(c) Nistara Randhawa" style="margin: 0px 20px;">
+<img src="/img/blog-images/2018-11-01-icebreaker/ropensci-unconf17-community-nistara-randhawa.jpg" alt="unconf17 photo(c) Nistara Randhawa" style="margin: 0px 20px;">
 
 The photo above might look like a "we're a happy community" picture, but it's actually the response to "who here feels like they have imposter syndrome"?
 
-## Who else in our community has used it?
+## Who else has used this recipe?
 Some people who participated in this ice breaker at our unconferences have adapted it for their own events.
 
 - Julia Stewart-Lowndes at xxx
