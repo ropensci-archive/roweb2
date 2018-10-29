@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//elm-conf//speaker calendar//EN
+PRODID:-//ropensci//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 {{range .Pages -}}
@@ -10,6 +10,7 @@ SUMMARY:{{.Params.title}} – {{.Params.description}}
 UID:{{.Params.dateStart}}@ropensci.org
 SEQUENCE:0
 STATUS:CONFIRMED
+DTSTAMP:{{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateStart}}
 DTSTART;TZID={{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateStart}}
 DTEND;TZID={{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateEnd}}
 LOCATION:{{.Params.location}} - {{.Params.details}}
