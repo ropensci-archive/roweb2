@@ -14,12 +14,12 @@
                     <h2>Upcoming Events</h2>
                 </div>
                 <div class="col-8 top-4 bottom-12">
-                    <p><i>Events related to rOpenSci. <a href="{{.Permalink}}index.ics" target="_blank">iCal feed of the full calendar</a></i></p>
                 </div>
             </div>
 
             <div class="row">
-                
+                <div class="row center">
+            <div class="col-10 top-0">
 <table>
   <thead>
     <th>Event</th>
@@ -45,8 +45,11 @@
   {{ end }}
   {{ end }}
 </table>
-                
-
+</div>
+              <div class="col-4 top-5 bottom-13">
+                <a href="{{.URL}}index.ics" target="_blank" class="button outline green">View full calendar</a>
+            </div>  
+</div>
             </div> 
         </div><!-- /container -->
     </section>
