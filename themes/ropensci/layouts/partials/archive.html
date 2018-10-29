@@ -5,12 +5,12 @@
   <div class="row">
 {{ range .pages }}
     {{ if .Params.authors }}
-   <div class="col-10" style="color: #7b869d"><p><a href="{{ .URL }}">{{ .Title }}</a> | {{ range $index, $lc := .Params.authors }}
+   <div class="col-10" style="color: #7b869d"><p><a href="{{ .URL }}">{{ .Title }}</a> | <small><i> {{ range $index, $lc := .Params.authors }}
   {{ $option := index $lc "name" }}
   {{ if $index }}| 
   {{ end }}
   {{ $option }}
-{{ end }} </p></div>
+{{ end }} </small></i> </p></div>
   <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Date.Format "January 2, 2006" | upper }}</small></div>
 
     {{end}}
