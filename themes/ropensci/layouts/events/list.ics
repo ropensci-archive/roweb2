@@ -12,8 +12,7 @@ SEQUENCE:0
 STATUS:CONFIRMED
 DTSTART;TZID={{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateStart}}
 DTEND;TZID={{.Params.timezone}}:{{dateFormat "20060102T150405" .Params.dateEnd}}
-LOCATION:{{.Params.location}}
-URL:{{.Params.details}}
+LOCATION:{{.Params.location}} - {{.Params.details}}
 END:VEVENT
 {{end -}}
 END:VCALENDAR
