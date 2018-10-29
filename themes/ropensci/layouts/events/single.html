@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+
+<article class="blog-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 top-12 mainpostlist">
+                <h1 style="text-align: center;">{{ .Title }}</h1>
+
+                <div class="bottom-5 top-10" style="font-size: 20px; text-align: center;">
+                    <p class="authors" style="text-align: center;">
+                        {{ range .Params.speakers }}
+                            &nbsp;
+                            {{ if in $.Site.Params.leadership .name }}
+                              <a href="/about/#team">{{ .name }}</a> 
+                            {{ else if in $.Site.Params.staff .name }}
+                              <a href="/about/#team">{{ .name }}</a>
+                            {{ else if eq .name "Ted Hart" }}
+                              <a href="/about/#team">{{ .name }}</a>
+                            {{ else }}
+                              <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                            {{ end }}
+                            {{ if .twitter }}
+                            <a href="https://twitter.com/{{.twitter}}" class="social" alt="twitter" target="_blank">
+                               <sup><i class="ropensci-icons">o</i></sup>
+                            </a>
+                            {{ end }}
+                            &nbsp; |
+                        {{ end }}
+                        <small style="color: #5B617A; margin-left: 10px;"> {{ .Params.dateStart.Format "2006-01-02T15:04:05-07:00"  }} - {{ .Params.dateEnd.Format "2006-01-02T15:04:05-07:00"  }}</small>
+                    </p>
+                </div>
+
+
+                <br>
+                {{ .Description}}
+
+            </div>
+            
+        </div>
+        <br>
+    </div>
+</article>
+
+
+<!-- {{ partial "sidebar.html" . }} -->
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>
+
+
+
