@@ -1,5 +1,0 @@
-{
-	"outputs":["json"],
-	"layout":"jsonfeed"
-}
-

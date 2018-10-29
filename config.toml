@@ -44,4 +44,11 @@ rssLimit = 20
 
 [taxonomies]
   tag = "tags"
+  
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+  category = ["HTML", "RSS", "JSON"]
+  taxonomy = ["HTML", "RSS", "JSON"]
+  taxonomyTerm = ["HTML", "RSS", "json"]
 

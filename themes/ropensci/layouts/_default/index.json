@@ -10,15 +10,14 @@
 	"author": { "name": "{{ .Site.Params.author }}" },
 	{{ end }}
     "items": [
-    {{ range $i, $e := first 10 .Site.Pages }}
+    {{ range $i, $e := .Pages }}
 		{{ if $i }}, {{ end }}
 			{
 				"id": "{{ .Permalink }}",
 				"title": "{{ .Title }}",
 				"content_text": {{ .Summary | jsonify }},
 				"url": "{{ .Permalink }}",
-				"date_published": "{{ replace .Date "-0700 -0700" "-0700"}}",
-				"tags": ["{{ delimit .Params.tags "," }}"]
+				"date_published": "{{ replace .Date "-0700 -0700" "-0700"}}"
 			}
 		{{ end }}
     ]
