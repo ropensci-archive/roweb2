@@ -10,7 +10,7 @@ SUMMARY:{{.Params.title}} – {{.Params.description}}
 UID:{{.Params.dateStart}}@ropensci.org
 SEQUENCE:0
 STATUS:CONFIRMED
-DTSTART;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.slot.dateStart}}
+DTSTART;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.dateStart}}
 DTEND;TZID=America/Chicago:{{dateFormat "20060102T150405" .Params.dateEnd}}
 LOCATION:{{.Params.location}}
 URL:{{.Params.details}}
