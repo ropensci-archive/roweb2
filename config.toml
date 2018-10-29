@@ -50,5 +50,5 @@ rssLimit = 20
   section = ["HTML", "RSS", "JSON"]
   category = ["HTML", "RSS", "JSON"]
   taxonomy = ["HTML", "RSS", "JSON"]
-  taxonomyTerm = ["HTML", "RSS", "json"]
+  taxonomyTerm = ["HTML", "RSS", "JSON"]
 
