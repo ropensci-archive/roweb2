@@ -20,19 +20,31 @@
 
             <div class="row">
                 
-
+<table>
+  <thead>
+    <th>Event</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Attendees</th>
+    <th>Details</th>
+  </thead>
   {{ range .Site.Pages }}
   {{ if .Params.dateEnd}}
   {{ $end := (time .Params.dateEnd) }}
   {{ $diff := (now.Sub $end) }}
   {{ $diff := $diff.Hours }}
   {{ if or ($end.After now) (le $diff 48 )}}
-  <div class="col-10"><p><a href="{{ .URL }}">{{ .Title }}</a></p></div>
-  <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Params.dateStart | upper }}</small></div>
+  <tr>
+    <td><a href="{{ .URL}}" target="_blank">{{.Title}}</a></td>
+    <td>{{.Params.dateStart}}</td>
+    <td>{{.Params.location}}</td>
+    <td>{{.Params.attendees}}</td>
+    <td>{{.Params.description}}</td>
+  </tr>
   {{ end }}
   {{ end }}
   {{ end }}
-
+</table>
                 
 
             </div> 
