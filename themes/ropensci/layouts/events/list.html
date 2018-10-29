@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row center">
                 <div class="col-8 top-20">
-                    <h2>rOpenSci Events</h2>
+                    <h2>Upcoming Events</h2>
                 </div>
                 <div class="col-8 top-4 bottom-12">
                     <p><i>Events related to rOpenSci. <a href="{{.Permalink}}index.ics" target="_blank">iCal feed of the full calendar</a></i></p>
@@ -22,11 +22,13 @@
                 
 
   {{ range .Data.Pages }}
-
+  {{ $end := (time .Params.dateEnd) }}
+  {{ $diff := (now.Sub $end) }}
+  {{ $diff := $diff.Hours }}
+  {{ if or ($end.After now) (le $diff 48 )}}
   <div class="col-10"><p><a href="{{ .URL }}">{{ .Title }}</a></p></div>
   <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Params.dateStart | upper }}</small></div>
-
-
+  {{ end }}
   {{ end }}
 
                 

@@ -32,13 +32,15 @@
                             {{ end }}
                             &nbsp; |
                         {{ end }}
-                        <small style="color: #5B617A; margin-left: 10px;"> {{ .Params.dateStart }} - {{ .Params.dateEnd }}</small>
+                        <small style="color: #5B617A; margin-left: 10px;"> {{ .Params.dateStart }} - {{ .Params.dateEnd }} ({{ .Params.timezone }})</small>
                     </p>
                 </div>
 
 
                 <br>
                 {{ .Description}}
+                <br></br>
+                <a href="{{.Permalink}}index.ics" target="_blank">Add the event to your calendar!</a>
 
             </div>
             
