@@ -3,7 +3,8 @@ slug: is-invasive
 title: is.invasive()
 date: '2012-11-26'
 authors:
-  - name: Scott Chamberlain
+  - name: Ignasi Bartomeus
+  - url: https://bartomeuslab.com/
 categories: blog
 tags:
   - R
