@@ -4,7 +4,7 @@ title: is.invasive()
 date: '2012-11-26'
 authors:
   - name: Ignasi Bartomeus
-  - url: https://bartomeuslab.com/
+    url: https://bartomeuslab.com/
 categories: blog
 tags:
   - R
