@@ -17,7 +17,7 @@ categories: blog
 tags:
   - review
   - community
-  - package
+  - packages
   - text
   - nlp
   - open-source

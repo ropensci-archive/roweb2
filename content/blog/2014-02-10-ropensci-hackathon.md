@@ -7,7 +7,7 @@ authors:
 categories: blog
 tags:
   - hackathon
-  - meeting
+  - meetings
   - R
   - unconf
   - unconf14

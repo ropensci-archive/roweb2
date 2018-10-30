@@ -7,7 +7,6 @@ authors:
 categories: blog
 tags:
   - R
-  - rOpenSci
   - book
   - reproducibleresearch
   - openscience

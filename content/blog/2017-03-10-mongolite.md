@@ -8,7 +8,6 @@ topicid: 626
 date: '2017-03-10'
 tags:
   - R
-  - rOpenSci
   - packages
   - databases
 ---

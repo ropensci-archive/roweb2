@@ -9,7 +9,6 @@ categories: blog
 topicid: 1044
 tags:
   - community
-  - rOpenSci
   - interviews
   - staff
 ---

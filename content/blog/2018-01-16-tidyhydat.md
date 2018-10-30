@@ -14,7 +14,7 @@ tags:
   - software
   - review
   - onboarding
-  - package
+  - packages
   - hydrometrics
   - bcgov
   - tidydata

@@ -1,5 +1,5 @@
 ---
-slug: "mchtoolbox"
+slug: mchtoolbox
 title: Exploring ways to address gaps in maternal-child health research
 authors:
   - name: Monica Gerber
@@ -12,15 +12,15 @@ authors:
     url: https://github.com/kylehamilton
   - name: Charles Gray
     url: https://github.com/softloud
-date: 2018-07-05
+date: '2018-07-05'
 categories: blog
 topicid: 1249
 tags:
-- r
-- package
-- community
-- unconf
-- unconf18
+  - r
+  - packages
+  - community
+  - unconf
+  - unconf18
 ---
 
 It’s easy to come to a conference and feel intimidated by the wealth of knowledge and expertise of other attendees. As Ellen Ullman, a software engineer and writer describes,[^1] 

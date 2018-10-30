@@ -11,7 +11,6 @@ tags:
   - ozunconf16
   - unconf
   - R
-  - rOpenSci
 ---
 
 The rOpenSci Unconference is coming to Australia and we are excited!!

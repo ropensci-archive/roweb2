@@ -1,9 +1,10 @@
 ---
-slug: "pkginspector"
-title: "What's inside? pkginspector provides helpful tools for inspecting package contents"
-preface: "This post describes a project from rOpenSci unconf18. In the spirit of exploration and experimentation at our unconferences, projects are not necessarily finished products or in scope for rOpenSci packages."
+slug: pkginspector
+title: What's inside? pkginspector provides helpful tools for inspecting package contents
+preface: This post describes a project from rOpenSci unconf18. In the spirit of exploration
+  and experimentation at our unconferences, projects are not necessarily finished
+  products or in scope for rOpenSci packages.
 authors:
-    
   - name: Sam Albers
     url: https://github.com/boshek
   - name: Leonardo Collado-Torres
@@ -15,7 +16,7 @@ authors:
   - name: Noam Ross
     url: https://github.com/noamross
   - name: Omayma Said
-    url: https://github.com/OmaymaS   
+    url: https://github.com/OmaymaS
 date: '2018-07-17'
 categories: blog
 topicid: 1262
@@ -24,7 +25,7 @@ tags:
   - r
   - review
   - onboarding
-  - package
+  - packages
   - unconf
   - unconf18
 ---

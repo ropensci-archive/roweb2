@@ -10,7 +10,7 @@ tags:
   - R
   - Patents
   - PatentsView
-  - package
+  - packages
   - API
   - USPTO
   - review

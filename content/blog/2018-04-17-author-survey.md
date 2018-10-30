@@ -11,7 +11,6 @@ categories: blog
 topicid: 1142
 tags:
   - community
-  - rOpenSci
   - onboarding
   - review
   - reviewer

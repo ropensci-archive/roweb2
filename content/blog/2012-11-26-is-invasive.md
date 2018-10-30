@@ -8,7 +8,6 @@ authors:
 categories: blog
 tags:
   - R
-  - rOpenSci
   - taxize
   - ecology
 ---
