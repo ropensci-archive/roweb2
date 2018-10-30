@@ -6,8 +6,8 @@ authors:
   - name: Karthik Ram
 categories:
   - blog
-tags:
-- funding
+tags: 
+  - funding
 ---
 
 rOpenSci, whose mission is to develop and maintain sustainable software
