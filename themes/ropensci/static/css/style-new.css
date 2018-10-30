@@ -1092,17 +1092,17 @@ q:before, q:after {
     background-size: 15px;
     width: 100%;
 }::-webkit-input-placeholder {
-    color: #a1a8b7;
+    color: #090a0c;
 }::placeholder {
-    color: #a1a8b7;
+    color: #090a0c;
 }::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #a1a8b7;
+  color: #090a0c;
 }::-moz-placeholder { /* Firefox 19+ */
-  color: #a1a8b7;
+  color: #090a0c;
 }:-ms-input-placeholder { /* IE 10+ */
-  color: #a1a8b7;
+  color: #090a0c;
 }:-moz-placeholder { /* Firefox 18- */
-  color: #a1a8b7;
+  color: #090a0c;
 }/* Tables */table {
     width: 100%;
     text-align: left;
