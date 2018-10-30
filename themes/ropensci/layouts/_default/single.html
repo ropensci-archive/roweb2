@@ -26,11 +26,15 @@
             </div>
         </div>
 </article>
-
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ if .Params.partials }}
-{{ range $elem_val := $.Params.partials }}
-    <br></br>
-    {{ partial $elem_val . }}
+  {{ range $elem_val := $.Params.partials }}
+      <br></br>
+      {{if (eq $elem_val "archive.html")}}
+        {{ partial "archive.html" (dict "pages" $pages) }}
+      {{else}}
+        {{ partial $elem_val . }}
+      {{end}}
   {{ end }}
 {{ end }}
 {{ partial "footer.html" . }}
