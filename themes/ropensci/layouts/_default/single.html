@@ -32,6 +32,9 @@
       <br></br>
       {{if (eq $elem_val "archive.html")}}
         {{ partial "archive.html" (dict "pages" $pages) }}
+          <div class="row center top-3 bottom-3">
+<p> Find all blog posts and tech notes by tag <a href="/tags/" target="_blank">here</a>. </p>
+          </div>
       {{else}}
         {{ partial $elem_val . }}
       {{end}}
