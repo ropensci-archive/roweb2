@@ -7,7 +7,7 @@ authors:
     url: http://twitter.com/noamross
     twitter: noamross
   - name: Carl Boettiger
-    twitter: cboetting
+    twitter: cboettig
   - name: Jenny Bryan
     twitter: JennyBryan
   - name: Scott Chamberlain
