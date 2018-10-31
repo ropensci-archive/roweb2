@@ -38,9 +38,11 @@
 
 
                 <br>
-                {{ .Description}}
+                {{ .Description | safeHTML}}
                 <br></br>
-
+<div class="col-4 top-5 bottom-13">
+                <a href="{{.URL}}index.ics" target="_blank" class="button outline green">View .ics</a>
+            </div> 
             </div>
             
         </div>
