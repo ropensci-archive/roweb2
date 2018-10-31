@@ -1,21 +1,25 @@
 ---
-slug: "review-collaboration-mee"
-title: "Announcing a New rOpenSci Software Review Collaboration"
-date: 2017-11-29
+slug: review-collaboration-mee
+title: Announcing a New rOpenSci Software Review Collaboration
+date: '2017-11-29'
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
+    twitter: ma_salmon
   - name: Noam Ross
     url: http://www.noamross.net/
-  - name: Scott Chamberlain    
+    twitter: noamross
+  - name: Scott Chamberlain
+    twitter: sckottie
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 topicid: 982
 tags:
-- software
-- review
-- onboarding
-- R
+  - software
+  - review
+  - onboarding
+  - R
 ---
 
 

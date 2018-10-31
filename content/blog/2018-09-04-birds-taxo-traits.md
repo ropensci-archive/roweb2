@@ -1,24 +1,28 @@
 ---
-title: "What are these birds? Complement occurrence data with taxonomy and traits information"
+title: What are these birds? Complement occurrence data with taxonomy and traits information
 slug: birds-taxo-traits
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
-date: 2018-09-04
+    twitter: ma_salmon
+date: '2018-09-04'
 topicid: 1318
-preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute of Ornithology.
+preface: The blog post series corresponds to the material for a talk Maëlle will give
+  at the [Animal Movement Analysis summer school in Radolfzell, Germany on September
+  the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute
+  of Ornithology.
 tags:
-- auk
-- taxize
-- traits
-- taxonomy
-- rphylopic
-- gifski
-- birder
-output: 
+  - auk
+  - taxize
+  - traits
+  - taxonomy
+  - rphylopic
+  - gifski
+  - birder
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 Thanks to the [second post of the series where we obtained data from

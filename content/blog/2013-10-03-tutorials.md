@@ -1,14 +1,14 @@
 ---
-slug: "tutorials"
+slug: tutorials
 title: A new tutorials setup
-date: 2013-10-03
+date: '2013-10-03'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- help
+  - R
+  - help
 ---
 
 To help you use rOpenSci packages we put tutorials up on our site at [http://ropensci.org/tutorials](http://ropensci.org/tutorials). Up to now, we created them with combination of raw html + converting code blocks to html and inserting them, etc. -- it was a slow process to update them when changes happened in our packages.

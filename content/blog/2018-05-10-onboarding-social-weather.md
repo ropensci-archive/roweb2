@@ -4,6 +4,7 @@ title: The social weather of rOpenSci onboarding system
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
+    twitter: ma_salmon
 date: '2018-05-10'
 preface: This blog post is the third of a 3-post series about a data-driven overview
   of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/),

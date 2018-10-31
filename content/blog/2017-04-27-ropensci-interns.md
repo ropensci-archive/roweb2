@@ -4,10 +4,12 @@ title: Welcome to our rOpenSci Interns
 date: '2017-04-27'
 authors:
   - name: Scott Chamberlain
+    twitter: sckottie
   - name: Stefanie Butland
+    twitter: StefanieButland
 categories: blog
 topicid: 674
-tags: 
+tags:
   - community
 ---
 

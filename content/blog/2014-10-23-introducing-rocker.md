@@ -4,6 +4,7 @@ title: 'Introducing Rocker: Docker for R'
 authors:
   - name: Carl Boettiger
     url: http://ropensci.org/about/#core
+    twitter: cboetting
   - name: Dirk Eddelbuettel
     url: http://dirk.eddelbuettel.com/
 categories: blog

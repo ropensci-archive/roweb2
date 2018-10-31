@@ -5,6 +5,7 @@ date: '2016-11-09'
 authors:
   - name: Stefanie Butland
     url: https://ropensci.org/about/
+    twitter: StefanieButland
 categories: blog
 tags:
   - community

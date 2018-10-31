@@ -1,25 +1,25 @@
 ---
-slug: "taxonomy-suite"
+slug: taxonomy-suite
 title: The rOpenSci Taxonomy Suite
-date: 2017-07-27
+date: '2017-07-27'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 topicid: 796
 tags:
-- R
-- taxonomy
-- software
-- packages
-- taxize
-- taxa
-- taxizedb
-- wikitaxa
-- binomen
-- ritis
-- worrms
-- pegax
+  - R
+  - taxonomy
+  - software
+  - packages
+  - taxize
+  - taxa
+  - taxizedb
+  - wikitaxa
+  - binomen
+  - ritis
+  - worrms
+  - pegax
 ---
 
 

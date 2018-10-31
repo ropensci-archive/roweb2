@@ -1,14 +1,14 @@
 ---
-slug: "crul-release"
+slug: crul-release
 title: crul - an HTTP client
-date: 2016-11-09
+date: '2016-11-09'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 tags:
-- R
-- api
+  - R
+  - api
 ---
 
 A new package [crul](https://cran.rstudio.com/web/packages/crul) is

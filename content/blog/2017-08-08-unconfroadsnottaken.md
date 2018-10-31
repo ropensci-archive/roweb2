@@ -3,6 +3,7 @@ slug: unconfroadsnottaken
 authors:
   - name: Noam Ross
     url: https://twitter.com/noamross
+    twitter: noamross
 categories: blog
 topicid: 814
 date: '2017-08-08'

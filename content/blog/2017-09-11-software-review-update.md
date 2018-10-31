@@ -1,22 +1,25 @@
 ---
-slug: "software-review-update"
-title: "rOpenSci Software Review: Always Improving"
-date: 2017-09-11
+slug: software-review-update
+title: 'rOpenSci Software Review: Always Improving'
+date: '2017-09-11'
 authors:
   - name: Scott Chamberlain
+    twitter: sckottie
   - name: Maëlle Salmon
     url: https://masalmon.eu
+    twitter: ma_salmon
   - name: Noam Ross
     url: http://www.noamross.net/
+    twitter: noamross
   - name: Karthik Ram
-categories:
-  - blog
+    twitter: _inundata
+categories: blog
 topicid: 863
 tags:
-- software
-- review
-- onboarding
-- R
+  - software
+  - review
+  - onboarding
+  - R
 ---
 
 

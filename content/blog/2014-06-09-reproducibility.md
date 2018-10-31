@@ -5,6 +5,7 @@ date: '2014-06-09'
 authors:
   - name: Rich FitzJohn
     url: http://richfitz.github.io
+    twitter: rgfitzjohn
   - name: Matt Pennell
   - name: Amy Zanne
   - name: Will Cornwell

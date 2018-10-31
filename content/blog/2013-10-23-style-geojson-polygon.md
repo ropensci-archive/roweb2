@@ -1,18 +1,18 @@
 ---
-slug: "style-geojson-polygon"
+slug: style-geojson-polygon
 title: Interactive maps with polygons using R, Geojson, and Github
-date: 2013-10-23
+date: '2013-10-23'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- rgbif
-- API
-- geojson
-- json
-- maps
+  - R
+  - rgbif
+  - API
+  - geojson
+  - json
+  - maps
 ---
 
 Previously on this blog we have discussed making geojson maps and uploading to Github for interactive visualization [with USGS BISON data][ropost], and [with GBIF data][ropost2], and on [my own personal blog][scottpost]. This is done using a file format called [*geojson*](http://en.wikipedia.org/wiki/GeoJSON), a file format based on JSON (JavaScript Object Notation) in which you can specify geographic data along with any other metadata.

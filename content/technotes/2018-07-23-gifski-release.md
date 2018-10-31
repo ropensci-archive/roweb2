@@ -1,17 +1,18 @@
 ---
-slug: "gifski-release"
-title: "Gifski on CRAN: the fastest GIF encoder in the universe"
-date: 2018-07-23
+slug: gifski-release
+title: 'Gifski on CRAN: the fastest GIF encoder in the universe'
+date: '2018-07-23'
 authors:
   - name: Jeroen Ooms
+    twitter: opencpu
 categories: technotes
 topicid: 1270
-cover: "https://gif.ski/demo.gif"
+cover: https://gif.ski/demo.gif
 tags:
-- R
-- packages
-- gif
-- animation
+  - R
+  - packages
+  - gif
+  - animation
 ---
 
 The [gifski](https://cloud.r-project.org/web/packages/gifski/index.html) package which was demonstrated in May at [eRum 2018](https://2018.erum.io/) in Budapest is now on CRAN. Gifski is a simple but powerful package which can hopefully take away an important performance bottleneck for generating animated graphics in R.

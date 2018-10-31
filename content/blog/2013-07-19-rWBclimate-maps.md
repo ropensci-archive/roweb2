@@ -1,16 +1,15 @@
 ---
-slug: "rWBclimate-maps"
+slug: rWBclimate-maps
 title: Making maps of climate change
-date: 2013-07-19
+date: '2013-07-19'
 authors:
   - name: Ted Hart
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- API
-- climate
-- maps
+  - R
+  - API
+  - climate
+  - maps
 ---
 
 A recent video on the [PBS Ideas Channel](http://video.pbs.org/program/idea-channel/) posited that the discovery of [climate change is humanities greatest scientific achievement](http://www.youtube.com/watch?v=1M1BPz0nY3s). It took synthesizing generations of data from thousands of scientists, hundreds of thousands (if not more) of hours of computer time to run models at institutions all over the world.  But how can the individual researcher get their hands of some this data?  Right now the [World Bank](http://www.worldbank.org) provides access to global circulation model (GCM) output from between 1900 and 2100 in 20 year intervals via their [climate data api](http://data.worldbank.org/developers/climate-data-api).  Using our new package [rWBclimate](https://github.com/ropensci/rWBclimate) you can access model output from 15 different GCM's, ensemble data from all GCM's aggregated, and historical climate data.  This data is available at two different spatial scales, individual countries or watershed basins. On top of access to all this data, the API provides a way to download [KML](https://developers.google.com/kml/documentation/) definitions for each corresponding spatial element (country or basin).  This means with our package it's easy to download climate data and create maps of any of the thousands of datapoints you have access to via the API.

@@ -15,6 +15,7 @@ authors:
     url: https://github.com/jtr13
   - name: Noam Ross
     url: https://github.com/noamross
+    twitter: noamross
   - name: Omayma Said
     url: https://github.com/OmaymaS
 date: '2018-07-17'

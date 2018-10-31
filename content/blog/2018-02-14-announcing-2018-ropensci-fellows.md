@@ -4,6 +4,7 @@ title: Introducing the 2018 rOpenSci Research Fellows!
 date: '2018-02-14'
 authors:
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 topicid: 1066
 tags:

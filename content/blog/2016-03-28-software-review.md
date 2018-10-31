@@ -1,17 +1,22 @@
 ---
-slug: "software-review"
-title: "Onboarding at rOpenSci: A Year in Reviews"
-date: 2016-03-28
+slug: software-review
+title: 'Onboarding at rOpenSci: A Year in Reviews'
+date: '2016-03-28'
 authors:
   - name: Noam Ross
     url: http://twitter.com/noamross
+    twitter: noamross
   - name: Carl Boettiger
+    twitter: cboetting
   - name: Jenny Bryan
+    twitter: JennyBryan
   - name: Scott Chamberlain
+    twitter: sckottie
   - name: Rich FitzJohn
+    twitter: rgfitzjohn
   - name: Karthik Ram
-categories:
-  - blog
+    twitter: _inundata
+categories: blog
 tags:
   - software
   - review

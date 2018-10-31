@@ -4,6 +4,7 @@ title: rOpenHack report
 date: '2014-05-14'
 authors:
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 tags:
   - community

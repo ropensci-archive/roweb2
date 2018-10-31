@@ -3,6 +3,7 @@ slug: mongolite
 title: Release mongolite 1.0
 authors:
   - name: Jeroen Ooms
+    twitter: opencpu
 categories: blog
 topicid: 626
 date: '2017-03-10'

@@ -1,25 +1,29 @@
 ---
-title: "Where to go observe birds in Radolfzell? An answer with R and open data"
+title: Where to go observe birds in Radolfzell? An answer with R and open data
 slug: where-to-bird
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
+    twitter: ma_salmon
   - name: Mark Padgham
     url: https://github.com/mpadge
-date: 2018-08-14
-preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute of Ornithology.
+date: '2018-08-14'
+preface: The blog post series corresponds to the material for a talk Maëlle will give
+  at the [Animal Movement Analysis summer school in Radolfzell, Germany on September
+  the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute
+  of Ornithology.
 topicid: 1295
 tags:
-- osmdata
-- osmplotr
-- opencage
-- bbox
-- magick
-- birder
-output: 
+  - osmdata
+  - osmplotr
+  - opencage
+  - bbox
+  - magick
+  - birder
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 This post is the 1st post of a series showcasing various rOpenSci

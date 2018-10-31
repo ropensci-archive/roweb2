@@ -1,12 +1,11 @@
 ---
-slug: "community-manager-position"
+slug: community-manager-position
 title: We're hiring a community manager!
-date: 2016-03-10
+date: '2016-03-10'
 authors:
   - name: Core Team
-categories:
-  - blog
-tags: 
+categories: blog
+tags:
   - jobs
 ---
 

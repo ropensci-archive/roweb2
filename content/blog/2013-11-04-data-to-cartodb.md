@@ -1,17 +1,17 @@
 ---
-slug: "data-to-cartodb"
+slug: data-to-cartodb
 title: Species occurrence data to CartoDB
-date: 2013-11-04
+date: '2013-11-04'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- rgbif
-- API
-- cartodb
-- maps
+  - R
+  - rgbif
+  - API
+  - cartodb
+  - maps
 ---
 
 We have previously written about creating interactive maps on the web from R, with the interactive maps on Github. See [here](http://ropensci.org/blog/2013/10/23/style-geojson-polygon/), [here](http://ropensci.org/blog/2013/07/17/style-geojson/), [here](http://ropensci.org/blog/2013/07/04/rbison-geoson/), and [here](http://recology.info/2013/06/geojson/).
