@@ -8,7 +8,7 @@ categories: blog
 tags:
   - R
   - book
-  - reproducibleresearch
+  - reproducible-research
   - openscience
 ---
 
