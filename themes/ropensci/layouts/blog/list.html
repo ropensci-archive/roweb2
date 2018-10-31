@@ -25,18 +25,8 @@
                         <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
 
                         <p class="lighter authors">By:
-                            {{ range $i, $e := .Params.authors }}
-                                {{ if $i }}&nbsp;|&nbsp;{{ end }}
-                                {{ if in $.Site.Params.leadership .name }}
-                                  <a href="/about/#team">{{ .name }}</a>
-                                {{ else if in $.Site.Params.staff .name }}
-                                  <a href="/about/#team">{{ .name }}</a>
-                                {{ else if eq .name "Ted Hart" }}
-                                  <a href="/about/#team">{{ .name }}</a>
-                                {{ else }}
-                                  <a href="{{ .url }}" target="_blank">{{ .name }}</a>
-                                {{ end }}
-                            {{ end }}
+                            {{$authors := .Params.authors}}
+                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
                         </p>
                         <div style="font-style: italic; text-align: justify;">
