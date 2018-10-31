@@ -7,7 +7,6 @@ authors:
   - name: Stefanie Butland
 categories: blog
 tags:
-  - rOpenSci
   - community
   - events
 ---

@@ -1,17 +1,16 @@
 ---
-slug: "introducing-rocker"
-title: "Introducing Rocker: Docker for R"
+slug: introducing-rocker
+title: 'Introducing Rocker: Docker for R'
 authors:
   - name: Carl Boettiger
     url: http://ropensci.org/about/#core
   - name: Dirk Eddelbuettel
     url: http://dirk.eddelbuettel.com/
-categories:
-  - blog
-date: 2014-10-23
+categories: blog
+date: '2014-10-23'
 tags:
-- R
-- reproducibleresearch
+  - R
+  - reproducible-research
 ---
 
 

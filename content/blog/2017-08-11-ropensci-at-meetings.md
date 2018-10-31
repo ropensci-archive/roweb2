@@ -7,7 +7,6 @@ authors:
 categories: blog
 topicid: 819
 tags:
-  - rOpenSci
   - community
   - meetings
   - R

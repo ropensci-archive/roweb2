@@ -16,7 +16,6 @@ tags:
   - plot
   - R
   - realtime
-  - rOpenSci
   - unconf
 ---
 

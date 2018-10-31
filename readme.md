@@ -69,7 +69,7 @@ For a post about your reviewed and onboarded package you should:
 - consider ending by pointing to open issues that readers might work on
 - include YAML tags `onboarding`, `review` and tags that were topic labels in your package review
 - browse [other tags](https://ropensci.org/tags/)
-- browse other posts about onboarded packages with tag '[onboarding](https://ropensci.org/tags/onboarding/)'
+, and do not use the plural/singular form of an existing tag. E.g. "databases" exists so use that preferentially, not "database".- browse other posts about onboarded packages with tag '[onboarding](https://ropensci.org/tags/onboarding/)'
 
 For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
 

@@ -1,21 +1,20 @@
 ---
-slug: "first-package-review"
-title: "So you (don't) think you can review a package"
-date: 2017-08-22
+slug: first-package-review
+title: So you (don't) think you can review a package
+date: '2017-08-22'
 authors:
   - name: Mara Averick
     url: http://maraaverick.rbind.io
-categories:
-  - blog
+categories: blog
 topicid: 838
 tags:
-- R
-- review
-- reviewer
-- onboarding
-- visdat
-- community
-- package
+  - R
+  - review
+  - reviewer
+  - onboarding
+  - visdat
+  - community
+  - packages
 ---
 
 Contributing to an open-source community _without_ contributing code is an oft-vaunted idea that can seem nebulous. Luckily, putting vague ideas into action is one of the strengths of the [rOpenSci Community](https://ropensci.org/community/), and their package onboarding system offers a chance to do just that.

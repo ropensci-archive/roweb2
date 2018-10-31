@@ -15,7 +15,7 @@ tags:
   - review
   - reviewer
   - onboarding
-  - package
+  - packages
   - data-access
   - weathercan
 ---

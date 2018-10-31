@@ -8,7 +8,6 @@ categories: blog
 topicid: 764
 tags:
   - fellowships
-  - rOpenSci
   - funding
 ---
 
