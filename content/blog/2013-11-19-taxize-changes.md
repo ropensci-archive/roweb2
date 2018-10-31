@@ -1,15 +1,15 @@
 ---
-slug: "taxize-changes"
+slug: taxize-changes
 title: taxize changes
-date: 2013-11-19
+date: '2013-11-19'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- taxonomy
-- API
+  - R
+  - taxonomy
+  - API
 ---
 
 We are building a taxonomic toolbelt for R called taxize - which gives you programmatic access to many sources of taxonomic data on the web. We just pushed a new version to [CRAN (v0.1.5)](http://cran.r-project.org/web/packages/taxize/index.html) with a lot of changes (see [here](https://github.com/ropensci/taxize#notes-on-the-itis-api) for a rundown). Here are a few highlights of the changes.

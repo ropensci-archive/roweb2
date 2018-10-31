@@ -1,17 +1,17 @@
 ---
-slug: "ecoengine"
+slug: ecoengine
 title: Introducing the ecoengine package
-date: 2014-01-30
+date: '2014-01-30'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+    twitter: _inundata
+categories: blog
 tags:
-- R
-- taxonomy
-- museums
-- biodiversity
-- informatics
+  - R
+  - taxonomy
+  - museums
+  - biodiversity
+  - informatics
 ---
 
 Natural history museums have long been valuable repositories of data on species diversity. These data have been critical for fostering and shaping the development of fields such as  biogeography and systematics. The importance of these data repositories is becoming increasingly important, especially in the context of climate change, where a strong understanding of how species responded to past climate is key to understanding their responses in the future. Leading the way in opening up such valuable data is a new effort by the [ Berkeley Initiative in Global Change Biology](http://globalchange.berkeley.edu/ecoinformatics-engine) called the [Ecoengine](http://ecoengine.berkeley.edu/).

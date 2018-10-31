@@ -1,16 +1,23 @@
 ---
 slug: educollab-challenges
-title: "rOpenSci Educators Collaborative: What Are The Challenges When Teaching Science With R?"
-date: 2018-07-24
-preface: "At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org) in May 2018, a group of scientists and educators shared their experiences, frustrations, failures, and successes teaching science with R. What came out of this discussion was a framework for rOpenSci Educators’ Collaborative: a community of practice for people interested and engaged in science education using R. This blog post is the first of a three-post series about education and R, written by this group of unconf18 participants. Read about how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd)."
+title: 'rOpenSci Educators Collaborative: What Are The Challenges When Teaching Science
+  With R?'
+date: '2018-07-24'
+preface: 'At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org)
+  in May 2018, a group of scientists and educators shared their experiences, frustrations,
+  failures, and successes teaching science with R. What came out of this discussion
+  was a framework for rOpenSci Educators’ Collaborative: a community of practice for
+  people interested and engaged in science education using R. This blog post is the
+  first of a three-post series about education and R, written by this group of unconf18
+  participants. Read about how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd).'
 authors:
   - name: Laura Ación
     url: https://github.com/lauracion
-  - name: Mara Averick 
+  - name: Mara Averick
     url: https://github.com/batpigandme
   - name: Leonardo Collado Torres
     url: https://lcolladotor.github.io
-  - name: Auriel Fournier 
+  - name: Auriel Fournier
     url: https://github.com/aurielfournier
   - name: Alison Hill
     url: https://alison.rbind.io
@@ -21,12 +28,12 @@ authors:
 categories: blog
 topicid: 1269
 tags:
-- R
-- community
-- meetings
-- unconf
-- unconf18
-- educollab
+  - R
+  - community
+  - meetings
+  - unconf
+  - unconf18
+  - educollab
 ---
 
 <center>

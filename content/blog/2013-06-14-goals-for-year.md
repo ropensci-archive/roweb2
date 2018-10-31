@@ -5,7 +5,7 @@ date: '2013-06-14'
 authors:
   - name: Core Team
 categories: blog
-tags:  
+tags:
   - funding
 ---
 

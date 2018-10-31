@@ -5,6 +5,7 @@ title: 'Highlights and Resources from Community Call v12: How do I create a code
 date: '2016-12-21'
 authors:
   - name: Stefanie Butland
+    twitter: StefanieButland
 categories: blog
 tags:
   - community

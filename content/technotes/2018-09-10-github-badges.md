@@ -1,22 +1,22 @@
 ---
-slug: "github-badges"
-title: "All the Badges One Can Earn: Parsing Badges of CRAN Packages READMEs"
-date: 2018-09-10
+slug: github-badges
+title: 'All the Badges One Can Earn: Parsing Badges of CRAN Packages READMEs'
+date: '2018-09-10'
 authors:
   - name: Maëlle Salmon
-categories:
-  - technotes
-topicid: 1344 
+    twitter: ma_salmon
+categories: technotes
+topicid: 1344
 tags:
-- Codemeta
-- codemetar
-- Markdown
-- xml2
-- commonmark
-output: 
+  - Codemeta
+  - codemetar
+  - Markdown
+  - xml2
+  - commonmark
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 A while ago we

@@ -1,16 +1,16 @@
 ---
-slug: "a-drat-repository-for-ropensci"
-title: "A drat repository for rOpenSci"
+slug: a-drat-repository-for-ropensci
+title: A drat repository for rOpenSci
 authors:
   - name: Carl Boettiger
-categories:
-  - blog
-date: 2015-08-04
+    twitter: cboettig
+categories: blog
+date: '2015-08-04'
 tags:
-- R
-- drat
-- CRAN
-- packages
+  - R
+  - drat
+  - CRAN
+  - packages
 ---
 
 

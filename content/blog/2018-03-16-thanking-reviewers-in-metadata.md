@@ -5,9 +5,13 @@ date: '2018-03-16'
 authors:
   - name: Noam Ross
     url: http://twitter.com/noamross
+    twitter: noamross
   - name: Maëlle Salmon
+    twitter: ma_salmon
   - name: Karthik Ram
+    twitter: _inundata
   - name: Scott Chamberlain
+    twitter: sckottie
 categories: blog
 topicid: 1101
 tags:

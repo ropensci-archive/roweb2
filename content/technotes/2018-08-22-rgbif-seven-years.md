@@ -1,18 +1,18 @@
 ---
-slug: "rgbif-seven-years"
-title: "rgbif: seven years of GBIF in R"
-date: 2018-08-22
+slug: rgbif-seven-years
+title: 'rgbif: seven years of GBIF in R'
+date: '2018-08-22'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 topicid: 1307
 tags:
-- R
-- biodiversity
-- occurrence
-- rgbif
-- GBIF
+  - R
+  - biodiversity
+  - occurrence
+  - rgbif
+  - GBIF
 ---
 
 

@@ -1,12 +1,11 @@
 ---
-slug: "rrricanes"
+slug: rrricanes
 title: rrricanes to Access Tropical Cyclone Data
 authors:
   - name: Tim Trice
     url: http://timtrice.net/
-categories:
-  - blog
-date: 2017-09-27
+categories: blog
+date: '2017-09-27'
 topicid: 887
 tags:
   - R

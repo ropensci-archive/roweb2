@@ -1,17 +1,18 @@
 ---
-slug: "av-release"
-title: "The av Package: Production Quality Video in R"
-date: 2018-10-06
+slug: av-release
+title: 'The av Package: Production Quality Video in R'
+date: '2018-10-06'
 topicid: 1388
 authors:
   - name: Jeroen Ooms
+    twitter: opencpu
 categories: technotes
 tags:
-- R
-- packages
-- gif
-- animation
-- video
+  - R
+  - packages
+  - gif
+  - animation
+  - video
 ---
 
 At rOpenSci we are developing on a suite of packages that expose powerful graphics and imaging libraries in R. Our latest addition is [av](https://github.com/ropensci/av#readme) -- a new package for working with audio/video based on the [FFmpeg](https://www.ffmpeg.org/) AV libraries. This ambitious new project will become the video counterpart of the [magick](https://cloud.r-project.org/web/packages/magick/vignettes/intro.html) package which we use for working with images.

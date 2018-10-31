@@ -1,11 +1,11 @@
 ---
-slug: "gpg-release"
-title: "Encryption and Digital Signatures in R using GPG"
-date: 2016-10-19
+slug: gpg-release
+title: Encryption and Digital Signatures in R using GPG
+date: '2016-10-19'
 authors:
   - name: Jeroen Ooms
-categories:
-  - technotes
+    twitter: opencpu
+categories: technotes
 tags:
   - R
   - gpg

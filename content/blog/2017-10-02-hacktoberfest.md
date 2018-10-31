@@ -1,15 +1,16 @@
 ---
-slug: "hacktoberfest"
-title: "Help us build capacity of open software users and developers with Hacktoberfest"
-date: 2017-10-02
+slug: hacktoberfest
+title: Help us build capacity of open software users and developers with Hacktoberfest
+date: '2017-10-02'
 authors:
   - name: Stefanie Butland
+    twitter: StefanieButland
 categories: blog
 topicid: 901
 tags:
-- community
-- R
-- hacktoberfest
+  - community
+  - R
+  - hacktoberfest
 ---
 
 One of rOpenSci’s aims is to build capacity of software users and developers and foster a sense of pride in their work. What better way to do that than to encourage you to participate in [Hacktoberfest](https://hacktoberfest.digitalocean.com/), a month-long celebration of open source software!

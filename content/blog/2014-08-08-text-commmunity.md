@@ -1,15 +1,16 @@
 ---
-slug: "text-commmunity"
+slug: text-commmunity
 title: Community conversations and a new package for full text
-date: 2014-08-08
+date: '2014-08-08'
 authors:
   - name: Scott Chamberlain
+    twitter: sckottie
   - name: Karthik Ram
-categories:
-  - blog
+    twitter: _inundata
+categories: blog
 tags:
-- R
-- community
+  - R
+  - community
 ---
 
 __UPDATE:__ Use the new discussion forum at http://discuss.ropensci.org/

@@ -5,6 +5,7 @@ date: '2016-11-16'
 authors:
   - name: Jeroen Ooms
     url: https://ropensci.org/about/
+    twitter: opencpu
 categories: blog
 tags:
   - packages

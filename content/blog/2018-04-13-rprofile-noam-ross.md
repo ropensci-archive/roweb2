@@ -1,18 +1,21 @@
 ---
 slug: rprofile-noam-ross
-title: ".rprofile: Noam Ross"
-date: 2018-04-13
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+title: '.rprofile: Noam Ross'
+date: '2018-04-13'
+preface: In this occasional series, we interview someone using a loosely defined set
+  of interview questions for the purpose of demystifying the creative and development
+  processes of R community members. This interview was conducted and prepared by Kelly
+  O'Briant as part of an rOpenSci unconf17 project.
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
 categories: blog
 topicid: 1139
 tags:
-- R
-- community
-- interviews
-- rprofile
+  - R
+  - community
+  - interviews
+  - rprofile
 ---
 
 <img src="/img/blog-images/2018-04-13-rprofile-noam-ross/noam-ross.jpg" alt="Noam Ross" style="margin: 0px 20px; width: 250px;" align="left">

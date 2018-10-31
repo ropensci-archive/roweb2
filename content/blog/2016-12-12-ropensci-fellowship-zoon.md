@@ -4,7 +4,9 @@ title: Announcing our first fellowship awarded to Dr. Nick Golding
 date: '2016-12-12'
 authors:
   - name: Stefanie Butland
+    twitter: StefanieButland
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 tags:
   - community

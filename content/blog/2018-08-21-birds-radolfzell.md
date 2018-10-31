@@ -1,23 +1,27 @@
 ---
-title: "What birds are observed near Radolfzell? Bird occurrence data in R"
+title: What birds are observed near Radolfzell? Bird occurrence data in R
 slug: birds-radolfzell
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
-date: 2018-08-21
-preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute of Ornithology.
+    twitter: ma_salmon
+date: '2018-08-21'
+preface: The blog post series corresponds to the material for a talk Maëlle will give
+  at the [Animal Movement Analysis summer school in Radolfzell, Germany on September
+  the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute
+  of Ornithology.
 topicid: 1303
 tags:
-- rebird
-- spocc
-- auk
-- birder
-- ornithology
-- ebird
-output: 
+  - rebird
+  - spocc
+  - auk
+  - birder
+  - ornithology
+  - ebird
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 Thanks to the [first post of the

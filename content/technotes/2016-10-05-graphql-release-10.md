@@ -1,11 +1,11 @@
 ---
-slug: "graphql-release-10"
-title: "New package graphql: A GraphQL Query Parser"
-date: 2016-10-05
+slug: graphql-release-10
+title: 'New package graphql: A GraphQL Query Parser'
+date: '2016-10-05'
 authors:
   - name: Jeroen Ooms
-categories:
-  - technotes
+    twitter: opencpu
+categories: technotes
 tags:
   - R
   - graphql

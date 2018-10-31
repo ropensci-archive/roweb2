@@ -4,6 +4,7 @@ title: NCEAS Codefest Follow-up
 date: '2014-09-23'
 authors:
   - name: Scott Chamberlain
+    twitter: sckottie
   - name: Ted Hart
 categories: blog
 tags:

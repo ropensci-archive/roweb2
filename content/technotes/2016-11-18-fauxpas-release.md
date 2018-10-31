@@ -1,14 +1,14 @@
 ---
-slug: "fauxpas-release"
+slug: fauxpas-release
 title: fauxpas - HTTP conditions package
-date: 2016-11-18
+date: '2016-11-18'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 tags:
-- R
-- http
+  - R
+  - http
 ---
 
 

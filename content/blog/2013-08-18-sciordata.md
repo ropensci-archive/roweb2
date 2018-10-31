@@ -1,16 +1,16 @@
 ---
-slug: "sciordata"
+slug: sciordata
 title: Working with climate data from the web in R
-date: 2013-08-18
+date: '2013-08-18'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- climate change
-- phenology
-- R
-- API
+  - climate change
+  - phenology
+  - R
+  - API
 ---
 
 I recently attended [ScienceOnline Climate][sciocweb], a conference in Washington, D.C. at AAAS. You may have heard of the [ScienceOnline annual meeting in North Carolina][sciox] - this was one of their topical meetings focused on Climate Change. I moderated a session on [working with data from the web in R][sciordata], focusing on climate data. Search Twitter for \#scioClimate for tweets from the conference, and \#sciordata for tweets from the session I ran. The following is an abbreviated demo of what I did in the workshop showing some of what you can do with climate data in R using our packages.

@@ -4,6 +4,7 @@ title: Announcing the rOpenSci Fellowships Program
 date: '2017-07-06'
 authors:
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 topicid: 764
 tags:

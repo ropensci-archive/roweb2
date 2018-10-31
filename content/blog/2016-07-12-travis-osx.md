@@ -1,12 +1,12 @@
 ---
-slug: "travis-osx"
-title: "Testing packages with R Travis for OS-X"
-date: 2016-07-12
+slug: travis-osx
+title: Testing packages with R Travis for OS-X
+date: '2016-07-12'
 authors:
   - name: Jeroen Ooms
     url: https://jeroen.github.io
-categories:
-  - blog
+    twitter: opencpu
+categories: blog
 tags:
   - travis
   - CRAN
