@@ -6,8 +6,8 @@ authors:
   - name: Core Team
 categories:
   - blog
-tags:
-- jobs
+tags: 
+  - jobs
 ---
 
 The rOpenSci team is growing, thanks in part to our [recent funding](https://ropensci.org/blog/2015/11/19/helmsley-trust-funding/). We recently [welcomed](https://ropensci.org/blog/2016/03/01/pdftools-and-jeroen) Jeroen Ooms on the software development side and today we're thrilled to announce a position for community manager.

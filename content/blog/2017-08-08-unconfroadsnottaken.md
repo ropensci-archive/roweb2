@@ -10,7 +10,6 @@ tags:
   - community
   - meetings
   - R
-  - rOpenSci
   - software
   - unconf
   - unconf17

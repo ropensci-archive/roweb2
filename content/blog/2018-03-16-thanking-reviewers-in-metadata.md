@@ -12,7 +12,6 @@ categories: blog
 topicid: 1101
 tags:
   - community
-  - rOpenSci
   - onboarding
   - metadata
 ---

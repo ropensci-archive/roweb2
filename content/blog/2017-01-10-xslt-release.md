@@ -6,7 +6,6 @@ authors:
 categories: blog
 date: '2017-01-10'
 tags:
-  - rOpenSci
   - packages
   - xml
   - xslt

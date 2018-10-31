@@ -13,9 +13,8 @@ tags:
   - community
   - software
   - review
-  - package
+  - packages
   - onboarding
-  - package
   - text-mining
   - data-extraction
   - archiving

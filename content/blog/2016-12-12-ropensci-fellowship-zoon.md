@@ -8,7 +8,6 @@ authors:
 categories: blog
 tags:
   - community
-  - rOpenSci
   - fellowships
   - interviews
 ---

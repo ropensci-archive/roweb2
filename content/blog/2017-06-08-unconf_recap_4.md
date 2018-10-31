@@ -9,7 +9,6 @@ topicid: 742
 tags:
   - community
   - meetings
-  - rOpenSci
   - unconf
   - unconf17
 ---
