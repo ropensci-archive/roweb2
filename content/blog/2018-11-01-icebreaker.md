@@ -36,7 +36,7 @@ Ask participants to stand in a line shoulder-to-shoulder facing you. This isn't 
 
 *Once you’ve settled, I’ll give you three minutes to talk with the people around you to share opinions on the statement, giving evidence or an example that supports your opinion. Then, I’ll ask for volunteers to introduce themselves to the entire group and share their opinions and evidence. Your challenge is to see if you can change people's minds about where they're standing.*
 
-*Please be sure to say both your first and last name regardless of how recognizable some people think you are. Also be aware that people may have different preferred pronouns. For example, when you’re talking about me behind my back* 😉*, please refer to me as she or her. Someone else might prefer to be referred to as they or them, as in "They asked me to hold their laptop while they poured a coffee". I hope that people feel comfortable enough to express that here.*
+*Please be sure to say both your first and last name regardless of how recognizable some people think you are. Also be aware that people may have different [preferred pronouns](http://www.enbycollective.org/nonbinary-101.html). For example, when you’re talking about me behind my back* 😉*, please refer to me as she or her. Someone else might prefer to be referred to as they or them, as in "They asked me to hold their laptop while they poured a coffee". I hope people feel comfortable enough to express that here.*
 
 *Let’s begin…*
 
