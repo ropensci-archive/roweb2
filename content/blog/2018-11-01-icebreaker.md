@@ -88,6 +88,11 @@ Some people who participated in this ice breaker at our unconferences have adapt
 
 - [Sam Albers](https://twitter.com/big_bad_sam) used it with 35 people at a [British Columbia Government useR day](https://github.com/bcgov/bcgov-useR/tree/master/2018). He tried it in a shorter time slot with similar questions, but without the "fun" intro cats & dogs question. Sam says next time he'd aim for a full hour to ease into the more reflective questions, and he advocates calling on people who are reluctant to introduce themselves, as long as you've created a safe environment.
 
+- [Julia Stewart-Lowndes](https://twitter.com/juliesquid) used it with with 46 people at the [R-Ladies](https://twitter.com/RLadiesGlobal) [Santa Barbara Kickoff Event](https://github.com/rladies/meetup-presentations_santabarbara/tree/gh-pages/2018_04_10_kickoff#readme) with these questions:
+  - Cats or Dogs?
+  - How long have you lived in Santa Barbara?
+  - What is your comfort in R?
+
 - [Nick Tierney](https://twitter.com/nj_tierney) used it with 45 people at [ozunconf17](https://ropensci.org/blog/2017/10/31/ozunconf2017/).
 
 ## Tips
