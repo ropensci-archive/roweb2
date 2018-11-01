@@ -23,12 +23,12 @@ While many people groan at the thought of participating in a group ice breaker a
 We've had lots of requests for a detailed description of how we do it. This post shares our recipe, including a script you can adapt, a reflection on its success, examples of how others have used it, and some tips to remember. Let us know in the comments if you've used or adapted it!
 
 
-## The Choice
+### The Choice
 I knew we would have a group of 60 to 70 people at [unconf17](https://ropensci.org/blog/2017/06/02/unconf2017/), most of whom didn't now each other. My objective was to have everyone introduce themselves to the entire group, and I wanted them to have "real" conversations, since immediately following the ice breaker, people would be self-sorting into groups who would collaborate on projects for two days.
 
 After participating in several different flavors of ice breakers with a group of scientific community engagement managers, I chose an exercise called the "Human Barometer", recommended by [Cameron Neylon](https://twitter.com/cameronneylon). The script below explains how it works, and there are [examples like this one](https://www.facinghistory.org/resource-library/teaching-strategies/barometer-taking-stand-controversial-issues) online.
 
-## The Script
+### The Script
 Ask participants to stand in a line shoulder-to-shoulder facing you. This isn't important after the start but helps people figure out the process. (Aside: This happens to be a perfect time to talk about your [code of conduct](https://ropensci.org/blog/2016/12/21/commcallv12-review-coc/)!)
 
 *The objective of this icebreaker is to have all of you interacting across all perceived levels of who an rOpenSci unconf participant is. Here’s how it’s going to go down.*
@@ -61,7 +61,7 @@ Continue with brief introductions and sharing opinions to the entire group for 1
 
 Near end of the exercise, ask anyone who did not speak up to introduce themselves to the group. This requires a good memory for faces and an environment in which people feel safe to do this.
 
-## Reflection
+### Reflection
 
 > Really work on the questions - they're the key to shifting it from being an ok ice breaker to a really provocative and useful workshop starter. Think about the questions that underpin the workshop, what are the issues people are worried about but unsure how to raise? Can you frame a slightly humorous question that makes it ok to talk about? - Cameron Neylon
 
@@ -73,7 +73,7 @@ The photo above might look like a "we're a happy community" picture, but it's ac
 
 This ice breaker was the perfect segue into the project group self-selection and eased the way for plenty of informal conversations throughout the unconf.
 
-## Who else has used this recipe?
+### Who else has used this recipe?
 Some people who participated in this ice breaker at our unconferences have adapted it for their own events.
 
 - [Reka Solymosi](https://twitter.com/r_solymosi) uses it with 20 to 30 people at welcome week activities for graduate students in Criminology and Social Statistics at the University of Manchester. She says it helps break the ice between students and helps her get an idea of what features to emphasize in the course. The questions Reka uses are:
@@ -96,7 +96,7 @@ Some people who participated in this ice breaker at our unconferences have adapt
 
 - [Nick Tierney](https://twitter.com/nj_tierney) used it with 45 people at [ozunconf17](https://ropensci.org/blog/2017/10/31/ozunconf2017/).
 
-## Tips
+### Tips
 1. Work hard to design questions that relate to your community and event. Start with a frivolous question and then dig deep.
 1. Write a script for yourself; it forces you to think through the excercise.
 1. Explain how the exercise works and find two volunteers to demonstrate.
