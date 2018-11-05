@@ -90,8 +90,7 @@ $(document).ready( function () {
             var active = $('input[type=checkbox]')
             var selected = $('input:checked')
             var filter = selected.attr('class')
-            if (cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran')) ||
-            (active.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('active')){
+            if ((cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran'))) || ((active.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('active'))){
                 return false;
             }
             return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
