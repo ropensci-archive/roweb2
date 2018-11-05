@@ -86,11 +86,11 @@ $(document).ready( function () {
     
     $.fn.dataTableExt.afnFiltering.push(
         function (oSettings, aData, iDataIndex) {
-            var cran = $('input[type=checkbox]')
-            var active = $('input[type=checkbox]')
+            var cran = $('input[class="on_cran"]')
+            var active = $('input[class="active"]')
             var selected = $('input:checked')
             var filter = selected.attr('class')
-            if ((cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran'))) || ((active.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('active'))){
+            if ((cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran')) || (active.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('active'))){
                 return false;
             }
             return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
