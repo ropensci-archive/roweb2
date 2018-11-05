@@ -83,16 +83,15 @@ $(document).ready( function () {
     });
 
     /* Custom filtering function which will filter data in column four between two values */
+    
     $.fn.dataTableExt.afnFiltering.push(
         function (oSettings, aData, iDataIndex) {
             var cran = $('input[type=checkbox]')
             var active = $('input[type=checkbox]')
             var selected = $('input:checked')
             var filter = selected.attr('class')
-            if (cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran')){
-                return false;
-            }
-            if (active.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('active')){
+            if (cran.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('on_cran')) ||
+            (active.is(':checked') && ! $(oSettings.aoData[iDataIndex].nTr).hasClass('active')){
                 return false;
             }
             return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
