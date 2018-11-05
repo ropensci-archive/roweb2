@@ -1,16 +1,16 @@
 ---
-slug: "rplos-highlights"
+slug: rplos-highlights
 title: Highlighting text in text mining
-date: 2013-12-02
+date: '2013-12-02'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- textmining
-- API
-- PLOS
+  - R
+  - textmining
+  - API
+  - PLOS
 ---
 
 `rplos` is an R package to facilitate easy search and full-text retrieval from all Public Library of Science (PLOS) articles, and we have a little feature which aren't sure if is useful or not. I don't actually do any text-mining for my research, so perhaps text-mining folks can give some feedback.

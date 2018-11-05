@@ -1,14 +1,14 @@
 ---
-slug: "package-evolution"
+slug: package-evolution
 title: Package evolution - changing stuff in your package
-date: 2017-01-05
+date: '2017-01-05'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 tags:
-- R
-- development
+  - R
+  - development
 ---
 
 Making packages is a great way to organize R code, whether it’s a set of scripts for personal use, a set of functions for internal company use or a lab group, or to distribute your new cool framework `foobar` to the masses. There's a number of guides to writing packages, including <http://r-pkgs.had.co.nz/>.

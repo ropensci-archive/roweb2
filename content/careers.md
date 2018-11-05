@@ -1,5 +1,5 @@
 +++
-title = "rOpenSci careers"
+title = "Careers"
 description = "Job openings"
 partials = ["careers.html", "mailkimp.html"]
 +++

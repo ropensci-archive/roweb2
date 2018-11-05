@@ -21,19 +21,11 @@
         <div class="row">
             <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
                 <p class="authors" style="text-align: center;">
-                    {{ range .Params.authors }}
-                        {{ if in $.Site.Params.leadership .name }}
-                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
-                        {{ else if in $.Site.Params.staff .name }}
-                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
-                        {{ else if eq .name "Ted Hart" }}
-                          <a href="/about/#team"> {{ .name }} </a>&nbsp;
-                        {{ else }}
-                          <a href="{{ .url }}" target="_blank"> {{ .name }} </a>&nbsp;
-                        {{ end }}
-                    {{ end }}
+                    {{$authors := .Params.authors}}
+                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
                 </p>
                 <br>
+                <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Date.Format "January 2, 2006" }}</div>
             </div>
             <div class="col-offset-2 col-8 top-2">
 
@@ -48,6 +40,39 @@
                 {{ range .Params.tags }}
                     <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                 {{ end }}
+            </div>
+
+            {{ if isset .Params "topicid" }}
+            <!-- discourse comments -->
+            <div class="col-offset-2 col-8 top-4">
+                <div id='discourse-comments'></div>
+                <script type="text/javascript">
+                DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
+                                   topicId: {{ .Params.topicid }} };
+                (function() {
+                  var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+                  d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+                })();
+                </script>
+            </div>
+            {{ else }}
+            <!-- Disqus Comments -->
+            <div class="col-offset-2 col-8 top-4">
+              <div id="disqus_thread"></div>
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                var disqus_shortname = 'ropenscience';
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            {{ end }}
         </div>
         <br>
     </div>

@@ -1,22 +1,22 @@
 ---
-slug: "commonmark"
-title: "In praise of Commonmark: wrangle (R)Markdown files without regex"
-date: 2018-09-05
+slug: commonmark
+title: 'In praise of Commonmark: wrangle (R)Markdown files without regex'
+date: '2018-09-05'
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
-categories:
-  - technotes
+    twitter: ma_salmon
+categories: technotes
 topicid: 1319
 tags:
-- Markdown
-- RMarkdown
-- xml2
-- commonmark
-output: 
+  - Markdown
+  - RMarkdown
+  - xml2
+  - commonmark
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 You might have read [my blog post analyzing the social weather of

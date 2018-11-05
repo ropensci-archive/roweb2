@@ -1,23 +1,23 @@
 ---
-slug: "outcomerate"
-title: "outcomerate: Transparent Communication of Quality in Social Surveys"
+slug: outcomerate
+title: 'outcomerate: Transparent Communication of Quality in Social Surveys'
 package_version: 1.0.1
 authors:
   - name: Rafael Pilliard Hellwig
     url: https://github.com/rtaph
-date: 2018-10-02
+date: '2018-10-02'
 categories: blog
 topicid: 1381
 tags:
-- r
-- community
-- software
-- review
-- onboarding
-- package
-- outcomerate
-- reproducible-research
-- survey
+  - r
+  - community
+  - software
+  - review
+  - onboarding
+  - packages
+  - outcomerate
+  - reproducible-research
+  - survey
 output: html_document
 ---
 

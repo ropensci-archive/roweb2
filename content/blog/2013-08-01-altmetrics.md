@@ -4,10 +4,10 @@ title: Consuming article-level metrics
 date: '2013-08-01'
 authors:
   - name: Scott Chamberlain
+    twitter: sckottie
 categories: blog
 tags:
   - R
-  - rOpenSci
   - altmetrics
   - PLOS
 ---

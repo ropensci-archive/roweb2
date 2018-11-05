@@ -4,9 +4,9 @@ title: Greetings from Your Community Manager!
 date: '2016-10-12'
 authors:
   - name: Stefanie Butland
+    twitter: StefanieButland
 categories: blog
 tags:
-  - rOpenSci
   - community
   - jobs
 ---

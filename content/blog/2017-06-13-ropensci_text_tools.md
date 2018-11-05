@@ -4,6 +4,7 @@ title: New rOpenSci Packages for Text Processing in R
 date: '2017-06-13'
 authors:
   - name: Jeroen Ooms
+    twitter: opencpu
 categories: blog
 topicid: 746
 tags:

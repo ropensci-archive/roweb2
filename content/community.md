@@ -1,6 +1,5 @@
 +++
 title="Our community is our best asset"
-twitterImg="img/community-scroll/c6.jpg"
 partials=["community.html","mailkimp.html"]
 +++
 

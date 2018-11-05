@@ -1,25 +1,26 @@
 ---
-slug: "googlelanguager"
-title: googleLanguageR - Analysing language through the Google Cloud Machine Learning APIs
+slug: googlelanguager
+title: googleLanguageR - Analysing language through the Google Cloud Machine Learning
+  APIs
 authors:
   - name: Mark Edmondson
     url: http://code.markedmondson.me
-date: 2017-10-03
+date: '2017-10-03'
 categories: blog
 topicid: 904
 tags:
-- R
-- API
-- packages
-- textmining
-- text-analysis
-- linguistics
-- data-extraction
-- community
-- software
-- review
-- onboarding
-- googleLanguageR
+  - R
+  - API
+  - packages
+  - textmining
+  - text-analysis
+  - linguistics
+  - data-extraction
+  - community
+  - software
+  - review
+  - onboarding
+  - googleLanguageR
 ---
 
 <!-- open source image taken from: https://upload.wikimedia.org/wikipedia/commons/2/21/Bell_System_switchboard.jpg -->

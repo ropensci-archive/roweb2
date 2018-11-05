@@ -15,8 +15,8 @@
                 <div class="col-8 col-offset-2 top-10 bottom-10 maintext">
 
                 <div class="row">
-            <div class="col-offset-2 col-8 top-20 bottom-10">
-                <h2 style="text-align: center;">Posts with the "{{ .Title }}" tag</h2>
+            <div class="col-offset-2 col-8 top-0 bottom-10">
+                <h2 style="text-align: center;">Posts with the "{{lower .Title }}" tag</h2>
             </div>
         </div>
 
@@ -27,18 +27,8 @@
                         <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
 
                         <p class="lighter authors">By:
-                            {{ range $i, $e := .Params.authors }}
-                                {{ if $i }}&nbsp;|&nbsp;{{ end }}
-                                {{ if in $.Site.Params.leadership .name }}
-                                  <a href="/about/#team">{{ .name }}</a>
-                                {{ else if in $.Site.Params.staff .name }}
-                                  <a href="/about/#team">{{ .name }}</a>
-                                {{ else if eq .name "Ted Hart" }}
-                                  <a href="/about/#team">{{ .name }}</a>
-                                {{ else }}
-                                  <a href="{{ .url }}" target="_blank">{{ .name }}</a>
-                                {{ end }}
-                            {{ end }}
+                            {{$authors := .Params.authors}}
+                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
                         </p>
                         <div style="font-style: italic; text-align: justify;">

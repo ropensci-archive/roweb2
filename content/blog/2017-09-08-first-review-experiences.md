@@ -12,7 +12,6 @@ tags:
   - software
   - review
   - reviewer
-  - rOpenSci
   - onboarding
 ---
 

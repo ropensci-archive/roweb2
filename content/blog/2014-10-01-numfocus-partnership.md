@@ -1,14 +1,14 @@
 ---
-slug: "numfocus-partnership"
+slug: numfocus-partnership
 title: New fiscal sponsorship agreement with NumFocus foundation
-date: 2014-10-01
+date: '2014-10-01'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+    twitter: _inundata
+categories: blog
 tags:
-- R
-- funding
+  - R
+  - funding
 ---
 
 

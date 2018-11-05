@@ -1,23 +1,28 @@
 ---
-slug: "nf-softwarereview"
-title: "How rOpenSci uses Code Review to Promote Reproducible Science"
-preface: "This is cross-posted from the NumFOCUS blog. NumFOCUS is a nonprofit that supports and promotes world-class, innovative, open source scientific computing, including rOpenSci."
-date: 2017-09-01
+slug: nf-softwarereview
+title: How rOpenSci uses Code Review to Promote Reproducible Science
+preface: This is cross-posted from the NumFOCUS blog. NumFOCUS is a nonprofit that
+  supports and promotes world-class, innovative, open source scientific computing,
+  including rOpenSci.
+date: '2017-09-01'
 authors:
   - name: Noam Ross
     url: https://twitter.com/noamross
+    twitter: noamross
   - name: Scott Chamberlain
+    twitter: sckottie
   - name: Karthik Ram
+    twitter: _inundata
   - name: Maëlle Salmon
     url: https://masalmon.eu/
-categories:
-  - blog
+    twitter: ma_salmon
+categories: blog
 topicid: 850
 tags:
-- software
-- review
-- community
-- onboarding
+  - software
+  - review
+  - community
+  - onboarding
 ---
 
 At rOpenSci, we create and curate software to help scientists with the data life cycle. These tools access, download, manage, and archive scientific data in open, reproducible ways. Early on, we realized this could only be a community effort. The variety of scientific data and workflows could only be tackled by drawing on contributions of scientists with field-specific expertise.

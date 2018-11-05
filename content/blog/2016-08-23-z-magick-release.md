@@ -1,11 +1,11 @@
 ---
-slug: "z-magick-release"
-title: "Advanced Image-Processing in R with Magick, Part I"
-date: 2016-08-23
+slug: z-magick-release
+title: Advanced Image-Processing in R with Magick, Part I
+date: '2016-08-23'
 authors:
   - name: Jeroen Ooms
-categories:
-  - blog
+    twitter: opencpu
+categories: blog
 tags:
   - magick
   - graphics

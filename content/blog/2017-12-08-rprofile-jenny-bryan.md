@@ -1,18 +1,21 @@
 ---
 slug: rprofile-jenny-bryan
-title: ".rprofile: Jenny Bryan"
-date: 2017-12-08
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+title: '.rprofile: Jenny Bryan'
+date: '2017-12-08'
+preface: In this occasional series, we interview someone using a loosely defined set
+  of interview questions for the purpose of demystifying the creative and development
+  processes of R community members. This interview was conducted and prepared by Kelly
+  O'Briant as part of an rOpenSci unconf17 project.
 authors:
   - name: Kelly O'Briant
     url: https://kellobri.github.io/
 categories: blog
 topicid: 993
 tags:
-- R
-- community
-- interviews
-- rprofile
+  - R
+  - community
+  - interviews
+  - rprofile
 ---
 
 <img src="/img/blog-images/2017-12-08-rprofile-jenny-bryan/jenny_bryan_lowres.jpg" alt="Jenny Bryan" style="margin: 0px 20px; width: 250px;" align="left">

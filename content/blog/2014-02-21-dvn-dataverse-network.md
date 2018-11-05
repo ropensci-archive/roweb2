@@ -1,18 +1,17 @@
 ---
-slug: "dvn-dataverse-network"
+slug: dvn-dataverse-network
 title: dvn - Sharing Reproducible Research from R
-date: 2014-02-20
+date: '2014-02-20'
 authors:
   - name: Thomas Leeper
     url: http://thomasleeper.com/
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- API
-- reproducibleresearch
-- data
-- archiving
+  - R
+  - API
+  - reproducible-research
+  - data
+  - archiving
 ---
 
 

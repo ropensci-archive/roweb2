@@ -1,18 +1,19 @@
 ---
-slug: "image-convolve"
-title: "Image Convolution in R using Magick"
-date: 2017-11-02
+slug: image-convolve
+title: Image Convolution in R using Magick
+date: '2017-11-02'
 authors:
   - name: Jeroen Ooms
+    twitter: opencpu
   - name: Thomas Lin Pedersen
     url: https://www.data-imaginist.com/
 categories: technotes
 topicid: 941
 tags:
-- R
-- packages
-- magick
-- images
+  - R
+  - packages
+  - magick
+  - images
 ---
 
 Release 1.4 of the [magick package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) introduces

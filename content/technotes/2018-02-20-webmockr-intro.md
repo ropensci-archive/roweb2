@@ -1,22 +1,22 @@
 ---
-slug: "webmockr-intro"
-title: "webmockr: mock HTTP requests"
-date: 2018-02-20
+slug: webmockr-intro
+title: 'webmockr: mock HTTP requests'
+date: '2018-02-20'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 topicid: 1073
 tags:
-- R
-- ruby
-- http
-- mocking
-- request
-- crul
-- curl
-- webmockr
-- testing
+  - R
+  - ruby
+  - http
+  - mocking
+  - request
+  - crul
+  - curl
+  - webmockr
+  - testing
 ---
 
 

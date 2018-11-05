@@ -1,16 +1,16 @@
 ---
-slug: "charlatan"
+slug: charlatan
 title: All the fake data that's fit to print
-date: 2017-06-22
+date: '2017-06-22'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 topicid: 754
 tags:
-- data
-- datasets
-- r
+  - data
+  - datasets
+  - r
 ---
 
 > **charlatan** makes fake data.

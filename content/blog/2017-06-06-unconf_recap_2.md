@@ -4,12 +4,12 @@ title: 'Unconf projects 2: checkers, gramr, data-packages, exploRingJSON'
 date: '2017-06-06'
 authors:
   - name: Scott Chamberlain
+    twitter: sckottie
 categories: blog
 topicid: 741
 tags:
   - community
   - meetings
-  - rOpenSci
   - unconf
   - unconf17
 ---

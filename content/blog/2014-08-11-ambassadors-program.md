@@ -4,10 +4,10 @@ title: Announcing our ambassadors program
 date: '2014-08-11'
 authors:
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 tags:
   - R
-  - rOpenSci
   - community
 ---
 

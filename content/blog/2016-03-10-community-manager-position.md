@@ -1,13 +1,12 @@
 ---
-slug: "community-manager-position"
+slug: community-manager-position
 title: We're hiring a community manager!
-date: 2016-03-10
+date: '2016-03-10'
 authors:
   - name: Core Team
-categories:
-  - blog
+categories: blog
 tags:
-- jobs
+  - jobs
 ---
 
 The rOpenSci team is growing, thanks in part to our [recent funding](https://ropensci.org/blog/2015/11/19/helmsley-trust-funding/). We recently [welcomed](https://ropensci.org/blog/2016/03/01/pdftools-and-jeroen) Jeroen Ooms on the software development side and today we're thrilled to announce a position for community manager.

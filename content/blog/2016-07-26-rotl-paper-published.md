@@ -1,7 +1,7 @@
 ---
-slug: "rotl-paper-published"
-title: "rotl paper published"
-date: 2016-07-26
+slug: rotl-paper-published
+title: rotl paper published
+date: '2016-07-26'
 authors:
   - name: Francois Michonneau
     url: http://francoismichonneau.net/
@@ -9,13 +9,12 @@ authors:
     url: http://www-personal.umich.edu/~josephwb/
   - name: David Winter
     url: http://david-winter.info
-categories:
-  - blog
+categories: blog
 tags:
-- R
-- rotl
-- open-tree
-- publication
+  - R
+  - rotl
+  - open-tree
+  - publication
 ---
 
 We are excited to announce a paper describing `rotl`, our package for the

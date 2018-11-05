@@ -1,19 +1,19 @@
 ---
-slug: "fulltext-v1"
-title: "fulltext v1: text-mining scholarly works"
-date: 2018-01-17
+slug: fulltext-v1
+title: 'fulltext v1: text-mining scholarly works'
+date: '2018-01-17'
 authors:
   - name: Scott Chamberlain
-categories:
-  - technotes
+    twitter: sckottie
+categories: technotes
 topicid: 1032
 tags:
-- text-mining
-- fulltext
-- data
-- journals
-- R
-- open-access
+  - text-mining
+  - fulltext
+  - data
+  - journals
+  - R
+  - open-access
 ---
 
 ## The problem

@@ -1,23 +1,27 @@
 ---
-title: "What have these birds been studied for? Querying science outputs with R"
+title: What have these birds been studied for? Querying science outputs with R
 slug: birds-science
 authors:
   - name: Maëlle Salmon
     url: https://masalmon.eu/
-date: 2018-09-11
+    twitter: ma_salmon
+date: '2018-09-11'
 topicid: 1347
-preface: The blog post series corresponds to the material for a talk Maëlle will give at the [Animal Movement Analysis summer school in Radolfzell, Germany on September the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute of Ornithology.
+preface: The blog post series corresponds to the material for a talk Maëlle will give
+  at the [Animal Movement Analysis summer school in Radolfzell, Germany on September
+  the 12th](http://animove.org/animove-2019-evening-keynotes/), in a Max Planck Institute
+  of Ornithology.
 tags:
-- rebird
-- birder
-- fulltext
-- dataone
-- EML
-- literature
-output: 
+  - rebird
+  - birder
+  - fulltext
+  - dataone
+  - EML
+  - literature
+output:
   md_document:
     variant: markdown_github
-    preserve_yaml: true
+    preserve_yaml: yes
 ---
 
 In the [second post of the series where we obtained data from

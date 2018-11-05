@@ -1,15 +1,15 @@
 ---
-slug: "noaa-sparklines"
+slug: noaa-sparklines
 title: NOAA climate sparklines
-date: 2013-08-05
+date: '2013-08-05'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- ecology
-- API
+  - R
+  - ecology
+  - API
 ---
 
 We have started a new R package interacting with NOAA climate data called **rnoaa**. You can find our package in development [here](https://github.com/ropensci/rnoaa) and documentation for NOAA web services [here](http://www.ncdc.noaa.gov/cdo-web/webservices). It is still early days for this package, but we wanted to demo what you can do with the package.

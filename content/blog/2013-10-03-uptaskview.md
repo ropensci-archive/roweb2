@@ -1,14 +1,14 @@
 ---
-slug: "uptaskview"
+slug: uptaskview
 title: Web Technologies and Services taskview is up on CRAN
-date: 2013-10-03
+date: '2013-10-03'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- help
+  - R
+  - help
 ---
 
 Just a quick note that the Task View we have been working on with others **Web Technologies and Services** is up on CRAN now. Find it here [http://cran.r-project.org/web/views/WebTechnologies.html](http://cran.r-project.org/web/views/WebTechnologies.html).

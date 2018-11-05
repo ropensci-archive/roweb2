@@ -1,14 +1,14 @@
 ---
-slug: "geospatial-suite"
+slug: geospatial-suite
 title: The rOpenSci geospatial suite
-date: 2016-11-22
+date: '2016-11-22'
 authors:
   - name: Scott Chamberlain
-categories:
-  - blog
+    twitter: sckottie
+categories: blog
 tags:
-- R
-- geospatial
+  - R
+  - geospatial
 ---
 
 

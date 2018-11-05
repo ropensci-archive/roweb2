@@ -1,13 +1,13 @@
 ---
-slug: "helmsley-trust-funding"
+slug: helmsley-trust-funding
 title: rOpenSci Announces $2.9M Award from the Helmsley Charitable Trust
-date: 2015-11-19
+date: '2015-11-19'
 authors:
   - name: Karthik Ram
-categories:
-  - blog
+    twitter: _inundata
+categories: blog
 tags:
-- funding
+  - funding
 ---
 
 rOpenSci, whose mission is to develop and maintain sustainable software

@@ -4,12 +4,13 @@ slug: postdoc_dan_sholler
 title: Introducing our Postdoctoral Fellow, Dr. Dan Sholler
 authors:
   - name: Stefanie Butland
+    twitter: StefanieButland
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 topicid: 761
 tags:
   - community
-  - rOpenSci
   - interviews
 ---
 

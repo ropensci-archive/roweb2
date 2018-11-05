@@ -4,10 +4,10 @@ title: Introducing the BEFData package
 date: '2013-05-10'
 authors:
   - name: Karthik Ram
+    twitter: _inundata
 categories: blog
 tags:
   - R
-  - rOpenSci
   - packages
   - biodiversity
 ---

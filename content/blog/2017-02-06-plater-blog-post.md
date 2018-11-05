@@ -7,7 +7,6 @@ authors:
     url: https://github.com/seaaan
 categories: blog
 tags:
-  - rOpenSci
   - packages
   - plater
   - R
