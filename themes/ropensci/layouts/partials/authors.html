@@ -19,4 +19,7 @@
                                <sup><i class="ropensci-icons">o</i></sup>
                             </a>
                             {{ end }}
+                            {{ if .bio }}
+                            , {{.bio}}
+                            {{end}}
                         {{ end }}

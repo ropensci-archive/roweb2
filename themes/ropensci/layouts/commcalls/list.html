@@ -30,6 +30,7 @@
                 
             <div class="col-10 top-0">
 <h3> Next call(s) </h3>
+<br></br>
 <ul>
   {{ range .Data.Pages }}
   {{ $start := (time .Params.dateStart)}}
@@ -38,27 +39,36 @@
   {{ $end := (time .Params.dateEnd) }}
   {{ $diff := (now.Sub $end) }}
   {{ $diff := $diff.Hours }}
-  {{ if not .params.vimeo}}
-  <li>
+  {{ if isset .Params "deets" }}
   <ul>
-  <li> {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}">Find your timezone</a>. </li>
-  <li> <strong>Topic</strong>: {{ .Params.description | safeHTML}}. <li>
+  <li><div class="excerpt">
+                        <center><small><h2>{{ .Title }}</h2></small></center>
+                        
+                          
+                        
+                        <div style="text-align: justify;">
+                          <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
+                            <div class="col-10">🎤 Speaker(s):
+                            {{$authors := .Params.authors}}
+                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
-</li> <strong>Speaker(s)</strong>: <ul>
-  {{ range .Params.authors }}
-  <li>{{ .name }}, {{ .url }}, {{ .details }}</li>
-  {{end}}
-</ul> </li>
-</li>
+                        </div>
+                            <p>📖 {{ .Params.description | safeHTML }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
+                            
+                            <p><b>☎️ Join the call via Zoom (no RSVP needed!)</b>: {{ .Params.deets |markdownify }}</p>
+                        </div>
+                        
+
+
+                    </div></li>
   {{ end }}
   {{ end }}
 </ul>
 </div> 
 
-            <div class="col-10 top-0">
+            <div class="col-10 top-10">
 <h3> Past calls </h3>
-{{ $pages := where .Pages "vimeo" "in" .Params }}
-
+{{ $pages := where .Pages ".Params.vimeo" "!=" nil }}
 
   {{ partial "archive.html" (dict "pages" $pages) }}
 </div>

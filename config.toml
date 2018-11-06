@@ -6,6 +6,7 @@ googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
+buildFuture = true
 
 paginate = 5
 paginatePath = "page"
