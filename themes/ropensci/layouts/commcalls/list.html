@@ -38,7 +38,7 @@
   {{ $end := (time .Params.dateEnd) }}
   {{ $diff := (now.Sub $end) }}
   {{ $diff := $diff.Hours }}
-  {{ if or ($end.After now) (le $diff 48 )}}
+  {{ if not .params.vimeo}}
   <li>
   <ul>
   <li> {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}">Find your timezone</a>. </li>
@@ -57,7 +57,8 @@
 
             <div class="col-10 top-0">
 <h3> Past calls </h3>
-{{$pages := .Pages.ByDate.Reverse}}
+{{ $pages := where .Pages "vimeo" "in" .Params }}
+
 
   {{ partial "archive.html" (dict "pages" $pages) }}
 </div>
