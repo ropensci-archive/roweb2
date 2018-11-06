@@ -32,9 +32,32 @@
                 {{ if .Params.preface }}
                 <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
                 {{ end }}
-
-                {{ .Content }}
+<h2>Resources</h2>
+                <div class= "row bottom-5 top-5">
+                  <ul>
+                    {{if .Params.blog}}
+                    <li><a href="{{ .Params.blog }}" target="_blank">Blog post</a></li>
+                    {{end}}
+                    {{if .Params.notes}}
+                    <li><a href="{{ .Params.notes }}" target="_blank">Collaborative notes</a></li>
+                    {{end}}
+                     {{if .Params.resources}}
+                     {{ range $i, $e := .Params.resources }}
+             <li><a href="{{ .url }}" target="_blank">{{ .url }}</a></li>
+                 {{end}} 
+                 {{end}}</ul></p>
+                  </div>
+                  <h2>Video recording</h2>
+                  {{ range $i, $e := .Params.Vimeo }}
+                  <div class= "row center bottom-5 top-5">
+              <iframe src="https://player.vimeo.com/video/{{.id}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              </div>
+{{ end }}
+              
+              
             </div>
+            
+            
             <br>
             <div class="col-offset-2 col-8 top-4 labels">
                 {{ range .Params.tags }}
