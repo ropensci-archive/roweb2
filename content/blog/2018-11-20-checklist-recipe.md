@@ -61,13 +61,13 @@ The recipe relies on several open source tools. Some of them, _R Markdown_ and _
 
 As many of you probably know, [GitHub](https://github.com/) is one of the most used web-based hosting service for version control. It is mostly used for computer code. The recipe is nothing more than one of the thousands Github repositories. 
 
-To give an idea how GitHub is popular within open-source community, it is sufficient to say that GBIF itself is, coding speaking, a GitHub account with 117 repositories responsible of all functionalities GBIF is capable of. A visit of the [GBIF account on GitHub](https://github.com/gbif) is surely worthwile. This blog is nothing else than a GitHub repository called [roweb2](https://github.com/ropensci/roweb2) held by [rOpenSci](https://github.com/ropensci) GitHub account! 
+To give an idea how GitHub is popular within open-source community, it is sufficient to say that GBIF itself is, coding speaking, a GitHub account with 117 repositories responsible of all functionalities GBIF is capable of. A visit of the [GBIF account on GitHub](https://github.com/gbif) is surely worthwile. And this blog, actually, is nothing else than a GitHub repository called [roweb2](https://github.com/ropensci/roweb2) held by [rOpenSci](https://github.com/ropensci) GitHub account!
 
-So, join the GitHub community first, by making your own GitHub account. You can then _fork_ the recipe: by forking you will create a copy of the repository on your account and you can start customizing it as needed.
+So, join the GitHub community first, by making your own GitHub account. You can then _fork_ the recipe: by forking you will create a copy of the repository on your account and you can start customizing it as needed. Go to our wiki [GitHub page](https://github.com/trias-project/checklist-recipe/wiki/GitHub) to set up the very first steps in the world of version control.
 
 ## Cookiecutter data science
 
-The recipe, as the mapping of all checklists we published, share the same repository structure. We didn't invent it because there is already an open source project intended to ease work of every data scientist and it is called [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/). Files and directories indicated with `GENERATED` should not be edited manually.
+The recipe shares the same repository structure we used to map all checklists. We didn't invent it because there is already an open source project intended to ease work of every data scientist and it is called [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/). Files and directories indicated with `GENERATED` should not be edited manually.
 
 ```
 ├── README.md              : Description of this repository
@@ -128,17 +128,25 @@ In the recipe's wiki we dedicated a page to [tidyverse functions ](https://githu
 
 ## rgbif
 
-Publishing checklist data, means having to do with taxonomy. As we publish our checklists on GBIF, we have to do with the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), a single synthetic management classification with the goal of covering all names GBIF is dealing with. One of the main mapping steps is to _parse_ all input taxonomic names and get the right rank (is it a _species_? Or a _genus_? Or a _family_?) to them. To do it, GBIF developed the [name parser](https://www.gbif.org/tools/name-parser).
+If you publish checklist data, you have to do with taxonomy. As we publish our checklists on GBIF, we have to do with the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), a single synthetic management classification with the goal of covering all names GBIF is dealing with. One of the main mapping steps is to _parse_ all input taxonomic names and get the right rank (is it a _species_? Or a _genus_? Or a _family_?) to them. To do it, GBIF developed the [name parser](https://www.gbif.org/tools/name-parser). Install the rOpenSci's package [rgbif](https://github.com/ropensci/rgbif) to use the name parser functionality without leaving your R session: rgbif interfaces you with GBIF API by using a collection of well named R functions. To parse names, you can just pass a vector of names to rgbif function `parsenames`. Here below we show you how we would do it if our names are in column `input_scientific_name` of data.frame `input_data`:
 
-TODO:
-Continue writing about rgbif and rgbif functions for name parsing and taxon ranks.
+```r
+parsed_names <- input_data %>%
+  distinct(input_scientific_name) %>%
+  pull() %>% # Create vector from dataframe
+  parsenames() # An rgbif function
+```
+
+Note the use of pipes to concatenate functions in a very readable way.
+
+The nameparser function also provides information about the rank of the taxon (in column `rankmarker`), an important information which sometimes misses in the original checklists. Checking the correctness of the parsing is the publisher's homework.
 
 ## R Markdown websites
 
-You successfully mapped your checklist data, you documented all your steps by adapting the RMarkdown. How to publish the mapping in the most easy and at the same time visually appealing way? We came to the conclusion that you can do it via R Markdown websites: https://rmarkdown.rstudio.com/rmarkdown_websites.htm. As example, check the website documenting the mapping of [Checklist of non-native freshwater fishes in Flanders, Belgium](https://trias-project.github.io/alien-fishes-checklist/), one of our published checklist data.
+You successfully mapped your checklist data, you documented all your steps by adapting the RMarkdown. How to publish the mapping in the most easy and at the same time visually appealing way? We came up to R Markdown websites: https://rmarkdown.rstudio.com/rmarkdown_websites.htm. Don't miss to check one of the [examples](https://github.com/trias-project/checklist-recipe/wiki/Examples) we provided in the wiki!
 
 # Conclusion
 
-TODO: write conclusion.
+We wrote this blogpost in order to share our experience in building a completely open, documented and working template in publishing biodiversity data. We are strongly convinced that the future of biodiversity is open. Co-winning the GBIF Ebbe-Nielsen Challenge gave us even more enthousiasm about. We think also that the time arrived to give back! We couldn't win anything without any of the open-source tools we cited above and many others (R is a free programming language after all). For this reason we decided to devolve half of the price to [NumFocus](https://numfocus.org/), the organization sponsoring many important open-source projects improving the quality of science worldwide. Supporting open-source research means supporting your own research after all! 
 
-After co-winning the Ebbe-Nielsen Challenge we thought that it's time to give back! We couldn't win such prize without any of the open-source tools we cited above. For this reason we decided to devolve half of the price to [NumFocus](https://numfocus.org/), the organization sponsoring rOpenSci and any other important open-source project improving the quality of science worldwide. Thanks for helping our research everyday!
+You can contribute to open-source in many other ways: based on your background and expertise you can report bugs, propose new functionalities or even being a contributor. The future you will surely thank you a lot!
