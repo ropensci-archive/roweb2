@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+
+<!-- begins tutorial section -->
+    <section>
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Community Calls</h2>
+                </div>
+                <div class="col-8 top-4 bottom-12">
+                    <i><p>Join us in our quarterly Community Calls to hear about best practices, new projects, Q&As with well known developers, and to learn more about rOpenSci developments. These are free and open for anyone to attend and provide an opportunity to connect with rOpenSci community members around the world.</p>
+
+<p>We aim to leave at least 20 minutes for open Q&A and we use collaborative note-taking allowing participants share ideas or resources and to ask questions. All past calls were recorded and are available online.</a></p></i>
+
+<div class="row center">
+  <div class="col-4 top-5 bottom-0">
+                <a href="{{.URL}}index.ics" target="_blank" class="button outline green">View full calendar</a>
+            </div>
+  </div>
+                </div>
+            </div>
+
+            <div class="row">
+                
+            <div class="col-10 top-0">
+<h3> Next call(s) </h3>
+<ul>
+  {{ range .Data.Pages }}
+  {{ $start := (time .Params.dateStart)}}
+  {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
+  {{ $start:= $start.Format "20060102T15"}}
+  {{ $end := (time .Params.dateEnd) }}
+  {{ $diff := (now.Sub $end) }}
+  {{ $diff := $diff.Hours }}
+  {{ if or ($end.After now) (le $diff 48 )}}
+  <li>
+  <ul>
+  <li> {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}">Find your timezone</a>. </li>
+  <li> <strong>Topic</strong>: {{ .Params.description | safeHTML}}. <li>
+
+</li> <strong>Speaker(s)</strong>: <ul>
+  {{ range .Params.authors }}
+  <li>{{ .name }}, {{ .url }}, {{ .details }}</li>
+  {{end}}
+</ul> </li>
+</li>
+  {{ end }}
+  {{ end }}
+</ul>
+</div> 
+
+            <div class="col-10 top-0">
+<h3> Past calls </h3>
+{{$pages := .Pages.ByDate.Reverse}}
+
+  {{ partial "archive.html" (dict "pages" $pages) }}
+</div>
+</div>
+            </div> 
+        </div><!-- /container -->
+    </section>
+    <!-- ends tutorial section -->
+    <br><br>
+
+{{ partial "footer.html" . }}
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/fh-3.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
+    <script type="text/javascript" src="js/tutorialinit.js"></script>
+
+</body>
+</html>
