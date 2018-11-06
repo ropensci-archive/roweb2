@@ -32,7 +32,7 @@
                 {{ if .Params.preface }}
                 <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
                 {{ end }}
-<h2>Resources</h2>
+<h3>Resources</h3>
                 <div class= "row bottom-5 top-5">
                   <ul>
                     {{if .Params.blog}}
@@ -47,7 +47,7 @@
                  {{end}} 
                  {{end}}</ul></p>
                   </div>
-                  <h2>Video recording</h2>
+                  <h3>Video recording</h3>
                   {{ range $i, $e := .Params.Vimeo }}
                   <div class= "row center bottom-5 top-5">
               <iframe src="https://player.vimeo.com/video/{{.id}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
