@@ -22,16 +22,15 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row center">
                 
-            <div class="col-10 top-0">
+            <div class="col-10 top-2">
 {{ $pages := where .Pages ".Params.deets" "!=" nil }}
 {{if gt (len $pages) 2}}
 <h3> Next calls </h3>
 {{ else }}
 <h3> Next call </h3>
 {{ end }}
-<br></br>
 <ul>
   {{ range $pages }}
   {{ $start := (time .Params.dateStart)}}
@@ -67,8 +66,9 @@
   {{ end }}
 </ul>
 </div> 
-
-            <div class="col-10 top-10">
+</div>
+<div class="row">
+            <div class="col-15 top-10">
 <h3> Past calls </h3>
 {{ $pages := where .Pages ".Params.vimeo" "!=" nil }}
 
