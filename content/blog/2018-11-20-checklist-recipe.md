@@ -1,53 +1,44 @@
 ---
 slug: "checklist-recipe"
-title: How standardize thematic species checklist data using R
+title: Checklist Recipe - How we created a template to standardize species data
 authors:
   - name: Peter Desmet
     url: https://twitter.com/peterdesmet
   - name: Damiano Oldoni
     url: https://twitter.com/damianozingaro
+  - name: Lien Reyserhove
+    url: https://twitter.com/ReyserhoveLien
 date: 2018-11-20
 categories: blog
 topicid: 
 tags:
 - r
-- opensource
-- openscience
-- ecology
-- GBIF
-- rgbif
-- community
 - template
-- data standardization
-- Darwine Core
+- species
+- checklists
+- gbif
+- rgbif
+- data-publication
+- data-standardization
+- Darwin Core
+- reproducible-research
+- TrIAS
+- Ebbe-Nielsen-Challenge
 ---
 
-# Intro: the Ebbe Nielsen Challenge
-
-The [GBIF Ebbe Nielsen Challenge](https://www.gbif.org/news/4TuHBNfycgO4GEMOKkMi4u/six-winners-top-the-2018-ebbe-nielsen-challenge) is an annual incentive prize that seeks to inspire innovative applications of open-access biodiversity data by scientists, informaticians, data modelers, cartographers and other experts. It happened that our _checklist recipe_ was worth of wo-winning the first prize. This blogpost will explain you how we standardize _checklist_ data using R and the open source tools we used to afford such result. 
-
-# Background
+Imagine you are a fish ecologist who compiled a list of fish species for your country. 🐟 A list that could be useful to others. You could publish it as a supplementary file to an article or in a research repository, but your list might be hard to discover and incompatible with other lists of species. Luckily there's a better way to publish species lists: as a standardized checklist that can be harvested and processed by the Global Biodiversity Information Facility (GBIF). We created a documented template to do that in R, which recently won the [GBIF Ebbe Nielsen Challenge](https://www.gbif.org/news/4TuHBNfycgO4GEMOKkMi4u/six-winners-top-the-2018-ebbe-nielsen-challenge). In this post we'd like to explain how we did that and highlight some of the neat tools we discovered along the way.
 
 ## What is GBIF?
 
-GBIF — the [Global Biodiversity Information Facility](https://www.gbif.org/what-is-gbif) — is an international network and research infrastructure funded by the world’s governments and aimed at providing anyone, anywhere, **open access** to data about all types of life on Earth.
+For those unfamiliar with the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/), it is an international network and research infrastructure funded by the world’s governments, aimed at providing anyone, anywhere, open access to data about all types of life on Earth. GBIF is best known for the trove of species occurrences  ([over 1 billion](https://www.gbif.org/occurrence/search)!) it is making accessible from hundreds of publishing institutions, but it is doing the same for species information, such as names, classifications, and known distributions.
 
+Anyone can [publish species information](https://www.gbif.org/publishing-data) (called "checklist data"). When you do, GBIF will create a page for your dataset ([example](https://doi.org/10.15468/xvuzfh)), assign a DOI, and match[^1] your scientific names to its [backbone taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), allowing your data to be linked and discoverable. One example of how this linked information can be integrated are the species pages on GBIF, which are automatically build from the over [25.000](https://www.gbif.org/dataset/search?type=CHECKLIST) checklist datasets that have been published already ([example](https://www.gbif.org/species/5851603)). All your checklist information also becomes available via the GBIF API ([example](https://api.gbif.org/v1/species/141117238)) and can be queried using the [rgbif](https://github.com/ropensci/rgbif) package.
 
-## What are checklists?
+[^1]: GBIF also provides this matching functionality via its [species lookup tool](https://www.gbif.org/tools/species-lookup), where you can check how names in your CSV file match the GBIF Backbone Taxonomy.
 
-Checklists are datasets providing a catalogue of named organisms, or **taxa**. They contain typically information along taxonomic, geographic, and thematic lines, or some combination of the three.  Checklists function as a rapid summary or baseline inventory of taxa in a given context. The _recipe_ has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the Tracksing Invasive Alien Species ([TrIAS](http://www.trias-project.be/)) project, an open data-driven framework to support Belgian federal policy on invasive species. We think it will be useful to provide a well-documented workflow for others who want to publish this type of data.
+So, why isn't everyone publishing checklists? Because the data can only be reasonably integrated if they are published in a standardized way. All GBIF mediated-data (including occurrences) have to be published in the [Darwin Core](https://www.gbif.org/darwin-core) standard, fitting a predefined structure, terms and sometimes controlled vocabularies, which can be challenging. [Templates](https://www.gbif.org/dataset-classes) and the [GBIF Integrated Publishing Toolkit](https://www.gbif.org/ipt) facilitates standardization, but only caters for the most basic use cases: what if you want to change the structure of your source data to fit a template or what to publish more than a template allows? That is why we created a recipe for standardizing checklist data to Darwin Core using R.
 
-## What is Darwin Core?
-
-[Darwin Core](http://rs.tdwg.org/dwc/) is a standard of the Biodiversity Information Standards ([TDWG](https://www.tdwg.org/)) including a glossary of terms intended to facilitate the sharing of information about biological diversity by providing identifiers, labels, and definitions. Darwin Core is primarily based on taxa, their occurrence in nature as documented by observations, specimens, samples, and related information.
-
-## Mapping to Darwin Core: challenges
-
-Publishing cheklist data means transforming existing collected data to Darwin Core standard. This mapping, also called _data standardization_, can be hard due to the complexity of Darwin Core standard (see [quick reference guide](http://rs.tdwg.org/dwc/terms/) of all terms a publisher can use) on the one hand and the complexity of original data on the other hand.
-
-[Templates](https://www.gbif.org/dataset-classes) and the [GBIF Integrated Publishing Toolkit](https://www.gbif.org/ipt) facilitates standardization, but only caters for the most basic use cases. 
-
-# Recipe
+## The checklist recipe
 
 To solve this, we have developed a [**checklist recipe**](https://github.com/trias-project/checklist-recipe), a template Github repository for standardizing thematic species checklist data to Darwin Core using R. This checklist recipe contains all the ingredients to make data standardization open, repeatable, customizable and documented. 
 
