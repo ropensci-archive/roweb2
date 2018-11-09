@@ -36,7 +36,7 @@ Anyone can [publish species information](https://www.gbif.org/publishing-data) (
 
 [^1]: GBIF also provides this matching functionality via its [species lookup tool](https://www.gbif.org/tools/species-lookup), where you can check how names in your CSV file match the GBIF Backbone Taxonomy.
 
-So, why isn't everyone publishing checklists? Because the data can only be reasonably integrated if they are published in a standardized way. All GBIF mediated-data (including occurrences) have to be published in the [Darwin Core](https://www.gbif.org/darwin-core) standard, fitting a predefined structure, terms, and sometimes controlled vocabularies, which can be challenging. [Templates](https://www.gbif.org/dataset-classes) and the [GBIF Integrated Publishing Toolkit](https://www.gbif.org/ipt) facilitates standardization, but only caters for the most basic use cases. It also forces you to change the structure of your source data and involves many manual steps. To solve this, we created a recipe to facilitate and automate this process using R.
+So, why isn't everyone publishing checklists? Because the data can only be reasonably integrated if they are published in a standardized way. All GBIF mediated-data (including occurrences) have to be published in the [Darwin Core](https://www.gbif.org/darwin-core) standard, fitting a standard structure (Darwin Core Archives), columns (Darwin Core terms) and sometimes values (controlled vocabularies), which can be challenging. [Templates](https://www.gbif.org/dataset-classes) and the [GBIF Integrated Publishing Toolkit](https://www.gbif.org/ipt) facilitates standardization or "mapping", but only caters for the most basic use cases. It also forces you to change the structure of your source data and involves many manual steps. To solve this, we created a recipe to facilitate and automate this process using R.
 
 ## The checklist recipe
 
@@ -50,12 +50,16 @@ By changing the source data and/or the mapping script, you can alter the generat
 
 Rather than explaining how you can use the Checklist recipe - [we've documented this in a wiki](https://github.com/trias-project/checklist-recipe/wiki/Getting-started) - we'd like to highlight some of the tools and techniques we discovered in developing it.
 
-## Cookiecutter data science
+## Tools
 
-The recipe shares the same repository structure we used to map all checklists we published. We didn't invent it because there is already an open source project intended to ease the work of every data scientist and it is called [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/). Here below the structure we adopeted: files and directories indicated with `GENERATED` should not be edited manually.
+### Cookiecutter data science
+
+The recipe shares the **same repository structure** we use for all our data transformation repositories. We didn't invent one, but adopted [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/): a logical, reasonably standardized, but flexible project structure for doing and sharing data science work. The main advantage we think is that it allows anyone (and us) to easily find their way around a repository, making it easier to contribute. It also saves precious time setting up a repository, because there are less decisions (e.g. naming things) to be made.
+
+Below is the directory structure we [adopted](https://github.com/trias-project/checklist-recipe) for checklist repositories: files and directories indicated with `GENERATED` should not be edited manually.
 
 ```
-├── README.md              : Description of this repository
+├── README.md              : Description of the repository
 ├── LICENSE                : Repository license
 ├── checklist-recipe.Rproj : RStudio project file
 ├── .gitignore             : Files and directories to be ignored by git
@@ -67,12 +71,17 @@ The recipe shares the same repository structure we used to map all checklists we
 ├── docs                   : Repository website GENERATED
 │
 └── src
-    ├── dwc_mapping.Rmd    : Darwin Core mapping script, core functionality of this repository
+    ├── dwc_mapping.Rmd    : Darwin Core mapping script, core functionality of the repository
     ├── _site.yml          : Settings to build website in /docs
     └── index.Rmd          : Template for website homepage
 ```
 
-## R Markdown
+### R Markdown
+
+The core functionality of our recipe is an [R Markdown file](https://github.com/trias-project/checklist-recipe/wiki/R-Markdown) called [`dwc_mapping.Rmd`](https://github.com/trias-project/checklist-recipe/blob/master/src/dwc_mapping.Rmd) (i.e. the "mapping script"). If you are [not familiar with R Markdown](https://rmarkdown.rstudio.com/lesson-1.html), it is a file format that allows you to mix text (written in [Markdown](https://en.wikipedia.org/wiki/Markdown)) with executable code chunks (in R). It is comparable with an R script, in which the comments explaining the code are given as much value as the code itself. It has the advantage that you can describe _and_ then execute each step of your data processing in the same document, nudging you to better document what you are doing. This is called "[literate programming](https://en.wikipedia.org/wiki/Literate_programming)" and it is one of the steps to make research more reproducible.
+
+You can simply run the code of an R Markdown file by opening it in R Studio and choosing `Run > Run all` (or code chunk by code chunk) or you can render as a report using `knit`. R Markdown supports a whole range of file formats for these reports (including `html` and `pdf`).
+
 
 Mapping your data means running some code, while documenting the mapping means writing an explanatory text about it. Combining both in a single document is what programmers call [literate programming](https://en.wikipedia.org/wiki/Literate_programming) and that's what we do by writing an [R Markdown](https://github.com/trias-project/checklist-recipe/wiki/R-Markdown) document: we combine R code and markdown syntax-based text in the same file. It is therefore not surprising that our mapping template is an R Markdown document: [dwc_mapping.Rmd](https://github.com/trias-project/checklist-recipe/blob/master/src/dwc_mapping.Rmd).
 
