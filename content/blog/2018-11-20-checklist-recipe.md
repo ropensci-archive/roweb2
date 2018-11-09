@@ -30,7 +30,7 @@ Imagine you are a fish ecologist who compiled a list of fish species for your co
 
 ## What is GBIF?
 
-For those unfamiliar with the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/), it is an international network and research infrastructure funded by the world’s governments, aimed at providing anyone, anywhere, open access to data about all types of life on Earth. GBIF is best known for the trove of species occurrences  ([over 1 billion](https://www.gbif.org/occurrence/search)!) it is making accessible from hundreds of publishing institutions, but it is doing the same for species information, such as names, classifications, and known distributions.
+For those unfamiliar with the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/), it is an international network and research infrastructure funded by the world’s governments, aimed at providing anyone, anywhere, open access to data about all types of life on Earth. GBIF is best known for the trove of species occurrences  ([over 1 billion](https://www.gbif.org/occurrence/search)!) it is making accessible from hundreds of publishing institutions, but it is doing the same for species information, such as names, classifications and known distributions.
 
 Anyone can [publish species information](https://www.gbif.org/publishing-data) (called "checklist data"). When you do, GBIF will create a page for your dataset ([example](https://doi.org/10.15468/xvuzfh)), assign a DOI, and match[^1] your scientific names to its [backbone taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), allowing your data to be linked, discoverable and integrated. Species pages on GBIF for example ([example](https://www.gbif.org/species/5851603)) are automatically build from the over [25.000](https://www.gbif.org/dataset/search?type=CHECKLIST) checklist datasets that have been published. All your checklist information also becomes available via the GBIF API ([example](https://api.gbif.org/v1/species/141117238)) and can be queried using the [rgbif](https://github.com/ropensci/rgbif) package.
 
@@ -40,7 +40,7 @@ So, why isn't everyone publishing checklists? Because the data can only be reaso
 
 ## The checklist recipe
 
-Our **[Checklist recipe](https://github.com/trias-project/checklist-recipe/wiki)** is a **template GitHub repository for standardizing species checklist data to Darwin Core using R**. It contains all the ingredients to make your data standardization open, repeatable, customizable, and documented. The recipe has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the Tracking Invasive Alien Species ([TrIAS](http://www.trias-project.be/)) project, an open data-driven framework to support Belgian federal policy on invasive species. We thought it would be useful to provide a well-documented workflow for others who want to publish this type of data.
+Our **[Checklist recipe](https://github.com/trias-project/checklist-recipe/wiki)** is a **template GitHub repository for standardizing species checklist data to Darwin Core using R**. It contains all the ingredients to make your data standardization open, repeatable, customizable and documented. The recipe has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the Tracking Invasive Alien Species ([TrIAS](http://www.trias-project.be/)) project, an open data-driven framework to support Belgian federal policy on invasive species. We thought it would be useful to provide a well-documented workflow for others who want to publish this type of data.
 
 The basic idea behind the Checklist recipe is:
 
@@ -82,10 +82,19 @@ The core functionality of our recipe is an [R Markdown file](https://github.com/
 
 You can simply run the code of an R Markdown file by opening it in R Studio and choosing `Run > Run all` (or code chunk by code chunk) or you can render as a report using `knit`. R Markdown supports a whole range of file formats for these reports (including `html` and `pdf`).
 
+### R Markdown websites
 
-Mapping your data means running some code, while documenting the mapping means writing an explanatory text about it. Combining both in a single document is what programmers call [literate programming](https://en.wikipedia.org/wiki/Literate_programming) and that's what we do by writing an [R Markdown](https://github.com/trias-project/checklist-recipe/wiki/R-Markdown) document: we combine R code and markdown syntax-based text in the same file. It is therefore not surprising that our mapping template is an R Markdown document: [dwc_mapping.Rmd](https://github.com/trias-project/checklist-recipe/blob/master/src/dwc_mapping.Rmd).
+If you are using R Markdown in a GitHub repository, you have all the ingredients to generate a small website showcasing your mapping steps in a visually pleasing way ([example](https://trias-project.github.io/alien-fishes-checklist/index.html)). And it can be hosted on GitHub for free! To learn more, read the [documentation on R Markdown websites](https://rmarkdown.rstudio.com/rmarkdown_websites.htm), but the setup is:
 
-## here
+1. Create an [`index.Rmd`](https://github.com/trias-project/checklist-recipe/blob/master/src/index.Rmd) file at the same level as your other R Markdown files (in the `src` directory). That file will be the homepage of your website. Since we don't want to repeat ourselves, we [inject the content](https://github.com/trias-project/checklist-recipe/blob/master/src/index.Rmd#L7-L8) of the repository `README.md` in that homepage.
+2. Create a [`_site.yml`](https://github.com/trias-project/checklist-recipe/blob/master/src/_site.yml) file at the same level as your `index.Rmd` file. It contains the settings for your website. Set at minimum a `name`, [`navbar`](https://github.com/trias-project/checklist-recipe/blob/master/src/_site.yml#L3-L7) and `output_dir: "../docs"` so the website is created in the `/docs` directory (which you need to create as well).
+3. Go to `Build > Configure Build Tools…` in RStudio and set Project build tools as `Website` with Site directory as `src`. You will now have a build pane in R Studio where you can click `Build Website` to build your website.
+
+This setup has already been done in our recipe.
+
+To serve your website, commit and push your changes to GitHub, go to your repository settings and choose the `\docs ` directory to [build a GitHub pages site](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch). After a couple of seconds, your website should be available at `<username>.github.io/<reponame>/`. Don't forget to add it to your repo description so users can find it.
+
+### here
 
 [here](https://here.r-lib.org/) is an R package. Its authors describe it as:
 > a simpler way to find your files.
@@ -102,7 +111,7 @@ It returns a string which can be used as path for reading files like shown here 
 input_data <- read_excel(path = path_file)
 ```
 
-## tidyverse
+### tidyverse
 
 [tidyverse](https://www.tidyverse.org/) is an opinionated collection of R packages designed for data science. The packages `here` and `readxl` we mentioned above are part of it! You can install all of them at once by:
 
@@ -118,9 +127,9 @@ library(tidyverse)
 
 will load the [core tidyverse](https://www.tidyverse.org/packages/).
 
-In the recipe's wiki we dedicated a page to [tidyverse functions ](https://github.com/trias-project/checklist-recipe/wiki/Tidyverse-functions) where we described the three basic functions you need most while standardizing your data: `mutate()`, `recode()` and `case_when()`. A note about _piping_, i.e. using the _pipe operator_ `%>%` or _pipe_,  is also present.  
+In the recipe's wiki we dedicated a page to [tidyverse functions ](https://github.com/trias-project/checklist-recipe/wiki/Tidyverse-functions) where we described the three basic functions you need most while standardizing your data: `mutate()`, `recode()` and `case_when()`. A note about _piping_, i.e. using the _pipe operator_ `%>%` or _pipe_,  is also present.
 
-## rgbif
+### rgbif
 
 If you publish checklist data, you have to do with taxonomy. As we publish our checklists on GBIF, we have to do with the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), a single synthetic management classification with the goal of covering all names GBIF is dealing with. One of the main mapping steps is to _parse_ all input taxonomic names and get the right rank (is it a _species_? Or a _genus_? Or a _family_?) to them. To do it, GBIF developed the [name parser](https://www.gbif.org/tools/name-parser). Install the rOpenSci's package [rgbif](https://github.com/ropensci/rgbif) to use the name parser functionality without leaving your R session: rgbif interfaces you with GBIF API by using a collection of well named R functions. To parse names, you can just pass a vector of names to rgbif function `parsenames`. Here below we show you how we would do it if our names are in column `input_scientific_name` of data.frame `input_data`:
 
@@ -134,10 +143,6 @@ parsed_names <- input_data %>%
 Note the use of pipes to concatenate functions in a very readable way.
 
 The `nameparser()` provides also information about the rank of the taxon (in column `rankmarker`), a mandatory field for publishing checklists on GBIF, which sometimes misses in the original checklists. Checking the correctness of the parsing is part of the publisher's homework.
-
-## R Markdown websites
-
-You successfully mapped your checklist data, you documented all your steps by adapting the RMarkdown. How to publish the mapping in the most easy and at the same time visually appealing way? We came up to use R Markdown websites: https://rmarkdown.rstudio.com/rmarkdown_websites.htm. Check it out yourself by examining one of the [examples](https://github.com/trias-project/checklist-recipe/wiki/Examples) we provided in the wiki!
 
 # Conclusion
 
