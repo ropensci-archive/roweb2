@@ -48,13 +48,6 @@ The basic idea behind the Checklist recipe is:
 
 By changing the source data and/or the mapping script, you can alter the generated Darwin Core files. The main advantage is **repeatability**: once you have done the mapping, you don't have to start from scratch if your source data has been updated. You can just run the mapping script again (with a little tweak here and there) and upload the generated files to a GBIF Integrated Publishing Toolkit for publication. And by having a mapping script, your mapping is also **documented**.
 
-## GitHub
-
-As many of you probably know, [GitHub](https://github.com/) is one of the most used web-based hosting service for version control. It is mostly used for computer code. The recipe is nothing more than one of the thousands Github repositories. 
-
-To give an idea how GitHub is popular within open source community, it is sufficient to say that GBIF itself is, coding speaking, a GitHub account with 117 repositories responsible of all functionalities GBIF is capable of. A visit of the [GBIF account on GitHub](https://github.com/gbif) is surely worthwile. And this blog, actually, is nothing else than a GitHub repository called [roweb2](https://github.com/ropensci/roweb2) held by [rOpenSci](https://github.com/ropensci) GitHub account!
-
-So, join the GitHub community first, by making your own GitHub account. You can then _fork_ the recipe: by forking you will create a copy of the repository on your account and you can start customizing it as needed. Go to our wiki [GitHub page](https://github.com/trias-project/checklist-recipe/wiki/GitHub) to set up the very first steps in the world of version control.
 Rather than explaining how you can use the Checklist recipe - [we've documented this in a wiki](https://github.com/trias-project/checklist-recipe/wiki/Getting-started) - we'd like to highlight some of the tools and techniques we discovered in developing it.
 
 ## Cookiecutter data science
