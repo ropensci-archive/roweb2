@@ -40,13 +40,13 @@ So, why isn't everyone publishing checklists? Because the data can only be reaso
 
 ## The checklist recipe
 
-To solve this, we have developed a [**checklist recipe**](https://github.com/trias-project/checklist-recipe), a template Github repository for standardizing thematic species checklist data to Darwin Core using R. This checklist recipe contains all the ingredients to make data standardization open, repeatable, customizable and documented. 
+Our **[Checklist recipe](https://github.com/trias-project/checklist-recipe/wiki)** is a **template GitHub repository for standardizing species checklist data to Darwin Core using R**. It contains all the ingredients to make your data standardization open, repeatable, customizable, and documented. The recipe has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the Tracking Invasive Alien Species ([TrIAS](http://www.trias-project.be/)) project, an open data-driven framework to support Belgian federal policy on invasive species. We thought it would be useful to provide a well-documented workflow for others who want to publish this type of data.
 
-If mapping needs documentation, the use of the recipe needs documentation as well. With this in mind, we attached a [wiki](https://github.com/trias-project/checklist-recipe/wiki) to document not only the mapping script, i.e. the _recipe_, but also the _ingredients_ (source data), the _instructions_ (R Markdown), the _utensils_ (tidyverse functions) and the _dinner_ (Darwin Core data).
+The basic idea behind the Checklist recipe is:
 
-# Open source software: tools behind the scene
+> source data → Darwin Core mapping script → generated Darwin Core files
 
-The recipe relies on several open source tools. Some of them, _R Markdown_ and _tidyverse_, have just been mentioned. We would like to list them and explain their role in the recipe.
+By changing the source data and/or the mapping script, you can alter the generated Darwin Core files. The main advantage is **repeatability**: once you have done the mapping, you don't have to start from scratch if your source data has been updated. You can just run the mapping script again (with a little tweak here and there) and upload the generated files to a GBIF Integrated Publishing Toolkit for publication. And by having a mapping script, your mapping is also **documented**.
 
 ## GitHub
 
@@ -55,6 +55,7 @@ As many of you probably know, [GitHub](https://github.com/) is one of the most u
 To give an idea how GitHub is popular within open source community, it is sufficient to say that GBIF itself is, coding speaking, a GitHub account with 117 repositories responsible of all functionalities GBIF is capable of. A visit of the [GBIF account on GitHub](https://github.com/gbif) is surely worthwile. And this blog, actually, is nothing else than a GitHub repository called [roweb2](https://github.com/ropensci/roweb2) held by [rOpenSci](https://github.com/ropensci) GitHub account!
 
 So, join the GitHub community first, by making your own GitHub account. You can then _fork_ the recipe: by forking you will create a copy of the repository on your account and you can start customizing it as needed. Go to our wiki [GitHub page](https://github.com/trias-project/checklist-recipe/wiki/GitHub) to set up the very first steps in the world of version control.
+Rather than explaining how you can use the Checklist recipe - [we've documented this in a wiki](https://github.com/trias-project/checklist-recipe/wiki/Getting-started) - we'd like to highlight some of the tools and techniques we discovered in developing it.
 
 ## Cookiecutter data science
 
