@@ -189,7 +189,7 @@ ggplot(ele, aes(date, ice, colour = lat)) + geom_path() + theme_bw()
 
 <img src="/img/blog-images/2018-11-13-antarctic/temp2-1.png" style="display: block; margin: auto;" />
 
-Or a fancy animated plot, using `gganimate` (code not shown for brevity, but you can find it in the page source). The hypnotic blue line shows the edge of the sea ice as it grows over the winter season:
+Or a fancy animated plot, using `gganimate` (code not shown for brevity, but you can find it in the [page source](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2018-11-13-antarctic.md)). The hypnotic blue line shows the edge of the sea ice as it grows over the winter season:
 
 <img src="/img/blog-images/2018-11-13-antarctic/plotanim-1.gif" style="display: block; margin: auto;" />
 
