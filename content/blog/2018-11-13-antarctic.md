@@ -189,9 +189,69 @@ ggplot(ele, aes(date, ice, colour = lat)) + geom_path() + theme_bw()
 
 <img src="/img/blog-images/2018-11-13-antarctic/temp2-1.png" style="display: block; margin: auto;" />
 
-Or a fancy animated plot, using `gganimate` (code not shown for brevity, but you can find it in the article source). The hypnotic blue line shows the edge of the sea ice as it grows over the winter season:
+Or a fancy animated plot, using `gganimate` (code not shown for brevity, but you can find it in the page source). The hypnotic blue line shows the edge of the sea ice as it grows over the winter season:
 
 <img src="/img/blog-images/2018-11-13-antarctic/plotanim-1.gif" style="display: block; margin: auto;" />
+
+<!--
+## code for animation, not shown in rendered markdown
+
+  library(SOmap)
+  library(gganimate) ## remotes::install_github("thomasp85/gganimate")
+  require(transformr) ## remotes::install_github("thomasp85/transformr")
+  require(sf)
+  require(rgdal)
+  require(rgeos)
+  
+  ## use a rotated polar projection
+  polar_proj_rot <- "+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=90 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"
+  ele[c("x", "y")] <- rgdal::project(as.matrix(ele[c("lon", "lat")]), polar_proj_rot)
+  
+  ## get sea ice data, one raster per day
+  ice_raster <- readice(sort(unique(as.Date(ele$date))))
+  
+  ## rotate sea ice rasters
+  tm <- getZ(ice_raster)
+  ice_raster <- projectRaster(ice_raster, raster(extent(extent(ice_raster)[c(3, 4, 1, 2)]), nrows = ncol(ice_raster), ncols = nrow(ice_raster), crs = polar_proj_rot))
+  ice_raster <- setZ(ice_raster, tm)
+  
+  ## convert each sea ice raster to lines representing the edges of the ice
+  ## 15% is the standard "ice edge" threshold
+  contour_raster_sf <- function(x, level = 15, date = as.POSIXct(NA, tz = "UTC")) {
+    raster::rasterToContour(x, level = level, maxpixels = prod(dim(x[[1]]))) %>%
+      sf::st_as_sf() %>% dplyr::mutate(date = date)
+  }
+  ice_edge <- vector("list", nlayers(ice_raster))
+  for (i in seq_along(ice_edge)) {
+    ice_edge[[i]] <- contour_raster_sf(ice_raster[[i]], date = getZ(ice_raster)[i])
+  }
+  ice_edge <- sf::st_cast(do.call(rbind, ice_edge), "MULTILINESTRING")
+  
+  ## use elevation data from ETOPO2 to show the land masses
+  ## read it and reproject from long-lat to our polar projection
+  cx <- projectRaster(readtopo("etopo2", xylim = c(-180, 180, -90, -40)),
+                      raster(extent(c(-4e6, 4e6, -5e6, 5e6)), nrows = 400, ncols = 400, crs = polar_proj_rot))
+  cx <- as.data.frame(cx, xy = TRUE)
+  cx$z[cx$z <= 0] <- NA_real_
+  
+  ## create a lagged version of the track that we can use to show a trailing "worm"
+  tail_length <- 8
+  ele_lagged <- ele %>% mutate(lag_n = 0)
+  for (li in seq_len(tail_length)) ele_lagged <- rbind(ele_lagged, ele %>% mutate(date = lead(date, li), lag_n = -li))
+  ele_lagged <- ele_lagged %>% dplyr::filter(!is.na(date))
+  
+  g <- ggplot() + geom_raster(data = cx, aes(x, y, fill = z)) +
+      scale_fill_distiller(palette = "Greys", guide = FALSE, na.value = "#FFFFFF00") +
+      geom_sf(data = ice_edge, colour = "blue") +
+      geom_path(data = ele_lagged, aes(x, y, alpha = lag_n), colour = "orange", size = 1) +
+      scale_alpha_continuous(guide = FALSE) +
+      geom_path(data = ele, aes(x, y), colour = "orange", size = 2) +
+      theme_void() + xlim(c(-4e6, 4e6)) + ylim(c(-4.75e6, 4.75e6)) +
+      transition_time(date)
+  animate(g)
+
+## end hidden code for animation
+-->
 
 #### Mapping
 
