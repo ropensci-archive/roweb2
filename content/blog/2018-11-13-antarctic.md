@@ -65,7 +65,8 @@ req <- setdiff(c("dplyr", "ggplot2", "remotes"), installed.packages())
 if (length(req) > 0) install.packages(req)
 
 ## and some github packages
-req <- c("ropensci/antanym", "AustralianAntarcticDivision/blueant", "AustralianAntarcticDivision/raadtools",
+req <- c("ropensci/antanym", "AustralianAntarcticDivision/blueant",
+         "AustralianAntarcticDivision/raadtools",
          "AustralianAntarcticDivision/SOmap")
 req <- req[!basename(req) %in% installed.packages()]
 if (length(req) > 0) remotes::install_github(req)
@@ -119,10 +120,11 @@ Download daily sea ice data (from 2013 only), and the ETOPO2 bathymetric data se
 ``` r
 library(blueant)
 src <- bind_rows(
-    sources("NSIDC SMMR-SSM/I Nasateam sea ice concentration", hemisphere = "south", time_resolutions = "day",
-            years = 2013),
+    sources("NSIDC SMMR-SSM/I Nasateam sea ice concentration", hemisphere = "south",
+            time_resolutions = "day", years = 2013),
     sources("ETOPO2 bathymetry"))
-result <- bb_get(src, local_file_root = my_data_dir, clobber = 0, verbose = TRUE, confirm = NULL)
+result <- bb_get(src, local_file_root = my_data_dir, clobber = 0, verbose = TRUE,
+                 confirm = NULL)
 ```
 
     ##  
@@ -211,7 +213,9 @@ library(raster)
 ele_sp <- ele
 coordinates(ele_sp) <- c("lon", "lat")
 projection(ele_sp) <- "+proj=longlat +ellps=WGS84"
-ele_sp <- spTransform(ele_sp, CRS("+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"))
+ele_sp <- spTransform(ele_sp,
+            CRS("+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 
+            +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"))
 
 ## plot the base map with ocean fronts shown
 SOmap(fronts = TRUE)
@@ -266,7 +270,8 @@ xns <- as_tibble(spTransform(xns, projection(Bathy))) %>% head(10)
 SOmap()
 plot(ele_sp, col = "darkgreen", add = TRUE)
 with(xns, points(x = longitude, y= latitude, pch = 16))
-with(xns, text(x = longitude, y= latitude, labels = place_name, pos = 2 + 2*(longitude > 0)))
+with(xns, text(x = longitude, y= latitude, labels = place_name,
+               pos = 2 + 2*(longitude > 0)))
 ```
 
 <img src="/img/blog-images/2018-11-13-antarctic/antanym2-1.png" style="display: block; margin: auto;" />
