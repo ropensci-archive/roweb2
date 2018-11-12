@@ -61,14 +61,14 @@ A lightning trip through the land of `bowerbird`, `raadtools`, `SOmap`, and `ant
 
 ``` r
 ## make sure we have the packages we need
-req <- setdiff(c("dplyr", "ggplot2", "remotes"), installed.packages())
+req <- setdiff(c("dplyr", "ggplot2", "remotes"), installed.packages()[, 1])
 if (length(req) > 0) install.packages(req)
 
 ## and some github packages
 req <- c("ropensci/antanym", "AustralianAntarcticDivision/blueant",
          "AustralianAntarcticDivision/raadtools",
          "AustralianAntarcticDivision/SOmap")
-req <- req[!basename(req) %in% installed.packages()]
+req <- req[!basename(req) %in% installed.packages()[, 1]]
 if (length(req) > 0) remotes::install_github(req)
 ```
 
