@@ -16,7 +16,7 @@
 <meta property="description" content="{{ .Site.Params.description }}">
 <meta property="og:description" content="{{ .Site.Params.description }}">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ropensci.org/android-chrome-512x512.png" >
+<meta name="twitter:image" content="http://ropensci.org/android-chrome-512x512.png" >
 {{ else }}
 <title>{{ .Title }}{{ with .Params.subtitle }} - {{ . }} {{ end }} - {{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://ropensci.org/{{ .Params.twitterImg }}" >
   {{ else }}
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://ropensci.org/android-chrome-512x512.png" >
+  <meta name="twitter:image" content="http://ropensci.org/android-chrome-512x512.png" >
   {{ end }}
   
 {{ $defaultDescription := .Summary }}
@@ -37,7 +37,3 @@
 
 <meta name="twitter:creator" content="@rOpenSci">
 <meta name="twitter:site" content="@rOpenSci">
-
-{{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="http://ropensci.org/rbloggers/index.xml" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}
