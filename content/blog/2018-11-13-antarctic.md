@@ -7,7 +7,6 @@ authors:
   - name:  Michael Sumner
     url: https://github.com/mdsumner
     twitter: mdsumner
-    twitter: mdsumner
   - name: on behalf of the community
 date: 2018-11-13
 categories: blog
