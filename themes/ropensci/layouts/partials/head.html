@@ -39,5 +39,5 @@
 <meta name="twitter:site" content="@rOpenSci">
 
 {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="http://ropensci.org/blogs/index.xml" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="http://ropensci.org/rbloggers/index.xml" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}

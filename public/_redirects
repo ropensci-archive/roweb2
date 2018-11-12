@@ -3,7 +3,7 @@
 /blog/pt/*	/blog/:splat
 /blog/technotes/*	/technotes/:splat
 /feed.xml	/index.xml
-/feed.R.xml	/blogs/index.xml
+/feed.R.xml	/rbloggers/index.xml
 /tech-notes /technotes
 /blog-pt	/blog
 /tutorials/taxize.html	/tutorials/taxize_tutorial
