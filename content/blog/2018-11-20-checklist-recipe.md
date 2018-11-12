@@ -147,21 +147,32 @@ library(magrittr) # To use %<>% pipes
 
 ### rgbif
 
-If you publish checklist data, you have to do with taxonomy. As we publish our checklists on GBIF, we have to do with the [GBIF Backbone Taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), a single synthetic management classification with the goal of covering all names GBIF is dealing with. One of the main mapping steps is to _parse_ all input taxonomic names and get the right rank (is it a _species_? Or a _genus_? Or a _family_?) to them. To do it, GBIF developed the [name parser](https://www.gbif.org/tools/name-parser). Install the rOpenSci's package [rgbif](https://github.com/ropensci/rgbif) to use the name parser functionality without leaving your R session: rgbif interfaces you with GBIF API by using a collection of well named R functions. To parse names, you can just pass a vector of names to rgbif function `parsenames`. Here below we show you how we would do it if our names are in column `input_scientific_name` of data.frame `input_data`:
+We mostly rely on the [dplyr](https://dplyr.tidyverse.org/) functions `mutate()`, `recode()` and `case_when()` to [map data to Darwin Core](https://github.com/trias-project/checklist-recipe/wiki/Tidyverse-functions). But to verify that our scientific names are well-formed, we use the rOpenSci package [rgbif](https://github.com/ropensci/rgbif) to interact with another service by GBIF: the name parser[^2]:
 
 ```r
 parsed_names <- input_data %>%
-  distinct(input_scientific_name) %>%
-  pull() %>% # Create vector from dataframe
-  parsenames() # An rgbif function
+  distinct(input_scientific_name) %>% # Retrieve unique scientific names
+  pull() %>% 						# Create vector from dataframe
+  rgbif::parsenames()				 # Parse scientific names and save as parsed_names
 ```
 
-Note the use of pipes to concatenate functions in a very readable way.
+[^2]: The GBIF name parser is available as an [interactive tool](https://www.gbif.org/tools/name-parser) as well.
 
-The `nameparser()` provides also information about the rank of the taxon (in column `rankmarker`), a mandatory field for publishing checklists on GBIF, which sometimes misses in the original checklists. Checking the correctness of the parsing is part of the publisher's homework.
+The name parser checks if a scientific name (a string such as `Amaranthus macrocarpus Benth. var. pallidus Benth.`) is well-formed (i.e. follows the nomenclatural rules) and breaks it down in components:
 
 # Conclusion
+* type: `SCIENTIFIC`
+* genusOrAbove: `Amaranthus`
+* specificEpithet: `macrocarpus`
+* infraspecificEpithet: `pallidus`
+* authorship: `Benth.`
+* canonicalName: `Amaranthus macrocarpus pallidus`
+* rankMarker: `var.`
 
 We wrote this blogpost in order to share our experience in building a completely open, documented and working template for publishing biodiversity data. We are strongly convinced that the future of biodiversity is open. Co-winning the GBIF Ebbe-Nielsen Challenge gave us even more enthousiasm about. We think also that the time arrived to give back! We couldn't win anything without any of the open source tools we cited above (and many others: R is a free programming language after all!). For this reason we decided to devolve half of the price to [NumFocus](https://numfocus.org/), the organization sponsoring several open source projects sensibly improving the quality of science worldwide. Supporting open source research means supporting your own research after all!
+We use this information to verify if our scientific names are indeed written as scientific names and to populate the taxon rank (a mandatory Darwin Core term for checklists) using `rankMarker`. Note that the name parser does not check the existence of a scientific name against an existing registry. That is done by the [GBIF species lookup](https://www.gbif.org/tools/species-lookup) we discussed above, which verifies the existence of a name in the GBIF backbone taxonomy.
+
+[rgbif](https://github.com/ropensci/rgbif) provides many more functions to interact with the Global Biodiversity Information Facility and we use the package extensively for our TrIAS project.
+
 
 You can contribute to open source in many other ways: based on your background and expertise you can report bugs, propose new functionalities or even being a contributor. The future you will be grateful for it!
