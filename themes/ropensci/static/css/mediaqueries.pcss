@@ -73,7 +73,6 @@
 }
 
 @media screen and (max-width: 736px) {
-
     @for $i from 1 to 20 {
         .top-$i {
             margin-top: calc( 2 * $i )px;
@@ -154,6 +153,17 @@
     @for $i from 1 to 12 {
         .col-offset-$i {
             margin-left: 0;
+        }
+    }
+
+    input {
+        &[type='radio'] {
+            margin-bottom: 15px;
+            float: left;
+        }
+        &[type='checkbox'] {
+            margin-bottom: 15px;
+            float: left;
         }
     }
 
