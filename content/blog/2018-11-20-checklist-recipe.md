@@ -32,7 +32,7 @@ Imagine you are a fish ecologist who compiled a list of fish species for your co
 
 For those unfamiliar with the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/), it is an international network and research infrastructure funded by the world’s governments, aimed at providing anyone, anywhere, open access to data about all types of life on Earth. GBIF is best known for the trove of species occurrences  ([over 1 billion](https://www.gbif.org/occurrence/search)!) it is making accessible from hundreds of publishing institutions, but it is doing the same for species information, such as names, classifications and known distributions.
 
-Anyone can [publish species information](https://www.gbif.org/publishing-data) (called "checklist data"). When you do, GBIF will create a page for your dataset ([example](https://doi.org/10.15468/xvuzfh)), assign a DOI, and match[^1] your scientific names to its [backbone taxonomy](https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c), allowing your data to be linked, discoverable and integrated. Species pages on GBIF for example ([example](https://www.gbif.org/species/5851603)) are automatically build from the over [25.000](https://www.gbif.org/dataset/search?type=CHECKLIST) checklist datasets that have been published. All your checklist information also becomes available via the GBIF API ([example](https://api.gbif.org/v1/species/141117238)) and can be queried using the [rgbif](https://github.com/ropensci/rgbif) package.
+Anyone can [publish species information](https://www.gbif.org/publishing-data) (called "checklist data"). When you do, GBIF will create a page for your dataset ([example](https://doi.org/10.15468/xvuzfh)), assign a DOI, and match[^1] your scientific names to its [backbone taxonomy](https://doi.org/10.15468/39omei), allowing your data to be linked, discoverable and integrated. Species pages on GBIF for example ([example](https://www.gbif.org/species/5851603)) are automatically build from the over [25.000](https://www.gbif.org/dataset/search?type=CHECKLIST) checklist datasets that have been published. All your checklist information also becomes available via the GBIF API ([example](https://api.gbif.org/v1/species/141117238)) and can be queried using the [rgbif](https://github.com/ropensci/rgbif) package.
 
 [^1]: GBIF also provides this matching functionality via its [species lookup tool](https://www.gbif.org/tools/species-lookup), where you can check how names in your CSV file match the GBIF Backbone Taxonomy.
 
@@ -40,7 +40,7 @@ So, why isn't everyone publishing checklists? Because the data can only be reaso
 
 ## The checklist recipe
 
-Our **[Checklist recipe](https://github.com/trias-project/checklist-recipe/wiki)** is a **template GitHub repository for standardizing species checklist data to Darwin Core using R**. It contains all the ingredients to make your data standardization open, repeatable, customizable and documented. The recipe has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the Tracking Invasive Alien Species ([TrIAS](http://www.trias-project.be/)) project, an open data-driven framework to support Belgian federal policy on invasive species. We thought it would be useful to provide a well-documented workflow for others who want to publish this type of data.
+Our [Checklist recipe](https://github.com/trias-project/checklist-recipe/wiki) is a **template GitHub repository for standardizing species checklist data to Darwin Core using R**. It contains all the ingredients to make your data standardization open, repeatable, customizable and documented. The recipe has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the Tracking Invasive Alien Species ([TrIAS](http://www.trias-project.be/)) project, an open data-driven framework to support Belgian federal policy on invasive species. We thought it would be useful to provide a well-documented workflow for others who want to publish this type of data.
 
 The basic idea behind the Checklist recipe is:
 
@@ -84,7 +84,7 @@ You can simply run the code of an R Markdown file by opening it in R Studio and 
 
 ### R Markdown websites
 
-If you are using R Markdown in a GitHub repository, you have all the ingredients to generate a small website showcasing your mapping steps in a visually pleasing way ([example](https://trias-project.github.io/alien-fishes-checklist/index.html)). And it can be hosted on GitHub for free! To learn more, read the [documentation on R Markdown websites](https://rmarkdown.rstudio.com/rmarkdown_websites.htm), but the setup is:
+If you are using R Markdown in a GitHub repository, you have all the ingredients to generate a small website showcasing your mapping script in a visually pleasing way ([example](https://trias-project.github.io/alien-fishes-checklist/dwc_mapping.html)). And it can be hosted on GitHub for free! To learn more, read the [documentation on R Markdown websites](https://rmarkdown.rstudio.com/rmarkdown_websites.htm), but the setup is:
 
 1. Create an [`index.Rmd`](https://github.com/trias-project/checklist-recipe/blob/master/src/index.Rmd) file at the same level as your other R Markdown files (in the `src` directory). That file will be the homepage of your website. Since we don't want to repeat ourselves, we [inject the content](https://github.com/trias-project/checklist-recipe/blob/master/src/index.Rmd#L7-L8) of the repository `README.md` in that homepage.
 2. Create a [`_site.yml`](https://github.com/trias-project/checklist-recipe/blob/master/src/_site.yml) file at the same level as your `index.Rmd` file. It contains the settings for your website. Set at minimum a `name`, [`navbar`](https://github.com/trias-project/checklist-recipe/blob/master/src/_site.yml#L3-L7) and `output_dir: "../docs"` so the website is created in the `/docs` directory (which you need to create as well).
@@ -96,20 +96,20 @@ To serve your website, commit and push your changes to GitHub, go to your reposi
 
 ### here
 
-[here](https://here.r-lib.org/) is an R package. Its authors describe it as:
-> a simpler way to find your files.
+In order to share working directory and build settings, we like to include the RStudio project file in our repositories, ideally in the root and with the same name as the project/repository (e.g. `checklist-recipe.Rproj`). But that posed a problem with relative links and the difference between running and knitting the code.
 
-It contains the function `here()`, which we used for specifying the path of data. For example:
+- When **running** code, the working directory is the expected repository root and a relative path to a data file would be `data/raw/checklist.xlsx`
+- When **knitting/building** code, the working directory is the document directory (`src`) and a relative path to a data file has to be `../data/raw/checklist.xlsx`
 
-```
-path_file <- here("data", "raw", "checklist.xlsx")
+The only way we could make it work is by having the `.Rproj` file in the `src` directory, so that both running and knitting would use the same working directory. That is, until we discovered the [here](https://github.com/r-lib/here) package. Rather than hardcoding a path, you just use:
+
+```r
+library(here)
+input_data <- read_excel(path = here("data", "raw", "checklist.xlsx"))
 ```
 
-It returns a string which can be used as path for reading files like shown here by providing the input `path_file` to the function `read_excel` from package `read_excel`:
+And `here()` will walk up your directory structure until it finds something that [looks like the top-level](https://github.com/jennybc/here_here#the-fine-print) and find the file from there. Makes linking to files so much easier!
 
-```
-input_data <- read_excel(path = path_file)
-```
 
 ### tidyverse
 
