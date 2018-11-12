@@ -12,7 +12,8 @@
     {{ with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
-    {{ range .Data.Pages }}
+    {{ $pages := where (where .Site.Pages "Section" "in" ".Site.Params.blogs") "Section" "!=" nil }}
+    {{ range first 20 $pages }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
