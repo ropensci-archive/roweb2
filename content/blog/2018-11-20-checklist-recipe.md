@@ -160,7 +160,6 @@ parsed_names <- input_data %>%
 
 The name parser checks if a scientific name (a string such as `Amaranthus macrocarpus Benth. var. pallidus Benth.`) is well-formed (i.e. follows the nomenclatural rules) and breaks it down in components:
 
-# Conclusion
 * type: `SCIENTIFIC`
 * genusOrAbove: `Amaranthus`
 * specificEpithet: `macrocarpus`
@@ -169,10 +168,15 @@ The name parser checks if a scientific name (a string such as `Amaranthus macroc
 * canonicalName: `Amaranthus macrocarpus pallidus`
 * rankMarker: `var.`
 
-We wrote this blogpost in order to share our experience in building a completely open, documented and working template for publishing biodiversity data. We are strongly convinced that the future of biodiversity is open. Co-winning the GBIF Ebbe-Nielsen Challenge gave us even more enthousiasm about. We think also that the time arrived to give back! We couldn't win anything without any of the open source tools we cited above (and many others: R is a free programming language after all!). For this reason we decided to devolve half of the price to [NumFocus](https://numfocus.org/), the organization sponsoring several open source projects sensibly improving the quality of science worldwide. Supporting open source research means supporting your own research after all!
 We use this information to verify if our scientific names are indeed written as scientific names and to populate the taxon rank (a mandatory Darwin Core term for checklists) using `rankMarker`. Note that the name parser does not check the existence of a scientific name against an existing registry. That is done by the [GBIF species lookup](https://www.gbif.org/tools/species-lookup) we discussed above, which verifies the existence of a name in the GBIF backbone taxonomy.
 
 [rgbif](https://github.com/ropensci/rgbif) provides many more functions to interact with the Global Biodiversity Information Facility and we use the package extensively for our TrIAS project.
 
+## Conclusion
 
-You can contribute to open source in many other ways: based on your background and expertise you can report bugs, propose new functionalities or even being a contributor. The future you will be grateful for it!
+Our recipe grew organically from experience we gained publishing data to GBIF. We saw the GBIF Ebbe Nielsen Challenge as an opportunity to bottle and document what we had learned in an opinionated template to help others and we hope this blog post highlighted a few tips and tricks that might be useful to you as well. If want to use the recipe to publish your own checklist data, [start here](https://github.com/trias-project/checklist-recipe/wiki).
+
+We are strongly convinced that the future of biodiversity research (and science in general) is open. We are proud to co-win the GBIF Ebbe Nielsen Challenge and took it as an opportunity to give back. Which is why we are donating half of our prize money to [NumFocus](https://numfocus.org/), an organization sponsoring several open source projects we rely on every day - including rOpenSci - improving the quality of science worldwide. Supporting open source research means supporting your own research after all.
+
+If you want to get in touch with our team, reach out via [Twitter](https://twitter.com/lifewatchinbo) or [email](lifewatch@inbo.be).
+
