@@ -8,7 +8,8 @@ authors:
   - name: on behalf of the community
 date: 2018-11-13
 categories: blog
-topicid: 1234
+topicid: 
+twitterImg: img/blog-images/2018-11-13-antarctic/plotanim-1.gif
 tags:
 - r
 - community
