@@ -41,7 +41,8 @@ rssLimit = 20
     footer = "&copy; The rOpenSci Project"
     leadership = ["Carl Boettiger", "Karthik Ram", "Scott Chamberlain", "Jenny Bryan", "Rich FitzJohn", "Leadership Team", "Core Team"]
     staff = ["Jeroen Ooms", "Stefanie Butland", "Maëlle Salmon", "Maelle Salmon", "Dan Sholler"]
-
+    blogs = ["blog", "technotes"]
+ 
 [taxonomies]
   tag = "tags"
   
