@@ -110,24 +110,40 @@ input_data <- read_excel(path = here("data", "raw", "checklist.xlsx"))
 
 And `here()` will walk up your directory structure until it finds something that [looks like the top-level](https://github.com/jennybc/here_here#the-fine-print) and find the file from there. Makes linking to files so much easier!
 
+### The `%<>%` pipe
 
-### tidyverse
+We use "piping" (i.e. using the _pipe operator_ `%>%` or _pipe_) to increase the readability of our code:
 
-[tidyverse](https://www.tidyverse.org/) is an opinionated collection of R packages designed for data science. The packages `here` and `readxl` we mentioned above are part of it! You can install all of them at once by:
-
-```
-install.packages("tidyverse")
-```
-
-while running
-
-```
-library(tidyverse)
+```r
+# Take the dataframe "taxon", group the values of the column "input_kingdom" and show a count for each unique value
+taxon %>%
+  group_by(input_kingdom) %>%
+  count()
 ```
 
-will load the [core tidyverse](https://www.tidyverse.org/packages/).
+Which is a [more readable way](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#pipes) than the classic approach of nesting functions:
 
-In the recipe's wiki we dedicated a page to [tidyverse functions ](https://github.com/trias-project/checklist-recipe/wiki/Tidyverse-functions) where we described the three basic functions you need most while standardizing your data: `mutate()`, `recode()` and `case_when()`. A note about _piping_, i.e. using the _pipe operator_ `%>%` or _pipe_,  is also present.
+```r
+count(group_by(taxon, input_kingdom))
+```
+One pipe you might not recognize is the _compound assignment pipe operator_ or `%<>%`:
+
+```r
+# Take the dataframe "taxon" and add the column "kingdom" with value "Animalia" for all records
+taxon %<>% mutate(kingdom = "Animalia")
+```
+
+Which is a shorthand for writing:
+
+```r
+taxon <- taxon %>% mutate(kingdom = "Animalia")
+```
+
+It's mainly useful if you want to transform a dataframe in consecutive steps, like **adding** Darwin Core terms as columns. The `%<>%` pipe is not included with `dplyr` or `tidyverse`, so you have to load `magrittr` separately to use it:
+
+```r
+library(magrittr) # To use %<>% pipes
+```
 
 ### rgbif
 
