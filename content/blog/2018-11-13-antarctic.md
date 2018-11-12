@@ -4,7 +4,9 @@ title: The Antarctic/Southern Ocean rOpenSci community
 authors:
   - name: Ben Raymond
     url: https://github.com/raymondben
-  - name: [Michael Sumner](https://github.com/mdsumner)
+  - name:  Michael Sumner
+    url: https://github.com/mdsumner
+    twitter: mdsumner
     twitter: mdsumner
   - name: on behalf of the community
 date: 2018-11-13
