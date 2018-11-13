@@ -13,7 +13,7 @@
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
     {{ $pages := where (where .Site.Pages "Section" "in" .Site.Params.blogs ) "Section" "!=" nil }}
-    {{ range first 20 $pages }}
+    {{ range first 5 $pages }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
