@@ -590,7 +590,15 @@ q:before, q:after {
   content: "\73";
 }.icon-collapse:before {
   content: "\74";
-}i.icon-status {
+}i.onboarding {
+  font-size:1.2rem;
+  float: right;
+  padding-right: 5px;
+}&.yes {
+    color: #01dc0b;
+  }&.no {
+    color: #dfe3eb;
+  }i.icon-status {
 	font-size:0.7rem;
 	float: left;
 	padding-right: 5px;

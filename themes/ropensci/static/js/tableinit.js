@@ -11,7 +11,9 @@ $(document).ready( function () {
         },
         "columns": [
           {
-                data: 'name_col',
+                "data" : function(row, type, set, meta){
+                return '<a target="_blank" href=\"https://www.repostatus.org/#active"><i class="fa fa-circle i.icon-status-' + row.status + '" title = "' + row.status + ' package"></i></a>' + '<a href="' + row.url + '">' + row.name + '</a>';
+},
                 title: "Name"
             },
             {
@@ -32,7 +34,22 @@ $(document).ready( function () {
                 "title": "description",
             },
             {
-                data: 'details',
+                "data": function(row, type, set, meta){
+                var src = '';
+                if(row.on_cran){
+                    src = '<a target="_blank" href="https://cran.r-project.org/package=' + row.name + '"><p class="label cran">cran</p></a>' + src;
+                } else if(row.on_bioc){
+                    src = '<a target="_blank" href="https://bioconductor.org/packages/release/bioc/html/' + row.name + '.html"><p class="label bioc">bioc</p></a>' + src;
+                } else {
+                    src = '<p class="label nocran">cran</p>' + src;
+                }
+                if (row.onboarding != ''){
+                  src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fa fa-comments i-onboarding-yes" title = "rOpenSci software review"></i></a>'
+                } else {
+                  src = src + '<i class="fa fa-comments i-onboarding-no"></i>'
+                }
+                return src;
+},
                 title: "Details"
             },
             {

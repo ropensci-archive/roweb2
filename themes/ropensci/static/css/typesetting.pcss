@@ -185,38 +185,7 @@ blockquote {
         background-color: var(--main_button);
         color: white;
     }
-    &.abandoned {
-        background-color: #40BA12;
-        color: white;
-    }
-    &.concept {
-        background-color: #E9E9E9;
-        color: #5B5B5B;
-    }
-    &.wip {
-        background-color: #CDA61A;
-        color: white;
-    }
-    &.suspended {
-        background-color: #F27E40;
-        color: white;
-    }
-    &.active {
-        background-color: #4BC51D;
-        color: white;
-    }
-    &.inactive {
-        background-color: #A1A328;
-        color: white;
-    }
-    &.unsupported {
-        background-color: #9D9D9D;
-        color: white;
-    }
-    &.moved {
-        background-color: #D7624B;
-        color: white;
-    }
+    
 
 }
 
@@ -380,3 +349,45 @@ i.ropensci-icons {
 .icon-collapse:before {
   content: "\74";
 }
+
+i.onboarding {
+  font-size:1.2rem;
+  float: right;
+  padding-right: 5px;
+}
+  &.yes {
+    color: #01dc0b;
+  }
+  &.no {
+    color: var(--table_header);
+  }
+
+i.icon-status {
+	font-size:0.7rem;
+	float: left;
+	padding-right: 5px;
+}
+	&.abandoned {
+        color: #40BA12;
+    }
+    &.concept {
+        color: #E9E9E9;
+    }
+    &.wip {
+        color: #CDA61A;
+    }
+    &.suspended {
+        color: #F27E40;
+    }
+    &.active {
+        color: #4BC51D;
+    }
+    &.inactive {
+        color: #A1A328;
+    }
+    &.unsupported {
+        color: #9D9D9D;
+    }
+    &.moved {
+        color: #D7624B;
+    }
