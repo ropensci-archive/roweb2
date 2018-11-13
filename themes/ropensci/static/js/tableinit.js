@@ -17,13 +17,6 @@ $(document).ready( function () {
             {
                 data: 'status',
                 visible: false,
-                render: {
-                    display: 'badge',
-                    sort: 'status',
-                    filter: 'status',
-                    type: 'status',
-                    _: 'status'
-                    },
                 title: "status"
             },
             {
