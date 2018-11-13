@@ -457,6 +457,7 @@ q:before, q:after {
     padding: 0 6px;
     line-height: 1.2rem;
     float: left
+    
 
 }.label.icon-github{
   font-size: 1.2rem;
@@ -469,30 +470,6 @@ q:before, q:after {
   background-color: #dfe3eb;
 }.label.bioc{
   background-color: #01dc0b;
-  color: white;
-}.label.abandoned{
-  background-color: #40BA12;
-  color: white;
-}.label.concept{
-  background-color: #E9E9E9;
-  color: #5B5B5B;
-}.label.wip{
-  background-color: #CDA61A;
-  color: white;
-}.label.suspended{
-  background-color: #F27E40;
-  color: white;
-}.label.active{
-  background-color: #4BC51D;
-  color: white;
-}.label.inactive{
-  background-color: #A1A328;
-  color: white;
-}.label.unsupported{
-  background-color: #9D9D9D;
-  color: white;
-}.label.moved{
-  background-color: #D7624B;
   color: white;
 }.technote {
     text-transform: uppercase;
@@ -613,7 +590,27 @@ q:before, q:after {
   content: "\73";
 }.icon-collapse:before {
   content: "\74";
-}/* Sections */#header {
+}i.icon-status {
+	font-size:0.7rem;
+	float: left;
+	padding-right: 5px;
+}&.abandoned {
+        color: #40BA12;
+    }&.concept {
+        color: #E9E9E9;
+    }&.wip {
+        color: #CDA61A;
+    }&.suspended {
+        color: #F27E40;
+    }&.active {
+        color: #4BC51D;
+    }&.inactive {
+        color: #A1A328;
+    }&.unsupported {
+        color: #9D9D9D;
+    }&.moved {
+        color: #D7624B;
+    }/* Sections */#header {
     padding: 10px 0;
     background-color: #6faef5;
 }img[src$=".svg"] {
@@ -990,7 +987,7 @@ q:before, q:after {
   color: #333E50;
   font-size: 1rem;
   font-style: italic;
-  border: 1px solid #e8edf7;
+  border: 1px solid #a1a8b7;
   padding: 13px 15px 15px 40px;
   border-radius: 2px;
   background-color: white;
@@ -1002,12 +999,12 @@ q:before, q:after {
 }form input[type='radio']{
   margin-right: 15px;
   padding: 0;
-  border: 1px solid #e8edf7;
+  border: 1px solid #a1a8b7;
   background-color: white;
 }form input[type='checkbox']{
   margin-right: 15px;
   padding: 0;
-  border: 1px solid #e8edf7;
+  border: 1px solid #a1a8b7;
   background-color: white;
 }form.filter{
 }form.filter a.panel{
