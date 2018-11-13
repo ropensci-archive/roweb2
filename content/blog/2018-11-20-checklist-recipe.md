@@ -30,7 +30,7 @@ Imagine you are a fish ecologist who compiled a list of fish species for your co
 
 Your list could be useful to others, so you publish it as a supplementary file to an article or in a research repository. That is fantastic, but it might be difficult for others to discover your list or combine it with other lists of species. Luckily there's a better way to publish species lists: as a standardized checklist that can be harvested and processed by the Global Biodiversity Information Facility (GBIF). We created a documented template to do that in R, which recently won the [GBIF Ebbe Nielsen Challenge](https://www.gbif.org/news/4TuHBNfycgO4GEMOKkMi4u/six-winners-top-the-2018-ebbe-nielsen-challenge). In this post we like to explain how we did that and highlight some of the tools we discovered along the way.
 
-## What is GBIF?
+### What is GBIF?
 
 For those unfamiliar with the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/), it is an international network and research infrastructure funded by the world’s governments, aimed at providing anyone, anywhere, open access to data about all types of life on Earth. GBIF is best known for the trove of species occurrences  ([over 1 billion](https://www.gbif.org/occurrence/search)!) it is making accessible from hundreds of publishing institutions, but it is doing the same for species information, such as names, classifications and known distributions.
 
@@ -40,7 +40,7 @@ Anyone can [publish species information](https://www.gbif.org/publishing-data) (
 
 So, why isn't everyone publishing checklists? Because the data can only be reasonably integrated if they are published in a standardized way. All GBIF mediated-data (including occurrences) have to be published in the [Darwin Core](https://www.gbif.org/darwin-core) standard, fitting a standard structure (Darwin Core Archives), columns (Darwin Core terms) and sometimes values (controlled vocabularies), which can be challenging. [Templates](https://www.gbif.org/dataset-classes) and the [GBIF Integrated Publishing Toolkit](https://www.gbif.org/ipt) facilitates standardization or "mapping", but only caters for the most basic use cases. It also forces you to change the structure of your source data and involves many manual steps. To solve this, we created a recipe to facilitate and automate this process using R.
 
-## The checklist recipe
+### The checklist recipe
 
 Our [Checklist recipe](https://github.com/trias-project/checklist-recipe/wiki) is a **template GitHub repository for standardizing species checklist data to Darwin Core using R**. It contains all the ingredients to make your data standardization open, repeatable, customizable and documented. The recipe has considerably streamlined our own work to publish [seven checklists](https://www.gbif.org/dataset/search?type=CHECKLIST&project_id=trias) on alien species for Belgium, which is one of the goals of the [Tracking Invasive Alien Species (TrIAS) project](http://www.trias-project.be/), an open data-driven framework to support Belgian federal policy on invasive species. Making biodiversity research more efficient and reproducible is the core mission of [our team](https://pureportal.inbo.be/portal/en/organisations/lifewatch(0ab4aa1e-b25f-4dc3-90c1-ddcfbc726fe8).html) at the Research Institute for Nature and Forest (INBO). A mission we tackle by supporting researchers in publishing open data and developing open source software.
 
@@ -52,9 +52,9 @@ By changing the source data and/or the mapping script, you can alter the generat
 
 Rather than explaining how you can use the Checklist recipe - [we've documented this in a wiki](https://github.com/trias-project/checklist-recipe/wiki/Getting-started) - we'd like to highlight some of the tools and techniques we discovered in developing it.
 
-## Tools
+### Tools & techniques
 
-### Cookiecutter data science
+#### Cookiecutter data science
 
 The recipe shares the **same repository structure** we use for all our data transformation repositories. We didn't invent one, but adopted [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/): "a logical, reasonably standardized, but flexible project structure for doing and sharing data science work". The main advantage we think is that it allows anyone (and us) to easily find their way around a repository, making it easier to contribute. It also saves precious time setting up a repository, because there are less decisions (e.g. naming things) to be made.
 
@@ -78,13 +78,13 @@ Below is the directory structure we [adopted](https://github.com/trias-project/c
     └── index.Rmd          : Template for website homepage
 ```
 
-### R Markdown
+#### R Markdown
 
 The core functionality of our recipe is an [R Markdown file](https://github.com/trias-project/checklist-recipe/wiki/R-Markdown) called [`dwc_mapping.Rmd`](https://github.com/trias-project/checklist-recipe/blob/master/src/dwc_mapping.Rmd) (i.e. the "mapping script"). If you are [unfamiliar with R Markdown](https://rmarkdown.rstudio.com/lesson-1.html), it is a file format that allows you to mix text (written in [Markdown](https://en.wikipedia.org/wiki/Markdown)) with executable code chunks (in R). It is comparable with an R script, in which the comments explaining the code are given as much value as the code itself. It has the advantage that you can describe _and_ then execute each step of your data processing in the same document, nudging you to better document what you are doing. This is called "[literate programming](https://en.wikipedia.org/wiki/Literate_programming)" and it is one of the steps to make research more reproducible.
 
 You can simply run the code of an R Markdown file by opening it in RStudio and choosing `Run > Run all` (or code chunk by code chunk) or you can render as a report using `knit`. R Markdown supports a whole range of file formats for these reports (including `html` and `pdf`).
 
-### R Markdown websites
+#### R Markdown websites
 
 If you are using R Markdown in a GitHub repository, you have all the ingredients to generate a small website showcasing your mapping script in a visually pleasing way ([example](https://trias-project.github.io/alien-fishes-checklist/dwc_mapping.html)). And it can be hosted on GitHub for free! To learn more, read the [documentation on R Markdown websites](https://rmarkdown.rstudio.com/rmarkdown_websites.htm). The basic setup is:
 
@@ -96,7 +96,7 @@ This setup has already been done in our recipe.
 
 To serve your website, commit and push your changes to GitHub, go to your repository settings and choose the `/docs ` directory to [build a GitHub pages site](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch). After a couple of seconds, your website should be available at `<username>.github.io/<reponame>/`. Don't forget to add it to your repo description so users can find it.
 
-### here
+#### here
 
 In order to share working directory and build settings, we like to include the RStudio project file in our repositories, ideally in the root and with the same name as the project/repository (e.g. `checklist-recipe.Rproj`). But that posed a problem with relative links and the difference between running and knitting the code.
 
@@ -117,7 +117,7 @@ input_data <- read_excel(path = here("data", "raw", "checklist.xlsx"))
 
 And `here()` will walk up your directory structure until it finds something that [looks like the top-level](https://github.com/jennybc/here_here#the-fine-print) and find the file from there. Makes linking to files so much easier!
 
-### The `%<>%` pipe
+#### The `%<>%` pipe
 
 We use "piping" (i.e. using the _pipe operator_ `%>%` or _pipe_) to increase the readability of our code:
 
@@ -152,7 +152,7 @@ It's mainly useful if you want to transform a dataframe in consecutive steps, li
 library(magrittr)
 ```
 
-### rgbif
+#### rgbif
 
 We mostly rely on the [dplyr](https://dplyr.tidyverse.org/) functions `mutate()`, `recode()` and `case_when()` to [map data to Darwin Core](https://github.com/trias-project/checklist-recipe/wiki/Tidyverse-functions). But to verify that our scientific names are well-formed, we use the rOpenSci package [rgbif](https://github.com/ropensci/rgbif) to interact with another service by GBIF: the name parser[^2]:
 
@@ -179,11 +179,10 @@ We use this information to verify if our scientific names are indeed written as 
 
 [rgbif](https://github.com/ropensci/rgbif) provides many more functions to interact with the Global Biodiversity Information Facility and we use the package extensively for our [TrIAS project](https://github.com/trias-project).
 
-## Conclusion
+### Conclusion
 
 Our recipe grew organically from experience we gained publishing data to GBIF. We saw the GBIF Ebbe Nielsen Challenge as an opportunity to bottle and document what we had learned in an opinionated template to help others and we hope this blog post highlighted a few tips and tricks that might be useful to you as well. If want to use the recipe to publish your own checklist data, [start here](https://github.com/trias-project/checklist-recipe/wiki).
 
 We are strongly convinced that the future of biodiversity research (and science in general) is open. We are proud to co-win the GBIF Ebbe Nielsen Challenge and took it as an opportunity to give back. That is why we are donating half of our prize money to [NumFocus](https://numfocus.org/), an organization sponsoring several open source initiatives we rely on every day (including rOpenSci) improving the quality of science worldwide. Supporting open source research software means supporting your own research after all.
 
 If you want to get in touch with our team, contact us via [Twitter](https://twitter.com/lifewatchinbo) or [email](lifewatch@inbo.be).
-
