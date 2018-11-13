@@ -590,35 +590,35 @@ q:before, q:after {
   content: "\73";
 }.icon-collapse:before {
   content: "\74";
-}i.onboarding {
-  font-size:1.2rem;
+}.fa-onboarding {
+  font-size:1.5rem;
   float: right;
-  padding-right: 5px;
-}&.yes {
-    color: #01dc0b;
-  }&.no {
-    color: #dfe3eb;
-  }i.icon-status {
+  padding-right: 5px
+}.fa-onboarding.yes{
+  color: #01dc0b;
+}.fa-onboarding.no{
+  color: #dfe3eb;
+}.fa-status {
 	font-size:0.7rem;
 	float: left;
-	padding-right: 5px;
-}&.abandoned {
-        color: #40BA12;
-    }&.concept {
-        color: #E9E9E9;
-    }&.wip {
-        color: #CDA61A;
-    }&.suspended {
-        color: #F27E40;
-    }&.active {
-        color: #4BC51D;
-    }&.inactive {
-        color: #A1A328;
-    }&.unsupported {
-        color: #9D9D9D;
-    }&.moved {
-        color: #D7624B;
-    }/* Sections */#header {
+	padding-right: 5px
+}.fa-status.abandoned{
+  color: #40BA12;
+}.fa-status.concept{
+  color: #E9E9E9;
+}.fa-status.wip{
+  color: #CDA61A;
+}.fa-status.suspended{
+  color: #F27E40;
+}.fa-status.active{
+  color: #4BC51D;
+}.fa-status.inactive{
+  color: #A1A328;
+}.fa-status.unsupported{
+  color: #9D9D9D;
+}.fa-status.moved{
+  color: #D7624B;
+}/* Sections */#header {
     padding: 10px 0;
     background-color: #6faef5;
 }img[src$=".svg"] {

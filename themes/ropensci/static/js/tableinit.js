@@ -12,7 +12,7 @@ $(document).ready( function () {
         "columns": [
           {
                 "data" : function(row, type, set, meta){
-                return '<a target="_blank" href=\"https://www.repostatus.org/#active"><i class="fa fa-circle i.icon-status-' + row.status + '" title = "' + row.status + ' package"></i></a>' + '<a href="' + row.url + '">' + row.name + '</a>';
+                return '<a target="_blank" href=\"https://www.repostatus.org/#active"><i class="fa fa-circle fa-status ' + row.status + '" title = "' + row.status + ' package"></i></a>' + '<a href="' + row.url + '">' + row.name + '</a>';
 },
                 title: "Name"
             },
@@ -44,9 +44,9 @@ $(document).ready( function () {
                     src = '<p class="label nocran">cran</p>' + src;
                 }
                 if (row.onboarding != ''){
-                  src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fa fa-comments i-onboarding-yes" title = "rOpenSci software review"></i></a>'
+                  src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fa fa-comments fa-onboarding yes" title = "rOpenSci software review"></i></a>'
                 } else {
-                  src = src + '<i class="fa fa-comments i-onboarding-no"></i>'
+                  src = src + '<i class="fa fa-comments fa-onboarding no"></i>'
                 }
                 return src;
 },
