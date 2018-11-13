@@ -11,21 +11,8 @@ $(document).ready( function () {
         },
         "columns": [
           {
-                "data": function(row, type, set, meta) {
-                    return '<a href="' + row.url + '">' + row.name + '</a>';
-                },
-                "title": "name"
-            },
-            {
-                data: 'status',
-                render: {
-                    display: 'badge',
-                    sort: 'status',
-                    filter: 'status',
-                    type: 'status',
-                    _: 'status'
-                    },
-                title: "status"
+                data: 'name_col',
+                title: "Name"
             },
             {
                 "data": function(row, type, set, meta){
