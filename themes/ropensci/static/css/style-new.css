@@ -18,7 +18,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: baseline;
 }/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -457,15 +456,38 @@ q:before, q:after {
     padding: 0 6px;
     line-height: 1.2rem;
     float: left
+    
 
 }.label.icon-github{
   font-size: 1.2rem;
   margin-left: 5px;
   padding: 0;
+}.label.icon-ropensci-short{
+  font-size: 0.8rem;
+  padding-right: 5px;
+}.label.icon-ropensci-short.abandoned{
+  color: #40BA12;
+}.label.icon-ropensci-short.concept{
+  color: #a1a8b7;
+}.label.icon-ropensci-short.wip{
+  color: #CDA61A;
+}.label.icon-ropensci-short.suspended{
+  color: #F27E40;
+}.label.icon-ropensci-short.active{
+  color: #4BC51D;
+}.label.icon-ropensci-short.inactive{
+  color: #A1A328;
+}.label.icon-ropensci-short.unsupported{
+  color: #9D9D9D;
+}.label.icon-ropensci-short.moved{
+  color: #D7624B;
+}.label.icon-notebook{
+  font-size: 1.2rem;
+  margin-left: 5px;
 }.label.nocran{
   background-color: #dfe3eb;
 }.label.bioc{
-  background-color: #3d98ff;
+  background-color: #01dc0b;
   color: white;
 }.technote {
     text-transform: uppercase;
@@ -542,8 +564,6 @@ q:before, q:after {
   content: "\62";
 }.icon-heart:before {
   content: "\63";
-}.icon-notebook:before {
-  content: "\64";
 }.icon-sign:before {
   content: "\65";
 }.icon-video:before {
@@ -588,6 +608,18 @@ q:before, q:after {
   content: "\73";
 }.icon-collapse:before {
   content: "\74";
+}.fa-onboarding {
+  font-size:1.5rem;
+  float: right;
+  padding-right: 5px
+}.fa-onboarding.yes{
+  color: #3d98ff;
+}.fa-onboarding.no{
+  color: #dfe3eb;
+}.fa-status {
+	font-size:0.7rem;
+	float: left;
+	padding-right: 5px;
 }/* Sections */#header {
     padding: 10px 0;
     background-color: #6faef5;
@@ -965,7 +997,7 @@ q:before, q:after {
   color: #333E50;
   font-size: 1rem;
   font-style: italic;
-  border: 1px solid #e8edf7;
+  border: 1px solid #a1a8b7;
   padding: 13px 15px 15px 40px;
   border-radius: 2px;
   background-color: white;
@@ -977,12 +1009,12 @@ q:before, q:after {
 }form input[type='radio']{
   margin-right: 15px;
   padding: 0;
-  border: 1px solid #e8edf7;
+  border: 1px solid #a1a8b7;
   background-color: white;
 }form input[type='checkbox']{
   margin-right: 15px;
   padding: 0;
-  border: 1px solid #e8edf7;
+  border: 1px solid #a1a8b7;
   background-color: white;
 }form.filter{
 }form.filter a.panel{

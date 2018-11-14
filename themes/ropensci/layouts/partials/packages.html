@@ -32,28 +32,26 @@
                         <input type="radio" name="filter" class="security" />Security</label>
                     <label>
                         <input type="radio" name="filter" class="taxonomy" />Taxonomy</label>
-
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 col-offset-1 top-0">
+                <form class="filter">
                     <label>
-                        <input type="checkbox" name="filter" class="crancheck" />CRAN / BIOC available</label>
+                        <input type="checkbox" name="filter" class="on_cran" />CRAN / BIOC available</label>
+                    <label>
+                        <input type="checkbox" name="filter" class="active" checked/>Active repos</label>
                 </form>
             </div>
         </div>
         <div class="row center">
             <div class="col-10 top-4">
                 <!-- begins packages table -->
+
                 <table class="table" id="packagestable">
                     <!-- table headings -->
-                    <thead>
-                        <tr>
-                            <th>Package</th>
-                            <th>Maintainer</th>
-                            <th>Description</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                    </tbody>
                 </table>
                 <!-- ends packages table -->
             </div>
@@ -66,8 +64,8 @@
 <!-- ends packages section -->
 <!-- Loads table functions -->
 <!-- ***************************************************** IMPORTANT: This page loads the dataTables and jquery for table functionality -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.1/showdown.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.7/showdown.min.js" integrity="sha256-CKVcPmoyXVeFTOJvk7+k99gKxTMnKIGs9u8RKFQngVk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js" integrity="sha256-t5ZQTZsbQi8NxszC10CseKjJ5QeMw5NINtOXQrESGSU=" crossorigin="anonymous"></script>
 <!-- initializes table customizing -->
 <script type="text/javascript" src="/js/tableinit.js"></script>

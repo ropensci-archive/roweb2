@@ -173,14 +173,49 @@ blockquote {
         font-size: 1.2rem;
         margin-left: 5px;
         padding: 0;
+        
+    }
+    &.icon-ropensci-short {
+        font-size: 0.8rem;
+        padding-right: 5px;
+    	&.abandoned {
+        color: #40BA12;
+    }
+    &.concept {
+        color: #a1a8b7;
+    }
+    &.wip {
+        color: #CDA61A;
+    }
+    &.suspended {
+        color: #F27E40;
+    }
+    &.active {
+        color: #4BC51D;
+    }
+    &.inactive {
+        color: #A1A328;
+    }
+    &.unsupported {
+        color: #9D9D9D;
+    }
+    &.moved {
+        color: #D7624B;
+    }
+
+    }
+    &.icon-notebook {
+        font-size: 1.2rem;
+        margin-left: 5px;
     }
     &.nocran {
         background-color: var(--table_header);
     }
     &.bioc {
-        background-color: var(--main_link);
+        background-color: var(--main_button);
         color: white;
     }
+    
 
 }
 
@@ -284,9 +319,6 @@ i.ropensci-icons {
 .icon-heart:before {
   content: "\63";
 }
-.icon-notebook:before {
-  content: "\64";
-}
 .icon-sign:before {
   content: "\65";
 }
@@ -346,4 +378,22 @@ i.ropensci-icons {
 }
 .icon-collapse:before {
   content: "\74";
+}
+
+.fa-onboarding {
+  font-size:1.5rem;
+  float: right;
+  padding-right: 5px;
+  &.yes {
+    color: var(--main_link);
+  }
+  &.no {
+    color: var(--table_header);
+  }
+}
+
+.fa-status {
+	font-size:0.7rem;
+	float: left;
+	padding-right: 5px;
 }
