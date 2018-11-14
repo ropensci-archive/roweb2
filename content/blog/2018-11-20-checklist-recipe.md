@@ -3,11 +3,14 @@ slug: "checklist-recipe"
 title: Checklist Recipe - How we created a template to standardize species data
 authors:
   - name: Peter Desmet
-    url: https://twitter.com/peterdesmet
+    url: https://orcid.org/0000-0002-8442-8025
+    twitter: peterdesmet
   - name: Damiano Oldoni
-    url: https://twitter.com/damianozingaro
+    url: https://orcid.org/0000-0003-3445-7562
+    twitter: damianozingaro
   - name: Lien Reyserhove
-    url: https://twitter.com/ReyserhoveLien
+    url: https://orcid.org/0000-0001-7484-9267
+    twitter: ReyserhoveLien
 date: 2018-11-20
 categories: blog
 topicid: 
