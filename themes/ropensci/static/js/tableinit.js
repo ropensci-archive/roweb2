@@ -12,7 +12,14 @@ $(document).ready( function () {
         "columns": [
           {
                 "data" : function(row, type, set, meta){
-                return '<a target="_blank" href=\"https://www.repostatus.org/#active"><p class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></p></a>' + '<a href="' + row.url + '">' + row.name + '</a>';
+                return '<a target="_blank" href=\"https://www.repostatus.org/#active"><p class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></p></a>';
+},
+                title: ""
+            },
+          
+          {
+                "data" : function(row, type, set, meta){
+                return '<a href="' + row.url + '">' + row.name + '</a>';
 },
                 title: "Name"
             },
