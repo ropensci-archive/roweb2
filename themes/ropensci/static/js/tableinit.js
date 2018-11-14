@@ -6,7 +6,7 @@ $(document).ready( function () {
 
     oTable = $('#packagestable').DataTable({
         "ajax": {
-            "url": "https://raw.githubusercontent.com/ropensci/roregistry/ex/registry2.json",
+            "url": "https://ropensci.github.io/roregistry/registry.json",
             "dataSrc": "packages"
         },
         "columns": [
@@ -50,7 +50,7 @@ $(document).ready( function () {
                 } else {
                     src = '<p class="label nocran">cran</p>' + src;
                 }
-                if (row.onboarding != ''){
+                if (row.onboarding){
                   src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fa fa-comments fa-onboarding yes" title = "rOpenSci software review"></i></a>'
                 } else {
                   src = src + '<i class="fa fa-comments fa-onboarding no"></i>'
@@ -60,7 +60,7 @@ $(document).ready( function () {
                 title: "Details"
             },
             {
-                "data": 'keywords',
+                "data": function(row, type, set, meta){return row.keywords || ""},
                 "visible": false
             }
         ],
