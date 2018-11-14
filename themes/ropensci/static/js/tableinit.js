@@ -71,7 +71,7 @@ $(document).ready( function () {
             $(row).addClass(data.ropensci_category);
             if(data.on_cran)
                 $(row).addClass('on_cran');
-            if(data.status == "active")
+            if(data.status == "active" || data.status == "good")
                 $(row).addClass('active');
         },
         "info": false, // won't display showed entries of total
