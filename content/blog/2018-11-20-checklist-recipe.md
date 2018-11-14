@@ -15,7 +15,6 @@ date: 2018-11-20
 categories: blog
 topicid: 
 tags:
-- r
 - template
 - species
 - checklists
@@ -27,6 +26,7 @@ tags:
 - reproducible-research
 - TrIAS
 - Ebbe-Nielsen-Challenge
+- R
 ---
 
 Imagine you are a fish ecologist who compiled a list of fish species for your country. 🐟
