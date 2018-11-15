@@ -41,7 +41,7 @@ var calendar = {
       'dateEnd': '18, 2019',
       'description': 'Talk',
       'location': 'Austin, TX',
-      'attendees': 'Karthik Ram, Jenny Bryan'
+      'attendees': 'Karthik Ram, Jeroen Ooms, Jenny Bryan'
     },
     {
       'title': '<a href="https://www.conectar2019.org/">ConectaR2019</a>',
