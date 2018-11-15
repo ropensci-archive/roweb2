@@ -7,7 +7,7 @@ var calendar = {
       'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
       'dateStart': 'Nov 15, 2018',
       'dateEnd': '',
-      'description': 'Jeroen Ooms on Working with images in R, including audio and video',
+      'description': 'Jeroen Ooms on Working with images in R',
       'location': 'Video conference',
       'attendees': 'All are welcome'
     },
@@ -26,6 +26,14 @@ var calendar = {
       'description': 'satellite unconference',
       'location': 'Melbourne, AU',
       'attendees': 'Nick Tierney (organizer)'
+    },
+    {
+      'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
+      'dateStart': 'Dec 18, 2018',
+      'dateEnd': '',
+      'description': 'Dan Sholler, rOpenSci Postdoc, on Governance strategies for open source research software projects',
+      'location': 'Video conference',
+      'attendees': 'All are welcome'
     },
     {
       'title': '<a href="http://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx">rstudio::conf</a>',
