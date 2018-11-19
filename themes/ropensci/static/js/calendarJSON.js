@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
-      'dateStart': 'Nov 15, 2018',
-      'dateEnd': '',
-      'description': 'Jeroen Ooms on Working with images in R',
-      'location': 'Video conference',
-      'attendees': 'All are welcome'
-    },
-    {
       'title': '<a href="https://www.ischool.utexas.edu/content/colloquium-daniel-sholler-uc-berkeley">University of Texas iSchool Colloquium</a>',
       'dateStart': 'Nov 20, 2018',
       'dateEnd': '',
