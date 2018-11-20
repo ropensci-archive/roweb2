@@ -27,18 +27,39 @@ tags:
 
 ## What is `restez`?
 
+R packages for interacting with NCBI have, to-date, depended on API query calls via [NCBI's Entrez](https://www.ncbi.nlm.nih.gov/search/).
+For computational analyses that require the automated look-up of reams of sequence data, piecemeal querying via bandwith limited requests
+is evidently not ideal. These queries are not only slow, but they depend on network connections and the remote server's consistent
+behaviour. Additionally, users who make very large requests over extended periods of time run the risk of being blocked.
+
+`restez` attempts to make large queries of NCBI more efficient by allowing users to download whole sections of NCBI, create a local
+database from these downloaded files and then query this mini-GenBank version instead.
+This process is far more efficient as the downloaded files are compressed and users can limit the size of the database by only creating it
+from sequences of interest (limiting by taxonomic domain and/or sequence size).
+
+`restez` tries to be user-friendly: a database can be set-up in just a few function calls (set path, download and create),
+a database can be queried with a consistent set of functions (the `gb_*_get()` functions),
+the number of arguments per function is limited, and the package is designed to integrate with pre-exisiting R packages
+that interact with NCBI ([`rentrez`](https://github.com/ropensci/rentrez) and
+[`phylotaR`](https://github.com/ropensci/phylotaR))
+
+For more a detailed description and for tutorials of the package, please visit the
+[`restez` website](https://github.com/ropensci/restez).
+
 ![restez_outline](/img/blog-images/2018-12-03-restez/outline.png)
-*Figure 1. .*
+*Figure 1. Diagrammatic outline of the `restez` functions and folder structure. Data is downloaded from NCBI into a file path
+set by the user. Raw downloads are stored in "downloads/" the generated database is stored in "sql_db/". This database can
+then be queried with a series of `gb_*_get()` functions as well as some additional wrappers.*
 
 ## Installation
 
-`restez` is available from CRAN.
+`restez` (v1.0.0) is available from CRAN.
 
 ```r
 install.packages('restez')
 ```
 
-Alternatively, the latest development version can be downloaded from restez's [GitHub page](https://github.com/ropensci/phylotaR).
+Alternatively, the latest development version can be downloaded from restez's [GitHub page](https://github.com/ropensci/restez).
 
 ```r
 devtools::install_github(repo = 'ropensci/restez')
@@ -48,13 +69,20 @@ devtools::install_github(repo = 'ropensci/restez')
 
 ### Set-up
 
-#### Path
+To get started with `restez` we first have to download and create a database. This set-up consists of three steps:
 
-To get started with `restez` we first have to download and set-up a database. To do this, we have to set a filepath where
-we would like to store the database, using `restez_path_set()`; download sections of GenBank, using `db_download()`;
-and then create the database, using `db_create()`, from the downloaded files. This process can take a long time depending
-on how many GenBank files you download. In this example, we will download and set up a database of just 'phage' sequences
+* set a filepath where we would like to store the database, using 
+[`restez_path_set()`](https://ropensci.github.io/restez/reference/restez_path_set.html)
+* download sections of GenBank,
+using [`db_download()`](https://ropensci.github.io/restez/reference/db_download.html)
+* create the database from the downloaded files,
+using [`db_create()`](https://ropensci.github.io/restez/reference/db_create.html)
+
+Depending on how many GenBank files you select to download, the above process can take up to several hours.
+In this example, however, we will only download and set up a database for 'phage' sequences
 which should take between 5-10 mintues depending on your machine and internet connection.
+
+#### Path
 
 ```r
 library(restez)
@@ -188,6 +216,8 @@ Database ...
 ```
 
 The above status report tells us the database, exists, has data and is connected -- which means it's ready for queries.
+(To get a simple TRUE or FALSE for whether the database is ready, use
+[`restez_ready()`](https://ropensci.github.io/restez/reference/restez_ready.html).)
 
 #### Get-tools
 
@@ -195,7 +225,7 @@ The above status report tells us the database, exists, has data and is connected
 We can find records in the database using [Accession IDs](https://www.ncbi.nlm.nih.gov/Sequin/acc.html).
 To list all Accession IDs in a database, we can use `list_db_ids()`.
 
-```
+```r
 # get a random accession ID from the database
 id <- sample(list_db_ids(), 1)
 # you can extract:
@@ -256,17 +286,31 @@ cat(rec)
 
 ## Integrations
 
-`restez` has been built to work with [`rentrez`]() and [`phylotaR`]()
+To minimise the coding effort on the part of a user, `restez` has been built to work with R packages that already connect to
+[NCBI's Entrez](https://www.ncbi.nlm.nih.gov/books/NBK49540/). After setting up a `restez` database the same functions of these
+other packages can be used to query NCBI Entrez. Internally, `restez` will query its local database and if it cannot find all
+of the requested sequences it will pass these arguments on to these other packages.
+
+For example, users can use the `entrez_fetch()` function of the [`rentrez`](https://github.com/ropensci/rentrez) package. Running
+this function through `restez` means a user can first check the local database rather than make lots of queries over the internet.
+The function arguments are exactly the same.
+Additionally, user's can set-up up a `restez` database before launching a [`phylotaR`](https://github.com/ropensci/phylotaR) run.
+`phylotaR` searches NCBI for orthologous sequence clusters for a given taxonomic ID. If a `restez` database is set-up, `phylotaR`
+will first search the local database before downloading via Entrez.
+
+For more information on these integrations see the additional documentation:
+[`rentrez` and `restez`](https://ropensci.github.io/restez/articles/restez.html#entrez) and
+[`phylotaR` and `restez`](https://ropensci.github.io/restez/articles/4_phylotar.html)
 
 ## Future
 
-We have many ideas for improving `restez` and we welcome fork requests! Our current list of ideas for improvement, include:
+We have many ideas for improving `restez` and we welcome forks and pull requests! Our current list of ideas for improvement, include:
 
 * **Protein database** - the current code could be easily duplicated for working with protein databases, not just GenBank.
 * **Taxonomy** - integration of existing taxonomic packages with `restez`.
 * **Retmodes** - `restez` only supports text-based return modes, it could be expanded to include XML.
 
-Please see the [contributing page](https://github.com/ropensci/restez/blob/master/CONTRIBUTING.md) for the more details and any updates.
+Please see the [contributing page](https://github.com/ropensci/restez/blob/master/CONTRIBUTING.md) for more details and any updates.
 
 If you have any ideas of your own for new features than please open a [new issue](https://github.com/ropensci/restez/issues).
 
