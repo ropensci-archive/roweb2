@@ -27,8 +27,8 @@ tags:
 
 ## What is `restez`?
 
-R packages for interacting with NCBI have, to-date, depended on API query calls via [NCBI's Entrez](https://www.ncbi.nlm.nih.gov/search/).
-For computational analyses that require the automated look-up of reams of sequence data, piecemeal querying via bandwith limited requests
+R packages for interacting with NCBI have, to-date, depended on [API](https://en.wikipedia.org/wiki/Application_programming_interface) query calls via [NCBI's Entrez](https://www.ncbi.nlm.nih.gov/search/).
+For computational analyses that require the automated look-up of reams of sequence data, piecemeal querying via bandwith-limited requests
 is evidently not ideal. These queries are not only slow, but they depend on network connections and the remote server's consistent
 behaviour. Additionally, users who make very large requests over extended periods of time run the risk of being blocked.
 
@@ -44,7 +44,7 @@ that interact with NCBI ([`rentrez`](https://github.com/ropensci/rentrez) and
 [`phylotaR`](https://github.com/ropensci/phylotaR))
 
 For more a detailed description and for tutorials of the package, please visit the
-[`restez` website](https://github.com/ropensci/restez).
+[`restez` website](https://ropensci.github.io/restez/).
 
 ![restez_outline](/img/blog-images/2018-12-03-restez/outline.png)
 *Figure 1. Diagrammatic outline of the `restez` functions and folder structure. Data is downloaded from NCBI into a file path
@@ -59,7 +59,7 @@ then be queried with a series of `gb_*_get()` functions as well as some addition
 install.packages('restez')
 ```
 
-Alternatively, the latest development version can be downloaded from restez's [GitHub page](https://github.com/ropensci/restez).
+Alternatively, the latest development version can be downloaded from `restez`'s [GitHub page](https://github.com/ropensci/restez).
 
 ```r
 devtools::install_github(repo = 'ropensci/restez')
@@ -86,7 +86,7 @@ which should take between 5-10 mintues depending on your machine and internet co
 
 ```r
 library(restez)
-# create a new folder to host a database
+# create a new folder in your working directory to host a database
 restez_path <- file.path(getwd(), 'phages')
 dir.create(restez_path)
 # set the restez path
@@ -157,7 +157,7 @@ Which files would you like to download?
 (Press Esc to quit) 
 ```
 
-We can download all phage sequences by typing `19`. After pressing Enter, will be told of the likely total file size
+We can download all phage sequences by typing `19`. After pressing Enter, we will be told of the likely total file size
 of the download. If you have enough free space, push any key to continue. This will then initiate a download process
 for all phage sequences files on GenBank.
 
@@ -223,7 +223,7 @@ The above status report tells us the database, exists, has data and is connected
 
 `restez` comes with a series of `gb_*_get()` functions for parsing the GenBank records to pull out specific elements.
 We can find records in the database using [Accession IDs](https://www.ncbi.nlm.nih.gov/Sequin/acc.html).
-To list all Accession IDs in a database, we can use `list_db_ids()`.
+To list all Accession IDs in a database, we can use [`list_db_ids()`](https://ropensci.github.io/restez/reference/list_db_ids.html).
 
 ```r
 # get a random accession ID from the database
