@@ -6,7 +6,7 @@ $(document).ready( function () {
 
     oTable = $('#packagestable').DataTable({
         "ajax": {
-            "url": "https://ropensci.github.io/roregistry/registry.json",
+            "url": "https://raw.githubusercontent.com/ropensci/roregistry/new-gh-pages/registry.json",
             "dataSrc": "packages"
         },
         "columns": [
