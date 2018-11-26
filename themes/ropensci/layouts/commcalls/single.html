@@ -36,14 +36,14 @@
                 <div class= "row bottom-5 top-5">
                   <ul>
                     {{if .Params.blog}}
-                    <li><a href="{{ .Params.blog }}" target="_blank">Blog post</a></li>
+                    <li><a href="{{ .Params.blog }}" target="_blank">Promotional blog post</a></li>
                     {{end}}
                     {{if .Params.notes}}
                     <li><a href="{{ .Params.notes }}" target="_blank">Collaborative notes</a></li>
                     {{end}}
                      {{if .Params.resources}}
                      {{ range $i, $e := .Params.resources }}
-             <li><a href="{{ .url }}" target="_blank">{{ .url }}</a></li>
+             <li><a href="{{ .url }}" target="_blank">{{ .name }}</a></li>
                  {{end}} 
                  {{end}}</ul></p>
                   </div>
