@@ -45,113 +45,19 @@
                         <div style="text-align: justify; top-3">
                           <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
                             <div class="col-10">🎤 
-                              {{$authors := .Params.authors}}
-                              {{ if gt (len $authors) 2}}
+                              {{$a if gt (len .Params.authors) 2}}
                             Speakers:
                             {{ else }}
                             Speaker:
                             {{ end }}
-                            
-                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
-
-                        </div>
-                        
-                            <p>📖 Topic: {{ .Params.description | safeHTML }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
-                            {{                          <p><div class="alert alert-info" role="success"><b> Join the call via Zoom </b>: {{ .Params.deets |markdownify }}</div></p><!DOCTYPE html>
-<html>
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-{{ partial "header.html" . }}
-
-<!-- begins tutorial section -->
-    <section>
-        <div class="container">
-            <div class="row center">
-                <div class="col-8 top-20">
-                    <h2>Community Calls</h2>
-                </div>
-                <div class="col-8 top-4 bottom-3">
-                    <p>Join us in our quarterly Community Calls to hear about best practices, new projects, Q&As with well known developers, and to learn more about rOpenSci developments. These are free and open for anyone to attend and provide an opportunity to connect with rOpenSci community members around the world.</p>
-
-<p>We aim to leave a.t least 20 minutes for open Q&A and we use collaborative note-taking allowing participants share ideas or resources and to ask questions. All past calls were recorded and are available online.</a></p>
-<p>Have an idea for a Community Call topic? Tell us what you'd like to hear about or tell us a topic you're keen to speak about in our <a href="https://discuss.ropensci.org/c/community" target="_blank">discussion forum</a>. <p>
-
-                </div>
-            </div>
-
-            <div class="row">
-                
-            <div class="col-10 top-2">
-{{ $pages := where .Pages ".Params.deets" "!=" nil }}
-{{if gt (len $pages) 2}}
-<h3> Next calls </h3>
-{{ else }}
-<h3> Next call </h3>
-{{ end }}
-<ul>
-  {{ range $pages.ByDate.Reverse }}
-  {{ $start := (time .Params.dateStart)}}
-  {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
-  {{ $start:= $start.Format "20060102T15"}}
-  <ul>
-  <li><div class="excerpt top-3">
-                        <center><small><h2>{{ .Title }}</h2></small></center>
-                        
-                          
-                        
-                        <div style="text-align: justify; top-3">
-                          <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
-                            <div class="col-10">🎤 
-                              {{$authors := .Params.authors}}
-                              {{ if gt (len $authors) 2}}
-                            Speakers:
-                            {{ else }}
-                            Speaker:
-                            {{ end }}
-                            
+                            {{$authors := .Params.authors}}
                             {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
                         </div>
                         
                             <p>📖 Topic: {{ .Params.description | safeHTML }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
                             
-                            <p><div class="alert alert-info" role="success"><b> Join the call via Zoom (n>: {{ .Params.deets |markdownify }}</div></p>
-                        </div>
-                        
-
-
-                    </div></li>
-  {{ end }}
-</ul>
-</div> 
-</div>
-<div class="row">
-            <div class="col-15 top-10">
-<h3> Past calls </h3>
-{{ $pages := where .Pages ".Params.vimeo" "!=" nil }}
-
-  {{ partial "archive.html" (dict "pages" $pages) }}
-</div>
-</div>
-            </div> 
-        </div><!-- /container -->
-    </section>
-    <!-- ends tutorial section -->
-    <br><br>
-
-{{ partial "footer.html" . }}
-
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/fh-3.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
-    <script type="text/javascript" src="js/tutorialinit.js"></script>
-
-</body>
-</html>
-
-                        </div>
+                            <p><div class="alert alert-info" role="success"><b> Join the call via Zoom (n>: {{ .Params.deets |markdownify }}</div></p                    </div>
                         
 
 
