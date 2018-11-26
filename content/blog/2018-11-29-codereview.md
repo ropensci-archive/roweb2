@@ -19,6 +19,7 @@ authors:
 date: 2018-11-29
 categories: blog
 topicid:
+preface: This post is a summary of our Community Call on "Code Review in the Lab, or ... How do you review code that accompanies a research project or paper?" held October 16, 2018
 tags:
 - community
 - community-call
@@ -28,7 +29,7 @@ tags:
 
 Although there are increasing incentives and pressures for researchers to share code (even for projects that are not essentially computational), practices vary widely and standards are mostly non-existent.  The practice of _reviewing_ code then falls to researchers and research groups before publication. With that in mind, rOpenSci hosted a [discussion thread](https://discuss.ropensci.org/t/how-do-you-review-code-that-accompanies-a-research-project-or-paper-help-ropensci-plan-a-community-call) and a [community call](http://communitycalls.ropensci.org/#2018-10-16) to bring together different researchers for a conversation about current practices, and challenges in reviewing code in the lab.
 
-On the call, we heard from Carl Boettiger (UC Berkeley/rOpenSci), Melanie Frazier & Julia Stewart Lowndes (National Center for Ecological Analysis and Synthesis), and Hao Ye (U. Florida/Weecology). Between the presentations discussion, and [active](https://docs.google.com/document/d/1QjtrNuh0Z5ikvx-rj9zx7O5L4rCMON4zUDv50paHAmM/edit#heading=h.85rratfvrws2) [commenting](https://discuss.ropensci.org/t/how-do-you-review-code-that-accompanies-a-research-project-or-paper-help-ropensci-plan-a-community-call/1321/29) by many in the community, we learned how different groups approached the problem.
+On the call, we heard from Carl Boettiger (UC Berkeley/rOpenSci), Melanie Frazier & Julia Stewart Lowndes (National Center for Ecological Analysis and Synthesis), and Hao Ye (U. Florida/Weecology). Between the presentations discussion, and [active](https://docs.google.com/document/d/1LfyhgsbVgLWgWPhS0nbaBIZSFjireEBBSYL4PmhUJis/edit?usp=sharing) [commenting](https://discuss.ropensci.org/t/how-do-you-review-code-that-accompanies-a-research-project-or-paper-help-ropensci-plan-a-community-call/1321/29) by many in the community, we learned how different groups approached the problem.
 
 What did we learn?  A great deal! The community uses code in many different ways in research, and practices often differed accordingly.  
 
@@ -60,4 +61,4 @@ Many presenters and commenters described the importance of using a **checklist f
 
 Some areas cropped up as common challenges. For instance - to what extent should feedback on research code emphasize refactoring, or optimization?  While it was generally agreed that refactoring is more important for more general, highly reused code, it is by no means clear how much so. For rapidly developing research code, how much should testing be emphasized? Another area where the right approach to reviewing was unclear was in long-running, computationally-intense workflows. For such projects, can a reviewer or an automatic test suite be expected to reproduce the results?
 
-Finally, one useful note was that review in in-person meetings can make it more challenging to maintain a written record of changes compared to interactions via systems like GitHub. The team from NCEAS noted that they use GitHub issues as a note-taking system to take notes so that discussions would be recorded in the same place as on-line discussion, and Weecology used co-authored commits to record changes from pair-programming sessions.
+Finally, one useful note was that review in in-person meetings can make it more challenging to maintain a written record of changes compared to interactions via systems like GitHub. The team from NCEAS noted that they use GitHub issues as a note-taking system so that discussions would be recorded in the same place as on-line discussion, and Weecology used co-authored commits to record changes from pair-programming sessions.
