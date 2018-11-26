@@ -32,7 +32,7 @@
 <h3> Next call </h3>
 {{ end }}
 <ul>
-  {{ range $pages }}
+  {{ range $pages.ByDate.Reverse }}
   {{ $start := (time .Params.dateStart)}}
   {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
   {{ $start:= $start.Format "20060102T15"}}
