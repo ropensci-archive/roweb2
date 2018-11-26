@@ -6,7 +6,7 @@ authors:
     url: https://haoye.us/
     twitter: Hao_and_Y
   - name: Melanie Frazier
-    url: http://www.oceanhealthindex.org/news/people-of-ohi-melanie-frazier
+    url: http://ohi-science.org/news/people-of-ohi-melanie-frazier
   - name: Julia Stewart-Lowndes
     url: http://jules32.github.io/
     twitter: juliesquid
@@ -37,7 +37,7 @@ What did we learn? A great deal! The community uses code in many different ways 
 
 The conversation around code review frequently diverted to discussion of _project structures_ and _coding practices_. This was related to a common theme we heard from participants:  **agreement around workflows and project organization is a minimum prerequisite for a review process**.  
 
-While different research groups had different standards for what these practices are, according to different use-cases, all had **minimum project standards to make code _reviewable_**. These ranged from simply having an adequate README explaining the project structure and how to run it, to using R-markdown documents, to [research compendia](https://github.com/ropensci/rrrpkg) and containerized projects with automated testing and continuous integration.
+While different research groups had different standards for what these practices are, according to different use-cases, all had **minimum project standards to make code _reviewable_**. These ranged from simply having an adequate README explaining the project structure and how to run it, to using R-markdown documents, to [research compendia](https://github.com/ropensci/rrrpkg) and [containerized](https://github.com/noamross/nyhackr-docker-talk#links-to-topics-and-resources-dicussed-in-the-talk-and-more) projects with [automated testing](http://r-pkgs.had.co.nz/tests.html) and [continuous integration](https://juliasilge.com/blog/beginners-guide-to-travis/).
 
 A few themes held across project types. First, **documentation was the highest priority** - inadequately documented projects were much more difficult to review. Secondly, as **projects go more complex, it was helpful to break them up or modularize them**, spinning off re-usable code into standalone, reusable packages and separating data from analysis code. Thirdly, as projects became either more complex or became reusable tools rather than one-off analyses, the degree of stringency needed for documentation, automated testing, and automated tools like [linters](https://github.com/jimhester/lintr) increases. These latter two points are necessary as large, complex projects are challenging to review as a whole. Complex projects were also more reviewable when they produced and communicated outputs from the intermediate steps in pipelines, rather than run as a single black-box.
 
