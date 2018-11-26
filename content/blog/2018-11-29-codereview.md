@@ -63,4 +63,4 @@ Some areas cropped up as common challenges. For instance - to what extent should
 
 Finally, one useful note was that review in in-person meetings can make it more challenging to maintain a written record of changes compared to interactions via systems like GitHub. The team from NCEAS noted that they use GitHub issues as a note-taking system so that discussions would be recorded in the same place as on-line discussion, and Weecology used co-authored commits to record changes from pair-programming sessions.
 
-How does your group review code that accompanies a research project or manuscript? Have tried to implement any of these approaches after hearing about them here? Share your experience in the comments below.
+How does your group review code that accompanies a research project or manuscript? Have you tried to implement any of these approaches after hearing about them here? Share your experience in the comments below.
