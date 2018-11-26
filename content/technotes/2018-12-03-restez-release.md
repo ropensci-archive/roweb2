@@ -333,4 +333,4 @@ and, of course, to [Scott Chamberlain](https://github.com/sckott) for editing!
 ## Reference
 
 Bennett, D.J., Hettling, H., Silvestro, D., Vos, R. and Antonelli, A. **2018**. restez: Create and Query a Local Copy of GenBank in R.
-*Journal of Open Source Software*, X(XX), XXXX, https://doi.org/XXXX
+*Journal of Open Source Software*, submitted.
