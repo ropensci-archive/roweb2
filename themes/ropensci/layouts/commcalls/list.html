@@ -43,10 +43,9 @@
                           
                         
                         <div style="text-align: justify;" class = "top-3">
-                          <p></p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
                             <div class="col-10">🎤 
                               {{$authors := .Params.authors}}
-                              {{ if gt (len $authors) 1}0
+                              {{ if gt (len $authors) 0}}
                             Speakers:
                             {{ else }}
                             Speaker:
@@ -57,6 +56,9 @@
                         </div>
                         
                             <p>📖 Topic: {{ .Params.description  | markdownify }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
+                    {{if .Params.notes}}
+                    <p><a href="{{ .Params.notes }}" target="_blank">📝 Collaborative notes</a></p>
+                    {{end}}
                             
                             <p><div class="alert alert-info" role="success"><b> Join the call via Zoom </b>: {{ .Params.deets |markdownify }}</div></p>
                         </div>
