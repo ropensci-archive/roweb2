@@ -45,12 +45,13 @@
                         <div style="text-align: justify; top-3">
                           <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
                             <div class="col-10">🎤 
-                              {{ if gt (len .Params.authors) 2}}
+                              {{$authors := .Params.authors}}
+                              {{ if gt (len $authors) 2}}
                             Speakers:
                             {{ else }}
                             Speaker:
                             {{ end }}
-                            {{$authors := .Params.authors}}
+                            
                             {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
                         </div>
