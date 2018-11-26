@@ -19,7 +19,7 @@ authors:
 date: 2018-11-29
 categories: blog
 topicid:
-preface: This post is a summary of our Community Call on "Code Review in the Lab, or ... How do you review code that accompanies a research project or paper?" held October 16, 2018
+preface: This post is a summary of our Community Call on "Code Review in the Lab, or ... How do you review code that accompanies a research project or paper?" held October 16, 2018. [Resources associated with the Call](http://communitycalls.ropensci.org/#2018-10-16), including the video recording, slides, notes and a discussion thread have been posted.
 tags:
 - community
 - community-call
