@@ -73,7 +73,7 @@
 <div class="row">
             <div class="col-15 top-10">
 <h3> Past calls </h3>
-{{ $pages := where .Pages ".Params.vimeo" "!=" nil }}
+{{ $pages := where .Pages ".Params.deets" "=" nil }}
 
   {{ partial "archive.html" (dict "pages" $pages) }}
 </div>
