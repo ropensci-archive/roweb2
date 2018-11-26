@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="https://www.ischool.utexas.edu/content/colloquium-daniel-sholler-uc-berkeley">University of Texas iSchool Colloquium</a>',
-      'dateStart': 'Nov 20, 2018',
-      'dateEnd': '',
-      'description': 'Constructing Digital Infrastructures to Support “Open Science”: Governance Strategies from Open Source Scientific Software Organizations',
-      'location': 'Austin, TX',
-      'attendees': 'Dan Sholler'
-    },
-    {
       'title': '<a href="http://ozunconf18.ropensci.org/">rOpenSci OzUnconf 2018</a>',
       'dateStart': 'Nov 22',
       'dateEnd': '23, 2018',
