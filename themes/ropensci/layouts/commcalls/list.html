@@ -37,12 +37,12 @@
   {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
   {{ $start:= $start.Format "20060102T15"}}
   <ul>
-  <li><div class="excerpt">
+  <li><div class="excerpt top-3">
                         <center><small><h2>{{ .Title }}</h2></small></center>
                         
                           
                         
-                        <div style="text-align: justify;">
+                        <div style="text-align: justify; top-3">
                           <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
                             <div class="col-10">🎤 
                               {{ if gt (len .Params.authors) 2}}
