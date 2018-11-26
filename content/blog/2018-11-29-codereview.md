@@ -1,10 +1,10 @@
 ---
 slug: "codereview"
-title: Community Call Summary - Code Review in the Lab 
+title: Community Call Summary - Code Review in the Lab
 authors:
   - name: Hao Ye
     url: https://haoye.us/
-    twitter: @Hao_and_Y
+    twitter: Hao_and_Y
   - name: Melanie Frazier
     url: http://www.oceanhealthindex.org/news/people-of-ohi-melanie-frazier
   - name: Julia Stewart-Lowndes
