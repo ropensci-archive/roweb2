@@ -57,11 +57,7 @@
                         </div>
                         
                             <p>📖 Topic: {{ .Params.description | safeHTML }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
-                            {{ if .Params.notes "!=" "nil"}}
-                            <p>Collaborative notes: {{ .Params.notes }}</p>
-                        </div>
-                            {{ end }}
-                            <p><div class="alert alert-info" role="success"><b> Join the call via Zoom </b>: {{ .Params.deets |markdownify }}</div></p>
+                            {{                          <p><div class="alert alert-info" role="success"><b> Join the call via Zoom </b>: {{ .Params.deets |markdownify }}</div></p>
                         </div>
                         
 
