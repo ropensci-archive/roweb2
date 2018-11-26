@@ -47,12 +47,14 @@
                  {{end}} 
                  {{end}}</ul></p>
                   </div>
+                  {{ if .Params.Vimeo }}
                   <h3>Video recording</h3>
                   {{ range $i, $e := .Params.Vimeo }}
                   <div class= "row center bottom-5 top-5">
               <iframe src="https://player.vimeo.com/video/{{.id}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
               </div>
 {{ end }}
+                  {{ end }}
               
               
             </div>
