@@ -66,7 +66,9 @@
                     <p><a href="{{ .Params.notes }}" target="_blank">📝 Collaborative notes</a></p>
                     {{end}}
                             
-                            <p><div class="alert alert-info" role="success"><b> Join the call via Zoom</b>: {{ .Params.deets |markdownify }}</div></p>                      </div>
+                            <p><p><div class="alert alert-info" role="success"><details>
+  <summary><b> Join the call via Zoom</b>:</summary> {{ .Params.deets |markdownify }}</details> </div></p> 
+                   </div>
                         
 
 
