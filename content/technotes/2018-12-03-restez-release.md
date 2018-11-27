@@ -64,6 +64,8 @@ devtools::install_github(repo = 'ropensci/restez')
 
 ## Usage
 
+To walk us through the basics of `restez` let's pretend we're a microbiologist interested in the sequence diversity among all the [bacteriophages](https://en.wikipedia.org/wiki/Bacteriophage) that infect [*Escherichia* bacteria](https://en.wikipedia.org/wiki/Escherichia). First, we will first need to create our sequence database. Second, we will need to identify the *Escherichia* phage sequences in this database. And then finally we will need to write out the sequences in a suitable format for a sequence diversity analysis. Thankfully, `restez` can perform all these steps.
+
 ### Set-up
 
 To get started with `restez` we first have to download and create a database. This set-up consists of three steps:
@@ -166,8 +168,7 @@ After the download process has completed, we can create the database with `db_cr
 db_create()
 ```
 
-This will add all of the downloaded files to the database. It will take a while to complete. When it finishes, we can then
-query the database!
+This will add all of the downloaded files to the database. It will take a while to complete. When it finishes, we can then identify our *Escherichia* phage sequences!
 
 ### Querying
 
@@ -218,68 +219,43 @@ The above status report tells us the database, exists, has data and is connected
 
 #### Get-tools
 
-`restez` comes with a series of `gb_*_get()` functions for parsing the GenBank records to pull out specific elements.
-We can find records in the database using [Accession IDs](https://www.ncbi.nlm.nih.gov/Sequin/acc.html).
-To list all Accession IDs in a database, we can use [`list_db_ids()`](https://ropensci.github.io/restez/reference/list_db_ids.html).
+`restez` comes with a series of [`gb_*_get()`](https://ropensci.github.io/restez/reference/index.html#section-genbank) functions for parsing the GenBank records to pull out specific elements (sequences, definition lines, whole records). We can find records in the database using [Accession IDs](https://www.ncbi.nlm.nih.gov/Sequin/acc.html). To list all Accession IDs in a database, we can use [`list_db_ids()`](https://ropensci.github.io/restez/reference/list_db_ids.html).
 
 ```r
 # get a random accession ID from the database
 id <- sample(list_db_ids(), 1)
-# you can extract:
-# sequences
-seq <- gb_sequence_get(id)[[1]]
-str(seq)
-#>  chr "GATCCGGCCGCAGCCGCAGTGTCGGCATTGTTCCCGCTGGGCGAGACGGAGATCACCCTCACGGTCTTCTCGGGCGATCAGTCCGACGCCGAGACGACGACGGTGACGATC"| __truncated__
 # definitions
 def <- gb_definition_get(id)[[1]]
 print(def)
 #> [1] "Unidentified clone B15 DNA sequence from ocean beach sand"
-# organisms
-org <- gb_organism_get(id)[[1]]
-print(org)
-#> [1] "unidentified"
-# or whole records
-rec <- gb_record_get(id)[[1]]
-cat(rec)
-#> LOCUS       AF298094                 581 bp    DNA     linear   UNA 23-NOV-2000
-#> DEFINITION  Unidentified clone B15 DNA sequence from ocean beach sand.
-#> ACCESSION   AF298094
-#> VERSION     AF298094.1
-#> KEYWORDS    .
-#> SOURCE      unidentified
-#>   ORGANISM  unidentified
-#>             unclassified sequences.
-#> REFERENCE   1  (bases 1 to 581)
-#>   AUTHORS   Naviaux,R.K.
-#>   TITLE     Sand DNA: a multigenomic library on the beach
-#>   JOURNAL   Unpublished
-#> REFERENCE   2  (bases 1 to 581)
-#>   AUTHORS   Naviaux,R.K.
-#>   TITLE     Direct Submission
-#>   JOURNAL   Submitted (21-AUG-2000) Medicine, University of California, San
-#>             Diego School of Medicine, 200 West Arbor Drive, San Diego, CA
-#>             92103-8467, USA
-#> FEATURES             Location/Qualifiers
-#>      source          1..581
-#>                      /organism="unidentified"
-#>                      /mol_type="genomic DNA"
-#>                      /db_xref="taxon:32644"
-#>                      /clone="B15"
-#>                      /note="anonymous environmental sample sequence from ocean
-#>                      beach sand"
-#> ORIGIN      
-#>         1 gatccggccg cagccgcagt gtcggcattg ttcccgctgg gcgagacgga gatcaccctc
-#>        61 acggtcttct cgggcgatca gtccgacgcc gagacgacga cggtgacgat cgaggacacg
-#>       121 accgcgccga cgttcaccca cgcactgggt gatgtccttc cgatggtgac gaaggaggca
-#>       181 acggagcccg gagggcatga cttcagcccg gccacgccgg acgcctggga ccatggagac
-#>       241 agcgacctcg acatcgcttg cggtacggaa ctcccgcatc tcttcccgat cggggataca
-#>       301 gagatcacct ggacggcgac ggacgatcag gacctttcga cgacggcaac gcagatcatc
-#>       361 cggatcgagg acaacacgcc gccgaccttc atccagcgcg atgatcaggt cgtggcgacc
-#>       421 acgtacgatc cggtcggtct caggaaggag cacgttccgc tcgcgggcac cgtcatcgcg
-#>       481 gtggacttcg gacagcccgt accgctcacg aacaccgccc cggacgtntt tcggttgggg
-#>       541 agcacggaga tncctggacc gcgacggtgc gtncgggaac t
-#> //
 ```
+
+### *Escherichia* phage sequences
+
+In our scenario, we're interested in finding and writing out all the *Escherichia* phage sequences. We can do this by looking up the organism names of the sequence sources of all the sequences in the database. We can then parse these names for `"escherichia"` and write out the resulting list of sequences.
+
+```r
+# get list of ALL IDs in database
+ids <- list_db_ids(n = NULL)
+# get all organisms
+organisms <- gb_organism_get(ids)
+# parse for Escherichia
+is_escherichia <- grepl('escherichia', organisms, ignore.case = TRUE)
+# fetch fasta formatted sequences
+fastas <- gb_fasta_get(ids[is_escherichia])
+# check ...
+cat(fastas[1])
+#> >AB000833.1 Bacteriophage Mu DNA for ORF1, sheath protein gpL, ORF2, ORF3, complete cds
+#> ACGGTCAGACGTTTGGCCCGACCACCGGGATGAGGCTGACGCAGGTCAGAAATCTTTGTGACGACAACCG
+#> TATCAATGCCGGTGTGGTGCTTTACGGCGTTCTGTTCAGTGGCACAACCCCGCTGCCGTCCGTAGTGGAC
+#> CTGGATTCGCTGGATGATTACGAGCGTCACTGGCAGACCTGGAAATTCCCGGACGAAACCCCGGAATTTG
+#> CCGCACATATCAATGTGAATCAGGAAAAGGATCATGATGCTGAAAATTAAACCCGCAGCGGGAAAAGCCA
+#> ....
+# write out
+write(fastas, file = 'phage_seqs.fasta')
+```
+
+In this little example, we could identify our sequences of interest using `restez` itself. Ordinarily, however, because sequences can only be looked up via Accession IDs, users will probably not use `restez` for sequence discovery, only retrieval. For a more adaptable example of searching and fetching sequences, see [How to search and fetch sequences](https://ropensci.github.io/restez/articles/2_search_and_fetch.html)
 
 ## Integrations
 
