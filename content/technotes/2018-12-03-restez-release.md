@@ -1,13 +1,13 @@
 ---
 slug: restez
-title: 'restez: Locally query GenBank'
+title: 'restez: Query GenBank locally'
 package_version: 1.0.0
 authors:
   - name: Dom Bennett
     url: https://github.com/dombennett
 date: '2018-12-03'
 categories: technote
-topicid: 1292
+topicid:
 tags:
   - r
   - community
@@ -27,17 +27,14 @@ tags:
 
 ## What is `restez`?
 
-R packages for interacting with NCBI have, to-date, depended on [API](https://en.wikipedia.org/wiki/Application_programming_interface) query calls via [NCBI's Entrez](https://www.ncbi.nlm.nih.gov/search/).
-For computational analyses that require the automated look-up of reams of sequence data, piecemeal querying via bandwith-limited requests
-is evidently not ideal. These queries are not only slow, but they depend on network connections and the remote server's consistent
-behaviour. Additionally, users who make very large requests over extended periods of time run the risk of being blocked.
+R packages for interacting with the National Center for Biotechnology Information (NCBI) have, to-date, depended on [API](https://en.wikipedia.org/wiki/Application_programming_interface) query calls via [NCBI's Entrez](https://www.ncbi.nlm.nih.gov/search/).
+For computational analyses that require the automated look-up of reams of biological sequence data, piecemeal querying via bandwith-limited requests is evidently not ideal. These queries are not only slow, but they depend on network connections and the remote server's consistent behaviour. Additionally, users who make very large requests over extended periods of time run the risk of being blocked.
 
-`restez` attempts to make large queries of NCBI more efficient by allowing users to download whole sections of NCBI, create a local
-database from these downloaded files and then query this mini-GenBank version instead.
+`restez` attempts to make large queries to [NCBI GenBank](https://www.ncbi.nlm.nih.gov/genbank/) more efficient by allowing users to download whole sections of GenBank, create a local database from these downloaded files and then query this mini-GenBank version instead.
 This process is far more efficient as the downloaded files are compressed and users can limit the size of the database by only creating it
 from sequences of interest (limiting by taxonomic domain and/or sequence size).
 
-`restez` tries to be user-friendly: a database can be set-up in just a few function calls (set path, download and create),
+`restez` tries to be user-friendly: a database can be set up in just a few function calls (set path, download and create),
 a database can be queried with a consistent set of functions (the `gb_*_get()` functions),
 the number of arguments per function is limited, and the package is designed to integrate with pre-exisiting R packages
 that interact with NCBI ([`rentrez`](https://github.com/ropensci/rentrez) and
@@ -294,7 +291,7 @@ of the requested sequences it will pass these arguments on to these other packag
 For example, users can use the `entrez_fetch()` function of the [`rentrez`](https://github.com/ropensci/rentrez) package. Running
 this function through `restez` means a user can first check the local database rather than make lots of queries over the internet.
 The function arguments are exactly the same.
-Additionally, user's can set-up up a `restez` database before launching a [`phylotaR`](https://github.com/ropensci/phylotaR) run.
+Additionally, users can set up up a `restez` database before launching a [`phylotaR`](https://github.com/ropensci/phylotaR) run.
 `phylotaR` searches NCBI for orthologous sequence clusters for a given taxonomic ID. If a `restez` database is set-up, `phylotaR`
 will first search the local database before downloading via Entrez.
 
@@ -332,5 +329,5 @@ and, of course, to [Scott Chamberlain](https://github.com/sckott) for editing!
 
 ## Reference
 
-Bennett, D.J., Hettling, H., Silvestro, D., Vos, R. and Antonelli, A. **2018**. restez: Create and Query a Local Copy of GenBank in R.
-*Journal of Open Source Software*, submitted.
+Bennett, D.J., Hettling, H., Silvestro, D., Vos, R. and Antonelli, A. **2018**. 2018. restez: Create and Query a Local Copy of GenBank in R. *Journal of Open Source Software*, 3(31), 1102, https://doi.org/10.21105/joss.01102
+
