@@ -9,27 +9,33 @@
 <!-- begins tutorial section -->
     <section>
         <div class="container">
-            <div class="row center">
-                <div class="col-8 top-20">
-                    <h2>Community Calls</h2>
-                </div>
-                <div class="col-8 top-4 bottom-3">
-                    <p>Join us in our quarterly Community Calls to hear about best practices, new projects, Q&As with well known developers, and to learn more about rOpenSci developments. These are free and open for anyone to attend and provide an opportunity to connect with rOpenSci community members around the world.</p>
+          <div class="row">
+            <div class="col-offset-2 col-8 top-20">
+                <h2 style="text-align: center;">Community Calls</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-offset-2 top-4">
 
-<p>We aim to leave a.t least 20 minutes for open Q&A and we use collaborative note-taking allowing participants share ideas or resources and to ask questions. All past calls were recorded and are available online.</a></p>
+                <p>Join us in our quarterly Community Calls to hear about best practices, new projects, Q&As with well known developers, and to learn more about rOpenSci developments. These are free and open for anyone to attend and provide an opportunity to connect with rOpenSci community members around the world.</p>
+
+<p>We aim to leave a.t least 20 minutes for open Q&A and we use collaborative note-taking allowing participants share ideas or resources and to ask questions. All past calls were recorded and are available online.</p>
 <p>Have an idea for a Community Call topic? Tell us what you'd like to hear about or tell us a topic you're keen to speak about in our <a href="https://discuss.ropensci.org/c/community" target="_blank">discussion forum</a>. <p>
-
-                </div>
+</div>
             </div>
 
             <div class="row">
                 
-            <div class="col-10 top-2">
+            <div class="col-8 col-offset-2 top-4">
 {{ $pages := where .Pages ".Params.deets" "!=" nil }}
 {{if gt (len $pages) 1}}
-<h3> Next calls </h3>
+<div class="col-offset-2 col-8 bottom-2">
+                <h3 style="text-align: center;">Next Calls</h3>
+            </div>
 {{ else }}
-<h3> Next call </h3>
+<div class="col-offset-2 col-8 bottom-2">
+                <h3 style="text-align: center;">Next Call</h3>
+            </div>
 {{ end }}
 <ul>
   {{ range $pages.ByDate }}
@@ -37,13 +43,13 @@
   {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
   {{ $start:= $start.Format "20060102T15"}}
   <ul>
-  <li><div class="excerpt top-3">
-                        <center><small><h2>{{ .Title }}</h2></small></center>
+  <li><div>
+                        <center><small><h4>{{ .Title }}</h4></small></center>
                         
                           
                         
                         <div style="text-align: justify;" class = "top-3">
-                            <div class="col-10">🎤 
+                            <div class="col-10 top-2 bottom-2">🎤 
                               {{$authors := .Params.authors}}
                               {{ if gt (len $authors) 1}}
                             Speakers:
@@ -71,11 +77,18 @@
 </div>
 <div class="row">
             <div class="col-15 top-10">
-<h3> Past calls </h3>
+
+
+
+
+
+<div class="col-offset-2 col-8">
+                <h3 style="text-align: center;">Past Calls</h3>
+            </div>
+
 {{ $pages := where .Pages ".Params.deets" "=" nil }}
 
-  {{ partial "archive.html" (dict "pages" $pages) }}
-</div>
+  {{ partial "archive.html" (dict "pages" $pages) }}</div>
 </div>
             </div> 
         </div><!-- /container -->
