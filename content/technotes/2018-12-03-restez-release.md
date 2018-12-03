@@ -7,13 +7,14 @@ authors:
     url: https://github.com/dombennett
 date: '2018-12-03'
 categories: technote
-topicid:
+topicid: 1494
 tags:
   - r
   - community
   - software
   - review
   - onboarding
+  - software-peer-review
   - packages
   - bioinformatics
   - genbank
