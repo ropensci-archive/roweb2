@@ -4,14 +4,6 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
-      'title': '<a href="http://ozunconf18.ropensci.org/">rOpenSci OzUnconf 2018</a>',
-      'dateStart': 'Nov 22',
-      'dateEnd': '23, 2018',
-      'description': 'satellite unconference',
-      'location': 'Melbourne, AU',
-      'attendees': 'Nick Tierney (organizer)'
-    },
-    {
       'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
       'dateStart': 'Dec 18, 2018',
       'dateEnd': '',
