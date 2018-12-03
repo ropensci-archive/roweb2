@@ -1,6 +1,6 @@
 +++
-title = "rOpenSci software review"
-description = "rOpenSci's open peer-review system of R packages contributed by the community"
+title = "rOpenSci Software Peer Review"
+description = "rOpenSci's open peer-review system of R packages"
 +++
 
 rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, _[associate editors](/about#team)_ manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; _[reviewers](https://github.com/ropensci/onboarding#reviewers)_, two per submission, examine the software code and user experience.
