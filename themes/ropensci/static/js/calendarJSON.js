@@ -4,6 +4,14 @@ var calendar = {
   'description': 'the rOpenSci public events calendar',
   'eventList': [
     {
+      'title': '<a href="https://fallmeeting.agu.org/2018/">AGU Fall Meeting</a>',
+      'dateStart': 'Dec 11',
+      'dateEnd': '14, 2018',
+      'description': 'At AGU? Come say hi',
+      'location': 'Washington, DC',
+      'attendees': 'Karthik Ram'
+    },
+    {
       'title': '<a href="http://communitycalls.ropensci.org/#next-call">rOpenSci Community Call</a>',
       'dateStart': 'Dec 18, 2018',
       'dateEnd': '',
