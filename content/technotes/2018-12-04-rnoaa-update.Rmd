@@ -6,7 +6,7 @@ authors:
   - name: Scott Chamberlain
 categories:
   - technotes
-topicid: 1415
+topicid: 1497
 tags:
 - R
 - data
