@@ -32,7 +32,7 @@ As our submissions have grown over the past couple of years, our standards aroun
 
 Although a large number of packages submitted to CRAN could also be part of rOpenSci, our submissions are limited to packages that fit our mission and are able to pass a stringent and time intensive review process.
 
-Here, we summarize some of the more important changes to peer review at rOpenSci over the past year.  The most recent information can always be found at <https://onboarding.ropensci.org/>.
+Here, we summarize some of the more important changes to peer review at rOpenSci over the past year.  The most recent information can always be found at <https://ropensci.org/software-review/>.
 
 ### We've Expanded Our Scope
 
@@ -89,7 +89,7 @@ Standards changes often take place because we find that both editors and reviewe
 
 **Editors**
 
-As the pace of package submissions increases, we've expanded our editorial team to keep up. [Maëlle Salmon][ms] joined us in February, bringing our [team to four](https://github.com/ropensci/onboarding#-editors-and-reviewers). With four, we need to be more coordinated, so we've moved to a system of a rotating editor-in-chief, who makes decisions about scope, assigns handling editors, and brings up edge cases for discussion with the whole team.
+As the pace of package submissions increases, we've expanded our editorial team to keep up. [Maëlle Salmon][ms] joined us in February, bringing our [team to four](https://ropensci.github.io/dev_guide/onboardingintro.html#editors-and-reviewers). With four, we need to be more coordinated, so we've moved to a system of a rotating editor-in-chief, who makes decisions about scope, assigns handling editors, and brings up edge cases for discussion with the whole team.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Welcome <a href="https://twitter.com/ma_salmon">@ma_salmon</a> to our editorial team for open peer review of <a href="https://twitter.com/hashtag/rstats?src=hash">#rstats</a> software <a href="https://t.co/KsL0SF1b6K">https://t.co/KsL0SF1b6K</a> 1/2</p>&mdash; rOpenSci (@rOpenSci) <a href="https://twitter.com/rOpenSci/status/832228045587099649">February 16, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -110,8 +110,8 @@ As submissions increase, the entire process benefits more from automation. Right
 - Reviewer template and guide: We now have a [reviewer template][revtemp] - making reviews more standardized, and helping reviewers know what to look for. In addition, we have an updated reviewer guide that gives high level guidance, as well as specific things to look for, tools to use, and examples of good reviews. In addition, the guide gives guidance on how to submit reviews.
 - Badges: We now have badges for rOpenSci review. The badges show whether a package is under review or has been approved. Packages that are undergoing review or have been approved can put this badge in their README.
 
-    [![](http://badges.ropensci.org/86_status.svg)](https://github.com/ropensci/onboarding/issues/86)
-    [![](http://badges.ropensci.org/116_status.svg)](https://github.com/ropensci/onboarding/issues/116)
+    [![](http://badges.ropensci.org/86_status.svg)](https://github.com/ropensci/software-review/issues/86)
+    [![](http://badges.ropensci.org/116_status.svg)](https://github.com/ropensci/software-review/issues/116)
 
 
 ---
@@ -122,7 +122,7 @@ Get in touch with us on Twitter ([@ropensci](https://twitter.com/ropensci), or i
 
 To find out more about our software review process join us on the next [rOpenSci Community Call][cc]
 
-We hope to see you soon in the onboarding repository as a [submitter](https://github.com/ropensci/onboarding/issues/new) or as a [reviewer](https://ropensci.org/onboarding/)!
+We hope to see you soon in the onboarding repository as a [submitter](https://github.com/ropensci/software-review/issues/new) or as a [reviewer](https://ropensci.org/onboarding/)!
 
 
 
@@ -131,19 +131,19 @@ We hope to see you soon in the onboarding repository as a [submitter](https://gi
 [nfpost]: https://www.numfocus.org/blog/how-ropensci-uses-code-review-to-promote-reproducible-science/
 [rostatspost]: https://ropensci.org/blog/blog/2016/03/28/software-review
 [cc]: https://ropensci.org/blog/blog/2017/08/31/comm-call-v14
-[ms]: http://www.masalmon.eu/
+[ms]: https://masalmon.eu/
 [pkgfit]: https://github.com/ropensci/onboarding/blob/d796e7d197ad6e632ca237cec931420c51766045/policies.md#package-fit
-[aims]: https://github.com/ropensci/onboarding/blob/master/policies.md#aims-and-scope
-[presub]: https://github.com/ropensci/onboarding/issues?q=is%3Aissue+label%3A0%2Fpresubmission
-[pkgoverlap]: https://github.com/ropensci/onboarding/blob/master/policies.md#package-overlap
-[outofscope]: https://github.com/ropensci/onboarding/issues?q=is%3Aissue+is%3Aclosed+label%3Aout-of-scope
+[aims]: https://ropensci.github.io/dev_guide/policies.html#aims-and-scope
+[presub]: https://github.com/ropensci/software-review/issues?q=is%3Aissue+label%3A0%2Fpresubmission
+[pkgoverlap]: https://ropensci.github.io/dev_guide/policies.html#overlap
+[outofscope]: https://github.com/ropensci/software-review/issues?q=is%3Aissue+is%3Aclosed+label%3Aout-of-scope
 [gp]: https://github.com/MangoTheCat/goodpractice
-[or]: https://github.com/ropensci/onboarding
+[or]: https://github.com/ropensci/software-review
 [magick]: https://github.com/ropensci/magick
 [plotly]: https://github.com/ropensci/plotly
 [git2r]: https://github.com/ropensci/git2r
-[pg]: https://github.com/ropensci/onboarding/blob/master/packaging_guide.md
-[eg]: https://github.com/ropensci/onboarding/blob/master/editors_guide.md
+[pg]: https://ropensci.github.io/dev_guide/building.html
+[eg]: https://ropensci.github.io/dev_guide/editorguide.html
 [tidyverse]: https://www.tidyverse.org/
-[over]: https://github.com/ropensci/onboarding/blob/master/policies.md#package-overlap
-[revtemp]: https://github.com/ropensci/onboarding/blob/master/reviewer_template.md
+[over]: https://ropensci.github.io/dev_guide/policies.html#overlap
+[revtemp]: https://ropensci.github.io/dev_guide/reviewtemplate.html

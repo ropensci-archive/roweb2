@@ -50,17 +50,17 @@ Many thanks to MEE's Assistant Editor Chris Grieves and Senior Editor Bob O'Hara
 
 [^1]: See also MEE's post from today at <https://methodsblog.wordpress.com/2017/11/29/software-review/>
 
-[onrepo]: https://github.com/ropensci/onboarding/
+[onrepo]: https://github.com/ropensci/software-review/
 [ro]: https://ropensci.org/
 [roteam]: https://ropensci.org/about#team
 [joss]: http://joss.theoj.org/
 [meehome]: http://besjournals.onlinelibrary.wiley.com/hub/journal/10.1111/(ISSN)2041-210X/
-[subtemp]: https://github.com/ropensci/onboarding/blob/master/issue_template.md
+[subtemp]: https://github.com/ropensci/software-review/issues/new
 [post1]: https://ropensci.org/blog/2016/03/28/software-review/
 [post2]: https://ropensci.org/blog/2017/09/01/nf-softwarereview/
 [post3]: https://ropensci.org/blog/2017/09/11/software-review-update/
-[fit]: https://github.com/ropensci/onboarding/blob/master/policies.md#aims-and-scope
-[policies]: https://github.com/ropensci/onboarding/blob/master/policies.md#ropensci-policies
+[fit]: https://ropensci.github.io/dev_guide/policies.html#aims-and-scope
+[policies]: https://ropensci.github.io/dev_guide/policies.html
 [rotl]: https://github.com/ropensci/rotl
 [rotlmee]: http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12593/abstract
 [meeaimsscope]: http://www.methodsinecologyandevolution.org/view/0/aimsAndScope.html

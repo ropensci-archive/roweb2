@@ -56,7 +56,7 @@ reviewers evaluate and the author makes recommended changes, the package gets
 the rOpenSci stamp in its README and is added to our collection.
 
 We work entirely through the GitHub issue system. To submit authors [open
-an issue](https://github.com/ropensci/onboarding/issues/new). Reviewers post
+an issue](https://github.com/ropensci/software-review/issues/new). Reviewers post
 reviews as comments on that issue. This means the entire process is open and
 public from the start. Reviewers and authors are known to each other and free
 to communicate directly in the issue thread. GitHub-based reviews have some
@@ -140,7 +140,7 @@ be sustainable, we have to figure out how to limit the burden on our reviewers.
 
 A few respondents pointed out we could be better at explaining the review
 process, both in how to get started and how it is supposed to wrap up. For the
-former, we've recently updated our [reviewer guide](https://github.com/ropensci/onboarding/wiki/For-Reviewers), including adding links to previous reviews. We
+former, we've recently updated our [reviewer guide](https://ropensci.github.io/dev_guide/reviewerguide.html), including adding links to previous reviews. We
 hope as our reviewer pool gets more experienced, and as software reviews become
 more common, this gets easier. However, as our pool of editors and reviewers
 grows, we'll need to ensure that our communication is clear.

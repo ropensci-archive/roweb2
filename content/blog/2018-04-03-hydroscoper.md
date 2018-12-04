@@ -187,7 +187,7 @@ Please help us to develop `hydroscoper`. If you have suggestions or bug reports,
 
 
 ### Acknowledgments
-Thank you rOpenSci for this great experience! I am really grateful to rOpenSci Reviewers [Tim Trice](https://github.com/timtrice) and [Sharla Gelfand](https://github.com/sharlagelfand), and editor [Maëlle Salmon](https://github.com/maelle) for their helpful [comments and suggestions](https://github.com/ropensci/onboarding/issues/185) that improved my package and myself as an R programmer. I would like, also, to thank [Stefanie Butland](https://github.com/stefaniebutland) for providing invaluable advice and help when reviewing this post.
+Thank you rOpenSci for this great experience! I am really grateful to rOpenSci Reviewers [Tim Trice](https://github.com/timtrice) and [Sharla Gelfand](https://github.com/sharlagelfand), and editor [Maëlle Salmon](https://github.com/maelle) for their helpful [comments and suggestions](https://github.com/ropensci/software-review/issues/185) that improved my package and myself as an R programmer. I would like, also, to thank [Stefanie Butland](https://github.com/stefaniebutland) for providing invaluable advice and help when reviewing this post.
 
 [^1]: [σοφιστείες](https://en.oxforddictionaries.com/definition/sophistry): using, maybe, clever but false arguments with the intention of deceiving.
 [^2]: [πληθώρα](https://en.oxforddictionaries.com/definition/plethora):  a large amount of something.

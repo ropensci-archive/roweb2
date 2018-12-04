@@ -1498,7 +1498,7 @@ You do not need to submit code in order to be listed as a contributor. If there 
 
 I want to thank the [rOpenSci](https://ropensci.org/) community for embracing `rrricanes` and accepting the package into their vast portfolio. This is my first attempt and putting a project into part of a larger community and the lessons learned have been outstanding.
 
-I want to thank [Maelle Salmon](https://github.com/maelle) who, in a sense, has been like a guiding angel from start to finish during the entire onboarding and review process.
+I want to thank [Maëlle Salmon](https://github.com/maelle) who, in a sense, has been like a guiding angel from start to finish during the entire onboarding and review process.
 
 I want to give a very special thanks to [Emily Robinson](https://github.com/robinsones) and [Joseph Stachelek](https://github.com/jsta) for taking the time to put `rrricanes` to the test, giving valuable insight and recommendations on improving it.
 

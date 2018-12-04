@@ -26,7 +26,7 @@ was! To be honest I was a little bit thrilled.
 
 The packages are submitted for review to rOpenSci via an issue to their
 GitHub repository and also the reviews happen there. So you can check out
-[all previous package submissions and reviews](https://github.com/ropensci/onboarding/issues).
+[all previous package submissions and reviews](https://github.com/ropensci/software-review/issues).
 With all the information you
 get from rOpenSci and also the help from the editor it is straightforward
 to do the package review. Before I started I read the
@@ -49,7 +49,7 @@ queries to check whether the behavior of the methods was as expected.
 With this approach I was able to give feedback to the package author
 which led to the inclusion of an additional unit test, a helper function
 that makes the package easier to use, clarification of an error message
-and an improved documentation. You can find the review I did [here](https://github.com/ropensci/onboarding/issues/112#issuecomment-303462505).
+and an improved documentation. You can find the review I did [here](https://github.com/ropensci/software-review/issues/112#issuecomment-303462505).
 
 There are several R packages that helped me get started with my review,
 e.g. [`devtools`](https://github.com/hadley/devtools) and
@@ -129,7 +129,7 @@ like me.
 
 -   [Form to sign up (just takes a minute)](https://ropensci.org/onboarding/)
 
--   [Information for reviewers](http://onboarding.ropensci.org/)
+-   [Information for reviewers](https://ropensci.github.io/dev_guide/reviewerguide.html)
 
 -   [Mozilla reviewing guide](https://mozillascience.github.io/codeReview/review.html)
 

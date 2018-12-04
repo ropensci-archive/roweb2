@@ -21,7 +21,7 @@ tags:
 ---
 
 rOpenSci's package review system (aka
-[onboarding](https://github.com/ropensci/onboarding/)) is one of our key
+[onboarding](https://github.com/ropensci/software-review/)) is one of our key
 activities to [improve quality and sustainability of scientific R
 packages](https://ropensci.org/blog/2017/09/01/nf-softwarereview/). The
 editorial team are constantly working towards improving the experience
@@ -201,7 +201,7 @@ Here are a few things to look forward to:
     survey. Chime in in the [issue tracker of our in-progress
     guide](https://github.com/ropenscilabs/dev_guide/issues) or in [this
     other issue
-    tracker](https://github.com/ropensci/onboarding-meta/issues) where
+    tracker](https://github.com/ropensci/software-review-meta/issues) where
     we keep track of more general questions & suggestions about
     onboarding.
 

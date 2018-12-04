@@ -67,6 +67,6 @@ Falling out of this discussion are two important take aways from the user-driven
 > 2. As a package author, engage early with a package peer review process if you see value in it, to get the most out of it. This is BEFORE things are 'perfect'.
 
 ### Epilogue
-[`bowerbird`](https://github.com/ropensci/bowerbird) recently cleared the [review process](https://github.com/ropensci/onboarding/issues/139) and obtained Peer Reviewed status. In my biased opinion, the [main vignette](https://ropensci.github.io/bowerbird/articles/bowerbird.html) is one of the best I have read, and a fine example product of the user-driven school I have discussed here. 
+[`bowerbird`](https://github.com/ropensci/bowerbird) recently cleared the [review process](https://github.com/ropensci/software-review/issues/139) and obtained Peer Reviewed status. In my biased opinion, the [main vignette](https://ropensci.github.io/bowerbird/articles/bowerbird.html) is one of the best I have read, and a fine example product of the user-driven school I have discussed here. 
 
 Congratulations to the authors [Ben Raymond](https://github.com/raymondben) and [Michael Sumner](https://github.com/mdsumner)!
