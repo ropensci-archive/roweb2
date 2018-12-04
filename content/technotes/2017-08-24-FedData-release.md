@@ -13,8 +13,7 @@ tags:
   - packages
   - spatial
   - geospatial
-  - review
-  - onboarding
+  - software-peer-review
   - FedData
 ---
 

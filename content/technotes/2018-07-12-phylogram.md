@@ -12,8 +12,7 @@ tags:
   - r
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - packages
   - integration
   - evolution
