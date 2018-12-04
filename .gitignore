@@ -7,6 +7,7 @@ postcss.json
 package-lock.json
 test.pdf
 content/assets/
+content/technotes/cache/
 content/tutorials/cache/
 content/tutorials/img/
 config.codekit3
