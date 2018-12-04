@@ -1,6 +1,6 @@
 ---
 title: rnoaa tutorial
-package_version: 0.7.0
+package_version: 0.8.0
 ---
 
 
@@ -42,13 +42,13 @@ ncdc_stations(datasetid='GHCND', locationid='FIPS:12017', stationid='GHCND:USC00
 ```
 #> $meta
 #> NULL
-#>
+#> 
 #> $data
 #>   elevation    mindate    maxdate latitude                  name
-#> 1      12.2 1899-02-01 2017-10-13  28.8029 INVERNESS 3 SE, FL US
+#> 1      12.2 1899-02-01 2018-11-30  28.8029 INVERNESS 3 SE, FL US
 #>   datacoverage                id elevationUnit longitude
 #> 1            1 GHCND:USC00084289        METERS  -82.3126
-#>
+#> 
 #> attr(,"class")
 #> [1] "ncdc_stations"
 ```
@@ -68,32 +68,20 @@ out$data
 ```
 
 ```
-#>                   date        datatype           station value fl_c
-#> 1  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:AQW00061705   869    C
-#> 2  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:CAW00064757   607    Q
-#> 3  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:CQC00914080   840    R
-#> 4  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:CQC00914801   858    R
-#> 5  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914395   876    P
-#> 6  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914419   885    P
-#> 7  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914446   885    P
-#> 8  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914482   868    R
-#> 9  2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914720   899    R
-#> 10 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914761   897    P
-#> 11 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914831   870    P
-#> 12 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914892   883    P
-#> 13 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914898   875    P
-#> 14 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914911   885    P
-#> 15 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMW00040308   888    S
-#> 16 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMW00040504   879    C
-#> 17 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMW00040505   867    S
-#> 18 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:GQC00914025   852    P
-#> 19 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:GQW00041415   877    C
-#> 20 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:JQW00021603   852    P
-#> 21 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:PSC00914519   883    P
-#> 22 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:PSC00914712   840    P
-#> 23 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:PSW00040309   879    S
-#> 24 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:RMW00040604   867    S
-#> 25 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:RMW00040710   863    C
+#> # A tibble: 25 x 5
+#>    date                datatype        station           value fl_c 
+#>    <chr>               <chr>           <chr>             <int> <chr>
+#>  1 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:AQW00061705   869 C    
+#>  2 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:CAW00064757   607 Q    
+#>  3 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:CQC00914080   840 R    
+#>  4 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:CQC00914801   858 R    
+#>  5 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914395   876 P    
+#>  6 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914419   885 P    
+#>  7 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914446   885 P    
+#>  8 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914482   868 R    
+#>  9 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914720   899 R    
+#> 10 2010-05-01T00:00:00 DLY-TMAX-NORMAL GHCND:FMC00914761   897 P    
+#> # … with 15 more rows
 ```
 
 #### Plot data, super simple, but it's a start
@@ -104,7 +92,7 @@ out <- ncdc(datasetid='NORMAL_DLY', stationid='GHCND:USW00014895', datatypeid='d
 ncdc_plot(out)
 ```
 
-![plot of chunk six](/img/tutorial-images/rnoaa/six-1.png)
+![plot of chunk six](img/tutorial-images/rnoaa/six-1.png)
 
 Note that the x-axis tick text is not readable, but see futher down in tutorial for how to adjust that.
 
@@ -126,7 +114,7 @@ Default plot
 ncdc_plot(out)
 ```
 
-![plot of chunk unnamed-chunk-5](/img/tutorial-images/rnoaa/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-5](img/tutorial-images/rnoaa/unnamed-chunk-5-1.png)
 
 Create 14 day breaks
 
@@ -135,7 +123,7 @@ Create 14 day breaks
 ncdc_plot(out, breaks="14 days")
 ```
 
-![plot of chunk unnamed-chunk-6](/img/tutorial-images/rnoaa/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-6](img/tutorial-images/rnoaa/unnamed-chunk-6-1.png)
 
 One month breaks
 
@@ -144,7 +132,7 @@ One month breaks
 ncdc_plot(out, breaks="1 month", dateformat="%d/%m")
 ```
 
-![plot of chunk unnamed-chunk-7](/img/tutorial-images/rnoaa/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](img/tutorial-images/rnoaa/unnamed-chunk-7-1.png)
 
 ##### Example 2
 
@@ -162,7 +150,7 @@ Make a plot, with 6 hour breaks, and date format with only hour
 ncdc_plot(out2, breaks = "1 month", dateformat = "%d/%m")
 ```
 
-![plot of chunk unnamed-chunk-9](/img/tutorial-images/rnoaa/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-9](img/tutorial-images/rnoaa/unnamed-chunk-9-1.png)
 
 #### Combine many calls to noaa function
 
@@ -184,37 +172,27 @@ head(df[[1]]); tail(df[[1]])
 ```
 
 ```
-#>                  date datatype           station value fl_m fl_q fl_so
-#> 1 2010-03-01T00:00:00     PRCP GHCND:USW00014895     0    T          0
-#> 2 2010-03-02T00:00:00     PRCP GHCND:USW00014895     0    T          0
-#> 3 2010-03-03T00:00:00     PRCP GHCND:USW00014895     0    T          0
-#> 4 2010-03-04T00:00:00     PRCP GHCND:USW00014895     0               0
-#> 5 2010-03-05T00:00:00     PRCP GHCND:USW00014895     0               0
-#> 6 2010-03-06T00:00:00     PRCP GHCND:USW00014895     0               0
-#>   fl_t
-#> 1 2400
-#> 2 2400
-#> 3 2400
-#> 4 2400
-#> 5 2400
-#> 6 2400
+#> # A tibble: 6 x 8
+#>   date               datatype station         value fl_m  fl_q  fl_so fl_t 
+#>   <chr>              <chr>    <chr>           <int> <chr> <chr> <chr> <chr>
+#> 1 2010-03-01T00:00:… PRCP     GHCND:USW00014…     0 T     ""    0     2400 
+#> 2 2010-03-02T00:00:… PRCP     GHCND:USW00014…     0 T     ""    0     2400 
+#> 3 2010-03-03T00:00:… PRCP     GHCND:USW00014…     0 T     ""    0     2400 
+#> 4 2010-03-04T00:00:… PRCP     GHCND:USW00014…     0 ""    ""    0     2400 
+#> 5 2010-03-05T00:00:… PRCP     GHCND:USW00014…     0 ""    ""    0     2400 
+#> 6 2010-03-06T00:00:… PRCP     GHCND:USW00014…     0 ""    ""    0     2400
 ```
 
 ```
-#>                    date datatype           station value fl_m fl_q fl_so
-#> 148 2010-10-26T00:00:00     PRCP GHCND:USW00014895   221               0
-#> 149 2010-10-27T00:00:00     PRCP GHCND:USW00014895     0               0
-#> 150 2010-10-28T00:00:00     PRCP GHCND:USW00014895     0    T          0
-#> 151 2010-10-29T00:00:00     PRCP GHCND:USW00014895     0    T          0
-#> 152 2010-10-30T00:00:00     PRCP GHCND:USW00014895     0               0
-#> 153 2010-10-31T00:00:00     PRCP GHCND:USW00014895     0               0
-#>     fl_t
-#> 148 2400
-#> 149 2400
-#> 150 2400
-#> 151 2400
-#> 152 2400
-#> 153 2400
+#> # A tibble: 6 x 8
+#>   date               datatype station         value fl_m  fl_q  fl_so fl_t 
+#>   <chr>              <chr>    <chr>           <int> <chr> <chr> <chr> <chr>
+#> 1 2010-10-26T00:00:… PRCP     GHCND:USW00014…   221 ""    ""    0     2400 
+#> 2 2010-10-27T00:00:… PRCP     GHCND:USW00014…     0 ""    ""    0     2400 
+#> 3 2010-10-28T00:00:… PRCP     GHCND:USW00014…     0 T     ""    0     2400 
+#> 4 2010-10-29T00:00:… PRCP     GHCND:USW00014…     0 T     ""    0     2400 
+#> 5 2010-10-30T00:00:… PRCP     GHCND:USW00014…     0 ""    ""    0     2400 
+#> 6 2010-10-31T00:00:… PRCP     GHCND:USW00014…     0 ""    ""    0     2400
 ```
 
 Then plot - the default passing in the combined plot plots the data together. In this case it looks kind of weird since a straight line combines two distant dates.
@@ -224,7 +202,7 @@ Then plot - the default passing in the combined plot plots the data together. In
 ncdc_plot(df)
 ```
 
-![plot of chunk unnamed-chunk-12](/img/tutorial-images/rnoaa/unnamed-chunk-12-1.png)
+![plot of chunk unnamed-chunk-12](img/tutorial-images/rnoaa/unnamed-chunk-12-1.png)
 
 But we can pass in each separately, which uses `facet_wrap` in `ggplot2` to plot each set of data in its own panel.
 
@@ -233,7 +211,7 @@ But we can pass in each separately, which uses `facet_wrap` in `ggplot2` to plot
 ncdc_plot(out1, out2, breaks="45 days")
 ```
 
-![plot of chunk unnamed-chunk-13](/img/tutorial-images/rnoaa/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-13](img/tutorial-images/rnoaa/unnamed-chunk-13-1.png)
 
 ### ERDDAP data
 
@@ -252,12 +230,12 @@ swdi(dataset='nx3tvs', startdate='20060505', enddate='20060506')
 ```
 #> $meta
 #> $meta$totalCount
-#> numeric(0)
-#>
+#> [1] 25
+#> 
 #> $meta$totalTimeInSeconds
-#> [1] 0.012
-#>
-#>
+#> [1] 0.367
+#> 
+#> 
 #> $data
 #>                   ztime wsr_id cell_id cell_type range azimuth max_shear
 #> 1  2006-05-05T00:05:50Z   KBMX      Q0       TVS     7     217       403
@@ -311,7 +289,7 @@ swdi(dataset='nx3tvs', startdate='20060505', enddate='20060506')
 #> 23  108
 #> 24   78
 #> 25   81
-#>
+#> 
 #> $shape
 #>                                         shape
 #> 1  POINT (-86.8535716274277 33.0786326913943)
@@ -339,7 +317,7 @@ swdi(dataset='nx3tvs', startdate='20060505', enddate='20060506')
 #> 23 POINT (-102.448763863447 32.6613484943994)
 #> 24   POINT (-102.42842159557 32.649061124799)
 #> 25 POINT (-102.504158884526 32.7162751126854)
-#>
+#> 
 #> attr(,"class")
 #> [1] "swdi"
 ```
@@ -355,12 +333,12 @@ list(out$meta, head(out$data), head(out$shape))
 ```
 #> [[1]]
 #> [[1]]$totalCount
-#> numeric(0)
-#>
+#> [1] 25
+#> 
 #> [[1]]$totalTimeInSeconds
-#> [1] 0.051
-#>
-#>
+#> [1] 0.032
+#> 
+#> 
 #> [[2]]
 #>            ztime_start            ztime_end     id         warningtype
 #> 1 2006-05-05T22:53:00Z 2006-05-06T00:00:00Z 397428 SEVERE THUNDERSTORM
@@ -376,7 +354,7 @@ list(out$meta, head(out$data), head(out$shape))
 #> 4     KMAF    052258
 #> 5     KMAF    052305
 #> 6     KLUB    052315
-#>
+#> 
 #> [[3]]
 #>                                                                                                                                                          shape
 #> 1                                                                             POLYGON ((-93.27 30.38, -93.29 30.18, -93.02 30.18, -93.04 30.37, -93.27 30.38))
@@ -397,12 +375,12 @@ swdi(dataset='plsr', startdate='20060505', enddate='20060510', bbox=c(-91,30,-90
 ```
 #> $meta
 #> $meta$totalCount
-#> numeric(0)
-#>
+#> [1] 5
+#> 
 #> $meta$totalTimeInSeconds
 #> [1] 0
-#>
-#>
+#> 
+#> 
 #> $data
 #>                  ztime     id        event magnitude            city
 #> 1 2006-05-09T02:20:00Z 427540         HAIL         1    5 E KENTWOOD
@@ -416,7 +394,7 @@ swdi(dataset='plsr', startdate='20060505', enddate='20060510', bbox=c(-91,30,-90
 #> 3 WASHINGTON    LA TRAINED SPOTTER
 #> 4 WASHINGTON    LA   AMATEUR RADIO
 #> 5 WASHINGTON    LA LAW ENFORCEMENT
-#>
+#> 
 #> $shape
 #>                  shape
 #> 1 POINT (-90.43 30.93)
@@ -424,7 +402,7 @@ swdi(dataset='plsr', startdate='20060505', enddate='20060510', bbox=c(-91,30,-90
 #> 3  POINT (-90.3 30.96)
 #> 4 POINT (-90.14 30.85)
 #> 5 POINT (-90.14 30.78)
-#>
+#> 
 #> attr(,"class")
 #> [1] "swdi"
 ```
@@ -554,13 +532,13 @@ head(buoys(dataset = "cwind"))
 #> 4 41006
 #> 5 41008
 #> 6 41009
-#>                                                                       url
-#> 1 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41001/catalog.html
-#> 2 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41002/catalog.html
-#> 3 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41004/catalog.html
-#> 4 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41006/catalog.html
-#> 5 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41008/catalog.html
-#> 6 http://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41009/catalog.html
+#>                                                                        url
+#> 1 https://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41001/catalog.html
+#> 2 https://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41002/catalog.html
+#> 3 https://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41004/catalog.html
+#> 4 https://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41006/catalog.html
+#> 5 https://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41008/catalog.html
+#> 6 https://dods.ndbc.noaa.gov/thredds/catalog/data/cwind/41009/catalog.html
 ```
 
 #### Get buoy data
@@ -571,13 +549,13 @@ Get data for a buoy, specifying year and datatype
 
 
 ```r
-buoy(dataset = 'cwind', buoyid = 41001, year = 2008, datatype = "cc")
+buoy(dataset = 'cwind', buoyid = 41001, year = 2008, datatype = "c")
 ```
 
 ```
-#> Dimensions (rows/cols): [1585 X 5]
-#> 2 variables: [wind_dir, wind_spd]
-#>
+#> Dimensions (rows/cols): [1585 X 5] 
+#> 2 variables: [wind_dir, wind_spd] 
+#> 
 #>                    time    lat     lon wind_dir wind_spd
 #> 1  2008-05-28T16:00:00Z 34.704 -72.734      230      8.6
 #> 2  2008-05-28T16:10:00Z 34.704 -72.734      230      8.7
@@ -599,8 +577,8 @@ To cite `rnoaa` in publications use:
 
 <br>
 
-> Scott Chamberlain (2017). rnoaa: 'NOAA' Weather Data from R. R
-  package version 0.7.0. https://CRAN.R-project.org/package=rnoaa
+> Scott Chamberlain (2018). rnoaa: 'NOAA' Weather Data from R. R
+  package version 0.8.0. https://CRAN.R-project.org/package=rnoaa
 
 
 ### License and bugs
