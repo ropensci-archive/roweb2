@@ -1,0 +1,191 @@
+---
+slug: "rnoaa-update"
+title: "rnoaa: new data sources and NCDC units"
+date: 2018-12-04
+authors:
+  - name: Scott Chamberlain
+categories:
+  - technotes
+topicid: 1415
+tags:
+- R
+- data
+- NOAA
+- rnoaa
+- climate
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+We've just released a new version of [rnoaa][] with A LOT of changes. Check out 
+the [release notes](https://github.com/ropensci/rnoaa/releases/tag/v0.8.0) 
+for a complete list of changes. 
+
+We'll highlight a few things in this post:
+
+- New data sources in the package
+- NCDC units added to the output of `ncdc()`
+
+Links:
+
+* rnoaa source code: <https://github.com/ropensci/rnoaa>
+* rnoaa on CRAN: <https://cran.rstudio.com/web/packages/rnoaa/>
+
+<br>
+
+## Installation
+
+Install the lastest from CRAN
+
+```{r eval=FALSE}
+install.packages("rnoaa")
+```
+
+Some binaries are not up yet on CRAN - you can also install from GitHub:
+
+```{r eval=FALSE}
+remotes::install_github("ropensci/rnoaa@v0.8.0")
+```
+
+Load `rnoaa`
+
+```{r}
+library(rnoaa)
+```
+
+<br>
+
+## New data sources
+
+There are three new data sources in the package. There's more in the works. You 
+can keep track of new data sources in the package via the `newdatasource`
+label in the [issue tracker](https://github.com/ropensci/rnoaa/issues?q=is%3Aissue+is%3Aopen+label%3Anewdatasource). 
+
+### Blended Sea Winds
+
+[Blended Sea Winds][bsw] contains 
+
+> globally gridded, high-resolution ocean surface vector winds and wind stresses on a 
+> global 0.25° grid, and multiple time resolutions of six-hourly, daily, monthly, 
+> and 11-year (1995-2005) climatological monthlies.
+
+Data is available from July 9, 1987 to present. 
+
+Check out the link above for more information on the data. 
+
+In a brief example of getting the data in `rnoaa`, we get data for the date 
+October 1st, 2017, and we get daily resolution. The data is provided in 
+netcdf format.
+
+```{r cache = TRUE}
+bsw(date = "2017-10-01", resolution = "daily")
+```
+
+<br>
+
+### Local Climatological Data
+
+[Local Climatological Data][lcd] consists of
+
+> hourly, daily, and monthly summaries for approximately 1,600 U.S. locations.
+
+In some examples, we get data for a single station for two different years.
+The data is returned in data.frame format
+
+```{r}
+lcd(station = "01338099999", year = "2017")
+lcd(station = "01338099999", year = "2015")
+```
+
+<br>
+
+### Storm Events Database
+
+The [Storm Events Database][sed] contains records used to create the 
+official [NOAA Storm Data publication](http://www.ncdc.noaa.gov/IPS/sd/sd.html).
+
+Data contains:
+
+* occurrence of storms, and other phenomena of sufficient intensity to cause loss of life, 
+injuries, etc.
+* rare, unusual weather phenomena that generate media attention, such as snow flurries in 
+South Florida or the San Diego coastal area
+* other significant meteorological events, such as record max. or min. temperatures or 
+precipitation that occur in connection with another event
+
+Data is available from January 1950 to August 2018.
+
+There are two functions associated with this data: `se_files()` and `se_data()`.
+
+`se_files()` gives a data.frame of the details of each storm file, and 
+`se_data()` gets the data for a particular year and data type. 
+
+In a brief example, here we get data for year of 1988 and type "fatalities"
+
+```{r}
+se_data(year = 1988, type = "fatalities")
+```
+
+<br>
+
+## NCDC data gets units
+
+The main function for getting NCDC data via their API - `ncdc()` - gains the `add_units` parameter 
+(boolean) to toggle adding units to the output data.frame. 
+
+The default is `add_units=FALSE` - meaning that by default the results from the function 
+DO NOT CHANGE. 
+
+However, if `add_units=TRUE` we match by dataset id and data type id and return units if 
+we have them. The way we do this is by manually curating lists of metadata inside the package.
+See any of the files in [the source code](https://github.com/ropensci/rnoaa/tree/master/R) 
+that start with `units-`. 
+
+Do be in touch if you see a problem with these units! 
+
+Note that we haven't filled out all units for all datasets. If you'd like to help it would 
+be much appreciated.
+
+We should also note that `ncdc()` now returns tibbles in the data slot. This way if you 
+get back a huge number of rows it won't print to console for a long time. You can revert 
+the tibbles back to data.frames just by using `as.data.frame` or similar.
+
+<br>
+
+## Bug fixes!
+
+There's a huge list of bug fixes (and fixes listed in Minor Improvements ) in this version, 
+and many people to thank for reporting them: 
+
+* [@andypicke](https://github.com/andypicke)
+* [@ghaines3](https://github.com/ghaines3)
+* [@joeroe](https://github.com/joeroe)
+* [@johnharley](https://github.com/johnharley)
+* [@jonmcalder](https://github.com/jonmcalder)
+* [@mondorescue](https://github.com/mondorescue)
+* [@OrionDarley](https://github.com/OrionDarley)
+* [@potterzot](https://github.com/potterzot)
+* [@jsta](https://github.com/jsta)
+* [@asrivas3](https://github.com/asrivas3)
+* [@kevin-ht-ho](https://github.com/kevin-ht-ho)
+
+<br>
+
+## Get in touch
+
+Get in touch if you have any `rnoaa` questions in the 
+[issue tracker](https://github.com/ropensci/rnoaa/issues) or the 
+[rOpenSci discussion forum](https://discuss.ropensci.org/).
+
+
+[rnoaa]: https://github.com/ropensci/rnoaa
+[bsw]: https://www.ncdc.noaa.gov/data-access/marineocean-data/blended-global/blended-sea-winds
+[lcd]: https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/quality-controlled-local-climatological-data-qclcd
+[sed]: https://www.ncdc.noaa.gov/stormevents/
