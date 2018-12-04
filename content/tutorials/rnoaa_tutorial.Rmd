@@ -1,6 +1,6 @@
 ---
 title: rnoaa tutorial
-package_version: 0.7.0
+package_version: 0.8.0
 ---
 
 ```{r, eval=TRUE, echo=FALSE}
@@ -247,7 +247,7 @@ With `buoy` you can get data for a particular dataset, buoy id, year, and dataty
 Get data for a buoy, specifying year and datatype
 
 ```{r}
-buoy(dataset = 'cwind', buoyid = 41001, year = 2008, datatype = "cc")
+buoy(dataset = 'cwind', buoyid = 41001, year = 2008, datatype = "c")
 ```
 
 
@@ -257,8 +257,8 @@ To cite `rnoaa` in publications use:
 
 <br>
 
-> Scott Chamberlain (2017). rnoaa: 'NOAA' Weather Data from R. R
-  package version 0.7.0. https://CRAN.R-project.org/package=rnoaa
+> Scott Chamberlain (2018). rnoaa: 'NOAA' Weather Data from R. R
+  package version 0.8.0. https://CRAN.R-project.org/package=rnoaa
 
 
 ### License and bugs
