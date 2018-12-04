@@ -15,8 +15,7 @@ categories: blog
 topicid: 1142
 tags:
   - community
-  - onboarding
-  - review
+  - software-peer-review
   - reviewer
   - survey
 ---

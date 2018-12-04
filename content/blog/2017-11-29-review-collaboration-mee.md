@@ -17,8 +17,7 @@ categories: blog
 topicid: 982
 tags:
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - R
 ---
 

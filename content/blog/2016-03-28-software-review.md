@@ -19,7 +19,7 @@ authors:
 categories: blog
 tags:
   - software
-  - review
+  - software-peer-review
   - infrastructure
 ---
 

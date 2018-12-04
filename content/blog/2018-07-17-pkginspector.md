@@ -24,8 +24,7 @@ topicid: 1262
 tags:
   - community
   - r
-  - review
-  - onboarding
+  - software-peer-review
   - packages
   - unconf
   - unconf18

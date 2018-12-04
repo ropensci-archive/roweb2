@@ -12,8 +12,7 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - packages
   - data-access
   - weather

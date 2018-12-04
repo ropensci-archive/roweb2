@@ -12,9 +12,8 @@ tags:
   - R
   - community
   - software
-  - review
+  - software-peer-review
   - packages
-  - onboarding
   - text-mining
   - data-extraction
   - archiving

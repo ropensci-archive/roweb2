@@ -13,8 +13,7 @@ tags:
   - packages
   - API
   - USPTO
-  - review
-  - onboarding
+  - software-peer-review
   - community
 categories: blog
 ---

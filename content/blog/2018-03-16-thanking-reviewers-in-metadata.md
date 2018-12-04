@@ -16,7 +16,7 @@ categories: blog
 topicid: 1101
 tags:
   - community
-  - onboarding
+  - software-peer-review
   - metadata
 ---
 

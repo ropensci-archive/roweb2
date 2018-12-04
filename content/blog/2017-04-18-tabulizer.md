@@ -15,8 +15,7 @@ tags:
   - pdf
   - tabulizer
   - data-extraction
-  - review
-  - onboarding
+  - software-peer-review
 ---
 
 

@@ -12,8 +12,7 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
 ---
 
 As a lab scientist, I do almost all of my experiments in [microtiter plates](https://en.wikipedia.org/wiki/Microtiter_plate). These tools are an efficient means of organizing many parallel experimental conditions. It's not always easy, however, to translate between the physical plate and a useful data structure for analysis. My first attempts to solve this problem--nesting one `ifelse` call inside of the next to describe which well was which--were very unsatisfying. Over time, my attempts at solving the problem grew more sophisticated, and eventually, the `plater` package was born. Here I will tell the story of how with the help of [R Packages](http://r-pkgs.had.co.nz/) and the amazing reviewers ([Julia Gustavsen](http://www.juliagustavsen.com/) and [Dean Attali](http://deanattali.com/)) and [editors](https://scottchamberlain.info/) at rOpenSci, I ended up with a package that makes it easy to work with plate-based data.

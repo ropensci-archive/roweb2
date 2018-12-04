@@ -15,7 +15,7 @@ output:
     toc: no
 categories: blog
 tags:
-  - review
+  - software-peer-review
   - community
   - packages
   - text

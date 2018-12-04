@@ -12,9 +12,8 @@ tags:
   - beginner
   - community
   - software
-  - review
+  - software-peer-review
   - reviewer
-  - onboarding
   - packages
   - data-access
   - weathercan

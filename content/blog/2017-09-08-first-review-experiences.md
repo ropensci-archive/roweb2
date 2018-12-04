@@ -10,9 +10,8 @@ topicid: 861
 tags:
   - R
   - software
-  - review
+  - software-peer-review
   - reviewer
-  - onboarding
 ---
 
 It all started January 26<sup>th</sup> this year when I signed up to volunteer as

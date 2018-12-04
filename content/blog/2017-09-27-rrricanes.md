@@ -11,8 +11,7 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - rrricanes
   - rrricanesdata
   - hurricanes

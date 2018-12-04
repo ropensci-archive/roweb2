@@ -18,8 +18,7 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - cloc
 output:
   md_document:

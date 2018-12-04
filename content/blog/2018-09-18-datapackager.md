@@ -15,8 +15,7 @@ tags:
   - tidydata
   - datasharing
   - software
-  - onboarding
-  - review
+  - software-peer-review
   - packages
   - bioinformatics
 ---

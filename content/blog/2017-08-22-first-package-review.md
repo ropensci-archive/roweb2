@@ -9,9 +9,8 @@ categories: blog
 topicid: 838
 tags:
   - R
-  - review
+  - software-peer-review
   - reviewer
-  - onboarding
   - visdat
   - community
   - packages

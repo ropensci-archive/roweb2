@@ -14,9 +14,8 @@ tags:
   - R
   - community
   - software
-  - review
+  - software-peer-review
   - reviewer
-  - onboarding
 ---
 
 If you read my [reflection #1 on rOpenSci Onboarding](https://milesmcbain.xyz/ropensci-onboarding1/), then you know I see value in the Onboarding process. A LOT of value even. This post is about where that value lies. 

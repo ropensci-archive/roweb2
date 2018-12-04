@@ -14,8 +14,7 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - ghql
   - jqr
   - git2r

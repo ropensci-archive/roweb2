@@ -18,8 +18,7 @@ tags:
   - data-extraction
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - googleLanguageR
 ---
 
