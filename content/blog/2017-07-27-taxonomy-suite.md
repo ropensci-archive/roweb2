@@ -663,7 +663,7 @@ Despite all of the above, we still have some things to work on:
 * They'll always be more data sources that we can potentially add to `taxize` - get in touch and let us know.
 
 
-What do you think about the taxonomic suite of packages?  Anything we're missing? Anything we can be doing better with any of the packages?  Are you working on a taxonomic R package? Consider [submitting to rOpenSci](https://github.com/ropensci/onboarding).
+What do you think about the taxonomic suite of packages?  Anything we're missing? Anything we can be doing better with any of the packages?  Are you working on a taxonomic R package? Consider [submitting to rOpenSci](https://github.com/ropensci/software-review).
 
 
 

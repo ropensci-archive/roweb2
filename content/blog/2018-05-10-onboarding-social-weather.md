@@ -9,15 +9,14 @@ date: '2018-05-10'
 preface: This blog post is the third of a 3-post series about a data-driven overview
   of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/),
   the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
-  the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03/onboarding-is-work/).
+  the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03-is-work/).
 categories: blog
 topicid: 1167
 tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - tidytext
   - sentimentr
 output:
@@ -26,7 +25,7 @@ output:
     preserve_yaml: yes
 ---
 
-Our [onboarding process](https://github.com/ropensci/onboarding/)
+Our [onboarding process](https://github.com/ropensci/software-review/)
 ensures that packages contributed by the community undergo a
 transparent, constructive, non adversarial and open review process.
 Before even submitting my first R package to rOpenSci onboarding system
@@ -46,7 +45,7 @@ possible to listen?!
 
 In the meantime, I’ve now only submitted and reviewed a few packages but
 also become an [associate
-editor](https://github.com/ropensci/onboarding/#associate-editors). In
+editor](https://ropensci.github.io/dev_guide/onboardingintro.html#editors-and-reviewers). In
 general, when one of us editors talks about onboarding, we like to use
 examples illustrating the system in a good light: often excerpts from
 review processes, or quotes of tweets by authors or reviewers. Would
@@ -74,7 +73,7 @@ how I got all onboarding issue threads. Now, I’ll explain how I cleaned
 their text. Why does it need to be cleaned? Well, this text contains
 elements that I wished to remove: code chunks, as well as parts from our
 submission and [review
-templates](https://github.com/ropensci/onboarding/blob/master/reviewer_template.md).
+templates](https://ropensci.github.io/dev_guide/reviewtemplate.html).
 
 **Edit: Find a cleaner approach to Markdown text extraction in [this tech note](https://ropensci.org/technotes/2018/09/05/commonmark/).**
 
@@ -157,7 +156,7 @@ threads <- dplyr::ungroup(threads)
 
 Let’s look at what this does in practice, with comments from
 [`gutenbergr`
-submission](https://github.com/ropensci/onboarding/issues/41) as
+submission](https://github.com/ropensci/software-review/issues/41) as
 example. I chose this submission because the package author, David
 Robinson, is one of the two `tidytext` creators, and because I was the
 reviewer, so it’s all very meta, isn’t it?
@@ -224,7 +223,7 @@ I counted how many times it occurred overall (`no_total_occ`), and in
 how many issues it occurred (`no_issues`).
 
 Let’s look at [Joseph Stachelek’s review of
-`rrricanes`](https://github.com/ropensci/onboarding/issues/118#issuecomment-310503322)
+`rrricanes`](https://github.com/ropensci/software-review/issues/118#issuecomment-310503322)
 for instance.
 
 ``` r
@@ -355,7 +354,7 @@ So now, we mostly got the interesting human and original language.
 
 This got me “tidy enough” text. Let’s not mention this package author
 who found a way to poorly format [their
-submission](https://github.com/ropensci/onboarding/issues/24) right
+submission](https://github.com/ropensci/software-review/issues/24) right
 under a guideline explaining how to copy the DESCRIPTION… Yep, that’s
 younger me. Oh well.
 

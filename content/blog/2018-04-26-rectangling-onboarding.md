@@ -14,8 +14,7 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - ghql
   - jqr
   - git2r
@@ -59,7 +58,7 @@ picture chapter](http://happygitwithr.com/big-picture.html).
 
 Each package submission is an issue thread in our onboarding repository,
 see an example
-[here](https://github.com/ropensci/onboarding/issues/136). The first
+[here](https://github.com/ropensci/software-review/issues/136). The first
 comment in that issue is the submission itself, followed by many
 comments by the editor, reviewers and authors. On top of all the data
 that’s saved there, mostly text data, we have a private
@@ -195,11 +194,11 @@ issues %>%
 | title  | author\_association | assignee | created\_at         | closed\_at          | user     | comment\_url                                                            | package | pulled |  issue| meta | x6\_approved | out\_of\_scope | x4\_review\_s\_in\_awaiting\_changes | x0\_presubmission | question | x3\_reviewer\_s\_assigned | holding | legacy | x1\_editor\_checks | x5\_awaiting\_reviewer\_s\_response | x2\_seeking\_reviewer\_s |
 |:-------|:--------------------|:---------|:--------------------|:--------------------|:---------|:------------------------------------------------------------------------|:--------|:-------|------:|:-----|:-------------|:---------------|:-------------------------------------|:------------------|:---------|:--------------------------|:--------|:-------|:-------------------|:------------------------------------|:-------------------------|
 | rrlite | OWNER               | sckott   | 2015-03-10 23:22:45 | 2015-03-31 00:16:28 | richfitz | NA                                                                      | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-10 23:26:11 | 2015-03-31 00:16:28 | richfitz | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78170639> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 19:29:32 | 2015-03-31 00:16:28 | karthik  | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78351979> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 21:08:59 | 2015-03-31 00:16:28 | sckott   | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78372187> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 21:13:11 | 2015-03-31 00:16:28 | karthik  | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78373054> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
-| rrlite | OWNER               | sckott   | 2015-03-11 21:33:45 | 2015-03-31 00:16:28 | richfitz | <https://github.com/ropensci/onboarding/issues/1#issuecomment-78377124> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-10 23:26:11 | 2015-03-31 00:16:28 | richfitz | <https://github.com/ropensci/software-review/issues/1#issuecomment-78170639> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 19:29:32 | 2015-03-31 00:16:28 | karthik  | <https://github.com/ropensci/software-review/issues/1#issuecomment-78351979> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 21:08:59 | 2015-03-31 00:16:28 | sckott   | <https://github.com/ropensci/software-review/issues/1#issuecomment-78372187> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 21:13:11 | 2015-03-31 00:16:28 | karthik  | <https://github.com/ropensci/software-review/issues/1#issuecomment-78373054> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
+| rrlite | OWNER               | sckott   | 2015-03-11 21:33:45 | 2015-03-31 00:16:28 | richfitz | <https://github.com/ropensci/software-review/issues/1#issuecomment-78377124> | TRUE    | TRUE   |      1| NA   | NA           | NA             | NA                                   | NA                | NA       | NA                        | NA      | NA     | NA                 | NA                                  | NA                       |
 
 Now we need a few steps more:
 

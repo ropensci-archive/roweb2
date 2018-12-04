@@ -16,7 +16,7 @@ categories: blog
 topicid: 1101
 tags:
   - community
-  - onboarding
+  - software-peer-review
   - metadata
 ---
 
@@ -78,7 +78,7 @@ A few notes about how this development relates specifically to rOpenSci's peer-r
     ```
     person("Bea", "Hernández", role = "rev",
            comment = "Bea reviewed the package for rOpenSci, see 
-                      https://github.com/ropensci/onboarding/issues/116")
+                      https://github.com/ropensci/onsoftware-reviewssues/116")
     ```
 
 We are very excited about this development and how it can improve incentives for peer review. Thanks to R-core for getting aboard with this, and the early adopters who tested it!

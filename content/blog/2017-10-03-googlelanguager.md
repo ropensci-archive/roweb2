@@ -18,8 +18,7 @@ tags:
   - data-extraction
   - community
   - software
-  - review
-  - onboarding
+  - software-peer-review
   - googleLanguageR
 ---
 
@@ -74,7 +73,7 @@ Finally, I live and work in Denmark.  As Danish is only spoken by less than 6 mi
 
 To use these APIs within R, you first need to do a one-time setup to create a Google Project, add a credit card and authenticate which is [detailed on the package website](http://code.markedmondson.me/googleLanguageR/#installation).
 
-After that, you feed in the R objects you want to operate upon.  The [rOpenSci review](https://github.com/ropensci/onboarding/issues/127) helped to ensure that this can scale up easily, so that you can feed in large character vectors which the library will parse and rate limit as required.  The functions also work within [tidyverse](https://www.tidyverse.org/) pipe syntax.
+After that, you feed in the R objects you want to operate upon.  The [rOpenSci review](https://github.com/ropensci/software-review/issues/127) helped to ensure that this can scale up easily, so that you can feed in large character vectors which the library will parse and rate limit as required.  The functions also work within [tidyverse](https://www.tidyverse.org/) pipe syntax.
 
 #### Speech-to-text
 

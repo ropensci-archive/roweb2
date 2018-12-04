@@ -17,7 +17,7 @@ The R package ecosystem for natural language processing has been flourishing in 
 
 Still there is a lot of duplicated effort between these packages on the one hand and a lot of incompatibilities between the packages on the other. The R ecosystem for text analysis is not exactly coherent or consistent at the moment.
 
-My small contribution to the new text analysis ecosystem is the tokenizers package, which was recently accepted into rOpenSci after a careful [peer review](https://github.com/ropensci/onboarding/issues/33) by [Kevin Ushey](https://kevinushey.github.io/). A new version of the package is [on CRAN](https://cran.r-project.org/package=tokenizers/). (Also check out the
+My small contribution to the new text analysis ecosystem is the tokenizers package, which was recently accepted into rOpenSci after a careful [peer review](https://github.com/ropensci/software-review/issues/33) by [Kevin Ushey](https://kevinushey.github.io/). A new version of the package is [on CRAN](https://cran.r-project.org/package=tokenizers/). (Also check out the
 Jeroen Ooms's [hunspell](https://github.com/ropensci/hunspell) package, which is a part of rOpensci.)
 
 One of the basic tasks in any NLP pipeline is turning texts (which humans can read) into tokens (which machines can compute with). For example, you might break a text into words or into [n-grams](https://en.wikipedia.org/wiki/N-gram). Here is an example using the [former slave interviews](https://memory.loc.gov/ammem/snhtml/snhome.html) from the Great Depression era Federal Writers' Project. (A data package with those interviews is in development [here](https://github.com/lmullen/WPAnarratives)).

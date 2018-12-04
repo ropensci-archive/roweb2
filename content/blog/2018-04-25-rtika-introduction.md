@@ -12,9 +12,8 @@ tags:
   - R
   - community
   - software
-  - review
+  - software-peer-review
   - packages
-  - onboarding
   - text-mining
   - data-extraction
   - archiving
@@ -124,7 +123,7 @@ For this batch, the efficiency compared favorably to `antiword`, even with the o
 
 #### Lessons Learned
 
-I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/onboarding and https://github.com/ropensci/onboarding/issues/191  ) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
+I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/software-review and https://github.com/ropensci/software-review/issues/191  ) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
 
 ##### Connecting to Tika 
 
