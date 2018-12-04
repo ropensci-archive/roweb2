@@ -20,7 +20,7 @@ output:
 ---
 
 A while ago we
-[onboarded](https://github.com/ropensci/onboarding/issues/130) an
+[onboarded](https://github.com/ropensci/software-review/issues/130) an
 exciting package, [`codemetar`](https://github.com/ropensci/codemetar/)
 by [Carl Boettiger](/about/#team). `codemetar` is an R specific
 information collector and parser for the [CodeMeta
@@ -59,7 +59,7 @@ dev branch of `codemetar`):
 -   extraction and parsing on the first HTML table there is if there’s
     any, which is necessary for [badges in table, which we’ve been
     discussing for our
-    guidelines](https://github.com/ropensci/onboarding-meta/issues/56).
+    guidelines](https://github.com/ropensci/software-review-meta/issues/56).
 
 Note that the CRAN version of `codemetar` already features
 `extract_badges`, but with a badges table creation based on regular
@@ -78,7 +78,7 @@ codemetar::extract_badges("https://raw.githubusercontent.com/ropensci/drake/mast
 | JOSS                                                                                                       | <https://doi.org/10.21105/joss.00550>                    | <http://joss.theoj.org/papers/10.21105/joss.00550/status.svg>                         |
 | Licence                                                                                                    | <https://www.gnu.org/licenses/gpl-3.0.en.html>           | <https://img.shields.io/badge/licence-GPL--3-blue.svg>                                |
 | AppVeyor                                                                                                   | <https://ci.appveyor.com/project/ropensci/drake>         | <https://ci.appveyor.com/api/projects/status/4ypc9xnmqt70j94e?svg=true&branch=master> |
-| rOpenSci                                                                                                   | <https://github.com/ropensci/onboarding/issues/156>      | <https://badges.ropensci.org/156_status.svg>                                          |
+| rOpenSci                                                                                                   | <https://github.com/ropensci/software-review/issues/156>      | <https://badges.ropensci.org/156_status.svg>                                          |
 | minimal R version                                                                                          | <https://cran.r-project.org/>                            | <https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg>                                 |
 | Travis                                                                                                     | <https://travis-ci.org/ropensci/drake>                   | <https://travis-ci.org/ropensci/drake.svg?branch=master>                              |
 | CRAN                                                                                                       | <http://cran.r-project.org/package=drake>                | <http://www.r-pkg.org/badges/version/drake>                                           |

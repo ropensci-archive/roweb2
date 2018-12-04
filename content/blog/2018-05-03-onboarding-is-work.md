@@ -26,7 +26,7 @@ output:
     preserve_yaml: yes
 ---
 
-Our [onboarding process](https://github.com/ropensci/onboarding/), that
+Our [onboarding process](https://github.com/ropensci/software-review/), that
 ensures that packages contributed by the community undergo a
 transparent, constructive, non adversarial and open review process,
 involves a lot of work from many actors: authors, reviewers and editors;
@@ -285,7 +285,7 @@ library(tidyverse)
 library(gh)
 library(lubridate)
 
-issues <- gh("/repos/ropensci/onboarding/issues?state=all&labels=package", .limit=1000)
+issues <- gh("/repos/ropensci/software-review/issues?state=all&labels=package", .limit=1000)
 
 edits = map_df(issues,
 ~data_frame(url = .$html_url,

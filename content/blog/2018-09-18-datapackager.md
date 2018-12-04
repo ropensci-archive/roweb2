@@ -77,7 +77,7 @@ The package developed organically over the span of several years, initially as a
 
 #### The onboarding process
 
-Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), [Kara Woo](https://github.com/karawoo), [Will Landau](https://github.com/wlandau), and [Noam Ross](https://github.com/noamross) volunteered their time to provide in-depth, comprehensive and careful code review, suggestions for features, documentation, and improvements in coding style and unit tests, that ultimately made the software better. It was an impressive effort (you can see the GitHub issue thread for yourself [here](http://www.github.com/ropensci/onboarding/issues/230)).
+Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), [Kara Woo](https://github.com/karawoo), [Will Landau](https://github.com/wlandau), and [Noam Ross](https://github.com/noamross) volunteered their time to provide in-depth, comprehensive and careful code review, suggestions for features, documentation, and improvements in coding style and unit tests, that ultimately made the software better. It was an impressive effort (you can see the GitHub issue thread for yourself [here](http://www.github.com/ropensci/software-review/issues/230)).
 
 The current version of the package has **100% test coverage** and comprehensive documentation. One great benefit is that as I develop new features in the future, I can be confident I'm not inadvertently breaking something else. 
 

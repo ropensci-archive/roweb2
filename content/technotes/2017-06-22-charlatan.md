@@ -357,5 +357,5 @@ question for me is should we do this - if the answer is yes or at least sometime
 then we can explore how. It's not yet clear if it's the right thing to do.
 
 
-[reviewba]: (https://github.com/ropensci/onboarding/issues/94#issuecomment-284578088)
-[reviewtj]: (https://github.com/ropensci/onboarding/issues/94#issuecomment-283799109)
+[reviewba]: (https://github.com/ropensci/software-review/issues/94#issuecomment-284578088)
+[reviewtj]: (https://github.com/ropensci/software-review/issues/94#issuecomment-283799109)
