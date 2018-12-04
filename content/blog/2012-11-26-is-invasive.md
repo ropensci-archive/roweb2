@@ -30,6 +30,6 @@ Hope it can be useful to more people, I uploaded the code as a Gist:
 <script src="https://gist.github.com/ibartomeus/4136068.js"></script>
 
 
-UPDATE: The function is now available on [taxize R package](https://github.com/ropensci/taxize/) developed by the rOpenScience people!
+UPDATE: The function is now available on [taxize R package](https://github.com/ropensci/taxize/) developed by the rOpenSci people!
 
 ___________
