@@ -20,33 +20,10 @@
             <div class="row">
                 <div class="row center">
             <div class="col-10 top-0">
-<table>
-  <thead>
-    <th>Event</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Attendees</th>
-    <th>Description</th>
-  </thead>
-  {{ range .Site.Pages }}
-  {{ if .Params.dateEnd}}
-  {{ $end := (time .Params.dateEnd) }}
-  {{ $diff := (now.Sub $end) }}
-  {{ $diff := $diff.Hours }}
-  {{ if or ($end.After now) (le $diff 48 )}}
-  {{ $start := (time .Params.dateStart)}}
-  {{ $beautifulstart := $start.Format "2006/01/02"}}
-  <tr>
-    <td><a href="{{ .URL}}" target="_blank">{{.Title}}</a></td>
-    <td>{{ $beautifulstart }}</td>
-    <td>{{.Params.location}}</td>
-    <td>{{ if ne (printf "%T" .Params.attendees) "string" }}{{$authors := .Params.attendees}} {{ partial "authorssimpler.html" (dict "authors" $authors "Site" $.Site) }}{{ else }} {{ .Params.attendees }}{{ end }}</td>
-    <td>{{.Params.description | safeHTML}}</td>
-  </tr>
-  {{ end }}
-  {{ end }}
-  {{ end }}
-</table>
+  {{ $pages := where .Site.Pages ".Params.attendees" "!=" nil }}
+  {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now "intervalright" "") }}
+  
+  
 </div>
 </div>
             </div> 
