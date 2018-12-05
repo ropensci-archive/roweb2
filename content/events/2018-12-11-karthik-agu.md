@@ -4,6 +4,7 @@ dateStart: '2018-12-11T8:00:00'
 dateEnd: '2018-12-14T18:00:00'
 description: 'At AGU? Come say hi!'
 location: 'Washington, DC, USA'
+country: '🇺🇸'
 attendees:
   - name: 'Karthik Ram'
     twitter: _inundata

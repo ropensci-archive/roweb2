@@ -4,6 +4,7 @@ dateStart: '2019-01-15T8:00:00'
 dateEnd: '2019-01-18T18:00:00'
 description: ''
 location: 'Austin, TX, USA'
+country: '🇺🇸'
 attendees:
   - name: 'Karthik Ram'
     twitter: _inundata
