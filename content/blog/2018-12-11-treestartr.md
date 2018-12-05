@@ -4,7 +4,7 @@ title: Generating reasonable starting trees for complex phylogenetic analyses
 package_version: 0.1.0
 authors:
   - name: April Wright
-    url: https://ropensci.github.io/treeStartR/
+    url: https://paleantology.com/the-wright-lab/
 date: 2018-12-11
 categories: blog
 topicid: TODO
