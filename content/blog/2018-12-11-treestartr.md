@@ -5,6 +5,7 @@ package_version: 0.1.0
 authors:
   - name: April Wright
     url: https://paleantology.com/the-wright-lab/
+    twitter: WrightingApril
 date: 2018-12-11
 categories: blog
 topicid: TODO
