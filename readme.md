@@ -38,8 +38,7 @@ tags:
 - r
 - community
 - software
-- review
-- onboarding
+- software-peer-review
 - packages
 - bikedata
 - data-acess
@@ -67,9 +66,9 @@ For a post about your reviewed and onboarded package you should:
 - acknowledge reviewers by name with links to their GitHub or Twitter
 - acknowledge other contributors, if any
 - consider ending by pointing to open issues that readers might work on
-- browse other posts about onboarded packages with tag '[onboarding](https://ropensci.org/tags/onboarding/)'
+- browse other posts about onboarded packages with tag '[software-peer-review](https://ropensci.org/tags/software-peer-review/)'
 - include YAML tag "software-peer-review" and tags that were topic labels in your package review
-- browse [other tags](https://ropensci.org/tags/), and do not use the plural/singular form of an existing tag. E.g. "databases" exists so use that preferentially, not "database"
+- browse [other tags](https://ropensci.org/tags/), and use either the plural or singular form of an existing tag e.g. "databases" exists so use that preferentially over "database"
 - add to YAML `twitter: <twitterhandle>` under `- name: <name>` and use a non-twitter link such as GitHub, website, or ORCID for `url: <link>` if you would like author's twitter account to be linked from a twitter icon (example [markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2018-11-13-antarctic.md)| [rendered](https://ropensci.org/blog/2018/11/13/antarctic/))
 - add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png` if you want a specific image from your post to be featured in tweets that include a link to your post
 
