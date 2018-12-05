@@ -73,9 +73,9 @@ For the visual among us, [`absent_tippr`](https://ropensci.github.io/treeStartR/
 
 For some of our workflows in the lab, we use multiple functions. For example, we might first place all the tips that have close relatives using `present_tippr`. Then, tips that represent more distantly related taxa can be placed via `text_placr`, and the leftover fossils added via `rand_absent_tippr`. 
 
-## Why ROpenSci
+## Why rOpenSci
 
-I was a little unsure at first about submitting a package to rOpenSci. I'm a biologist, and while I'm computational, the idea that I might be a solo author on an R package seemed like I was, I don't know, misrepresenting myself? I'm not some sort of big, serious software person. But the more I thought about it, I realized that that makes ROpenSci more attractive - that some serious people could help guide me in making this package. I want stable software for my students to learn from and use. And so I should ask for review. It's appropriate and it's good to ask for expert opinion. 
+I was a little unsure at first about submitting a package to rOpenSci. I'm a biologist, and while I'm computational, the idea that I might be a solo author on an R package seemed like I was, I don't know, misrepresenting myself? I'm not some sort of big, serious software person. But the more I thought about it, I realized that that makes rOpenSci more attractive - that some serious people could help guide me in making this package. I want stable software for my students to learn from and use. And so I should ask for review. It's appropriate and it's good to ask for expert opinion. 
 
 When I was thinking of writing up this blog, I posed the question to Twitter:
 
