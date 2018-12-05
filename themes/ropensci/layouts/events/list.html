@@ -26,7 +26,7 @@
     <th>Date</th>
     <th>Location</th>
     <th>Attendees</th>
-    <th>Details</th>
+    <th>Description</th>
   </thead>
   {{ range .Site.Pages }}
   {{ if .Params.dateEnd}}
@@ -40,7 +40,7 @@
     <td><a href="{{ .URL}}" target="_blank">{{.Title}}</a></td>
     <td>{{ $beautifulstart }}</td>
     <td>{{.Params.location}}</td>
-    <td>{{.Params.attendees}}</td>
+    <td>{{ if ne (printf "%T" .Params.attendees) "string" }}{{$authors := .Params.attendees}} {{ partial "authorssimpler.html" (dict "authors" $authors "Site" $.Site) }}{{ else }} {{ .Params.attendees }}{{ end }}</td>
     <td>{{.Params.description | safeHTML}}</td>
   </tr>
   {{ end }}
