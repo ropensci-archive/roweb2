@@ -21,6 +21,7 @@
                         <br> {{ $start := (time .Params.dateStart)}} {{ $beautifulstart := $start.Format "Monday, 2006/01/02"}}
                         {{ $end := (time .Params.dateEnd)}} {{ $beautifulend := $end.Format "Monday, 2006/01/02"}}
                         <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ $beautifulstart }}{{if ne $beautifulstart $beautifulend}}&nbsp;-&nbsp;{{ $beautifulend }}{{end}}</div>
+                        <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Params.location }}</div>
                     </div>
 
                     <br>
