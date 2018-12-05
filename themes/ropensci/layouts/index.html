@@ -128,8 +128,27 @@
 
 
 <!-- begins upcoming events calendar section -->
+<section>
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Upcoming Events</h2>
+                </div>
+                <div class="col-8 top-4 bottom-12">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row center">
+            <div class="col-10 top-0"> 
 {{ $pages := where .Site.Pages ".Params.attendees" "!=" nil }}
   {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now "intervalright" "") }}
+  
+</div>
+</div>
+            </div> 
+        </div>
+        <br></br>
 <!-- / ends upcoming events calendar section ********* -->
 
 {{ partial "mailkimp.html" . }}

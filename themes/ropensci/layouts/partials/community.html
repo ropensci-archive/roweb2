@@ -27,5 +27,5 @@
 <!-- begins event calendar section -->
     <!-- begins upcoming events calendar section -->
 {{ $pages := where .Site.Pages ".Params.attendees" "!=" nil }}
-  {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now "intervalright" "") }}
+  {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now) }}
 <!-- / ends upcoming events calendar section -->
