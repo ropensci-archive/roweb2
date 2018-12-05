@@ -1,4 +1,18 @@
 {{ $intervalleft := .intervalleft}}
+
+   <section>
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Upcoming Events</h2>
+                </div>
+                <div class="col-8 top-4 bottom-12">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row center">
+            <div class="col-10 top-0"> 
 <table>
   <thead>
     <th>Event</th>
@@ -13,7 +27,6 @@
   {{ $end := (time .Params.dateEnd)}} 
   {{ $beautifulend := $end.Format "2006/01/02"}}
   {{ if and ($start.After $intervalleft) ($end.Before ($intervalleft.AddDate 1 0 0))}}
-  
   <tr>
     <td><a href="{{ .URL}}" target="_blank">{{.Title}}</a></td>
     <td>{{ $beautifulstart }}{{if ne $beautifulstart $beautifulend}} - {{ $beautifulend }}{{end}}</td>
@@ -25,3 +38,10 @@
   {{ end }}
   
 </table>
+
+  
+</div>
+</div>
+            </div> 
+        </div>
+        <br></br>
