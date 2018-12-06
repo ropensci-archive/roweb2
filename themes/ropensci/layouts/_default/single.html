@@ -36,7 +36,12 @@
 <p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>. </p>
           </div>
       {{else}}
+      {{if (eq $elem_val "community.html")}}
+        {{ partial "community.html" (dict "Site" $.Site) }}
+        {{ else }}
         {{ partial $elem_val . }}
+        {{ end }}
+        
       {{end}}
   {{ end }}
 {{ end }}

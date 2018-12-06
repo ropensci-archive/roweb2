@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body>
+    {{ partial "header.html" . }}
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="row">
+                <div class="col-offset-2 col-8 top-20">
+                    <h1 style="text-align: center;">{{ .Title }}</h1>
+
+                    <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
+                        <p class="authors" style="text-align: center;">
+                            {{$authors := .Params.attendees}} {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
+                        </p>
+                        <br> {{ $start := (time .Params.dateStart)}} {{ $beautifulstart := $start.Format "Monday, 2006/01/02"}}
+                        {{ $end := (time .Params.dateEnd)}} {{ $beautifulend := $end.Format "Monday, 2006/01/02"}}
+                        <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ $beautifulstart }}{{if ne $beautifulstart $beautifulend}}&nbsp;-&nbsp;{{ $beautifulend }}{{end}}</div>
+                        <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Params.location }}</div>
+                    </div>
+
+                    <br>
+                    <div class="row bottom-5 top-5">
+                        {{ .Content }}
+                    </div>
+                </div>
+
+            </div>
+            <br>
+        </div>
+    </article>
+<div class="row center top-3 bottom-3">
+        <p> Find <a href="/events/" target="_blank">upcoming events</a>. </p>
+    </div>
+    <!-- {{ partial "sidebar.html" . }} -->
+
+    {{ partial "footer.html" . }}
+
+</body>
+
+</html>
