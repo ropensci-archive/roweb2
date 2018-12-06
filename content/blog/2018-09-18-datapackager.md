@@ -81,7 +81,7 @@ Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), 
 
 The current version of the package has **100% test coverage** and comprehensive documentation. One great benefit is that as I develop new features in the future, I can be confident I'm not inadvertently breaking something else. 
 
-rOpenSci encourages a number of other best practices that I had been somewhat sloppy about enforcing on myself. One is maintaining an updated `NEWS.md` file which tracks major changes and new features, and links them to relevant GitHub issues. I find this particularly useful as I've always appreciated an informative NEWS file to help me decide if I should install the latest version of a piece of software. The [online handbook for rOpenSci package development, maintenance and peer review](https://ropensci.github.io/dev_guide/collaboration.html)  is a great resource to learn about what some of those other best practices are and how you can prepare your own software for submission. 
+rOpenSci encourages a number of other best practices that I had been somewhat sloppy about enforcing on myself. One is maintaining an updated `NEWS.md` file which tracks major changes and new features, and links them to relevant GitHub issues. I find this particularly useful as I've always appreciated an informative NEWS file to help me decide if I should install the latest version of a piece of software. The [online handbook for rOpenSci package development, maintenance and peer review](https://ropensci.github.io/dev_guide/)  is a great resource to learn about what some of those other best practices are and how you can prepare your own software for submission. 
 
 ### Using DataPackageR
 

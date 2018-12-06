@@ -51,7 +51,7 @@ satisfaction as we continue to grow.
 We provide
 [packaging](https://ropensci.github.io/dev_guide/building.html)
 and
-[reviewing](https://ropensci.github.io/dev_guide/onboarding-guide-for-reviewers.html)
+[reviewing](https://ropensci.github.io/dev_guide/reviewerguide.html)
 guides for our authors and reviewers to consult before and during the
 peer-review process. While both were highly rated, enthusiasm was
 greater for the packaging guide than the reviewing guide.
