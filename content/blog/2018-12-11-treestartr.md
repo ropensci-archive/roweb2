@@ -46,7 +46,6 @@ I'm presently working on a dated phylogeny of ants. Two of my [lab members](http
 
 In these cases, we know roughly where on the tree might be a reasonable starting place to try attaching the taxon. In this case, we can use the function [`text_placr`](https://ropensci.github.io/treeStartR/#adding-tips-via-csv) to read in a dataframe of taxonomic relationships. We can then use those relationships to generate a starting tree. An example taxonomy dataframe is below. In this data frame the two tips (if you've forgotten your phylogenetic terms, check out the above figure) to be added, _Kretzoiartcos beatrix_ and _Ursus abstrusus_, are listed in the `taxon` column. The `clade` column contains tips that are currently on the tree. The two tips associated with _Kretzoiartcos beatrix_, _Indarctos arctoides_ and _Indarctos vireti_, will form a monophyletic group with _Kretzoiartcos beatrix_ on the generated starting tree. The three taxa associated with _Ursus abstrusus_ will form a monophyletic group with _Ursus abstrusus_. 
 
-`
 
 | taxon  | clade |
 |--------|-------|
@@ -60,7 +59,7 @@ In these cases, we know roughly where on the tree might be a reasonable starting
 
 ### Adding tips via taxonomy
 
-Tips can also be added to the tree [automatically if there are other members](https://ropensci.github.io/treeStartR/#adding-tips-with-congeners) of the same genus on the tree. The function `[present_tippr](https://ropensci.github.io/treeStartR/#adding-tips-with-congeners)` checks the genus of a tip to be added to the tree against the genera present on the tree. If there is one match, the tip is added as a sister to its congener. If there are multiple members of the same genus, the tip is added subtending the most recent common ancestor of all members of the genus. This is a fairly handy function for adding taxa that are closely related to other tips on the tree - there's no need to make a dataframe of species relationships. 
+Tips can also be added to the tree [automatically if there are other members](https://ropensci.github.io/treeStartR/#adding-tips-with-congeners) of the same genus on the tree. The function [`present_tippr`](https://ropensci.github.io/treeStartR/#adding-tips-with-congeners)` checks the genus of a tip to be added to the tree against the genera present on the tree. If there is one match, the tip is added as a sister to its congener. If there are multiple members of the same genus, the tip is added subtending the most recent common ancestor of all members of the genus. This is a fairly handy function for adding taxa that are closely related to other tips on the tree - there's no need to make a dataframe of species relationships. 
 
 ### Adding tips at random
 
