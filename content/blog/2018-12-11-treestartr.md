@@ -14,8 +14,6 @@ tags:
 - r
 - community
 - software
-- review
-- onboarding
 - packages
 - treestartr
 - phylogeny
