@@ -8,7 +8,7 @@
     <th>Attendees</th>
     <th>Description</th>
   </thead>
-  {{ range .pages }}
+  {{ range (.pages.ByParam "dateStart") }}
   {{ $start := (time .Params.dateStart)}}
   {{ $beautifulstart := $start.Format "2006/01/02"}}
   {{ $end := (time .Params.dateEnd)}} 
