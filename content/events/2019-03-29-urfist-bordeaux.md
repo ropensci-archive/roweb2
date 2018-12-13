@@ -2,7 +2,7 @@
 title: 'Rencontre scientifique, URFIST de Bordeaux'
 dateStart: '2019-03-29T14:40:00'
 dateEnd: '2019-03-29T15:10:00'
-description: 'Repenser la robustesse et la fiabilité en recherche : les chercheurs face à la crise de la reproductibilité'
+description: 'Repenser la robustesse et la fiabilité en recherche - les chercheurs face à la crise de la reproductibilité'
 location: 'Bordeaux, France'
 country: '🇫🇷'
 attendees:
