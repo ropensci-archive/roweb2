@@ -341,8 +341,8 @@ annotations(snp = 'rs7903146', output = 'plos')[c(1:2),]
 #> 1 2014-08-07T00:00:00.000Z              7783
 #> 2 2011-01-20T00:00:00.000Z              2080
 #>                                              url
-#> 1 http://dx.doi.org/10.1371/journal.pgen.1004517
-#> 2 http://dx.doi.org/10.1371/journal.pone.0016341
+#> 1 https://doi.org/10.1371/journal.pgen.1004517
+#> 2 https://doi.org/10.1371/journal.pone.0016341
 #>                            doi
 #> 1 10.1371/journal.pgen.1004517
 #> 2 10.1371/journal.pone.0016341

@@ -66,7 +66,7 @@ Here's a screenshot similar to what you should see after the last command
 
 <img src="/assets/blog-images/rplos_highlights.png"></img>
 
-`highbrow` uses the `whisker` package to fill in a template for a bootstrap html page to make a somewhat pleasing interface to look at your data. In addition, the DOIs are wrapped in a `<a>` tag with a [http://dx.doi.org/](http://doi.org/) prefix so that you can go directly to the paper if you are so inclined. Also note that the `<em>` tags (italicized) are replaced with `<strong>` tags (bold) to make the search term pop out from the screen more.
+`highbrow` uses the `whisker` package to fill in a template for a bootstrap html page to make a somewhat pleasing interface to look at your data. In addition, the DOIs are wrapped in a `<a>` tag with a [https://doi.org/](https://doi.org/) prefix so that you can go directly to the paper if you are so inclined. Also note that the `<em>` tags (italicized) are replaced with `<strong>` tags (bold) to make the search term pop out from the screen more.
 
 ---------------
 
