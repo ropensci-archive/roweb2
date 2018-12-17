@@ -66,7 +66,7 @@ tags:
 
 For a post about your peer-reviewed package you should:
 - browse other posts about peer-reviewed packages with tag '[software-peer-review](https://ropensci.org/tags/software-peer-review/)'
-- consider giving some narrative on motivation for creating the package and share an interesting use case
+- consider giving some narrative on motivation for creating the package, or something you learned in the process, and share an interesting use case
 - acknowledge reviewers by name with links to their GitHub or Twitter; no need to explicitly acknowledge the editor
 - acknowledge other contributors, if any
 - consider ending by pointing to open issues that readers might work on
@@ -74,6 +74,7 @@ For a post about your peer-reviewed package you should:
 - browse [other tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "databases" exists, so use that, rather than "database"
 - if you would like an author's twitter account to be linked from a twitter icon, in YAML under `- name: <name>`, add `twitter: <twitterhandle>` and use a non-twitter link such as GitHub, website, or ORCID for `url: <link>` (example [in markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2018-11-13-antarctic.md) | [rendered](https://ropensci.org/blog/2018/11/13/antarctic/))
 - if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`
+- to format headings in your post, please use ### or ####, as larger sizes don't look good
 
 
 For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
