@@ -24,7 +24,7 @@ This hooked me on bioinformatics and I worked in a core facility (for a former G
 
 My proudest community building experience (so far) was co-founding the Vancouver Bioinformatics User Group - [VanBUG](http://www.vanbug.org/). These days, Vancouver is known for being a bit of a bioinformatics hub, but in the early 2000’s there were just a few researchers and developers distributed across the city in different universities, research centres and companies. We established a monthly seminar and networking series featuring local, national and international speakers, but more importantly, attendees found collaborators, commiserators, mentors, jobs, ideas and friends. VanBUG is now in its 15th year with an impressive history of speakers, including Jenny Bryan back in 2004!
 
-In 2014, after years as a research scientist/embedded bioinformatician, I made the scarey but wildly fulfilling transition from doing science with the goal of publishing papers to enabling great science by connecting researchers and resources at the interface(s) of the life sciences, medicine, and computational sciences at the [University of British Columbia](http://lsi.ubc.ca/) and the [Personalized Medicine Initiative](http://personalizedmedicineinitiative.ca/).
+In 2014, after years as a research scientist/embedded bioinformatician, I made the scarey but wildly fulfilling transition from doing science with the goal of publishing papers to enabling great science by connecting researchers and resources at the interface(s) of the life sciences, medicine, and computational sciences at the [University of British Columbia](http://lsi.ubc.ca/) and the Personalized Medicine Initiative.
 
 Your Community Manager
 ---------------
