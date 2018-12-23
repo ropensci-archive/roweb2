@@ -78,7 +78,8 @@
                 <br>
                 <div class="col-offset-2 col-8 top-4 labels">
                     {{ range .Params.tags }}
-                    <a href="{{ " /tags/ " | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a> {{ end }}
+                    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
+{{ end }}
                 </div>
 
                 {{ if isset .Params "topicid" }}
