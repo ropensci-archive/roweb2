@@ -9,8 +9,7 @@
    <section>
         <div class="row">
             <div class="col-8 col-offset-2 top-4">
-
-<h2>Content by {{ .Params.name }}</h2>
+<h2>Content by {{ .Params.name }}{{ .Title }}</h2>
 
 {{ .Content }}
 {{ $pages := .Data.Pages }}
