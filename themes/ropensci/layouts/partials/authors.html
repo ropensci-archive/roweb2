@@ -8,9 +8,9 @@
                             {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
                             {{ if in $leadership .Params.name }}
                               <a href="/about/#team">{{ .Params.name }}</a> 
-                            {{ else if in $staff .name }}
+                            {{ else if in $staff .Params.name }}
                               <a href="/about/#team">{{ .Params.name }}</a>
-                            {{ else if eq .name "Ted Hart" }}
+                            {{ else if eq .Params.name "Ted Hart" }}
                               <a href="{{.Site.BaseURL}}/about/#team">{{ .Params.name }}</a>
                             {{ else }}
                               <a href="{{ .Params.link }}" target="_blank">{{ .Params.name }}</a>
@@ -23,4 +23,5 @@
                             {{ if .Params.bio }} 
                             , {{.Params.bio}}
                             {{end}}
+                        {{ end }}
                         {{ end }}
