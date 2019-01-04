@@ -1,5 +1,5 @@
 ---
 name: Carl Boettiger
 twitter: cboettig
-link: http://ropensci.org/about/#core
+link: https://carlboettiger.info/
 ---
