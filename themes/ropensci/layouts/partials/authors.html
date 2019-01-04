@@ -1,27 +1,28 @@
 {{$staff := .Site.Params.staff}}
 {{$leadership := .Site.Params.leadership}}
-{{ printf "%#v" .authors }}
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ range $i, $e := .authors }}
+{{ range first 1 (where $pages ".Params.name" $e) }}
+{{$params := .Params}}
 {{ if $i }}&nbsp;| 
   {{ end }}
                             &nbsp;
-                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
-                            {{ if in $leadership .Params.name }}
-                              <a href="/about/#team">{{ .Params.name }}</a> 
-                            {{ else if in $staff .Params.name }}
-                              <a href="/about/#team">{{ .Params.name }}</a>
-                            {{ else if eq .Params.name "Ted Hart" }}
-                              <a href="{{.Site.BaseURL}}/about/#team">{{ .Params.name }}</a>
+                            {{ if in $leadership $params.name }}
+                              <a href="/about/#team">{{ $params.name }}</a> 
+                            {{ else if in $staff $params.name }}
+                              <a href="/about/#team">{{ $params.name }}</a>
+                            {{ else if eq $params.name "Ted Hart" }}
+                              <a href="{{.Site.BaseURL}}/about/#team">{{ $params.name }}</a>
                             {{ else }}
-                              <a href="{{ .Params.link }}" target="_blank">{{ .Params.name }}</a>
+                              <a href="{{ $params.link }}" target="_blank">{{ $params.name }}</a>
                             {{ end }}
-                            {{ if .Params.twitter }}
-                            <a href="https://twitter.com/{{.Params.twitter}}" class="social" alt="twitter" target="_blank">
+                            {{ if $params.twitter }}
+                            <a href="https://twitter.com/{{$params.twitter}}" class="social" alt="twitter" target="_blank">
                                <sup><i class="ropensci-icons">o</i></sup>
                             </a>
                             {{ end }}
-                            {{ if .Params.bio }} 
-                            , {{.Params.bio}}
+                            {{ if $params.bio }} 
+                            , {{$params.bio}}
                             {{end}}
                         {{ end }}
-                        {{ end }}
+                        {{ end }}  
