@@ -9,9 +9,27 @@
    <section>
         <div class="row">
             <div class="col-8 col-offset-2 top-4">
-<h2>Content by {{ .Params.name }}{{ .Title }}</h2>
 
-{{ .Content }}
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
+{{ $title := default .Title .Params.name}}
+{{ range first 1 (where $pages ".Params.name" $title) }}
+{{$params := .Params}}
+<h2>Content by {{ $title }}</h2>
+{{ if $params.bio }}
+<div class="row">
+    <div class="top-2 bottom-2">
+{{ $params.bio }}
+</div>
+</div>
+{{ end }}
+{{ if $params.link }}
+<div class="row">
+    <div class="top-2 bottom-2">
+ <a href="{{ $params.link }}" target="_blank">{{ $params.name }}'s online home</a>
+</div>
+</div>
+{{ end }}
+{{ end }}
 {{ $pages := .Data.Pages }}
 {{ partial "archive.html" (dict "pages" $pages) }}
  </div>
