@@ -5,21 +5,22 @@
 {{ if $i }}&nbsp;| 
   {{ end }}
                             &nbsp;
-                            {{ if in $leadership .name }}
-                              <a href="/about/#team">{{ .name }}</a> 
+                            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                            {{ if in $leadership .Params.name }}
+                              <a href="/about/#team">{{ .Params.name }}</a> 
                             {{ else if in $staff .name }}
-                              <a href="/about/#team">{{ .name }}</a>
+                              <a href="/about/#team">{{ .Params.name }}</a>
                             {{ else if eq .name "Ted Hart" }}
-                              <a href="{{.Site.BaseURL}}/about/#team">{{ .name }}</a>
+                              <a href="{{.Site.BaseURL}}/about/#team">{{ .Params.name }}</a>
                             {{ else }}
-                              <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                              <a href="{{ .Params.link }}" target="_blank">{{ .Params.name }}</a>
                             {{ end }}
-                            {{ if .twitter }}
-                            <a href="https://twitter.com/{{.twitter}}" class="social" alt="twitter" target="_blank">
+                            {{ if .Params.twitter }}
+                            <a href="https://twitter.com/{{.Params.twitter}}" class="social" alt="twitter" target="_blank">
                                <sup><i class="ropensci-icons">o</i></sup>
                             </a>
                             {{ end }}
-                            {{ if .bio }}
-                            , {{.bio}}
+                            {{ if .Params.bio }} 
+                            , {{.Params.bio}}
                             {{end}}
                         {{ end }}

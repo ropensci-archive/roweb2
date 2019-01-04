@@ -46,6 +46,7 @@ rssLimit = 20
  
 [taxonomies]
   tag = "tags"
+  author = "authors"
   
 [outputs]
   home = ["HTML", "RSS", "JSON"]
