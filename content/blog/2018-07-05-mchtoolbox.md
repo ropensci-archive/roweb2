@@ -6,7 +6,7 @@ authors:
   - Jennifer Thompson
   - Jenny Draper
   - Kyle Hamilton
-  - Charles Gray
+  - Charles T. Gray
 date: '2018-07-05'
 categories: blog
 topicid: 1249
