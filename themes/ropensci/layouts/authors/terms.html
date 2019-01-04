@@ -1,6 +1,36 @@
-<h1>Authors</h1>
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+   <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-offset-2 col-8 top-20">
+                <h2 style="text-align: center;">Authors</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-offset-2 top-4">
 <ul>
 {{ range .Data.Pages }}
   <li><a href="{{ .Permalink }}">{{ .Params.name }}</a></li>
 {{ end }}
 </ul>
+            </div>
+        </div>
+</section>
+    <!-- ends tutorial section -->
+    <br><br>
+
+{{ partial "footer.html" . }}
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/fh-3.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
+    <script type="text/javascript" src="js/tutorialinit.js"></script>
+
+</body>
+</html>
