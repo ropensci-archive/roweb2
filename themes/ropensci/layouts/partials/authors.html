@@ -1,6 +1,6 @@
 {{$staff := .Site.Params.staff}}
 {{$leadership := .Site.Params.leadership}}
-
+{{ printf "%#v" . }}
 {{ range $i, $e := .authors }}
 {{ if $i }}&nbsp;| 
   {{ end }}

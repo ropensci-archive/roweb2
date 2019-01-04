@@ -5,19 +5,22 @@
 </head>
 <body>
 {{ partial "header.html" . }}
+
    <section>
         <div class="row">
             <div class="col-8 col-offset-2 top-4">
 
+<h2>Content by {{ .Params.name }}</h2>
+
 {{ .Content }}
+{{ printf "%#v" .Params }}
 {{ with .Params.twitter }}
-  <p>
-    <a href="https://twitter.com/{{ substr . 1 }}">
+  <div class = "row bottom-2">
+    <a href="https://twitter.com/{{ . }}">
       Follow {{ $.Params.name }} on Twitter
     </a>
-  </p>
+  </div>
 {{ end }}
-<h2>Articles by {{ .Params.name }}</h2>
 {{ $pages := .Data.Pages }}
 {{ partial "archive.html" (dict "pages" $pages) }}
  </div>
