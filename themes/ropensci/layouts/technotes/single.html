@@ -28,6 +28,7 @@
                     <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                 {{ end }}
         </div>
+ {{ partial "otherposts.html" (dict "authors" $authors "Site" $.Site) }}
         <br>
 
 
