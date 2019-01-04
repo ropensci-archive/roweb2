@@ -26,14 +26,14 @@
             </div>
         </div>
 </article>
-{{$pages := .Site.Pages.ByPublishDate.Reverse}}
+https://deploy-preview-373--ropensci.netlify.com/about
 {{ if .Params.partials }}
   {{ range $elem_val := $.Params.partials }}
       <br></br>
       {{if (eq $elem_val "archive.html")}}
         {{ partial "archive.html" (dict "pages" $pages) }}
           <div class="row center top-3 bottom-3">
-<p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>. </p>
+<p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a> and <a href="/authors/" target="_blank">by author</a>. </p>
           </div>
       {{else}}
       {{if (eq $elem_val "community.html")}}
