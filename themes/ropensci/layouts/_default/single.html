@@ -26,7 +26,7 @@
             </div>
         </div>
 </article>
-https://deploy-preview-373--ropensci.netlify.com/about
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ if .Params.partials }}
   {{ range $elem_val := $.Params.partials }}
       <br></br>
