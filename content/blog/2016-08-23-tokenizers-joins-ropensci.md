@@ -3,8 +3,7 @@ slug: tokenizers-joins-ropensci
 title: New package tokenizers joins rOpenSci
 date: '2016-08-23'
 authors:
-  - name: Lincoln Mullen
-    url: http://lincolnmullen.com
+  - Lincoln Mullen
 categories: blog
 tags:
   - R

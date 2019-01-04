@@ -3,8 +3,7 @@ slug: rentrez paper
 title: A rentrez paper, and how to use the NCBI's new API keys
 package_version: 1.2.1
 authors:
-  - name: David Winter
-    url: https://david-winter.info
+  - David Winter
 date: '2018-03-20'
 categories: blog
 topicid: 1103

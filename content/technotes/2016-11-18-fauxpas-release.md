@@ -3,8 +3,7 @@ slug: fauxpas-release
 title: fauxpas - HTTP conditions package
 date: '2016-11-18'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: technotes
 tags:
   - R

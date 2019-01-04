@@ -2,9 +2,7 @@
 title: What birds are observed near Radolfzell? Bird occurrence data in R
 slug: birds-radolfzell
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
+  - Maëlle Salmon
 date: '2018-08-21'
 preface: The blog post series corresponds to the material for a talk Maëlle will give
   at the [Animal Movement Analysis summer school in Radolfzell, Germany on September

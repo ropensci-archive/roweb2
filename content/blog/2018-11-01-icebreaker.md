@@ -3,8 +3,7 @@ slug: icebreaker
 title: Sharing the Recipe for rOpenSci's Unconf Ice Breaker
 date: '2018-11-01'
 authors:
-  - name: Stefanie Butland
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 topicid: 1436
 twitterImg: img/blog-images/2018-11-01-icebreaker/ropensci-unconf17-community-nistara-randhawa.jpg
@@ -14,7 +13,6 @@ tags:
   - unconf
   - icebreaker
   - R
-
 ---
 While many people groan at the thought of participating in a group ice breaker activity, we've gotten consistent feedback from people who have been to recent rOpenSci unconferences.
 

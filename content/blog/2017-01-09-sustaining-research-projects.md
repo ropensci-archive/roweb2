@@ -3,8 +3,7 @@ slug: sustaining-research-projects
 title: A guide to sustainability models for research software projects
 date: '2017-01-09'
 authors:
-  - name: Daniel S. Katz
-    url: http://danielskatz.org
+  - Daniel S. Katz
 categories: blog
 tags:
   - community

@@ -2,12 +2,8 @@
 slug: onboarding-is-work
 title: How much work is onboarding?
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
-  - name: Noam Ross
-    url: http://twitter.com/noamross
-    twitter: noamross
+  - Maëlle Salmon
+  - Noam Ross
 date: '2018-05-03'
 preface: This blog post is the second of a 3-post series about a data-driven overview
   of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/)

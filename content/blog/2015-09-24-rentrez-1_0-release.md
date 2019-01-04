@@ -3,8 +3,7 @@ slug: rentrez-1_0-release
 title: Rentrez 1_0 released
 date: '2015-09-24'
 authors:
-  - name: David Winter
-    url: http://cartwrig.ht/people/#david-j-winter
+  - David Winter
 categories: blog
 tags:
   - R

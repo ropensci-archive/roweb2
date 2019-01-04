@@ -3,8 +3,7 @@ slug: rtika-introduction
 title: Lessons Learned from rtika, a Digital Babel Fish
 package_version: 0.1.7
 authors:
-  - name: Sasha Goodman
-    url: https://twitter.com/goodmansasha
+  - Sasha Goodman
 date: '2018-04-25'
 categories: blog
 topicid: 1150

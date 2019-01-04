@@ -3,15 +3,10 @@ slug: thanking-reviewers-in-metadata
 title: 'Thanking Your Reviewers: Gratitude through Semantic Metadata'
 date: '2018-03-16'
 authors:
-  - name: Noam Ross
-    url: http://twitter.com/noamross
-    twitter: noamross
-  - name: Maëlle Salmon
-    twitter: ma_salmon
-  - name: Karthik Ram
-    twitter: _inundata
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Noam Ross
+  - Maëlle Salmon
+  - Karthik Ram
+  - Scott Chamberlain
 categories: blog
 topicid: 1101
 tags:

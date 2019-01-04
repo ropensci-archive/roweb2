@@ -3,8 +3,7 @@ slug: ecoengine
 title: Introducing the ecoengine package
 date: '2014-01-30'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
+  - Karthik Ram
 categories: blog
 tags:
   - R

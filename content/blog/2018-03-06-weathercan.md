@@ -3,8 +3,7 @@ slug: weathercan
 title: Integrating data from weathercan
 package_version: 0.2.5
 authors:
-  - name: Steffi LaZerte
-    url: http://steffilazerte.ca
+  - Steffi LaZerte
 date: '2018-03-06'
 categories: blog
 topicid: 1086

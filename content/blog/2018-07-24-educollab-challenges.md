@@ -11,20 +11,13 @@ preface: 'At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org
   first of a three-post series about education and R, written by this group of unconf18
   participants. Read about how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd).'
 authors:
-  - name: Laura Ación
-    url: https://github.com/lauracion
-  - name: Mara Averick
-    url: https://github.com/batpigandme
-  - name: Leonardo Collado Torres
-    url: https://lcolladotor.github.io
-  - name: Auriel Fournier
-    url: https://github.com/aurielfournier
-  - name: Alison Hill
-    url: https://alison.rbind.io
-  - name: Sean Kross
-    url: https://github.com/seankross
-  - name: Lincoln Mullen
-    url: https://lincolnmullen.com
+  - Laura Ación
+  - Mara Averick
+  - Leonardo Collado Torres
+  - Auriel Fournier
+  - Alison Hill
+  - Sean Kross
+  - Lincoln Mullen
 categories: blog
 topicid: 1269
 tags:

@@ -3,12 +3,10 @@ slug: reproducibility
 title: Reproducible research is still a challenge
 date: '2014-06-09'
 authors:
-  - name: Rich FitzJohn
-    url: http://richfitz.github.io
-    twitter: rgfitzjohn
-  - name: Matt Pennell
-  - name: Amy Zanne
-  - name: Will Cornwell
+  - Rich FitzJohn
+  - Matt Pennell
+  - Amy Zanne
+  - Will Cornwell
 categories: blog
 tags:
   - R

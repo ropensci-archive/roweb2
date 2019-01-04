@@ -3,8 +3,7 @@ slug: phylotar
 title: 'phylotaR: Retrieve Orthologous Sequences from GenBank'
 package_version: 1.0.0
 authors:
-  - name: Dom Bennett
-    url: https://github.com/dombennett
+  - Dom Bennett
 date: '2018-08-08'
 categories: technote
 topicid: 1292

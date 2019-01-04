@@ -2,17 +2,12 @@
 slug: packagemetrics
 title: packagemetrics - Helping you choose a package since runconf17
 authors:
-  - name: Becca Krouse
-    url: http://twitter.com/bzkrouse
-  - name: Erin Grand
-    url: http://twitter.com/astroeringrand
-  - name: Hannah Frick
-    url: http://twitter.com/hfcfrick
-  - name: Lori Shepherd
-    url: http://twitter.com/lshep712
-  - name: Sam Firke
-    url: http://twitter.com/samfirke
-  - name: William Ampeh
+  - Becca Krouse
+  - Erin Grand
+  - Hannah Frick
+  - Lori Shepherd
+  - Sam Firke
+  - William Ampeh
 categories: blog
 topicid: 759
 date: '2017-06-27'

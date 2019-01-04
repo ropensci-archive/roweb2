@@ -3,9 +3,7 @@ slug: ropensci-at-meetings
 title: Chat with the rOpenSci team at upcoming meetings
 date: '2016-11-09'
 authors:
-  - name: Stefanie Butland
-    url: https://ropensci.org/about/
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 tags:
   - community

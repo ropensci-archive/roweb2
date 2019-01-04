@@ -4,8 +4,7 @@ title: 'Governance, Engagement, and Resistance in the Open Science Movement: A C
   Study'
 date: '2017-10-06'
 authors:
-  - name: Dan Sholler
-    url: https://ropensci.org/blog/blog/2017/06/30/postdoc_dan_sholler
+  - Dan Sholler
 categories: blog
 topicid: 911
 tags:

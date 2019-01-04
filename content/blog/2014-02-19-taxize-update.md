@@ -3,8 +3,7 @@ slug: taxize-update
 title: New features in the most recent taxize update, v0.2
 date: '2014-02-19'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - R

@@ -3,8 +3,7 @@ slug: unconf18_recap_2
 title: 'Unconf18 projects 2: middlechild, defender, ropsec, keybase'
 date: '2018-06-06'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
+  - Karthik Ram
 categories: blog
 topicid: 1200
 tags:

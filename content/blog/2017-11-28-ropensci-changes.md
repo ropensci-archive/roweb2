@@ -3,10 +3,8 @@ slug: ropensci-changes
 title: 'changes: easy Git-based version control from R'
 date: '2017-11-28'
 authors:
-  - name: Anikó B. Tóth
-    url: https://github.com/anikobtoth
-  - name: Nick Golding
-    url: https://twitter.com/_NickGolding_
+  - Anikó B. Tóth
+  - Nick Golding
 categories: blog
 topicid: 980
 tags:

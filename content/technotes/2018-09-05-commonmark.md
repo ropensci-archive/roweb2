@@ -3,9 +3,7 @@ slug: commonmark
 title: 'In praise of Commonmark: wrangle (R)Markdown files without regex'
 date: '2018-09-05'
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
+  - Maëlle Salmon
 categories: technotes
 topicid: 1319
 tags:

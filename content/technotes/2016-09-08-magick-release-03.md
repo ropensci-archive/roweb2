@@ -3,8 +3,7 @@ slug: magick-release-03
 title: New in Magick 0.3
 date: '2016-09-08'
 authors:
-  - name: Jeroen Ooms
-    twitter: opencpu
+  - Jeroen Ooms
 categories: technotes
 tags:
   - R

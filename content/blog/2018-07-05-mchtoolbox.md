@@ -2,16 +2,11 @@
 slug: mchtoolbox
 title: Exploring ways to address gaps in maternal-child health research
 authors:
-  - name: Monica Gerber
-    url: https://github.com/monicagerber
-  - name: Jennifer Thompson
-    url: https://github.com/jenniferthompson
-  - name: Jenny Draper
-    url: https://github.com/learithe
-  - name: Kyle Hamilton
-    url: https://github.com/kylehamilton
-  - name: Charles Gray
-    url: https://github.com/softloud
+  - Monica Gerber
+  - Jennifer Thompson
+  - Jenny Draper
+  - Kyle Hamilton
+  - Charles Gray
 date: '2018-07-05'
 categories: blog
 topicid: 1249

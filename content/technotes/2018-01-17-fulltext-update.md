@@ -3,8 +3,7 @@ slug: fulltext-v1
 title: 'fulltext v1: text-mining scholarly works'
 date: '2018-01-17'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: technotes
 topicid: 1032
 tags:

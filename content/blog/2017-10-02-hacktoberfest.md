@@ -3,8 +3,7 @@ slug: hacktoberfest
 title: Help us build capacity of open software users and developers with Hacktoberfest
 date: '2017-10-02'
 authors:
-  - name: Stefanie Butland
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 topicid: 901
 tags:

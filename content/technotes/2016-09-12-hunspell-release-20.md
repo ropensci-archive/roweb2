@@ -3,8 +3,7 @@ slug: hunspell-release-20
 title: 'Hunspell 2.0: High-Performance Stemmer, Tokenizer, and Spell Checker for R'
 date: '2016-09-12'
 authors:
-  - name: Jeroen Ooms
-    twitter: opencpu
+  - Jeroen Ooms
 categories: technotes
 tags:
   - R

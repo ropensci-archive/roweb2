@@ -2,8 +2,7 @@
 slug: community
 title: Hey! You there! You are welcome here
 authors:
-  - name: Shannon E. Ellis
-    url: https://shanellis.github.io/
+  - Shannon E. Ellis
 categories: blog
 topicid: 755
 date: '2017-06-23'
