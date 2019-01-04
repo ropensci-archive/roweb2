@@ -1,5 +1,13 @@
-<h1>{{ .Params.name }}</h1>
-
+<!DOCTYPE html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "header.html" . }}
+   <section>
+        <div class="row">
+            <div class="col-8 col-offset-2 top-4">
 
 {{ .Content }}
 {{ with .Params.twitter }}
@@ -9,10 +17,16 @@
     </a>
   </p>
 {{ end }}
+<h2>Articles by {{ .Params.name }}</h2>
+{{ $pages := .Data.Pages }}
+{{ partial "archive.html" (dict "pages" $pages) }}
+ </div>
+        </div>
+</section>
+    <!-- ends tutorial section -->
+    <br><br>
 
-<h2>Articles</h2>
-<ul>
-{{ range .Data.Pages }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-{{ end }}
-</ul>
+{{ partial "footer.html" . }}
+
+</body>
+</html>
