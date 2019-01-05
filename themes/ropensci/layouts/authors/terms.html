@@ -17,7 +17,8 @@
 <ul>
   {{ $data := .Data.Pages }}
   {{ range $key, $value := .Data.Terms.ByCount }}
-      <a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a>
+  {{ $name := $value.Name | humanize  }}
+      <a href="{{ $value.Name | urlize }}">{{ $name | title }}</a>
       <span>&#40;{{ $value.Count }}&#41; </span>
   {{ end }}
 </ul>
