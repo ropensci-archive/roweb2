@@ -3,8 +3,7 @@ slug: lingtypology
 title: Easy linguistic mapping with lingtypology
 package_version: 1.0.4
 authors:
-  - name: George Moroz
-    url: https://www.hse.ru/en/org/persons/103489498#teaching
+  - George Moroz
 date: '2017-05-16'
 categories: blog
 topicid: 721

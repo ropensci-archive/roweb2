@@ -2,9 +2,7 @@
 title: What have these birds been studied for? Querying science outputs with R
 slug: birds-science
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
+  - Maëlle Salmon
 date: '2018-09-11'
 topicid: 1347
 preface: The blog post series corresponds to the material for a talk Maëlle will give

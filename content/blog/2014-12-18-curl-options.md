@@ -3,8 +3,7 @@ slug: curl-options
 title: Curling - exploring web request options
 date: '2014-12-18'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - R

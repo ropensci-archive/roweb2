@@ -3,8 +3,7 @@ slug: introducing-wishlist
 title: Introducing a Wishlist for Scientific R Packages
 date: '2015-03-10'
 authors:
-  - name: Oliver Keyes
-    url: http://ironholds.org
+  - Oliver Keyes
 categories: blog
 tags:
   - R

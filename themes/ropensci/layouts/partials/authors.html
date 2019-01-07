@@ -1,25 +1,28 @@
 {{$staff := .Site.Params.staff}}
 {{$leadership := .Site.Params.leadership}}
-
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ range $i, $e := .authors }}
+{{ range first 1 (where $pages ".Params.name" $e) }}
+{{$params := .Params}}
 {{ if $i }}&nbsp;| 
   {{ end }}
                             &nbsp;
-                            {{ if in $leadership .name }}
-                              <a href="/about/#team">{{ .name }}</a> 
-                            {{ else if in $staff .name }}
-                              <a href="/about/#team">{{ .name }}</a>
-                            {{ else if eq .name "Ted Hart" }}
-                              <a href="{{.Site.BaseURL}}/about/#team">{{ .name }}</a>
+                            {{ if in $leadership $params.name }}
+                              <a href="/about/#team">{{ $params.name }}</a> 
+                            {{ else if in $staff $params.name }}
+                              <a href="/about/#team">{{ $params.name }}</a>
+                            {{ else if eq $params.name "Ted Hart" }}
+                              <a href="{{.Site.BaseURL}}/about/#team">{{ $params.name }}</a>
                             {{ else }}
-                              <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                              <a href="{{ $params.link }}" target="_blank">{{ $params.name }}</a>
                             {{ end }}
-                            {{ if .twitter }}
-                            <a href="https://twitter.com/{{.twitter}}" class="social" alt="twitter" target="_blank">
+                            {{ if $params.twitter }}
+                            <a href="https://twitter.com/{{$params.twitter}}" class="social" alt="twitter" target="_blank">
                                <sup><i class="ropensci-icons">o</i></sup>
                             </a>
                             {{ end }}
-                            {{ if .bio }}
-                            , {{.bio}}
+                            {{ if $params.bio }} 
+                            , {{$params.bio}}
                             {{end}}
                         {{ end }}
+                        {{ end }}  

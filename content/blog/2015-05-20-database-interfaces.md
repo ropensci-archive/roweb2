@@ -3,8 +3,7 @@ slug: database-interfaces
 title: Database interfaces
 date: '2015-05-20'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - R

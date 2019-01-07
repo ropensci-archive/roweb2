@@ -4,8 +4,7 @@ title: 'Highlights and Resources from Community Call v12: How do I create a code
   conduct for my event/lab/codebase?'
 date: '2016-12-21'
 authors:
-  - name: Stefanie Butland
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 tags:
   - community

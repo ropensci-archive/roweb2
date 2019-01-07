@@ -3,8 +3,7 @@ slug: hydroscoper
 title: ὕδωρ + σκοπῶ = water + observe
 package_version: 1.0.0
 authors:
-  - name: Konstantinos Vantas
-    url: https://kvantas.github.io/
+  - Konstantinos Vantas
 date: '2018-04-03'
 categories: blog
 topicid: 1130

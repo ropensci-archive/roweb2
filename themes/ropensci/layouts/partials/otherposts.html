@@ -1,0 +1,16 @@
+
+    <div class="col-offset-2 col-8 top-4 labels">
+<p>   
+{{$staff := .Site.Params.staff}}
+{{$leadership := .Site.Params.leadership}}
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
+{{ range $i, $e := .authors }}
+{{ range first 1 (where $pages ".Params.name" $e) }}
+{{$params := .Params}}
+{{ if gt (len .Pages) 1 }}
+<i> Find more content <a href="{{ .Permalink }}" target="_blank">by {{ $e }}</a>. </i>
+{{ end }}
+                        {{ end }}
+                        {{ end }}  
+          </p>
+          </div>

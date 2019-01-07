@@ -4,9 +4,7 @@ title: 'rtimicropem: Using an *R* package as platform for harmonized cleaning of
   from RTI MicroPEM air quality sensors'
 date: '2017-08-29'
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu
-    twitter: ma_salmon
+  - Maëlle Salmon
 categories: blog
 tags:
   - R

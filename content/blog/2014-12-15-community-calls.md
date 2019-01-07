@@ -3,8 +3,7 @@ slug: community-calls
 title: Community calls
 date: '2014-12-15'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - community

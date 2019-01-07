@@ -3,12 +3,9 @@ slug: rotl-paper-published
 title: rotl paper published
 date: '2016-07-26'
 authors:
-  - name: Francois Michonneau
-    url: http://francoismichonneau.net/
-  - name: Joseph Brown
-    url: http://www-personal.umich.edu/~josephwb/
-  - name: David Winter
-    url: http://david-winter.info
+  - Francois Michonneau
+  - Joseph Brown
+  - David Winter
 categories: blog
 tags:
   - R

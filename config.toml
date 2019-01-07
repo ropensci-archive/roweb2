@@ -7,6 +7,7 @@ disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
 buildFuture = true
+preserveTaxonomyNames = true
 
 paginate = 5
 paginatePath = "page"
@@ -46,6 +47,7 @@ rssLimit = 20
  
 [taxonomies]
   tag = "tags"
+  author = "authors"
   
 [outputs]
   home = ["HTML", "RSS", "JSON"]

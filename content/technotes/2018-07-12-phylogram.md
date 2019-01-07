@@ -3,8 +3,7 @@ slug: phylogram
 title: 'phylogram: dendrograms for evolutionary analysis'
 package_version: 2.1
 authors:
-  - name: Shaun Wilkinson
-    url: https://github.com/shaunpwilkinson
+  - Shaun Wilkinson
 date: '2018-07-12'
 categories: technote
 topicid: 1256

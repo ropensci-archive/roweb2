@@ -3,8 +3,7 @@ slug: ambassadors-program
 title: Announcing our ambassadors program
 date: '2014-08-11'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
+  - Karthik Ram
 categories: blog
 tags:
   - R

@@ -3,9 +3,7 @@ slug: A-satrday-ct-series
 title: 'Our package reviews in review: Introducing a 3-post series about software
   onboarding data'
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
+  - Maëlle Salmon
 date: '2018-04-26'
 categories: blog
 topicid: 1151

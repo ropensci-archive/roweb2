@@ -3,8 +3,7 @@ slug: postdoc-position
 title: Postdoctoral Scholar – Sustainable Software and Reproducible Research
 date: '2016-09-07'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
+  - Karthik Ram
 categories: blog
 tags:
   - positions

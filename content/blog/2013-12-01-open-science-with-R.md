@@ -3,8 +3,7 @@ slug: open-science-with-R
 title: Open Science with R
 date: '2013-12-02'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
+  - Karthik Ram
 categories: blog
 tags:
   - R

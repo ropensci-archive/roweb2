@@ -3,8 +3,7 @@ slug: package-evolution
 title: Package evolution - changing stuff in your package
 date: '2017-01-05'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: technotes
 tags:
   - R

@@ -8,8 +8,7 @@ preface: I’m participating in the [AAAS Community Engagement Fellows Program](
   This is cross-posted from the [Trellis blog](https://blog.trelliscience.com/six-tips-for-running-a-successful-unconference/)
   as part of a series of reflections the Fellows are sharing.
 authors:
-  - name: Stefanie Butland
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 topicid: 968
 tags:

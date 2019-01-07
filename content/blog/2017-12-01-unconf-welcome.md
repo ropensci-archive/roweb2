@@ -9,8 +9,7 @@ preface: I’m participating in the [AAAS Community Engagement Fellows Program](
   This is cross-posted from the [Trellis blog](https://blog.trelliscience.com/the-value-of-welcome-part-2-how-to-prepare-40-new-community-members-for-an-unconference/)
   as part of a series of reflections the Fellows are sharing.
 authors:
-  - name: Stefanie Butland
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 topicid: 983
 tags:

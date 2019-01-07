@@ -3,8 +3,7 @@ slug: graphql-release-10
 title: 'New package graphql: A GraphQL Query Parser'
 date: '2016-10-05'
 authors:
-  - name: Jeroen Ooms
-    twitter: opencpu
+  - Jeroen Ooms
 categories: technotes
 tags:
   - R

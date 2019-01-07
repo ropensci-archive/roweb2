@@ -1,29 +1,25 @@
 ---
-slug: "antarctic"
+slug: antarctic
 title: The Antarctic/Southern Ocean rOpenSci community
 authors:
-  - name: Ben Raymond
-    url: https://github.com/raymondben
-    twitter: databsurdist
-  - name:  Michael Sumner
-    url: https://github.com/mdsumner
-    twitter: mdsumner
-  - name: on behalf of the community
-date: 2018-11-13
+  - Ben Raymond
+  - Michael Sumner
+preface: Ben Raymond and Michael Sumner wrote this post on behalf of the Antarctic/Southern Ocean rOpenSci community.
+date: '2018-11-13'
 categories: blog
 topicid: 1451
 twitterImg: img/blog-images/2018-11-13-antarctic/plotanim-1.gif
 tags:
-- r
-- community
-- Antarctic
-- Southern Ocean
-- SCAR
-- software
-- packages
-- geospatial
-- maps
-- climate-data
+  - r
+  - community
+  - Antarctic
+  - Southern Ocean
+  - SCAR
+  - software
+  - packages
+  - geospatial
+  - maps
+  - climate-data
 ---
 
 ### Antarctic/Southern Ocean science and rOpenSci
