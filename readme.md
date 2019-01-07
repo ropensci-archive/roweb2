@@ -29,9 +29,7 @@ slug: "treestartr"
 title: Generating reasonable starting trees for complex phylogenetic analyses
 package_version: 0.1.0
 authors:
-  - name: April Wright
-    url: https://paleantology.com/the-wright-lab/
-    twitter: WrightingApril
+  - April Wright
 date: 2018-12-11
 categories: blog
 topicid:
@@ -49,7 +47,7 @@ tags:
 ---
 ```
 
-![](https://i.imgur.com/Wp30x6a.png)
+![](https://i.imgur.com/92D6ex1.png)
 
 5. If your blog post has any images (or other assets), create a folder under `themes/ropensci/static/img/blog-images/` with the pattern `<DATE-SLUG>` (e.g. `2018-12-11-treestartr`) and place them there. To reference any of these objects in your post,  use `/img/blog-images/<DATE-SLUG>/name-of-image.png`. If the paths are correct, you should see the preview render correctly (see next step).
 
@@ -72,7 +70,6 @@ For a post about your peer-reviewed package you should:
 - consider ending by pointing to open issues that readers might work on
 - include YAML tag "software-peer-review" and tags that were topic labels in your package review
 - browse [other tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "databases" exists, so use that, rather than "database"
-- if you would like an author's twitter account to be linked from a twitter icon, in YAML under `- name: <name>`, add `twitter: <twitterhandle>` and use a non-twitter link such as GitHub, website, or ORCID for `url: <link>` (example [in markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2018-11-13-antarctic.md) | [rendered](https://ropensci.org/blog/2018/11/13/antarctic/))
 - if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`
 - to format headings in your post, please use ### or ####, as larger sizes don't look good
 
