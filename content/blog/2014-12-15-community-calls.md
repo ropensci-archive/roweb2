@@ -2,7 +2,8 @@
 slug: community-calls
 title: Community calls
 date: '2014-12-15'
-authors: Scott Chamberlain
+authors: 
+  - Scott Chamberlain
 categories: blog
 tags:
   - community
