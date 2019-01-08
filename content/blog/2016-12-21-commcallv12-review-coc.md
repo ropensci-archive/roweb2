@@ -9,6 +9,7 @@ tags:
   - community
   - community-call
   - events
+  - governance
 ---
 Our [Community Call](https://ropensci.org/blog/blog/2016/10/31/comm-call-v12) on December 15th covered a big topic in tech communities: "How do I create a code of conduct for my event/lab/codebase?". Here, we cover some of the key themes and considerations that arose from the discussion and point to curated resources and examples to follow when developing a code of conduct (CoC) for your community.
 
