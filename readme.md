@@ -70,7 +70,7 @@ For a post about your peer-reviewed package you should:
 - consider ending by pointing to open issues that readers might work on
 - include YAML tag "software-peer-review" and tags that were topic labels in your package review
 - browse [other tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "databases" exists, so use that, rather than "database"
-- if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`
+- if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - to format headings in your post, please use ### or ####, as larger sizes don't look good
 
 
