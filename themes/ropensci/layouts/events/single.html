@@ -16,7 +16,7 @@
 
                     <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
                         <p class="authors" style="text-align: center;">
-                            {{$authors := .Params.attendees}} {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
+                            {{$authors := .Params.attendees}} {{ partial "authorsevents.html" (dict "authors" $authors "Site" $.Site) }}
                         </p>
                         <br> {{ $start := (time .Params.dateStart)}} {{ $beautifulstart := $start.Format "Monday, 2006/01/02"}}
                         {{ $end := (time .Params.dateEnd)}} {{ $beautifulend := $end.Format "Monday, 2006/01/02"}}
