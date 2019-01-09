@@ -1,4 +1,6 @@
 ---
 name: Laura Ación
-link: https://github.com/lauracion
+link: https://lacion.rbind.io/
+github: lauracion
+twitter: _lacion_
 ---
