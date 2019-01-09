@@ -1,4 +1,6 @@
 ---
 name: Sean Kross
-link: http://seankross.com
+link: https://seankross.com
+github: seankross
+twitter: seankross
 ---
