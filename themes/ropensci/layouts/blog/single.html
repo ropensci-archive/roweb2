@@ -42,7 +42,6 @@
                     <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                 {{ end }}
             </div>
- {{ partial "otherposts.html" (dict "authors" $authors "Site" $.Site) }}
             {{ if isset .Params "topicid" }}
             <!-- discourse comments -->
             <div class="col-offset-2 col-8 top-4">

@@ -1,21 +1,14 @@
-{{$staff := .Site.Params.staff}}
-{{$leadership := .Site.Params.leadership}}
 {{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ range $i, $e := .authors }}
 {{ range first 1 (where $pages ".Params.name" $e) }}
-{{$params := .Params}}
+{{ $params := .Params }}
+{{ $name := $params.name }}
 {{ if $i }}&nbsp;| 
   {{ end }}
+  {{ range first 1 (where $pages ".Params.name" $e) }}
                             &nbsp;
-                            {{ if in $leadership $params.name }}
-                              <a href="/about/#team">{{ $params.name }}</a> 
-                            {{ else if in $staff $params.name }}
-                              <a href="/about/#team">{{ $params.name }}</a>
-                            {{ else if eq $params.name "Ted Hart" }}
-                              <a href="{{.Site.BaseURL}}/about/#team">{{ $params.name }}</a>
-                            {{ else }}
-                              <a href="{{ $params.link }}" target="_blank">{{ $params.name }}</a>
-                            {{ end }}
+                            <a href="{{ .Permalink }}">{{ $name }}</a>
+  {{ end }}
                             {{ if $params.twitter }}
                             <a href="https://twitter.com/{{$params.twitter}}" class="social" alt="twitter" target="_blank">
                                <sup><i class="ropensci-icons">o</i></sup>
