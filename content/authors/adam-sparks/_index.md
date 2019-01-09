@@ -1,4 +1,6 @@
 ---
 name: Adam Sparks
-link: http://about.me/adamhsparks/
+link: https://adamhsparks.netlify.com/
+twitter: adamhsparks
+github: adamhsparks
 ---
