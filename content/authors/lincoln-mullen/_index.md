@@ -1,4 +1,5 @@
 ---
 name: Lincoln Mullen
-link: http://lincolnmullen.com
+link: https://lincolnmullen.com
+github: lmullen
 ---
