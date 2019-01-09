@@ -1,4 +1,6 @@
 ---
 name: Auriel Fournier
-link: https://github.com/aurielfournier
+link: http://aurielfournier.github.io/
+github: aurielfournier
+twitter: RallidaeRule
 ---
