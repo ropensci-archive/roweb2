@@ -22,6 +22,29 @@ ape::image.DNAbin(ape::read.FASTA(
 )
 dev.off()
 
+beautier::create_beast2_input_file(
+  input_filename = fasta_filename,
+  output_filename = "beast2.xml",
+  mcmc = create_mcmc(chain_length = 1000000),
+  mrca_prior = create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename = fasta_filename),
+    taxa_names = get_taxa_names(filename = fasta_filename),
+    mrca_distr = create_normal_distr(mean = 10.0, sigma = 0.01)
+  )
+)
+
+beastier::run_beast2(
+  input_filename = "beast2.xml",
+  output_trees_filenames = "posterior.trees",
+  overwrite = TRUE
+)
+
+posterior_trees <- tracerer::parse_beast_trees("posterior.trees")
+
+ggtree::ggtree(posterior_trees[901:1001], layout = "slanted", alpha = 0.1) +
+  ggtree::geom_tiplab() +
+  ggtree::geom_treescale() + ggtree::ggsave("phylogenies.png")
+
 
 # Create posterior
 posterior <- babette::bbt_run(

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.4">
+
+
+    <data
+id="file2c452d0b6f76"
+name="alignment">
+                    <sequence id="seq_1" taxon="1" totalcount="4" value="aaaa"/>
+                    <sequence id="seq_2" taxon="2" totalcount="4" value="aacc"/>
+                    <sequence id="seq_3" taxon="3" totalcount="4" value="aact"/>
+                </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="1000000">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:file2c452d0b6f76" name="stateNode">
+            <taxonset id="TaxonSet.file2c452d0b6f76" spec="TaxonSet">
+                <alignment idref="file2c452d0b6f76"/>
+            </taxonset>
+        </tree>
+        <parameter id="birthRate.t:file2c452d0b6f76" name="stateNode">1.0</parameter>
+        <parameter id="clockRate.c:file2c452d0b6f76" name="stateNode">1.0</parameter>
+    </state>
+
+    <init id="RandomTree.t:file2c452d0b6f76" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:file2c452d0b6f76" taxa="@file2c452d0b6f76">
+        <populationModel id="ConstantPopulation0.t:file2c452d0b6f76" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:file2c452d0b6f76" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="YuleModel.t:file2c452d0b6f76" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:file2c452d0b6f76" tree="@Tree.t:file2c452d0b6f76"/>
+            <prior id="YuleBirthRatePrior.t:file2c452d0b6f76" name="distribution" x="@birthRate.t:file2c452d0b6f76">
+                <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
+            </prior>
+            <prior id="ClockPrior.c:file2c452d0b6f76" name="distribution" x="@clockRate.c:file2c452d0b6f76">
+                <Uniform id="Uniform.150" name="distr" upper="Infinity"/>
+            </prior>
+            <distribution id="auto_name_1.prior" spec="beast.math.distributions.MRCAPrior" tree="@Tree.t:file2c452d0b6f76">
+                <taxonset id="auto_name_1" spec="TaxonSet">
+                    <taxon id="1" spec="Taxon"/>
+                    <taxon id="2" spec="Taxon"/>
+                    <taxon id="3" spec="Taxon"/>
+                </taxonset>
+                <Normal id="Normal.151" name="distr">
+                    <parameter id="RealParameter.300" estimate="false" name="mean">10</parameter>
+                    <parameter id="RealParameter.301" estimate="false" name="sigma">0.01</parameter>
+                </Normal>
+            </distribution>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution id="treeLikelihood.file2c452d0b6f76" spec="ThreadedTreeLikelihood" data="@file2c452d0b6f76" tree="@Tree.t:file2c452d0b6f76">
+                <siteModel id="SiteModel.s:file2c452d0b6f76" spec="SiteModel">
+                    <parameter id="mutationRate.s:file2c452d0b6f76" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:file2c452d0b6f76" estimate="false" name="shape">1.0</parameter>
+                    <parameter id="proportionInvariant.s:file2c452d0b6f76" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="JC69.s:file2c452d0b6f76" spec="JukesCantor"/>
+                </siteModel>
+                <branchRateModel id="StrictClock.c:file2c452d0b6f76" spec="beast.evolution.branchratemodel.StrictClockModel" clock.rate="@clockRate.c:file2c452d0b6f76"/>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="YuleBirthRateScaler.t:file2c452d0b6f76" spec="ScaleOperator" parameter="@birthRate.t:file2c452d0b6f76" scaleFactor="0.75" weight="3.0"/>
+
+    <operator id="YuleModelTreeScaler.t:file2c452d0b6f76" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:file2c452d0b6f76" weight="3.0"/>
+
+    <operator id="YuleModelTreeRootScaler.t:file2c452d0b6f76" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:file2c452d0b6f76" weight="3.0"/>
+
+    <operator id="YuleModelUniformOperator.t:file2c452d0b6f76" spec="Uniform" tree="@Tree.t:file2c452d0b6f76" weight="30.0"/>
+
+    <operator id="YuleModelSubtreeSlide.t:file2c452d0b6f76" spec="SubtreeSlide" tree="@Tree.t:file2c452d0b6f76" weight="15.0"/>
+
+    <operator id="YuleModelNarrow.t:file2c452d0b6f76" spec="Exchange" tree="@Tree.t:file2c452d0b6f76" weight="15.0"/>
+
+    <operator id="YuleModelWide.t:file2c452d0b6f76" spec="Exchange" isNarrow="false" tree="@Tree.t:file2c452d0b6f76" weight="3.0"/>
+
+    <operator id="YuleModelWilsonBalding.t:file2c452d0b6f76" spec="WilsonBalding" tree="@Tree.t:file2c452d0b6f76" weight="3.0"/>
+
+    <operator id="StrictClockRateScaler.c:file2c452d0b6f76" spec="ScaleOperator" parameter="@clockRate.c:file2c452d0b6f76" scaleFactor="0.75" weight="3.0"/>
+
+    <operator id="strictClockUpDownOperator.c:file2c452d0b6f76" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+        <up idref="clockRate.c:file2c452d0b6f76"/>
+        <down idref="Tree.t:file2c452d0b6f76"/>
+    </operator>
+
+    <logger id="tracelog" fileName="file2c452d0b6f76.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.file2c452d0b6f76"/>
+        <log id="TreeHeight.t:file2c452d0b6f76" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:file2c452d0b6f76"/>
+        <log idref="YuleModel.t:file2c452d0b6f76"/>
+        <log idref="birthRate.t:file2c452d0b6f76"/>
+        <log idref="auto_name_1.prior"/>
+        <log idref="clockRate.c:file2c452d0b6f76"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:file2c452d0b6f76" fileName="$(tree).trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger.t:file2c452d0b6f76" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:file2c452d0b6f76"/>
+    </logger>
+
+</run>
+
+</beast>
