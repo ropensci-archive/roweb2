@@ -1,6 +1,6 @@
 ---
 name: Miles McBain
-link: http://milesmcbain.xyz/
+link: https://milesmcbain.xyz/
 github: milesmcbain
 twitter: MilesMcBain
 ---
