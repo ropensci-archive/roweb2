@@ -1,4 +1,6 @@
 ---
 name: David Winter
-link: http://cartwrig.ht/people/#david-j-winter
+link: https://david-winter.info/
+twitter: TheAtavism
+github: dwinter
 ---
