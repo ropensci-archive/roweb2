@@ -1,4 +1,5 @@
 ---
 name: Alice Daish
-link: https://twitter.com/alice_data
+twitter: alice_data
+github: adaish
 ---
