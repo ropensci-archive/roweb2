@@ -1,4 +1,6 @@
 ---
 name: Miles McBain
-link: http://staff.qut.edu.au/staff/mcbainm
+link: http://milesmcbain.xyz/
+github: milesmcbain
+twitter: MilesMcBain
 ---
