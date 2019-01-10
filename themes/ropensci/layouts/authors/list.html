@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-{{ partial "header.html" . }}
+{{ define "main" }}
 
    <section>
         <div class="row">
@@ -50,7 +44,4 @@
     <!-- ends tutorial section -->
     <br><br>
 
-{{ partial "footer.html" . }}
-
-</body>
-</html>
+{{ end }}

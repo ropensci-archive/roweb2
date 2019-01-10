@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-{{ partial "header.html" . }}
-
-<!-- begins post section -->
+{{ define "main" }}
     <article>
         <div class="container top-20">
             <!-- <div class="sidebar">
@@ -31,10 +23,6 @@
             </div>
         </div>
     </article>
-
-{{ partial "footer.html" . }}
-
-
     <!-- loads jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- <script type="text/javascript" src="/js/sidebarinit.js"></script> -->
@@ -45,7 +33,4 @@
         hljs.initHighlightingOnLoad();
     </script>
 
-
-
-</body>
-</html>
+{{ end }}
