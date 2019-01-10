@@ -17,7 +17,7 @@ Two members of our team will attend [rstudio::conf](http://www.cvent.com/events/
 
 ### A guide to modern reproducible data science
 
-__Karthik Ram__ (Tidyverse & Teaching, session 3)
+__Karthik Ram__ (Tidyverse-ext, session 1)
 
 
 _Have you ever had a challenging time cloning someone's data analysis repo and easily re-running the analysis without fiddling with missing packages, mismatched versions, external dependencies, unavailable data or a whole host of other issues? Would you like your own work to be reproducible where someone else can access your data, code, workflow, models and provenance and easily re-create your results without consulting you? Then this is the talk for you. You'll learn about creating custom computing environments that can be shared and instantly with remote users, packaging small to medium data inside and outside packages, and creating simple to complex workflows to track the provenance of your results._
