@@ -1,4 +1,6 @@
 ---
 name: Kara Woo
-link: http://karawoo.com/
+link: https://karawoo.com/
+twitter: kara_woo
+github: karawoo
 ---
