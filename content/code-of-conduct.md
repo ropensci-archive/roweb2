@@ -57,7 +57,7 @@ The Code of Conduct Committee will investigate and decide responses to reports w
 We welcome your feedback by email to `conduct@ropensci.org`, and we thank you for working with us to make rOpenSci a safe, enjoyable, friendly and enriching experience for everyone who participates.
 
 #### License and Credits
-The rOpenSci Code of Conduct has been influenced by and adapted from many sources including the [Open Source and Feelings talk](https://youtu.be/nizfHxg8y3o) by [Audrey Eschright](http://lifeofaudrey.com/), the R Consortium R Community Diversity and Inclusion Working Group's draft [Code of Conduct](https://github.com/RConsortium/RCDI-WG/tree/master/conduct/code-of-conduct.md), the [Geek Feminism anti-harassment policy](http://geekfeminism.wikia.com/wiki/Community_anti-harassment/Policy), and our own Community Call: [How do I create a Code of Conduct for my event/lab/codebase?](/commcalls/2016-12-15/)
+The rOpenSci Code of Conduct has been influenced by and adapted from many sources including the [Open Source and Feelings talk](https://youtu.be/nizfHxg8y3o) by [Audrey Eschright](http://lifeofaudrey.com/), the R Consortium R Community Diversity and Inclusion Working Group's draft [Code of Conduct](https://github.com/RConsortium/RCDI-WG/blob/0ca0a91dccc9296ff53a5806f52a2a49dbb8850d/conduct/code-of-conduct.md), the [Geek Feminism anti-harassment policy](http://geekfeminism.wikia.com/wiki/Community_anti-harassment/Policy), and our own Community Call: [How do I create a Code of Conduct for my event/lab/codebase?](/commcalls/2016-12-15/)
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
   <a rel="license"
