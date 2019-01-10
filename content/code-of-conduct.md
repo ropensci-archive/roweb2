@@ -5,7 +5,7 @@ description = "rOpenSci Code of Conduct"
 
 **Version 2.0 – January 10, 2019**
 
-rOpenSci's community is our best asset and we believe that our diversity is our strength. We are building a welcoming and diverse global community of software users and developers from a range of research domains. It's so important to us, it's in [our mission statement](https://ropensci.org/about/). Whether you’re a regular contributor or a newcomer, we care about making this a safe place for you and we’ve got your back.
+rOpenSci's community is our best asset and we believe that our diversity is our strength. We are building a welcoming and diverse global community of software users and developers from a range of research domains. It's so important to us, it's in [our mission statement](/about/). Whether you’re a regular contributor or a newcomer, we care about making this a safe place for you and we’ve got your back.
 
 rOpenSci is committed to providing a safe, inclusive, welcoming, and harassment-free experience for everyone.
 
@@ -13,7 +13,7 @@ We try to cultivate a community with shared values, where people are comfortable
 
 Be considerate in speech and actions, and actively seek to acknowledge and respect the boundaries of fellow community members.
 
-Take care of each other. Alert a member of the Code of Conduct Committee (named below) if you notice a dangerous situation, someone in distress, or a potential violation of this Code of Conduct, even if it seems inconsequential.
+Take care of each other. Alert a member of the Code of Conduct Committee ([named below](#reporting-guidelines)) if you notice a dangerous situation, someone in distress, or a potential violation of this Code of Conduct, even if it seems inconsequential.
 
 We do not tolerate harassment in any form. Refrain from demeaning, discriminatory, or harassing behavior and speech. Harassment includes, but is not limited to:
 
@@ -46,7 +46,7 @@ This Code of Conduct applies to all people participating in the rOpenSci communi
 
 ### Reporting Guidelines
 
-The rOpenSci Code of Conduct Committee includes [Stefanie Butland](https://ropensci.org/about/#team) (rOpenSci Community Manager), [Scott Chamberlain](https://ropensci.org/about/#team) (rOpenSci Co-founder and Technical Lead) and [Kara Woo](https://karawoo.com/) (independent community member).
+The rOpenSci Code of Conduct Committee includes [Stefanie Butland](/about/#team) (rOpenSci Community Manager), [Scott Chamberlain](/about/#team) (rOpenSci Co-founder and Technical Lead) and [Kara Woo](https://karawoo.com/) (independent community member).
 
 If you experience or witness unacceptable behavior, or have any other concerns, [please submit a report  to the Committee as soon as possible using this form](https://docs.google.com/forms/d/e/1FAIpQLSdPdhOveaz21SitTBpQ5686xEKPq8DW-Kb8CyKyX89aw5Mz_A/viewform). Alternatively, you may email `conduct@ropensci.org`, which will go to all three Committee members. You may also make a report directly to one member of the Committee by contacting them directly. If any member of the Committee has a conflict of interest with a report, they will be recused and will not have access to the content or process of the report followup. At an in-person rOpenSci event, please reach out to anyone named as a member of that event-specific Code of Conduct Committee, or to venue staff or security who will be present throughout the event.
 
