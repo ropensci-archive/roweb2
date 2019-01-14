@@ -1,14 +1,14 @@
 {{ define "main" }}
 
-   <section>
-        <div class="row">
-            <div class="col-8 col-offset-2 top-4">
-
 {{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ $title := default .Title .Params.name}}
 {{ range first 1 (where $pages ".Params.name" $title) }}
 {{$params := .Params}}
-<h2>Content by {{ $title }}</h2>
+    <article>
+        <div class="container">
+        <div class="row top-2">
+            <h2>Content by {{ $title }}</h2>
+</div>
 {{ if $params.bio }}
 <div class="row">
     <div class="top-2 bottom-2">
@@ -16,20 +16,41 @@
 </div>
 </div>
 {{ end }}
-{{ if $params.link }}
-<div class="row">
-    <div class="top-2 bottom-2">
- {{ $params.name }}'s online home <a href="{{ $params.link }}" target="_blank"><i class="fa fa-home"></i></a>
 </div>
 </div>
-{{ end }}
-{{ if $params.twitter }}
-<div class="row">
-    <div class="top-2 bottom-2">
- Follow {{ $params.name }} on Twitter <a href="https://twitter.com/{{ $params.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
-</div>
-</div>
-{{ end }}
+        <div class="container">
+        <div class="row">
+            <div class="col-2 top-6">
+        {{ if isset .Params "img" }}
+        <img alt="{{ .Params.name }}" width="133" height="133" src="/{{ .Params.img }}" />
+        {{ else if isset .Params "github" }}
+        <img alt="{{ .Params.name }}" width="133" height="133" src="https://github.com/{{ .Params.github }}.png" />
+        {{ else }}
+        <img alt="{{ .Params.name }}" width="133" height="133" src="/img/default_avatar.png" />
+
+    
+        {{ end }}
+        <div class = "row">
+            <font size = "7">
+            {{ if isset .Params "github" }}
+        <a href="https://github.com/{{.Params.twitter}}"> <i class="fa fa-github"></i></a>
+        {{ end }}
+            {{ if isset .Params "twitter" }}
+        <a href="https://twitter.com/{{.Params.twitter}}"> <i class="fa fa-twitter"></i></a>
+        {{ end }}
+            {{ if isset .Params "link"}}
+        <a href="{{.Params.link}}"> <i class="fa fa-home"></i></a>
+        {{ end }}
+            {{ if isset .Params "gitlab" }}
+        <a href="https://gitlab.com/{{.Params.twitter}}"> <i class="fa fa-gitlab"></i></a>
+        {{ end }}
+        
+        </font>
+            </div>
+            </div>
+            <div class="col-10 top-4">
+
+
 {{ end }}
 {{ $pages := .Data.Pages }}
 {{ partial "archive.html" (dict "pages" $pages) }}
@@ -40,7 +61,7 @@
 <p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>, <a href="/archive/" target="_blank">by date</a> and  <a href="/authors/" target="_blank">by author</a> or subscribe to the blog <a href="/blog/index.xml" target="_blank">RSS feed</a> or <a href="/blog/index.json" target="_blank">JSON feed</a>.</p>
           </div>
           </div>
-</section>
+</article>
     <!-- ends tutorial section -->
     <br><br>
 
