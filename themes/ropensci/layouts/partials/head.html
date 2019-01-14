@@ -41,8 +41,8 @@
     {{ end }}
   <!-- -->
   {{ else }}
-     {{ .Scratch.Set "title" ".Title" }}
-     {{ .Scratch.Set "description" ".Description" }}
+     {{ .Scratch.Set "title" .Title }}
+     {{ .Scratch.Set "description" .Description }}
   {{ end }}
     {{ $defaultDescription := .Summary }}
     {{ $title := .Scratch.Get "title" }}
