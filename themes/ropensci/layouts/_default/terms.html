@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-  {{ partial "header.html" . }}
+{{ define "main" }}
   <article>
     <div class="container">
         <div class="row">
@@ -34,7 +28,4 @@
 
 </article>
 
-{{ partial "footer.html" . }}
-
-</body>
-</html>
+{{ end }}

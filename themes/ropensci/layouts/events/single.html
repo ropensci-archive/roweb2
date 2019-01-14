@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    {{ partial "head.html" . }}
-</head>
-
-<body>
-    {{ partial "header.html" . }}
+{{ define "main" }}
 
     <article class="blog-post">
         <div class="container">
@@ -39,10 +31,4 @@
 <div class="row center top-3 bottom-3">
         <p> Find <a href="/events/" target="_blank">upcoming events</a>. </p>
     </div>
-    <!-- {{ partial "sidebar.html" . }} -->
-
-    {{ partial "footer.html" . }}
-
-</body>
-
-</html>
+{{ end }}
