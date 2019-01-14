@@ -5,32 +5,20 @@
 {{ range first 1 (where $pages ".Params.name" $title) }}
 {{$params := .Params}}
     <article>
-        <div class="container">
-        <div class="row top-2">
-            <h2>Content by {{ $title }}</h2>
-</div>
-{{ if $params.bio }}
-<div class="row">
-    <div class="top-2 bottom-2">
-{{ $params.bio }}
-</div>
-</div>
-{{ end }}
-</div>
-</div>
+<section class = "team">
         <div class="container">
         <div class="row">
             <div class="col-2 top-6">
         {{ if isset .Params "img" }}
-        <img alt="{{ .Params.name }}" width="133" height="133" src="/{{ .Params.img }}" />
+        <img alt="{{ .Params.name }}" width="200" height="200" src="/{{ .Params.img }}" />
         {{ else if isset .Params "github" }}
-        <img alt="{{ .Params.name }}" width="133" height="133" src="https://github.com/{{ .Params.github }}.png" />
+        <img alt="{{ .Params.name }}" width="200" height="200" src="https://github.com/{{ .Params.github }}.png" />
         {{ else }}
-        <img alt="{{ .Params.name }}" width="133" height="133" src="/img/default_avatar.png" />
+        <img alt="{{ .Params.name }}" width="200" height="200" src="/img/default_avatar.png" />
 
     
         {{ end }}
-        <div class = "row">
+        <div class = "row" style="text-align: center;">
             <font size = "7">
             {{ if isset .Params "github" }}
         <a href="https://github.com/{{.Params.twitter}}"> <i class="fa fa-github"></i></a>
@@ -47,10 +35,19 @@
         
         </font>
             </div>
+            {{ if $params.bio }}
+<div class="row">
+    <div class="top-2 bottom-2" style="text-align: center;">
+{{ $params.bio }}
+</div>
+</div>
+{{ end }}
             </div>
             <div class="col-10 top-4">
+                <div class = "bottom-3">
+        <h2 style="text-align: center;">{{ $title }}</h2>
 
-
+</div>
 {{ end }}
 {{ $pages := .Data.Pages }}
 {{ partial "archive.html" (dict "pages" $pages) }}
@@ -61,6 +58,7 @@
 <p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>, <a href="/archive/" target="_blank">by date</a> and  <a href="/authors/" target="_blank">by author</a> or subscribe to the blog <a href="/blog/index.xml" target="_blank">RSS feed</a> or <a href="/blog/index.json" target="_blank">JSON feed</a>.</p>
           </div>
           </div>
+          </section>
 </article>
     <!-- ends tutorial section -->
     <br><br>
