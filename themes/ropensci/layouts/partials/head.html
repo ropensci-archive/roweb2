@@ -5,8 +5,8 @@
     {{ $title := default .Title .Params.name}}
     {{ range first 1 (where $pages ".Params.name" $title) }}
 <title>rOpenSci | {{ .Params.name }}</title>
-    
     {{ end }}
+  <!-- -->
   
   {{ else }}
 <title>rOpenSci | {{ .Title }}</title>
@@ -39,6 +39,7 @@
      {{ $description := (print "Content by " .Params.name ) }}
      {{ .Scratch.Set "description" $description }}
     {{ end }}
+  <!-- -->
   {{ else }}
      {{ .Scratch.Set "title" ".Title" }}
      {{ .Scratch.Set "description" ".Description" }}
