@@ -1,4 +1,4 @@
 ---
 name: Jenny Draper
-link: https://github.com/learithe
+github: learithe
 ---

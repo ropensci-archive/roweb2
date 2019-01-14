@@ -1,4 +1,4 @@
 ---
 name: Ross Gayler
-link: https://twitter.com/ross_gayler
+twitter: ross_gayler
 ---

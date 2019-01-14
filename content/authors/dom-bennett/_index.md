@@ -1,4 +1,4 @@
 ---
 name: Dom Bennett
-link: https://github.com/dombennett
+github: dombennett
 ---
