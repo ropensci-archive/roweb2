@@ -164,6 +164,14 @@ In this blogpost we used the wateRinfo package to gain some insight in the movem
 -   For more info on the package, see [the package website](https://ropensci.github.io/wateRinfo/).
 -   For the full code of this blogpost, see [this repository](https://github.com/stijnvanhoey/waterinfo-tidal-eel).
 
+Acknowledgements
+----------------
+
+The availability of this data is made possible by the [Flanders Environment Agency](https://en.vmm.be/), [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/en/home), [_Agentschap Maritieme Dienstverlening & Kust_](http://www.agentschapmdk.be/) and [_De Vlaamse Waterweg_](https://www.vlaamsewaterweg.be/).
+
+The work by Stijn and Peter, as well as the fish acoustic receiver network, is funded by [FWO](https://www.fwo.be/) as part of the Flemish contribution to [LifeWatch](http://www.lifewatch.be/). This work would not be possible without the support of [our team at INBO](https://twitter.com/lifewatchinbo).
+
+
 [1] To represent the data along a straight line (y-axis), we calculated the distance along the river from each station to a reference station close to the sea (`ws-DL7`), using a `costDistance` function. See [this script](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/src/stations_distances.ipynb) for more the details on the calculation.
 
 [2] The Scheldt is under tidal influence from its river mouth all the way to Ghent (160km upstream) where it is stopped by sluices. The tide goes much further than the freshwater-saltwater boundary of the river.
