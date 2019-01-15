@@ -2,12 +2,8 @@
 slug: "waterinfo-tidal-eel"
 title: wateRinfo - Downloading tidal data to understand the behaviour of a migrating eel
 authors:
-  - name: Stijn Van Hoey
-    url: https://orcid.org/0000-0001-6413-3185
-    twitter: SVanHoey
-  - name: Peter Desmet
-    url: https://orcid.org/0000-0002-8442-8025
-    twitter: peterdesmet
+  - Stijn Van Hoey
+  - Peter Desmet
 date: 2019-01-15
 categories: blog
 topicid:
