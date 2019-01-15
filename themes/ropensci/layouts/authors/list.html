@@ -8,7 +8,7 @@
 <section class = "author">
         <div class="container">
         <div class="row">
-            <div class="col-2 top-6" style="text-align: center;">
+            <div class="col-12 col-lg-4 top-6" style="text-align: center;">
         {{ if isset .Params "img" }}
         {{ $src := print "/" .Params.img }}
         {{ .Scratch.Set "src" $src }}
@@ -20,9 +20,17 @@
         {{ .Scratch.Set "src" "/img/default_avatar.png" }}
         {{ end }}
         {{ $src := .Scratch.Get "src" }}
-        <div class = "row" style="display: inline-block;">
+        <div class = "row bottom-2" style="display: inline-block;">
         <img alt="{{ .Params.name }}" src="{{ $src }}" />
         </div>
+        <h2 style="text-align: center;">{{ $title }}</h2>
+         {{ if $params.bio }}
+<div class="row">
+    <div class="bottom-2" style="text-align: center;">
+{{ $params.bio }}
+</div>
+</div>
+{{ end }}
         <div class = "row" style="display: inline-block;">
             {{ if isset .Params "github" }}
         <a href="https://github.com/{{.Params.twitter}}"> <i class="fa fa-github"></i></a>
@@ -37,19 +45,10 @@
         <a href="https://gitlab.com/{{.Params.twitter}}"> <i class="fa fa-gitlab"></i></a>
         {{ end }}
             </div>
-            {{ if $params.bio }}
-<div class="row">
-    <div class="top-2 bottom-2" style="text-align: center;">
-{{ $params.bio }}
-</div>
-</div>
-{{ end }}
+           
             </div>
-            <div class="col-10 top-4">
-                <div class = "bottom-3">
-        <h2 style="text-align: center;">{{ $title }}</h2>
+            <div class="col-12 col-lg-8 top-4">
 
-</div>
 {{ end }}
 {{ $pages := .Data.Pages }}
 {{ partial "archive.html" (dict "pages" $pages) }}
@@ -64,5 +63,6 @@
 </article>
     <!-- ends tutorial section -->
     <br><br>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 {{ end }}
