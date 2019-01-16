@@ -37,16 +37,16 @@ Pieterjan provided us the [tracking data](https://github.com/stijnvanhoey/wateri
 eel <- read_csv(here("data", "eel_track.csv"))
 ```
 
-Her tracking data consists of the residence time interval (`arrival` until `departure`) at each `receiver` station that detected her along the [Scheldt](https://en.wikipedia.org/wiki/Scheldt) river. It also contains the number of `detections` and calculated `residencetime` (in seconds), as well as the `station` name, `latitude` and `longitude`.
+Her tracking data consists of the residence time interval (`arrival` until `departure`) at each `receiver` station that detected her along the [Scheldt](https://en.wikipedia.org/wiki/Scheldt) river. It also contains the calculated `residencetime` (in seconds), as well as the `station` name, `latitude` and `longitude`.
 
-| date       | transmitter    | receiver    |  latitude|  longitude| station    | arrival             | departure           |  detections|  residencetime|
-|:-----------|:---------------|:------------|---------:|----------:|:-----------|:--------------------|:--------------------|-----------:|--------------:|
-| 2016-10-19 | A69-1601-52644 | VR2W-112297 |  51.00164|    3.85695| s-Wetteren | 2016-10-19 23:44:00 | 2016-10-19 23:48:00 |           4|            240|
-| 2016-10-19 | A69-1601-52644 | VR2W-112287 |  51.00588|    3.77876| s-2        | 2016-10-19 16:07:00 | 2016-10-19 19:12:00 |          54|          11100|
-| 2016-10-20 | A69-1601-52644 | VR2W-122322 |  51.02032|    3.96965| s-2a       | 2016-10-20 13:18:00 | 2016-10-20 13:23:00 |           3|            300|
-| 2016-10-20 | A69-1601-52644 | VR2W-122322 |  51.02032|    3.96965| s-2a       | 2016-10-20 02:21:00 | 2016-10-20 02:29:00 |           5|            480|
-| 2016-10-20 | A69-1601-52644 | VR2W-115438 |  51.01680|    3.92527| s-Wichelen | 2016-10-20 01:01:00 | 2016-10-20 01:09:00 |           6|            480|
-| 2016-10-20 | A69-1601-52644 | VR2W-122322 |  51.02032|    3.96965| s-2a       | 2016-10-20 05:52:00 | 2016-10-20 06:00:00 |           5|            480|
+| date       | receiver    |  latitude|  longitude| station    | arrival             | departure           |  residencetime|
+|:-----------|:------------|---------:|----------:|:-----------|:--------------------|:--------------------|--------------:|
+| 2016-10-19 | VR2W-112297 |  51.00164|    3.85695| s-Wetteren | 2016-10-19 23:44:00 | 2016-10-19 23:48:00 |            240|
+| 2016-10-19 | VR2W-112287 |  51.00588|    3.77876| s-2        | 2016-10-19 16:07:00 | 2016-10-19 19:12:00 |          11100|
+| 2016-10-20 | VR2W-122322 |  51.02032|    3.96965| s-2a       | 2016-10-20 13:18:00 | 2016-10-20 13:23:00 |            300|
+| 2016-10-20 | VR2W-122322 |  51.02032|    3.96965| s-2a       | 2016-10-20 02:21:00 | 2016-10-20 02:29:00 |            480|
+| 2016-10-20 | VR2W-115438 |  51.01680|    3.92527| s-Wichelen | 2016-10-20 01:01:00 | 2016-10-20 01:09:00 |            480|
+| 2016-10-20 | VR2W-122322 |  51.02032|    3.96965| s-2a       | 2016-10-20 05:52:00 | 2016-10-20 06:00:00 |            480|
 
 Using the `latitude`, `longitude` and total `residencetime` for each station, we can map where Princess Buttercup likes to hang out:
 
