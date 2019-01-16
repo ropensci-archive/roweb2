@@ -54,7 +54,7 @@ Using the `latitude`, `longitude` and total `residencetime` for each station, we
 
 ### Moving up and down the Scheldt river
 
-To get a better sense of her journey along the river, we add a `distance_to_sea` (in meters) for the stations, by joining the tracking data with a [distance reference file](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/data/distance_from_sea.csv)[1]. We can now plot her movement over time and distance:
+To get a better sense of her journey along the river, we add a `distance_to_sea` (in meters) for the stations, by joining the tracking data with a [distance reference file](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/data/distance_from_sea.csv)[^1]. We can now plot her movement over time and distance:
 
 ![](/img/blog-images/2019-01-15-waterinfo-tidal-eel/plot_track-1.png)
 
