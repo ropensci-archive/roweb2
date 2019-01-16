@@ -54,11 +54,11 @@ Using the `latitude`, `longitude` and total `residencetime` for each station, we
 
 ### Moving up and down the Scheldt river
 
-To get a better sense of her journey along the river, we add a `distance_to_sea` (in meters) for the stations, by joining the tracking data with a [distance reference file](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/data/distance_from_sea.csv)[^1]. We can now plot her movement over time and distance:
+To get a better sense of her journey along the river, we add a `distance_to_sea` (in meters) for the stations, by joining the tracking data with a [distance reference file](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/data/distance_from_sea.csv) [^1]. We can now plot her movement over time and distance:
 
 ![](/img/blog-images/2019-01-22-waterinfo-tidal-eel/plot_track-1.png)
 
-Princess Buttercup's signal was picked up by receivers in Merelbeke (near Ghent) shortly after she was captured and released there on October 11. She resided in a 40 km stretch of the river (between Wetteren and Sint-Amands) for about a month before migrating towards the sea and starting the long journey towards the Sargasso Sea. The periodic movement pattern up and down the river during the second half of November is of particular interest: it looks like tidal frequency[^2]. It would be interesting to compare the movement pattern with real water level data from the Scheldt river... which is where our `wateRinfo` package comes in.
+Princess Buttercup's signal was picked up by receivers in Merelbeke (near Ghent) shortly after she was captured and released there on October 11. She resided in a 40 km stretch of the river (between Wetteren and Sint-Amands) for about a month before migrating towards the sea and starting the long journey towards the Sargasso Sea. The periodic movement pattern up and down the river during the second half of November is of particular interest: it looks like tidal frequency [^2]. It would be interesting to compare the movement pattern with real water level data from the Scheldt river... which is where our `wateRinfo` package comes in.
 
 ### Getting tidal data with the `wateRinfo` package
 
@@ -126,7 +126,7 @@ tidal_data <-
 
 In just a few lines of code, we downloaded the tidal data for each measurement station for the required time period. 👌
 
-The water level is expressed in `mTAW`[^3] (meter above mean sea level). Let's plot the data for a station (here Dendermonde in November 2016) to have a look:
+The water level is expressed in `mTAW` [^3] (meter above mean sea level). Let's plot the data for a station (here Dendermonde in November 2016) to have a look:
 
 ![](/img/blog-images/2019-01-22-waterinfo-tidal-eel/plot_tide_dendermonde-1.png)
 
