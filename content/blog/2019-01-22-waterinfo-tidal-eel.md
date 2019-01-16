@@ -126,7 +126,7 @@ tidal_data <-
 
 In just a few lines of code, we downloaded the tidal data for each measurement station for the required time period. 👌
 
-The water level is expressed in `mTAW` [^3] (meter above mean sea level). Let's plot the data for a station (here Dendermonde in November 2016) to have a look:
+The water level is expressed in `mTAW`  (meter above mean sea level) [^3]. Let's plot the data for a station (here Dendermonde in November 2016) to have a look:
 
 ![](/img/blog-images/2019-01-22-waterinfo-tidal-eel/plot_tide_dendermonde-1.png)
 
