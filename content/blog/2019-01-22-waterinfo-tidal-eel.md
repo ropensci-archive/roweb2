@@ -162,12 +162,9 @@ In this blogpost we used the `wateRinfo` package to gain some insight in the mov
 
 ### Acknowledgements
 
-Waterinfo.be data is made available by the [Flanders Environment Agency](https://en.vmm.be/), [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/en/home), [_Agentschap Maritieme Dienstverlening & Kust_](http://www.agentschapmdk.be/) and [_De Vlaamse Waterweg_](https://www.vlaamsewaterweg.be/).
+Waterinfo.be data is made available by the [Flanders Environment Agency](https://en.vmm.be/), [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/en/home), [_Agentschap Maritieme Dienstverlening & Kust_](http://www.agentschapmdk.be/) and [_De Vlaamse Waterweg_](https://www.vlaamsewaterweg.be/). The [fish acoustic receiver network](http://lifewatch.be/en/fish-acoustic-receiver-network), as well as the work by Stijn and Peter, is funded by [FWO](https://www.fwo.be/) as part of the Flemish contribution to [LifeWatch](http://www.lifewatch.be/). The animated video on eel research was funded by the [Flanders Marine Institute (VLIZ)](http://vliz.be/en/), coordinated by Karen Rappé and Pieterjan Verhelst, animated by Steve Bridger, and narrated by Bryan Kopta.
 
-The work by Stijn and Peter, as well as the fish acoustic receiver network, is funded by [FWO](https://www.fwo.be/) as part of the Flemish contribution to [LifeWatch](http://www.lifewatch.be/). Lifewatch Belgium supported the production of the animated video about tagging research on eel in Belgium (Coordination: Karen Rappé and Pieterjan Verhelst, Animation: Steve Bridger, Voice: Bryan Kopta (EN), Executive producer: VLIZ Oostende - Belgium).
-
-This work would not be possible without the support of [our team at the INBO](https://twitter.com/LifeWatchINBO).
-
+If you want to get in touch with our team, contact us via [Twitter](https://twitter.com/lifewatchinbo) or [email](mailto:lifewatch@inbo.be).
 
 [^1]: To represent the data along a straight line (y-axis), we calculated the distance along the river from each station to a reference station close to the sea (`ws-TRAWL`), using a `costDistance` function. See [this script](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/src/stations_distances.ipynb) for more the details on the calculation.
 
