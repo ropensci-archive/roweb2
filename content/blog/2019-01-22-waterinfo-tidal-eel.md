@@ -4,7 +4,7 @@ title: wateRinfo - Downloading tidal data to understand the behaviour of a migra
 authors:
   - Stijn Van Hoey
   - Peter Desmet
-date: 2019-01-15
+date: 2019-01-22
 categories: blog
 topicid:
 tags:
