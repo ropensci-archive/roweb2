@@ -27,7 +27,7 @@ European eels ([*Anguilla anguilla*](https://en.wikipedia.org/wiki/Anguilla_angu
 
 [![Tagging research on eel in Belgium](https://img.youtube.com/vi/7YQVgl3QPyY/0.jpg)](https://www.youtube.com/watch?v=7YQVgl3QPyY)
 
-In this blog post, we'll explore if the migration of one eel is influenced by the tide. It's a research use case for our R package [wateRinfo](https://ropensci.github.io/wateRinfo/), which was recently [peer reviewed](https://github.com/ropensci/software-review/issues/255) (thanks to reviewer [Laura DeCicco](https://github.com/ldecicco-USGS) and editor [Karthik Ram](https://github.com/karthik) for their constructive feedback!) and accepted as a community-contributed package to [rOpenSci](https://github.com/ropensci/wateRinfo).
+In this blog post, we'll explore if the migration of one eel is influenced by the tide. It's a research use case for our R package [`wateRinfo`](https://ropensci.github.io/wateRinfo/), which was recently [peer reviewed](https://github.com/ropensci/software-review/issues/255) (thanks to reviewer [Laura DeCicco](https://github.com/ldecicco-USGS) and editor [Karthik Ram](https://github.com/karthik) for their constructive feedback!) and accepted as a community-contributed package to [rOpenSci](https://github.com/ropensci/wateRinfo).
 
 ### Meet Princess Buttercup
 
@@ -58,11 +58,11 @@ To get a better sense of her journey along the river, we add a `distance_to_sea`
 
 ![](/img/blog-images/2019-01-15-waterinfo-tidal-eel/plot_track-1.png)
 
-Princess Buttercup's signal was picked up by receivers in Merelbeke (near Ghent) shortly after she was captured and released there on October 11. She resided in a 40 km stretch of the river (between Wetteren and Sint-Amands) for about a month before migrating towards the sea and starting the long journey towards the Sargasso Sea. The periodic movement pattern up and down the river during the second half of November is of particular interest: it looks like tidal frequency[^2]. It would be interesting to compare the movement pattern with real water level data from the Scheldt river... which is where our wateRinfo package comes in.
+Princess Buttercup's signal was picked up by receivers in Merelbeke (near Ghent) shortly after she was captured and released there on October 11. She resided in a 40 km stretch of the river (between Wetteren and Sint-Amands) for about a month before migrating towards the sea and starting the long journey towards the Sargasso Sea. The periodic movement pattern up and down the river during the second half of November is of particular interest: it looks like tidal frequency[^2]. It would be interesting to compare the movement pattern with real water level data from the Scheldt river... which is where our `wateRinfo` package comes in.
 
-### Getting tidal data with the wateRinfo package
+### Getting tidal data with the `wateRinfo` package
 
-[Waterinfo.be](http://waterinfo.be), managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be), is a website where one can find real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The website also provides an [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) to download time series of these measurements as open data, but compositing the download URL with the proper system codes can be challenging. To facilitate users in searching for stations and variables, subsequently downloading data of interest and incorporating waterinfo.be data access in repeatable workflows, we developed the R package [wateRinfo](https://github.com/ropensci/wateRinfo) to do just that. See the [package documentation](https://ropensci.github.io/wateRinfo/) for more information on how to install and get started with the package.
+[Waterinfo.be](http://waterinfo.be), managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be), is a website where one can find real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The website also provides an [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) to download time series of these measurements as open data, but compositing the download URL with the proper system codes can be challenging. To facilitate users in searching for stations and variables, subsequently downloading data of interest and incorporating waterinfo.be data access in repeatable workflows, we developed the R package [`wateRinfo`](https://github.com/ropensci/wateRinfo) to do just that. See the [package documentation](https://ropensci.github.io/wateRinfo/) for more information on how to install and get started with the package.
 
 Timeseries in waterinfo.be (identified by a `ts_id`) are a combination of a variable, location (`station_id`) and measurement frequency (15min by default). For example:
 
@@ -103,7 +103,7 @@ From which we select the 10-min frequency tidal timeseries in the Scheldt river:
 |  54936010| 0430068     | Liefkenshoek tij/Zeeschelde  | Beneden-Scheldebekken |
 |  55059010| 0430242     | Melle tij/Zeeschelde         | Beneden-Scheldebekken |
 
-[This wateRinfo vignette](https://ropensci.github.io/wateRinfo/articles/download_timeseries_batch.html) shows how to download data for multiple stations at once using `wateRinfo` and [`dplyr`](https://dplyr.tidyverse.org/). We use a similar approach, but instead of manually providing the start and end date, we get these from Princess Buttercup's tracking data:
+[This `wateRinfo` vignette](https://ropensci.github.io/wateRinfo/articles/download_timeseries_batch.html) shows how to download data for multiple stations at once using `wateRinfo` and [`dplyr`](https://dplyr.tidyverse.org/). We use a similar approach, but instead of manually providing the start and end date, we get these from Princess Buttercup's tracking data:
 
 ``` r
 tidal_data <-
@@ -153,7 +153,7 @@ Looking at the plot, Princess Buttercup seems to be "lazy" and drift with the ti
 
 ### Conclusion
 
-In this blogpost we used the wateRinfo package to gain some insight in the movement/migration behaviour of an individual eel. We hope the package can support many more research questions and that you [have fun storming the castle](https://www.imdb.com/title/tt0093779/quotes/qt0482745).
+In this blogpost we used the `wateRinfo` package to gain some insight in the movement/migration behaviour of an individual eel. We hope the package can support many more research questions and that you [have fun storming the castle](https://www.imdb.com/title/tt0093779/quotes/qt0482745).
 
 -   For a more in depth study of eel migration behaviour in response to the tide, see [Verhelst et al. (2018)](https://doi.org/10.1016/j.ecss.2018.08.025).
 -   For more info on the package, see [the package website](https://ropensci.github.io/wateRinfo/).
