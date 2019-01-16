@@ -69,17 +69,18 @@ Timeseries in waterinfo.be (identified by a `ts_id`) are a combination of a vari
 ``` r
 library(wateRinfo)
 get_stations("water_level") %>%
+  select(ts_id, station_id, station_name, parametertype_name) %>%
   head()
 ```
 
-|    ts\_id|  station\_latitude|  station\_longitude| station\_id | station\_no | station\_name                      | stationparameter\_name | parametertype\_name | ts\_unitsymbol | dataprovider |
-|---------:|------------------:|-------------------:|:------------|:------------|:-----------------------------------|:-----------------------|:--------------------|:---------------|:-------------|
-|  92956042|           51.27835|            4.189765| 39483       | L04\_00H    | Kieldrecht/Noordzuidverbinding     | H                      | H                   | m              | VMM          |
-|  31683042|           50.87379|            4.697672| 21995       | K08\_015    | Leuven/Dijle1e arm/stuw K3         | Hopw                   | H                   | m              | VMM          |
-|  20682042|           51.17875|            3.211181| 20301       | K02\_WM004  | StMichiels/Kerkebeek/Rooster       | Hopw                   | H                   | m              | VMM          |
-|  96495042|           51.18228|            2.986944| 10413       | L01\_42E    | Oudenburg/Magdalenakreek           | H                      | H                   | m              | VMM          |
-|  25074042|           50.96749|            5.167799| 20788       | K09\_002    | Schulen/Inlaat A/WB\_Schulensbroek | Hafw                   | H                   | m              | VMM          |
-|   2006042|           50.96803|            2.885085| 10432       | L01\_49A    | Merkem/Steenbeek                   | H                      | H                   | m              | VMM          |
+|    ts\_id| station\_id | station\_name                      | parametertype\_name |
+|---------:|:------------|:-----------------------------------|:--------------------|
+|  92956042| 39483       | Kieldrecht/Noordzuidverbinding     | H                   |
+|  31683042| 21995       | Leuven/Dijle1e arm/stuw K3         | H                   |
+|  20682042| 20301       | StMichiels/Kerkebeek/Rooster       | H                   |
+|  96495042| 10413       | Oudenburg/Magdalenakreek           | H                   |
+|  25074042| 20788       | Schulen/Inlaat A/WB\_Schulensbroek | H                   |
+|   2006042| 10432       | Merkem/Steenbeek                   | H                   |
 
 At the time of writing (see [this issue](https://github.com/ropensci/wateRinfo/issues/11)), the stations measuring [water levels in the Scheldt tidal zone](https://www.waterinfo.be/default.aspx?path=NL/Thema/Getij_Actueel) are not yet included by the API under the core variable `water_level` and are thus not yet available via `get_stations("water_level")`. We therefore rely on a [precompiled list of tidal time series identifiers](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/data/tidal_zone_ts_ids.csv) (`tidal_zone_ts_ids`):
 
