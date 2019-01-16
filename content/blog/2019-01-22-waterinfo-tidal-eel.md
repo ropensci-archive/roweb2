@@ -169,8 +169,8 @@ The work by Stijn and Peter, as well as the fish acoustic receiver network, is f
 This work would not be possible without the support of [our team at the INBO](https://twitter.com/LifeWatchINBO).
 
 
-[^1] To represent the data along a straight line (y-axis), we calculated the distance along the river from each station to a reference station close to the sea (`ws-TRAWL`), using a `costDistance` function. See [this script](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/src/stations_distances.ipynb) for more the details on the calculation.
+[^1]: To represent the data along a straight line (y-axis), we calculated the distance along the river from each station to a reference station close to the sea (`ws-TRAWL`), using a `costDistance` function. See [this script](https://github.com/stijnvanhoey/waterinfo-tidal-eel/blob/master/src/stations_distances.ipynb) for more the details on the calculation.
 
-[^2] The Scheldt is under tidal influence from its river mouth all the way to Ghent (160km upstream) where it is stopped by sluices. The tide goes much further than the freshwater-saltwater boundary of the river.
+[^2]: The Scheldt is under tidal influence from its river mouth all the way to Ghent (160km upstream) where it is stopped by sluices. The tide goes much further than the freshwater-saltwater boundary of the river.
 
-[^3] TAW means [*Tweede Algemene Waterpassing*](https://nl.wikipedia.org/wiki/Tweede_Algemene_Waterpassing), a reference height for Belgium.
+[^3]: TAW means [*Tweede Algemene Waterpassing*](https://nl.wikipedia.org/wiki/Tweede_Algemene_Waterpassing), a reference height for Belgium.
