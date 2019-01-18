@@ -17,7 +17,7 @@ tags:
   - genbank
   - dna
   - sequences
-  - data-access
+  - data access
   - data-munging
   - molecular-biology
   - joss

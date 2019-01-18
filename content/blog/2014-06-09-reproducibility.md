@@ -10,7 +10,7 @@ authors:
 categories: blog
 tags:
   - R
-  - reproducible-research
+  - reproducible research
   - archiving
   - openscience
 ---

@@ -8,7 +8,7 @@ categories: technotes
 topicid: 840
 tags:
   - R
-  - data-access
+  - data access
   - packages
   - spatial
   - geospatial

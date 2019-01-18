@@ -8,7 +8,7 @@ categories: technotes
 tags:
   - R
   - rdefra
-  - data-access
+  - data access
   - earth-science
   - Software Peer Review
 ---

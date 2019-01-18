@@ -17,7 +17,7 @@ tags:
   - data-publication
   - data-standardization
   - Darwin Core
-  - reproducible-research
+  - reproducible research
   - TrIAS
   - Ebbe-Nielsen-Challenge
   - R

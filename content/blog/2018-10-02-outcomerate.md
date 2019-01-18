@@ -14,7 +14,7 @@ tags:
   - Software Peer Review
   - packages
   - outcomerate
-  - reproducible-research
+  - reproducible research
   - survey
 output: html_document
 ---

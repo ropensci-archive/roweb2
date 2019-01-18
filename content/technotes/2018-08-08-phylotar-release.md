@@ -19,7 +19,7 @@ tags:
   - genbank
   - dna
   - sequences
-  - data-access
+  - data access
   - taxonomy
 ---
 

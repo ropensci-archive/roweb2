@@ -18,7 +18,7 @@ tags:
   - tidydata
   - Canada
   - climate-data
-  - data-access
+  - data access
   - earth-science
 output:
   html_document:

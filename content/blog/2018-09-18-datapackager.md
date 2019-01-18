@@ -10,7 +10,7 @@ topicid: 1355
 tags:
   - r
   - reproducibility
-  - reproducible-research
+  - reproducible research
   - tidydata
   - datasharing
   - software
