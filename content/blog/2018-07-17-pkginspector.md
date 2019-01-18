@@ -17,7 +17,7 @@ topicid: 1262
 tags:
   - community
   - r
-  - software-peer-review
+  - Software Peer Review
   - packages
   - unconf
   - unconf18

@@ -17,7 +17,7 @@ tags:
   - data-extraction
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - googleLanguageR
 ---
 

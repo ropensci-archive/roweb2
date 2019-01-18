@@ -14,7 +14,7 @@ tags:
   - pdf
   - tabulizer
   - data-extraction
-  - software-peer-review
+  - Software Peer Review
 ---
 
 

@@ -12,7 +12,7 @@ tags:
   - packages
   - spatial
   - geospatial
-  - software-peer-review
+  - Software Peer Review
   - FedData
 ---
 

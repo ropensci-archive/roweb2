@@ -14,7 +14,7 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - cloc
 output:
   md_document:

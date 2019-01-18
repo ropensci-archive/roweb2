@@ -12,7 +12,7 @@ tags:
   - packages
   - API
   - USPTO
-  - software-peer-review
+  - Software Peer Review
   - community
 categories: blog
 ---

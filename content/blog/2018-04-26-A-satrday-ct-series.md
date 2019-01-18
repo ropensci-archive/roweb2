@@ -11,7 +11,7 @@ tags:
   - r
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
 ---
 
 On March the 17th I had the honor to give a keynote talk about rOpenSci's package onboarding system at the [satRday conference in Cape Town](https://capetown2018.satrdays.org/), entitled "Our package reviews in review: introducing and analyzing rOpenSci onboarding system". You can [watch its recording](https://www.youtube.com/watch?v=lZ3deq52qCk), [skim through the corresponding slides](http://www.masalmon.eu/satrday_keynote/slides) or... read this series!

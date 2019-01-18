@@ -14,7 +14,7 @@ tags:
   - tidydata
   - datasharing
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - bioinformatics
 ---

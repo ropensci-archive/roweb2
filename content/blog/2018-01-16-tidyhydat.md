@@ -11,7 +11,7 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - hydrometrics
   - bcgov
