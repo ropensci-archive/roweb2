@@ -13,7 +13,7 @@ tags:
   - software
   - Software Peer Review
   - packages
-  - text-mining
+  - text mining
   - data extraction
   - archiving
   - metadata

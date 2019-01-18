@@ -7,7 +7,7 @@ authors:
 categories: technotes
 topicid: 1032
 tags:
-  - text-mining
+  - text mining
   - fulltext
   - data
   - journals
