@@ -2,13 +2,9 @@
 {{ range $i, $e := .authors }}
 {{ if $i }}, 
   {{ end }}
-                            {{ if eq $e "All are welcome" }}
-                              .name 
-                            {{ else }}
                             
   {{ range first 1 (where $pages ".Params.name" $e) }}
                             &nbsp;
                             <a href="{{ .Permalink }}">{{ .Params.name }}</a>
   {{ end }}
-                            {{end}}
-                        {{ end }}
+{{end}}
