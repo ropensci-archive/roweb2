@@ -9,7 +9,7 @@ categories: blog
 topicid: 911
 tags:
   - R
-  - openscience
+  - open science
   - governance
   - sustainability
   - rOpenSci team

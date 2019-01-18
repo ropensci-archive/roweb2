@@ -9,7 +9,7 @@ tags:
   - R
   - book
   - reproducible research
-  - openscience
+  - open science
 ---
 
 **Upcoming Book on Open Science with R**
