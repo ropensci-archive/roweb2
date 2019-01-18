@@ -10,7 +10,7 @@ categories: blog
 tags:
   - R
   - rotl
-  - open-tree
+  - open tree
   - publication
 ---
 

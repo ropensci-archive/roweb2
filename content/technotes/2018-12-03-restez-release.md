@@ -18,8 +18,8 @@ tags:
   - dna
   - sequences
   - data access
-  - data-munging
-  - molecular-biology
+  - data munging
+  - molecular biology
   - joss
 ---
 

@@ -13,7 +13,7 @@ tags:
   - software
   - NCBI
   - genetics
-  - scholarly-literature
+  - scholarly literature
   - data access
 ---
 

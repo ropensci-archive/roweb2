@@ -12,7 +12,7 @@ tags:
   - data
   - journals
   - R
-  - open-access
+  - open access
 ---
 
 ## The problem

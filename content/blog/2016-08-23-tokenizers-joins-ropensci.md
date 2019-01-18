@@ -7,7 +7,7 @@ authors:
 categories: blog
 tags:
   - R
-  - natural-language
+  - natural language
   - text analysis
   - packages
 ---
