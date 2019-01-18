@@ -20,7 +20,7 @@ tags:
   - packages
   - text
   - nlp
-  - open-source
+  - open source
   - API
 ---
 
