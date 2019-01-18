@@ -1,16 +1,14 @@
-{{$staff := .Site.Params.staff}}
-{{$leadership := .Site.Params.leadership}}
-
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ range $i, $e := .authors }}
 {{ if $i }}, 
   {{ end }}
-                            {{ if in $leadership .name }}
-                              <a href="/about/#team">{{ .name }}</a> 
-                            {{ else if in $staff .name }}
-                              <a href="/about/#team">{{ .name }}</a>
-                            {{ else if eq .name "Ted Hart" }}
-                              <a href="{{.Site.BaseURL}}/about/#team">{{ .name }}</a>
+                            {{ if eq $e "All are welcome" }}
+                              .name 
                             {{ else }}
-                              <a href="{{ .url }}" target="_blank">{{ .name }}</a>
+                            
+  {{ range first 1 (where $pages ".Params.name" $e) }}
+                            &nbsp;
+                            <a href="{{ .Permalink }}">{{ .Params.name }}</a>
+  {{ end }}
                             {{end}}
                         {{ end }}

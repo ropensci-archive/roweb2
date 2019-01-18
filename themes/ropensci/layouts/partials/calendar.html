@@ -18,7 +18,7 @@
     <td><a href="{{ .URL}}" >{{.Title}}</a></td>
     <td>{{ $beautifulstart }}{{if ne $beautifulstart $beautifulend}} - {{ $beautifulend }}{{end}}</td>
     <td>{{.Params.location}}{{ if .Params.country }} {{ .Params.country }} {{ end }}</td>
-    <td>{{ if ne (printf "%T" .Params.attendees) "string" }}{{$authors := .Params.attendees}} {{ partial "authorssimpler.html" (dict "authors" $authors "Site" $.Site) }}{{ else }} {{ .Params.attendees }}{{ end }}</td>
+    <td>{{ $authors := .Params.attendees}} {{ partial "authorssimpler.html" (dict "authors" $authors "Site" $.Site) }}</td>
     <td>{{.Params.description | safeHTML}}</td>
   </tr>
   {{ end }}
