@@ -1,73 +1,20 @@
 {{ define "main" }}
 
-{{ $paginator := .Paginator }}
 
     <article>
-        <div class="container">
-            <div class="row">
                 <div class="col-8 col-offset-2 top-10 bottom-10 maintext">
 
                 <div class="row">
-            <div class="col-offset-2 col-8 top-0 bottom-10">
+            <div class="col-offset-2 col-8 top-0 bottom-0">
                 <h2 style="text-align: center;">Posts with the "{{lower .Title }}" tag</h2>
             </div>
         </div>
-
-               {{ range $paginator.Pages }}
-                    <div class="excerpt" >
-                        <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
-
-                        <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
-
-                        <p class="lighter authors">By:
-                            {{$authors := .Params.authors}}
-                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
-
-                        </p>
-                        <div style="font-style: italic; text-align: justify;">
-                            <p>{{ .Summary }}</p>
-                        </div>
-                        <div class="labels">
-                            {{ range .Params.tags }}
-                                {{ $targetUrl := (print ("/tags/" | relLangURL) (. | urlize) "/") }}
-                                {{ if eq $.Page.URL $targetUrl }}
-                                <a href="{{ $targetUrl }}"><span class="label active">{{ . }}</span></a>
-                                {{ else }}
-                                <a href="{{ $targetUrl }}"><span class="label">{{ . }}</span></a>
-                                {{ end }}
-                            {{ end }}
-                        </div><!-- /labels -->
-
-
-                    </div><!-- /excerpt -->
-
-                {{ end }}
-                </div><!-- /maintext -->
-
-                
-
-            </div>
-        </div>
+           </div>
     </article>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                {{ if $paginator.HasPrev }}
-                <span class="label pull-left"><a href="{{ $paginator.Prev.URL }}"><i class="fa fa-chevron-left" aria-hidden="true"></i> Previous</a></span>
-                {{ end }}
-            </div>
-            <div class="col">
-                <center><p>Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</p></center>
-            </div>
-
-            <div class="col">
-                {{ if $paginator.HasNext }}
-                <span class="label pull-right"><a href="{{ $paginator.Next.URL }}">Next&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></span>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-    <br><br>
-
+    {{ partial "archive.html" (dict "pages" .Pages ) }}
+ 
+     <div class="row center top-3 bottom-3">
+<p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a> and <a href="/authors/" target="_blank">by author</a>. </p>
+          </div>
+    
 {{ end }}
