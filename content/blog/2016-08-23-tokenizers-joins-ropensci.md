@@ -8,7 +8,7 @@ categories: blog
 tags:
   - R
   - natural-language
-  - text-analysis
+  - text analysis
   - packages
 ---
 

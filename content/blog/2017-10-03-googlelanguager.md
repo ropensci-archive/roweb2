@@ -12,9 +12,9 @@ tags:
   - API
   - packages
   - textmining
-  - text-analysis
+  - text analysis
   - linguistics
-  - data-extraction
+  - data extraction
   - community
   - software
   - Software Peer Review

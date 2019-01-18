@@ -9,7 +9,7 @@ tags:
   - R
   - rdefra
   - data access
-  - earth-science
+  - earth science
   - Software Peer Review
 ---
 

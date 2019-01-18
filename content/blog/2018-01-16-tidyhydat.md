@@ -17,9 +17,9 @@ tags:
   - bcgov
   - tidydata
   - Canada
-  - climate-data
+  - climate data
   - data access
-  - earth-science
+  - earth science
 output:
   html_document:
     keep_md: yes

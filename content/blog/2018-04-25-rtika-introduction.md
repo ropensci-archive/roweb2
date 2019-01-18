@@ -14,7 +14,7 @@ tags:
   - Software Peer Review
   - packages
   - text-mining
-  - data-extraction
+  - data extraction
   - archiving
   - metadata
   - xml

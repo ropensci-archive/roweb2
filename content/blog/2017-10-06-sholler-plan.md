@@ -12,7 +12,7 @@ tags:
   - openscience
   - governance
   - sustainability
-  - ropensci-team
+  - rOpenSci team
   - postdoc
 ---
 A growing community of scientists from a variety of disciplines is moving the norms of scientific research toward open practices. Supporters of open science hope to increase the quality and efficiency of research by enabling the widespread sharing of datasets, research software source code, publications, and other processes and products of research. The speed at which the open science community seems to be growing mirrors the rapid development of technological capabilities, including robust open source scientific software, new services for data sharing and publication, and novel data science techniques for working with massive datasets. Organizations like rOpenSci harness such capabilities and deploy various combinations of these research tools, or what I refer to here as open science infrastructures, to facilitate open science.
