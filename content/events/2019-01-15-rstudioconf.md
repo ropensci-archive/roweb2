@@ -6,10 +6,8 @@ description: 'Karthik and Jeroen giving talks'
 location: 'Austin, TX, USA'
 country: '🇺🇸'
 attendees:
-  - name: 'Karthik Ram'
-    twitter: _inundata
-  - name: 'Jeroen Ooms'
-    twitter: opencpu
+  - Karthik Ram
+  - Jeroen Ooms
 ---
 
 Two members of our team will attend [rstudio::conf](http://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx), chat with them if you have questions about rOpenSci.
