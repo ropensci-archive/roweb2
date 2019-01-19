@@ -8,8 +8,8 @@ categories: blog
 tags:
   - R
   - book
-  - reproducible-research
-  - openscience
+  - reproducible research
+  - open science
 ---
 
 **Upcoming Book on Open Science with R**

@@ -16,7 +16,7 @@ preface: This post is a summary of our Community Call on "Code Review in the Lab
   including the video recording, slides, notes and a discussion thread have been posted.
 tags:
   - community
-  - community-call
+  - community call
   - events
   - R
 ---

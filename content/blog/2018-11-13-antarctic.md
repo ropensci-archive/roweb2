@@ -4,7 +4,8 @@ title: The Antarctic/Southern Ocean rOpenSci community
 authors:
   - Ben Raymond
   - Michael Sumner
-preface: Ben Raymond and Michael Sumner wrote this post on behalf of the Antarctic/Southern Ocean rOpenSci community.
+preface: Ben Raymond and Michael Sumner wrote this post on behalf of the Antarctic/Southern
+  Ocean rOpenSci community.
 date: '2018-11-13'
 categories: blog
 topicid: 1451
@@ -19,7 +20,7 @@ tags:
   - packages
   - geospatial
   - maps
-  - climate-data
+  - climate data
 ---
 
 ### Antarctic/Southern Ocean science and rOpenSci

@@ -8,7 +8,7 @@ categories: blog
 topicid: 689
 tags:
   - R
-  - text-analysis
+  - text analysis
   - community
   - meetings
   - sig

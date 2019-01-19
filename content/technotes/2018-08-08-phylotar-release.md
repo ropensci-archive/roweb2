@@ -11,7 +11,7 @@ tags:
   - r
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - evolution
   - bioinformatics
@@ -19,7 +19,7 @@ tags:
   - genbank
   - dna
   - sequences
-  - data-access
+  - data access
   - taxonomy
 ---
 

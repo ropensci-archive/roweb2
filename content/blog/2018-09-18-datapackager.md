@@ -10,11 +10,11 @@ topicid: 1355
 tags:
   - r
   - reproducibility
-  - reproducible-research
+  - reproducible research
   - tidydata
   - datasharing
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - bioinformatics
 ---

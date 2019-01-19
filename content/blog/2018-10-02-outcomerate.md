@@ -11,10 +11,10 @@ tags:
   - r
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - outcomerate
-  - reproducible-research
+  - reproducible research
   - survey
 output: html_document
 ---

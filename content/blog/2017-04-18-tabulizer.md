@@ -13,8 +13,8 @@ tags:
   - opendata
   - pdf
   - tabulizer
-  - data-extraction
-  - software-peer-review
+  - data extraction
+  - Software Peer Review
 ---
 
 

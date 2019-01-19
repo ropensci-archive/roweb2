@@ -11,10 +11,10 @@ tags:
   - beginner
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - reviewer
   - packages
-  - data-access
+  - data access
   - weathercan
 ---
 

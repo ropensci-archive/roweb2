@@ -11,15 +11,15 @@ tags:
   - r
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - bioinformatics
   - genbank
   - dna
   - sequences
-  - data-access
-  - data-munging
-  - molecular-biology
+  - data access
+  - data munging
+  - molecular biology
   - joss
 ---
 
