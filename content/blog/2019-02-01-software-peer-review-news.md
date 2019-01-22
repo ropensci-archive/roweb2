@@ -21,19 +21,19 @@ rOpenSci's [suite of packages](/packages/) is comprised of contributions from st
 
 We are quite proud of our Software Peer Review system and do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at https://ropensci.org/software-review/.
 
-# The system changed names!
+## The system changed names!
 
 Up until December, our system was called _rOpenSci onboarding_ which was short but potentially misleading given the general acceptation of "onboarding" as adding new employees or volunteers to an organization. We switched to _rOpenSci Software Peer Review_ which shows the system draws elements from both _Peer Review_ as known in academia, and _Software Review_ as known in software development. The discussion about the name change started [in July 2017](https://github.com/ropensci/software-review-meta/issues/11), we're glad to have finally done it!
 
-# The system got a landing page on our website
+## The system got a landing page on our website
 
 We used to refer to Software Peer Review's GitHub repository when mentioning the system, which was [not optimal](https://github.com/ropensci/software-review-meta/issues/16). There is now a [dedicated page on our website](/software-review/), at the moment explaining the motivation and principles of the system, and providing related links.
 
-# The editorial team got bigger!
+## The editorial team got bigger!
 
 Since our [last post about updates in the system in September 2017](/blog/2017/09/11/software-review-update/), the editorial team has doubled in size to handle all incoming submissions without drowning editors! We are delighted to have welcomed Anna Krystalli, Lincoln Mullen, Brooke Anderson and Melina Vidoni. Thanks to them for joining us! Read more [about Anna and Lincoln](/blog/2018/06/22/new_editors/) and about Brooke and Melina (soonish?).
 
-# We wrote a whole book/manual!
+## We wrote a whole book/manual!
 
 Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://ropensci.github.io/dev_guide/) created with `bookdown`! Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
 
@@ -45,15 +45,15 @@ Our guidance for authors, reviewers and editors used to be scattered over single
 
 This blog post marks the official release of our guide, whose updates are tracked [via a NEWS appendix](https://ropensci.github.io/dev_guide/booknews.html). The next big update won't be about packaging guidelines though: we're working on adding a legit cover to the online book with Locke Creatives, stay tuned!
 
-# Other smaller updates
+## Other smaller updates
 
 We've made a bunch of other smaller changes.
 
-## Issue templates
+### Issue templates
 
 When [clicking on "new issue" in the Software Peer Review Github repository](https://github.com/ropensci/software-review/issues/new/choose), one gets to choose between submission, pre-submission and feature request/bug report. The first two reasons for opening an issue have their own issue template, and the last one guides people towards [our repository aimed at discussion of the system](https://github.com/ropensci/software-review-meta/). We hope it makes it easier to participate.
 
-## Changes in our standards
+### Changes in our standards
 
 * Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
 * We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
@@ -61,10 +61,10 @@ When [clicking on "new issue" in the Software Peer Review Github repository](htt
 * We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
 * [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation).
 
-## Badge versioning
+### Badge versioning
 
 If ready soon https://github.com/ropensci/software-review-meta/issues/61
 
-# Conclusion
+## Conclusion
 
 A new name, a bigger team, its own online book... rOpenSci Software Peer Review had an eventful year and a half! We thank all package authors and reviewers for their hard work and [welcome suggestions and questions about the system](https://github.com/ropensci/software-review-meta/issues).
