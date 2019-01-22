@@ -6,17 +6,17 @@ authors:
   - Peter Desmet
 date: 2019-01-22
 categories: blog
-topicid:
+topicid: 1553
 tags:
-  - software-peer-review
+  - Software Peer Review
   - r
   - package
   - water
-  - data-access
-  - tidal-data
+  - data access
+  - tidal data
   - fishes
-  - movement-data
-  - acoustic-telemetry
+  - movement data
+  - acoustic telemetry
 ---
 
 > Do you know what that sound is, Highness? Those are the Shrieking Eels — if you don't believe me, just wait. They always grow louder when they're about to feed on human flesh. If you swim back now, I promise, no harm will come to you. I doubt you will get such an offer from the Eels.
