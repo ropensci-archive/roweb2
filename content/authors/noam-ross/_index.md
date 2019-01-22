@@ -1,5 +1,6 @@
 ---
 name: Noam Ross
 twitter: noamross
-link: http://twitter.com/noamross
+github: noamross
+bio: Associate editor of rOpenSci Software Peer Review
 ---
