@@ -1,7 +1,7 @@
 ---
 slug: conduct
-title: rOpenSci's new Code of Conduct
-date: 2019-01-14
+title: 'rOpenSci Software Peer Review: Still Improving'
+date: 2019-02-01
 authors:
   - Maëlle Salmon
   - Brooke Anderson
@@ -16,3 +16,19 @@ topicid: 1547
 tags:
   - Software Peer Review
 ---
+
+rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, _[associate editors](/about#team)_ manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; *[reviewers](https://ropensci.github.io/dev_guide/#reviewers)*, two per submission, examine the software code and user experience.
+
+We are quite proud of our software peer review system and also do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at https://ropensci.org/software-review/.
+
+# The system changed names!
+
+Up until December, our system was called _rOpenSci onboarding_ which was short but potentially misleading given the general acceptation of "onboarding" as adding new employees or volunteers to an organization. We switched to _rOpenSci Software Peer Review_ which shows the system draws elements from both _Peer Review_ as known in academia, and _Software Review_ as known in software development. The discussion about the name change started [in July 2017](https://github.com/ropensci/software-review-meta/issues/11), we're glad to have finally done it!
+
+# The system got a landing page on our website
+
+We used to refer to Software Peer Review's GitHub repository, which was not optimal. There is now a [dedicated page on our website](/software-review/), at the moment mostly providing related links.
+
+# Our team got bigger!
+
+Since our [last post about updates in the system in September 2017](/blog/2017/09/11/software-review-update/), the editorial team has doubled in size! We've welcomed Anna Krystalli, Lincoln Mullen, Brooke Anderson and Melina Vidoni. Thanks to them for joining us! Read more [about Anna and Lincoln](/blog/2018/06/22/new_editors/) and about Brooke and Melina (soonish?).
