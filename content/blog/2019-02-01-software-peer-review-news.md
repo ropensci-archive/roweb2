@@ -35,10 +35,36 @@ Since our [last post about updates in the system in September 2017](/blog/2017/0
 
 # We wrote a whole book/manual!
 
-Our guidance for authors, reviewers and editors used to be stored in single Markdown file in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to a book created with `bookdown`! Its source is stored on GitHub. It is divided in three parts: 
+Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://ropensci.github.io/dev_guide/) created with `bookdown`! Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
 
-* one about our guidelines and tips for package development, useful to read for any package developer.
+* [one about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
 
-* one about the Software Peer Review system itself, including guidance for the different actors of the system.
+* [one about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
 
-* one about package maintenance in general, including a chapter about changing stuff in your package, one about GitHub grooming... This section too can be useful for any package developer!
+* [one about package maintenance](https://ropensci.github.io/dev_guide/collaboration.html), including a chapter about changing stuff in your package, one about GitHub grooming... This section too can be useful for any package developer!
+
+This blog post marks the official release of our guide, whose updates are tracked [via a NEWS appendix](https://ropensci.github.io/dev_guide/booknews.html). The next big update won't be about packaging guidelines though: we're working on adding a legit cover to the online book with Locke Creatives, stay tuned!
+
+# Other smaller updates
+
+We've made a bunch of other smaller changes.
+
+## Issue templates
+
+When [clicking on "new issue" in the Software Peer Review Github repository](https://github.com/ropensci/software-review/issues/new/choose), one gets to choose between submission, pre-submission and feature request/bug report. The first two reasons for opening an issue have their own issue template, and the last one guides people towards [our repository aimed at discussion of the system](https://github.com/ropensci/software-review-meta/). We hope it makes it easier to participate.
+
+## Changes in our standards
+
+* Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
+* We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
+* We now recommend[using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news)
+* We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
+* [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation).
+
+## Badge versioning
+
+If ready soon https://github.com/ropensci/software-review-meta/issues/61
+
+# Conclusion
+
+A new name, a bigger team, its own online book... rOpenSci Software Peer Review had an eventful year and a half! We thank all package authors and reviewers for their hard work and [welcome suggestions and questions about the system](https://github.com/ropensci/software-review-meta/issues).
