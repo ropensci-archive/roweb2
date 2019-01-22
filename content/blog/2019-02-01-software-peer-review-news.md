@@ -25,7 +25,7 @@ We are quite proud of our Software Peer Review system and do our best improving 
 
 Up until December, our system was called _rOpenSci onboarding_ which was short but potentially misleading given the general acceptation of "onboarding" as adding new employees or volunteers to an organization. We switched to _rOpenSci Software Peer Review_ which shows the system draws elements from both _Peer Review_ as known in academia, and _Software Review_ as known in software development. The discussion about the name change started [in July 2017](https://github.com/ropensci/software-review-meta/issues/11), we're glad to have finally done it!
 
-## The system got a landing page on our website
+## A landing page on our website
 
 We used to refer to Software Peer Review's GitHub repository when mentioning the system, which was [not optimal](https://github.com/ropensci/software-review-meta/issues/16). There is now a [dedicated page on our website](/software-review/), at the moment explaining the motivation and principles of the system, and providing related links.
 
@@ -57,7 +57,7 @@ When [clicking on "new issue" in the Software Peer Review Github repository](htt
 
 * Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
 * We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
-* We now recommend[using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news)
+* We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news)
 * We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
 * [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation).
 
