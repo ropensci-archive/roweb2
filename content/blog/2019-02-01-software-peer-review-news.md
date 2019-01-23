@@ -41,11 +41,11 @@ Since our [last post about updates in the system in September 2017](/blog/2017/0
 
 Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://ropensci.github.io/dev_guide/) created with `bookdown`. Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
 
-* [one about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
+* [One about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
 
-* [one about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
+* [One about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
 
-* [one about package maintenance](https://ropensci.github.io/dev_guide/collaboration.html), including a chapter about changing stuff in your package, one about GitHub grooming... This section too can be useful for any package developer.
+* [One about package maintenance](https://ropensci.github.io/dev_guide/collaboration.html), including a chapter about changing stuff in your package, one about GitHub grooming, etc. This section, too, may be useful for any package developer.
 
 This blog post marks the official release of our guide, whose updates are tracked [via a NEWS appendix](https://ropensci.github.io/dev_guide/booknews.html). The next big update won't be about packaging guidelines though: we're working on adding a cover to the online book with Locke Creatives.
 
