@@ -56,6 +56,8 @@ This blog post marks the official release of our guide, whose updates are tracke
 * We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news)
 * We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
 * [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation).
+* We've extended [our scope](https://ropensci.github.io/dev_guide/policies.html#aims-and-scope) to include packages that wrap utility programs used for scientific research. 
+* At that occasion we have made it explicit that packages should run on all major platforms: Windows, macOS, Linux. Exceptions may be granted packages that interact with system-specific functions, or wrappers for utilities that only operate on limited platforms, but authors should make every effort for cross-platform compatibility, including system-specific compilation, or containerization of external utilities.
 
 Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
 
