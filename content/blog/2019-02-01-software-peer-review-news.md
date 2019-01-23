@@ -57,7 +57,7 @@ As regards testing,
 * Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
 * We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://ropensci.github.io/dev_guide/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
 * We have added a rule of thumb for package coverage: "Test coverage below 75% will likely require additional tests or explanation before being sent for review." on top of stating that it is best practice when all key functionalities are tested.
-* We now require that packages with Shiny apps use a unit-testing framework such as shinytest to test that interactive interfaces behave as expected.
+* We now require that packages with Shiny apps use a unit-testing framework such as [`shinytest`](https://github.com/rstudio/shinytest) to test that interactive interfaces behave as expected.
 
 As regards documentation,
 * We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
