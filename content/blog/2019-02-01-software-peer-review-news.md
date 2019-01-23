@@ -30,9 +30,14 @@ Up until December, our system was called _rOpenSci onboarding_ which was short b
 We used to refer to Software Peer Review's GitHub repository when mentioning the system, which was [not optimal](https://github.com/ropensci/software-review-meta/issues/16). There is now a [dedicated page on our website](/software-review/), at the moment explaining the motivation and principles of the system, and providing related links.
 
 ### The editorial team got bigger!
+
+{{< figure src="/img/blog-images/2019-02-01-software-review-news/team.png" caption="Editorial team. From left to right and top to bottom: Brooke Anderson, Scott Chamberlain, Anna Krystalli, Lincoln Mullen, Karthik Ram, Noam Ross, Maëlle Salmon, Melina Vidoni." alt="Editorial team. From left to right and top to bottom: Brooke Anderson, Scott Chamberlain, Anna Krystalli, Lincoln Mullen, Karthik Ram, Noam Ross, Maëlle Salmon, Melina Vidoni." >}}
+
 Since our [last post about updates in the system in September 2017](/blog/2017/09/11/software-review-update/), the editorial team has doubled in size to handle all incoming submissions without drowning editors! We are delighted to have welcomed Anna Krystalli, Lincoln Mullen, Brooke Anderson and Melina Vidoni. Thanks to them for joining us! Read more [about Anna and Lincoln](/blog/2018/06/22/new_editors/) and about Brooke and Melina (soonish?).
 
 ### We wrote a whole book/manual!
+
+{{< figure src="/img/blog-images/2019-02-01-software-review-news/guide.png" alt="Screenshot from our online book" width="700" >}}
 
 Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://ropensci.github.io/dev_guide/) created with `bookdown`! Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
 
@@ -50,7 +55,13 @@ We've made a bunch of other smaller changes.
 
 #### Issue templates
 
-When [clicking on "new issue" in the Software Peer Review Github repository](https://github.com/ropensci/software-review/issues/new/choose), one gets to choose between submission, pre-submission and feature request/bug report. The first two reasons for opening an issue have their own issue template, and the last one guides people towards [our repository aimed at discussion of the system](https://github.com/ropensci/software-review-meta/). We hope it makes it easier to participate.
+{{< figure src="/img/blog-images/2019-02-01-software-review-news/issue_templates.png" alt="Screenshot of issue template selection" width="700" >}}
+
+When [clicking on "new issue" in the Software Peer Review Github repository](https://github.com/ropensci/software-review/issues/new/choose), one gets to choose between submission, pre-submission and feature request/bug report.
+
+{{< figure src="/img/blog-images/2019-02-01-software-review-news/submission.png" alt="Screenshot of submission issue template" width="700" >}}
+
+The first two reasons for opening an issue have their own issue template, and the last one guides people towards [our repository aimed at discussion of the system](https://github.com/ropensci/software-review-meta/). We hope it makes it easier to participate.
 
 #### Changes in our standards
 
