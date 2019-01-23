@@ -9,7 +9,7 @@ categories: blog
 topicid: 1513
 tags:
   - Software Peer Review
-  - r
+  - R
   - community
   - software
   - packages
