@@ -34,8 +34,8 @@ date: 2018-12-11
 categories: blog
 topicid:
 tags:
-- software-peer-review
-- r
+- Software Peer Review
+- R
 - community
 - software
 - packages
@@ -43,7 +43,7 @@ tags:
 - phylogeny
 - paleontology
 - fossils
-- divergence-time
+- divergence time
 ---
 ```
 
