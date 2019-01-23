@@ -71,6 +71,8 @@ The first two reasons for opening an issue have their own issue template, and th
 * We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
 * [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation).
 
+Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
+
 #### Badge versioning
 
 If ready soon https://github.com/ropensci/software-review-meta/issues/61
