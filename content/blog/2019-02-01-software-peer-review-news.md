@@ -49,7 +49,7 @@ Our guidance for authors, reviewers and editors used to be scattered over single
 
 This blog post marks the official release of our guide, whose updates are tracked [via a NEWS appendix](https://ropensci.github.io/dev_guide/booknews.html). The next big update won't be about packaging guidelines though: we're working on adding a cover to the online book with Locke Creatives.
 
-#### Recent changes in our standards
+### Recent changes in our standards
 
 * Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
 * We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
