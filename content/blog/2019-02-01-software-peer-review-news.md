@@ -35,7 +35,7 @@ We used to refer to Software Peer Review's GitHub repository when mentioning the
 
 Since our [last post about updates in the system in September 2017](/blog/2017/09/11/software-review-update/), the editorial team has doubled in size to handle all incoming submissions without drowning editors! We are delighted to have welcomed Anna Krystalli, Lincoln Mullen, Brooke Anderson and Melina Vidoni. Thanks to them for joining us! Read more [about Anna and Lincoln](/blog/2018/06/22/new_editors/) and about Brooke and Melina (soonish?).
 
-### We wrote a whole book/manual!
+### We wrote a book
 
 {{< figure src="/img/blog-images/2019-02-01-software-review-news/guide.png" alt="Screenshot from our online book" width="700" >}}
 
