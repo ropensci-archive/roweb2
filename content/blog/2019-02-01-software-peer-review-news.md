@@ -43,7 +43,7 @@ Our guidance for authors, reviewers and editors used to be scattered over single
 
 * [One about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
 
-* [one about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
+* [One about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
 
 * [one about package maintenance](https://ropensci.github.io/dev_guide/collaboration.html), including a chapter about changing stuff in your package, one about GitHub grooming... This section too can be useful for any package developer.
 
