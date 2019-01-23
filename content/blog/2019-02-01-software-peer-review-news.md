@@ -41,7 +41,7 @@ Since our [last post about updates in the system in September 2017](/blog/2017/0
 
 Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://ropensci.github.io/dev_guide/) created with `bookdown`. Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
 
-* [one about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
+* [One about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
 
 * [one about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
 
