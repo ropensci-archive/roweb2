@@ -47,7 +47,7 @@ tags:
 ---
 ```
 
-![](https://i.imgur.com/92D6ex1.png)
+![](https://i.imgur.com/Ng9VE0J.png)
 
 5. If your blog post has any images (or other assets), create a folder under `themes/ropensci/static/img/blog-images/` with the pattern `<DATE-SLUG>` (e.g. `2018-12-11-treestartr`) and place them there. To reference any of these objects in your post,  use `/img/blog-images/<DATE-SLUG>/name-of-image.png`. If the paths are correct, you should see the preview render correctly (see next step).
 
