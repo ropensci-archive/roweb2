@@ -60,6 +60,7 @@ This blog post marks the official release of our guide, whose updates are tracke
 * At that occasion we have made it explicit that packages should run on all major platforms: Windows, macOS, Linux. Exceptions may be granted packages that interact with system-specific functions, or wrappers for utilities that only operate on limited platforms, but authors should make every effort for cross-platform compatibility, including system-specific compilation, or containerization of external utilities.
 * We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://ropensci.github.io/dev_guide/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
 * We have added expected timelines to the reviewer, author and editor guides, for instance editors are expected to perform editor checks within 5 working days.
+* We have added a rule of thumb for package coverage: "Test coverage below 75% will likely require additional tests or explanation before being sent for review." on top of stating that it is best practice when all key functionalities are tested.
 
 Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
 
