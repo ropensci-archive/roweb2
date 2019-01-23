@@ -61,6 +61,7 @@ This blog post marks the official release of our guide, whose updates are tracke
 * We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://ropensci.github.io/dev_guide/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
 * We have added expected timelines to the reviewer, author and editor guides, for instance editors are expected to perform editor checks within 5 working days.
 * We have added a rule of thumb for package coverage: "Test coverage below 75% will likely require additional tests or explanation before being sent for review." on top of stating that it is best practice when all key functionalities are tested.
+* We now require that packages with Shiny apps use a unit-testing framework such as shinytest to test that interactive interfaces behave as expected.
 
 Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
 
