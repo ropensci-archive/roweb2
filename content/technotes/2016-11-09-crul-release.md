@@ -7,7 +7,7 @@ authors:
 categories: technotes
 tags:
   - R
-  - api
+  - API
 ---
 
 A new package [crul](https://cran.rstudio.com/web/packages/crul) is

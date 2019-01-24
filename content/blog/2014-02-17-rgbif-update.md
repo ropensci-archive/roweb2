@@ -8,7 +8,7 @@ categories: blog
 tags:
   - R
   - API
-  - gbif
+  - GBIF
 ---
 
 `rgbif` is an R package to search and retrieve data from the Global Biodiverity Information Facilty (GBIF). `rgbif` wraps R code around the [GBIF API][gbifapi] to allow you to talk to GBIF from R.

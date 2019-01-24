@@ -21,7 +21,7 @@ tags:
   - json
   - tesseract
   - text
-  - pdf
+  - PDF
   - word
   - excel
 ---

@@ -11,7 +11,7 @@ tags:
   - community
   - software
   - opendata
-  - pdf
+  - PDF
   - tabulizer
   - data extraction
   - Software Peer Review

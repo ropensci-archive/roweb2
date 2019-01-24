@@ -8,7 +8,7 @@ categories: technotes
 topicid: 1319
 tags:
   - Markdown
-  - RMarkdown
+  - R Markdown
   - xml2
   - commonmark
 output:

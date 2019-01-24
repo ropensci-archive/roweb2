@@ -12,7 +12,7 @@ tags:
   - template
   - species
   - checklists
-  - gbif
+  - GBIF
   - rgbif
   - data publication
   - data standardization
