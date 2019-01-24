@@ -8,7 +8,7 @@ date: '2018-09-18'
 categories: blog
 topicid: 1355
 tags:
-  - r
+  - R
   - reproducibility
   - reproducible research
   - tidydata

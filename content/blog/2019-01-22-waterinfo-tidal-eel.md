@@ -1,16 +1,17 @@
 ---
-slug: "waterinfo-tidal-eel"
-title: wateRinfo - Downloading tidal data to understand the behaviour of a migrating eel
+slug: waterinfo-tidal-eel
+title: wateRinfo - Downloading tidal data to understand the behaviour of a migrating
+  eel
 package_version: 0.3.0
 authors:
   - Stijn Van Hoey
   - Peter Desmet
-date: 2019-01-22
+date: '2019-01-22'
 categories: blog
 topicid: 1553
 tags:
   - Software Peer Review
-  - r
+  - R
   - package
   - water
   - data access

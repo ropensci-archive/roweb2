@@ -8,7 +8,7 @@ date: '2018-04-26'
 categories: blog
 topicid: 1151
 tags:
-  - r
+  - R
   - community
   - software
   - Software Peer Review

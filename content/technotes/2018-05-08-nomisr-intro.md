@@ -8,7 +8,7 @@ authors:
 categories: technotes
 topicid: 1163
 tags:
-  - r
+  - R
   - community
   - software
   - Software Peer Review

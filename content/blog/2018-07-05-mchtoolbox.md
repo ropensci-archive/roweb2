@@ -11,7 +11,7 @@ date: '2018-07-05'
 categories: blog
 topicid: 1249
 tags:
-  - r
+  - R
   - packages
   - community
   - unconf

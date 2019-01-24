@@ -11,7 +11,7 @@ categories: blog
 topicid: 1451
 twitterImg: img/blog-images/2018-11-13-antarctic/plotanim-1.gif
 tags:
-  - r
+  - R
   - community
   - Antarctic
   - Southern Ocean

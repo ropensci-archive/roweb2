@@ -8,7 +8,7 @@ date: '2018-12-03'
 categories: technote
 topicid: 1494
 tags:
-  - r
+  - R
   - community
   - software
   - Software Peer Review
