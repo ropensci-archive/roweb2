@@ -17,7 +17,7 @@ tags:
   - data extraction
   - archiving
   - metadata
-  - xml
+  - XML
   - json
   - tesseract
   - text
