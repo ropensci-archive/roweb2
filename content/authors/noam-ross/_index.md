@@ -1,5 +1,5 @@
 ---
 name: Noam Ross
 twitter: noamross
-link: http://twitter.com/noamross
+link: https://www.ecohealthalliance.org/personnel/dr-noam-ross
 ---
