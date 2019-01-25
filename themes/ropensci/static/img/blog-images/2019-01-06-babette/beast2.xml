@@ -4,9 +4,10 @@
     <data
 id="alignment"
 name="alignment">
-                    <sequence id="seq_1" taxon="1" totalcount="4" value="aaaa"/>
-                    <sequence id="seq_2" taxon="2" totalcount="4" value="aacc"/>
-                    <sequence id="seq_3" taxon="3" totalcount="4" value="aact"/>
+                    <sequence id="seq_1" taxon="1" totalcount="4" value="gcaagagtaacccccgccaggagtaggggcctttttcctt"/>
+                    <sequence id="seq_2" taxon="2" totalcount="4" value="aacatagcaacccccgccacgtgtgggggtctttttcctt"/>
+                    <sequence id="seq_3" taxon="3" totalcount="4" value="gaatcactgtcccccttcacgatggtgtgtttttatttgt"/>
+                    <sequence id="seq_4" taxon="4" totalcount="4" value="taaaaaaaaagactatcgaagggggtgggggtttttcctt"/>
                 </data>
 
 
@@ -29,7 +30,7 @@ name="alignment">
 <map name="OneOnX" >beast.math.distributions.OneOnX</map>
 
 
-<run id="mcmc" spec="MCMC" chainLength="1000000">
+<run id="mcmc" spec="MCMC" chainLength="10000000">
     <state id="state" storeEvery="5000">
         <tree id="Tree.t:alignment" name="stateNode">
             <taxonset id="TaxonSet.alignment" spec="TaxonSet">
@@ -37,7 +38,6 @@ name="alignment">
             </taxonset>
         </tree>
         <parameter id="birthRate.t:alignment" name="stateNode">1.0</parameter>
-        <parameter id="clockRate.c:alignment" name="stateNode">1.0</parameter>
     </state>
 
     <init id="RandomTree.t:alignment" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:alignment" taxa="@alignment">
@@ -52,20 +52,6 @@ name="alignment">
             <prior id="YuleBirthRatePrior.t:alignment" name="distribution" x="@birthRate.t:alignment">
                 <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
             </prior>
-            <prior id="ClockPrior.c:alignment" name="distribution" x="@clockRate.c:alignment">
-                <Uniform id="Uniform.150" name="distr" upper="Infinity"/>
-            </prior>
-            <distribution id="auto_name_1.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:alignment">
-                <taxonset id="auto_name_1" spec="TaxonSet">
-                    <taxon id="1" spec="Taxon"/>
-                    <taxon id="2" spec="Taxon"/>
-                    <taxon id="3" spec="Taxon"/>
-                </taxonset>
-                <Normal id="Normal.151" name="distr">
-                    <parameter id="RealParameter.300" estimate="false" name="mean">10</parameter>
-                    <parameter id="RealParameter.301" estimate="false" name="sigma">0.01</parameter>
-                </Normal>
-            </distribution>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
             <distribution id="treeLikelihood.alignment" spec="ThreadedTreeLikelihood" data="@alignment" tree="@Tree.t:alignment">
@@ -75,7 +61,9 @@ name="alignment">
                     <parameter id="proportionInvariant.s:alignment" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
                     <substModel id="JC69.s:alignment" spec="JukesCantor"/>
                 </siteModel>
-                <branchRateModel id="StrictClock.c:alignment" spec="beast.evolution.branchratemodel.StrictClockModel" clock.rate="@clockRate.c:alignment"/>
+                <branchRateModel id="StrictClock.c:alignment" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter id="clockRate.c:alignment" estimate="false" name="clock.rate">1.0</parameter>
+                </branchRateModel>
             </distribution>
         </distribution>
     </distribution>
@@ -96,13 +84,6 @@ name="alignment">
 
     <operator id="YuleModelWilsonBalding.t:alignment" spec="WilsonBalding" tree="@Tree.t:alignment" weight="3.0"/>
 
-    <operator id="StrictClockRateScaler.c:alignment" spec="ScaleOperator" parameter="@clockRate.c:alignment" scaleFactor="0.75" weight="3.0"/>
-
-    <operator id="strictClockUpDownOperator.c:alignment" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
-        <up idref="clockRate.c:alignment"/>
-        <down idref="Tree.t:alignment"/>
-    </operator>
-
     <logger id="tracelog" fileName="alignment.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
         <log idref="likelihood"/>
@@ -111,8 +92,6 @@ name="alignment">
         <log id="TreeHeight.t:alignment" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:alignment"/>
         <log idref="YuleModel.t:alignment"/>
         <log idref="birthRate.t:alignment"/>
-        <log idref="auto_name_1.prior"/>
-        <log idref="clockRate.c:alignment"/>
     </logger>
 
     <logger id="screenlog" logEvery="1000">
