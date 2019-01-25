@@ -2,11 +2,17 @@ setwd("/home/richel/GitHubs/roweb2/themes/ropensci/static/img/blog-images/2019-0
 
 library(babette)
 
+phylogeny <- ape::read.tree(text = "(((1:1,2:1):1, 3:2):1, 4:3);")
+
+png(filename = "phylogeny.png", width = 400, height = 300)
+ape::plot.phylo(phylogeny, cex = 2.0, edge.width = 2.0)
+dev.off()
+
 fasta_filename <- "alignment.fasta"
 
 # Simulate an alignment
 pirouette::sim_alignment_file(
-  phylogeny = ape::read.tree(text = "(((1:1,2:1):1, 3:2):1, 4:3);"),
+  phylogeny = phylogeny,
   alignment_params = pirouette::create_alignment_params(
     root_sequence = pirouette::create_blocked_dna(length = 40),
     mutation_rate = 0.5 * 1.0 / 3.0
@@ -25,34 +31,11 @@ ape::image.DNAbin(ape::read.FASTA(
 )
 dev.off()
 
-beast2_input_filename <- "beast2.xml"
-file.remove(beast2_input_filename)
-
-beautier::create_beast2_input_file(
-  input_filename = fasta_filename,
-  output_filename = beast2_input_filename #,
-  #mcmc = create_mcmc(chain_length = 1000000),
-  #mrca_prior = create_mrca_prior(
-  #  mrca_distr = create_normal_distr(mean = 10.0, sigma = 0.01),
-  #  is_monophyletic = TRUE
-  #)
-)
-
-
-beast2_output_trees_filenames <- "posterior.trees"
-file.remove(beast2_output_trees_filenames)
-
-beastier::run_beast2(
-  input_filename = beast2_input_filename,
-  output_trees_filenames = beast2_output_trees_filenames,
-  overwrite = TRUE
-)
-
-posterior_trees <- tracerer::parse_beast_trees(beast2_output_trees_filenames)
+output <- babette::bbt_run(fasta_filename = fasta_filename, overwrite = TRUE)
 
 png(filename = "densitree.png", width = 1000, height = 800)
 babette::plot_densitree(
-  posterior_trees, library = "phangorn",
+  output$alignment_trees, library = "phangorn",
   alpha = 0.01,
   consensus = as.character(c(1:4)),
   cex = 2.0,
@@ -60,6 +43,7 @@ babette::plot_densitree(
   scale.bar = FALSE
 )
 dev.off()
+
 
 # babette::plot_densitree(posterior_trees[501:1001], library = "phangorn", width = 1, alpha = 0.01)
 
