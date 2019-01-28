@@ -6,8 +6,7 @@ description: 'At AGU? Come say hi!'
 location: 'Washington, DC, USA'
 country: '🇺🇸'
 attendees:
-  - name: 'Karthik Ram'
-    twitter: _inundata
+  - Karthik Ram
 ---
 
 Are you attending [AGU18](https://fallmeeting.agu.org/2018/)? Have questions about rOpenSci? Our Project Lead and co-founder Karthik Ram will be there and happy to chat.

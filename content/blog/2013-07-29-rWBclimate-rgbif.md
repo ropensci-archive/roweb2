@@ -10,7 +10,7 @@ tags:
   - API
   - climate
   - maps
-  - gbif
+  - GBIF
   - ecology
 ---
 

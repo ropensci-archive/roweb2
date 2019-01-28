@@ -10,7 +10,7 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - rrricanes
   - rrricanesdata
   - hurricanes

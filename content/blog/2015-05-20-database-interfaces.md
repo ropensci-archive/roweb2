@@ -8,7 +8,7 @@ categories: blog
 tags:
   - R
   - databases
-  - key-value
+  - key value
   - sql
   - nosql
 ---

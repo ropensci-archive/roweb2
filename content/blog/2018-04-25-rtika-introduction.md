@@ -11,17 +11,17 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
-  - text-mining
-  - data-extraction
+  - text mining
+  - data extraction
   - archiving
   - metadata
-  - xml
+  - XML
   - json
   - tesseract
   - text
-  - pdf
+  - PDF
   - word
   - excel
 ---

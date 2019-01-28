@@ -8,10 +8,10 @@ date: '2018-07-12'
 categories: technote
 topicid: 1256
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - integration
   - evolution

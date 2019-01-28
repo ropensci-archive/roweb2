@@ -8,7 +8,7 @@ categories: blog
 topicid: 776
 tags:
   - community
-  - ropensci-team
+  - rOpenSci team
   - welcome
 ---
 

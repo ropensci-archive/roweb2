@@ -8,11 +8,11 @@ categories: technotes
 topicid: 840
 tags:
   - R
-  - data-access
+  - data access
   - packages
   - spatial
   - geospatial
-  - software-peer-review
+  - Software Peer Review
   - FedData
 ---
 

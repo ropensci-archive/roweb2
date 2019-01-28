@@ -8,18 +8,18 @@ date: '2018-12-03'
 categories: technote
 topicid: 1494
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - bioinformatics
   - genbank
   - dna
   - sequences
-  - data-access
-  - data-munging
-  - molecular-biology
+  - data access
+  - data munging
+  - molecular biology
   - joss
 ---
 

@@ -11,15 +11,15 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - hydrometrics
   - bcgov
   - tidydata
   - Canada
-  - climate-data
-  - data-access
-  - earth-science
+  - climate data
+  - data access
+  - earth science
 output:
   html_document:
     keep_md: yes

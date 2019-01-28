@@ -4,7 +4,7 @@ title: Community Call Summary - Code Review in the Lab
 authors:
   - Hao Ye
   - Melanie Frazier
-  - Julia Stewart-Lowndes
+  - Julia Stewart Lowndes
   - Carl Boettiger
   - Noam Ross
 date: '2018-11-29'
@@ -16,7 +16,7 @@ preface: This post is a summary of our Community Call on "Code Review in the Lab
   including the video recording, slides, notes and a discussion thread have been posted.
 tags:
   - community
-  - community-call
+  - community call
   - events
   - R
 ---

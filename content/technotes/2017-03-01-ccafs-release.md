@@ -7,7 +7,7 @@ authors:
 categories: technotes
 tags:
   - R
-  - climate-change
+  - climate change
   - climate
   - geojson
   - geospatial

@@ -12,7 +12,7 @@ tags:
   - events
   - unconf
   - icebreaker
-  - R
+  - welcome
 ---
 While many people groan at the thought of participating in a group ice breaker activity, we've gotten consistent feedback from people who have been to recent rOpenSci unconferences.
 

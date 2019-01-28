@@ -11,9 +11,9 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
-  - data-access
+  - data access
   - hydrology
   - Greece
   - hydroscope

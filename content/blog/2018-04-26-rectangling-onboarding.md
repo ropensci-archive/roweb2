@@ -12,7 +12,7 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - ghql
   - jqr
   - git2r
