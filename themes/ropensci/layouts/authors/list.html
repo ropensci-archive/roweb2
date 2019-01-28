@@ -32,7 +32,7 @@
 <br>
         <div class = "row" style="display: inline-block;">
             {{ if isset .Params "github" }}
-        <a href="https://github.com/{{.Params.twitter}}"> <i class="fa fa-github"></i></a>
+        <a href="https://github.com/{{.Params.github}}"> <i class="fa fa-github"></i></a>
         {{ end }}
             {{ if isset .Params "twitter" }}
         <a href="https://twitter.com/{{.Params.twitter}}"> <i class="fa fa-twitter"></i></a>
@@ -41,7 +41,7 @@
         <a href="{{.Params.link}}"> <i class="fa fa-home"></i></a>
         {{ end }}
             {{ if isset .Params "gitlab" }}
-        <a href="https://gitlab.com/{{.Params.twitter}}"> <i class="fa fa-gitlab"></i></a>
+        <a href="https://gitlab.com/{{.Params.gitlab}}"> <i class="fa fa-gitlab"></i></a>
         {{ end }}
             </div>
            
