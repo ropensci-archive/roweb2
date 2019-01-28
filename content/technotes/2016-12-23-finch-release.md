@@ -8,7 +8,7 @@ categories: technotes
 tags:
   - R
   - biodiversity
-  - gbif
+  - GBIF
 ---
 
 

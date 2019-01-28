@@ -9,7 +9,7 @@ topicid: 754
 tags:
   - data
   - datasets
-  - r
+  - R
 ---
 
 > **charlatan** makes fake data.

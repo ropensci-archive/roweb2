@@ -12,12 +12,12 @@ tags:
   - API
   - packages
   - textmining
-  - text-analysis
+  - text analysis
   - linguistics
-  - data-extraction
+  - data extraction
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - googleLanguageR
 ---
 

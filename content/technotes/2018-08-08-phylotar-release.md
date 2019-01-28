@@ -8,10 +8,10 @@ date: '2018-08-08'
 categories: technote
 topicid: 1292
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - evolution
   - bioinformatics
@@ -19,7 +19,7 @@ tags:
   - genbank
   - dna
   - sequences
-  - data-access
+  - data access
   - taxonomy
 ---
 

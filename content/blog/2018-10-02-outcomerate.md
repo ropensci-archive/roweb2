@@ -8,13 +8,13 @@ date: '2018-10-02'
 categories: blog
 topicid: 1381
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - outcomerate
-  - reproducible-research
+  - reproducible research
   - survey
 output: html_document
 ---

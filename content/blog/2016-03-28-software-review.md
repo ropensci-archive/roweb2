@@ -12,7 +12,7 @@ authors:
 categories: blog
 tags:
   - software
-  - software-peer-review
+  - Software Peer Review
   - infrastructure
 ---
 

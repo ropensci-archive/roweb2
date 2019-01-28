@@ -11,7 +11,7 @@ tags:
   - packages
   - software
   - opendata
-  - pdf
+  - PDF
 ---
 
 Textual data and natural language processing are still a niche domain within the R ecosytstem. The [NLP task view](https://cran.r-project.org/view=NaturalLanguageProcessing) gives an overview of existing work however a lot of basic infrastructure is still missing.

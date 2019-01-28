@@ -11,6 +11,7 @@ tags:
   - meetings
   - unconf
   - unconf17
+  - welcome
 ---
 
 What's that? You've heard of R? You use R? You develop in R? You know someone else who's mentioned R? Oh, you're breathing? Well, in that case, welcome! Come join the R community!

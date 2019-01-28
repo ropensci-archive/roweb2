@@ -16,7 +16,7 @@ tags:
   - R
   - community
   - unconf
-  - ropensci-team
+  - rOpenSci team
   - welcome
 ---
 
