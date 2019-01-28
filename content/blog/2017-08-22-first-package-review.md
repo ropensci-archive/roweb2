@@ -8,7 +8,7 @@ categories: blog
 topicid: 838
 tags:
   - R
-  - software-peer-review
+  - Software Peer Review
   - reviewer
   - visdat
   - community

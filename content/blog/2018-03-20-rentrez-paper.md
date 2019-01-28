@@ -13,8 +13,8 @@ tags:
   - software
   - NCBI
   - genetics
-  - scholarly-literature
-  - data-access
+  - scholarly literature
+  - data access
 ---
 
 I am happy to say that the latest issue of _The R Journal_ [includes a paper

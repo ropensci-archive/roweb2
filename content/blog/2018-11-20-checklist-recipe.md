@@ -12,14 +12,14 @@ tags:
   - template
   - species
   - checklists
-  - gbif
+  - GBIF
   - rgbif
-  - data-publication
-  - data-standardization
+  - data publication
+  - data standardization
   - Darwin Core
-  - reproducible-research
+  - reproducible research
   - TrIAS
-  - Ebbe-Nielsen-Challenge
+  - Ebbe Nielsen Challenge
   - R
 ---
 

@@ -8,7 +8,7 @@ categories: blog
 tags:
   - packages
   - commonmark
-  - markdown
+  - Markdown
   - R
 ---
 

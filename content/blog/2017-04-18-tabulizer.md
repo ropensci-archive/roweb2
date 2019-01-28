@@ -11,10 +11,10 @@ tags:
   - community
   - software
   - opendata
-  - pdf
+  - PDF
   - tabulizer
-  - data-extraction
-  - software-peer-review
+  - data extraction
+  - Software Peer Review
 ---
 
 
