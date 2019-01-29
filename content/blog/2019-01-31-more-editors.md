@@ -23,7 +23,7 @@ Our open Software Peer Review system for community-contributed R tools is a key 
 
 Brooke on [GitHub](https://github.com/geanders), [Twitter](https://twitter.com/gbwanderson), [website](http://csu-cvmbs.colostate.edu/academics/erhs/Pages/brooke-anderson.aspx)
 
-{{< figure src="/img/team/melina-vidoni.jpg" caption="Melina Vidoni" alt="Melina Vidoni" width="250" >}}
+{{< figure src="/img/team/melina-vidoni.jpg" alt="Melina Vidoni" width="250" >}}
 
 **Melina Vidoni** has a Postdoctoral Scholarship at [INGAR CONICET-UTN](http://www.ingar.santafe-conicet.gov.ar/), and is an Assistant Lecturer in the Department of Information Systems Engineering at [Universidad Tecnológica Nacional](https://www.frsf.utn.edu.ar/) in Argentina. Statement about R packages? She is a founder of [R-Ladies Santa Fe](https://twitter.com/rladiessantafe) and contributed to the translation into Spanish of [R for Data Science](http://es.r4ds.hadley.nz/).
 
