@@ -66,7 +66,7 @@ As regards documentation,
 
 * We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
 
-* We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news)
+* We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news).
 
 * We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
 
