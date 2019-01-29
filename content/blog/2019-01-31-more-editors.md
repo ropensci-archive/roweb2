@@ -15,7 +15,7 @@ We are pleased to welcome Brooke Anderson and Melina Vidoni to our team of [Asso
 
 Our open Software Peer Review system for community-contributed R tools is a key component of [our mission](/about/) to create technical infrastructure that lowers barriers to working with data sources on the web. Editors manage the review process, performing initial package checks, identifying reviewers, and moderating the process until the package is accepted by reviewers and transferred to rOpenSci. The number of packages submitted for review has increased every year, resulting in an increased [workload for Editors](/blog/2018/05/03/onboarding-is-work/#work-done-by-editors) and the need to expand the team.
 
-{{< figure src="/img/team/brooke-anderson.jpg" caption="Brooke Anderson" alt="Brooke Anderson" width="250" >}}
+{{< figure src="/img/team/brooke-anderson.jpg" alt="Brooke Anderson" width="250" >}}
 
 **Brooke Anderson** is an Assistant Professor of Epidemiology and a Faculty Associate in the Department of Statistics at [Colorado State University](http://csu-cvmbs.colostate.edu/academics/erhs/Pages/default.aspx), with a PhD in Engineering. She reviewed the [`bomrang`](https://github.com/ropensci/software-review/issues/121), [`charlatan`](https://github.com/ropensci/software-review/issues/94) and [`riem`](https://github.com/ropensci/software-review/issues/39) packages for rOpenSci. Brooke wrote [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/) with Sean Kross and Roger Peng.
 
