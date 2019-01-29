@@ -1,20 +1,24 @@
 <section>
-	<div class="container">
-		<ul class="allposts">
-			<div class="row">
-				{{ range .pages }}
-				{{ if .Params.authors }}
-				<div class="col-10" style="color: #7b869d"><p><a href="{{ .URL }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.authors }}
-					{{ if $index }}| 
-					{{ end }}
-					{{ $lc }}
-				{{ end }} </small></i> </p></div>
-				<div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Date.Format "January 2, 2006" | upper }}</small></div>
+    <div class="container">
 
-				{{end}}
-				{{ end }}
-			</ul>  
-		</div>  
-	</div> 
+        <ul class="allposts">
+            <div class="row">
+                {{ range .pages }} {{ if .Params.authors }}
+                <div class="col-10" style="color: #7b869d">
+                    <p><a href="{{ .URL }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.authors }}
+  {{ if $index }}| 
+  {{ end }}
+  {{ $lc }}
+{{ end }} </small></i>
+                    </p>
+                </div>
+                <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Date.Format "January 2, 2006" | upper }}</small></div>
+
+                {{end}} {{ end }}
+
+            </div>
+        </ul>
+    </div>
 </section>
+<br>
 <br>
