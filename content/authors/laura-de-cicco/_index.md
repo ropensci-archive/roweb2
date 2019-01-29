@@ -1,4 +1,4 @@
 ---
 name: Laura DeCicco
-link: https://twitter.com/DeCiccoDonk
+twitter: DeCiccoDonk
 ---

@@ -1,4 +1,4 @@
 ---
 name: Erin Grand
-link: http://twitter.com/astroeringrand
+twitter: astroeringrand
 ---

@@ -1,4 +1,4 @@
 ---
 name: Elin Waring
-link: https://github.com/elinw
+github: elinw
 ---

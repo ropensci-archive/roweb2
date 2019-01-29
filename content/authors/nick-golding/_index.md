@@ -1,5 +1,5 @@
 ---
 name: Nick Golding
-link: https://twitter.com/_NickGolding_
-bio:  rOpenSci Fellow
+bio: rOpenSci Fellow
+twitter: _NickGolding_
 ---
