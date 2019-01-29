@@ -55,7 +55,7 @@ We have completed and improved our standards for package development.
 
 As regards testing,
 
-* Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
+* Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci).
 
 * We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://ropensci.github.io/dev_guide/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
 
