@@ -56,26 +56,34 @@ We have completed and improved our standards for package development.
 As regards testing,
 
 * Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci)
+
 * We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://ropensci.github.io/dev_guide/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
+
 * We have added a rule of thumb for package coverage: "Test coverage below 75% will likely require additional tests or explanation before being sent for review." on top of stating that it is best practice when all key functionalities are tested.
 * We now require that packages with Shiny apps use a unit-testing framework such as [`shinytest`](https://github.com/rstudio/shinytest) to test that interactive interfaces behave as expected.
 
 As regards documentation,
 
 * We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
+
 * We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news)
+
 * We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
+
 * [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation), as is documenting the returning type of a function. 
 
 We have also made these updates about package building.
 
 * We have made it explicit that packages should run on all major platforms: Windows, macOS, Linux. Exceptions may be granted packages that interact with system-specific functions, or wrappers for utilities that only operate on limited platforms, but authors should make every effort for cross-platform compatibility, including system-specific compilation, or containerization of external utilities.
+
 * Our guidance now states that argument naming and order should be consistent across functions that use similar inputs.
 
 Of particular interest are also these changes to our policies and process.
 
 * We have added an [explicity policy about conflict of interests for reviewers and editors](https://ropensci.github.io/dev_guide/policies.html#coi).
+
 * We have added expected timelines to the reviewer, author and editor guides, for instance editors are expected to perform editor checks within 5 working days.
+
 * We've extended [our scope](https://ropensci.github.io/dev_guide/policies.html#aims-and-scope) to include packages that wrap utility programs used for scientific research.
 
 Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
