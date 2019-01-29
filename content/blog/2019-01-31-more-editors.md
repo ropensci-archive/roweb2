@@ -27,7 +27,7 @@ Brooke on [GitHub](https://github.com/geanders), [Twitter](https://twitter.com/g
 
 **Melina Vidoni** is a PhD in Information Systems Engineering, and currently holds a Postdoctoral Scholarship at INGAR CONICET-UTN. She is also a Lecturer in the Department of Information Systems Engineering at Universidad Tecnológica Nacional, Santa Fe, Argentina. She is a founder and main co-organizer of R-Ladies Santa Fe, she is part of the translation group for the book "R for Data Science", and has contributed a package to CRAN: [rsppfp](https://cran.r-project.org/web/packages/rsppfp/index.html).
 
-> quote from Melina
+> I support rOpenSci goals as I strongly believe that software should also be peer-reviewed, so it can help researchers to make the most of their code and data, while also recognising the hard work of the developers behind it. Being an editor here is a great opportunity to learn more about the growing space of research software development in R and its outstanding open-review system, while contributing back to such an incredible active community.
 
 Melina on [GitHub](https://github.com/melvidoni), [Twitter](https://twitter.com/melvidoni), [website](https://melvidoni.rbind.io/)
 
