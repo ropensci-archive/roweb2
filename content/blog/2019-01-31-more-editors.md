@@ -25,7 +25,7 @@ Brooke on [GitHub](https://github.com/geanders), [Twitter](https://twitter.com/g
 
 {{< figure src="/img/team/melina-vidoni.jpg" alt="Melina Vidoni" width="250" >}}
 
-**Melina Vidoni** has a Postdoctoral Scholarship at [INGAR CONICET-UTN](http://www.ingar.santafe-conicet.gov.ar/), and is an Assistant Lecturer in the Department of Information Systems Engineering at [Universidad Tecnológica Nacional](https://www.frsf.utn.edu.ar/) in Argentina. Statement about R packages? She is a founder of [R-Ladies Santa Fe](https://twitter.com/rladiessantafe) and contributed to the translation into Spanish of [R for Data Science](http://es.r4ds.hadley.nz/).
+**Melina Vidoni** is a PhD in Information Systems Engineering, and currently holds a Postdoctoral Scholarship at INGAR CONICET-UTN. She is also a Lecturer in the Department of Information Systems Engineering at Universidad Tecnológica Nacional, Santa Fe, Argentina. She is a founder and main co-organizer of R-Ladies Santa Fe, she is part of the translation group for the book "R for Data Science", and has contributed a package to CRAN: [rsppfp](https://cran.r-project.org/web/packages/rsppfp/index.html).
 
 > quote from Melina
 
