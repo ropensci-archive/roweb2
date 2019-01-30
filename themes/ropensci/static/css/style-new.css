@@ -700,6 +700,15 @@ q:before, q:after {
 }.docs {
 }.docs i{
   font-size: .87rem;
+}.author {
+    
+}.author img{
+  border-radius: 50%;
+  max-width: 200px;
+  height: auto;
+  width: auto;
+}.author .fa{
+  font-size: 2em;
 }.team {
 }.team img{
   border-radius: 50%;

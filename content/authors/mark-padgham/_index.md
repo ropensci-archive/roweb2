@@ -1,4 +1,4 @@
 ---
 name: Mark Padgham
-link: https://github.com/mpadge
+github: mpadge
 ---

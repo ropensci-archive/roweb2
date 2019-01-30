@@ -49,7 +49,7 @@ Our AAAS CEFP training emphasizes the importance of extending a personalized wel
 
 #### 4. Run an effective ice breaker
 
-I adapted the “[Human Barometer](https://www.facinghistory.org/resource-library/teaching-strategies/barometer-taking-stand-controversial-issues)” ice breaker to enable 70 people to share opinions across all perceived levels of who a participant is and introduce themselves to the entire group within a 1 hour period. Success depended on creating questions that were relevant to the unconference crowd, and on visually keeping track of who had spoken up in order to call on those who had not. Ice breakers and the rOpenSci version of the Human Barometer will be the subject of a future CEFP blog post.
+I adapted the “[Human Barometer](https://ropensci.org/blog/2018/11/01/icebreaker/)” ice breaker to enable 70 people to share opinions across all perceived levels of who a participant is and introduce themselves to the entire group within a 1 hour period. Success depended on creating questions that were relevant to the unconference crowd, and on visually keeping track of who had spoken up in order to call on those who had not. Ice breakers and the rOpenSci version of the Human Barometer will be the subject of a future CEFP blog post.
 
 
 #### 5. Have a plan to capture content

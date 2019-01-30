@@ -1,4 +1,4 @@
 ---
 name: Diego Barneche
-link: https://twitter.com/dbarneche
+twitter: dbarneche
 ---

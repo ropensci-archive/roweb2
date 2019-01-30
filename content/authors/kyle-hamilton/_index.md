@@ -1,4 +1,4 @@
 ---
 name: Kyle Hamilton
-link: https://github.com/kylehamilton
+github: kylehamilton
 ---

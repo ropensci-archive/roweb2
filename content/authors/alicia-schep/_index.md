@@ -1,4 +1,4 @@
 ---
 name: Alicia Schep
-link: http://twitter.com/aliciaschep
+twitter: aliciaschep
 ---

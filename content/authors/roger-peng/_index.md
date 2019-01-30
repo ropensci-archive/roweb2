@@ -1,4 +1,4 @@
 ---
 name: Roger Peng
-link: https://twitter.com/rdpeng
+twitter: rdpeng
 ---
