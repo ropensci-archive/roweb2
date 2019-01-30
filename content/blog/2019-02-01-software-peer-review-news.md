@@ -33,7 +33,7 @@ We used to refer to Software Peer Review's GitHub repository when mentioning the
 
 {{< figure src="/img/blog-images/2019-02-01-software-review-news/team.png" caption="Editorial team. From left to right and top to bottom: Brooke Anderson, Scott Chamberlain, Anna Krystalli, Lincoln Mullen, Karthik Ram, Noam Ross, Maëlle Salmon, Melina Vidoni." alt="Editorial team. From left to right and top to bottom: Brooke Anderson, Scott Chamberlain, Anna Krystalli, Lincoln Mullen, Karthik Ram, Noam Ross, Maëlle Salmon, Melina Vidoni." >}}
 
-Since our [last post about updates in the system in September 2017](/blog/2017/09/11/software-review-update/), the editorial team has doubled in size to handle all incoming submissions whilst not overburdening editors. We are delighted to have welcomed Anna Krystalli, Lincoln Mullen, Brooke Anderson and Melina Vidoni. Thanks to them for joining us! Read more [about Anna and Lincoln](/blog/2018/06/22/new_editors/) and about Brooke and Melina (soonish?).
+Since our [last post about updates in the system in September 2017](/blog/2017/09/11/software-review-update/), the editorial team has doubled in size to handle all incoming submissions whilst not overburdening editors. We are delighted to have welcomed Anna Krystalli, Lincoln Mullen, Brooke Anderson and Melina Vidoni. Thanks to them for joining us! Read more [about Anna and Lincoln](/blog/2018/06/22/new_editors/) and [about Brooke and Melina] (blog/2019/01/31/more_editors/).
 
 ### We wrote a book
 
