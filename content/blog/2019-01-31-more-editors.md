@@ -19,7 +19,7 @@ Our open Software Peer Review system for community-contributed R tools is a key 
 
 **Brooke Anderson** is an Assistant Professor of Epidemiology and a Faculty Associate in the Department of Statistics at [Colorado State University](http://csu-cvmbs.colostate.edu/academics/erhs/Pages/default.aspx), with a PhD in Engineering. She reviewed the [`bomrang`](https://github.com/ropensci/software-review/issues/121), [`charlatan`](https://github.com/ropensci/software-review/issues/94) and [`riem`](https://github.com/ropensci/software-review/issues/39) packages for rOpenSci. Brooke wrote [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/) with Sean Kross and Roger Peng.
 
-> quote from Brooke
+> I think that ROpenSci's model of open peer review for science-relevant R software packages is one of the most innovative things happening right now for scientific methodology. In my own field, it is advancing how, and how openly, we do science. I'm thrilled to continue to contribute in this new role.
 
 Brooke on [GitHub](https://github.com/geanders), [Twitter](https://twitter.com/gbwanderson), [website](http://csu-cvmbs.colostate.edu/academics/erhs/Pages/brooke-anderson.aspx)
 
