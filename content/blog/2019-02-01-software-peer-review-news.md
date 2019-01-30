@@ -17,17 +17,13 @@ tags:
   - Software Peer Review
 ---
 
-rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software review system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, _[associate editors](https://ropensci.github.io/dev_guide/softwarereviewintro.html#associateditors)_ manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; *[reviewers](https://ropensci.github.io/dev_guide/#reviewers)*, two per submission, examine the software code and user experience.
+rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software review system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, *[associate editors](https://ropensci.github.io/dev_guide/softwarereviewintro.html#associateditors)* manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; *[reviewers](https://ropensci.github.io/dev_guide/#reviewers)*, two per submission, examine the software code and user experience.
 
-We are quite proud of our Software Peer Review system and do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at https://ropensci.org/software-review/.
+We are quite proud of our Software Peer Review system and do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at [ropensci.org/software-review/](https://ropensci.org/software-review/).
 
 ### A new and clearer name
 
 Up until December, our system was called _rOpenSci onboarding_ which was short but potentially misleading given the general understanding of "onboarding" as adding new employees or volunteers to an organization. We switched to _rOpenSci Software Peer Review_ which shows the system draws elements from both _Peer Review_ as known in academia, and _Software Review_ as known in software development. The discussion about the name change started [in July 2017](https://github.com/ropensci/software-review-meta/issues/11); we're glad to have finally done it!
-
-### A landing page on our website
-
-We used to refer to Software Peer Review's GitHub repository when mentioning the system, which was [not optimal](https://github.com/ropensci/software-review-meta/issues/16). There is now a [dedicated page on our website](/software-review/), at the moment explaining the motivation and principles of the system, and providing related links.
 
 ### Four new editors
 
@@ -88,9 +84,7 @@ Of particular interest are also these changes to our policies and process.
 
 Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
 
-### Other smaller updates
-
-#### Issue templates
+### Issue templates
 
 {{< figure src="/img/blog-images/2019-02-01-software-review-news/issue_templates.png" alt="Screenshot of issue template selection" width="700" >}}
 
@@ -100,9 +94,9 @@ When [clicking on "new issue" in the Software Peer Review Github repository](htt
 
 The first two reasons for opening an issue have their own issue template, and the last one guides people towards [our repository aimed at discussion of the system](https://github.com/ropensci/software-review-meta/). We hope it makes it easier to participate.
 
-#### Badge versioning
+### A landing page on our website
 
-If ready soon https://github.com/ropensci/software-review-meta/issues/61
+We used to refer to Software Peer Review's GitHub repository when mentioning the system, which was [not optimal](https://github.com/ropensci/software-review-meta/issues/16). There is now a [dedicated page on our website](/software-review/), at the moment explaining the motivation and principles of the system, and providing related links.
 
 ## Conclusion
 
