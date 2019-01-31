@@ -72,11 +72,14 @@ For a post about your peer-reviewed package you should:
 - browse [other tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "packages" exists, so use that, rather than "package"
 - if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - to format headings in your post, please use ### or ####, as larger sizes don't look good
+- spell 'rOpenSci', not 'ROpenSci'
 
 
 For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
 
-**Create an author's index file for yourself**, if you don't already have one, by adding `_index.md` in `roweb2/content/authors/firstname-lastname/` with information about your online presence. Keep accents in your name. If you're not sure of how to slugify/urlize your name, look at other people's folder names for examples.
+#### Create an author's index file for yourself
+
+If you don't already have one, create `_index.md` in `roweb2/content/authors/firstname-lastname/` with information about your online presence. Keep accents in your name. If you're not sure of how to slugify/urlize your name, look at other people's folder names for examples.
 
 Example [`roweb2/content/authors/kelly-obriant/_index.md`](https://github.com/ropensci/roweb2/blob/master/content/authors/kelly-obriant/_index.md):
 ```
@@ -89,9 +92,11 @@ gitlab: yourgitlabusername
 ---
 ```
 
+Example when rendered: [Kelly O'Briant's author page](https://ropensci.org/authors/kelly-obriant/)
+
 At minimum, provide your name and at least one link or Twitter/GitHub/GitLab username. The `link` field is meant for your preferred online presence URL, to be filled only if you have one that's not your GitHub, GitLab or Twitter account. The `twitter`, `github` and `gitlab` fields are for your Twitter/GitHub/GitLab usernames (without "@").
 
-Then when a reader clicks on your by-line in your blog post, tech note, or a community call you have presented in, they can see how to find you online, as well as seeing a list of all of those you have contributed. See for example, [Kelly O'Briant's author page](https://ropensci.org/authors/kelly-obriant/).
+Then when a reader clicks on your by-line in your blog post, tech note, or a community call you have presented in, they can see how to find you online, as well as seeing a list of all of those you have contributed. 
 
 ### Installation requirements
 
