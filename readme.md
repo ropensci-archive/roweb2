@@ -63,7 +63,7 @@ tags:
 #### Blog post editorial suggestions
 
 For a post about your peer-reviewed package you should:
-- browse other posts about peer-reviewed packages with tag '[software-peer-review](https://ropensci.org/tags/software-peer-review/)'
+- browse other posts about peer-reviewed packages with tag '[Software Peer Review](https://ropensci.org/tags/software-peer-review/)'
 - consider giving some narrative on motivation for creating the package, or something you learned in the process, and share an interesting use case
 - acknowledge reviewers by name with links to their GitHub or Twitter; no need to explicitly acknowledge the editor
 - acknowledge other contributors, if any
