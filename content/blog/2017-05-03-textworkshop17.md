@@ -3,13 +3,12 @@ slug: textworkshop17
 title: Text Analysis R Developers' Workshop 2017
 date: '2017-05-03'
 authors:
-  - name: Ken Benoit
-    url: http://kenbenoit.net
+  - Ken Benoit
 categories: blog
 topicid: 689
 tags:
   - R
-  - text-analysis
+  - text analysis
   - community
   - meetings
   - sig

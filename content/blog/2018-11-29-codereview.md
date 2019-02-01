@@ -1,30 +1,24 @@
 ---
-slug: "codereview"
+slug: codereview
 title: Community Call Summary - Code Review in the Lab
 authors:
-  - name: Hao Ye
-    url: https://haoye.us/
-    twitter: Hao_and_Y
-  - name: Melanie Frazier
-    url: http://ohi-science.org/news/people-of-ohi-melanie-frazier
-  - name: Julia Stewart-Lowndes
-    url: http://jules32.github.io/
-    twitter: juliesquid
-  - name: Carl Boettiger
-    url: https://www.carlboettiger.info/
-    twitter: cboettig
-  - name: Noam Ross
-    url: https://www.ecohealthalliance.org/personnel/dr-noam-ross
-    twitter: noamross
-date: 2018-11-29
+  - Hao Ye
+  - Melanie Frazier
+  - Julia Stewart Lowndes
+  - Carl Boettiger
+  - Noam Ross
+date: '2018-11-29'
 categories: blog
 topicid: 1488
-preface: This post is a summary of our Community Call on "Code Review in the Lab, or ... How do you review code that accompanies a research project or paper?" held October 16, 2018. [Resources associated with the Call](https://ropensci.org/commcalls/2018-10-16/), including the video recording, slides, notes and a discussion thread have been posted.
+preface: This post is a summary of our Community Call on "Code Review in the Lab,
+  or ... How do you review code that accompanies a research project or paper?" held
+  October 16, 2018. [Resources associated with the Call](https://ropensci.org/commcalls/2018-10-16/),
+  including the video recording, slides, notes and a discussion thread have been posted.
 tags:
-- community
-- community-call
-- events
-- R
+  - community
+  - community call
+  - events
+  - R
 ---
 
 Although there are increasing incentives and pressures for researchers to share code (even for projects that are not essentially computational), practices vary widely and standards are mostly non-existent. The practice of _reviewing_ code then falls to researchers and research groups before publication. With that in mind, rOpenSci hosted a [discussion thread](https://discuss.ropensci.org/t/how-do-you-review-code-that-accompanies-a-research-project-or-paper-help-ropensci-plan-a-community-call) and a [community call](https://ropensci.org/commcalls/2018-10-16/) to bring together different researchers for a conversation about current practices, and challenges in reviewing code in the lab.

@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
+{{ $title := default .Title .Params.name}}
+{{ range first 1 (where $pages ".Params.name" $title) }}
+{{$params := .Params}}
+<section class = "author">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 top-6" style="text-align: center;">
+                {{ if isset .Params "img" }}
+                {{ $src := print "/" .Params.img }}
+                {{ .Scratch.Set "src" $src }}
+                {{ else if isset .Params "github" }}
+                {{ $src := print "https://github.com/" .Params.github }}
+                {{ $src := print $src ".png" }}
+                {{ .Scratch.Set "src" $src }}
+                {{ else }}
+                {{ .Scratch.Set "src" "/img/default_avatar.png" }}
+                {{ end }}
+                {{ $src := .Scratch.Get "src" }}
+                <div class = "row bottom-2" style="display: inline-block;">
+                    <img alt="{{ .Params.name }}" src="{{ $src }}" />
+                </div>
+                <h3 style="text-align: center;">{{ $title }}</h3>
+                {{ if $params.bio }}
+                <p class="bottom-2"> {{ $params.bio }} </p>
+                {{ end }}
+                <br>
+                <p>
+                    {{ if isset .Params "github" }}
+                    <a href="https://github.com/{{.Params.github}}"> <i class="fa fa-github"></i></a>
+                    {{ end }}
+                    {{ if isset .Params "twitter" }}
+                    <a href="https://twitter.com/{{.Params.twitter}}"> <i class="fa fa-twitter"></i></a>
+                    {{ end }}
+                    {{ if isset .Params "link"}}
+                    <a href="{{.Params.link}}"> <i class="fa fa-home"></i></a>
+                    {{ end }}
+                    {{ if isset .Params "gitlab" }}
+                    <a href="https://gitlab.com/{{.Params.gitlab}}"> <i class="fa fa-gitlab"></i></a>
+                    {{ end }}
+                </p>
+
+            </div>
+            <div class="col-9 top-10">
+                {{ end }}
+                {{ $pages := .Data.Pages }}
+                {{ partial "archiveauthors.html" (dict "pages" $pages) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9 col-offset-2 top-4">
+                <p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>, <a href="/archive/" target="_blank">by date</a> and  <a href="/authors/" target="_blank">by author</a> or subscribe to the blog <a href="/blog/index.xml" target="_blank">RSS feed</a> or <a href="/blog/index.json" target="_blank">JSON feed</a>.</p>
+            </div>
+        </div>
+    </section>
+<!-- ends tutorial section -->
+<br><br>
+
+{{ end }}

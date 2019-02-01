@@ -2,8 +2,7 @@
 title: Accessing patent data with the patentsview package
 slug: patentsview
 authors:
-  - name: Chris Baker
-    url: http://github.com/crew102
+  - Chris Baker
 date: '2017-09-19'
 topicid: 873
 tags:
@@ -13,7 +12,7 @@ tags:
   - packages
   - API
   - USPTO
-  - software-peer-review
+  - Software Peer Review
   - community
 categories: blog
 ---

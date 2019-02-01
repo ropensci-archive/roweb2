@@ -2,8 +2,7 @@
 slug: rrricanes
 title: rrricanes to Access Tropical Cyclone Data
 authors:
-  - name: Tim Trice
-    url: http://timtrice.net/
+  - Tim Trice
 categories: blog
 date: '2017-09-27'
 topicid: 887
@@ -11,7 +10,7 @@ tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - rrricanes
   - rrricanesdata
   - hurricanes

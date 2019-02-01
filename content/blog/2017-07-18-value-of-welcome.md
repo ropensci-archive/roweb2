@@ -3,13 +3,12 @@ slug: value-of-welcome
 title: 'The Value of #Welcome'
 date: '2017-07-18'
 authors:
-  - name: Stefanie Butland
-    twitter: StefanieButland
+  - Stefanie Butland
 categories: blog
 topicid: 776
 tags:
   - community
-  - ropensci-team
+  - rOpenSci team
   - welcome
 ---
 

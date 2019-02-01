@@ -3,8 +3,7 @@ slug: style-geojson-polygon
 title: Interactive maps with polygons using R, Geojson, and Github
 date: '2013-10-23'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - R

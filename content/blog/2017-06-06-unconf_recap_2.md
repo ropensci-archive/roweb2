@@ -3,8 +3,7 @@ slug: unconf_recap_2
 title: 'Unconf projects 2: checkers, gramr, data-packages, exploRingJSON'
 date: '2017-06-06'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 topicid: 741
 tags:

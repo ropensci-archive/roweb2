@@ -3,14 +3,12 @@ slug: commonmark
 title: High Performance CommonMark and Github Markdown Rendering in R
 date: '2016-12-02'
 authors:
-  - name: Jeroen Ooms
-    url: https://ropensci.org/about/
-    twitter: opencpu
+  - Jeroen Ooms
 categories: blog
 tags:
   - packages
   - commonmark
-  - markdown
+  - Markdown
   - R
 ---
 

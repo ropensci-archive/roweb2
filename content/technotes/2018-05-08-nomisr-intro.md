@@ -4,18 +4,17 @@ slug: nomisr
 date: '2018-05-08'
 package_version: 0.2.0
 authors:
-  - name: Evan Odell
-    url: https://github.com/evanodell
+  - Evan Odell
 categories: technotes
 topicid: 1163
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
-  - data-access
-  - data-extraction
+  - data access
+  - data extraction
   - geospatial
   - uk
   - census

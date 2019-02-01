@@ -3,17 +3,15 @@ slug: A-satrday-ct-series
 title: 'Our package reviews in review: Introducing a 3-post series about software
   onboarding data'
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
+  - Maëlle Salmon
 date: '2018-04-26'
 categories: blog
 topicid: 1151
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
 ---
 
 On March the 17th I had the honor to give a keynote talk about rOpenSci's package onboarding system at the [satRday conference in Cape Town](https://capetown2018.satrdays.org/), entitled "Our package reviews in review: introducing and analyzing rOpenSci onboarding system". You can [watch its recording](https://www.youtube.com/watch?v=lZ3deq52qCk), [skim through the corresponding slides](http://www.masalmon.eu/satrday_keynote/slides) or... read this series!

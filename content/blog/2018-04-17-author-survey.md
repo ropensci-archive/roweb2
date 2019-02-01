@@ -3,19 +3,15 @@ slug: author-survey
 title: The 2018 author and reviewer survey
 date: '2018-04-17'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
-  - name: Noam Ross
-    twitter: noamross
-  - name: Scott Chamberlain
-    twitter: sckottie
-  - name: Maëlle Salmon
-    twitter: ma_salmon
+  - Karthik Ram
+  - Noam Ross
+  - Scott Chamberlain
+  - Maëlle Salmon
 categories: blog
 topicid: 1142
 tags:
   - community
-  - software-peer-review
+  - Software Peer Review
   - reviewer
   - survey
 ---

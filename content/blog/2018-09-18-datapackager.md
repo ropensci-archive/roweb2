@@ -3,19 +3,18 @@ slug: datapackager
 title: Building Reproducible Data Packages with DataPackageR
 pacakge_version: 0.15.3
 authors:
-  - name: Greg Finak
-    url: https://github.com/gfinak
+  - Greg Finak
 date: '2018-09-18'
 categories: blog
 topicid: 1355
 tags:
-  - r
+  - R
   - reproducibility
-  - reproducible-research
+  - reproducible research
   - tidydata
   - datasharing
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - bioinformatics
 ---

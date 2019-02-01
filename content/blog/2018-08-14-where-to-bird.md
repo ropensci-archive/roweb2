@@ -2,11 +2,8 @@
 title: Where to go observe birds in Radolfzell? An answer with R and open data
 slug: where-to-bird
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
-  - name: Mark Padgham
-    url: https://github.com/mpadge
+  - Maëlle Salmon
+  - Mark Padgham
 date: '2018-08-14'
 preface: The blog post series corresponds to the material for a talk Maëlle will give
   at the [Animal Movement Analysis summer school in Radolfzell, Germany on September

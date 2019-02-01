@@ -3,12 +3,11 @@ slug: ccafs-release
 title: ccafs - client for CCAFS General Circulation Models data
 date: '2017-03-01'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: technotes
 tags:
   - R
-  - climate-change
+  - climate change
   - climate
   - geojson
   - geospatial

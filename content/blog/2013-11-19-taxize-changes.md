@@ -3,8 +3,7 @@ slug: taxize-changes
 title: taxize changes
 date: '2013-11-19'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - R

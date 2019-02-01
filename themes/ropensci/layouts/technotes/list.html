@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-{{ partial "header.html" . }}
-
-<!-- begins tutorial section -->
+{{ define "main" }}
     <section>
         <div class="container">
             <div class="row center">
@@ -30,19 +22,11 @@
         </div><!-- /container -->
             <div class="container">
     <div class="row top-3 bottom-1">
-<p> Find all blog posts and tech notes <a href="/tags/" target="_blank">by tag</a> and <a href="/archive/" target="_blank">by date</a> or subscribe to the tech notes <a href="/technotes/index.xml" target="_blank">RSS feed</a> or <a href="/technotes/index.json" target="_blank">JSON feed</a>. Aggregated by <a href="https://www.r-bloggers.com/" target="_blank">R-bloggers</a> with permission.</p>
+<p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>, <a href="/archive/" target="_blank">by date</a> and  <a href="/authors/" target="_blank">by author</a> or subscribe to the tech notes <a href="/technotes/index.xml" target="_blank">RSS feed</a> or <a href="/technotes/index.json" target="_blank">JSON feed</a>. Aggregated by <a href="https://www.r-bloggers.com/" target="_blank">R-bloggers</a> with permission.</p>
           </div>
           </div>
     </section>
     <!-- ends tutorial section -->
     <br><br>
 
-{{ partial "footer.html" . }}
-
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/fh-3.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
-    <script type="text/javascript" src="js/tutorialinit.js"></script>
-
-</body>
-</html>
+{{ end }}

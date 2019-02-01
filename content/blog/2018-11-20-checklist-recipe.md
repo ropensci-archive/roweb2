@@ -1,32 +1,26 @@
 ---
-slug: "checklist-recipe"
+slug: checklist-recipe
 title: Checklist Recipe - How we created a template to standardize species data
 authors:
-  - name: Peter Desmet
-    url: https://orcid.org/0000-0002-8442-8025
-    twitter: peterdesmet
-  - name: Damiano Oldoni
-    url: https://orcid.org/0000-0003-3445-7562
-    twitter: damianozingaro
-  - name: Lien Reyserhove
-    url: https://orcid.org/0000-0001-7484-9267
-    twitter: ReyserhoveLien
-date: 2018-11-20
+  - Peter Desmet
+  - Damiano Oldoni
+  - Lien Reyserhove
+date: '2018-11-20'
 categories: blog
 topicid: 1476
 tags:
-- template
-- species
-- checklists
-- gbif
-- rgbif
-- data-publication
-- data-standardization
-- Darwin Core
-- reproducible-research
-- TrIAS
-- Ebbe-Nielsen-Challenge
-- R
+  - template
+  - species
+  - checklists
+  - GBIF
+  - rgbif
+  - data publication
+  - data standardization
+  - Darwin Core
+  - reproducible research
+  - TrIAS
+  - Ebbe Nielsen Challenge
+  - R
 ---
 
 Imagine you are a fish ecologist who compiled a list of fish species for your country. 🐟

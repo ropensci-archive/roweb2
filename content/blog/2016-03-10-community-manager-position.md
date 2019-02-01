@@ -3,7 +3,8 @@ slug: community-manager-position
 title: We're hiring a community manager!
 date: '2016-03-10'
 authors:
-  - name: Core Team
+  - Karthik Ram
+  - Scott Chamberlain
 categories: blog
 tags:
   - jobs

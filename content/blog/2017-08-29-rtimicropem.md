@@ -4,19 +4,17 @@ title: 'rtimicropem: Using an *R* package as platform for harmonized cleaning of
   from RTI MicroPEM air quality sensors'
 date: '2017-08-29'
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu
-    twitter: ma_salmon
+  - Maëlle Salmon
 categories: blog
 tags:
   - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - hardware
   - ropenaq
-  - data-extraction
-  - earth-science
+  - data extraction
+  - earth science
 ---
 
 As you might remember from [my blog post about `ropenaq`](https://ropensci.org/blog/blog/2017/02/21/ropenaq), I work as a data manager and statistician for an [epidemiology project called CHAI](http://www.chaiproject.org/) for Cardio-vascular health effects of air pollution in Telangana, India. One of our interests in CHAI is determining exposure, and sources of exposure, to PM2.5 which are very small particles in the air that have diverse adverse health effects. You can find more details about CHAI [in our recently published protocol paper](https://www.ncbi.nlm.nih.gov/pubmed/28606699). In this blog post that partly corresponds to the content of [my useR! 2017 lightning talk](http://sched.co/AxrS), I'll present a package we wrote for dealing with the output of a scientific device, which might remind you of similar issues in your experimental work.

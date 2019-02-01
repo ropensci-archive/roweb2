@@ -3,14 +3,13 @@ slug: first-review-experiences
 title: Experiences as a first time rOpenSci package reviewer
 date: '2017-09-08'
 authors:
-  - name: Verena Haunschmid
-    url: http://blog.haunschmid.name
+  - Verena Haunschmid
 categories: blog
 topicid: 861
 tags:
   - R
   - software
-  - software-peer-review
+  - Software Peer Review
   - reviewer
 ---
 

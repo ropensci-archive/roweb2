@@ -3,8 +3,7 @@ slug: unconf_recap_4
 title: 'Unconf projects 4: cityquant, notary, packagemetrics, pegax'
 date: '2017-06-08'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 topicid: 742
 tags:

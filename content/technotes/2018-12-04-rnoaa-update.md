@@ -1,18 +1,17 @@
 ---
-slug: "rnoaa-update"
-title: "rnoaa: new data sources and NCDC units"
-date: 2018-12-04
+slug: rnoaa-update
+title: 'rnoaa: new data sources and NCDC units'
+date: '2018-12-04'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 topicid: 1497
 tags:
-- R
-- data
-- NOAA
-- rnoaa
-- climate
+  - R
+  - data
+  - NOAA
+  - rnoaa
+  - climate
 ---
 
 

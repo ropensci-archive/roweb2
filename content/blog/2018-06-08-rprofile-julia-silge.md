@@ -7,8 +7,7 @@ preface: In this occasional series, we interview someone using a loosely defined
   processes of R community members. This interview was conducted and prepared by Kelly
   O’Briant as part of an rOpenSci project called [rOpenInterviews](https://github.com/ropenscilabs/rOpenInterviews/).
 authors:
-  - name: Kelly O'Briant
-    url: https://kellobri.github.io/
+  - Kelly O'Briant
 categories: blog
 topicid: 1203
 tags:

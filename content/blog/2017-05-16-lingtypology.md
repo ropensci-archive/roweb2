@@ -3,8 +3,7 @@ slug: lingtypology
 title: Easy linguistic mapping with lingtypology
 package_version: 1.0.4
 authors:
-  - name: George Moroz
-    url: https://www.hse.ru/en/org/persons/103489498#teaching
+  - George Moroz
 date: '2017-05-16'
 categories: blog
 topicid: 721
@@ -16,7 +15,7 @@ tags:
   - glottolog
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
 ---
 
 As all other types of visualization, linguistic mapping has two main goals: data presentation and data analysis. The most common purpose for which linguistic maps are used, is simply pointing to the location of one or more languages of interest (presentation). A more sophisticated task is showing the distribution of particular linguistic features or their combination among languages of a certain area (presentation and analysis). There are three linguistic subdisciplines that use maps for visualization: linguistic typology, areal linguistics and dialectology. `lingtypology` makes it easier to create all kinds of linguistic maps simplifying both: data presentation and data analysis.

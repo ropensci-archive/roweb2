@@ -6,21 +6,15 @@ preface: This is cross-posted from the NumFOCUS blog. NumFOCUS is a nonprofit th
   including rOpenSci.
 date: '2017-09-01'
 authors:
-  - name: Noam Ross
-    url: https://twitter.com/noamross
-    twitter: noamross
-  - name: Scott Chamberlain
-    twitter: sckottie
-  - name: Karthik Ram
-    twitter: _inundata
-  - name: Maëlle Salmon
-    url: https://masalmon.eu/
-    twitter: ma_salmon
+  - Noam Ross
+  - Scott Chamberlain
+  - Karthik Ram
+  - Maëlle Salmon
 categories: blog
 topicid: 850
 tags:
   - software
-  - software-peer-review
+  - Software Peer Review
   - community
 ---
 

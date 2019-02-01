@@ -3,11 +3,11 @@ slug: community-calls
 title: Community calls
 date: '2014-12-15'
 authors:
-  - name: Scott Chamberlain
-    twitter: sckottie
+  - Scott Chamberlain
 categories: blog
 tags:
   - community
+  - community call
 ---
 
 Key to the success of rOpenSci is our community and we want to hear more regularly from our members, and foster new interactions among the group. In addition, community calls are a way for us to give important updates, and get feedback on them.

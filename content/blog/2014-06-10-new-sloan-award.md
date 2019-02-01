@@ -3,8 +3,7 @@ slug: new-sloan-award
 title: rOpenSci awarded $300k from the Sloan Foundation
 date: '2014-06-10'
 authors:
-  - name: Karthik Ram
-    twitter: _inundata
+  - Karthik Ram
 categories: blog
 tags:
   - R

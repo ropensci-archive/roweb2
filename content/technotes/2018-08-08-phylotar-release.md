@@ -3,16 +3,15 @@ slug: phylotar
 title: 'phylotaR: Retrieve Orthologous Sequences from GenBank'
 package_version: 1.0.0
 authors:
-  - name: Dom Bennett
-    url: https://github.com/dombennett
+  - Dom Bennett
 date: '2018-08-08'
 categories: technote
 topicid: 1292
 tags:
-  - r
+  - R
   - community
   - software
-  - software-peer-review
+  - Software Peer Review
   - packages
   - evolution
   - bioinformatics
@@ -20,7 +19,7 @@ tags:
   - genbank
   - dna
   - sequences
-  - data-access
+  - data access
   - taxonomy
 ---
 

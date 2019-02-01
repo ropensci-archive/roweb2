@@ -598,6 +598,11 @@ q:before, q:after {
   line-height: 0rem;
   float: left;
   margin-top: 9px;
+}.fa-icon:before {
+  font-size: 1.2rem;
+  line-height: 0rem;
+  float: left;
+  margin-top: 9px;
 }.icon-search:before {
   content: "\70";
 }.icon-ropensci-short:before {
@@ -695,6 +700,15 @@ q:before, q:after {
 }.docs {
 }.docs i{
   font-size: .87rem;
+}.author {
+    
+}.author img{
+  border-radius: 50%;
+  max-width: 200px;
+  height: auto;
+  width: auto;
+}.author .fa{
+  font-size: 2em;
 }.team {
 }.team img{
   border-radius: 50%;
@@ -949,7 +963,7 @@ q:before, q:after {
 }#footer .divider{
   border-top: 1px solid #5595e8;
 }#footer .icon{
-  width: 30.6%;
+  width: 20%;
   font-size: 1rem;
   display: inline-block;
 }#footer h5{
