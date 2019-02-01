@@ -1,6 +1,6 @@
 ---
 name: Karthik Ram
 twitter: _inundata
-bio: rOpenSci Co-founder and Project Lead
 github: karthik
+bio: rOpenSci Co-founder and Project Lead, Associate editor of rOpenSci Software Peer Review
 ---

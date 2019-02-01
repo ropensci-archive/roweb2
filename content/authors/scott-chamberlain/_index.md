@@ -1,6 +1,6 @@
 ---
 name: Scott Chamberlain
 twitter: sckottie
-bio: rOpenSci Co-founder and Technical Lead, Code of Conduct Committee member
 github: sckott
+bio: rOpenSci Co-founder and Technical Lead, Code of Conduct Committee member, Associate editor of rOpenSci Software Peer Review
 ---
