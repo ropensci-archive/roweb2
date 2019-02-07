@@ -68,7 +68,7 @@ For a post about your peer-reviewed package you should:
 - acknowledge reviewers by name with links to their GitHub or Twitter; no need to explicitly acknowledge the editor
 - acknowledge other contributors, if any
 - consider ending by pointing to open issues that readers might work on
-- include YAML tags 'Software Peer Review', 'R', the package name, and tags that were topic labels in your package review
+- include YAML tags 'Software Peer Review', 'R', the package name, and tags that were [topic labels in your package review](https://github.com/ropensci/software-review/labels)
 - browse [other tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "packages" exists, so use that, rather than "package"
 - if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - to format headings in your post, please use ### or ####, as larger sizes don't look good
