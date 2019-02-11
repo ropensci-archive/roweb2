@@ -118,7 +118,7 @@ This is where I think roadmaps can be useful. By specifying some short and long-
 
 **LW asked:**
 
-> How does a new organization handle growth, and how do we grow efficiently
+> How does a new organization handle growth, and how do we grow efficiently?
 
 I may have overstated the point about project leaders saying that growth was never their goal, but they certainly agreed with LW on the point that growth comes with a host of challenges. In their responses about growth, there was a clear distinction that arose in all of the interviews: Growth in use cases is different from growth in number of users, so the governance strategies used to achieve growth vary. Growth in use cases necessitates seeking out a wider variety of scenarios in which the software could be used; growth in the number of users depends on, well, gaining users. The most poignant theme regarding strategies used for both types of growth was “choices about where the project is advertised.” In stages where leaders sought more use cases, they advertised projects at places like open science meetings (e.g., OpenCon). When trying to grow the number of users, the quickest and most direct hits, in leaders’ opinions, came from advertising at discipline-specific conferences and meetings (e.g., large professional association conferences).
 
