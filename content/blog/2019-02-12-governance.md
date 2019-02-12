@@ -56,7 +56,7 @@ The value of a community call--as opposed to a blog post like this one--is the a
 
 > I’m very interested in replicating this study within our community, The Carpentries, with interviews and everything you’ve done here. I’m wondering where I can find the protocol.
 
-I think it would be great to see how these same interviews go within different communities. The [protocols are now public](githublink) and are free to use without restriction.
+I think it would be great to see how these same interviews go within different communities. The [protocols are now public](https://github.com/dsholler/ropensci_postdoc/blob/master/interview_protocols_osrs_lm.pdf) and are free to use without restriction.
 
 **LW asked:**
 
