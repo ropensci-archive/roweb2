@@ -1,25 +1,24 @@
 ---
-slug: "googlelanguager"
-title: googleLanguageR - Analysing language through the Google Cloud Machine Learning APIs
+slug: googlelanguager
+title: googleLanguageR - Analysing language through the Google Cloud Machine Learning
+  APIs
 authors:
-  - name: Mark Edmondson
-    url: http://code.markedmondson.me
-date: 2017-10-03
+  - Mark Edmondson
+date: '2017-10-03'
 categories: blog
 topicid: 904
 tags:
-- R
-- API
-- packages
-- textmining
-- text-analysis
-- linguistics
-- data-extraction
-- community
-- software
-- review
-- onboarding
-- googleLanguageR
+  - R
+  - API
+  - packages
+  - textmining
+  - text analysis
+  - linguistics
+  - data extraction
+  - community
+  - software
+  - Software Peer Review
+  - googleLanguageR
 ---
 
 <!-- open source image taken from: https://upload.wikimedia.org/wikipedia/commons/2/21/Bell_System_switchboard.jpg -->
@@ -73,7 +72,7 @@ Finally, I live and work in Denmark.  As Danish is only spoken by less than 6 mi
 
 To use these APIs within R, you first need to do a one-time setup to create a Google Project, add a credit card and authenticate which is [detailed on the package website](http://code.markedmondson.me/googleLanguageR/#installation).
 
-After that, you feed in the R objects you want to operate upon.  The [rOpenSci review](https://github.com/ropensci/onboarding/issues/127) helped to ensure that this can scale up easily, so that you can feed in large character vectors which the library will parse and rate limit as required.  The functions also work within [tidyverse](https://www.tidyverse.org/) pipe syntax.
+After that, you feed in the R objects you want to operate upon.  The [rOpenSci review](https://github.com/ropensci/software-review/issues/127) helped to ensure that this can scale up easily, so that you can feed in large character vectors which the library will parse and rate limit as required.  The functions also work within [tidyverse](https://www.tidyverse.org/) pipe syntax.
 
 #### Speech-to-text
 

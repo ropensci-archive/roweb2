@@ -6,6 +6,8 @@ googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
+buildFuture = true
+preserveTaxonomyNames = true
 
 paginate = 5
 paginatePath = "page"
@@ -36,11 +38,21 @@ rssLimit = 20
     url = "/index.xml"
 
 [params]
-    description = "rOpenSci - Open Tools for Open Science"
+    title = "rOpenSci"
+    description = "Open Tools and R Packages for Open Science"
     footer = "&copy; The rOpenSci Project"
     leadership = ["Carl Boettiger", "Karthik Ram", "Scott Chamberlain", "Jenny Bryan", "Rich FitzJohn", "Leadership Team", "Core Team"]
-    staff = ["Jeroen Ooms", "Stefanie Butland", "Maëlle Salmon", "Maelle Salmon"]
-
+    staff = ["Jeroen Ooms", "Stefanie Butland", "Maëlle Salmon", "Maelle Salmon", "Dan Sholler"]
+    blogs = ["blog", "technotes"]
+ 
 [taxonomies]
   tag = "tags"
+  author = "authors"
+  
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
+  category = ["HTML", "RSS", "JSON"]
+  taxonomy = ["HTML", "RSS", "JSON"]
+  taxonomyTerm = ["HTML", "RSS", "JSON"]
 

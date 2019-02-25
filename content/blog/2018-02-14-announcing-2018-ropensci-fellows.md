@@ -3,13 +3,12 @@ slug: announcing-2018-ropensci-fellows
 title: Introducing the 2018 rOpenSci Research Fellows!
 date: '2018-02-14'
 authors:
-  - name: Karthik Ram
+  - Karthik Ram
 categories: blog
 topicid: 1066
 tags:
   - fellowships
   - funding
-  - rOpenSci
 ---
 
 rOpenSci’s mission is to enable and support a thriving community of researchers who embrace open and reproducible research practices as part of their work. Since our inception, one of the mechanisms through which we have supported the community is by developing high-quality open source tools that lower barriers to working with scientific data. Equally important to our mission is to build capacity and promote researchers who are engaged in such practices within their disciplinary communities. This fellowship program is a unique opportunity for us to enable such individuals to have a bigger voice in their communities. 

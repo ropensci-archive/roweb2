@@ -1,18 +1,17 @@
 ---
-slug: "solrium-solr-r"
-title: "solrium 1.0: Working with Solr from R"
-date: 2017-11-08
+slug: solrium-solr-r
+title: 'solrium 1.0: Working with Solr from R'
+date: '2017-11-08'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 topicid: 953
 tags:
-- data
-- solr
-- solrium
-- databases
-- R
+  - data
+  - solr
+  - solrium
+  - databases
+  - R
 ---
 
 

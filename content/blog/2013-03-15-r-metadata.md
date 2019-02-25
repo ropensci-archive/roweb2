@@ -3,11 +3,10 @@ slug: r-metadata
 title: Scholarly metadata in R
 date: '2013-03-15'
 authors:
-  - name: Scott Chamberlain
+  - Scott Chamberlain
 categories: blog
 tags:
   - R
-  - rOpenSci
   - metadata
   - API
 ---
@@ -92,7 +91,7 @@ print(crossref_citation("10.3998/3336451.0009.101"), style = "text")
 
 Bilder G (2006). "In Google We Trust?" _The Journal of Electronic
 Publishing_, *9*. <URL:
-http://dx.doi.org/10.3998/3336451.0009.101>.
+https://doi.org/10.3998/3336451.0009.101>.
 ```
 
 

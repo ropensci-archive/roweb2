@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>rOpenSci | Tech Notes</title>
-    {{ partial "style-path.html" }}
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
-{{ partial "ga.html" . }}
-</head>
-<body>
-{{ partial "header.html" . }}
-
-<!-- begins tutorial section -->
+{{ define "main" }}
     <section>
         <div class="container">
             <div class="row center">
@@ -24,29 +12,21 @@
 
             <div class="row">
                 
+  {{$pages := .Data.Pages.ByPublishDate.Reverse}}
 
-  {{ range (where .Data.Pages "Section" "!=" "") }}
-
-  <div class="col-10"><p><a href="{{ .URL }}">{{ .Title }}</a></p></div>
-  <div class="col-2" style="text-align:right;"><small class="date lighter">{{ .Date.Format "January 2, 2006" | upper }}</small></div>
-
-
-  {{ end }}
+  {{ partial "archive.html" (dict "pages" $pages) }}
 
                 
 
             </div> 
         </div><!-- /container -->
+            <div class="container">
+    <div class="row top-3 bottom-1">
+<p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a>, <a href="/archive/" target="_blank">by date</a> and  <a href="/authors/" target="_blank">by author</a> or subscribe to the tech notes <a href="/technotes/index.xml" target="_blank">RSS feed</a> or <a href="/technotes/index.json" target="_blank">JSON feed</a>. Aggregated by <a href="https://www.r-bloggers.com/" target="_blank">R-bloggers</a> with permission.</p>
+          </div>
+          </div>
     </section>
     <!-- ends tutorial section -->
     <br><br>
 
-{{ partial "footer.html" . }}
-
-
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/fh-3.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
-    <script type="text/javascript" src="js/tutorialinit.js"></script>
-
-</body>
-</html>
+{{ end }}

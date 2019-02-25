@@ -1,14 +1,13 @@
 ---
-slug: "isdparser-release"
+slug: isdparser-release
 title: Parse NOAA Integrated Surface Data Files
-date: 2016-11-03
+date: '2016-11-03'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 tags:
-- climate
-- R
+  - climate
+  - R
 ---
 
 A new package [isdparser](https://cran.rstudio.com/web/packages/isdparser) is

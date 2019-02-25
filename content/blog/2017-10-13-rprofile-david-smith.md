@@ -1,18 +1,20 @@
 ---
-slug: "rprofile-david-smith"
-title: ".rprofile: David Smith"
-date: 2017-10-13
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of “demystifying the creative and development processes of R community members”. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+slug: rprofile-david-smith
+title: '.rprofile: David Smith'
+date: '2017-10-13'
+preface: In this occasional series, we interview someone using a loosely defined set
+  of interview questions for the purpose of “demystifying the creative and development
+  processes of R community members”. This interview was conducted and prepared by
+  Kelly O'Briant as part of an rOpenSci unconf17 project.
 authors:
-  - name: Kelly O'Briant
-    url: https://kellobri.github.io/
+  - Kelly O'Briant
 categories: blog
 topicid: 921
 tags:
-- R
-- community
-- interviews
-- rprofile
+  - R
+  - community
+  - interviews
+  - rprofile
 ---
 
 <img src="/assets/blog-images/2017-10-13-rprofile_david_smith/david-smith.jpg" alt="David Smith, R Community Lead at Microsoft" style="margin: 0px 20px; width: 250px;" align="left">

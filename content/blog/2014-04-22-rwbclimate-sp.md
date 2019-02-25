@@ -1,18 +1,17 @@
 ---
-slug: "rwbclimate-sp"
+slug: rwbclimate-sp
 title: Overlaying species occurrence data with climate data
-date: 2014-04-22
+date: '2014-04-22'
 authors:
-  - name: Ted Hart
-categories:
-  - blog
+  - Ted Hart
+categories: blog
 tags:
-- R
-- API
-- species
-- occurrence
-- climate change
-- climate
+  - R
+  - API
+  - species
+  - occurrence
+  - climate change
+  - climate
 ---
 
 

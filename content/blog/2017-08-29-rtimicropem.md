@@ -1,21 +1,20 @@
 ---
-slug: "rtimicropem"
-title: "rtimicropem: Using an *R* package as platform for harmonized cleaning of data from RTI MicroPEM air quality sensors"
-date: 2017-08-29
+slug: rtimicropem
+title: 'rtimicropem: Using an *R* package as platform for harmonized cleaning of data
+  from RTI MicroPEM air quality sensors'
+date: '2017-08-29'
 authors:
-  - name: Maëlle Salmon
-    url: https://masalmon.eu
+  - Maëlle Salmon
 categories: blog
 tags:
-- R
-- community
-- software
-- review
-- onboarding
-- hardware
-- ropenaq
-- data-extraction
-- earth-science
+  - R
+  - community
+  - software
+  - Software Peer Review
+  - hardware
+  - ropenaq
+  - data extraction
+  - earth science
 ---
 
 As you might remember from [my blog post about `ropenaq`](https://ropensci.org/blog/blog/2017/02/21/ropenaq), I work as a data manager and statistician for an [epidemiology project called CHAI](http://www.chaiproject.org/) for Cardio-vascular health effects of air pollution in Telangana, India. One of our interests in CHAI is determining exposure, and sources of exposure, to PM2.5 which are very small particles in the air that have diverse adverse health effects. You can find more details about CHAI [in our recently published protocol paper](https://www.ncbi.nlm.nih.gov/pubmed/28606699). In this blog post that partly corresponds to the content of [my useR! 2017 lightning talk](http://sched.co/AxrS), I'll present a package we wrote for dealing with the output of a scientific device, which might remind you of similar issues in your experimental work.
@@ -64,7 +63,7 @@ As mentioned previously, we experienced issues with MicroPEM data quality. Altho
 
 When preparing `rtimicropem` submission to rOpenSci, I started wondering whether one would like to have one R package for each scientific device out there. In our case, having the weird output to deal with, and the lack of a central data issues documentation place, were enough of a motivation. But maybe one could hope that manufacturers of scientific devices would focus a bit more on making the output format analysis-friendly, and that the open documentation of data issues would be language-agnostic and managed by the manufacturers themselves. In the meantime, we're quite proud to have taken the time to create and share our experience with `rtimicropem`, and have already heard back from a few users, including one who found the package via googling "RTI MicroPEM data"! Another argument I in particular have to write R packages for dealing with scientific data is that it might motivate people to learn R, but this is maybe a bit evil.
 
-What about the place of `rtimicropem` in the rOpenSci package collection? After [very useful reviews](https://github.com/ropensci/onboarding/issues/126) by [Lucy D'Agostino McGowan](https://github.com/LucyMcGowan) and [Kara Woo](https://github.com/karawoo) our package got onboarded which we were really thankful for and happy about. Another package I can think off the top of my head to deal with the output of a scientific tool is [`plater`](https://ropensci.org/blog/blog/2017/02/06/plater-blog-post). Let me switch roles from CHAI team member to rOpenSci onboarding co-editor here and do some advertisement... Such packages are unlikely to become the new `ggplot2` but their specialization doesn't make them less useful and they fit very well in the "data extraction" of the [onboarding categories](https://github.com/ropensci/onboarding/blob/master/policies.md). So if you have written such a package, please consider submitting it! It'll get better thanks to review and might get more publicity as part of a larger software ecosystem. For the `rtimicropem` submission we took advantage of the joint submission process of rOpenSci and the Journal of Open Source Software, JOSS, so now our piece of software has [its JOSS paper with a DOI](http://joss.theoj.org/papers/7ead5e9a445da3e885d99247c5d6e58e). And hopefully, having more submissions of packages for scientific hardware might inspire R users to package up the code they wrote to use the output of their scientific tools!
+What about the place of `rtimicropem` in the rOpenSci package collection? After [very useful reviews](https://github.com/ropensci/software-review/issues/126) by [Lucy D'Agostino McGowan](https://github.com/LucyMcGowan) and [Kara Woo](https://github.com/karawoo) our package got onboarded which we were really thankful for and happy about. Another package I can think off the top of my head to deal with the output of a scientific tool is [`plater`](https://ropensci.org/blog/blog/2017/02/06/plater-blog-post). Let me switch roles from CHAI team member to rOpenSci onboarding co-editor here and do some advertisement... Such packages are unlikely to become the new `ggplot2` but their specialization doesn't make them less useful and they fit very well in the "data extraction" of the [onboarding categories](https://ropensci.github.io/dev_guide/policies.html#package-categories). So if you have written such a package, please consider submitting it! It'll get better thanks to review and might get more publicity as part of a larger software ecosystem. For the `rtimicropem` submission we took advantage of the joint submission process of rOpenSci and the Journal of Open Source Software, JOSS, so now our piece of software has [its JOSS paper with a DOI](http://joss.theoj.org/papers/7ead5e9a445da3e885d99247c5d6e58e). And hopefully, having more submissions of packages for scientific hardware might inspire R users to package up the code they wrote to use the output of their scientific tools!
 
 
 

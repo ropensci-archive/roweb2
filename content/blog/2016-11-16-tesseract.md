@@ -3,11 +3,9 @@ slug: tesseract
 title: 'The new Tesseract package: High Quality OCR in R'
 date: '2016-11-16'
 authors:
-  - name: Jeroen Ooms
-    url: https://ropensci.org/about/
+  - Jeroen Ooms
 categories: blog
 tags:
-  - rOpenSci
   - packages
   - tesseract
   - R

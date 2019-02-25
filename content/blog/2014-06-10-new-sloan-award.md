@@ -1,14 +1,13 @@
 ---
-slug: "new-sloan-award"
+slug: new-sloan-award
 title: rOpenSci awarded $300k from the Sloan Foundation
-date: 2014-06-10
+date: '2014-06-10'
 authors:
-  - name: Karthik Ram
-categories:
-  - blog
+  - Karthik Ram
+categories: blog
 tags:
-- R
-- funding
+  - R
+  - funding
 ---
 
 We're delighted to announce that we have received additional funding from the [Sloan Foundation](http://www.sloan.org/) to [continue](http://ropensci.org/blog/2013/06/12/sloan/) and expand our efforts from the past year.

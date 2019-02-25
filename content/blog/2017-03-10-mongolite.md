@@ -2,13 +2,12 @@
 slug: mongolite
 title: Release mongolite 1.0
 authors:
-  - name: Jeroen Ooms
+  - Jeroen Ooms
 categories: blog
 topicid: 626
 date: '2017-03-10'
 tags:
   - R
-  - rOpenSci
   - packages
   - databases
 ---

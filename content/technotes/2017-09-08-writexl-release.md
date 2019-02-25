@@ -1,17 +1,17 @@
 ---
-slug: "writexl-release"
-title: "The writexl package: zero dependency xlsx writer for R"
-date: 2017-09-08
+slug: writexl-release
+title: 'The writexl package: zero dependency xlsx writer for R'
+date: '2017-09-08'
 authors:
-  - name: Jeroen Ooms
+  - Jeroen Ooms
 categories: technotes
 topicid: 859
 tags:
-- R
-- packages
-- software
-- excel
-- xlsx
+  - R
+  - packages
+  - software
+  - excel
+  - xlsx
 ---
 
 We have started working on a new rOpenSci package called [writexl](https://github.com/ropensci/writexl#readme). This package wraps the very powerful [libxlsxwriter](https://libxlsxwriter.github.io/) library which allows for exporting data to Microsoft Excel format.

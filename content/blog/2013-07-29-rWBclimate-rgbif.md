@@ -1,18 +1,17 @@
 ---
-slug: "rWBclimate-rgbif"
+slug: rWBclimate-rgbif
 title: Overlaying climate data with species occurrence data
-date: 2013-07-29
+date: '2013-07-29'
 authors:
-  - name: Ted Hart
-categories:
-  - blog
+  - Ted Hart
+categories: blog
 tags:
-- R
-- API
-- climate
-- maps
-- gbif
-- ecology
+  - R
+  - API
+  - climate
+  - maps
+  - GBIF
+  - ecology
 ---
 
 One of our primary goals at ROpenSci is to wrap as many science API's as possible.  While each package can be used as a standalone interface, there's lots of ways our packages can overlap and complement each other.  Sure [He-Man](http://www.youtube.com/watch?v=7yeA7a0uS3A) usually rode [Battle Cat](http://en.wikipedia.org/wiki/Battle_Cat), but there's no reason he couldn't ride a [my little pony](http://drawception.com/pub/panels/2012/5-14/swgpnXLCRm-8.png) sometimes too.  That's the case with our packages for [GBIF](http://www.gbif.org/) and the [worldbank climate data api](http://data.worldbank.org/developers/climate-data-api).  Both packages will give you lots and lots of data, but a shared feature of both is the ability to plot spatial information.  The [rWBclimate](https://github.com/ropensci/rWBclimate) package provides a robust mapping ability on top of access to climate data.  At it's most bare bones, it can be used as alternative to the built in mapping facilities included in [rgbif](https://github.com/ropensci/rgbif/).  Building on the example in the [rgbif tutorial](http://www.ropensci.org/tutorials/rgbif_tutorial.html#occurrencelist) we'll plot data for two species in the US and Mexico, the dark eyed junco (*Junco hyemalis*) and the wood duck (*Aix sponsa*).  Here's how you can use the kml interface from rWBclimate to download a map of the US and Mexico and overlay it with data from rgbif.

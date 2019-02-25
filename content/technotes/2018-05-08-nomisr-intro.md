@@ -1,27 +1,24 @@
 ---
-title: "Nomisr - Access 'Nomis' UK Labour Market Data"
-slug: "nomisr"
-date: 2018-05-08
+title: Nomisr - Access 'Nomis' UK Labour Market Data
+slug: nomisr
+date: '2018-05-08'
 package_version: 0.2.0
 authors:
-  - name: Evan Odell
-    url: https://github.com/evanodell
-categories:
-  - technotes
+  - Evan Odell
+categories: technotes
 topicid: 1163
 tags:
-- r
-- community
-- software
-- review
-- onboarding
-- package
-- data-access
-- data-extraction
-- geospatial
-- uk
-- census
-- geography
+  - R
+  - community
+  - software
+  - Software Peer Review
+  - packages
+  - data access
+  - data extraction
+  - geospatial
+  - uk
+  - census
+  - geography
 ---
 
 

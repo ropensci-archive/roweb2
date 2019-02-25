@@ -3,8 +3,7 @@ slug: rtika-introduction
 title: Lessons Learned from rtika, a Digital Babel Fish
 package_version: 0.1.7
 authors:
-  - name: Sasha Goodman
-    url: https://twitter.com/goodmansasha
+  - Sasha Goodman
 date: '2018-04-25'
 categories: blog
 topicid: 1150
@@ -12,19 +11,17 @@ tags:
   - R
   - community
   - software
-  - review
-  - package
-  - onboarding
-  - package
-  - text-mining
-  - data-extraction
+  - Software Peer Review
+  - packages
+  - text mining
+  - data extraction
   - archiving
   - metadata
-  - xml
+  - XML
   - json
   - tesseract
   - text
-  - pdf
+  - PDF
   - word
   - excel
 ---
@@ -125,7 +122,7 @@ For this batch, the efficiency compared favorably to `antiword`, even with the o
 
 #### Lessons Learned
 
-I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/onboarding and https://github.com/ropensci/onboarding/issues/191  ) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
+I never distributed a package before on repositories such as CRAN or Github, and the rOpenSci group was the right place to learn how. The reviewers used a transparent onboarding process (see: https://github.com/ropensci/software-review and https://github.com/ropensci/software-review/issues/191  ) and taught about good documentation and coding style. They were helping create a maintainable package by following certain standards. If I stopped maintaining `rtika`, others could use their knowledge of the same standards to take over. The vast majority of time was spent on documenting the code, the introductory vignette, and continuous testing to integrate new code.
 
 ##### Connecting to Tika 
 

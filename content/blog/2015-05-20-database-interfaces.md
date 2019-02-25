@@ -1,17 +1,16 @@
 ---
-slug: "database-interfaces"
+slug: database-interfaces
 title: Database interfaces
-date: 2015-05-20
+date: '2015-05-20'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- database
-- key-value
-- sql
-- nosql
+  - R
+  - databases
+  - key value
+  - sql
+  - nosql
 ---
 
 There are many different databases. The most familiar are row-column SQL databases like MySQL, SQLite, or PostgreSQL. Another type of database is the key-value store, which as a concept is very simple: you save a value specified by a key, and you can retrieve a value by its key. One more type is the document database, which instead of storing rows and columns, stores blobs of text or even binary files. The key-value and document types fall under the NoSQL umbrella. As there are mature R clients for many SQL databases, and [dplyr](https://github.com/hadley/dplyr) is a great generic interface to SQL backends  (see [`dplyr` vignettes](http://cran.rstudio.com/web/packages/dplyr/) for an intro), we won't delve into SQL clients here.

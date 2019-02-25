@@ -1,25 +1,22 @@
 ---
-slug: "phylogram"
-title: "phylogram: dendrograms for evolutionary analysis"
+slug: phylogram
+title: 'phylogram: dendrograms for evolutionary analysis'
 package_version: 2.1
 authors:
-  - name: Shaun Wilkinson
-    url: https://github.com/shaunpwilkinson
-date: 2018-07-12
+  - Shaun Wilkinson
+date: '2018-07-12'
 categories: technote
 topicid: 1256
 tags:
-- r
-- ropensci
-- community
-- software
-- review
-- onboarding
-- package
-- integration
-- evolution
-- bioinformatics
-- phylogenetics
+  - R
+  - community
+  - software
+  - Software Peer Review
+  - packages
+  - integration
+  - evolution
+  - bioinformatics
+  - phylogenetics
 ---
 
 

@@ -15,12 +15,12 @@ output:
     toc: no
 categories: blog
 tags:
-  - review
+  - Software Peer Review
   - community
-  - package
+  - packages
   - text
   - nlp
-  - open-source
+  - open source
   - API
 ---
 

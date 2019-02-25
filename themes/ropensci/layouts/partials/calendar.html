@@ -1,0 +1,29 @@
+{{ $intervalleft := .intervalleft}}
+   
+<table>
+  <thead>
+    <th>Event</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Attendees</th>
+    <th>Description</th>
+  </thead>
+  {{ range (.pages.ByParam "dateStart") }}
+  {{ $start := (time .Params.dateStart)}}
+  {{ $beautifulstart := $start.Format "2006/01/02"}}
+  {{ $end := (time .Params.dateEnd)}} 
+  {{ $beautifulend := $end.Format "2006/01/02"}}
+  {{ if and (or ($start.After $intervalleft) ($end.After $intervalleft)) ($end.Before ($intervalleft.AddDate 1 0 0))}}
+  <tr>
+    <td><a href="{{ .URL}}" >{{.Title}}</a></td>
+    <td>{{ $beautifulstart }}{{if ne $beautifulstart $beautifulend}} - {{ $beautifulend }}{{end}}</td>
+    <td>{{.Params.location}}{{ if .Params.country }} {{ .Params.country }} {{ end }}</td>
+    <td>{{ if ne (printf "%T" .Params.attendees) "string" }}{{$authors := .Params.attendees}} {{ partial "authorssimpler.html" (dict "authors" $authors "Site" $.Site) }}{{ else }} {{ .Params.attendees }}{{ end }}</td>
+    <td>{{.Params.description | safeHTML}}</td>
+  </tr>
+  {{ end }}
+  {{ end }}
+  
+</table>
+
+  

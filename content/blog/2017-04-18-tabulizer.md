@@ -2,8 +2,7 @@
 slug: tabulizer
 title: Release 'open' data from their PDF prisons using tabulizer
 authors:
-  - name: Thomas J. Leeper
-    url: http://www.thomasleeper.com/
+  - Thomas J. Leeper
 categories: blog
 topicid: 663
 date: '2017-04-18'
@@ -12,11 +11,10 @@ tags:
   - community
   - software
   - opendata
-  - pdf
+  - PDF
   - tabulizer
-  - data-extraction
-  - review
-  - onboarding
+  - data extraction
+  - Software Peer Review
 ---
 
 
@@ -344,4 +342,4 @@ Help of any kind on these issues will be very useful for getting the package rea
 
 ### Acknowledgments
 
-Many, many thanks to the Tabula team who have done considerable work to make the tabula-java library on which `tabulizer` depends. I also want to express considerable thanks to [David Gohel](https://github.com/davidgohel) and [Lincoln Mullen](https://github.com/lmullen) for their feedback during the [rOpenSci onboarding process](https://github.com/ropensci/onboarding/issues/42), which resulted in numerous improvements to the package and its usability, not least of which is the interactive shiny widget. Thanks, too, to [Scott Chamberlain](https://github.com/sckott) for overseeing the review process and to the whole of rOpenSci for their support of the R community.
+Many, many thanks to the Tabula team who have done considerable work to make the tabula-java library on which `tabulizer` depends. I also want to express considerable thanks to [David Gohel](https://github.com/davidgohel) and [Lincoln Mullen](https://github.com/lmullen) for their feedback during the [rOpenSci onboarding process](https://github.com/ropensci/software-review/issues/42), which resulted in numerous improvements to the package and its usability, not least of which is the interactive shiny widget. Thanks, too, to [Scott Chamberlain](https://github.com/sckott) for overseeing the review process and to the whole of rOpenSci for their support of the R community.

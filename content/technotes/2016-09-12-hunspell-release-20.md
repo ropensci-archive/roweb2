@@ -1,14 +1,13 @@
 ---
-slug: "hunspell-release-20"
-title: "Hunspell 2.0: High-Performance Stemmer, Tokenizer, and Spell Checker for R"
-date: 2016-09-12
+slug: hunspell-release-20
+title: 'Hunspell 2.0: High-Performance Stemmer, Tokenizer, and Spell Checker for R'
+date: '2016-09-12'
 authors:
-  - name: Jeroen Ooms
-categories:
-- technotes
+  - Jeroen Ooms
+categories: technotes
 tags:
-- R
-- hunspell
+  - R
+  - hunspell
 ---
 
 A new version of the ropensci [hunspell](https://cran.r-project.org/package=hunspell) package has been released to CRAN. Hunspell is the spell checker library used by LibreOffice, OpenOffice, Mozilla Firefox, Google Chrome, Mac OS-X, InDesign, Opera, RStudio and many others. It provides a system for tokenizing, stemming and spelling in almost any language or alphabet. The R package exposes both the high-level spell-checker as well as low-level stemmers and tokenizers which analyze or extract individual words from various formats (text, html, xml, latex).

@@ -1,26 +1,21 @@
 ---
-slug: "mchtoolbox"
+slug: mchtoolbox
 title: Exploring ways to address gaps in maternal-child health research
 authors:
-  - name: Monica Gerber
-    url: https://github.com/monicagerber
-  - name: Jennifer Thompson
-    url: https://github.com/jenniferthompson
-  - name: Jenny Draper
-    url: https://github.com/learithe
-  - name: Kyle Hamilton
-    url: https://github.com/kylehamilton
-  - name: Charles Gray
-    url: https://github.com/softloud
-date: 2018-07-05
+  - Monica Gerber
+  - Jennifer Thompson
+  - Jenny Draper
+  - Kyle Hamilton
+  - Charles T. Gray
+date: '2018-07-05'
 categories: blog
 topicid: 1249
 tags:
-- r
-- package
-- community
-- unconf
-- unconf18
+  - R
+  - packages
+  - community
+  - unconf
+  - unconf18
 ---
 
 It’s easy to come to a conference and feel intimidated by the wealth of knowledge and expertise of other attendees. As Ellen Ullman, a software engineer and writer describes,[^1] 

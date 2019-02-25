@@ -1,17 +1,15 @@
 ---
-slug: "topic-modeling-in-R"
-title: "Topic modeling in R"
+slug: topic-modeling-in-R
+title: Topic modeling in R
 authors:
-  - name: Carson Sievert
-    url: http://cpsievert.github.io/
-date: 2014-04-16
-categories:
-  - blog
+  - Carson Sievert
+date: '2014-04-16'
+categories: blog
 tags:
-- R
-- topic-modeling
-- textmining
-- elife
+  - R
+  - topic modeling
+  - textmining
+  - elife
 ---
 
 

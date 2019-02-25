@@ -1,8 +1,7 @@
 ---
 slug: unconfroadsnottaken
 authors:
-  - name: Noam Ross
-    url: https://twitter.com/noamross
+  - Noam Ross
 categories: blog
 topicid: 814
 date: '2017-08-08'
@@ -10,7 +9,6 @@ tags:
   - community
   - meetings
   - R
-  - rOpenSci
   - software
   - unconf
   - unconf17

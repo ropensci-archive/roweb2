@@ -3,13 +3,12 @@ slug: unconf_recap_5
 title: 'Unconf projects 5: mwparser, Gargle, arresteddev'
 date: '2017-06-09'
 authors:
-  - name: Karthik Ram
+  - Karthik Ram
 categories: blog
 topicid: 743
 tags:
   - community
   - meetings
-  - rOpenSci
   - unconf
   - unconf17
 ---

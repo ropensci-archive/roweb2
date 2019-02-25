@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>rOpenSci</title>
-{{ partial "style-path.html"}}<!-- stylesheet imports -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    {{ partial "ga.html" . }}
+{{ partial "head.html" . }}
 </head>
 <body>
 {{ partial "header.html" . }}
@@ -40,7 +35,7 @@
                     <h2>Interact & Share</h2>
                 </div>
                 <div class="col-8 top-4">
-                    <p>Use our packages to aquire your data from both your own and from various data sources, analyze it, add your narrative and generate a final document in any of widely used formats such as Word, Markdown, PDF or LaTeX. Combine our tools with the rich ecosystem of R packages.</p>
+                    <p>Use our packages to acquire your data from both your own and from various data sources, analyze it, add your narrative and generate a final document in any of widely used formats such as Word, Markdown, PDF or LaTeX. Combine our tools with the rich ecosystem of R packages.</p>
                 </div>
             </div>
             <div class="row center bottom">
@@ -63,7 +58,7 @@
             <div class="row center top-12 bottom-12">
                 <div class="col-6">
                     <!-- <p>You can also share your work with our Community!</p> -->
-                    <a href="https://github.com/ropensci/onboarding">Contribute your package to our suite</a>
+                    <a href="/software-review/">Contribute your package to our suite</a>
                 </div>
             </div>
         </div>
@@ -133,37 +128,29 @@
 
 
 <!-- begins upcoming events calendar section -->
-<section class="upcoming">
-    <div class="container">
-        <div class="row center">
-            <div class="col-8 top-20">
-                <h2>Upcoming events</h2>
-            </div>
-        </div>
-        <div class="row center">
-            <div class="col-10 top-12">
-                <table id="upcoming-events">
-                    <thead>
-                        <tr>
-                            <th>Event</th>
-                            <th>Date</th>
-                            <th>Location</th>
-                            <th>Attendees</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody id="eventlist"></tbody>
-                </table>
+<section>
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Upcoming Events</h2>
+                </div>
+                <div class="col-8 top-4 bottom-12">
+                </div>
             </div>
 
-            <div class="col-4 top-5 bottom-13">
-                <a href="https://calendar.google.com/calendar/embed?src=t6pva0jm24urp7cp0n32262jd8%40group.calendar.google.com&ctz=America/Los_Angeles" target="_blank" class="button outline green">View full calendar</a>
-            </div>
+            <div class="row">
+                <div class="row center">
+            <div class="col-10 top-0"> 
+{{ $pages := where .Site.Pages ".Params.attendees" "!=" nil }}
+  {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now "intervalright" "") }}
+  
+</div>
+</div>
+            </div> 
         </div>
-    </div>
-</section>
-<!-- / ends upcoming events calendar section
- ******** IMPORTANT: this section requires calinit.js and calendarJSON.js please see bottom of the page [or search for `calendar] for required scripts ********* -->
+        </section>
+        <br></br>
+<!-- / ends upcoming events calendar section ********* -->
 
 {{ partial "mailkimp.html" . }}
 
@@ -185,8 +172,6 @@
 {{ partial "footer.html" . }}
 
 <!-- Loads `calendar authorization and funcionality, if calendar is being loaded in a page, this should be just above the closing body tag  -->
-<script type="text/javascript" src="/js/calendarJSON.js"></script>
-<script type="text/javascript" src="/js/calinit.js"></script>
 <script type="text/javascript" src="/js/scrollanimate.js"></script>
 
 </script>

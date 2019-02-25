@@ -1,16 +1,15 @@
 ---
-slug: "pdftools-and-jeroen"
+slug: pdftools-and-jeroen
 title: Introducing pdftools - A fast and portable PDF extractor
-date: 2016-03-01
+date: '2016-03-01'
 authors:
-  - name: Jeroen Ooms
-categories:
-  - blog
+  - Jeroen Ooms
+categories: blog
 tags:
-- R
-- PDF
-- CRAN
-- pdftools
+  - R
+  - PDF
+  - CRAN
+  - pdftools
 ---
 
 Scientific articles are typically locked away in PDF format, a format designed primarily for printing but not so great for searching or indexing. The new [pdftools](https://cran.r-project.org/package=pdftools) package allows for extracting text and metadata from pdf files in R. From the extracted plain-text one could find articles discussing a particular drug or species name, without having to rely on publishers providing metadata, or pay-walled search engines.

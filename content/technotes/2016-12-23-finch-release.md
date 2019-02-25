@@ -1,15 +1,14 @@
 ---
-slug: "finch-release"
+slug: finch-release
 title: finch - parse Darwin Core files
-date: 2016-12-23
+date: '2016-12-23'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 tags:
-- R
-- biodiversity
-- gbif
+  - R
+  - biodiversity
+  - GBIF
 ---
 
 

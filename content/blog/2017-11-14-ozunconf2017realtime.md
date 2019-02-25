@@ -3,8 +3,7 @@ slug: realtime
 title: '2017 rOpenSci ozunconf :: Reflections and the realtime Package'
 date: '2017-11-14'
 authors:
-  - name: Jonathan Carroll
-    url: https://jcarroll.com.au/
+  - Jonathan Carroll
 categories: blog
 topicid: 960
 tags:
@@ -16,7 +15,6 @@ tags:
   - plot
   - R
   - realtime
-  - rOpenSci
   - unconf
 ---
 

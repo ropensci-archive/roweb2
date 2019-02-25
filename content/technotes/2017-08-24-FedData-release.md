@@ -1,21 +1,18 @@
 ---
-slug: "FedData-release"
+slug: FedData-release
 title: FedData - Getting assorted geospatial data into R
-date: 2017-08-24
+date: '2017-08-24'
 authors:
-  - name: Kyle Bocinsky
-    url: https://github.com/bocinsky
-categories:
-  - technotes
+  - Kyle Bocinsky
+categories: technotes
 topicid: 840
 tags:
   - R
-  - data-access
+  - data access
   - packages
   - spatial
   - geospatial
-  - review
-  - onboarding
+  - Software Peer Review
   - FedData
 ---
 

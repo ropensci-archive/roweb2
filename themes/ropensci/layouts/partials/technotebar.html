@@ -1,7 +1,7 @@
 <div class="col-4 top-12 bottom-10 technotebar">
     <table class="technotelist">
         <thead>
-            <tr><th>Brief Technical Notes</th></tr>
+            <tr><th>Technical Notes</th></tr>
         </thead>
         <tbody>
         {{ range where .Site.Pages "Section" (or "technotes" "tutorials") | first 14 }}

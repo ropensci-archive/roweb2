@@ -1,15 +1,13 @@
 ---
-slug: "sustaining-research-projects"
-title: "A guide to sustainability models for research software projects"
-date: 2017-01-09
+slug: sustaining-research-projects
+title: A guide to sustainability models for research software projects
+date: '2017-01-09'
 authors:
-  - name: Daniel S. Katz
-    url: http://danielskatz.org
-categories:
-  - blog
+  - Daniel S. Katz
+categories: blog
 tags:
-- community
-- sustainability
+  - community
+  - sustainability
 ---
 
 A research project often starts with a bright idea and an initial commitment of volunteer time, or perhaps,

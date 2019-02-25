@@ -1,16 +1,14 @@
 ---
-slug: "pyopensci"
+slug: pyopensci
 title: Facilitating Open Science with Python
-date: 2013-05-16
+date: '2013-05-16'
 authors:
-  - name: Steve Moss
-    url: http://about.me/gawbul
-categories:
-  - blog
+  - Steve Moss
+categories: blog
 tags:
-- Python
-- pyOpenSci
-- API
+  - Python
+  - pyOpenSci
+  - API
 ---
 *A guest blog post by Steve Moss*
 <br><br><br>

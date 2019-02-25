@@ -1,0 +1,50 @@
+
+
+<!-- begins commcalls slideshow -->
+    <section class="commcalls slideshow">
+        <div class="container">
+            <div class="row ontop">
+                <div class="col-4 col-offset-2 top-0 bottom-20">
+                    <h3 class="top-10">Community Calls</h3>
+                    <p class="top-4">We hold quarterly community calls open to everyone. Join us to hear about new projects, Q&As with well known developers, and to learn more about rOpenSci developments.</p>
+                    <a class="button alt top-4 bottom-10" target="_blank" href="https://ropensci.org/commcalls/">Commcalls Archive</a>
+                </div>
+            </div>
+            <!-- Actual slides begin here -->
+            <ul>
+                <li><span>01</span></li>
+                <li><span>02</span></li>
+                <li><span>03</span></li>
+                <li><span>04</span></li>
+                <li><span>05</span></li>
+                <li><span>06</span></li>
+            </ul>
+            <!-- Actual slides end here -->
+        </div><!-- /container -->
+    </section>
+<!-- ends commcalls slideshow -->
+
+<!-- begins event calendar section -->
+    <!-- begins upcoming events calendar section -->
+<section>
+        <div class="container">
+            <div class="row center">
+                <div class="col-8 top-20">
+                    <h2>Upcoming Events</h2>
+                </div>
+                <div class="col-8 top-4 bottom-12">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row center">
+            <div class="col-10 top-0"> 
+{{ $pages := where .Site.Pages ".Params.attendees" "!=" nil }}
+  {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now "intervalright" "") }}
+  
+</div>
+</div>
+            </div> 
+        </div>
+        </section>
+<!-- / ends upcoming events calendar section -->

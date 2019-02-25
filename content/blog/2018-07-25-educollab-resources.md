@@ -1,32 +1,33 @@
 ---
 slug: educollab-resources
-title: "rOpenSci Educators Collaborative: What Educational Resources Work Well and Why?"
-date: 2018-07-25
-preface: "At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org) in May 2018, a group of scientists and educators shared their experiences, frustrations, failures, and successes teaching science with R. What came out of this discussion was a framework for rOpenSci Educators’ Collaborative: a community of practice for people interested and engaged in science education using R. This blog post is the second of a three-post series about education and R, written by this group of unconf18 participants. Read the first post about common pedagogical challenges [here](/blog/2018/07/24/educollab-challenges/), and how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd)."
+title: 'rOpenSci Educators Collaborative: What Educational Resources Work Well and
+  Why?'
+date: '2018-07-25'
+preface: 'At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org)
+  in May 2018, a group of scientists and educators shared their experiences, frustrations,
+  failures, and successes teaching science with R. What came out of this discussion
+  was a framework for rOpenSci Educators’ Collaborative: a community of practice for
+  people interested and engaged in science education using R. This blog post is the
+  second of a three-post series about education and R, written by this group of unconf18
+  participants. Read the first post about common pedagogical challenges [here](/blog/2018/07/24/educollab-challenges/),
+  and how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd).'
 authors:
-  - name: Laura Ación
-    url: https://github.com/lauracion
-  - name: Mara Averick 
-    url: https://github.com/batpigandme
-  - name: Leonardo Collado Torres
-    url: https://lcolladotor.github.io
-  - name: Auriel Fournier 
-    url: https://github.com/aurielfournier
-  - name: Alison Hill
-    url: https://alison.rbind.io
-  - name: Sean Kross
-    url: https://github.com/seankross
-  - name: Lincoln Mullen
-    url: https://lincolnmullen.com
+  - Laura Ación
+  - Mara Averick
+  - Leonardo Collado Torres
+  - Auriel Fournier
+  - Alison Hill
+  - Sean Kross
+  - Lincoln Mullen
 categories: blog
 topicid: 1272
 tags:
-- R
-- community
-- meetings
-- unconf
-- unconf18
-- educollab
+  - R
+  - community
+  - meetings
+  - unconf
+  - unconf18
+  - educollab
 ---
 
 In the first post of this series, we sketched out some of the common challenges faced by educators who teach with R across scientific domains. In this post, we delve into what makes a "good" educational resource for teaching science with R.

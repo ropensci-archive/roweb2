@@ -23,7 +23,6 @@ nav ul li {
 
 
 article ul li {
-    margin-bottom: .25rem;
     list-style-type: disc;
 }
 
@@ -109,6 +108,19 @@ article ol {
     & i {
         font-size: .87rem;
     }
+}
+
+.author {
+    & img {
+        border-radius: 50%;
+        max-width: 200px;
+        height: auto;
+        width: auto;
+    }
+    & .fa {
+        font-size: 2em; 
+    }
+    
 }
 
 .team {
@@ -251,8 +263,9 @@ article {
         }
     }
     & p {
-        margin: 7px 0;
+        margin-bottom: 15px;
         display: inline-block;
+        vertical-align: top;
     }
     & section {
         margin-bottom: 60px;
@@ -460,7 +473,7 @@ article {
         border-top: 1px solid #5595e8;
     }
     & .icon {
-        width: 30.6%;
+        width: 20%;
         font-size: 1rem;
         display: inline-block;
     }

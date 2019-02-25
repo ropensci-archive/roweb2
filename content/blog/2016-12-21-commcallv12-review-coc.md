@@ -4,12 +4,13 @@ title: 'Highlights and Resources from Community Call v12: How do I create a code
   conduct for my event/lab/codebase?'
 date: '2016-12-21'
 authors:
-  - name: Stefanie Butland
+  - Stefanie Butland
 categories: blog
 tags:
-  - rOpenSci
   - community
+  - community call
   - events
+  - governance
 ---
 Our [Community Call](https://ropensci.org/blog/blog/2016/10/31/comm-call-v12) on December 15th covered a big topic in tech communities: "How do I create a code of conduct for my event/lab/codebase?". Here, we cover some of the key themes and considerations that arose from the discussion and point to curated resources and examples to follow when developing a code of conduct (CoC) for your community.
 
@@ -56,7 +57,7 @@ In an academic research environment, there is a huge grey area between dealing w
 One tricky area of enforcement is around online conversations in discussion forums or in GitHub issues where people sometimes say things they shouldn’t. Safia made the excellent point that it helps to leave a comment on the issue because it will remain visible online. Saying something like “we're willing to help, but we don’t tolerate this kind of communication” means newcomers can see that bad behavior is addressed and not tolerated. This is also critical to maintain or rebuild trust from community members. If you're a GitHub admin you could choose to implement a time-based ban as a consequence. In this situation, recognition of a violation is easy, but there is a big enforcement challenge when that person is a significant contributor. This is where it is critical to have a strong enforcement board and a good structure for raising a violation through the ranks depending on its severity.
 
 ### We Have Work To Do
-rOpenSci currently has CoCs for [our events](http://unconf16.ropensci.org/coc.html), for [software onboarding](https://github.com/ropensci/onboarding/blob/master/policies.md/#code-of-conduct), and for many of our [individual packages](https://github.com/ropensci/taxize/blob/master/CONDUCT.md) (working on having this for all our packages!). We'll take what we learned in this Community Call to develop a more comprehensive CoC, make sure it's easily findable and that consequences of violations are enforceable. [Let us know](https://ropensci.org/contact.html) if you'd like to get involved.
+rOpenSci currently has CoCs for [our events](http://unconf16.ropensci.org/coc.html), for [software onboarding](https://ropensci.github.io/dev_guide/policies.html#code-of-conduct), and for many of our [individual packages](https://github.com/ropensci/taxize/blob/master/CONDUCT.md) (working on having this for all our packages!). We'll take what we learned in this Community Call to develop a more comprehensive CoC, make sure it's easily findable and that consequences of violations are enforceable. [Let us know](https://ropensci.org/contact.html) if you'd like to get involved.
 
 ### Resources
 

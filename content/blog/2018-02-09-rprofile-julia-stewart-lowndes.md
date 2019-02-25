@@ -1,20 +1,21 @@
 ---
 slug: rprofile-julia-stewart-lowndes
-title: ".rprofile: Julia Stewart Lowndes"
-date: 2018-02-09
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted by Sean Kross and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+title: '.rprofile: Julia Stewart Lowndes'
+date: '2018-02-09'
+preface: In this occasional series, we interview someone using a loosely defined set
+  of interview questions for the purpose of demystifying the creative and development
+  processes of R community members. This interview was conducted by Sean Kross and
+  prepared by Kelly O'Briant as part of an rOpenSci unconf17 project.
 authors:
-  - name: Sean Kross
-    url: http://seankross.com
-  - name: Kelly O'Briant
-    url: https://kellobri.github.io/
+  - Sean Kross
+  - Kelly O'Briant
 categories: blog
 topicid: 1060
 tags:
-- R
-- community
-- interviews
-- rprofile
+  - R
+  - community
+  - interviews
+  - rprofile
 ---
 
 <img src="/img/blog-images/2018-02-09-julia-stewart-lowndes/lowndes_profile.jpg" alt="Julia Stewart Lowndes" style="margin: 0px 20px; width: 250px;" align="left">

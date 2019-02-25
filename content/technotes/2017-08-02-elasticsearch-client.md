@@ -1,18 +1,17 @@
 ---
-slug: "elasticsearch-client"
+slug: elasticsearch-client
 title: elastic - Elasticsearch for R
-date: 2017-08-02
+date: '2017-08-02'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 topicid: 803
 tags:
-- data
-- elastic
-- elasticsearch
-- databases
-- R
+  - data
+  - elastic
+  - elasticsearch
+  - databases
+  - R
 ---
 
 

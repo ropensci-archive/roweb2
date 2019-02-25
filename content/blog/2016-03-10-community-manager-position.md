@@ -1,18 +1,18 @@
 ---
-slug: "community-manager-position"
+slug: community-manager-position
 title: We're hiring a community manager!
-date: 2016-03-10
+date: '2016-03-10'
 authors:
-  - name: Core Team
-categories:
-  - blog
+  - Karthik Ram
+  - Scott Chamberlain
+categories: blog
 tags:
-- jobs
+  - jobs
 ---
 
 The rOpenSci team is growing, thanks in part to our [recent funding](https://ropensci.org/blog/2015/11/19/helmsley-trust-funding/). We recently [welcomed](https://ropensci.org/blog/2016/03/01/pdftools-and-jeroen) Jeroen Ooms on the software development side and today we're thrilled to announce a position for community manager.
 
-Our mission is to expand access to scientific data and promote a culture of reproducible research and sustainable research software. We aim to cultivate a vibrant and open community through activities such as our [community calls](http://communitycalls.ropensci.org/), [discussion forums](http://discuss.ropensci.org/), [package review](https://github.com/ropensci/onboarding), and [annual unconferences](http://unconf16.ropensci.org/). We are ready for a dedicated community manager to come on board to broaden the understanding and reach of rOpenSci to the researcher community.
+Our mission is to expand access to scientific data and promote a culture of reproducible research and sustainable research software. We aim to cultivate a vibrant and open community through activities such as our [community calls](http://communitycalls.ropensci.org/), [discussion forums](http://discuss.ropensci.org/), [package review](https://github.com/ropensci/software-review), and [annual unconferences](http://unconf16.ropensci.org/). We are ready for a dedicated community manager to come on board to broaden the understanding and reach of rOpenSci to the researcher community.
 
 We're looking for someone who can:
 

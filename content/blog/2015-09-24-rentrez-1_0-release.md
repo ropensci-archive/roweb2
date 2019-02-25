@@ -1,18 +1,16 @@
 ---
-slug: "rentrez-1_0-release"
+slug: rentrez-1_0-release
 title: Rentrez 1_0 released
-date: 2015-09-24
+date: '2015-09-24'
 authors:
-  - name: David Winter
-    url: http://cartwrig.ht/people/#david-j-winter
-categories:
-  - blog
+  - David Winter
+categories: blog
 tags:
-- R
-- CRAN
-- rentrez
-- packages
-- NCBI
+  - R
+  - CRAN
+  - rentrez
+  - packages
+  - NCBI
 ---
 
 

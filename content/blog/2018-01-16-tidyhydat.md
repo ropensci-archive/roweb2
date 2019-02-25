@@ -3,8 +3,7 @@ slug: tidyhydat
 title: 5 Things I Learned Making a Package to Work with Hydrometric Data in R
 package_version: 0.3.2
 authors:
-  - name: Sam Albers
-    url: https://github.com/boshek
+  - Sam Albers
 date: '2018-01-16'
 categories: blog
 topicid: 1030
@@ -12,16 +11,15 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
-  - package
+  - Software Peer Review
+  - packages
   - hydrometrics
   - bcgov
   - tidydata
   - Canada
-  - climate-data
-  - data-access
-  - earth-science
+  - climate data
+  - data access
+  - earth science
 output:
   html_document:
     keep_md: yes
@@ -29,7 +27,7 @@ output:
 
 
 
-One of the best things about learning R is that no matter your skill level, there is always someone who can benefit from your experience. Topics in R ranging from complicated machine learning approaches to calculating a mean all find their relevant audiences. This is particularly true when writing R packages. With an ever evolving R package development landscape (R, GitHub, external data, CRAN, continuous integration, users), there is a strong possibility that you will be taken into regions of the R world that you never knew existed. More experienced developers may not get stuck in these regions and therefore not think to shine a light on them. It is the objective of this post to explore some of those regions in the R world that were [highlighted for me when the `tidyhydat` package was reviewed by rOpenSci](https://github.com/ropensci/onboarding/issues/152). 
+One of the best things about learning R is that no matter your skill level, there is always someone who can benefit from your experience. Topics in R ranging from complicated machine learning approaches to calculating a mean all find their relevant audiences. This is particularly true when writing R packages. With an ever evolving R package development landscape (R, GitHub, external data, CRAN, continuous integration, users), there is a strong possibility that you will be taken into regions of the R world that you never knew existed. More experienced developers may not get stuck in these regions and therefore not think to shine a light on them. It is the objective of this post to explore some of those regions in the R world that were [highlighted for me when the `tidyhydat` package was reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/152). 
 
 <center><img src="/img/blog-images/2018-01-16-tidyhydat/tidyhydat_large.png" alt="Drawing" style="width: 300px;" /></center>
 

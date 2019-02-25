@@ -1,0 +1,101 @@
+{{ define "main" }}
+    <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-offset-2 col-8 top-20">
+                <h2 style="text-align: center;">Community Calls</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-offset-2 top-4">
+
+                <p>Join us in our quarterly Community Calls to hear about best practices, new projects, Q&As with well known developers, and to learn more about rOpenSci developments. These are free and open for anyone to attend and provide an opportunity to connect with rOpenSci community members around the world.</p>
+
+<p>We aim to leave at least 20 minutes for open Q&A and we use collaborative note-taking allowing participants share ideas or resources and to ask questions. All past calls were recorded and are available online.</p>
+<p>Have an idea for a Community Call topic? Tell us what you'd like to hear about or tell us a topic you're keen to speak about in our <a href="https://discuss.ropensci.org/c/community" target="_blank">discussion forum</a>. <p>
+</div>
+            </div>
+
+            <div class="row">
+
+            <div class="col-8 col-offset-2 top-4">
+{{ $pages := where .Pages ".Params.deets" "!=" nil }}
+{{if eq (len $pages) 0}}
+<div class="col-offset-2 col-8 bottom-2">
+                <h3 style="text-align: center;">Next Call</h3>
+            </div>
+            <div>
+                        <center><small><h4>To be announced</h4></small></center></div>
+{{ else }}
+{{if gt (len $pages) 1}}
+<div class="col-offset-2 col-8 bottom-2">
+                <h3 style="text-align: center;">Next Calls</h3>
+            </div>
+{{ else }}
+<div class="col-offset-2 col-8 bottom-2">
+                <h3 style="text-align: center;">Next Call</h3>
+            </div>
+{{ end }}
+{{ end }}
+<ul>
+  {{ range $pages.ByDate }}
+  {{ $start := (time .Params.dateStart)}}
+  {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
+  {{ $start:= $start.Format "20060102T15"}}
+  <ul>
+  <li><div>
+                        <center><small><h4>{{ .Title }}</h4></small></center>
+
+
+
+                        <div style="text-align: justify;" class = "top-3">
+                            <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
+                            <div class="col-10 top-2 bottom-2">🎤
+                              {{$authors := .Params.authors}}
+                              {{ if gt (len $authors) 1}}
+                            Speakers:
+                            {{ else }}
+                            Speaker:
+                            {{ end }}
+
+                            {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
+
+                        </div>
+
+                            <p>📖 Topic: {{ .Params.description  | markdownify }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
+                    {{if .Params.notes}}
+                    <p><a href="{{ .Params.notes }}" target="_blank">📝 Collaborative notes</a></p>
+                    {{end}}
+
+                            <p><details>
+  <summary><b>☎️ Join the call via Zoom</b>:</summary> {{ .Params.deets |markdownify }}</details> </p>
+                   </div>
+
+
+
+                    </div></li>
+  {{ end }}
+</ul>
+</div>
+</div>
+<div class="row">
+            <div class="col-15 top-10">
+
+
+
+
+
+<div class="col-offset-2 col-8">
+                <h3 style="text-align: center;">Past Calls</h3>
+            </div>
+
+{{ $pages := where .Pages ".Params.deets" "=" nil }}
+
+  {{ partial "archive.html" (dict "pages" $pages) }}</div>
+</div>
+            </div>     </div><!-- /container -->
+    </section>
+    <!-- ends tutorial section -->
+    <br><br>
+
+{{ end }}

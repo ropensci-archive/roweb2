@@ -1,15 +1,14 @@
 ---
-slug: "rgbif-changes"
+slug: rgbif-changes
 title: rgbif changes in v0.4
-date: 2013-11-21
+date: '2013-11-21'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- taxonomy
-- API
+  - R
+  - taxonomy
+  - API
 ---
 
 The Global Biodiversity Information Facility (GBIF) is a warehouse of species occurrence data - collecting data from a lot of different sources. Our package `rgbif` allows you to interact with GBIF from R. We interact with GBIF via their Application Programming Interface, or API. Our last version on CRAN (v0.3) interacted with the older version of their API - this version interacts with the new version of their API. However, we also retained functions that interact with the old API.

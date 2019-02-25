@@ -3,11 +3,10 @@ slug: rbison-geoson
 title: From occurrence data to interactive maps on the web
 date: '2013-07-04'
 authors:
-  - name: Scott Chamberlain
+  - Scott Chamberlain
 categories: blog
 tags:
   - R
-  - rOpenSci
   - rbison
   - API
   - geojson

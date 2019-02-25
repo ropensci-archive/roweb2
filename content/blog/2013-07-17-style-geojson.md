@@ -1,17 +1,16 @@
 ---
-slug: "style-geojson"
+slug: style-geojson
 title: Style GeoJSON
-date: 2013-07-17
+date: '2013-07-17'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- API
-- geojson
-- json
-- maps
+  - R
+  - API
+  - geojson
+  - json
+  - maps
 ---
 
 [Previously on this blog][ropost] and on [my own personal blog][scottpost], I have discussed how easy it is to create interactive maps on Github using a combination of R, git and Github. This is done using a file format called [*geojson*](http://en.wikipedia.org/wiki/GeoJSON), a file format based on JSON (JavaScript Object Notation) in which you can specify geographic data along with any other metadata.

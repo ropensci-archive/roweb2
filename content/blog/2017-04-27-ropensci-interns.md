@@ -3,13 +3,12 @@ slug: ropensci-interns
 title: Welcome to our rOpenSci Interns
 date: '2017-04-27'
 authors:
-  - name: Scott Chamberlain
-  - name: Stefanie Butland
+  - Scott Chamberlain
+  - Stefanie Butland
 categories: blog
 topicid: 674
 tags:
   - community
-  - rOpenSci
 ---
 
 There's a lot of work that goes in to making software: the code that does the thing itself, unit testing, examples, tutorials, documentation, and support. rOpenSci software is created and maintained both by our [staff](https://ropensci.org/about/#staff) and by our (awesome) community. In keeping with our aim to build capacity of software users and developers, three interns from our academic home at [UC Berkeley](https://bids.berkeley.edu/research) are now working with us as well. Our interns are mentored by [Carl Boettiger](https://ropensci.org/about/#team), [Scott Chamberlain](https://ropensci.org/about/#team), and [Karthik Ram](https://ropensci.org/about/#team) and they will receive academic credit and/or pay for their work.
@@ -55,7 +54,7 @@ In addition, she'll be working on an R package that will make it easy to make [c
 
 <img src="/assets/blog-images/2017-04-27-ropensci-interns/steven.JPG" width="250">
 
-[Software unit tests](https://en.wikipedia.org/wiki/Unit_testing) (method to determine whether software components perform as designed) are very important. We have it as [policy that packages submitted to our onboarding repository have tests](https://github.com/ropensci/onboarding/blob/master/issue_template.md).
+[Software unit tests](https://en.wikipedia.org/wiki/Unit_testing) (method to determine whether software components perform as designed) are very important. We have it as [policy that packages submitted to our onboarding repository have tests](https://ropensci.github.io/dev_guide/building.html#testing).
 
 In addition, we build and check our software on each change (includes running tests). However, since rOpenSci has been around for a while, there are still some packages that don't have tests, or enough of them. In addition, when you have tests, you can calculate test coverage using, for example with [Codecov](https://codecov.io/) - a good way to target what tests to write.
 

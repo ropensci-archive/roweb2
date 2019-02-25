@@ -1,14 +1,13 @@
 ---
-slug: "caching-offline"
+slug: caching-offline
 title: Caching API calls offline
-date: 2014-02-03
+date: '2014-02-03'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- API
+  - R
+  - API
 ---
 
 I've recently heard the idea of "offline first" via especially [Hood.ie](http://hood.ie/). We of course don't do web development, but primarily build R interfaces to data on the web. Internet availablility is increasinghly ubiqutous, but there still are times and places where you don't have internet, but need to get work done.

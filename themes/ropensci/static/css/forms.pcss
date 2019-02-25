@@ -3,26 +3,47 @@
 form {
     width: 100%;
     & input {
-        font-family: "ProximaNova";
-        color: var(--main);
-        font-size: 1rem;
-        font-style: italic;
-        border: 1px solid var(--form_border);
-        padding: 13px 15px 15px 40px;
-        border-radius: 2px;
-        background-color: white;
-        box-sizing: border-box;
-        position: relative;
+        &[type='text'] {
+            font-family: "ProximaNova";
+            color: var(--main);
+            font-size: 1rem;
+            font-style: italic;
+            border: 1px solid var(--form_border);
+            padding: 13px 15px 15px 40px;
+            border-radius: 2px;
+            background-color: white;
+            box-sizing: border-box;
+            position: relative;
+        }
         &[type='email'] {
             background: url('../img/email.svg') 15px center no-repeat white;
             background-size: 15px;
+            font-family: "ProximaNova";
+            color: var(--main);
+            font-size: 1rem;
+            font-style: italic;
+            border: 1px solid var(--form_border);
+            padding: 13px 15px 15px 40px;
+            border-radius: 2px;
+            background-color: white;
+            box-sizing: border-box;
+            position: relative;
         }
         &[name^="name"]{
             background: url('../img/id.svg') 15px center no-repeat white;
             background-size: 15px;
         }
         &[type='radio'] {
-            margin: 0 15px 0 0;
+            margin-right: 15px;
+            padding: 0;
+            border: 1px solid var(--form_border);
+            background-color: white;
+        }
+        &[type='checkbox'] {
+            margin-right: 15px;
+            padding: 0;
+            border: 1px solid var(--form_border);
+            background-color: white;
         }
     }
 

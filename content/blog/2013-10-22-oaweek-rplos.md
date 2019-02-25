@@ -1,15 +1,14 @@
 ---
-slug: "oaweek-rplos"
+slug: oaweek-rplos
 title: OA week - A simple use case for programmatic access to PLOS full text
-date: 2013-10-22
+date: '2013-10-22'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- rplos
-- textmining
+  - R
+  - rplos
+  - textmining
 ---
 
 Open access week is here!  We love open access, and think it's extremely important to publish in open access journals. One of the many benefits of open access literature is that we likely can use the text of articles in OA journals for many things, including text-mining.

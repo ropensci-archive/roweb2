@@ -3,8 +3,8 @@ slug: nceas-codefest-follow-up
 title: NCEAS Codefest Follow-up
 date: '2014-09-23'
 authors:
-  - name: Scott Chamberlain
-  - name: Ted Hart
+  - Scott Chamberlain
+  - Ted Hart
 categories: blog
 tags:
   - R

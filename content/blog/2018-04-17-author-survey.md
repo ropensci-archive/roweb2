@@ -3,23 +3,21 @@ slug: author-survey
 title: The 2018 author and reviewer survey
 date: '2018-04-17'
 authors:
-  - name: Karthik Ram
-  - name: Noam Ross
-  - name: Scott Chamberlain
-  - name: Maëlle Salmon
+  - Karthik Ram
+  - Noam Ross
+  - Scott Chamberlain
+  - Maëlle Salmon
 categories: blog
 topicid: 1142
 tags:
   - community
-  - rOpenSci
-  - onboarding
-  - review
+  - Software Peer Review
   - reviewer
   - survey
 ---
 
 rOpenSci's package review system (aka
-[onboarding](https://github.com/ropensci/onboarding/)) is one of our key
+[onboarding](https://github.com/ropensci/software-review/)) is one of our key
 activities to [improve quality and sustainability of scientific R
 packages](https://ropensci.org/blog/2017/09/01/nf-softwarereview/). The
 editorial team are constantly working towards improving the experience
@@ -49,7 +47,7 @@ satisfaction as we continue to grow.
 We provide
 [packaging](https://ropensci.github.io/dev_guide/building.html)
 and
-[reviewing](https://ropensci.github.io/dev_guide/onboarding-guide-for-reviewers.html)
+[reviewing](https://ropensci.github.io/dev_guide/reviewerguide.html)
 guides for our authors and reviewers to consult before and during the
 peer-review process. While both were highly rated, enthusiasm was
 greater for the packaging guide than the reviewing guide.
@@ -199,7 +197,7 @@ Here are a few things to look forward to:
     survey. Chime in in the [issue tracker of our in-progress
     guide](https://github.com/ropenscilabs/dev_guide/issues) or in [this
     other issue
-    tracker](https://github.com/ropensci/onboarding-meta/issues) where
+    tracker](https://github.com/ropensci/software-review-meta/issues) where
     we keep track of more general questions & suggestions about
     onboarding.
 

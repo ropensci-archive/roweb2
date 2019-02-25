@@ -1,16 +1,15 @@
 ---
-slug: "taxize-update"
+slug: taxize-update
 title: New features in the most recent taxize update, v0.2
-date: 2014-02-19
+date: '2014-02-19'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- API
-- taxize
-- taxonomy
+  - R
+  - API
+  - taxize
+  - taxonomy
 ---
 
 We just released a new version of `taxize` - version 0.2.0. This release contains a number of new features, and bug fixes. Here is a run down of some of the changes:

@@ -1,18 +1,20 @@
 ---
 slug: rprofile-karthik-ram
-title: ".rprofile: Karthik Ram"
-date: 2018-01-12
-preface: "In this occasional series, we interview someone using a loosely defined set of interview questions for the purpose of demystifying the creative and development processes of R community members. This interview was conducted and prepared by Kelly O'Briant as part of an rOpenSci unconf17 project."
+title: '.rprofile: Karthik Ram'
+date: '2018-01-12'
+preface: In this occasional series, we interview someone using a loosely defined set
+  of interview questions for the purpose of demystifying the creative and development
+  processes of R community members. This interview was conducted and prepared by Kelly
+  O'Briant as part of an rOpenSci unconf17 project.
 authors:
-  - name: Kelly O'Briant
-    url: https://kellobri.github.io/
+  - Kelly O'Briant
 categories: blog
 topicid: 1027
 tags:
-- R
-- community
-- interviews
-- rprofile
+  - R
+  - community
+  - interviews
+  - rprofile
 ---
 
 <img src="/img/blog-images/2018-01-12-rprofile-karthik-ram/karthik-ram.png" alt="Karthik Ram" style="margin: 0px 20px; width: 250px;" align="left">

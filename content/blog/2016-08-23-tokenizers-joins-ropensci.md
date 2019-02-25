@@ -1,24 +1,22 @@
 ---
-slug: "tokenizers-joins-ropensci"
-title: "New package tokenizers joins rOpenSci"
-date: 2016-08-23
+slug: tokenizers-joins-ropensci
+title: New package tokenizers joins rOpenSci
+date: '2016-08-23'
 authors:
-  - name: Lincoln Mullen
-    url: http://lincolnmullen.com
-categories:
-  - blog
+  - Lincoln Mullen
+categories: blog
 tags:
-- R
-- natural-language
-- text-analysis
-- package
+  - R
+  - natural language
+  - text analysis
+  - packages
 ---
 
 The R package ecosystem for natural language processing has been flourishing in recent days. R packages for text analysis have usually been based on the classes provided by the [NLP](https://cran.r-project.org/package=NLP/) or [tm](https://cran.r-project.org/package=tm/) packages. Many of them depend on Java. But recently there have been a number of new packages for text analysis in R, most notably [text2vec](https://github.com/dselivanov/text2vec), [quanteda](https://github.com/kbenoit/quanteda), and [tidytext](https://github.com/juliasilge/tidytext). These packages are built on top of [Rcpp](http://www.rcpp.org/) instead of [rJava](https://cran.r-project.org/package=rJava/), which makes them much more reliable and portable. And instead of the classes based on NLP, which I have never thought to be particularly idiomatic for R, they use standard R data structures. The text2vec and quanteda packages both rely on the sparse matrices provided by the rock solid [Matrix](https://cran.r-project.org/package=Matrix/) package. The tidytext package is idiosyncratic (in the best possible way!) for doing all of its work in data frames rather than matrices, but a data frame is about as standard as you can get. For a long time when I would recommend R to people, I had to add the caveat that they should use Python if they were primarily interested in text analysis. But now I no longer feel the need to hedge.
 
 Still there is a lot of duplicated effort between these packages on the one hand and a lot of incompatibilities between the packages on the other. The R ecosystem for text analysis is not exactly coherent or consistent at the moment.
 
-My small contribution to the new text analysis ecosystem is the tokenizers package, which was recently accepted into rOpenSci after a careful [peer review](https://github.com/ropensci/onboarding/issues/33) by [Kevin Ushey](https://kevinushey.github.io/). A new version of the package is [on CRAN](https://cran.r-project.org/package=tokenizers/). (Also check out the
+My small contribution to the new text analysis ecosystem is the tokenizers package, which was recently accepted into rOpenSci after a careful [peer review](https://github.com/ropensci/software-review/issues/33) by [Kevin Ushey](https://kevinushey.github.io/). A new version of the package is [on CRAN](https://cran.r-project.org/package=tokenizers/). (Also check out the
 Jeroen Ooms's [hunspell](https://github.com/ropensci/hunspell) package, which is a part of rOpensci.)
 
 One of the basic tasks in any NLP pipeline is turning texts (which humans can read) into tokens (which machines can compute with). For example, you might break a text into words or into [n-grams](https://en.wikipedia.org/wiki/N-gram). Here is an example using the [former slave interviews](https://memory.loc.gov/ammem/snhtml/snhome.html) from the Great Depression era Federal Writers' Project. (A data package with those interviews is in development [here](https://github.com/lmullen/WPAnarratives)).

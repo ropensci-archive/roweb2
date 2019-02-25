@@ -3,11 +3,10 @@ slug: ambassadors-program
 title: Announcing our ambassadors program
 date: '2014-08-11'
 authors:
-  - name: Karthik Ram
+  - Karthik Ram
 categories: blog
 tags:
   - R
-  - rOpenSci
   - community
 ---
 

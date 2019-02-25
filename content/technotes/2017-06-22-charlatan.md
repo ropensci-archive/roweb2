@@ -1,16 +1,15 @@
 ---
-slug: "charlatan"
+slug: charlatan
 title: All the fake data that's fit to print
-date: 2017-06-22
+date: '2017-06-22'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 topicid: 754
 tags:
-- data
-- datasets
-- r
+  - data
+  - datasets
+  - R
 ---
 
 > **charlatan** makes fake data.
@@ -357,5 +356,5 @@ question for me is should we do this - if the answer is yes or at least sometime
 then we can explore how. It's not yet clear if it's the right thing to do.
 
 
-[reviewba]: (https://github.com/ropensci/onboarding/issues/94#issuecomment-284578088)
-[reviewtj]: (https://github.com/ropensci/onboarding/issues/94#issuecomment-283799109)
+[reviewba]: (https://github.com/ropensci/software-review/issues/94#issuecomment-284578088)
+[reviewtj]: (https://github.com/ropensci/software-review/issues/94#issuecomment-283799109)

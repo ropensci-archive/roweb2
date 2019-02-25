@@ -1,0 +1,265 @@
+---
+slug: "pubchunks"
+title: "pubchunks: extract parts of scholarly XML articles"
+date: 2018-10-16
+authors:
+  - name: Scott Chamberlain
+categories:
+  - technotes
+topicid: 1415
+tags:
+- R
+- literature
+- XML
+- parsing
+- pubchunks
+- fulltext
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "../../themes/ropensci/static/img/blog-images/2018-10-16-pubchunks/"
+)
+```
+
+[pubchunks][] is a package grown out of the [fulltext][] package. `fulltext`
+provides a single interface to many sources of full text scholarly articles. As
+part of the user flow in `fulltext` there is an extraction step where `fulltext::chunks()`
+pulls parts of articles out of XML format article files. 
+
+As part of making `fulltext` more maintainable and focused on simply fetching articles, 
+and realizing that pulling out bits of structured XML files is a more general problem, 
+we broke out `pubchunks` into a separate package. `fulltext::ft_chunks()` and 
+`fulltext::ft_tabularize()`  will eventually be removed and we'll point users to 
+`pubchunks`. 
+
+The goal of `pubchunks` is to fetch sections out of XML format scholarly articles. 
+Users do not need to know about XML and all of its warts. They only need to know 
+where their files or XML strings are and what sections they want of 
+each article. Then the user can combine these sections and do whatever they wish 
+downstream; for example, analysis of the text structure or a meta-analysis combining
+p-values or other data. 
+
+The other major format, and more common format, that articles come in is PDF. However,
+PDF has no structure other than perhaps separate pages, so it's not really possible
+to easily extract specific sections of an article. Some publishers provide absolutely
+no XML versions (cough, Wiley) while others that do a good job of this are almost 
+entirely paywalled (cough, Elsevier). There are some open access publishers that 
+do provide XML (PLOS, Pensoft, Hindawi) - so you have the best of both worlds with 
+those publishers.
+
+`pubchunks` is still in early days of development, so we'd love any feedback. 
+
+* pubchunks on GitHub: <https://github.com/ropensci/pubchunks>
+* pubchunks on CRAN: <https://cran.rstudio.com/web/packages/pubchunks/>
+
+## Functions in pubchunks
+
+All exported functions are prefixed with `pub` to help reduce namespace conflicts.
+
+The two main functions are:
+
+* `pub_chunks()`: fetch XML sections
+* `pub_tabularize()`: coerce output of `pub_chunks()` into data.frame's
+
+Other functions that you may run in to:
+
+* `pub_guess_publisher()`: guess publisher from XML file or character string
+* `pub_sections()`: sections `pubchunks` knows how to handle
+* `pub_providers()`: providers (i.e., publishers) `pubchunks` knows how to handle explicitly
+
+<br>
+
+## How it works
+
+When using `pub_chunks()` we first figure out what publisher the XML comes from. We do this
+beacause journals from the same publisher often/usually follow the same format/structure, so 
+we can be relatively confident of rules for pulling out certain sections. 
+
+Once we have the publisher, we go through each section of the article the user reqeusts, and
+use the publisher specific [XPATH](https://en.wikipedia.org/wiki/XPath) (an XML query language) 
+that we've written to extract that section from the XML. 
+
+The ouput is a named list, where names are the sections; and the output is an S3 class with 
+a print method to make it more easily digestable. 
+
+<br>
+
+## Installation
+
+The first version of the package has just hit CRAN, so not all binaries are available as of this
+date.
+
+```{r eval=FALSE}
+install.packages("pubchunks")
+```
+
+You may have to install the dev version
+
+```{r eval=FALSE}
+remotes::install_github("ropensci/pubchunks")
+```
+
+After sending to CRAN a few days back I noticed a number of things that needed fixing/improving,
+so you can also try out those fixes: 
+
+```{r eval=FALSE}
+remotes::install_github("ropensci/pubchunks@fix-pub_chunks")
+```
+
+Load the package
+
+```{r}
+library(pubchunks)
+```
+
+<br>
+
+## Pub chunks
+
+`pub_chunks` accepts a file path, XML as character string, `xml_document` object, or a list of 
+those three things.
+
+We currently support the following publishers, though not all sections below are allowed 
+in every publisher:
+
+* elife
+* plos
+* elsevier
+* hindawi
+* pensoft
+* peerj
+* copernicus
+* frontiers
+* f1000research
+
+We currently support the following sections, not all of which are supported, or make sense, for 
+each publisher:
+
+* front - Publisher, journal and article metadata elements
+* body - Body of the article
+* back - Back of the article, acknowledgments, author contributions, references
+* title - Article title
+* doi - Article DOI
+* categories - Publisher's categories, if any
+* authors - Authors
+* aff - Affiliation (includes author names)
+* keywords - Keywords
+* abstract - Article abstract
+* executive_summary - Article executive summary
+* refs - References
+* refs_dois - References DOIs - if available
+* publisher - Publisher name
+* journal_meta - Journal metadata
+* article_meta - Article metadata
+* acknowledgments - Acknowledgments
+* permissions - Article permissions
+* history - Dates, recieved, published, accepted, etc.
+
+Get an example XML file from the package
+
+```{r}
+x <- system.file("examples/pensoft_1.xml", package = "pubchunks")
+```
+
+Pass to `pub_chunks` and state which section(s) you want
+
+```{r}
+pub_chunks(x, sections = "abstract")
+pub_chunks(x, sections = "aff")
+pub_chunks(x, sections = "title")
+pub_chunks(x, sections = c("abstract", "title", "authors", "refs"))
+```
+
+You can also pass in a character string of XML, e.g.,
+
+```{r}
+xml_str <- paste0(readLines(x), collapse = "\n")
+class(xml_str)
+pub_chunks(xml_str, sections = "title")
+```
+
+Or an `xml_document` object from `xml2::read_xml`
+
+```{r}
+xml_doc <- xml2::read_xml(x)
+class(xml_doc)
+pub_chunks(xml_doc, sections = "title")
+```
+
+Or pass in a list of the above objects, e.g., here a list of file paths
+
+
+```{r}
+pensoft_xml <- system.file("examples/pensoft_1.xml", package = "pubchunks")
+peerj_xml <- system.file("examples/peerj_1.xml", package = "pubchunks")
+copernicus_xml <- system.file("examples/copernicus_1.xml", package = "pubchunks")
+frontiers_xml <- system.file("examples/frontiers_1.xml", package = "pubchunks")
+pub_chunks(
+  list(pensoft_xml, peerj_xml, copernicus_xml, frontiers_xml),
+  sections = c("abstract", "title", "authors", "refs")
+)
+```
+
+Last, since we broke `pubchunks` out of `fulltext` package we support `fulltext`
+here as well. 
+
+```{r}
+library("fulltext")
+dois <- c('10.1371/journal.pone.0086169', '10.1371/journal.pone.0155491', 
+  '10.7554/eLife.03032')
+x <- fulltext::ft_get(dois)
+pub_chunks(fulltext::ft_collect(x), sections="authors")
+```
+
+<br>
+
+## Tabularize
+
+It's great to pull out the sections you want, but most people will likely want to 
+work with data.frame's instead of lists. `pub_tabularize` is the answer:
+
+```{r}
+x <- system.file("examples/elife_1.xml", package = "pubchunks")
+res <- pub_chunks(x, c("doi", "title", "keywords"))
+pub_tabularize(res)
+```
+
+It handles many inputs as well:
+
+```{r}
+out <- pub_chunks(
+  list(pensoft_xml, peerj_xml, copernicus_xml, frontiers_xml),
+  sections = c("doi", "title", "keywords")
+)
+pub_tabularize(out)
+```
+
+The output of `pub_tabularize` is a list of data.frame's. You can easily combine the output
+with e.g. `rbind` or `data.table::rbindlist` or `dplyr::bind_rows`. Here's an example with 
+`data.table::rbindlist`:
+
+```{r}
+data.table::rbindlist(pub_tabularize(out), fill = TRUE)
+```
+
+<br>
+
+
+## TO DO
+
+We'll be adding support for more publishers (including right now working on Pubmed XML format
+articles), more article sections, making sure default section extraction is smart as possible, 
+and more.
+
+Of course, if you know XPATH and don't mind doing it, you can do what this package does yourself. 
+However, you will have to write different XPATH for different publishers/journals, so leveraging 
+this approach still may save some time.  
+
+
+[pubchunks]: https://github.com/ropensci/pubchunks
+[fulltext]: https://github.com/ropensci/fulltext

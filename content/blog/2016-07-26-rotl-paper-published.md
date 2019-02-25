@@ -1,21 +1,17 @@
 ---
-slug: "rotl-paper-published"
-title: "rotl paper published"
-date: 2016-07-26
+slug: rotl-paper-published
+title: rotl paper published
+date: '2016-07-26'
 authors:
-  - name: Francois Michonneau
-    url: http://francoismichonneau.net/
-  - name: Joseph Brown
-    url: http://www-personal.umich.edu/~josephwb/
-  - name: David Winter
-    url: http://david-winter.info
-categories:
-  - blog
+  - Francois Michonneau
+  - Joseph Brown
+  - David Winter
+categories: blog
 tags:
-- R
-- rotl
-- open-tree
-- publication
+  - R
+  - rotl
+  - open tree
+  - publication
 ---
 
 We are excited to announce a paper describing `rotl`, our package for the
@@ -100,7 +96,7 @@ in
 2014](https://ropensci.org/blog/2014/08/15/open-tree-of-life-hackathon/).
 We'd like to thank the Open Tree project for inviting us to the meeting
 and all participants of that meeting for discussions and their feedback
-on `rotl`. The package was reviewed as part of the ROpenSci onboarding
+on `rotl`. The package was reviewed as part of the rOpenSci onboarding
 process, and we'd like to thank [Scott
 Chamberlain](http://scottchamberlain.info/) for the time and expertise
 that went into this review and improved the package.

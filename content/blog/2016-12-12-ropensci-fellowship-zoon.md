@@ -3,12 +3,11 @@ slug: ropensci-fellowship-zoon
 title: Announcing our first fellowship awarded to Dr. Nick Golding
 date: '2016-12-12'
 authors:
-  - name: Stefanie Butland
-  - name: Karthik Ram
+  - Stefanie Butland
+  - Karthik Ram
 categories: blog
 tags:
   - community
-  - rOpenSci
   - fellowships
   - interviews
 ---

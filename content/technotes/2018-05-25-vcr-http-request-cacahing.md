@@ -1,23 +1,22 @@
 ---
-slug: "vcr-http-request-cacahing"
-title: "vcr: record and replay HTTP requests"
-date: 2018-05-25
+slug: vcr-http-request-cacahing
+title: 'vcr: record and replay HTTP requests'
+date: '2018-05-25'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - technotes
+  - Scott Chamberlain
+categories: technotes
 topicid: 1186
 tags:
-- R
-- ruby
-- vcr
-- http
-- mocking
-- request
-- crul
-- curl
-- webmockr
-- testing
+  - R
+  - ruby
+  - vcr
+  - http
+  - mocking
+  - request
+  - crul
+  - curl
+  - webmockr
+  - testing
 ---
 
 R package test suites that include HTTP requests are dependent on an internet connection being up, the internet connection speed, changing behavior of the remote server, as well as changing response formats/data from a remote server. We ideally want to test functionality of our package relative to some known data that isn't intermittently unavailable or changing. Caveat is that we do want to make sure the package fails well, including fails well in response to server failures, but these responses can be cached.

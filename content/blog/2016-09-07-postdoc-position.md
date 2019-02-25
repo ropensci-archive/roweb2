@@ -1,16 +1,14 @@
 ---
-slug: "postdoc-position"
+slug: postdoc-position
 title: Postdoctoral Scholar – Sustainable Software and Reproducible Research
-date: 2016-09-07
+date: '2016-09-07'
 authors:
-  - name: Karthik Ram
-categories:
-  - blog
+  - Karthik Ram
+categories: blog
 tags:
-- positions
-- postdoc
-- careers
-
+  - positions
+  - postdoc
+  - careers
 ---
 
 The rOpenSci project based at the University of California, Berkeley seeks to hire a postdoctoral scholar to work on the research activities funded by the grant titled “Fostering the next generation of sustainable software and reproducible research practices in the scientific community”. The project develops open source software to promote reproducible research practices in the scientific community. The postdoctoral scholar will focus on a research topic aligned with their own interests in order to better understand and improve scientific software practices. Possible topics include but are not limited to:

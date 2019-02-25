@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <article>
+    <div class="container">
+        <div class="row">
+          <div class="col-8 col-offset-2 top-4">
+  <div class="header">
+  <h2>{{ .Title }}</h2>
+  </div>
+</div>
+  </div>
+<div class="row">
+            <div class="col-8 col-offset-2 top-4 bottom-10">
+  {{ $data := .Data }}
+  {{ range $key, $value := .Data.Terms.ByCount }}
+      <a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a>
+      <span>&#40;{{ $value.Count }}&#41; </span>
+  {{ end }}
+  <div class="row center top-4">
+<p> Find all blog posts, tech notes and community calls <a href="/archive/" target="_blank">by publication date</a> and <a href="/authors/" target="_blank">by author</a>. </p>
+</div>
+            </div>
+            
+</div>
+
+    
+
+        </div>
+
+</article>
+
+{{ end }}

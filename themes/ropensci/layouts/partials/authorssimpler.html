@@ -1,0 +1,10 @@
+{{$pages := .Site.Pages.ByPublishDate.Reverse}}
+{{ range $i, $e := .authors }}
+{{ if $i }}, 
+  {{ end }}
+                            
+  {{ range first 1 (where $pages ".Params.name" $e) }}
+                            &nbsp;
+                            <a href="{{ .URL }}">{{ .Params.name }}</a>
+  {{ end }}
+{{end}}

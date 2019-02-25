@@ -1,15 +1,14 @@
 ---
-slug: "rgbif-update"
+slug: rgbif-update
 title: Changed and new things in the new version of rgbif, v0.5
-date: 2014-02-17
+date: '2014-02-17'
 authors:
-  - name: Scott Chamberlain
-categories:
-  - blog
+  - Scott Chamberlain
+categories: blog
 tags:
-- R
-- API
-- gbif
+  - R
+  - API
+  - GBIF
 ---
 
 `rgbif` is an R package to search and retrieve data from the Global Biodiverity Information Facilty (GBIF). `rgbif` wraps R code around the [GBIF API][gbifapi] to allow you to talk to GBIF from R.

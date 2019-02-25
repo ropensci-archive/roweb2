@@ -2,8 +2,7 @@
 slug: peer-review-value
 title: Where is the value in package peer review?
 authors:
-  - name: Miles McBain
-    url: https://github.com/milesmcbain
+  - Miles McBain
 date: '2018-04-06'
 preface: This reflection on the value of package peer review is a cross-post of the
   original that appeared on Miles McBain's [personal blog](https://milesmcbain.xyz)
@@ -14,9 +13,8 @@ tags:
   - R
   - community
   - software
-  - review
+  - Software Peer Review
   - reviewer
-  - onboarding
 ---
 
 If you read my [reflection #1 on rOpenSci Onboarding](https://milesmcbain.xyz/ropensci-onboarding1/), then you know I see value in the Onboarding process. A LOT of value even. This post is about where that value lies. 
@@ -68,6 +66,6 @@ Falling out of this discussion are two important take aways from the user-driven
 > 2. As a package author, engage early with a package peer review process if you see value in it, to get the most out of it. This is BEFORE things are 'perfect'.
 
 ### Epilogue
-[`bowerbird`](https://github.com/ropensci/bowerbird) recently cleared the [review process](https://github.com/ropensci/onboarding/issues/139) and obtained Peer Reviewed status. In my biased opinion, the [main vignette](https://ropensci.github.io/bowerbird/articles/bowerbird.html) is one of the best I have read, and a fine example product of the user-driven school I have discussed here. 
+[`bowerbird`](https://github.com/ropensci/bowerbird) recently cleared the [review process](https://github.com/ropensci/software-review/issues/139) and obtained Peer Reviewed status. In my biased opinion, the [main vignette](https://ropensci.github.io/bowerbird/articles/bowerbird.html) is one of the best I have read, and a fine example product of the user-driven school I have discussed here. 
 
 Congratulations to the authors [Ben Raymond](https://github.com/raymondben) and [Michael Sumner](https://github.com/mdsumner)!

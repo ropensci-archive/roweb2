@@ -3,8 +3,7 @@ slug: weathercan
 title: Integrating data from weathercan
 package_version: 0.2.5
 authors:
-  - name: Steffi LaZerte
-    url: http://steffilazerte.ca
+  - Steffi LaZerte
 date: '2018-03-06'
 categories: blog
 topicid: 1086
@@ -12,10 +11,9 @@ tags:
   - R
   - community
   - software
-  - review
-  - onboarding
-  - package
-  - data-access
+  - Software Peer Review
+  - packages
+  - data access
   - weather
   - Canada
   - meteorology
@@ -472,4 +470,4 @@ I hope these examples will help guide you in the many ways in which you can inte
 Acknowledgements
 ----------------
 
-Over the course of this `weathercan` journey I've had some valuable assistance. In particular, [Sam Albers](https://github.com/boshek) has been a wonderful contributor to `weathercan` on code as well as with advice and suggestions for how to take the package to the next level. rOpenSci Reviewers [Joe Thorley](https://github.com/joethorley) and [Charles T. Gray](https://github.com/softloud), and editor [Scott Chamberlain](https://github.com/sckott) supplied wonderful [comments and suggestions](https://github.com/ropensci/onboarding/issues/160) that were greatly appreciated.
+Over the course of this `weathercan` journey I've had some valuable assistance. In particular, [Sam Albers](https://github.com/boshek) has been a wonderful contributor to `weathercan` on code as well as with advice and suggestions for how to take the package to the next level. rOpenSci Reviewers [Joe Thorley](https://github.com/joethorley) and [Charles T. Gray](https://github.com/softloud), and editor [Scott Chamberlain](https://github.com/sckott) supplied wonderful [comments and suggestions](https://github.com/ropensci/software-review/issues/160) that were greatly appreciated.

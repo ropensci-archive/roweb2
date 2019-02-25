@@ -1,18 +1,22 @@
 ---
-slug: "unconf-sixtips"
-title: "Six tips for running a successful unconference"
-date: 2017-11-17
-preface: "I’m participating in the [AAAS Community Engagement Fellows Program](https://www.aaas.org/cefp/about), funded by the Alfred P. Sloan Foundation. The inaugural cohort of [Fellows](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/) comprises 17 community managers working in a wide range of scientific communities. This is cross-posted from the [Trellis blog](https://blog.trelliscience.com/six-tips-for-running-a-successful-unconference/) as part of a series of reflections the Fellows are sharing."
+slug: unconf-sixtips
+title: Six tips for running a successful unconference
+date: '2017-11-17'
+preface: I’m participating in the [AAAS Community Engagement Fellows Program](https://www.aaas.org/cefp/about),
+  funded by the Alfred P. Sloan Foundation. The inaugural cohort of [Fellows](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/)
+  comprises 17 community managers working in a wide range of scientific communities.
+  This is cross-posted from the [Trellis blog](https://blog.trelliscience.com/six-tips-for-running-a-successful-unconference/)
+  as part of a series of reflections the Fellows are sharing.
 authors:
-  - name: Stefanie Butland
+  - Stefanie Butland
 categories: blog
 topicid: 968
 tags:
-- R
-- community
-- unconf
-- ropensci-team
-- welcome
+  - R
+  - community
+  - unconf
+  - rOpenSci team
+  - welcome
 ---
 
 
@@ -45,7 +49,7 @@ Our AAAS CEFP training emphasizes the importance of extending a personalized wel
 
 #### 4. Run an effective ice breaker
 
-I adapted the “[Human Barometer](https://www.facinghistory.org/resource-library/teaching-strategies/barometer-taking-stand-controversial-issues)” ice breaker to enable 70 people to share opinions across all perceived levels of who a participant is and introduce themselves to the entire group within a 1 hour period. Success depended on creating questions that were relevant to the unconference crowd, and on visually keeping track of who had spoken up in order to call on those who had not. Ice breakers and the rOpenSci version of the Human Barometer will be the subject of a future CEFP blog post.
+I adapted the “[Human Barometer](https://ropensci.org/blog/2018/11/01/icebreaker/)” ice breaker to enable 70 people to share opinions across all perceived levels of who a participant is and introduce themselves to the entire group within a 1 hour period. Success depended on creating questions that were relevant to the unconference crowd, and on visually keeping track of who had spoken up in order to call on those who had not. Ice breakers and the rOpenSci version of the Human Barometer will be the subject of a future CEFP blog post.
 
 
 #### 5. Have a plan to capture content

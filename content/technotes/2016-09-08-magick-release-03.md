@@ -1,14 +1,13 @@
 ---
-slug: "magick-release-03"
-title: "New in Magick 0.3"
-date: 2016-09-08
+slug: magick-release-03
+title: New in Magick 0.3
+date: '2016-09-08'
 authors:
-  - name: Jeroen Ooms
-categories:
-- technotes
+  - Jeroen Ooms
+categories: technotes
 tags:
-- R
-- magick
+  - R
+  - magick
 ---
 
 A new version of the ropensci [magick](https://cran.r-project.org/package=magick) package has been released to CRAN. Magick is a package for Advanced Image-Processing in R. It wraps the ImageMagick STL which is perhaps the most comprehensive open-source image processing library available today. Our [original announcement](https://ropensci.org/blog/2016/08/23/z-magick-release) has more details.

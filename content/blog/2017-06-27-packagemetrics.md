@@ -2,17 +2,12 @@
 slug: packagemetrics
 title: packagemetrics - Helping you choose a package since runconf17
 authors:
-  - name: Becca Krouse
-    url: http://twitter.com/bzkrouse
-  - name: Erin Grand
-    url: http://twitter.com/astroeringrand
-  - name: Hannah Frick
-    url: http://twitter.com/hfcfrick
-  - name: Lori Shepherd
-    url: http://twitter.com/lshep712
-  - name: Sam Firke
-    url: http://twitter.com/samfirke
-  - name: William Ampeh
+  - Becca Krouse
+  - Erin Grand
+  - Hannah Frick
+  - Lori Shepherd
+  - Sam Firke
+  - William Ampeh
 categories: blog
 topicid: 759
 date: '2017-06-27'
@@ -169,7 +164,7 @@ We welcome suggestions and inputs via the [issue tracker](https://github.com/rop
 
 Based on ideas generated at the unconf, the packagemetrics approach may have the potential to be useful in various places:
 
-- Noam Ross [suggested](https://github.com/ropenscilabs/packagemetrics/issues/18) using packagemetrics as part of the required review of related packages during [rOpenSci's onboarding process](https://github.com/ropensci/onboarding) for new packages.
+- Noam Ross [suggested](https://github.com/ropenscilabs/packagemetrics/issues/18) using packagemetrics as part of the required review of related packages during [rOpenSci's onboarding process](https://github.com/ropensci/software-review) for new packages.
 - CRAN's TaskViews are currently very broad.  E.g., there are dozens of packages for working on tables in R, but table creation constitutes only a small aspect of the [Reproducible Research Task View](https://cran.r-project.org/web/views/ReproducibleResearch.html) on CRAN. Guidance on how to do package reviews might be useful in this context.
 
 As to the broader problem of deciding what package to use: it remains both unsolved and worthy of future attention.  Those interested in this challenge should follow along at useR! 2017 in Brussels later this summer, where the session ["Navigating the R Package Universe"](https://user2017.brussels/news/2017/navigating-the-r-package-universe) looks particularly relevant.

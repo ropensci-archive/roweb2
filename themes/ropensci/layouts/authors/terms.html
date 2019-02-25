@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+   <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-offset-2 col-8 top-20">
+                <h2 style="text-align: center;">Authors</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-offset-2 top-4">
+<ul>
+  {{ range $key, $value := .Data.Terms.ByCount }}
+  {{ $name := $value.Name | urlize }}
+  {{ $count := $value.Count }}
+      <a href="{{ $name }}">{{ $value.Name }}</a>
+      <span>&#40;{{ $count }}&#41; </span>
+  {{ end }}
+</ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-offset-2 top-4">
+<p> Find all blog posts, tech notes and community calls <a href="/tags/" target="_blank">by tag</a> and <a href="/archive/" target="_blank">by date</a> or subscribe to the blog <a href="/blog/index.xml" target="_blank">RSS feed</a> or <a href="/blog/index.json" target="_blank">JSON feed</a>.</p>
+          </div>
+          </div>
+</section>
+    <!-- ends tutorial section -->
+    <br><br>
+
+{{ end }}
