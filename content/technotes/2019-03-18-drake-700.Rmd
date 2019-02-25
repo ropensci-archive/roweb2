@@ -3,7 +3,7 @@ slug: drake-700
 title: "drake transformed"
 date: 2019-03-18
 authors:
-  - name: Will Landau
+  - Will Landau
 categories: technotes
 tags:
   - R
