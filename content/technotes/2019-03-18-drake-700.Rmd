@@ -1,0 +1,146 @@
+---
+slug: drake-700
+title: "drake transformed"
+date: 2019-03-18
+authors:
+  - name: Will Landau
+categories: technotes
+tags:
+  - R
+  - drake
+  - reproducibility
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+suppressPackageStartupMessages(library(drake))
+cache <- get_cache(search = FALSE)
+clean(cache = cache, destroy = TRUE)
+new_cache(path = ".drake")
+```
+
+Version 7.0.0 of [`drake`](https://github.com/ropensci/drake) just arrived on [CRAN](http://cran.r-project.org/), and it is faster and easier to use than previous releases.
+
+```{r install, eval = FALSE}
+install.packages("drake")
+```
+
+## Recap
+
+Data analysis can be slow. Some computations take several minutes, hours, or even days to finish. Afterwards, if you update your code or data, your hard-earned results may no longer be valid. How much of that valuable output can you keep, and how much runtime must you endure all over again?
+
+[`drake`](https://github.com/ropensci/drake) can help. It analyzes your project, skips steps with up-to-date results, and orchestrates the rest with optional distributed computing. At the end, [`drake`](https://github.com/ropensci/drake) provides evidence that your results match the underlying code and data, which increases your ability to trust your work.
+
+Other [pipeline tools](https://github.com/pditommaso/awesome-pipeline) such as [Make](https://www.gnu.org/software/make), [Snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home), [Airflow](https://github.com/apache/airflow), [Luigi](https://github.com/spotify/luigi), and [Dask](https://github.com/dask/dask) accomplish similar goals, but [`drake`](https://github.com/ropensci/drake) is uniquely suited to R. It features
+
+- A focus on ordinary R functions and variables rather than cumbersome files.
+- Heavy use of the data frame, even as a substitute for the  traditional [Makefile](https://www.gnu.org/software/make).
+- Native [tidy evaluation](https://tidyeval.tidyverse.org) support.
+- A new [domain-specific language (DSL)](http://adv-r.had.co.nz/dsl.html) for [creating large workflows](https://ropenscilabs.github.io/drake-manual/plans.html#large-plans).
+
+## Plans
+
+[`drake`](https://github.com/ropensci/drake)'s [DSL](http://adv-r.had.co.nz/dsl.html) is still experimental, but it is more powerful than old interface functions such as [`evaluate_plan()`](https://ropensci.github.io/drake/reference/evaluate_plan.html). [A new section of the manual](https://ropenscilabs.github.io/drake-manual/plans.html#large-plans) walks through the details, and the revised [gross state product example](https://ropenscilabs.github.io/drake-manual/gsp.html) is a motivating use case.
+
+Three **transformations** form the core of the new syntax.
+
+| Transformation | Tidyverse equivalent        |
+|----------------|-----------------------------|
+| `map()`        | `pmap()` from `purrr`       |
+| `cross()`      | `crossing()` from `tidyr`   |
+| `combine()`    | `summarize()` from `dplyr`  |
+
+These transformations help declare batches of multiple targets.
+
+```{r transformations}
+library(drake)
+source <- c("census", "gapminder")
+plan <- drake_plan(
+  data = target(
+    get_data(from),
+    transform = map(from = !!source, .id = FALSE)
+  ),
+  run = target(
+    analysis_function(data),
+    transform = cross(data, analysis_function = c(lda, rf))
+  ),
+  out = target(
+    my_summaries(run),
+    transform = combine(run, .by = analysis_function)
+  )
+)
+
+plan
+```
+
+Above, note the `<expr>` label underneath the `command` header. For the sake of faster and cleaner metaprogramming, `plan$command` is now a list of [expressions](http://adv-r.had.co.nz/Expressions.html) by default. (However, you can still supply a character vector if you wish.)
+
+## Performance
+
+After [serious profiling and benchmarking](https://github.com/wlandau/drake-examples/tree/master/overhead), [`make()`](https://ropensci.github.io/drake/reference/make.html) and [`drake_config()`](https://ropensci.github.io/drake/reference/drake_config.html) are substantially faster in workflows with thousands of targets. The changes affect [`drake`](https://github.com/ropensci/drake)'s internal [storage](https://github.com/richfitz/storr) protocol, so targets built with previous versions are not up to date anymore, but [`make()`](https://ropensci.github.io/drake/reference/make.html) pauses to let you downgrade to an earlier version or start from scratch.
+
+In addition, to increase clarity and ease of use, the `parallelism` argument of [`make()`](https://ropensci.github.io/drake/reference/make.html) has fewer choices. Of the previous 11 options, only the best 3 remain. See the streamlined [high-performance computing guide](https://ropenscilabs.github.io/drake-manual/hpc.html) for details.
+
+| `parallelism` | Functionality         |
+|---------------|-----------------------|
+| `"loop"`      | No parallel computing |
+| `"clustermq"` | [Persistent workers](https://ropenscilabs.github.io/drake-manual/hpc.html#persistent-workers)    |
+| `"future"`    | [Transient workers](https://ropenscilabs.github.io/drake-manual/hpc.html#transient-workers)     |
+
+## Reproducibility
+
+[`drake`](https://github.com/ropensci/drake) has an new safeguard to protect reproducibility.
+
+```{r lockenvir1, error = TRUE}
+plan <- drake_plan(
+  x = {
+    data(mtcars)
+    mtcars$mpg
+  },
+  y = mean(x)
+)
+
+plan
+
+make(plan)
+```
+
+The error comes from the call to `data(mtcars)`. The very act of building `x` would have changed `x`'s dependencies. Without guardrails, the workflow invalidates itself.
+
+```{r lockenvir3}
+make(plan, lock_envir = FALSE)
+
+make(plan, lock_envir = FALSE)
+```
+
+There are [legitimate use cases](https://github.com/ropensci/drake/issues/675#issuecomment-458222414) for `lock_envir = FALSE`, but most projects should stick with the default `lock_envir = TRUE`.
+
+## Thanks
+
+[`drake`](https://github.com/ropensci/drake) thrives on active participation from the open source community. Most of the inspiration for version 7.0.0 arose from [new GitHub issues](https://github.com/ropensci/drake/issues) and conversations at the 2018 and 2019 [RStudio Conferences](https://www.rstudio.com/conference). Many thanks to the following people for their insight, guidance, and code patches.
+
+- <a href="https://github.com/bart1">Bart</a>
+- <a href="https://github.com/billdenney">Bill Denney</a>
+- <a href="https://github.com/bpbond">Ben Bond-Lamberty</a>
+- <a href="https://github.com/brendanf">Brendan F.</a>
+- <a href="https://github.com/dapperjapper">Jasper Clarkberg</a>
+- <a href="https://github.com/HenrikBengtsson">Henrik Bengtsson</a>
+- <a href="https://github.com/htlin">Harris Lin</a>
+- <a href="https://github.com/idavydov">Iakov Davydov</a>
+- <a href="https://github.com/kendonB">Kendon Bell</a>
+- <a href="https://github.com/krlmlr">Kirill Müller</a>
+- <a href="https://github.com/mschubert">Michael Schubert</a>
+- <a href="https://github.com/pat-s">Patrick Schratz</a>
+- <a href="https://github.com/tmastny">Tim Mastny</a>
+
+```{r cleanup, include = FALSE}
+cache <- get_cache(search = FALSE)
+clean(cache = cache, destroy = TRUE)
+```
+
+## Disclaimer
+
+This announcement is a product of my own opinions and does not necessarily represent the official views of my employer.
