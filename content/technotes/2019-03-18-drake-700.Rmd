@@ -96,7 +96,46 @@ In addition, to increase clarity and ease of use, the `parallelism` argument of 
 
 ## Reproducibility
 
-[`drake`](https://github.com/ropensci/drake) has an new safeguard to protect reproducibility.
+[`drake`](https://github.com/ropensci/drake) watches your session and environment for dependencies. This behavior frees [`drake`](https://github.com/ropensci/drake) to fully focus on R, which enhances interactivity, flexibility, and independence from cumbersome configuration files. However, a fully reproducible use of [`drake`](https://github.com/ropensci/drake) requires care. Version 7.0.0 implements safeguards to nudge users in the right direction.
+
+### Interactive builds
+
+A serious [`drake`](https://github.com/ropensci/drake) workflow should be consistent and reliable, ideally with the help of a [master R script](https://github.com/wlandau/drake-examples/blob/master/gsp/make.R). This script should begin in a fresh R session, load your packages and functions in a [dependable manner](https://github.com/wlandau/drake-examples/blob/d9417547a05aec416afbbda913eaf2d44a552d5b/gsp/make.R#L4-L6), and then run [`make()`](https://ropensci.github.io/drake/reference/make.html). [Batch mode](https://blog.revolutionanalytics.com/2009/06/batch-mode-in-r-a-primer.html), especially within a [container](https://www.docker.com), is particularly helpful.
+
+[Interactive sessions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/interactive.html) are still useful, but they easily grow stale. Targets can falsely invalidate if you accidentally change a function or data object in your environment. So in [interactive mode](https://stat.ethz.ch/R-manual/R-devel/library/base/html/interactive.html), [`make()`](https://ropensci.github.io/drake/reference/make.html) now pauses to protect you from the pitfalls.
+
+```{r menu, eval = FALSE}
+interactive()
+#> [1] TRUE
+library(drake)
+plan <- drake_plan(x = 1, y = 2)
+make(plan)
+#> 2 outdated targets:
+#>   x
+#>   y
+#>
+#> Really run make() in interactive mode?
+#> Considerations: https://github.com/ropensci/drake/issues/761 
+#>
+#> 1: yes
+#> 2: no
+#>
+#> Selection: 1
+#> target x
+#> target y
+#> make() in interactive mode requires extra care:
+#> https://github.com/ropensci/drake/issues/761
+make(plan)
+#> All targets are already up to date.
+#> make() in interactive mode requires extra care:
+#> https://github.com/ropensci/drake/issues/761
+```
+
+You can disable the menu with `make(force = TRUE)` or `options(drake_force_interactive = TRUE)`, the latter of which you might include in your local [`.Rprofile` file](https://csgillespie.github.io/efficientR/3-3-r-startup.html#rprofile).
+
+### Self-invalidation
+
+Another safeguard prevents workflows from invalidating themselves.
 
 ```{r lockenvir1, error = TRUE}
 plan <- drake_plan(
@@ -112,7 +151,7 @@ plan
 make(plan)
 ```
 
-The error comes from the call to `data(mtcars)`. The very act of building `x` would have changed `x`'s dependencies. Without guardrails, the workflow invalidates itself.
+The error above comes from the call to `data(mtcars)`. Without guardrails, the very act of building `x` changes `x`'s dependencies.
 
 ```{r lockenvir3}
 make(plan, lock_envir = FALSE)
@@ -121,6 +160,10 @@ make(plan, lock_envir = FALSE)
 ```
 
 There are [legitimate use cases](https://github.com/ropensci/drake/issues/675#issuecomment-458222414) for `lock_envir = FALSE`, but most projects should stick with the default `lock_envir = TRUE`.
+
+### Remarks
+
+[`drake`](https://github.com/ropensci/drake) enhances reproducibility, but not in all respects. [Local library managers](https://rstudio.github.io/packrat), [containerization](https://www.docker.com), and [session management tools](https://github.com/tidyverse/reprex) offer more robust solutions in their respective domains. Reproducibility encompasses a [wide variety of tools and techniques](https://github.com/karthik/rstudio2019) all working together.
 
 ## Thanks
 
