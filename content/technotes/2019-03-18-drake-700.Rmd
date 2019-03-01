@@ -98,7 +98,7 @@ In addition, to increase clarity and ease of use, the `parallelism` argument of 
 
 [`drake`](https://github.com/ropensci/drake) watches your session and environment for dependencies. This behavior frees [`drake`](https://github.com/ropensci/drake) to fully focus on R, which enhances interactivity, flexibility, and independence from cumbersome configuration files. However, a fully reproducible use of [`drake`](https://github.com/ropensci/drake) requires care. Version 7.0.0 implements safeguards to nudge users in the right direction.
 
-### Interactive builds
+### Interactive sessions
 
 A serious [`drake`](https://github.com/ropensci/drake) workflow should be consistent and reliable, ideally with the help of a [master R script](https://github.com/wlandau/drake-examples/blob/master/gsp/make.R). This script should begin in a fresh R session, load your packages and functions in a [dependable manner](https://github.com/wlandau/drake-examples/blob/d9417547a05aec416afbbda913eaf2d44a552d5b/gsp/make.R#L4-L6), and then run [`make()`](https://ropensci.github.io/drake/reference/make.html). [Batch mode](https://blog.revolutionanalytics.com/2009/06/batch-mode-in-r-a-primer.html), especially within a [container](https://www.docker.com), is particularly helpful.
 
