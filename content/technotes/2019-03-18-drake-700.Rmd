@@ -96,7 +96,7 @@ In addition, to increase clarity and ease of use, the `parallelism` argument of 
 
 ## Reproducibility
 
-[`drake`](https://github.com/ropensci/drake) watches your session and environment for dependencies. This behavior frees [`drake`](https://github.com/ropensci/drake) to fully focus on R, which enhances interactivity, flexibility, and independence from cumbersome configuration files. However, a fully reproducible use of [`drake`](https://github.com/ropensci/drake) requires care. Version 7.0.0 implements safeguards to nudge users in the right direction.
+[`drake`](https://github.com/ropensci/drake) watches your session and environment for dependencies. This behavior frees [`drake`](https://github.com/ropensci/drake) to fully focus on R, enhancing interactivity, flexibility, and independence from cumbersome configuration files. However, a fully reproducible use of [`drake`](https://github.com/ropensci/drake) requires care. Version 7.0.0 implements safeguards to nudge users in the right direction.
 
 ### Interactive sessions
 
