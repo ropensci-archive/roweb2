@@ -125,10 +125,6 @@ make(plan)
 #> Selection: 1
 #> target x
 #> target y
-#> Please read the "Interactive mode" section of the make() help file.
-make(plan)
-#> All targets are already up to date.
-#> Please read the "Interactive mode" section of the make() help file.
 ```
 
 ### Self-invalidation
