@@ -104,7 +104,7 @@ A serious [`drake`](https://github.com/ropensci/drake) workflow should be consis
 
 To combine interactivity with reproducibility, version 7.0.0 has a new experimental [`callr`](https://github.com/r-lib/callr)-like interface. Functions such as [`r_make()`](https://ropensci.github.io/drake/reference/r_make.html), [`r_outdated()`](https://ropensci.github.io/drake/reference/r_make.html), and [`r_drake_graph_info()`](https://ropensci.github.io/drake/reference/r_make.html) each run [`drake`](https://github.com/ropensci/drake) in a transient [`callr`](https://github.com/r-lib/callr) session so that accidental changes to your interactive session do not break your results.
 
-For more information, please consult the revamped [chapter on `drake` projects](https://ropenscilabs.github.io/drake-manual/projects.html#safe-interactivity). For example code, you can download the updated [main example](https://github.com/wlandau/drake-examples/tree/master/main) with (`drake_example("main")`) and experiment with files [`_drake.R`](https://github.com/wlandau/drake-examples/blob/master/main/_drake.R) and [`interactive.R`](https://github.com/wlandau/drake-examples/blob/master/main/interactive.R).
+For more information, please consult the revamped [chapter on `drake` projects](https://ropenscilabs.github.io/drake-manual/projects.html#safe-interactivity). For example code, you can download the updated [main example](https://github.com/wlandau/drake-examples/tree/master/main) (`drake_example("main")`) and experiment with files [`_drake.R`](https://github.com/wlandau/drake-examples/blob/master/main/_drake.R) and [`interactive.R`](https://github.com/wlandau/drake-examples/blob/master/main/interactive.R).
 
 ### Self-invalidation
 
