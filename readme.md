@@ -73,7 +73,7 @@ For a post about your peer-reviewed package you should:
 - if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - to format headings in your post, please use ### or ####, as larger sizes don't look good
 - spell 'rOpenSci', not 'ROpenSci'
-- if you are not yet listed on [our authors page](https://ropensci.org/authors/), create an author's index file for yourself (instructions below)
+- check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an author's index file for yourself (instructions below). 
 
 For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
 
