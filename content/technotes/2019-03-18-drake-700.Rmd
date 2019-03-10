@@ -157,6 +157,7 @@ There are [legitimate use cases](https://github.com/ropensci/drake/issues/675#is
 - <a href="https://github.com/MilesMcBain">Miles McBain</a>
 - <a href="https://github.com/pat-s">Patrick Schratz</a>
 - <a href="https://github.com/tmastny">Tim Mastny</a>
+- <a href="https://github.com/tjmahr">TJ Mahr</a>
 
 ```{r cleanup, include = FALSE}
 cache <- get_cache(search = FALSE)
