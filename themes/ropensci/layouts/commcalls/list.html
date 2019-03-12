@@ -40,7 +40,7 @@
 <ul>
   {{ range $pages.ByDate }}
   {{ $start := (time .Params.dateStart)}}
-  {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
+  {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM (Berkeley, CA, USA)"}}
   {{ $start:= $start.Format "20060102T15"}}
   <ul>
   <li><div>
