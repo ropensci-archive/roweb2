@@ -34,7 +34,7 @@ As part of our series summarizing all projects from [this year's unconf](https:/
 
 **GitHub:** https://github.com/ropenscilabs/defender
 
-### `ropesec`
+### `ropsec`
 
 **Summary:** This package allows users to run a whole range of audit checks on their local system and generates a report on vulnerabilities and enabled protections.
 
