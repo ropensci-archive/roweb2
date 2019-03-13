@@ -43,13 +43,13 @@
   {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM PST"}}
   {{ $start:= $start.Format "20060102T15"}}
   <ul>
-  <li><div class = "bottom-5">
+  <li><div class = "bottom-10">
                         <center><small><h4>{{ .Title }}</h4></small></center>
 
 
 
-                        <div style="text-align: justify;" class = "top-3">
-                            <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
+                        <div style="text-align: justify;" class = "top-5">
+                            <p>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</p>
                             <div class="col-10 top-2 bottom-2">🎤
                               {{$authors := .Params.authors}}
                               {{ if gt (len $authors) 1}}
@@ -65,14 +65,14 @@
 <p><a href="{{ .Params.blog }}" target="_blank">📢 Announcement blog post.</a></p>
 {{ end }}
 
-                            <p>📖 Topic: {{ .Params.description  | markdownify }} </p>
+                            <div class="top-2 bottom-2"><p>📖 Topic: {{ .Params.description  | markdownify }} </p></div>
 
                     {{if .Params.notes}}
                     <p><a href="{{ .Params.notes }}" target="_blank">📝 Collaborative notes</a></p>
                     {{end}}
 
-                            <p><details>
-  <summary><b>☎️ Join the call via Zoom</b>:</summary> {{ .Params.deets |markdownify }}</details> </p>
+                            <div class="top-2"><p><details>
+  <summary><b>☎️ Join the call via Zoom</b>:</summary> {{ .Params.deets |markdownify }}</details> </p></div>
                    </div>
 
 
