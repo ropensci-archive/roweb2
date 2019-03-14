@@ -18,7 +18,7 @@
 
             <div class="row">
 
-            <div class="col-8 col-offset-2 top-4">
+            <div class="col-8 col-offset-2 top-4 bottom-0">
 {{ $pages := where .Pages ".Params.deets" "!=" nil }}
 {{if eq (len $pages) 0}}
 <div class="col-offset-2 col-8 bottom-2">
@@ -43,13 +43,13 @@
   {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM (Berkeley, CA)"}}
   {{ $start:= $start.Format "20060102T15"}}
   <ul>
-  <li><div>
-                        <center><small><h4>{{ .Title }}</h4></small></center>
+  <li><div class = "bottom-10">
+                        <small><h4>{{ .Title }}</h4></small>
 
 
 
-                        <div style="text-align: justify;" class = "top-3">
-                            <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
+                        <div style="text-align: justify;" class = "top-5">
+                            <p>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</p>
                             <div class="col-10 top-2 bottom-2">🎤
                               {{$authors := .Params.authors}}
                               {{ if gt (len $authors) 1}}
@@ -61,14 +61,18 @@
                             {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
                         </div>
+{{ if .Params.blog }}
+<p><a href="{{ .Params.blog }}" target="_blank">📢 Announcement blog post.</a></p>
+{{ end }}
 
-                            <p>📖 Topic: {{ .Params.description  | markdownify }} {{ if .Params.blog }}<a href="{{ .Params.blog }}" target="_blank">Promotion blog post.</a>{{ end }}</p>
+                            <div class="top-2 bottom-2" align="left"><p>📖 Topic: {{ .Params.description  | markdownify }} </p></div>
+
                     {{if .Params.notes}}
                     <p><a href="{{ .Params.notes }}" target="_blank">📝 Collaborative notes</a></p>
                     {{end}}
 
-                            <p><details>
-  <summary><b>☎️ Join the call via Zoom</b>:</summary> {{ .Params.deets |markdownify }}</details> </p>
+                            <div class="top-2"><p><details>
+  <summary><b>☎️ Join the call via Zoom (link only active during scheduled time)</b>:</summary> {{ .Params.deets |markdownify }}<br/>(link only active during scheduled time; requires app installation first time)</details> </p></div>
                    </div>
 
 
