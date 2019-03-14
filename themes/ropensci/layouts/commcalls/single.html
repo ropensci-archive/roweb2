@@ -26,12 +26,12 @@
 
                     {{ if .Params.preface }}
                     <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
-                    {{ end }} 
-{{ if .Params.deets }} 
+                    {{ end }}
+{{ if .Params.deets }}
 {{ $start := (time .Params.dateStart)}} {{ $beautifulstart := $start.Format "Monday, January 2, 2006, 3PM (Berkeley, CA)"}} {{ $start:= $start.Format "20060102T15"}}
                     <div>
-                        <div style="text-align: justify;" class="top-3">
-                            <p><big><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></big></p>
+                        <div style="text-align: left;" class="top-3">
+                            <p><b>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</b></p>
 
                             <p>📖 Topic: {{ .Params.description | markdownify }}</p>
                             {{if .Params.notes}}
@@ -40,7 +40,7 @@
 
                             <p>
                                 <details>
-                                    <summary><b>☎️ Join the call via Zoom</b>:</summary> {{ .Params.deets |markdownify }}</details>
+                                    <summary><b>☎️ Join the call via Zoom</b> (link only active during scheduled time):</summary> {{ .Params.deets |markdownify }}</details>
                             </p>
                         </div>
 
@@ -51,11 +51,11 @@
 {{ .Params.description  | markdownify }}
 </div>
 {{ end }}
-<h3>Resources</h3>
+<h4>Resources</h4>
                     <div class="row bottom-5 top-5">
                         <ul>
                             {{if .Params.blog}}
-                            <li><a href="{{ .Params.blog }}" target="_blank">Promotional blog post</a></li>
+                            <li><a href="{{ .Params.blog }}" target="_blank">Announcement blog post</a></li>
                             {{end}} {{if .Params.notes}}
                             <li><a href="{{ .Params.notes }}" target="_blank">Collaborative notes</a></li>
                             {{end}} {{if .Params.resources}} {{ range $i, $e := .Params.resources }}
@@ -65,7 +65,7 @@
                         </p>
                     </div>
                     {{ if .Params.Vimeo }}
-                    <h3>Video recording</h3> {{ range $i, $e := .Params.Vimeo }}
+                    <h4>Video recording</h4> {{ range $i, $e := .Params.Vimeo }}
                     <div class="row center bottom-5 top-5">
                         <iframe src="https://player.vimeo.com/video/{{.id}}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
