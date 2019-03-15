@@ -145,6 +145,7 @@ There are [legitimate use cases](https://github.com/ropensci/drake/issues/675#is
 
 [`drake`](https://github.com/ropensci/drake) thrives on active participation from the open source community. Most of the inspiration for version 7.0.0 arose from [new GitHub issues](https://github.com/ropensci/drake/issues) and conversations at the 2018 and 2019 [RStudio Conferences](https://www.rstudio.com/conference). Many thanks to the following people for their insight, guidance, and code patches.
 
+- <a href="https://github.com/aedobbyn">Amanda Dobbyn</a>
 - <a href="https://github.com/bart1">Bart</a>
 - <a href="https://github.com/billdenney">Bill Denney</a>
 - <a href="https://github.com/bpbond">Ben Bond-Lamberty</a>
