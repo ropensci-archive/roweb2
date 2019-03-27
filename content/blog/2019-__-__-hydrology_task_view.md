@@ -6,7 +6,6 @@ authors:
 - name: Ilaria Prosdocimi
   url: https://github.com/ilapros
 - name: Sam Zipper
-  url: https://github.com/samzipper
 date: "foo"
 categories: blog
 topicid:
