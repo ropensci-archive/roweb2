@@ -4,7 +4,6 @@ title: "Getting your toes wet in R: Hydrology, meteorology, and more"
 authors:
 - name: Sam Albers
 - name: Ilaria Prosdocimi
-  url: https://github.com/ilapros
 - name: Sam Zipper
 date: "foo"
 categories: blog
