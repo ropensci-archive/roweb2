@@ -9,7 +9,7 @@ authors:
 - name: Sam Zipper
   url: https://github.com/samzipper
 date: "foo"
-categories: technotes
+categories: blog
 topicid:
 tags:
 - r
