@@ -7,7 +7,7 @@ authors:
 - Sam Zipper
 date: '2019-04-02'
 categories: blog
-topicid:
+topicid: 1636
 tags:
 - hydrology
 - CRAN
@@ -22,6 +22,7 @@ tags:
 - smapr
 - tidyhydat
 - weathercan
+- r
 ---
 
 
