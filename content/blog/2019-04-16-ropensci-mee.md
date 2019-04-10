@@ -10,7 +10,7 @@ authors:
   - Thomas White
   - Hao Ye
 categories: blog
-preface: This post is published on the rOpenSci and Methods in Ecology and Evolution blogs
+preface: This post is published on the [rOpenSci](https://ropensci.org/blog/) and [Methods in Ecology and Evolution](https://methodsblog.com/) blogs
 topicid:
 tags:
   - community
@@ -20,7 +20,7 @@ tags:
   - Methods in Ecology and Evolution
 ---
 
-<img src="/img/blog-images/2019-04-16-wild-standards/icon_lettering_color.png" alt="rOpenSci logo" style="margin: 0px 20px; width: 250px;" align="left">
+<img src="/img/blog-images/2019-04-16-wild-standards/icon_lettering_color.png" alt="rOpenSci logo" style="margin: 0px 20px; width: 150px;" align="left">
 
 #### <img src="/img/blog-images/2019-04-16-wild-standards/stefanie-butland.jpg" alt="Stefanie Butland" style="margin: 0px 10px; width: 75px;" align="left"> Stefanie Butland, rOpenSci Community Manager
 <br/>
@@ -39,7 +39,7 @@ But who was this reviewer and what was their motivation? What role did the edito
 
 To me, MEE’s role is to help increase the quality of the methods used in ecology and evolution, and this includes research software. It would be great to reach a point where all the research software used in ecology is at the same high standard as the packages that have been through rOpenSci software peer review.
 
-Not all R packages that we receive at MEE fit in with the rOpenSci package scope, but I’d love to see them go through a similar process. This is where the [rOpenSci review checklist](https://ropensci.github.io/dev_guide/reviewtemplate.html) comes in. In my view, it’s the gold standard for reviewing R packages and I was thrilled to see that Hao (manuscript reviewer) had used it with this paper.
+Not all R packages that we receive at MEE fit in with the rOpenSci package scope, but I’d love to see them go through a similar process. This is where the [rOpenSci review checklist](https://ropensci.github.io/dev_guide/reviewtemplate.html) comes in. In my view, it’s the gold standard 🏆 for reviewing R packages and I was thrilled to see that Hao (manuscript reviewer) had used it with this paper.
 
 The idea of doing code review as part of reviewing a manuscript is new to a lot of people. Often, invited reviewers decline because they don’t think they have the right experience. If you have experience with creating packages though, reviewing code isn’t something to be worried about. [rOpenSci’s guidelines](https://ropensci.github.io/dev_guide/reviewerguide.html) are a great way for people new to reviewing code to become comfortable with the process.
 
@@ -72,6 +72,7 @@ We’ve got a team of dedicated Applications Editors who handle code manuscripts
 #### Reflections
 
 Having a manuscript reviewed can often feel like a quite mysterious process. Your work disappears into a black box and comes out with a load of anonymous suggestions for how to improve it. At rOpenSci and _Methods in Ecology and Evolution_, we want to help open up that black box. Thanks to Hugo’s tweet of gratitude, and the goodwill of the editors, reviewers and authors of the pavo 2.0 paper, this post provides a glimpse of what is possible. Will you give it a try next time?
+
 
 
 [^1]: Maia, R., Gruson, H., Endler, J. A., & White, T. E. (2019). pavo 2: new tools for the spectral and spatial analysis of colour in R. Methods in Ecology and Evolution. https://doi.org/10.1111/2041-210X.13174
