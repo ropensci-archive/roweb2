@@ -10,7 +10,7 @@ authors:
   - Thomas White
   - Hao Ye
 categories: blog
-preface: This post is published on rOpenSci and Methods in Ecology and Evolution blogs
+preface: This post is published on the rOpenSci and Methods in Ecology and Evolution blogs
 topicid:
 tags:
   - community
@@ -23,7 +23,7 @@ tags:
 
 Some things are just irresistible to a community manager – PhD student Hugo Gruson’s recent tweets definitely fall into that category.
 
-[TWEETS]
+{{< tweet 1105089937425211397 >}}
 
 I was surprised and intrigued to see an example of our software peer review guidelines being used in a manuscript review, independent of our [formal collaboration](https://ropensci.org/blog/2017/11/29/review-collaboration-mee/) with the journal [Methods in Ecology and Evolution](https://besjournals.onlinelibrary.wiley.com/journal/2041210x) (MEE). This is exactly the kind of thing rOpenSci is working to enable by developing a good set of practices that broadly apply to research software.
 
