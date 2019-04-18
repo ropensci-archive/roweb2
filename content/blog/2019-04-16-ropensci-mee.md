@@ -26,8 +26,7 @@ tags:
 
 Some things are just irresistible to a community manager – PhD student Hugo Gruson’s recent tweets definitely fall into that category.
 
-{{< tweet 1105088943882678278 >}}
-{{< tweet 1105089937425211397 >}}
+!['Pavo tweets'](https://i.imgur.com/sRKKrJ0.png)
 
 I was surprised and intrigued to see an example of our software peer review guidelines being used in a manuscript review, independent of our [formal collaboration](https://ropensci.org/blog/2017/11/29/review-collaboration-mee/) with the journal [Methods in Ecology and Evolution (MEE)](https://besjournals.onlinelibrary.wiley.com/journal/2041210x). This is exactly the kind of thing rOpenSci is working to enable by developing a good set of practices that broadly apply to research software.
 
