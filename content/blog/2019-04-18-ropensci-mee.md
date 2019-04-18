@@ -19,9 +19,9 @@ tags:
   - pavo
   - Methods in Ecology and Evolution
 ---
-<img src="/img/blog-images/2019-04-18-wild-standards/MEE_rOpenSci_logo.jpg" alt="MEE rOpenSci logos" style="margin: 0px 20px;" align="left">
+<img src="/img/blog-images/2019-04-18-wild-standards/MEE_rOpenSci_logo.jpg" alt="MEE rOpenSci logos">
 <br/>
-<img src="/img/blog-images/2019-04-18-wild-standards/icon_lettering_color.png" alt="rOpenSci logo" style="margin: 0px 20px; width: 150px;" align="left">
+<br/>
 
 ### <img src="/img/blog-images/2019-04-18-wild-standards/stefanie-butland.jpg" alt="Stefanie Butland" style="margin: 0px 10px; width: 75px;" align="left"> Stefanie Butland, _rOpenSci Community Manager_
 
