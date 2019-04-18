@@ -19,10 +19,6 @@ tags:
   - pavo
   - Methods in Ecology and Evolution
 ---
-<img src="/img/blog-images/2019-04-18-wild-standards/MEE_rOpenSci_logo.jpg" alt="MEE rOpenSci logos">
-<br/>
-<br/>
-
 ### <img src="/img/blog-images/2019-04-18-wild-standards/stefanie-butland.jpg" alt="Stefanie Butland" style="margin: 0px 10px; width: 75px;" align="left"> Stefanie Butland, _rOpenSci Community Manager_
 
 Some things are just irresistible to a community manager – PhD student Hugo Gruson’s recent tweets definitely fall into that category.
