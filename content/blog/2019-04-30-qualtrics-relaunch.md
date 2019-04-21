@@ -42,6 +42,6 @@ Changing the names of all the functions in a package already being used in the r
 
 The old versions of the functions currently still work but give a warning, suggesting that the user try out the new versions. If this change causes more than a passing inconvenience to you as a user, I AM SO SORRY. I believe this decision will set up the qualtRics package for improved usability in the long term.
 
-## Ex##plore the new qualtRics!
+#### Explore the new qualtRics!
 
 Another change with this release is a [pkgdown site for qualtRics](https://ropensci.github.io/qualtRics/). I used the custom pkgdown template [rotemplate](https://ropensci.github.io/rotemplate/) created for rOpenSci packages to style the site, and I am so pleased with the results! If you are a new user for the qualtRics package, or someone who wants to poke around and see what's changed and how to get up to speed with the update, I recommend checking out this [spiffy new site](https://ropensci.github.io/qualtRics/) for all the details. 🚀
