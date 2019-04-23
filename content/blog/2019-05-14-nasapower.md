@@ -119,7 +119,7 @@ was lists. Internally in that 100+ lines of code there are several
 inter-related checks and values that are provided for the query. By
 using lists I was able to return more than one value from a function
 after it was checked and validated and then provide that to the function
-I created to generate the request that crul sends, *e.g.* the
+I created to generate the request that crul sends, *e.g.*, the
 [longitude, latitude and whether it is a single point or
 region](https://github.com/ropensci/nasapower/blob/992c99d45f3a42471664e67db8921caf74dbc90c/R/internal_functions.R#L237).
 By doing this I was able to simplify the parameters that the user had to
@@ -301,7 +301,7 @@ function, `create_met()`, that takes advantage of the POWER data API and
 the R [APSIM](https://CRAN.R-project.org/package=APSIM) package (Fainges
 2017) to generate the proper weather .met files since many APSIM users,
 use R in their modelling pipeline,
-e.g. [APSIMBatch](https://CRAN.R-project.org/package=APSIMBatch) and
+*e.g.*, [APSIMBatch](https://CRAN.R-project.org/package=APSIMBatch) and
 [apsimr](https://CRAN.R-project.org/package=apsimr).
 
 Both of these functions simply download data and write the values to
