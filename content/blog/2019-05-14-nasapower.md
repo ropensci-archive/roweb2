@@ -25,14 +25,11 @@ tags:
   - NASA
   - nasapower
   - POWER data
-bibliography: references.bib
-twitterImg: img/blog-images/<DATE-SLUG>/logo.png
+twitterImg: img/blog-images/2019-05-14-nasapower/logo.png
 ---
 
-<img align="right" src="/img/blog-images/2019-05-14-POWER-to-the-People/logo.png">
-NASA generates and
-provides heaps of data to the scientific community. Not all of it is
-looking out at the stars. Some of it is looking back at us here on
+NASA generates and provides heaps of data to the scientific community. Not all
+of it is looking out at the stars. Some of it is looking back at us here on
 Earth. NASA’s Earth science program observes, understands and models the
 Earth system (Stackhouse et al. 2018). We can use these data to discover
 how our Earth is changing, to better predict change, and to understand
@@ -63,13 +60,12 @@ global coverage, offering data where we often needed it in areas that
 lacked good weather station coverage.
 
 Because I used the data and because I knew plenty of others used the
-data, in 2017 I started writing the *nasapower* package to interface
-with the POWER data and run queries to get data from the server (Sparks
-2018), but only for agricultural weather data (AG community) as this was
-my main (really only) interest. This greatly simplified the way the data
-could be retrieved since it meant that there was no need to use the web
-interface that the POWER team provided and also made the work
-reproducible. The package was very simple with few dependencies and
+data, in 2017 I started writing nasapower to interface with the POWER data and
+run queries to get data from the server (Sparks 2018), but only for agricultural
+weather data (AG community) as this was my main (really only) interest. This
+greatly simplified the way the data could be retrieved since it meant that there
+was no need to use the web interface that the POWER team provided and also made
+the work reproducible. The package was very simple with few dependencies and
 worked quickly and made getting data much easier as the only way to
 otherwise download was through a painful series of point-and-clicks on a
 website. I submitted it for [review with
@@ -92,13 +88,12 @@ readily agreed and over the next several months I learned how to write
 an R package that is an API client, a proper API client.
 
 Thankfully rOpenSci has a great package that makes this much easier,
-like [*crul*](https://ropensci.github.io/crul/) (Chamberlain 2018). Even
+like [crul](https://ropensci.github.io/crul/) (Chamberlain 2018). Even
 better, [Maëlle Salmon](https://masalmon.eu) had written a [blog
 post](https://masalmon.eu/2017/06/30/crolute/) on how to use it\! So I
-got down to business writing the new version of *nasapower* using
-*crul*.
+got down to business writing the new version of nasapower using crul.
 
-I quickly found out that the easy part was using *crul*; the hard part
+I quickly found out that the easy part was using crul; the hard part
 was validating user inputs. I decided early in the process of writing
 the package to validate the users’ input on the client side before even
 querying the server to make sure that only well-formed requests were
@@ -124,7 +119,7 @@ was lists. Internally in that 100+ lines of code there are several
 inter-related checks and values that are provided for the query. By
 using lists I was able to return more than one value from a function
 after it was checked and validated and then provide that to the function
-I created to generate the request that *crul* sends, *e.g.* the
+I created to generate the request that crul sends, *e.g.* the
 [longitude, latitude and whether it is a single point or
 region](https://github.com/ropensci/nasapower/blob/992c99d45f3a42471664e67db8921caf74dbc90c/R/internal_functions.R#L237).
 By doing this I was able to simplify the parameters that the user had to
@@ -149,7 +144,7 @@ metadata in the console along with the weather or climate data.
 Later, in early 2019 I ran into an issue with the method I’d used to
 validate user inputs for `community` when building the query that was
 sent. [danielreispereira](https://github.com/danielreispereira) reported
-that for some reason *nasapower* was failing to download 2 m wind data,
+that for some reason nasapower was failing to download 2 m wind data,
 necessary for calculating evapotranspiration for crop modelling. Looking
 into the JSON file I found the issue. The POWER team did not list the AG
 community as having this data available. I contacted them thinking is
@@ -160,7 +155,9 @@ checked, it appeared that the data were available for all communities.
 So I ended up dropping the check for `community` from the user input
 validations. I still check user inputs for the correct parameter
 specification and temporal matches, but assume all communities offer the
-same data and that it only affects the units that it is reported in.
+same data and that it only affects the units that it is reported in. It's not
+optimal but until the POWER team can deliver a more robust way for us to check
+against their records it will have to do.
 
 ### Finally, It (Mostly?) Works\!
 
@@ -172,12 +169,12 @@ fetches data and reformats it for use in R or crop modelling software.
 The first function, `get_power()`, is the main function that is used and
 offers the greatest flexibility. Say you want to know the maximum and
 minimum temperatures for Death Valley in California, USA every day for
-the last 35 years, you can easily do this with *nasapower* using
+the last 35 years, you can easily do this with nasapower using
 coordinates for the valley floor.
 
 If you are not sure what the parameters are that you need to get the
 data you can always have a look at the list of available parameters
-using `?nasapower::parameters`. That shows that T2M\_MIN and T2M\_MAX
+using `?parameters`. That shows that T2M\_MIN and T2M\_MAX
 are the minimum and maximum temperatures at 2 meters. We will use those
 to construct the query.
 
@@ -234,8 +231,8 @@ T2M\_MIN and T2M\_MAX each as double.
 
 ### Visualising the Data
 
-To visualise these data I will use *ggplot2*, but first I need to gather
-the data into long format using *tidyr*’s `gather()`.
+To visualise these data I will use ggplot2, but first I need to gather the data
+into long format using tidyr’s `gather()`.
 
 ``` r
 library(tidyr)
@@ -257,12 +254,12 @@ ggplot(dv_long, aes(x = YYYYMMDD, y = Degrees,
   theme_ipsum()
 ```
 
-![](/img/blog-images/2019-05-14-POWER-to-the-People/graph_t-1.png)<!-- -->
+![](/img/blog-images/2019-05-14-nasapower/graph_t-1.png)<!-- -->
 
 That is quite a swing in air temperatures from well over 40˚ C to well
 below 0˚ C throughout the year. I was going to put together a comparison
-with station data using [*GSODR*](https://ropensci.github.io/GSODR/) but
-instead found a good reason why you might want to use *nasapower* to get
+with station data using [GSODR](https://ropensci.github.io/GSODR/) but
+instead found a good reason why you might want to use nasapower to get
 POWER data. When I checked for stations nearby this specified point,
 there were two in the GSOD database, 746190-99999 and 999999-53139.
 However, neither one of them offers weather data for this time period.
@@ -394,7 +391,7 @@ n <- length(unique(global_t2m$ANN))
 plot(T2M_ann, col = viridis(n = n))
 ```
 
-![](/img/blog-images/2019-05-14-POWER-to-the-People/global-T2M-1.png)<!-- -->
+![](/img/blog-images/2019-05-14-nasapower/global-T2M-1.png)<!-- -->
 
 Otherwise you have to specify a single cell or regional coverage that
 can not be more than 100 points in total for an area of 4.5˚ x 4.5˚.
@@ -457,10 +454,10 @@ n <- length(unique(regional_t2m$ANN))
 plot(T2M_ann_regional, col = viridis(n = n))
 ```
 
-![](/img/blog-images/2019-05-14-POWER-to-the-People/regional-t2m-1.png)<!-- -->
+![](/img/blog-images/2019-05-14-nasapower/regional-t2m-1.png)<!-- -->
 
 As you can see, because the data are georeferenced it is easy to use
-them in R’s spatial packages including *sf* and *raster*. [Emerson Del
+them in R’s spatial packages including sf and raster. [Emerson Del
 Ponte](https://delpontelab.netlify.com) used the data in a talk at the
 International Congress of Plant Pathology in August 2018, “[Can Rainfall
 be a Useful Predictor of Epidemic Risk Across Temporal and Spatial
@@ -470,7 +467,7 @@ see slides
 [24](https://speakerdeck.com/emdelponte/can-rainfall-be-a-useful-predictor-of-epidemic-risk-across-temporal-and-spatial-scales?slide=24)
 and
 [25](https://speakerdeck.com/emdelponte/can-rainfall-be-a-useful-predictor-of-epidemic-risk-across-temporal-and-spatial-scales?slide=25)
-for maps created using *nasapower* and the POWER data for two states in
+for maps created using nasapower and the POWER data for two states in
 Brazil. These maps took a bit more work to query the API and generate,
 but I plan to add an example vignette detailing how this can be done in
 a future release.
@@ -481,10 +478,10 @@ Even though the package took me well over one year to write and work out
 all of the bugs and has only three functions, I learned quite a bit from
 the experience. The new API really does improve the ability for a
 developer to write a client to interface with the data. Now the
-*nasapower* package is able to access all of the data available whereas
+nasapower package is able to access all of the data available whereas
 the initial version was only able to work with the “AG” community data.
 
-While *nasapower* does not redistribute the data or provide it in any
+While nasapower does not redistribute the data or provide it in any
 way, if you use the data, we encourage users to follow the requests of
 the POWER Project Team.
 
