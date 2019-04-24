@@ -18,13 +18,14 @@ tags:
   - climate
   - weather data
   - climate data
+  - earth science
   - open data
-  - tidy data
   - API
   - API client
   - NASA
+  - Software Peer Review
+  - R
   - nasapower
-  - POWER data
 twitterImg: img/blog-images/2019-05-14-nasapower/logo.png
 ---
 
@@ -512,6 +513,11 @@ they have only made this package better. If you’re interested in this or
 want to know more about how to use the package, I encourage you to
 browse the vignette and other on-line documentation,
 <https://ropensci.github.io/nasapower/articles/nasapower.html>.
+
+### Acknowledgments
+
+I would like to thank the valuable comments from [Emerson Del Ponte](https://twitter.com/edelponte) and
+[Paul Melloy](https://twitter.com/PaulMelloy) on this blog post.
 
 # References
 
