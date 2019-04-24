@@ -62,18 +62,20 @@ tags:
 
 #### Blog post editorial suggestions
 
+- Include tags in YAML. [Browse tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "packages" exists, so use that, rather than "package"
+- For formatting of package names, functions, and code, follow the [tidyverse style guidance](https://style.tidyverse.org/documentation.html#r-code)
+- If you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
+- Use ### or #### to format headings in your post; larger sizes don't look good. Note long headings with #### don't wrap well.
+- Spell 'rOpenSci', not 'ROpenSci'
+- Check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an author's index file for yourself (instructions below). 
+
 For a post about your peer-reviewed package you should:
-- browse other posts about peer-reviewed packages with tag '[Software Peer Review](https://ropensci.org/tags/software-peer-review/)'
-- consider giving some narrative on motivation for creating the package, or something you learned in the process, and share an interesting use case
-- acknowledge reviewers by name with links to their GitHub or Twitter; no need to explicitly acknowledge the editor
-- acknowledge other contributors, if any
-- consider ending by pointing to open issues that readers might work on
-- include YAML tags 'Software Peer Review', 'R', the package name, and tags that were [topic labels in your package review](https://github.com/ropensci/software-review/labels)
-- browse [other tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "packages" exists, so use that, rather than "package"
-- if you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
-- to format headings in your post, please use ### or ####, as larger sizes don't look good
-- spell 'rOpenSci', not 'ROpenSci'
-- check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an author's index file for yourself (instructions below). 
+- Browse other posts about peer-reviewed packages with tag '[Software Peer Review](https://ropensci.org/tags/software-peer-review/)'
+- Consider giving some narrative on motivation for creating the package, or something you learned in the process, and share an interesting use case
+- Acknowledge reviewers by name with links to their GitHub or Twitter; no need to explicitly acknowledge the editor
+- Acknowledge other contributors, if any
+- Consider ending by pointing to open issues that readers might work on
+- Include YAML tags 'Software Peer Review', 'R', the package name, and tags that were [topic labels in your package review](https://github.com/ropensci/software-review/labels)
 
 For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
 
