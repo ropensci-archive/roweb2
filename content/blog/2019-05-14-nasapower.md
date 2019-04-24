@@ -230,7 +230,7 @@ queried day as double, DOY = the day of year or Julian date as integer,
 YYYYMMDD = the full date as a date object and the requested parameters
 T2M\_MIN and T2M\_MAX each as double.
 
-### Visualising the Data
+#### Visualising the Data
 
 To visualise these data I will use ggplot2, but first I need to gather the data
 into long format using tidyr’s `gather()`.
@@ -519,7 +519,7 @@ browse the vignette and other on-line documentation,
 I would like to thank the valuable comments from [Emerson Del Ponte](https://twitter.com/edelponte) and
 [Paul Melloy](https://twitter.com/PaulMelloy) on this blog post.
 
-# References
+### References
 
 <div id="refs" class="references">
 
