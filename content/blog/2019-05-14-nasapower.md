@@ -41,7 +41,7 @@ Resource (POWER) project, which was initiated to improve upon the
 current renewable energy data set and to create new data sets from new
 satellite systems. The POWER project targets three user communities: 1)
 Renewable Energy (SSE), 2) Sustainable Buildings (SB) and 3)
-Agroclimatology (AG)[^1].
+Agroclimatology (AG)[^1] and covers 140+ different parameters.
 
 ### How Did This Package Happen?
 
@@ -95,17 +95,16 @@ sent. That way I could provide the user with feedback on what may have
 been entered incorrectly to make it easier for them to correct rather
 than relying on the server’s response.
 
-There are over 140 different parameters that the POWER data provides.
-One of the first issues I encountered was how to validate the users’
-requests against what was available. Thankfully [Ben
-Raymond](https://github.com/raymondben) found a JSON file that was
-served up for the API documentation that I was able to use to [create an
-internal list
-object](https://github.com/ropensci/nasapower/tree/master/data-raw) to
-check against, which made the parameters easy to check against.
-Formatting dates and checking those given all the different ways we
-enter them proved to be another challenge entirely taking nearly 100
-lines of code.
+There are over 140 different parameters for three "communities"
+(AG, SSE and SB), that the POWER data provides. One of the first issues I
+encountered was how to validate the users’ requests against what was available.
+Thankfully [Ben Raymond](https://github.com/raymondben) found a JSON file that
+was served up for the API documentation that I was able to use to
+[create an internal list object](https://github.com/ropensci/nasapower/tree/master/data-raw)
+to check against, which made the parameters and communities easy validate.
+
+Formatting dates and checking those given all the different ways we enter them
+proved to be another challenge entirely taking nearly 100 lines of code.
 
 Along with learning how to write an API client package, one of the
 methods I used in this package that I had not made full use of before
@@ -141,16 +140,18 @@ sent. [danielreispereira](https://github.com/danielreispereira) reported
 that for some reason nasapower was failing to download 2 m wind data (wind
 speed as measured 2 meters above the Earth's surface),
 necessary for calculating evapotranspiration for crop modelling. Looking
-into the JSON file I found the issue. The POWER team did not list the AG
-community as having this data available. I contacted them thinking is
-was a mistake in the file since the data are in indeed available. After
-some back and forth with the NASA-POWER team I never really was clear on
-how I should handle this from their perspective. Additionally, when I
-checked, it appeared that the data were available for all communities.
-So I ended up dropping the check for `community` from the user input
-validations. I still check user inputs for the correct parameter
-specification and temporal matches, but assume all communities offer the
-same data and that it only affects the units that it is reported in. It's not
+into the JSON file I used as suggested by Ben Raymond, I found the issue. The
+POWER team did not list the AG community as having this data available. I
+contacted them thinking is was a mistake in the file since the data are in
+indeed available. After some back and forth with the NASA-POWER team I never
+really was clear on how I should handle this from their perspective aside from
+their suggestion of just looking at their webpage to see what was available.
+Additionally, when I checked, it appeared that the data were available for all
+three communities. So I ended up dropping the check for `community` from the
+user input validations because the community specified only affects the units
+that the data are reported in, you can see the [POWER documentation](https://power.larc.nasa.gov/docs/v1/) for more on
+this. I still check user inputs for the correct parameter specification and
+temporal matches, but assume all communities offer the same data. It's not
 optimal but until the POWER team can deliver a more robust way for us to check
 against their records it will have to do.
 
