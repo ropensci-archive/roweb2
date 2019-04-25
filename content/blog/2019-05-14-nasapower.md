@@ -137,7 +137,7 @@ metadata in the console along with the weather or climate data.
 
 Later, in early 2019 I ran into an issue with the method I’d used to
 validate user inputs for `community` when building the query that was
-sent. [danielreispereira](https://github.com/danielreispereira) reported
+sent. [Daniel Reis Pereira](https://github.com/danielreispereira) reported
 that for some reason nasapower was failing to download 2 m wind data,
 necessary for calculating evapotranspiration for crop modelling. Looking
 into the JSON file I found the issue. The POWER team did not list the AG
