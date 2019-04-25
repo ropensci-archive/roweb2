@@ -53,9 +53,10 @@ of the work I did, I used it with the EPIRICE model[^2], but it was also used
 for other crop modelling. Since then I’ve used the POWER data in projects with
 EPIRICE myself[^3] and have worked with other researchers who use it for crop
 simulation modelling exercises[^4],[^5]. The data were a great resource for
-agricultural modelling, even if it was a bit coarse at 1˚ x 1˚, the full data
-set had global coverage, offering data where we often needed it in areas that
-lacked good weather station coverage.
+agricultural modelling, even if it was a bit coarse at 1˚ x 1˚ (covering roughly
+12225 km<sup>2</sup> or 4721 mi<sup>2</sup> per grid cell at the equator more as
+you approach the poles), the full data set had global coverage, offering data
+where we often needed it in areas that lacked good weather station coverage.
 
 Because I used the data and because I knew plenty of others used the
 data, in 2017 I started writing nasapower[^6],[^7] to interface with the POWER 
