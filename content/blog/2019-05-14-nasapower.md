@@ -41,7 +41,7 @@ Resource (POWER) project, which was initiated to improve upon the
 current renewable energy data set and to create new data sets from new
 satellite systems. The POWER project targets three user communities: 1)
 Renewable Energy (SSE), 2) Sustainable Buildings (SB) and 3)
-Agroclimatology (AG).
+Agroclimatology (AG)[^1].
 
 ### How Did This Package Happen?
 
@@ -50,19 +50,17 @@ at the [International Rice Research Institute
 (IRRI)](https://irri.org/mapping) in 2011. We commonly used the
 agroclimatology data from POWER to map and model rice projects. In most
 of the work I did, I used it with the [EPIRICE
-model](https://doi.org/10.1016/j.cropro.2011.11.009) (Savary et al.
-2012), but it was also used for other crop modelling. Since then I’ve
-used the POWER data in projects with EPRICE myself (Duku, Sparks, and
-Zwart 2016) and have worked with other researchers who use it for crop
-simulation modelling exercises (van Wart, Grassini, and Cassman 2013;
-van Wart et al. 2015). The data were a great resource for agricultural
-modelling, even if it was a bit coarse at 1˚ x 1˚, the full data set had
-global coverage, offering data where we often needed it in areas that
+model](https://doi.org/10.1016/j.cropro.2011.11.009)[^2], but it was also used
+for other crop modelling. Since then I’ve used the POWER data in projects with
+EPRICE myself[^3] and have worked with other researchers who use it for crop
+simulation modelling exercises[^4], [^5]. The data were a great resource for
+agricultural modelling, even if it was a bit coarse at 1˚ x 1˚, the full data
+set had global coverage, offering data where we often needed it in areas that
 lacked good weather station coverage.
 
 Because I used the data and because I knew plenty of others used the
 data, in 2017 I started writing nasapower to interface with the POWER data and
-run queries to get data from the server (Sparks 2018), but only for agricultural
+run queries to get data from the server[^6], [^7], but only for agricultural
 weather data (AG community) as this was my main (really only) interest. This
 greatly simplified the way the data could be retrieved since it meant that there
 was no need to use the web interface that the POWER team provided and also made
@@ -89,7 +87,7 @@ readily agreed and over the next several months I learned how to write
 an R package that is an API client, a proper API client.
 
 Thankfully rOpenSci has a great package that makes this much easier,
-like [crul](https://ropensci.github.io/crul/) (Chamberlain 2018). Even
+like [crul](https://ropensci.github.io/crul/)[^8]. Even
 better, [Maëlle Salmon](https://masalmon.eu) had written a [blog
 post](https://masalmon.eu/2017/06/30/crolute/) on how to use it\! So I
 got down to business writing the new version of nasapower using crul.
@@ -259,7 +257,7 @@ ggplot(dv_long, aes(x = YYYYMMDD, y = Degrees,
 
 That is quite a swing in air temperatures from well over 40˚ C to well
 below 0˚ C throughout the year. I was going to put together a comparison
-with station data using [GSODR](https://ropensci.github.io/GSODR/) but
+with station data using [GSODR](https://ropensci.github.io/GSODR/)[^9] but
 instead found a good reason why you might want to use nasapower to get
 POWER data. When I checked for stations nearby this specified point,
 there were two in the GSOD database, 746190-99999 and 999999-53139.
@@ -286,21 +284,19 @@ model output comparisons easier.
 
 If you do any crop modelling work you are likely familiar with the
 Decision Support System for Agrotechnology Transfer
-[DSSAT](https://dssat.net) platform (Jones et al. 1998, 2003; Hoogenboom
-et al. 2017). The new POWER API provides properly formatted
-[ICASA](https://dssat.net/data/standards_v2) files, which are the format
-that DSSAT uses. Naturally I took advantage of this and added a
-function, `create_icasa()`, to download and save ICASA files for use in
+[DSSAT](https://dssat.net) platform[^10], [^11], [^12]. The new POWER API
+provides properly formatted [ICASA](https://dssat.net/data/standards_v2) files,
+which are the format that DSSAT uses. Naturally I took advantage of this and
+added a function, `create_icasa()`, to download and save ICASA files for use in
 crop simulations.
 
 But, being in Toowoomba, Queensland, I had to acknowledge another crop
 simulation model, the Agricultural Production Systems sIMulator
-[APSIM](https://www.apsim.info) (Keating et al. 2003). APSIM was
-developed here and has similar functionality to DSSAT. However, the
-POWER API did not offer properly formatted APSIM .met files. So, wrote a
-function, `create_met()`, that takes advantage of the POWER data API and
-the R [APSIM](https://CRAN.R-project.org/package=APSIM) package (Fainges
-2017) to generate the proper weather .met files since many APSIM users,
+[APSIM](https://www.apsim.info)[^13]. APSIM was developed here and has similar
+functionality to DSSAT. However, the POWER API did not offer properly formatted
+APSIM .met files. So, wrote a function, `create_met()`, that takes advantage of
+the POWER data API and the R [APSIM](https://CRAN.R-project.org/package=APSIM)
+package [^14] to generate the proper weather .met files since many APSIM users,
 use R in their modelling pipeline,
 *e.g.*, [APSIMBatch](https://CRAN.R-project.org/package=APSIMBatch) and
 [apsimr](https://CRAN.R-project.org/package=apsimr).
@@ -521,105 +517,70 @@ I would like to thank the valuable comments from [Emerson Del Ponte](https://twi
 
 ### References
 
-<div id="refs" class="references">
-
-<div id="ref-Chamberlain2018">
-
-Chamberlain, Scott. 2018. *crul: HTTP Client*. rOpenSci.
-<https://CRAN.R-project.org/package=crul>.
-
-</div>
-
-<div id="ref-Duku2016">
-
-Duku, Confidence, Adam H. Sparks, and Sander J. Zwart. 2016. “Spatial
-Modelling of Rice Yield Losses in Tanzania Due to Bacterial Leaf Blight
-and Leaf Blast in a Changing Climate.” *Climatic Change* 135 (3):
-569–83. <https://doi.org/10.1007/s10584-015-1580-2>.
-
-</div>
-
-<div id="ref-Fainges2017">
-
-Fainges, Justin. 2017. *APSIM: General Utility Functions for the
-’Agricultural Production Systems Simulator’*. CSIRO.
-<https://CRAN.R-project.org/package=APSIM>.
-
-</div>
-
-<div id="ref-Hoogenboom2017">
-
-Hoogenboom, G, CH Porter, V Shelia, KJ Boote, U Singh, JW White, LA
-Hunt, et al. 2017. “Decision Support System for Agrotechnology Transfer
-(DSSAT) Version 4.7 (Https://Dssat.net). DSSAT Foundation, Gainesville,
-Florida.” USA.
-
-</div>
-
-<div id="ref-Jones2003">
-
-Jones, James W, Gerrit Hoogenboom, Cheryl H Porter, Ken J Boote, William
-D Batchelor, LA Hunt, Paul W Wilkens, Upendra Singh, Arjan J Gijsman,
-and Joe T Ritchie. 2003. “The DSSAT Cropping System Model.” *European
-Journal of Agronomy* 18 (3-4): 235–65.
-
-</div>
-
-<div id="ref-Jones1998">
-
-Jones, J. W., G. Y. Tsuji, G. Hoogenboom, L. A. Hunt, P. K. Thornton, P.
-W. Wilkens, D. T. Imamura, W. T. Bowen, and U. Singh. 1998. “Decision
-Support System for Agrotechnology Transfer: DSSAT v3.” In *Understanding
-Options for Agricultural Production*, 157–77. Springer.
-
-</div>
-
-<div id="ref-Keating2003">
-
-Keating, Brian A., Peter S. Carberry, Graeme L. Hammer, Mervyn E.
-Probert, Michael J. Robertson, D. Holzworth, Neil I. Huth, et al. 2003.
-“An Overview of APSIM, a Model Designed for Farming Systems
-Simulation.” *European Journal of Agronomy* 18 (3-4): 267–88.
-
-</div>
-
-<div id="ref-Savary2012">
-
-Savary, Serge, Andrew Nelson, Laetitia Willocquet, Ireneo Pangga, and
-Jorrel Aunario. 2012. “Modeling and Mapping Potential Epidemics of Rice
-Diseases Globally.” *Crop Protection* 34 (Supplement C): 6–17.
-<https://doi.org/10.1016/j.cropro.2011.11.009>.
-
-</div>
-
-<div id="ref-StackhouseJr2018">
-
-Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason
+[^1]: Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason
 Barnett, Tyler Bristow, Bradley Macpherson, and James M. Hoell. 2018.
 “POWER Release 8 (with GIS Applications) Methodology (Data Parameters,
 Sources, & Validation) Documentation Date May 1, 2018 (All Previous
 Versions Are Obsolete) (Data Version 8.0.1).” NASA.
 <https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>.
 
-</div>
+[^2]: Savary, Serge, Andrew Nelson, Laetitia Willocquet, Ireneo Pangga, and
+Jorrel Aunario. 2012. “Modeling and Mapping Potential Epidemics of Rice
+Diseases Globally.” *Crop Protection* 34 (Supplement C): 6–17.
+<https://doi.org/10.1016/j.cropro.2011.11.009>.
 
-<div id="ref-vanWart2013">
+[^3]: Duku, Confidence, Adam H. Sparks, and Sander J. Zwart. 2016. “Spatial
+Modelling of Rice Yield Losses in Tanzania Due to Bacterial Leaf Blight
+and Leaf Blast in a Changing Climate.” *Climatic Change* 135 (3):
+569–83. <https://doi.org/10.1007/s10584-015-1580-2>.
 
-van Wart, Justin, Patricio Grassini, and Kenneth G. Cassman. 2013.
+[^4]: van Wart, Justin, Patricio Grassini, and Kenneth G. Cassman. 2013.
 “Impact of Derived Global Weather Data on Simulated Crop Yields.”
 *Global Change Biology* 19 (12): 3822–34.
 <https://doi.org/10.1111/gcb.12302>.
 
-</div>
-
-<div id="ref-vanWart2015">
-
-van Wart, Justin, Patricio Grassini, Haishun Yang, Lieven Claessens,
+[^5]: van Wart, Justin, Patricio Grassini, Haishun Yang, Lieven Claessens,
 Andrew Jarvis, and Kenneth G. Cassman. 2015. “Creating Long-Term Weather
 Data from Thin Air for Crop Simulation Modeling.” *Agricultural and
 Forest Meteorology* 209-210 (Supplement C): 49–58.
 <https://doi.org/10.1016/j.agrformet.2015.02.020>.
 
-</div>
+[^6]: Sparks, Adam, 2018. “nasapower: A NASA POWER Global Meteorology, Surface
+Solar Energy and Climatology Data Client for R”. *Journal of Open Source
+Software*, 3(30), 1035, <https://doi.org/10.21105/joss.01035>.
 
-</div>
+[^7]: Sparks, Adam. 2019. “nasapower: NASA-POWER Data from R”. R package version
+1.1.1, <https://ropensci.github.io/nasapower/>.
+
+[^8]: Chamberlain, Scott. 2018. “crul: HTTP Client”. rOpenSci.
+<https://CRAN.R-project.org/package=crul>.
+
+[^9]: Sparks, Adam H., Tomislav Hengl and Andrew Nelson. 2017. “GSODR: Global
+Summary Daily Weather Data in R”. *The Journal of Open Source Software*, 2(10).
+<https://doi.org/10.21105/joss.00177>.
+
+[^10]: Jones, James W, Gerrit Hoogenboom, Cheryl H Porter, Ken J Boote, William
+D Batchelor, LA Hunt, Paul W Wilkens, Upendra Singh, Arjan J Gijsman,
+and Joe T Ritchie. 2003. “The DSSAT Cropping System Model.” *European
+Journal of Agronomy* 18 (3-4): 235–65.
+
+[^11]: Jones, J. W., G. Y. Tsuji, G. Hoogenboom, L. A. Hunt, P. K. Thornton, P.
+W. Wilkens, D. T. Imamura, W. T. Bowen, and U. Singh. 1998. “Decision
+Support System for Agrotechnology Transfer: DSSAT v3.” In *Understanding
+Options for Agricultural Production*, 157–77. Springer.
+
+[^12]: Hoogenboom, G, CH Porter, V Shelia, KJ Boote, U Singh, JW White, LA
+Hunt, et al. 2017. “Decision Support System for Agrotechnology Transfer
+(DSSAT) Version 4.7 <https://dssat.net>. DSSAT Foundation, Gainesville,
+Florida.” USA.
+
+[^13]: Keating, Brian A., Peter S. Carberry, Graeme L. Hammer, Mervyn E.
+Probert, Michael J. Robertson, D. Holzworth, Neil I. Huth, et al. 2003.
+“An Overview of APSIM, a Model Designed for Farming Systems
+Simulation.” *European Journal of Agronomy* 18 (3-4): 267–88.
+
+[^14]: Fainges, Justin. 2017. "APSIM: General Utility Functions for the
+’Agricultural Production Systems Simulator’". CSIRO.
+<https://CRAN.R-project.org/package=APSIM>.
+
+
