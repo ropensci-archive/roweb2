@@ -513,9 +513,13 @@ the web interface if you experience difficulties querying data.
 Hopefully the API itself has settled out a bit and will not have the
 sudden changes that I experienced. The POWER team have been supportive
 of the package, and I have received feedback and interaction from other
-users along the way that helped me by finding and reporting bugs. But
-most of all, I appreciate the [rOpenSci review
-process](https://github.com/ropensci/software-review/issues/155) with
+users along the way that helped me by finding and reporting bugs.
+
+### Acknowledgements
+
+I would like to recognise the valuable comments from [Emerson Del Ponte](https://twitter.com/edelponte) and
+[Paul Melloy](https://twitter.com/PaulMelloy) on this blog post. 
+Most of all, I appreciate the [rOpenSci review process](https://github.com/ropensci/software-review/issues/155) with
 valuable contributions from [Hazel
 Kavılı](https://github.com/UniversalTourist), [Alison
 Boyer](https://github.com/alisonboyer) and of course my ever-patient
@@ -526,11 +530,6 @@ they have only made this package better. If you’re interested in this or
 want to know more about how to use the package, I encourage you to
 browse the vignette and other on-line documentation,
 <https://ropensci.github.io/nasapower/articles/nasapower.html>.
-
-### Acknowledgements
-
-I would like to thank the valuable comments from [Emerson Del Ponte](https://twitter.com/edelponte) and
-[Paul Melloy](https://twitter.com/PaulMelloy) on this blog post.
 
 ### References
 
