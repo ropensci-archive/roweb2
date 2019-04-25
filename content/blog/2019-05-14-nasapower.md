@@ -273,7 +273,9 @@ provide.
 
 #### Crop Modelling From Space
 
-However, this can be advantageous as well. Crop yield modelling often
+However, this can be advantageous as well. Some agricultural scientists work
+with models that predict crop yields in response to changes to the crop,
+weather, farmer inputs or even climate change. Crop yield modelling often
 uses daily weather data covering large relatively continuous areas that
 are less affected by things like elevation, so for these purposes, the
 POWER data can be very useful. Another reason the POWER data are useful
