@@ -218,12 +218,25 @@ elevation data.
 
 The `tibble` contains a few columns not in the original data, but that
 can make it easier to work within R. The original data only include YEAR
-and DOY. Looking at the data returned, there are LON = the queried
-longitude as double; LAT = the queried latitude as double; YEAR = the
-queried year as double; MM = the queried month as double, DD = the
-queried day as double, DOY = the day of year or Julian date as integer,
-YYYYMMDD = the full date as a date object and the requested parameters
-T2M\_MIN and T2M\_MAX each as double.
+and DOY. Looking at the data returned, there are:
+
+  * LON = the queried longitude as a double;
+  
+  * LAT = the queried latitude as a double;
+  
+  * YEAR = the queried year as a double;
+  
+  * MM = the queried month as a double,
+  
+  * DD = the queried day as a double,
+  
+  * DOY = the day of year or Julian date as an integer,
+  
+  * YYYYMMDD = the full date as a date object and the requested parameters,
+  
+  * T2M\_MIN = the minimum temperature at 2 meters above the Earth's surface as a double, and
+  
+  * T2M\_MAX = the maxiumum temperature at 2 meters above the Earth's surface as a double.
 
 #### Visualising the Data
 
