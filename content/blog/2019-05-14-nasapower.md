@@ -49,18 +49,17 @@ I first became acquainted with the POWER data when I joined the GIS lab
 at the [International Rice Research Institute
 (IRRI)](https://irri.org/mapping) in 2011. We commonly used the
 agroclimatology data from POWER to map and model rice projects. In most
-of the work I did, I used it with the [EPIRICE
-model](https://doi.org/10.1016/j.cropro.2011.11.009)[^2], but it was also used
+of the work I did, I used it with the EPIRICE model[^2], but it was also used
 for other crop modelling. Since then I’ve used the POWER data in projects with
-EPRICE myself[^3] and have worked with other researchers who use it for crop
-simulation modelling exercises[^4], [^5]. The data were a great resource for
+EPIRICE myself[^3] and have worked with other researchers who use it for crop
+simulation modelling exercises[^4],[^5]. The data were a great resource for
 agricultural modelling, even if it was a bit coarse at 1˚ x 1˚, the full data
 set had global coverage, offering data where we often needed it in areas that
 lacked good weather station coverage.
 
 Because I used the data and because I knew plenty of others used the
-data, in 2017 I started writing nasapower to interface with the POWER data and
-run queries to get data from the server[^6], [^7], but only for agricultural
+data, in 2017 I started writing nasapower[^6],[^7] to interface with the POWER 
+data and run queries to get data from the server but only for agricultural
 weather data (AG community) as this was my main (really only) interest. This
 greatly simplified the way the data could be retrieved since it meant that there
 was no need to use the web interface that the POWER team provided and also made
@@ -87,9 +86,8 @@ readily agreed and over the next several months I learned how to write
 an R package that is an API client, a proper API client.
 
 Thankfully rOpenSci has a great package that makes this much easier,
-like [crul](https://ropensci.github.io/crul/)[^8]. Even
-better, [Maëlle Salmon](https://masalmon.eu) had written a [blog
-post](https://masalmon.eu/2017/06/30/crolute/) on how to use it\! So I
+like crul[^8]. Even better, [Maëlle Salmon](https://masalmon.eu) had written a
+[blog post](https://masalmon.eu/2017/06/30/crolute/) on how to use it\! So I
 got down to business writing the new version of nasapower using crul.
 
 I quickly found out that the easy part was using crul; the hard part
@@ -295,11 +293,9 @@ simulation model, the Agricultural Production Systems sIMulator
 [APSIM](https://www.apsim.info)[^13]. APSIM was developed here and has similar
 functionality to DSSAT. However, the POWER API did not offer properly formatted
 APSIM .met files. So, wrote a function, `create_met()`, that takes advantage of
-the POWER data API and the R [APSIM](https://CRAN.R-project.org/package=APSIM)
-package [^14] to generate the proper weather .met files since many APSIM users,
-use R in their modelling pipeline,
-*e.g.*, [APSIMBatch](https://CRAN.R-project.org/package=APSIMBatch) and
-[apsimr](https://CRAN.R-project.org/package=apsimr).
+the POWER data API and the R APSIM package [^14] to generate the proper weather
+.met files since many APSIM users, use R in their modelling pipeline, *e.g.*,
+APSIMBatch[^15] and apsimr[^16].
 
 Both of these functions simply download data and write the values to
 disk in a specialised file format that these crop modelling platforms
@@ -517,70 +513,36 @@ I would like to thank the valuable comments from [Emerson Del Ponte](https://twi
 
 ### References
 
-[^1]: Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason
-Barnett, Tyler Bristow, Bradley Macpherson, and James M. Hoell. 2018.
-“POWER Release 8 (with GIS Applications) Methodology (Data Parameters,
-Sources, & Validation) Documentation Date May 1, 2018 (All Previous
-Versions Are Obsolete) (Data Version 8.0.1).” NASA.
-<https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>.
+[^1]: Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason Barnett, Tyler Bristow, Bradley Macpherson, and James M. Hoell. 2018. “POWER Release 8 (with GIS Applications) Methodology (Data Parameters, Sources, & Validation) Documentation Date May 1, 2018 (All Previous
+Versions Are Obsolete) (Data Version 8.0.1).” NASA. <https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>.
 
-[^2]: Savary, Serge, Andrew Nelson, Laetitia Willocquet, Ireneo Pangga, and
-Jorrel Aunario. 2012. “Modeling and Mapping Potential Epidemics of Rice
-Diseases Globally.” *Crop Protection* 34 (Supplement C): 6–17.
-<https://doi.org/10.1016/j.cropro.2011.11.009>.
+[^2]: Savary, Serge, Andrew Nelson, Laetitia Willocquet, Ireneo Pangga, and Jorrel Aunario. 2012. “Modeling and Mapping Potential Epidemics of Rice Diseases Globally.” *Crop Protection* 34 (Supplement C): 6–17. <https://doi.org/10.1016/j.cropro.2011.11.009>.
 
-[^3]: Duku, Confidence, Adam H. Sparks, and Sander J. Zwart. 2016. “Spatial
-Modelling of Rice Yield Losses in Tanzania Due to Bacterial Leaf Blight
-and Leaf Blast in a Changing Climate.” *Climatic Change* 135 (3):
-569–83. <https://doi.org/10.1007/s10584-015-1580-2>.
+[^3]: Duku, Confidence, Adam H. Sparks, and Sander J. Zwart. 2016. “Spatial Modelling of Rice Yield Losses in Tanzania Due to Bacterial Leaf Blight and Leaf Blast in a Changing Climate.” *Climatic Change* 135 (3): 569–83. <https://doi.org/10.1007/s10584-015-1580-2>.
 
-[^4]: van Wart, Justin, Patricio Grassini, and Kenneth G. Cassman. 2013.
-“Impact of Derived Global Weather Data on Simulated Crop Yields.”
-*Global Change Biology* 19 (12): 3822–34.
-<https://doi.org/10.1111/gcb.12302>.
+[^4]: van Wart, Justin, Patricio Grassini, and Kenneth G. Cassman. 2013. “Impact of Derived Global Weather Data on Simulated Crop Yields.” *Global Change Biology* 19 (12): 3822–34. <https://doi.org/10.1111/gcb.12302>.
 
-[^5]: van Wart, Justin, Patricio Grassini, Haishun Yang, Lieven Claessens,
-Andrew Jarvis, and Kenneth G. Cassman. 2015. “Creating Long-Term Weather
-Data from Thin Air for Crop Simulation Modeling.” *Agricultural and
-Forest Meteorology* 209-210 (Supplement C): 49–58.
-<https://doi.org/10.1016/j.agrformet.2015.02.020>.
+[^5]: van Wart, Justin, Patricio Grassini, Haishun Yang, Lieven Claessens, Andrew Jarvis, and Kenneth G. Cassman. 2015. “Creating Long-Term Weather Data from Thin Air for Crop Simulation Modeling.” *Agricultural and Forest Meteorology* 209-210 (Supplement C): 49–58. <https://doi.org/10.1016/j.agrformet.2015.02.020>.
 
-[^6]: Sparks, Adam, 2018. “nasapower: A NASA POWER Global Meteorology, Surface
-Solar Energy and Climatology Data Client for R”. *Journal of Open Source
-Software*, 3(30), 1035, <https://doi.org/10.21105/joss.01035>.
+[^6]: Sparks, Adam, 2018. “nasapower: A NASA POWER Global Meteorology, Surface Solar Energy and Climatology Data Client for R”. *Journal of Open Source Software*, 3(30), 1035, <https://doi.org/10.21105/joss.01035>.
 
-[^7]: Sparks, Adam. 2019. “nasapower: NASA-POWER Data from R”. R package version
-1.1.1, <https://ropensci.github.io/nasapower/>.
+[^7]: Sparks, Adam. 2019. “nasapower: NASA-POWER Data from R”. R package version 1.1.1, <https://ropensci.github.io/nasapower/>.
 
-[^8]: Chamberlain, Scott. 2018. “crul: HTTP Client”. rOpenSci.
-<https://CRAN.R-project.org/package=crul>.
+[^8]: Chamberlain, Scott. 2018. “crul: HTTP Client”. rOpenSci. <https://CRAN.R-project.org/package=crul>.
 
-[^9]: Sparks, Adam H., Tomislav Hengl and Andrew Nelson. 2017. “GSODR: Global
-Summary Daily Weather Data in R”. *The Journal of Open Source Software*, 2(10).
-<https://doi.org/10.21105/joss.00177>.
+[^9]: Sparks, Adam H., Tomislav Hengl and Andrew Nelson. 2017. “GSODR: Global Summary Daily Weather Data in R”. *The Journal of Open Source Software*, 2(10). <https://doi.org/10.21105/joss.00177>.
 
-[^10]: Jones, James W, Gerrit Hoogenboom, Cheryl H Porter, Ken J Boote, William
-D Batchelor, LA Hunt, Paul W Wilkens, Upendra Singh, Arjan J Gijsman,
-and Joe T Ritchie. 2003. “The DSSAT Cropping System Model.” *European
-Journal of Agronomy* 18 (3-4): 235–65.
+[^10]: Jones, J. W., G. Y. Tsuji, G. Hoogenboom, L. A. Hunt, P. K. Thornton, P. W. Wilkens, D. T. Imamura, W. T. Bowen, and U. Singh. 1998. “Decision Support System for Agrotechnology Transfer: DSSAT v3.” In *Understanding Options for Agricultural Production*, 157–77. Springer.
 
-[^11]: Jones, J. W., G. Y. Tsuji, G. Hoogenboom, L. A. Hunt, P. K. Thornton, P.
-W. Wilkens, D. T. Imamura, W. T. Bowen, and U. Singh. 1998. “Decision
-Support System for Agrotechnology Transfer: DSSAT v3.” In *Understanding
-Options for Agricultural Production*, 157–77. Springer.
+[^11]: Jones, James W, Gerrit Hoogenboom, Cheryl H Porter, Ken J Boote, William D Batchelor, LA Hunt, Paul W Wilkens, Upendra Singh, Arjan J Gijsman, and Joe T Ritchie. 2003. “The DSSAT Cropping System Model.” *European Journal of Agronomy* 18 (3-4): 235–65.
+  
+[^12]: Hoogenboom, G, CH Porter, V Shelia, KJ Boote, U Singh, JW White, LA Hunt, et al. 2017. “Decision Support System for Agrotechnology Transfer (DSSAT) Version 4.7 <https://dssat.net>. DSSAT Foundation, Gainesville, Florida.” USA.
 
-[^12]: Hoogenboom, G, CH Porter, V Shelia, KJ Boote, U Singh, JW White, LA
-Hunt, et al. 2017. “Decision Support System for Agrotechnology Transfer
-(DSSAT) Version 4.7 <https://dssat.net>. DSSAT Foundation, Gainesville,
-Florida.” USA.
+[^13]: Keating, Brian A., Peter S. Carberry, Graeme L. Hammer, Mervyn E. Probert, Michael J. Robertson, D. Holzworth, Neil I. Huth, et al. 2003. “An Overview of APSIM, a Model Designed for Farming Systems Simulation.” *European Journal of Agronomy* 18 (3-4): 267–88.
 
-[^13]: Keating, Brian A., Peter S. Carberry, Graeme L. Hammer, Mervyn E.
-Probert, Michael J. Robertson, D. Holzworth, Neil I. Huth, et al. 2003.
-“An Overview of APSIM, a Model Designed for Farming Systems
-Simulation.” *European Journal of Agronomy* 18 (3-4): 267–88.
-
-[^14]: Fainges, Justin. 2017. "APSIM: General Utility Functions for the
-’Agricultural Production Systems Simulator’". CSIRO.
+[^14]: Fainges, Justin. 2017. “APSIM: General Utility Functions for the ’Agricultural Production Systems Simulator’". CSIRO.
 <https://CRAN.R-project.org/package=APSIM>.
 
+[^15]: Bangyou Zheng (2012). “APSIMBatch: Analysis the output of Apsim software.” R package version 0.1.0.2374. <https://CRAN.R-project.org/package=APSIMBatch>
 
+[^16]: Bryan Stanfill (2015). “apsimr: Edit, Run and Evaluate APSIM Simulations Easily Using R”. R package version 1.2. <https://CRAN.R-project.org/package=apsimr>
