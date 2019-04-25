@@ -50,7 +50,7 @@ at the [International Rice Research Institute
 (IRRI)](https://irri.org/mapping) in 2011. We commonly used the
 agroclimatology data from POWER to map and model rice projects. In most
 of the work I did, I used it with the EPIRICE model[^2], but it was also used
-for other crop modelling. Since then I’ve used the POWER data in projects with
+for other crop modelling. Since then I have used the POWER data in projects with
 EPIRICE myself[^3] and have worked with other researchers who use it for crop
 simulation modelling exercises[^4],[^5]. The data were a great resource for
 agricultural modelling, even if it was a bit coarse at 1˚ x 1˚ (covering roughly
@@ -58,19 +58,15 @@ agricultural modelling, even if it was a bit coarse at 1˚ x 1˚ (covering rough
 you approach the poles), the full data set had global coverage, offering data
 where we often needed it in areas that lacked good weather station coverage.
 
-Because I used the data and because I knew plenty of others used the
-data, in 2017 I started writing nasapower[^6],[^7] to interface with the POWER 
-data and run queries to get data from the server but only for agricultural
-weather data (AG community) as this was my main (really only) interest. This
-greatly simplified the way the data could be retrieved since it meant that there
-was no need to use the web interface that the POWER team provided and also made
-the work reproducible. The package was very simple with few dependencies and
-worked quickly and made getting data much easier as the only way to
-otherwise download was through a painful series of point-and-clicks on a
-website. I submitted it for [review with
-rOpenSci](https://github.com/ropensci/software-review/issues/155) and
-was happy with the feedback I received from the reviewers, quickly
-making the changes.
+Because I had used the data and I knew plenty of others used the data; in 2017 I
+started writing nasapower[^6],[^7] to interface with the POWER website and run
+queries to get the data from the server but only for agricultural weather data
+(AG community), as this was my main (really only) interest. This created a
+simplified procedure for downloading the data in place of using the point and 
+click interface of the website for repeated queries. I submitted it for
+[review with rOpenSci](https://github.com/ropensci/software-review/issues/155)
+and was happy with the feedback I received from the reviewers, quickly making
+the suggested changes.
 
 ### What Happened Next
 
@@ -252,7 +248,13 @@ ggplot(dv_long, aes(x = YYYYMMDD, y = Degrees,
   theme_ipsum()
 ```
 
-![](/img/blog-images/2019-05-14-nasapower/graph_t-1.png)<!-- -->
+<figure>
+  <img src="/img/blog-images/2019-05-14-nasapower/graph_t-1.png"
+  alt="Line graph for NASA POWER Climatology mean temperature at 2 meters above the Earth's surface for the POWER grid cell covering Death Valley in California, USA."/>
+  <figcaption style="font-size:smaller">Figure 1: Daily temperature extremes at 2 meters above the Earth's surface for the grid cell covering Death Valley, California, USA for the time-period from 1983 to 2018.
+</figcaption>
+</figure>
+<div class="horizontalgap" style="width:10px"></div>
 
 That is quite a swing in air temperatures from well over 40˚ C to well
 below 0˚ C throughout the year. I was going to put together a comparison
@@ -274,7 +276,7 @@ provide.
 
 #### Crop Modelling From Space
 
-However, this can be advantageous as well. Some agricultural scientists work
+This can be advantageous as well, however. Some agricultural scientists work
 with models that predict crop yields in response to changes to the crop,
 weather, farmer inputs or even climate change. Crop yield modelling often
 uses daily weather data covering large relatively continuous areas that
@@ -305,17 +307,19 @@ disk in a specialised file format that these crop modelling platforms
 use, therefore I have declined to illustrate their usage in this blog
 post.
 
-#### Further Options Available For `get_power()`
+### There Is More Than Just Daily Data for Single Cells
 
-Daily weather data are not the only data offered by this API though. Two
-other options exist for the `temporal_average` parameter, INTERANNUAL
-and CLIMATOLOGY. INTERANNUAL data provide monthly averages for the same
-0.5˚ x 0.5˚ grid as the daily, while CLIMATOLOGY provides 0.5˚ x 0.5˚
-gridded data of a thirty year time period from January 1984 to December
-2013 for the whole global surface.
+#### Retrieving Climatology
 
-The CLIMATOLOGY data are the only way to get the entire surface in one
-go as shown here for the global annual average temperature, T2M.
+Daily weather data are not the only data offered by this API. Two other options
+exist for the `temporal_average` parameter, INTERANNUAL and CLIMATOLOGY.
+INTERANNUAL data provide monthly averages for the same 0.5˚ x 0.5˚ grid as the
+daily data for the time-period the user specifies, while CLIMATOLOGY provides
+0.5˚ x 0.5˚ gridded data of a thirty year time period from January 1984 to
+December 2013.
+
+The CLIMATOLOGY data are the only way to get the entire surface in one query,
+but single cell and regional data are also available for this temporal average.
 
 ``` r
 library(raster)
@@ -387,15 +391,24 @@ n <- length(unique(global_t2m$ANN))
 plot(T2M_ann, col = viridis(n = n))
 ```
 
-![](/img/blog-images/2019-05-14-nasapower/global-T2M-1.png)<!-- -->
+<figure>
+  <img src="/img/blog-images/2019-05-14-nasapower/global-T2M-1.png"
+  alt="NASA POWER Climatology annual mean temperature data for global surface."/>
+  <figcaption style="font-size:smaller">Figure 2: Global 30-year annual meteorological (January 1984 - December 2013) average temperature at 2 meters above the Earth's surface modelled from satellite derived data. You can mostly make out the outlines of the continents and especially the mountain ranges such as the Andes and Rocky Mountains to the left and the Tibetan plateau at about 100˚ longitude (x-axis) and 45˚ latitude (y-axis).</figcaption>
+</figure>
+<div class="horizontalgap" style="width:10px"></div>
 
-Otherwise you have to specify a single cell or regional coverage that
-can not be more than 100 points in total for an area of 4.5˚ x 4.5˚.
-Regional coverage is simply specified by providing a bounding box as
-“lower left (lon, lat)” and “upper right (lon, lat)” coordinates,
-*i.e.*, `lonlat = c(xmin, ymin, xmax, ymax)` in that order for a given
-region, *e.g.*, a bounding box for the south-western corner of
-Australia: `lonlat = c(112.5, -55.5, 115.5, -50.5)`.
+#### Retrieving Regional Data
+
+If you're interests cover a large area, it is possible to retrieve an area of
+cells, rather than a single cell in a query. They can not be more than 100
+points in total for an area of 4.5˚ x 4.5˚. Regional coverage is simply
+specified by providing a bounding box as “lower left (lon, lat)” and “upper
+right (lon, lat)” coordinates, *i.e.*, `lonlat = c(xmin, ymin, xmax, ymax)` in
+that order for a given region, *e.g.*, a bounding box for the south-western
+corner of Australia:
+
+`lonlat = c(112.5, -55.5, 115.5, -50.5)`.
 
 ``` r
 regional_t2m <-
@@ -450,7 +463,12 @@ n <- length(unique(regional_t2m$ANN))
 plot(T2M_ann_regional, col = viridis(n = n))
 ```
 
-![](/img/blog-images/2019-05-14-nasapower/regional-t2m-1.png)<!-- -->
+<figure>
+  <img src="/img/blog-images/2019-05-14-nasapower/regional-t2m-1.png"
+  alt="NASA POWER Climatology annual mean temperature data for a region covering south-west Australia."/>
+  <figcaption style="font-size:smaller">Figure 3: Regional 30-year annual meteorological (January 1984 - December 2013) average temperature at 2 meters above the Earth's surface modelled from satellite derived data for the south-western coastal area of Australia, illustrating the maximum allowable cells in a regional query.</figcaption>
+</figure>
+<div class="horizontalgap" style="width:10px"></div>
 
 As you can see, because the data are georeferenced it is easy to use
 them in R’s spatial packages including sf and raster. [Emerson Del
@@ -509,7 +527,7 @@ want to know more about how to use the package, I encourage you to
 browse the vignette and other on-line documentation,
 <https://ropensci.github.io/nasapower/articles/nasapower.html>.
 
-### Acknowledgments
+### Acknowledgements
 
 I would like to thank the valuable comments from [Emerson Del Ponte](https://twitter.com/edelponte) and
 [Paul Melloy](https://twitter.com/PaulMelloy) on this blog post.
