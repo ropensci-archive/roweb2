@@ -62,7 +62,7 @@ Because I had used the data and I knew plenty of others used the data; in 2017 I
 started writing nasapower[^6],[^7] to interface with the POWER website and run
 queries to get the data from the server but only for agricultural weather data
 (AG community), as this was my main (really only) interest. This created a
-simplified procedure for downloading the data in place of using the point and 
+simplified procedure for downloading the data in place of using the point and
 click interface of the website for repeated queries. I submitted it for
 [review with rOpenSci](https://github.com/ropensci/software-review/issues/155)
 and was happy with the feedback I received from the reviewers, quickly making
@@ -136,9 +136,8 @@ metadata in the console along with the weather or climate data.
 
 Later, in early 2019 I ran into an issue with the method I’d used to
 validate user inputs for `community` when building the query that was
-sent. [danielreispereira](https://github.com/danielreispereira) reported
-that for some reason nasapower was failing to download 2 m wind data (wind
-speed as measured 2 meters above the Earth's surface),
+sent. [Daniel Reis Pereira](https://github.com/danielreispereira) reported
+that for some reason nasapower was failing to download 2 m wind data,
 necessary for calculating evapotranspiration for crop modelling. Looking
 into the JSON file I used as suggested by Ben Raymond, I found the issue. The
 POWER team did not list the AG community as having this data available. I
@@ -193,7 +192,7 @@ dv
     ##  Climate zone: na (reference Briggs et al: http://www.energycodes.gov)  
     ##  Value for missing model data cannot be computed or out of model availability range: -99  
     ##  
-    ##  Parameters: 
+    ##  Parameters:
     ##  T2M_MIN MERRA2 1/2x1/2 Minimum Temperature at 2 Meters (C) ;
     ##  T2M_MAX MERRA2 1/2x1/2 Maximum Temperature at 2 Meters (C)  
     ##  
@@ -202,14 +201,14 @@ dv
     ##    <dbl> <dbl> <dbl> <int> <int> <int> <date>       <dbl>   <dbl>
     ##  1 -117.  36.7  1983     1     1     1 1983-01-01   -4.73    7.24
     ##  2 -117.  36.7  1983     1     2     2 1983-01-02   -3.33    7.72
-    ##  3 -117.  36.7  1983     1     3     3 1983-01-03    0.05   11.8 
-    ##  4 -117.  36.7  1983     1     4     4 1983-01-04    1.27   14.9 
-    ##  5 -117.  36.7  1983     1     5     5 1983-01-05    2.55   15.9 
-    ##  6 -117.  36.7  1983     1     6     6 1983-01-06    2.63   17.1 
-    ##  7 -117.  36.7  1983     1     7     7 1983-01-07    3.2    17.2 
-    ##  8 -117.  36.7  1983     1     8     8 1983-01-08    1.96   18.3 
-    ##  9 -117.  36.7  1983     1     9     9 1983-01-09    0.7    14.0 
-    ## 10 -117.  36.7  1983     1    10    10 1983-01-10    1.3    17.6 
+    ##  3 -117.  36.7  1983     1     3     3 1983-01-03    0.05   11.8
+    ##  4 -117.  36.7  1983     1     4     4 1983-01-04    1.27   14.9
+    ##  5 -117.  36.7  1983     1     5     5 1983-01-05    2.55   15.9
+    ##  6 -117.  36.7  1983     1     6     6 1983-01-06    2.63   17.1
+    ##  7 -117.  36.7  1983     1     7     7 1983-01-07    3.2    17.2
+    ##  8 -117.  36.7  1983     1     8     8 1983-01-08    1.96   18.3
+    ##  9 -117.  36.7  1983     1     9     9 1983-01-09    0.7    14.0
+    ## 10 -117.  36.7  1983     1    10    10 1983-01-10    1.3    17.6
     ## # … with 13,139 more rows
 
 In the metadata header you can see information about where the data
@@ -221,21 +220,21 @@ can make it easier to work within R. The original data only include YEAR
 and DOY. Looking at the data returned, there are:
 
   * LON = the queried longitude as a double;
-  
+
   * LAT = the queried latitude as a double;
-  
+
   * YEAR = the queried year as a double;
-  
+
   * MM = the queried month as a double,
-  
+
   * DD = the queried day as a double,
-  
+
   * DOY = the day of year or Julian date as an integer,
-  
+
   * YYYYMMDD = the full date as a date object and the requested parameters,
-  
+
   * T2M\_MIN = the minimum temperature at 2 meters above the Earth's surface as a double, and
-  
+
   * T2M\_MAX = the maxiumum temperature at 2 meters above the Earth's surface as a double.
 
 #### Visualising the Data
@@ -248,7 +247,7 @@ library(tidyr)
 library(ggplot2)
 library(hrbrthemes)
 
-dv_long <- 
+dv_long <-
   tidyr::gather(dv, key = "T2M",
                 value = "Degrees",
                 c("T2M_MIN", "T2M_MAX"))
@@ -342,11 +341,11 @@ library(raster)
 
     ## Loading required package: sp
 
-    ## 
+    ##
     ## Attaching package: 'raster'
 
     ## The following object is masked from 'package:tidyr':
-    ## 
+    ##
     ##     extract
 
 ``` r
@@ -371,7 +370,7 @@ global_t2m
     ##  Parameter(s):  
     ##  T2M MERRA2 1/2x1/2 Temperature at 2 Meters (C)  
     ##  
-    ##  Parameters: 
+    ##  Parameters:
     ##  NA;
     ##  NA;
     ##  T2M MERRA2 1/2x1/2 Temperature at 2 Meters (C)  
@@ -445,7 +444,7 @@ regional_t2m
     ##  Climate zone: na (reference Briggs et al: http://www.energycodes.gov)  
     ##  Value for missing model data cannot be computed or out of model availability range: -99  
     ##  
-    ##  Parameters: 
+    ##  Parameters:
     ##  T2M MERRA2 1/2x1/2 Temperature at 2 Meters (C)  
     ##  
     ## # A tibble: 77 x 16
@@ -460,7 +459,7 @@ regional_t2m
     ##  7  116. -55.2 T2M        3.32  3.77  3.54  2.86  2.1   1.49  0.88  0.39
     ##  8  113. -54.8 T2M        3.12  3.51  3.3   2.57  1.82  1.17  0.59  0.12
     ##  9  113. -54.8 T2M        3.2   3.6   3.39  2.68  1.92  1.26  0.69  0.21
-    ## 10  114. -54.8 T2M        3.27  3.7   3.49  2.78  2.02  1.36  0.78  0.3 
+    ## 10  114. -54.8 T2M        3.27  3.7   3.49  2.78  2.02  1.36  0.78  0.3
     ## # … with 67 more rows, and 5 more variables: SEP <dbl>, OCT <dbl>,
     ## #   NOV <dbl>, DEC <dbl>, ANN <dbl>
 
@@ -533,7 +532,7 @@ users along the way that helped me by finding and reporting bugs.
 ### Acknowledgements
 
 I would like to recognise the valuable comments from [Emerson Del Ponte](https://twitter.com/edelponte) and
-[Paul Melloy](https://twitter.com/PaulMelloy) on this blog post. 
+[Paul Melloy](https://twitter.com/PaulMelloy) on this blog post.
 Most of all, I appreciate the [rOpenSci review process](https://github.com/ropensci/software-review/issues/155) with
 valuable contributions from [Hazel
 Kavılı](https://github.com/UniversalTourist), [Alison
@@ -570,7 +569,7 @@ Versions Are Obsolete) (Data Version 8.0.1).” NASA. <https://power.larc.nasa.g
 [^10]: Jones, J. W., G. Y. Tsuji, G. Hoogenboom, L. A. Hunt, P. K. Thornton, P. W. Wilkens, D. T. Imamura, W. T. Bowen, and U. Singh. 1998. “Decision Support System for Agrotechnology Transfer: DSSAT v3.” In *Understanding Options for Agricultural Production*, 157–77. Springer.
 
 [^11]: Jones, James W, Gerrit Hoogenboom, Cheryl H Porter, Ken J Boote, William D Batchelor, LA Hunt, Paul W Wilkens, Upendra Singh, Arjan J Gijsman, and Joe T Ritchie. 2003. “The DSSAT Cropping System Model.” *European Journal of Agronomy* 18 (3-4): 235–65.
-  
+
 [^12]: Hoogenboom, G, CH Porter, V Shelia, KJ Boote, U Singh, JW White, LA Hunt, et al. 2017. “Decision Support System for Agrotechnology Transfer (DSSAT) Version 4.7 <https://dssat.net>. DSSAT Foundation, Gainesville, Florida.” USA.
 
 [^13]: Keating, Brian A., Peter S. Carberry, Graeme L. Hammer, Mervyn E. Probert, Michael J. Robertson, D. Holzworth, Neil I. Huth, et al. 2003. “An Overview of APSIM, a Model Designed for Farming Systems Simulation.” *European Journal of Agronomy* 18 (3-4): 267–88.
