@@ -513,8 +513,8 @@ the web interface if you experience difficulties querying data.
 Hopefully the API itself has settled out a bit and will not have the
 sudden changes that I experienced. The POWER team have been supportive
 of the package, and I have received feedback and interaction from other
-users along the way that helped me by finding and reporting bugs but
-most of all the [rOpenSci review
+users along the way that helped me by finding and reporting bugs. But
+most of all, I appreciate the [rOpenSci review
 process](https://github.com/ropensci/software-review/issues/155) with
 valuable contributions from [Hazel
 Kavılı](https://github.com/UniversalTourist), [Alison
