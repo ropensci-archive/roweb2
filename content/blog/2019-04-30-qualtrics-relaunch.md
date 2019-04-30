@@ -6,9 +6,9 @@ date: '2019-04-30'
 authors:
   - Julia Silge
 categories: blog
-topicid: ___
+topicid: 1682
 tags:
-  - software peer review
+  - Software Peer Review
   - software
   - packages
   - R
