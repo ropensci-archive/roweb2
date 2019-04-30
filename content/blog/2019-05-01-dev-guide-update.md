@@ -57,4 +57,4 @@ Three changes relate to what happens after a package has been accepted.
 
 ### Conclusion
 
-In this post we summarized the changes brought to [our online book "rOpenSci Packages: Development, Maintenance, and Peer Review"](https://ropensci.github.io/dev_guide/) over the last three months. We are very grateful for all contributions that made this release possible. Now, if _you_ have any feedback about the book, also head to [the issue tracker](https://github.com/ropensci/dev_guide/issues/).
+In this post we summarized the changes brought to [our online book "rOpenSci Packages: Development, Maintenance, and Peer Review"](https://ropensci.github.io/dev_guide/) over the last three months. We are very grateful for all contributions that made this release possible. Now, if _you_ have any feedback about the book, also head to [the issue tracker](https://github.com/ropensci/dev_guide/issues/)!
