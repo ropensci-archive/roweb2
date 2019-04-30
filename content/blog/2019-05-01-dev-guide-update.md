@@ -52,7 +52,7 @@ Three changes relate to what happens after a package has been accepted.
 * We now recommend [package maintainers direct users to rOpenSci forum for feedback that's neither a bug report nor a feature request](https://ropensci.github.io/dev_guide/collaboration.html#contributing-guide).
 
 * The [review template](https://ropensci.github.io/dev_guide/reviewtemplate.html) now includes a question asking the reviewer for consent to be added to DESCRIPTION in review template, should the author(s) deem it appropriate. For more context, refer to [our blog post "Thanking Your Reviewers: Gratitude through Semantic Metadata"]
-(https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/)
+(https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/).
 
 
 ### Conclusion
