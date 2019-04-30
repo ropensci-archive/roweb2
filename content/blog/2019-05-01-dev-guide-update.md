@@ -17,7 +17,7 @@ tags:
   - Software Peer Review
 ---
 
-As announced in [our recent post about updates to our Software Peer Review system](/blog/2019/02/01/software-review-news/), all our package development, review and maintenance is available as [an online book](https://ropensci.github.io/dev_guide/). Our goal is to update approximately quaterly so it's already time to present its second official version! You can [read the changelog](https://ropensci.github.io/dev_guide/booknews.html) or this blog post to find out what's new in our dev guide 0.2.0!
+As announced in [our recent post about updates to our Software Peer Review system](/blog/2019/02/01/software-review-news/), all our package development, review and maintenance is available as [an online book](https://ropensci.github.io/dev_guide/). Our goal is to update it approximately quaterly so it's already time to present its second official version! You can [read the changelog](https://ropensci.github.io/dev_guide/booknews.html) or this blog post to find out what's new in our dev guide 0.2.0!
 
 ### A more legit and accessible book
 
