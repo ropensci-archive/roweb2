@@ -267,10 +267,14 @@ ots_create_tidy_data(
 
 ### Future directions
 
-I got suggestions to include FAO data to be easily be able to compare volumes and values of crop/commodity groups. The problem is that COMTRADE and FAO group their data in different categories,
-
-We are in the middle of creating the [Product Space](https://en.wikipedia.org/wiki/The_Product_Space) for the Harmonized System rev. 2007 but we are having some problems to remove edges and obtaining an effective network visualization. The idea is to provide a visualization that accounts for products not included in the networks used both by the Atlas and the Observatory which use Harmonized System rev. 1992.
-
-We're using the highcharter package for the dashboard. Please help me pressing  [Joshua Kunst](https://github.com/jbkunst/) to send highcharter for rOpenSci peer reviewing by giving RT to [this tweet](https://twitter.com/pachamaltese/status/1122972995138609158). Highcharter has a restricted license and at some point an alternative was to complete porting D3plus to R, and we are stuck with the htmlwidget resizing method.
-
 If you are interested in contributing to this project send us a [tweet](https://twitter.com/opentradestats) or an [email](mailto:contact@tradestatistics.io). We'd also like to read ideas not listed here.
+
+Here's a list of ideas for future work:
+
+* _Crops data_: I got suggestions to include FAO data to be easily be able to compare volumes and values of crop/commodity groups. The problem is that COMTRADE and FAO group their data in different categories,
+
+* _Network layouts_: We are in the middle of creating the [Product Space](https://en.wikipedia.org/wiki/The_Product_Space) for the Harmonized System rev. 2007 but we are having some problems to remove edges and obtaining an effective network visualization. The idea is to provide a visualization that accounts for products not included in the networks used both by the Atlas and the Observatory, which use Harmonized System rev. 1992 and therefore do not reflect the huge changes, specially in electronics, in the last two decades.
+
+* _Organizing our R functions_: A new R package might be interesting for those who work with Economic Geography or Economic Complexity. We have well organized both R and Rcpp functions that can be used as a starting point to provide a package that computes different indexes such as the [Economic Complexity Index](https://en.wikipedia.org/wiki/Economic_Complexity_Index).
+
+* _Improving hightcharter and/or porting D3plus_: We're using the highcharter package for the dashboard. Please help me pressing  [Joshua Kunst](https://github.com/jbkunst/) to send highcharter for rOpenSci peer reviewing by giving RT to [this tweet](https://twitter.com/pachamaltese/status/1122972995138609158). Highcharter has a restricted license and at some point an alternative was to complete porting D3plus to R, and we are stuck with the htmlwidget resizing method.
