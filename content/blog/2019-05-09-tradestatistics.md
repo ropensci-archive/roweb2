@@ -56,9 +56,11 @@ Even our [API](https://api.tradestatistics.io/) was made with R. I used the [Plu
 
 The web service is [nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04) enhanced with a secured connection by using [Let's Encrypt](https://www.digitalocean.com/community/tutorials/how-to-use-certbot-standalone-mode-to-retrieve-let-s-encrypt-ssl-certificates-on-ubuntu-1804). The landing page is a modified [HTML5UP](https://html5up.net/) template, and [Atom](https://atom.io/) and [yui-compressor](https://yui.github.io/yuicompressor/) were the tools to personalize the CSS behind the landing, documentation and dashboard with [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans) as the typeface of choice.
 
+Even our email service is powered thanks to Open Source. We use [mail-in-a-box](https://mailinabox.email/) with some very simple tweaks such as email forwarding and integration with Thunderbird.
+
 ### rOpenSci contributions
 
-Thanks to [Maelle](https://github.com/maelle), [Amanda](https://github.com/aedobbyn), [Jorge](https://github.com/cimentadaj), [Emily](https://github.com/emilyriederer), [Mark](https://github.com/mpadge) and [Joshua](https://github.com/jbkunst/) the overall result can be said to be top quality!
+Thanks to [Maelle](https://github.com/maelle), [Amanda](https://github.com/aedobbyn), [Jorge](https://github.com/cimentadaj), [Emily](https://github.com/emilyriederer), [Mark](https://github.com/mpadge) the overall result can be said to be top quality!
 
 After a long reviewing process (more than six month considering initial submission!), what started as an individual process mutated into something that I consider a collective result. Thanks to the amazing team behind rOpenSci, to their constructive feedback, exhaustive software reviewing and the confidence to propose ideas that that I had never gotten, what you have now is not just a solid R package.
 
@@ -263,6 +265,12 @@ ots_create_tidy_data(
 )
 ```
 
-### Shameless pressure to improve highcharter
+### Future directions
 
-Joshua is not (yet) a member of rOpenSci, he contributed to cleaning the data back in 2017, but please help me pressing him to send highcharter for reviewing by giving RT to [this tweet](https://twitter.com/pachamaltese/status/1122972995138609158).
+I got suggestions to include FAO data to be easily be able to compare volumes and values of crop/commodity groups. The problem is that COMTRADE and FAO group their data in different categories,
+
+We are in the middle of creating the [Product Space](https://en.wikipedia.org/wiki/The_Product_Space) for the Harmonized System rev. 2007 but we are having some problems to remove edges and obtaining an effective network visualization. The idea is to provide a visualization that accounts for products not included in the networks used both by the Atlas and the Observatory which use Harmonized System rev. 1992.
+
+We're using the highcharter package for the dashboard. Please help me pressing  [Joshua Kunst](https://github.com/jbkunst/) to send highcharter for rOpenSci peer reviewing by giving RT to [this tweet](https://twitter.com/pachamaltese/status/1122972995138609158). Highcharter has a restricted license and at some point an alternative was to complete porting D3plus to R, and we are stuck with the htmlwidget resizing method.
+
+If you are interested in contributing to this project send us a [tweet](https://twitter.com/opentradestats) or an [email](mailto:contact@tradestatistics.io). We'd also like to read ideas not listed here.
