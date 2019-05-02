@@ -283,6 +283,6 @@ Here's a list of ideas for future work:
 
 #### Help with the server costs
 
-If you would like to try DigitalOcean, you can try the [RStudio image](https://marketplace.digitalocean.com/apps/rstudio) and you will get 100 USD in credits for you and we get credits depending on how many users register with [the link [this](https://m.do.co/c/6119f0430dad) referral code.
+If you would like to try DigitalOcean, you can try the [RStudio image](https://marketplace.digitalocean.com/apps/rstudio) and you will get 100 USD in credits for you and we get credits depending on how many users register with [this](https://m.do.co/c/6119f0430dad) referral code.
 
 We also enabled [PayPal](https://www.paypal.me/tradestatistics) to get monetary support to cover server costs.
