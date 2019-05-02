@@ -40,7 +40,7 @@ Reproducibility can be explained as: *"Work in a smart way so that your future-s
 
 Once I had reproducible results I took a [snapshot](https://github.com/tradestatistics/packrat-library) of my packages by using packat. To ensure reproducibility over time, I decided to build R from source, isolated from the system package manager and therefore avoiding accidental updates that might break the code.
 
-Is it worth mentioning that I'm using [DigitalOcean](https://www.digitalocean.com/) virtual machines to store the datasets and run all the services required to run an API. Under their [Open Source Sponsorships](https://www.digitalocean.com/open-source/) the server cost is largely subsidized.
+Is it worth mentioning that I'm using [DigitalOcean](https://www.digitalocean.com/) virtual machines to store the datasets and run all the services required to run an API. Under their [Open Source Sponsorships](https://www.digitalocean.com/open-source/) the server cost is subsidized.
 
 As a way to contribute back to the community, [here](https://marketplace.digitalocean.com/apps/rstudio) you can find a ready to use RStudio image to work with databases and build R packages.
 
@@ -265,9 +265,11 @@ ots_create_tidy_data(
 )
 ```
 
-### Future directions
+### How to contribute?
 
 If you are interested in contributing to this project send us a [tweet](https://twitter.com/opentradestats) or an [email](mailto:contact@tradestatistics.io). We'd also like to read ideas not listed here.
+
+#### Future work
 
 Here's a list of ideas for future work:
 
@@ -278,3 +280,9 @@ Here's a list of ideas for future work:
 * _Organizing our R functions_: A new R package might be interesting for those who work with Economic Geography or Economic Complexity. We have well organized both R and Rcpp functions that can be used as a starting point to provide a package that computes different indexes such as the [Economic Complexity Index](https://en.wikipedia.org/wiki/Economic_Complexity_Index).
 
 * _Improving hightcharter and/or porting D3plus_: We're using the highcharter package for the dashboard. Please help me pressing  [Joshua Kunst](https://github.com/jbkunst/) to send highcharter for rOpenSci peer reviewing by giving RT to [this tweet](https://twitter.com/pachamaltese/status/1122972995138609158). Highcharter has a restricted license and at some point an alternative was to complete porting D3plus to R, and we are stuck with the htmlwidget resizing method.
+
+#### Help with the server costs
+
+If you would like to try DigitalOcean, you can try the [RStudio image](https://marketplace.digitalocean.com/apps/rstudio) and you will get 100 USD in credits for you and we get credits depending on how many users register with [the link [this](https://m.do.co/c/6119f0430dad) referral code.
+
+We also enabled [PayPal](https://www.paypal.me/tradestatistics) to get monetary support to cover server costs.
