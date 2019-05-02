@@ -59,7 +59,7 @@ Even our email service is powered thanks to Open Source. We use [mail-in-a-box](
 
 ### rOpenSci contributions
 
-Thanks to [Maelle](https://github.com/maelle), [Amanda](https://github.com/aedobbyn), [Jorge](https://github.com/cimentadaj), [Emily](https://github.com/emilyriederer), [Mark](https://github.com/mpadge) the overall result can be said to be top quality!
+Thanks to [Maëlle Salmon](/authors/ma%C3%ABlle-salmon/), [Amanda Dobbyn](/authors/amanda-dobbyn/), [Jorge Cimentada](/authors/jorge-cimentada/), [Emily Riederer](https://github.com/emilyriederer), [Mark Padgham](/authors/mark-padgham/) the overall result can be said to be top quality!
 
 After a long reviewing process (more than six month considering initial submission!), what started as an individual process mutated into something that I consider a collective result. Thanks to the amazing team behind rOpenSci, to their constructive feedback, exhaustive software reviewing and the confidence to propose ideas that that I had never gotten, what you have now is not just a solid R package.
 
