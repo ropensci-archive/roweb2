@@ -349,8 +349,6 @@ ots_create_tidy_data(
 
 If you are interested in contributing to this project send us a [tweet](https://twitter.com/opentradestats) or an [email](mailto:contact@tradestatistics.io). We'd also like to read ideas not listed here.
 
-#### Future work
-
 Here's a list of ideas for future work:
 
 * _Crops data_: I got suggestions to include crops data from [The Food and Agriculture Organization of the United Nations](https://en.wikipedia.org/wiki/Food_and_Agriculture_Organization) (FAO) to be easily be able to compare volumes and exported values of crop/commodity groups. The problem is that UN COMTRADE and FAO group their data in different categories.
