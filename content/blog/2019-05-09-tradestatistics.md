@@ -55,7 +55,7 @@ Even our [API](https://api.tradestatistics.io/) was made with R. I used the [Plu
 
 The web service is [nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04) enhanced with a secured connection by using [Let's Encrypt](https://www.digitalocean.com/community/tutorials/how-to-use-certbot-standalone-mode-to-retrieve-let-s-encrypt-ssl-certificates-on-ubuntu-1804). The landing page is a modified [HTML5UP](https://html5up.net/) template, and [Atom](https://atom.io/) and [yui-compressor](https://yui.github.io/yuicompressor/) were the tools to personalize the CSS behind the landing, documentation and dashboard with [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans) as the typeface of choice.
 
-Even our email service is powered thanks to Open Source. We use [mail-in-a-box](https://mailinabox.email/) with some very simple tweaks such as email forwarding and integration with Thunderbird.
+Even our email service is a stack of Open Source tools. We use [mail-in-a-box](https://mailinabox.email/) with some very simple tweaks such as email forwarding and integration with Thunderbird.
 
 ### rOpenSci contributions
 
