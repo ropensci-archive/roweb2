@@ -18,14 +18,13 @@ tags:
 
 The project started when I found myself, like many people from Latin American Universities, with restricted access to the [United Nations Commodity Trade Statistics Database](https://comtrade.un.org/) (UN COMTRADE). That is the result of expensive subscriptions and a generalized lack of resources for universities in the region as a result of non-existing I+D policies for development.
 
-There are alternatives to COMTRADE, for example the [Base Pour L'Analyse du Commerce International](http://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=1) (BACI) constitutes an improvement over COMTRADE as is constructed using the raw data and a method that reconciles the declarations of the exporter and the importer. This harmonization procedure enables to extend considerably the number of countries for which trade data are available, as compared to the original dataset. The main limitations behind BACI are three: (i) To access their data you need a COMTRADE account; (ii) their datasets are only available to be downloaded as zip files organized by year, with no plans to provide an API or database access; (iii) there is no access to their code, therefore full independent replication is not possible.
+There are alternatives to COMTRADE, for example the [Base Pour L'Analyse du Commerce International](http://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=1) (BACI) constitutes an improvement over COMTRADE as it is constructed using the raw data and a method that reconciles the declarations of the exporter and the importer. This harmonization procedure enables to extend considerably the number of countries for which trade data are available, as compared to the original dataset. The main limitations behind BACI are three: (i) To access their data you need a COMTRADE account; (ii) their datasets are only available to be downloaded as zip files organized by year, with no plans to provide an API or database access; (iii) there is no access to their code, therefore full independent replication is not possible.
 
-After contacting UN COMTRADE, and exposing them my idea of doing something similar to BACI but available to anyone for strictly non-commercial purposes and with open access to datasets and code, I got an authorization to share curated versions of their datasets.
+After contacting UN COMTRADE, and suggesting to them my idea of doing something similar to BACI but available to anyone for strictly non-commercial purposes and with open access to datasets and code, I got an authorization to share curated versions of their datasets.
 
-Different projects such as [The Atlas of Economic complexity](http://atlas.cid.harvard.edu/) focus on visualization to answer questions like:
+Different projects such as [The Atlas of Economic complexity](http://atlas.cid.harvard.edu/) and [The Obervatory of Economic complexity](http://atlas.media.mit.edu/) use UN COMTRADE data and focus on visualization to answer questions like:
 
 * What did Germany export in 2016?
-* Which products are feasible for Australia?
 * Who imported Electronics in 1980?
 * Who exported Refined Copper in 1990?
 * Where did Chile export Wine to in 2016?
@@ -34,11 +33,11 @@ Unlike existing visualization projects, I wanted to focus on data retrieval and 
 
 ### Making the code (always) work
 
-I started organizing code I wrote during the last four years at https://github.com/tradestatistics/. There was code there that I haven't touched in more than two years, and I wrote almost no comments indicating what do the parts of the code actually do, so it was not understandable for others.
+I started organizing code I wrote during the last four years at https://github.com/tradestatistics/. There was code there that I haven't touched in more than two years, and I wrote almost no comments indicating what the parts of the code actually do, so it was not understandable for others.
 
-Reproducibility can be explained as: *"Work in a smart way so that your future-self won't ask 'Why does the code return an error?', 'What does this code do?' or 'Why did the result change if I haven't touched the script?'"*. My data cleaning process was not reproducible, and it was tragic to discover! I decided to start using RStudio Server to test the code line by line, on a fresh environment, and then dividing the code into smaller pieces and commenting what do the different sections actually do.
+Reproducibility can be explained as: *"Work in a smart way so that your future-self won't ask 'Why does the code return an error?', 'What does this code do?' or 'Why did the result change if I haven't touched the script?'"*. My data cleaning process was not reproducible, and it was tragic to discover! I decided to start using RStudio Server to test the code line by line, in a fresh environment, and then dividing the code into smaller pieces and commenting what the different sections actually do.
 
-Once I had reproducible results I took a [snapshot](https://github.com/tradestatistics/packrat-library) of my packages by using packat. To ensure reproducibility over time, I decided to build R from source, isolated from the system package manager and therefore avoiding accidental updates that might break the code.
+Once I had reproducible results I took a [snapshot](https://github.com/tradestatistics/packrat-library) of my packages by using packrat. To ensure reproducibility over time, I decided to build R from source, isolated from the system package manager and therefore avoiding accidental updates that might break the code.
 
 Is it worth mentioning that I'm using [DigitalOcean](https://www.digitalocean.com/) virtual machines to store the datasets and run all the services required to run an API. Under their [Open Source Sponsorships](https://www.digitalocean.com/open-source/) the server cost is subsidized.
 
@@ -67,8 +66,6 @@ After a long reviewing process (more than six month considering initial submissi
 The hours spent as a part of the reviewing process translated into changes to the database and the API. According to the reviewers comments, there are limited opportunities to implement server-side changes and then updating the R code. With the inclusion of different API parameters that I initially didn't consider, the current API/package state provides an efficient solution way better than post-filtering. You'll always extract exactly the data you require and no more than that.
 
 One useful contributed idea was to create aliases for groups of countries. Both in the API and package, you can request an ISO code such as "usa" (United States) or an alias such as "c-am" (all countries in America) that returns condensed queries.
-
-The only aspect we didn't totally agree was the dependency-heavy "tidy" code. I was asked for a lot of changes to the initial package draft, and one of the very few points that remained less changed was to use tidyverse functions, such as those provided by rlang package, instead of dependency-free base R alternatives. However, it's a matter of personal taste.
 
 ### Final result
 
@@ -165,7 +162,7 @@ as_tibble(oec_data)
 
 Post-filtering is required at product code depth as there are more observations than the result of Open Trade Statistics (which by default returns standard Harmonized System four digits codes).
 
-One major drawback here is that OEC codes from here doesn't fully respect the Harmonized System. Six digits codes from the OEC are HS four digits code with added digits at the beginning to indicate the category of the product, and this is very confusing provided HS has a six digits list of codes that consists in a more detailed version of four digits codes (i.e. "laptops" versus "laptops, 14 inch screen").
+One major drawback here is that OEC codes from here doesn't fully respect the Harmonized System. In simple terms, the HS code "7325" means "Iron or steel; cast articles" and "732510" means "Iron; articles of non-malleable cast iron". In the OEC case, their "157325" code is actually "7325" from the HS, because they append a "15" that stands for "product community #15, metals". This constitutes a problem when joining product codes with product names from official tables.
 
 Let's filter with this consideration in mind:
 
