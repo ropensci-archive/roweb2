@@ -14,7 +14,7 @@ tags:
 
 ### Introduction
 
-[Open Trade Statistics](https://tradestatistics.io) was created with the intention to lower the barrier to working with international economic trade data. It includes a public API, a dashboard, and an R package for data retrieval.
+[Open Trade Statistics](https://tradestatistics.io) (OTS) was created with the intention to lower the barrier to working with international economic trade data. It includes a public API, a dashboard, and an R package for data retrieval.
 
 The project started when I was affected by the fact that many Latin American Universities have limited or no access to the [United Nations Commodity Trade Statistics Database](https://comtrade.un.org/) (UN COMTRADE).
 
@@ -127,7 +127,42 @@ as_tibble(ots_data)
 #   import_value_usd_percentage_change_5_years <dbl>
 ```
 
-The resulting data is tidy and, in my opinion, it involved few and simple steps.
+The resulting data is tidy and, in my opinion, it involved few and simple steps. The codes from the product_code column are official [Harmonized System](https://en.wikipedia.org/wiki/Harmonized_System) (HS) codes, and those are used both by UN COMTRADE and all over the world.
+
+To answer the original question, with this data as is, is not possible to tell, but I can use the API again to join two tables. I'll obtain the product information and then I'll group the data by groups of products:
+
+```r
+# Product information
+products <- fromJSON("https://api.tradestatistics.io/products")
+
+# Join the two tables and then summarise by product group
+# This will condense the original table into something more compact
+# and even probably more informative
+ots_data %>% 
+  left_join(products, by = "product_code") %>% 
+  group_by(group_name) %>% 
+  summarise(export_value_usd = sum(export_value_usd, na.rm = T)) %>% 
+  arrange(-export_value_usd)
+```
+
+```
+# A tibble: 97 x 2
+   group_name                                                  export_value_usd
+   <chr>                                                                  <int>
+ 1 Vehicles; other than railway or tramway rolling stock, and…        444052393
+ 2 Nuclear reactors, boilers, machinery and mechanical applia…        328008667
+ 3 Mineral fuels, mineral oils and products of their distilla…        221487719
+ 4 Electrical machinery and equipment and parts thereof; soun…        179309083
+ 5 Plastics and articles thereof                                      172385449
+ 6 Iron or steel articles                                             153072803
+ 7 Miscellaneous edible preparations                                  149936537
+ 8 Paper and paperboard; articles of paper pulp, of paper or …        149405846
+ 9 Fruit and nuts, edible; peel of citrus fruit or melons             139800139
+10 Wood and articles of wood; wood charcoal                           113034494
+# … with 87 more rows
+```
+
+Now we can say that in 2016, Chile exported primarily vehicles to Argentina, Bolivia and Perú.
 
 #### The Observatory of Economic Complexity
 
@@ -136,7 +171,7 @@ This API is documented [here](https://atlas.media.mit.edu/api/). I'll try to rep
 ```r
 # Function to read each combination reporter-partners
 read_from_oec <- function(p) {
-  fromJSON(sprintf("https://atlas.media.mit.edu/hs07/export/2017/chl/%s/show/", p))
+  fromJSON(sprintf("https://atlas.media.mit.edu/hs07/export/2016/chl/%s/show/", p))
 }
 
 # From their documentation I can infer their links use ISO codes for countries, 
@@ -146,34 +181,34 @@ destination <- c("arg", "bol", "per")
 # One problem here is that the API returns a nested JSON that doesn't work with map_df
 # I can obtain the same result with map and flatten
 oec_data <- map(destination, read_from_oec)
-oec_data <- bind_rows(flatten(oec_data))
+oec_data <- bind_rows(oec_data[[1]]$data, oec_data[[2]]$data, oec_data[[3]]$data)
 
 # Preview the data
 as_tibble(oec_data)
 ```
 
 ```
-# A tibble: 9,929 x 15
+# A tibble: 9,933 x 15
    dest_id export_val export_val_grow… export_val_grow… export_val_grow… export_val_grow… hs07_id hs07_id_len
    <chr>        <dbl>            <dbl>            <dbl>            <dbl>            <dbl> <chr>         <dbl>
- 1 saarg      558931.            0.223            0.277          101763.          394357. 010101            6
- 2 saarg       14013.           -0.86            -0.178          -86169.          -23381. 010101…           8
- 3 saarg      544918.            0.526            0.338          187931.          417739. 010101…           8
- 4 saarg          NA            NA               NA                  NA               NA  010106            6
- 5 saarg          NA            NA               NA                  NA               NA  010106…           8
- 6 saarg          NA            NA               NA                  NA               NA  010201            6
- 7 saarg          NA            NA               NA                  NA               NA  010201…           8
- 8 saarg          NA            NA               NA                  NA               NA  010202            6
- 9 saarg          NA            NA               NA                  NA               NA  010202…           8
-10 saarg          NA            NA               NA                  NA               NA  010204            6
-# … with 9,919 more rows, and 7 more variables: import_val <dbl>, import_val_growth_pct <dbl>,
+ 1 saarg      455453.             6.97            0.108          398317.          182558. 010101            6
+ 2 saarg      100653.             1.79           -0.064           64634.          -39290. 010101…           8
+ 3 saarg      354799.            15.8             0.217          333682.          221847. 010101…           8
+ 4 saarg          NA             NA              NA                  NA               NA  010106            6
+ 5 saarg          NA             NA              NA                  NA               NA  010106…           8
+ 6 saarg          NA             NA              NA                  NA               NA  010201            6
+ 7 saarg          NA             NA              NA                  NA               NA  010201…           8
+ 8 saarg          NA             NA              NA                  NA               NA  010202            6
+ 9 saarg          NA             NA              NA                  NA               NA  010202…           8
+10 saarg          NA             NA              NA                  NA               NA  010204            6
+# … with 9,923 more rows, and 7 more variables: import_val <dbl>, import_val_growth_pct <dbl>,
 #   import_val_growth_pct_5 <dbl>, import_val_growth_val <dbl>, import_val_growth_val_5 <dbl>, origin_id <chr>,
 #   year <dbl>
 ```
 
-At first sight the API returned much more rows than in the previous example. To obtain the exact same result I'll need post-filtering at product code. One curious situation here is that hs07_id_len instead of being 4 or 6, returns 6 or 8, and this constitutes a major drawback, this means that the OEC doesn't fully respect the Harmonized System. 
+At first sight the API returned many more rows than in the previous example. To obtain the exact same result I'll need post-filtering at product code. One curious column in the table above is hs07_id_len, and that it reflects length of the HS code. For example, the first row the HS code is 010101 and its length is 6. This can be a huge problem as that column contains values 6 and 8, because the HS does not contain 8 digits codes and those 6 digits codes are not official HS codes.
 
-In simple terms, the HS code "7325" means "Iron or steel; cast articles" and "732510" means "Iron; articles of non-malleable cast iron". In the OEC case, their "157325" code is actually "7325" from the HS, because they append a "15" that stands for "product community #15, metals". This will be problematic if I need to join this table with the official product names table from UN COMTRADE.
+If you need to join that table with official HS tables, for example, in case of having to append a column with product names, exactly zero of the codes above shall have match. Among all HS codes, "7325" means "Iron or steel; cast articles" and "732510" means "Iron; articles of non-malleable cast iron", and those are official codes used by all customs in the world. In the OEC case, their "157325" code is actually "7325" from the HS, because they append a "15" that stands for "product community #15, metals".
 
 Let's filter with this consideration in mind:
 
@@ -281,9 +316,9 @@ Now that I've compared the APIs I'll dig a bit in the R package we have prepared
 library(tradestatistics)
 
 ots_create_tidy_data(
-  years = 2016:2017, 
-  reporters = c("chl", "per", "arg"), 
-  partners = c("bol", "bra", "col", "ury")
+  years = 2016, 
+  reporters = "chl", 
+  partners = c("arg", "bol", "per")
 )
 ```
 
@@ -357,4 +392,4 @@ Here's a list of ideas for future work:
 
 * _D3plus htmlwidget_: D3plus is an open source D3 based library which is released under MIT license. It can be a good alternative to Highcharts based on the license type. I've been working on my spare time in a [D3plus htmlwidget](https://github.com/pachamaltese/d3plus) that integrates with Shiny.
 
-* _Network layouts_: We are in the middle of creating the [Product Space](https://en.wikipedia.org/wiki/The_Product_Space) for the Harmonized System rev. 2007. The idea is to provide a visualization that accounts for products not included in the networks used both by the Atlas and the Observatory, which use Harmonized System rev. 1992 and therefore do not reflect the huge changes, especially in electronics, in the last two decades.
+* _Network layouts_: We are in the middle of creating the [Product Space](https://en.wikipedia.org/wiki/The_Product_Space) for the HS rev. 2007. The idea is to provide a visualization that accounts for products not included in the networks used both by the Atlas and the Observatory, which use HS rev. 1992 and therefore do not reflect the huge changes, especially in electronics, in the last two decades.
