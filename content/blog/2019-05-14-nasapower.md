@@ -32,16 +32,16 @@ twitterImg: img/blog-images/2019-05-14-nasapower/logo.png
 NASA generates and provides heaps of data to the scientific community. Not all
 of it is looking out at the stars. Some of it is looking back at us here on
 Earth. NASA’s Earth science program observes, understands and models the
-Earth system[^1]. We can use these data to discover how our Earth is changing,
-to better predict change, and to understand the consequences for life on Earth.
+Earth system (Stackhouse et al. 2018). We can use these data to discover
+how our Earth is changing, to better predict change, and to understand
+the consequences for life on Earth.
 
-The Earth science program includes the
-[Prediction of Worldwide Energy Resource (POWER)](https://power.larc.nasa.gov/)
-project, which was initiated to improve upon the current renewable energy data
-set and to create new data sets from new satellite systems. The POWER project
-targets three user communities: 1) Renewable Energy (SSE), 2) Sustainable
-Buildings (SB) and 3) Agroclimatology (AG)[^1] and covers 140+ different
-parameters.
+The Earth science program includes the Prediction of Worldwide Energy
+Resource (POWER) project, which was initiated to improve upon the
+current renewable energy data set and to create new data sets from new
+satellite systems. The POWER project targets three user communities: 1)
+Renewable Energy (SSE), 2) Sustainable Buildings (SB) and 3)
+Agroclimatology (AG)[^1] and covers 140+ different parameters.
 
 ### How Did This Package Happen?
 
@@ -54,8 +54,8 @@ for other crop modelling. Since then I have used the POWER data in projects with
 EPIRICE myself[^3] and have worked with other researchers who use it for crop
 simulation modelling exercises[^4],[^5]. The data were a great resource for
 agricultural modelling, even if it was a bit coarse at 1˚ x 1˚ (covering roughly
-12225 km<sup>2</sup> or 4721 mi<sup>2</sup> per grid cell at the equator, more
-as you approach the poles), the full data set had global coverage, offering data
+12225 km<sup>2</sup> or 4721 mi<sup>2</sup> per grid cell at the equator more as
+you approach the poles), the full data set had global coverage, offering data
 where we often needed it in areas that lacked good weather station coverage.
 
 Because I had used the data and I knew plenty of others used the data; in 2017 I
@@ -82,8 +82,8 @@ the major changes that were coming. The editor, Scott Chamberlain,
 readily agreed and over the next several months I learned how to write
 an R package that is an API client, a proper API client.
 
-Thankfully rOpenSci has a great package, crul[^8], that makes this much easier.
-Even better, [Maëlle Salmon](https://masalmon.eu) had written a
+Thankfully rOpenSci has a great package that makes this much easier,
+like crul[^8]. Even better, [Maëlle Salmon](https://masalmon.eu) had written a
 [blog post](https://masalmon.eu/2017/06/30/crolute/) on how to use it\! So I
 got down to business writing the new version of nasapower using crul.
 
@@ -540,12 +540,15 @@ Boyer](https://github.com/alisonboyer) and of course my ever-patient
 editor and third reviewer, [Scott
 Chamberlain](https://github.com/sckott). I welcome further feedback for
 [issues and suggestions](https://github.com/ropensci/nasapower/issues),
-they have only made this package better. If you are interested in this or
+they have only made this package better. If you’re interested in this or
 want to know more about how to use the package, I encourage you to
 browse the vignette and other on-line documentation,
 <https://ropensci.github.io/nasapower/articles/nasapower.html>.
 
-[^1]: Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason Barnett, Tyler Bristow, Bradley Macpherson, and James M. Hoell. 2018. “POWER Release 8 (with GIS Applications) Methodology (Data Parameters, Sources, & Validation)”, Data Version 8.0.1. NASA. <https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>.
+### References
+
+[^1]: Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason Barnett, Tyler Bristow, Bradley Macpherson, and James M. Hoell. 2018. “POWER Release 8 (with GIS Applications) Methodology (Data Parameters, Sources, & Validation) Documentation Date May 1, 2018 (All Previous
+Versions Are Obsolete) (Data Version 8.0.1).” NASA. <https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>.
 
 [^2]: Savary, Serge, Andrew Nelson, Laetitia Willocquet, Ireneo Pangga, and Jorrel Aunario. 2012. “Modeling and Mapping Potential Epidemics of Rice Diseases Globally.” *Crop Protection* 34 (Supplement C): 6–17. <https://doi.org/10.1016/j.cropro.2011.11.009>.
 
