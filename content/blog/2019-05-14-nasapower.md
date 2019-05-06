@@ -402,7 +402,7 @@ T2M_ann <- rasterFromXYZ(
 n <- length(unique(global_t2m$ANN))
 
 # plot the annual average temperature using viridis
-plot(T2M_ann, col = viridis(n = n))
+plot(T2M_ann, col = viridis(n = n), xlab = "Longitude", ylab = "Latitude")
 ```
 
 <figure>
@@ -474,7 +474,7 @@ T2M_ann_regional <- rasterFromXYZ(
 n <- length(unique(regional_t2m$ANN))
 
 # plot the annual average temperature using viridis
-plot(T2M_ann_regional, col = viridis(n = n))
+plot(T2M_ann_regional, col = viridis(n = n), xlab = "Longitude", ylab = "Latitude")
 ```
 
 <figure>
