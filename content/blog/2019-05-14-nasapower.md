@@ -414,7 +414,7 @@ plot(T2M_ann, col = viridis(n = n), xlab = "Longitude", ylab = "Latitude")
 
 #### Retrieving Regional Data
 
-If you're interests cover a large area, it is possible to retrieve an area of
+If your interests cover a large area, it is possible to retrieve an area of
 cells, rather than a single cell in a query. They can not be more than 100
 points in total for an area of 4.5˚ x 4.5˚. Regional coverage is simply
 specified by providing a bounding box as “lower left (lon, lat)” and “upper
