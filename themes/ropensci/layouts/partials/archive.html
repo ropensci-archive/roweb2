@@ -5,7 +5,7 @@
             <div class="row">
                 {{ range .pages }} {{ if .Params.authors }}
                 <div class="col-10" style="color: #7b869d">
-                    <p><a href="{{ .URL }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.authors }}
+                    <p><a href="{{ .RelPermalink }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.authors }}
   {{ if $index }}| 
   {{ end }}
   {{ $lc }}

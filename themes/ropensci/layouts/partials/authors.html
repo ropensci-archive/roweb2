@@ -7,7 +7,7 @@
   {{ end }}
   {{ range first 1 (where $pages ".Params.name" $e) }}
                             &nbsp;
-                            <a href="{{ .URL }}">{{ $name }}</a>
+                            <a href="{{ .RelPermalink }}">{{ $name }}</a>
   {{ end }}
                             {{ if $params.twitter }}
                             <a href="https://twitter.com/{{$params.twitter}}" class="social" alt="twitter" target="_blank">

@@ -21,7 +21,7 @@
 <script src="https://use.fontawesome.com/3d3fe91f65.js"></script>
 {{ partial "ga.html" . }}
 
-{{ if eq .URL "/" }}
+{{ if eq .RelPermalink "/" }}
   <title>{{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Site.Params.title }}">
   <meta property="og:type" content="website">
