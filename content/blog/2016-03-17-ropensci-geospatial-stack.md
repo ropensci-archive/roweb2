@@ -19,8 +19,7 @@ Geospatial data input/output, manipulation, and vizualization are tasks that are
 We are not trying to replace the current R geospatial libraries - rather, we're trying to fill in gaps and create smaller tools to make it easy to plug in just the tools you need to your workflow.
 
 ## geojsonio
-
-<a href="https://cran.rstudio.com/web/packages/geojsonio/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/geojsonio"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=geojsonio" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geojsonio" target="_blank"><i class="fa fa-github fa-2x"></i></a>
 
 [geojsonio](https://github.com/ropensci/geojsonio) - A tool for converting to and from geojson data. Convert data to/from GeoJSON from various R classes, including vectors, lists, data frames, shape files, and spatial classes.
 
@@ -47,7 +46,7 @@ geojson_json(c(-99.74, 32.45), pretty = TRUE)
 
 ## wellknown
 
-<a href="https://cran.rstudio.com/web/packages/wellknown/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/wellknown"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=wellknown" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/wellknown" target="_blank"><i class="fa fa-github fa-2x"></i></a>
 
 [wellknown](https://github.com/ropensci/wellknown) - A tool for converting to and from well-known text data. Convert WKT/WKB to GeoJSON and vice versa. Functions included for converting between GeoJSON to WKT/WKB, creating both GeoJSON features, and non-features, creating WKT/WKB from R objects (e.g., lists, data.frames, vectors), and linting WKT.
 
@@ -62,7 +61,7 @@ point(data.frame(lon = -116.4, lat = 45.2))
 
 ## gistr
 
-<a href="https://cran.rstudio.com/web/packages/gistr/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/gistr"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=gistr" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/gistr" target="_blank"><i class="fa fa-github fa-2x"></i></a>
 
 [gistr](https://github.com/ropensci/gistr) - This is not a geospatial tool per se, but it's extremely useful for sharing maps. For example, with just a few lines, you can share an interactive map to GitHub.
 
@@ -79,7 +78,8 @@ gist_create("map.geojson")
 
 ## lawn
 
-<a href="https://cran.rstudio.com/web/packages/lawn/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/lawn"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=lawn" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/lawn" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+
 
 An R client for [turf.js](http://turfjs.org/), an _Advanced geospatial analysis for browsers and node_
 
@@ -101,7 +101,7 @@ lawn_hex_grid(c(-96,31,-84,40), 50, 'miles') %>% view
 
 ## geoaxe
 
-<a href="https://cran.rstudio.com/web/packages/geoaxe/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropenscilabs/geoaxe"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=geoaxe" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geoaxe" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 An R client for splitting geospatial objects into pieces.
 
@@ -132,13 +132,13 @@ plot(polys, add = TRUE, mar = c(0, 0, 0, 0))
 
 ## proj
 
-<span class="label label-default">cran</span> <a href="https://github.com/ropensci/proj"><span class="label label-info">github</span></a>
+<i class="fa fa-archive fa-2x"></i> <a href="https://github.com/ropensci/proj" target="_blank"><i class="fa fa-github fa-2x"></i></a>  
 
 An R client for [proj4js](https://github.com/proj4js/proj4js), a Javascript library for projections.  `proj` is not on CRAN yet.
 
 ## getlandsat
 
-<span class="label label-default">cran</span> <a href="https://github.com/ropenscilabs/getlandsat"><span class="label label-info">github</span></a>
+<i class="fa fa-archive fa-2x"></i> <a href="https://github.com/ropensci/getlandsat" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 An R client to fetch Landsat data from AWS public data sets. `getlandsat` is not on CRAN yet.
 
@@ -173,7 +173,7 @@ head(lsat_scenes())
 
 ## siftgeojson
 
-<span class="label label-default">cran</span> <a href="https://github.com/ropenscilabs/siftgeojson"><span class="label label-info">github</span></a>
+<i class="fa fa-archive fa-2x"></i> <a href="https://github.com/ropensci/siftgeojson" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 Slice and dice GeoJSON just as easily as you would a data.frame. This is built on top of `jqr`, an R wrapper for [jq](https://stedolan.github.io/jq/), a JSON processor.
 
@@ -204,7 +204,7 @@ rOpenSci has an offering in this space: `plotly`
 
 ### plotly
 
-<a href="https://cran.rstudio.com/web/packages/plotly/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/plotly"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=plotly" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/plotly" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [plotly](https://github.com/ropensci/plotly) is an R client for [Plotly](https://plot.ly/) - a web interface and API for creating interactive graphics.
 
@@ -219,6 +219,6 @@ plot_ly(iris, x = Petal.Length, y = Petal.Width,
 
 ## Maptools Task View
 
-<a href="https://github.com/ropensci/maptools"><span class="label label-info">github</span></a>
+<a href="https://github.com/ropensci/maptools" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [Jeff Hollister](http://jwhollister.com/) is leading the [maptools task view](https://github.com/ropensci/maptools) to organize R mapping tools packages, sources of data, projections, static and interactive mapping, data transformation, and more.
