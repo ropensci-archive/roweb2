@@ -1,5 +1,5 @@
 ---
 name: Sam Albers
 github: boshek
-twitter: big_bag_sam
+twitter: big_bad_sam
 ---
