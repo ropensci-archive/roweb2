@@ -26,11 +26,11 @@ What does your iPhone, Google's PageRank algorithm, and a butter
 substitute called Smart Balance all have in common?
 
 <!-- These are open source images taken from: https://pixabay.com/ -->
-<span>
-<img src="/assets/blog-images/2017-09-19-patentsview/iphone.png" width="15%">
-<img src="/assets/blog-images/2017-09-19-patentsview/google.jpg" width="25%">
-<img src="/assets/blog-images/2017-09-19-patentsview/butter.png" width="25%">
-</span>
+{{< gallery class="content-gallery" >}}
+{{< img src="/img/blog-images/2017-09-19-patentsview/iphone.png" alt="IPhone" >}}
+{{< img src="/img/blog-images/2017-09-19-patentsview/google.jpg" alt="Google homepage screenshot" >}}
+{{< img src="/img/blog-images/2017-09-19-patentsview/butter.png" alt="Butter" >}}
+{{< /gallery >}}
 
 ...They all probably wouldn't be here if not for patents. A patent
 provides its owner with the ability to make money off of something that
