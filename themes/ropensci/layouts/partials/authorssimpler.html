@@ -5,6 +5,6 @@
                             
   {{ range first 1 (where $pages ".Params.name" $e) }}
                             &nbsp;
-                            <a href="{{ .URL }}">{{ .Params.name }}</a>
+                            <a href="{{ .Permalink }}">{{ .Params.name }}</a>
   {{ end }}
 {{end}}

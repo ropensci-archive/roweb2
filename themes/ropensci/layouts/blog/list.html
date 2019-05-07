@@ -13,7 +13,7 @@
 
                {{ range $paginator.Pages }}
                     <div class="excerpt">
-                        <a href="{{ .URL | relURL }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
+                        <a href="{{ .RelPermalink }}"><center><small><h2>{{ .Title }}</h2></small></center></a>
 
                         <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
 
@@ -28,7 +28,7 @@
                         <div class="labels">
                             {{ range .Params.tags }}
                                 {{ $targetUrl := (print ("/tags/" | relLangURL) (. | urlize) "/") }}
-                                {{ if eq $.Page.URL $targetUrl }}
+                                {{ if eq $.Page.Permalink $targetUrl }}
                                 <a href="{{ $targetUrl }}"><span class="label active">{{ . }}</span></a>
                                 {{ else }}
                                 <a href="{{ $targetUrl }}"><span class="label">{{ . }}</span></a>
