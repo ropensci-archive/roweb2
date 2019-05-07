@@ -1,0 +1,6 @@
+{{- $src := .Get "src" -}}
+{{- with .Parent -}}
+  <img src="{{$src}}" class="{{.Get "class"}}-image">
+{{- else -}}
+  <img src="{{$src}}">
+{{- end }}
