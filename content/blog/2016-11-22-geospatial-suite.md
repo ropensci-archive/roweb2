@@ -111,7 +111,7 @@ and another when the package is community contributed (<span class="label label-
 
 ## geojson
 
-<a href="https://cran.rstudio.com/web/packages/geojson/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/geojson"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=geojson" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geojson" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 We're excited to announce a new package `geojson`, which is now on CRAN. Check out the vignettes ([geojson classes](https://cran.rstudio.com/web/packages/geojson/vignettes/geojson.html), [geojson operations](https://cran.rstudio.com/web/packages/geojson/vignettes/geojson-operations.html)) to get started.
 
@@ -366,7 +366,7 @@ to_geobuf(from_geobuf(file))
 
 ## geoops
 
-<span class="label label-default">cran</span> <a href="https://github.com/ropenscilabs/geoops"><span class="label label-info">github</span></a>
+<i class="fa fa-archive fa-2x"></i> <a href="https://github.com/ropensci/geoops" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [geoops](https://github.com/ropenscilabs/geoops) - `geoops` is not quite ready to use yet, but
 the goal with `geoops` is to provide spatial operations on GeoJSON that work with the `geojson`
@@ -386,7 +386,7 @@ a data.frame, but instead we can do that with GeoJSON.
 
 ## geojsonio
 
-<a href="https://cran.rstudio.com/web/packages/geojsonio/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/geojsonio"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=geojsonio" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geojsonio" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [geojsonio](https://github.com/ropensci/geojsonio) - `geojsonio` is a client for making it
 easy to convert lots of different things to GeoJSON, and for reading/writing GeoJSON.
@@ -432,7 +432,7 @@ plot(out)
 
 ## geojsonlint
 
-<a href="https://cran.rstudio.com/web/packages/geojsonlint/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/geojsonlint"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=geojsonlint" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geojsonlint" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [geojsonlint](https://github.com/ropensci/geojsonlint) - `geojsonlint` is a client for linting
 GeoJSON. It provides three different ways to lint GeoJSON, using: the API at <geojsonlint.com>,
@@ -487,7 +487,7 @@ geojson_hint('{ "type": "FeatureCollection" }', error = TRUE)
 
 ## lawn
 
-<a href="https://cran.rstudio.com/web/packages/lawn/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/lawn"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=lawn" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/lawn" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [lawn](https://github.com/ropensci/lawn) - `lawn` is an R client wrapping [Turf.js](http://turfjs.org/)
 from Mapbox. Turf is a JS library for doing advanced geospatial analysis. Using the great [V8][v8]
@@ -559,7 +559,7 @@ lawn_buffer(pt, dist = 5)
 
 ## geonames
 
-<a href="https://cran.rstudio.com/web/packages/geonames/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropensci/geonames"><span class="label label-info">github</span></a> <span class="label label-success">community</span>
+<a href="https://cran.r-project.org/package=geonames" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geonames" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [geonames](https://github.com/ropensci/geonames) - `geonames` is an R client for the
 <geonames.org> web service, that allows you to query for global geographic data such
@@ -615,7 +615,7 @@ GNcountryCode(lat = 47.03, lng = 10.2)
 
 ## geoparser
 
-<a href="https://cran.rstudio.com/web/packages/geoparser/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropenscilabs/geoparser"><span class="label label-info">github</span></a> <span class="label label-success">community</span>
+<a href="https://cran.r-project.org/package=geoparser" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/geoparser" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [geoparser](https://github.com/ropenscilabs/geoparser) - `geoparser` is an interface
 to the Geoparser.io API for Identifying and Disambiguating Places Mentioned in Text
@@ -661,7 +661,7 @@ name found, the type of geospatial thing, geometry type, and coordinates.
 
 ## rgeospatialquality
 
-<a href="https://cran.rstudio.com/web/packages/rgeospatialquality/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropenscilabs/rgeospatialquality"><span class="label label-info">github</span></a> <span class="label label-success">community</span>
+<a href="https://cran.r-project.org/package=rgeospatialquality" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropenscilabs/rgeospatialquality" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [rgeospatialquality](https://github.com/ropenscilabs/rgeospatialquality) - `rgeospatialquality`
 is an R client for the [Geospatial Data Quality API](http://api-geospatial.vertnet-portal.appspot.com/geospatial)
@@ -738,7 +738,7 @@ are valid, and more.
 
 ## getlandsat
 
-<a href="https://cran.rstudio.com/web/packages/getlandsat/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropenscilabs/getlandsat"><span class="label label-info">github</span></a>
+<a href="https://cran.r-project.org/package=getlandsat" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/getlandsats" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [getlandsat](https://github.com/ropenscilabs/getlandsat) - `getlandsat` provides
 access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on
@@ -784,7 +784,7 @@ plot(img)
 
 ## osmplotr
 
-<a href="https://cran.rstudio.com/web/packages/osmplotr/"><span class="label label-warning">cran</span></a> <a href="https://github.com/ropenscilabs/osmplotr"><span class="label label-info">github</span></a> <span class="label label-success">community</span>
+<a href="https://cran.r-project.org/package=osmplotr" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/osmplotr" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [osmplotr](https://github.com/ropenscilabs/osmplotr) - `osmplotr` produces customisable
 images of [OpenStreetMap (OSM)](https://www.openstreetmap.org/) data and enables data
@@ -822,7 +822,7 @@ print_osm_map(map)
 
 ## rnaturalearth
 
-<span class="label label-default">cran</span> <a href="https://github.com/ropenscilabs/rnaturalearth"><span class="label label-info">github</span></a> <span class="label label-success">community</span>
+<a href="https://cran.r-project.org/package=rnaturalearth" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/rnaturalearth" target="_blank"><i class="fa fa-github fa-2x"></i></a> 
 
 [rnaturalearth](https://github.com/ropenscilabs/rnaturalearth) - `rnaturalearth`
 facilitates world mapping by making Natural Earth (<http://www.naturalearthdata.com/>)
