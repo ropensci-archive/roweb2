@@ -6,10 +6,14 @@ date: '2019-05-09'
 authors:
   - Pachá (aka Mauricio Vargas Sepúlveda)
 categories: blog
+topicid: 1699
 tags:
   - Software Peer Review
   - International Trade
   - tradestatistics
+  - R
+  - data access
+  - reproducibility
 ---
 
 ### Introduction
