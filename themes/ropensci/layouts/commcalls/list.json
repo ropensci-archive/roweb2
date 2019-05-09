@@ -15,9 +15,11 @@
 			{
 				"id": "{{ .Permalink }}",
 				"title": "{{ .Title }}",
-				"content_text": {{ .Content | jsonify }},
+				"description": "{{ .Params.description }}",
 				"url": "{{ .Permalink }}",
-				"gmt_time": "{{ .Params.GMT }}"
+				"start": "{{ .Params.dateStart }}",
+				"end" : "{{ .Params.dateEnd }}",
+				"location" : "Berkeley, CA"
 			}
 		{{ end }}
     ]
