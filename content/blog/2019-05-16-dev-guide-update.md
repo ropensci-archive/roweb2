@@ -35,7 +35,7 @@ One last outside change to the book is its [availability as PDF to download](htt
 
 #### Style: arrow vs. equal
 
-Thanks to [a question by Robert M Flight(https://github.com/ropensci/software-review-meta/issues/71), our style guidance [now states that it is fine to use either an arrow or an equal sign for assignment **as long as the choice is consistent within the whole package**](https://ropensci.github.io/dev_guide/building.html#code-style). You can choose to use `=` over `<-` as long you are consistent with one choice within your package. We recommend avoiding the use of `->` for assignment within a package. If you do use `<-` throughout your package, and you also use `R6` in that package, you'll be forced to use `=` for assignment within your `R6Class` construction - this is not considered inconsistency beause you can't use `<-` in this case.
+Thanks to [a question by Robert M Flight](https://github.com/ropensci/software-review-meta/issues/71), our style guidance [now states that it is fine to use either an arrow or an equal sign for assignment **as long as the choice is consistent within the whole package**](https://ropensci.github.io/dev_guide/building.html#code-style). You can choose to use `=` over `<-` as long you are consistent with one choice within your package. We recommend avoiding the use of `->` for assignment within a package. If you do use `<-` throughout your package, and you also use `R6` in that package, you'll be forced to use `=` for assignment within your `R6Class` construction - this is not considered inconsistency beause you can't use `<-` in this case.
 
 #### Continuous integration
 
