@@ -33,6 +33,10 @@ One last outside change to the book is its [availability as PDF to download](htt
 
 ### Updates to our policies and guidance
 
+#### Style: arrow vs. equal
+
+Thanks to [a question by Robert M Flight(https://github.com/ropensci/software-review-meta/issues/71), our style guidance [now states that it is fine to use either an arrow or an equal sign for assignment **as long as the choice is consistent within the whole package**](https://ropensci.github.io/dev_guide/building.html#code-style). You can choose to use `=` over `<-` as long you are consistent with one choice within your package. We recommend avoiding the use of `->` for assignment within a package. If you do use `<-` throughout your package, and you also use `R6` in that package, you'll be forced to use `=` for assignment within your `R6Class` construction - this is not considered inconsistency beause you can't use `<-` in this case.
+
 #### Continuous integration
 
 We added a new [continuous integration *requirement*](https://ropensci.github.io/dev_guide/ci.html#ci): package maintainers must now use `devel` and `oldrel` R versions on Travis, not only R-release.
@@ -54,6 +58,15 @@ Three changes relate to what happens after a package has been accepted.
 * The [review template](https://ropensci.github.io/dev_guide/reviewtemplate.html) now includes a question asking the reviewer for consent to be added to DESCRIPTION in review template, should the author(s) deem it appropriate. For more context, refer to [our blog post "Thanking Your Reviewers: Gratitude through Semantic Metadata"]
 (https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/).
 
+#### Spreading our guidelines
+
+rOpenSci community manager Stefanie Butland and other authors [recently reported how our software review guidelines ended up being used "in the wild" for a scientific paper](https://ropensci.org/blog/2019/04/18/wild-standards/). Knowing about such use cases makes us happy and helps us assess the usefulness of our material beyond our own system, so we've now added the following wish to several places in our guide ([intro to our software review system](https://ropensci.github.io/dev_guide/softwarereviewintro.html), [reviewer guide](https://ropensci.github.io/dev_guide/reviewerguide.html), [chapter about contributing to rOpenSci](https://ropensci.github.io/dev_guide/contributingguide.html)):
+
+_If you use our standards/checklists etc. when reviewing software elsewhere, do tell the recipients (e.g. journal editors, students, internal code review) that they came from rOpenSci, and tell us in [our public forum](https://discuss.ropensci.org/c/usecases), or [privately by email](https://ropensci.org/contact/)._
+
+#### More information about contributing
+
+The [contributing guide](https://ropensci.github.io/dev_guide/contributingguide.html) now contains more reasons to contribute, and [the approval template for editors](https://ropensci.github.io/dev_guide/approvaltemplate.html) now features more specific guidance about writing a blog post or tech note about an approved package.
 
 ### Conclusion
 
