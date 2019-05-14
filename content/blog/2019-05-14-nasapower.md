@@ -7,7 +7,7 @@ authors:
 package_version: 1.1.1
 categories:
   - blog
-topicid:
+topicid: 1705
 tags:
   - r
   - ropensci
@@ -70,7 +70,7 @@ the suggested changes.
 
 ### What Happened Next
 
-However, in late 2107 very shortly after the package was reviewed, the
+However, in late 2017 very shortly after the package was reviewed, the
 POWER team announced that the POWER data would be getting a makeover.
 The data would be served at 0.5˚ x 0.5˚ and use a new
 [API](https://power.larc.nasa.gov/docs/v1/) to access them. This
