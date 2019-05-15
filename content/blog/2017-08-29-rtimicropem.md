@@ -39,7 +39,7 @@ We chose R because everything else in our project, well data processing, documen
 
 ### Features of `rtimicropem`: transform, explore and learn about data cleaning
 
-First things first, our package lives [here](https://github.com/ropensci/rtimicropem) and is [on CRAN](https://cran.r-project.org/web/packages/rtimicropem/index.html). It has a [nice documentation website](http://ropensci.github.io/rtimicropem/) thanks to [`pkgdown`](https://github.com/hadley/pkgdown).
+First things first, our package lives [here](https://github.com/ropensci/rtimicropem) and is [on CRAN](https://cran.r-project.org/web/packages/rtimicropem/index.html). It has a [nice documentation website](https://docs.ropensci.org/rtimicropem/) thanks to [`pkgdown`](https://github.com/hadley/pkgdown).
 
 ### Transform and explore single files
 
@@ -57,7 +57,7 @@ At the end of the CHAI data collection, we had more than 250 MicroPEM files. In 
 
 ### Learn about data cleaning
 
-As mentioned previously, we experienced issues with MicroPEM data quality. Although we had heard other teams complain of similar problems, in the literature there were very few details about data cleaning. We decided to gather information from other teams and the manufacturer and to document our own decisions, e.g. remove entire files based on some criteria, in a [vignette of the package](http://ropensci.github.io/rtimicropem/articles/chai_data_cleaning.html). This is our transparent answer to the question "What was your experience with MicroPEMs?" which we get often enough from other scientists interested in PM2.5 exposure.
+As mentioned previously, we experienced issues with MicroPEM data quality. Although we had heard other teams complain of similar problems, in the literature there were very few details about data cleaning. We decided to gather information from other teams and the manufacturer and to document our own decisions, e.g. remove entire files based on some criteria, in a [vignette of the package](https://docs.ropensci.org/rtimicropem/articles/chai_data_cleaning.html). This is our transparent answer to the question "What was your experience with MicroPEMs?" which we get often enough from other scientists interested in PM2.5 exposure.
 
 ### Place of rtimicropem in the R package ecosystem
 
