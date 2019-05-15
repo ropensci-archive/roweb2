@@ -101,7 +101,7 @@ encountered was how to validate the users’ requests against what was available
 Thankfully [Ben Raymond](https://github.com/raymondben) found a JSON file that
 was served up for the API documentation that I was able to use to
 [create an internal list object](https://github.com/ropensci/nasapower/tree/master/data-raw)
-to check against, which made the parameters and communities easy validate.
+to check against, which made the parameters and communities easy to validate.
 
 Formatting dates and checking those given all the different ways we enter them
 proved to be another challenge entirely taking nearly 100 lines of code.
