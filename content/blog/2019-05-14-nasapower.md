@@ -572,8 +572,7 @@ browse the vignette and other on-line documentation,
 
 [^13]: Keating, Brian A., Peter S. Carberry, Graeme L. Hammer, Mervyn E. Probert, Michael J. Robertson, D. Holzworth, Neil I. Huth, et al. 2003. “An Overview of APSIM, a Model Designed for Farming Systems Simulation.” *European Journal of Agronomy* 18 (3-4): 267–88.
 
-[^14]: Fainges, Justin. 2017. “APSIM: General Utility Functions for the ’Agricultural Production Systems Simulator’". CSIRO.
-<https://CRAN.R-project.org/package=APSIM>.
+[^14]: Fainges, Justin. 2017. “APSIM: General Utility Functions for the ’Agricultural Production Systems Simulator’". CSIRO. <https://CRAN.R-project.org/package=APSIM>.
 
 [^15]: Bangyou Zheng (2012). “APSIMBatch: Analysis the output of Apsim software.” R package version 0.1.0.2374. <https://CRAN.R-project.org/package=APSIMBatch>
 
