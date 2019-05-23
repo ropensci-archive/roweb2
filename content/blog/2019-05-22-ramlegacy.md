@@ -1,6 +1,6 @@
 ---
 slug: "ramlegacy"
-title: ramlegacy: a package for RAM Legacy Database
+title: "ramlegacy: a package for RAM Legacy Database"
 package_version: 0.2.0
 authors:
   - Carl Boettiger
