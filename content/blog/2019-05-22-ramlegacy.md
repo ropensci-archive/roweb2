@@ -5,7 +5,7 @@ package_version: 0.2.0
 authors:
   - Carl Boettiger
   - Kshitiz Gupta
-date: '2019-05-22'
+date: '2019-05-28'
 categories: blog
 topicid:
 tags:
