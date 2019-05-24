@@ -22,7 +22,7 @@ tags:
 
 ## Introduction
 
-`ramlegacy` is a new R package to download, cache and read in all the different versions of the  RAM Legacy Stock Assessment Database, a public database containing time-series and biological metrics from over 300 globally-distributed stock assessments. The package accomplishes all this by:
+`ramlegacy` is a new R package to download, cache and read in all the different versions of the  [RAM Legacy Stock Assessment Database](https://www.ramlegacy.org/), a public database containing time-series and biological metrics from over 300 globally-distributed stock assessments. The package accomplishes all this by:
 
 * Providing a function `download_ramlegacy()`, to download all the available versions of the RAM Database and cache them on the user’s computer in a location provided by the [rappdirs](https://cran.r-project.org/web/packages/rappdirs/index.html) package. This way once a version has been downloaded it doesn’t need to be re-downloaded for subsequent analysis.
 * Supporting reading in specified tables or all tables from a cached version of the database through the function `load_ramlegacy()`
