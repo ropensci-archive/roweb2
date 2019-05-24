@@ -44,7 +44,7 @@ After ensuring that `ramlegacy` had a stable data source that was not constantly
 
 ## Related Works
 
-Sean Anderson has a namesake package that downloads the Microsoft Access version and converts it to a local sqlite3 database. Similar to Sean Anderson’s package, Jamie Ashander’s R package seems to be an R interface for the Microsoft Access version of the RAM Database and provides a set of functions using RPostgreSQL to connect to the database. Unfortunately, their packages no longer work in their current state, as they still point to the Wordpress URLs which are now defunct and would need to be replaced with the Zenodo DOIs. This again highlights the need for a transparent and relible data source for a data access package especially when that data has to reside outside of the package as is the case with `ramlegacy`.
+Sean Anderson has a namesake package that downloads the Microsoft Access version and converts it to a local sqlite3 database. Similar to Sean Anderson’s package, Jamie Ashander’s R package seems to be an R interface for the Microsoft Access version of the RAM Database and provides a set of functions using RPostgreSQL to connect to the database. Unfortunately, their packages no longer work in their current state, as they still point to the WordPress URLs which are now defunct and would need to be replaced with the Zenodo DOIs. This again highlights the need for a transparent and relible data source for a data access package especially when that data has to reside outside of the package as is the case with `ramlegacy`.
 
 ## Conclusion
 
