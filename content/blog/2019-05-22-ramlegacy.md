@@ -7,7 +7,7 @@ authors:
   - Carl Boettiger
 date: '2019-05-28'
 categories: blog
-topicid:
+topicid: 1715
 tags:
 - Software Peer Review
 - R
@@ -15,9 +15,11 @@ tags:
 - software
 - packages
 - ramlegacy
-- marine-biology
+- marine biology
 - fisheries
-- stock-assessment
+- stock assessment
+- data access
+- biodiversity
 ---
 
 ## Introduction
