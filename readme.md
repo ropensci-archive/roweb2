@@ -5,23 +5,20 @@ Welcome to the new (October 2017) website for the rOpenSci project. Our old webs
 
 __TOC__
 
-- [How to contribute a blog post](https://github.com/ropensci/roweb2#contributing-a-blog-post)
-- [Previewing the site locally](https://github.com/ropensci/roweb2#installing-hugo-for-local-preview)
-- [Rendering issues and non-content fixes](https://github.com/ropensci/roweb2#updating-page-templates)
-- [Acknowledgements](https://github.com/ropensci/roweb2#acknowledgements)
+- [How to contribute a blog post](#contributing-a-blog-post)
+- [Previewing the site locally](#installing-hugo-for-local-preview)
+- [Rendering issues and non-content fixes](#updating-page-templates)
+- [Acknowledgements](#acknowledgements)
 
 ### Contributing a blog post
 
+To contribute a blog post (🙏), after getting the go-ahead fand a tentative publication date rom our community manager [Stefanie Butland](https://ropensci.org/authors/stefanie-butland/):
 
-To contribute a blog post (🙏):
+See [editorial suggestions](#blog-post-editorial-suggestions). Before that, technically,
 
-See [editorial suggestions](https://github.com/ropensci/roweb2#blog-post-editorial-suggestions) below
-
-1. Fork the repo
+1. [Fork the repo](https://happygitwithr.com/fork-and-clone.html)
 2. Create a new file in `/content/blog/YEAR-MONTH-DAY-short-slug.md`
 3. Your post must include YAML in this format:
-
-
 
 ```
 ---
@@ -107,11 +104,9 @@ There are no requirements to simply add a post/fix and push to GitHub for a rend
 
 #### Installing Hugo for local preview
 
-The current version of `hugo` on the server uses is defined in [netlify.toml](netlify.toml). To install hugo locally:
+The current version of Hugo on the server uses is defined in [netlify.toml](netlify.toml). 
 
-```
-brew install hugo
-```
+To install Hugo locally, refer to [Hugo docs](https://gohugo.io/getting-started/installing/) or run `blogdown::install_hugo()`.
 
 Then run `hugo serve` in the repo directory to start a local server on [http://localhost:1313](http://localhost:1313). To view a future-dated blog post, use `hugo serve -F`.
 
