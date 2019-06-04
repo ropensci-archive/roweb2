@@ -95,8 +95,9 @@ For a post about your experience as a reviewer you can browse other posts with t
 If you don't already have one, create `_index.md` in `roweb2/content/authors/firstname-lastname/` with information about your online presence. Keep accents in your name. If you're not sure of how to slugify/urlize your name, look at other people's folder names for examples.
 
 E[Template for an author file](author-name.md), xample 
-```
----
+`
+``
+yaml---
 name: Kelly O'Briant
 link: https://kellobri.github.io/
 twitter: kellrstats
