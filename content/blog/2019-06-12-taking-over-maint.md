@@ -33,30 +33,38 @@ Okay, so you've taken over maintenance of a software package. What next? We want
 
 rOpenSci staff tasks:
 
-* Current maintainer has not responded to issues/PR's in many months
+* Current maintainer has not responded to issues/PR's in many months, via any of emails, Github issues, or Slack messages:
+    
     * Make contact and see what the situation is. They may say they'd like to step down as maintainer, in which case look for a new maintainer
+
 * Current maintainer is completely missing/not responding
+    
     * If this happens we will try to contact the maintainer for up to one month. However, if updating the package is urgent, we may use our admin access to make changes on their behalf.
+
 * Put a call out in the "Call for Contributors" section of the rOpenSci newsletter for a new maintainer
 
 Package maintainer tasks:
 
-* Add yourself as the new maintainer in the DESCRIPTION file, with `role = c("aut", "cre")`
-* Make sure to change maintainer to your name anywhere else in the package (e.g, package level manual file, CONTRIBUTING.md, CITATION, etc.)
-* __Should we have any rules about new maintainers adding new contributors with admin access on the repository?__
+* Add yourself as the new maintainer in the DESCRIPTION file, with `role = c("aut", "cre")`, and make the former maintainer `aut` only.
+
+* Make sure to change maintainer to your name anywhere else in the package, while retaining the former maintainer as an author (e.g, package level manual file, CONTRIBUTING.md, CITATION, etc.)
+
+* The rOpenSci Development Guide has guidance about adding new maintainers and collaborators at <https://ropensci.github.io/dev_guide/collaboration.html#onboarding-collaborators> and <https://ropensci.github.io/dev_guide/collaboration.html#welcoming-collaborators-to-ropensci>
+
 * If the package has been archived by CRAN and there is a maintainer change, have the old maintainer email CRAN and put in writing who the new maintainer is. Make sure to mention that email about the maintainer change when you submit the first new version to CRAN.
+
     * __If the old maintainer is un-reachable, WHAT HAPPENS? Can rOpenSci step in to authorize the maintainer transfer?__
 
 Code changes:
 
-* __Can the new maintainer rip everything out and start new? Or should we implore the new mtaintainer to keep some amount of consistency, at least the public API?__
-    * __Keep the public API (exported functions) as is, unless very good reason to change them__ ???
+* The _Package Evolution_ section of the dev guide <https://ropensci.github.io/dev_guide/evolution.html> has guidance on how to think about code changes, and applies when taking over a package.
+
 * If the new maintainer has any questions about the code reach out to the rOpenSci community, including rOpenSci staff.
-* __other?__
+
 
 ### Your thoughts?
 
-We want to hear from you. What aspects of taking over maintainence of a software package have we left out? Why or why wouldn't you consider taking over maintainance of a package?
+We want to hear from you. What aspects of taking over maintenance of a software package have we left out? Why or why wouldn't you consider taking over maintainance of a package?
 
 
 
