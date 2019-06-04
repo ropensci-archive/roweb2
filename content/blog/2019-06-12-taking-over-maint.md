@@ -21,7 +21,7 @@ In theory, finding maintainers for software is easier as the pool of users gets 
 
 ### Small wins
 
-Despite a small number of maintainers per package, the rOpenSci community is quite large. That is, whereas individual R packages that are very popular may have a large enough community on their own, individual packages within rOpenSci can benefit from the large community we've cultivated. 
+Despite a small number of maintainers per package, the rOpenSci community of users and developers is quite large. That is, whereas individual R packages that are very popular may have a large enough community on their own, individual packages within rOpenSci can benefit from the large community we've cultivated. 
 
 We've had success finding maintainers by reaching out to our community as maintainers have moved on - we've found new maintainers for all five packages that have needed new maintainers. See our latest [rOpenSci News](https://news.ropensci.org/2019-05-13/) "Call For Contributors" section for recent examples.
 
