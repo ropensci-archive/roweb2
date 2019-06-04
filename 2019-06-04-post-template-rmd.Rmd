@@ -34,7 +34,7 @@ Introduction including outline of the post.
 
 Below is an image (not generated via R Markdown). I like Hugo[^1].
 
-```{r alwayslabelthechunks}
+```{r alwayslabelthechunks, echo = FALSE}
 blogdown::shortcode("figure",
                     src = "/img/blog-images/<DATE-SLUG>/name-of-image.png",
                     alt = "write an alternative text describing the information contained in the image",

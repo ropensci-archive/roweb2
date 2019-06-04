@@ -18,7 +18,8 @@ See [editorial suggestions](#blog-post-editorial-suggestions). Before that, tech
 
 1. [Fork the repo](https://happygitwithr.com/fork-and-clone.html)
 2. Create a new file in `/content/blog/YEAR-MONTH-DAY-short-slug.md`. [Markdown template](2019-06-04-post-template.md), [R Markdown template](2019-06-04-post-template-rmd.Rmd)
-, [rendered R Markdown template that you would submit](2019-06-04-post-template-rmd.md).3. Your post must include YAML in this format:
+, [rendered R Markdown template that you would submit](2019-06-04-post-template-rmd.md).3
+. Your post must include YAML in this format:
 
 ```yaml
 ---

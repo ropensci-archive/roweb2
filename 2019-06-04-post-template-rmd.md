@@ -33,13 +33,6 @@ Introduction including outline of the post.
 
 Below is an image (not generated via R Markdown). I like Hugo[1].
 
-``` r
-blogdown::shortcode("figure",
-                    src = "/img/blog-images/<DATE-SLUG>/name-of-image.png",
-                    alt = "write an alternative text describing the information contained in the image",
-                    width = "500")
-```
-
 <!--html_preserve-->
 {{% figure src=“/img/blog-images/<DATE-SLUG>/name-of-image.png”
 alt=“write an alternative text describing the information contained in
