@@ -4,7 +4,7 @@ title: Generating reasonable starting trees for complex phylogenetic analyses
 package_version: 0.1.0
 authors:
   - April Wright
-date: 2018-12-11
+date: 2019-06-04
 categories: blog
 topicid:
 tags:
@@ -46,7 +46,7 @@ plot(1:10)
 ```
 
 ![alternative
-text](2019-06-04-post-template-rmd_files/figure-markdown_github/chunkname-1.png)
+text](img/blog-images/2019-06-04-treestartr/chunkname-1.png)
 
 ### Conclusion
 

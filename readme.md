@@ -17,9 +17,11 @@ To contribute a blog post (🙏), after getting the go-ahead and a tentative pub
 See [editorial suggestions](#blog-post-editorial-suggestions). Before that, technically,
 
 1. [Fork the repo](https://happygitwithr.com/fork-and-clone.html)
-2. Create a new file in `/content/blog/YEAR-MONTH-DAY-short-slug.md`. [Markdown template](2019-06-04-post-template.md), [R Markdown template](2019-06-04-post-template-rmd.Rmd)
-, [rendered R Markdown template that you would submit](2019-06-04-post-template-rmd.md).3
-. Your post must include YAML in this format:
+2. Create a new file in `/content/blog/YEAR-MONTH-DAY-slug.md`.
+    * [Markdown template](2019-06-04-post-template.md), 
+    * [R Markdown template](2019-06-04-post-template-rmd.Rmd), [rendered R Markdown template that you would submit](2019-06-04-post-template-rmd.md). If using this template after knitting you'll need to copy the folder 'img/blog-images/YEAR-MONTH-DAY-slug/' to ' roweb2/themes/ropensci/static/img/blog-images' but the paths in the resulting Markdown will already be valid
+
+3. Your post must include YAML in this format:
 
 ```yaml
 ---
