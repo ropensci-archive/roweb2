@@ -12,15 +12,15 @@ __TOC__
 
 ### Contributing a blog post
 
-To contribute a blog post (🙏), after getting the go-ahead fand a tentative publication date rom our community manager [Stefanie Butland](https://ropensci.org/authors/stefanie-butland/):
+To contribute a blog post (🙏), after getting the go-ahead and a tentative publication date from our community manager [Stefanie Butland](https://ropensci.org/authors/stefanie-butland/):
 
 See [editorial suggestions](#blog-post-editorial-suggestions). Before that, technically,
 
 1. [Fork the repo](https://happygitwithr.com/fork-and-clone.html)
-2. Create a new file in `/content/blog/YEAR-MONTH-DAY-short-slug.md`
-3. Your post must include YAML in this format:
+2. Create a new file in `/content/blog/YEAR-MONTH-DAY-short-slug.md`. [Markdown template](2019-06-04-post-template.md), [R Markdown template](2019-06-04-post-template-rmd.Rmd)
+, [rendered R Markdown template that you would submit](2019-06-04-post-template-rmd.md).3. Your post must include YAML in this format:
 
-```
+```yaml
 ---
 slug: "treestartr"
 title: Generating reasonable starting trees for complex phylogenetic analyses
@@ -46,26 +46,34 @@ tags:
 
 ![](https://i.imgur.com/Ng9VE0J.png)
 
-5. If your blog post has any images (or other assets), create a folder under `themes/ropensci/static/img/blog-images/` with the pattern `<DATE-SLUG>` (e.g. `2018-12-11-treestartr`) and place them there. To reference any of these objects in your post,  use `/img/blog-images/<DATE-SLUG>/name-of-image.png`. If the paths are correct, you should see the preview render correctly (see next step).
+5. If your blog post has any images (or other assets), create a folder under `themes/ropensci/static/img/blog-images/` with the pattern `<DATE-SLUG>` (e.g. `2018-12-11-treestartr`) and place them there. To reference any of these objects in your post,  use `/img/blog-images/<DATE-SLUG>/name-of-image.png`. If the paths are correct, you should see the preview render correctly (see next step). For images, use [Hugo's figure shortcode](https://gohugo.io/content-management/shortcodes/#figure), e.g.
 
-6. Once you've drafted your blog post, you can preview locally using Hugo or skip to the next step to preview on the pull request. See [technical notes](https://github.com/ropensci/roweb2/blob/master/readme.md#installation-requirements) section for installation instructions if you wish to preview locally.
+```
+{{< figure src="/img/blog-images/<DATE-SLUG>/name-of-image.png" alt="write an alternative text describing the information contained in the image" width="500" >}}
+```
 
-7. Send a pull request from your fork one week prior to the post date to allow time for review. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
+6. Once you've drafted your blog post, you can [preview locally using Hugo](#installing-hugo-for-local-preview) or skip to the next step to preview on the pull request. 
+
+7. Send a pull request from your fork at least one week prior to the post date to allow time for review. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
 
 ![](https://i.imgur.com/HYcQyB4.png)
 ![](https://i.imgur.com/0deI0d3.png)
 
-8. Tag a rOpenSci staff member to review your pull request (@stefaniebutland, @sckott, @jeroen, or @karthik)
+8. Tag rOpenSci community manager to review your pull request (`@stefaniebutland`) unless you were assigned another reviewer.
 
 #### Blog post editorial suggestions
 
+##### General instructions
+
 - Include tags in YAML. [Browse tags](https://ropensci.org/tags/), and re-use either the plural or singular form of an existing tag e.g. "packages" exists, so use that, rather than "package"
-- For formatting of package names, functions, and code, follow the [tidyverse style guidance](https://style.tidyverse.org/documentation.html#r-code)
+- For formatting of package names, functions, and code, follow the [tidyverse style guidance](https://style.tidyverse.org/documentation.html#r-code).
 - If you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - Use ### or #### to format headings in your post; larger sizes don't look good. Note long headings with #### don't wrap well.
 - Spell 'rOpenSci', not 'ROpenSci'
 - For references, put `[^1]` after the text you want to cite in body of the post, and put `[^1]: citation details` at the end of the post. They will link to each other. Example in this post [markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2019-04-18-ropensci-mee.md) -> [rendered](https://ropensci.org/blog/2019/04/18/wild-standards/). 
-- Check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an author's index file for yourself (instructions below). 
+- Check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an [author's index file for yourself](#author-file). 
+
+##### Instructions for posts about peer-reviewed packages
 
 For a post about your peer-reviewed package you should:
 - Browse other posts about peer-reviewed packages with tag '[Software Peer Review](https://ropensci.org/tags/software-peer-review/)'
@@ -75,9 +83,11 @@ For a post about your peer-reviewed package you should:
 - Consider ending by pointing to open issues that readers might work on
 - Include YAML tags 'Software Peer Review', 'R', the package name, and tags that were [topic labels in your package review](https://github.com/ropensci/software-review/labels)
 
+##### Blog posts about your experience as a reviewer
+
 For a post about your experience as a reviewer you can browse other posts with tag '[reviewer](https://ropensci.org/tags/reviewer/)'
 
-#### Create an author's index file for yourself
+#### Create an author's index file for yourself {#author-file}
 
 If you don't already have one, create `_index.md` in `roweb2/content/authors/firstname-lastname/` with information about your online presence. Keep accents in your name. If you're not sure of how to slugify/urlize your name, look at other people's folder names for examples.
 

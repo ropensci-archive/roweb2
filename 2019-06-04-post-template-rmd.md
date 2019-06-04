@@ -1,0 +1,61 @@
+---
+slug: "treestartr"
+title: Generating reasonable starting trees for complex phylogenetic analyses
+package_version: 0.1.0
+authors:
+  - April Wright
+date: 2018-12-11
+categories: blog
+topicid:
+tags:
+- Software Peer Review
+- R
+- community
+- software
+- packages
+- treestartr
+- phylogeny
+- paleontology
+- fossils
+- divergence time
+twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png
+output: 
+  md_document:
+    variant: markdown_github
+    preserve_yaml: true
+---
+
+Introduction including outline of the post.
+
+### First awesome section
+
+#### First awesome subsection of the first awesome section
+
+Below is an image (not generated via R Markdown). I like Hugo[1].
+
+``` r
+blogdown::shortcode("figure",
+                    src = "/img/blog-images/<DATE-SLUG>/name-of-image.png",
+                    alt = "write an alternative text describing the information contained in the image",
+                    width = "500")
+```
+
+<!--html_preserve-->
+{{% figure src=“/img/blog-images/<DATE-SLUG>/name-of-image.png”
+alt=“write an alternative text describing the information contained in
+the image” width=“500” %}}<!--/html_preserve-->
+
+Below is another image, a plot, so you might see how to add alternative
+text in this case.
+
+``` r
+plot(1:10)
+```
+
+![alternative
+text](2019-06-04-post-template-rmd_files/figure-markdown_github/chunkname-1.png)
+
+### Conclusion
+
+[1] Hugo!
+<a href="https://gohugo.io/" class="uri">https://gohugo.io/</a>
