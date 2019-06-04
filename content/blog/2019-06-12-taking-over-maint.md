@@ -1,7 +1,7 @@
 ---
 date: 2019-06-12
 slug: taking-over-maint
-title: Taking over maintainence of a software package
+title: Taking over maintenance of a software package
 authors:
   - Scott Chamberlain
   - Maëlle Salmon
