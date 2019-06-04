@@ -15,7 +15,7 @@ tags:
 
 Software is maintained by people. While software can in theory live on indefinitely, to do it so requires people. People change jobs, move locations, retire, and unfortunately die sometimes. When a software maintainer can no longer maintain a package, what happens to the software?
 
-Because of the fragility of people in software, in an ideal world a piece of software should have as many maintainers as possible. Increasing maintainers increases the so-called [bus factor][bus]. A piece of software should have a high of a number as possible; lower means fewer people have to get hit by a bus to then have no maintainers. 
+Because of the fragility of people in software, in an ideal world a piece of software should have as many maintainers as possible. Increasing maintainers increases the so-called [bus factor][bus]. A lower number of maintainers means fewer people have to get hit by a bus to then have no maintainers. 
 
 In theory, finding maintainers for software is easier as the pool of users gets larger. However, at rOpenSci, we do generally have this luxury. Most rOpenSci packages have a rather focused and small task, and the pool of users is relatively small. Thus, the average rOpenSci package is maintained by one person, making that package sensitive to the maintainer leaving.
 
