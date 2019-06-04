@@ -13,7 +13,7 @@ tags:
   - community
 ---
 
-Software is maintained by people. While software can in theory live on indefinitely, to do so requires people. People change jobs, move locations, retire, and unfortuntaley die sometimes. When a software maintainer can no longer maintain a package, what happens to the software?
+Software is maintained by people. While software can in theory live on indefinitely, to do it so requires people. People change jobs, move locations, retire, and unfortunately die sometimes. When a software maintainer can no longer maintain a package, what happens to the software?
 
 Because of the fragility of people in software, in an ideal world a piece of software should have as many maintainers as possible. Increasing maintainers increases the so-called [bus factor][bus]. A piece of software should have a high of a number as possible; lower means fewer people have to get hit by a bus to then have no maintainers. 
 
