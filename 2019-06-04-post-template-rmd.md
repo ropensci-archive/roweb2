@@ -3,7 +3,7 @@ slug: "treestartr"
 title: Generating reasonable starting trees for complex phylogenetic analyses
 package_version: 0.1.0
 authors:
-  - April Wright
+  - Author Name
 date: 2019-06-04
 categories: blog
 topicid:
@@ -24,6 +24,11 @@ output:
     variant: markdown_github
     preserve_yaml: true
 ---
+
+If using this template after knitting you’ll need to copy the folder
+‘img/blog-images/2019-06-04-treestartr/’ to ’
+roweb2/themes/ropensci/static/img/blog-images’ but the paths in the
+resulting Markdown will already be valid.
 
 Introduction including outline of the post.
 

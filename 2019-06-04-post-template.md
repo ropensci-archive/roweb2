@@ -3,7 +3,7 @@ slug: "treestartr"
 title: Generating reasonable starting trees for complex phylogenetic analyses
 package_version: 0.1.0
 authors:
-  - April Wright
+  - Author Name
 date: 2018-12-11
 categories: blog
 topicid:
