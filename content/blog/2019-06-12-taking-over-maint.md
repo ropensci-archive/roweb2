@@ -27,7 +27,7 @@ We've had success finding maintainers by reaching out to our community as mainta
 
 ### Taking over
 
-Okay, so you've taken over maintainence of a software package. What next? We want to add a section to our [Software Development Guide][devg] about taking over maintainence; we're first reaching out here to the community to talk through what we're thinking and to get your feedback. This is what we're thinking thus far:
+Okay, so you've taken over maintenance of a software package. What next? We want to add a section to our [Software Development Guide][devg] about taking over maintainence; we're first reaching out here to the community to talk through what we're thinking and to get your feedback. This is what we're thinking thus far:
 
 #### Proposed material for dev guide
 
