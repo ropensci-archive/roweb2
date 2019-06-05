@@ -10,12 +10,9 @@
         <div class="row">
             <div class="col-8 col-offset-2 top-4">
 <ul>
-  {{ range $key, $value := .Data.Terms.ByCount }}
-  {{ $name := $value.Name | urlize }}
-  {{ $count := $value.Count }}
-      <a href="{{ $name }}">{{ $value.Name }}</a>
-      <span>&#40;{{ $count }}&#41; </span>
-  {{ end }}
+    {{ range .Data.Terms.ByCount }}
+            <a href="{{ .Page.Permalink }}">{{ .Page.Params.name }}</a><span> &#40;{{ .Count }}&#41; </span>
+    {{ end }}
 </ul>
             </div>
         </div>
