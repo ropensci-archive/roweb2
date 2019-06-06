@@ -1,16 +1,18 @@
-<div class="col-2 top-12">
-  <img src="{{ .image }}"  width = "133"/>
-  <h5>{{ if isset . "url"}}
-    <a href="{{ .url }}">{{ .name }}</a>
-  {{ else }}
-    {{ .name }}
+{{ $columns := 4.0 }}
+{{ $team := .team }}
+{{ $lenteam := (len $team) }}
+{{ $rows := div $lenteam $columns }}
+{{ $rows := math.Ceil $rows }}
+{{ range (seq 1 $rows) }}
+{{ $y := (add (mul (sub . 1)  4) 1)}}
+  <div class="row center">
+  {{ range (seq 1 $columns) }}
+    {{ $i := ( add . $y ) }}
+    {{ $i := (sub $i 2)}}
+    {{ if (le $i (sub $lenteam 1)) }}
+      {{ $teammember := (index $team $i) }}
+      {{ partial "teammember.html" $teammember }}
+    {{ end }}
   {{ end }}
-  </h5>
-  {{ if isset . "affiliation"}}
-    <h5>{{ .affiliation}}</h5>
-  {{ end }}
-  </h5>
-  {{ range .roles }}
-    <span class="label {{ . }}"></span>
-  {{ end }}
-</div>
+  </div>
+{{ end }}

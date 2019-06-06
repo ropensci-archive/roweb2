@@ -10,24 +10,7 @@
                     <p>Our core team includes staff and postdoctoral fellows. Our leadership and editorial board members are volunteers.</p>
                 </div>
             </div>
-{{ $team := $.Data.team.team }}
-{{ $lenteam := (len $team) }}
-{{ $columns := 4.0 }}
-{{ $rows := div $lenteam $columns }}
-{{ $rows := math.Ceil $rows }}
-{{ range (seq 1 $rows) }}
-  {{ $y := (add (mul (sub . 1)  4) 1)}}
-  <div class="row center">
-  {{ range (seq 1 $columns) }}
-    {{ $i := ( add . $y ) }}
-    {{ $i := (sub $i 2)}}
-    {{ if (le $i (sub $lenteam 1)) }}
-      {{ $teammember := (index $team $i) }}
-      {{ partial "team.html" $teammember }}
-    {{ end }}
-  {{ end }}
-  </div>
-{{ end }}
+{{ partial "team.html" (dict "team" $.Data.team.team)  }}
 </div>
     </section>
     <!-- /team -->
@@ -44,23 +27,7 @@
 {{ end }}
 </div>
 </div>
-
-{{ $columns := 4.0 }}
-{{ $rows := div $lenteam $columns }}
-{{ $rows := math.Ceil $rows }}
-{{ range (seq 1 $rows) }}
-  {{ $y := (add (mul (sub . 1)  4) 1)}}
-  <div class="row center">
-  {{ range (seq 1 $columns) }}
-    {{ $i := ( add . $y ) }}
-    {{ $i := (sub $i 2)}}
-    {{ if (le $i (sub $lenteam 1)) }}
-      {{ $teammember := (index $team $i) }}
-      {{ partial "team.html" $teammember }}
-    {{ end }}
-  {{ end }}
-  </div>
-{{ end }}
+{{ partial "team.html" (dict "team" $.Data.team.alumni)  }}
 </div>
     </section>
     <section id="team" class="team">
