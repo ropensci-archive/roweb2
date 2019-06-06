@@ -8,6 +8,28 @@
 
     </section>
     <section id="team" class="team">
+      <div class="container">
+        {{ $team := $.Data.team.team }}
+        {{ $lenteam := 1 }}
+{{ $columns := 4 }}
+{{ $rows := div $lenteam $columns }}
+{{ $rows := math.Ceil $rows }}
+
+{{ range (seq 1 $rows) }}
+{{ $y := . }}
+            <div class="row center">
+{{ range (seq 1 $columns) }}
+{{ $i := ( add . $y ) }}
+                <div class="col-2 top-12">
+                  {{ $teammember := (index $team (sub $i 1)) }}
+   {{ partial "team.html" $teammember }}
+   </div>
+   {{ end }}
+</div>
+{{ end }}
+</div>
+</section>
+    <section id="team" class="team">
         <div class="container">
             <div class="row center">
                 <div class="col-10 top-12">
