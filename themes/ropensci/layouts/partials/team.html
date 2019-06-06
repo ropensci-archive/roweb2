@@ -1,6 +1,15 @@
 <div class="col-2 top-12">
   <img src="{{ .image }}" />
-  <h5><a href="{{ .url }}">{{ .name }}</a></h5>
+  <h5>{{ if isset . "url"}}
+  <a href="{{ .url }}">{{ .name }}</a>
+  {{ else }}
+  {{ .name }}
+  {{ end }}
+  </h5>
+  {{ if isset . "affiliation"}}
+  <h5>{{ .affiliation}}</h5>
+  {{ end }}
+  </h5>
   {{ range .roles }}
     <span class="label {{ . }}"></span>
   {{ end }}

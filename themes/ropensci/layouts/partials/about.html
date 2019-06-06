@@ -8,28 +8,6 @@
 
     </section>
     <section id="team" class="team">
-      <div class="container">
-        {{ $team := $.Data.team.team }}
-        {{ $lenteam := 1 }}
-{{ $columns := 4 }}
-{{ $rows := div $lenteam $columns }}
-{{ $rows := math.Ceil $rows }}
-
-{{ range (seq 1 $rows) }}
-{{ $y := . }}
-            <div class="row center">
-{{ range (seq 1 $columns) }}
-{{ $i := ( add . $y ) }}
-                <div class="col-2 top-12">
-                  {{ $teammember := (index $team (sub $i 1)) }}
-   {{ partial "team.html" $teammember }}
-   </div>
-   {{ end }}
-</div>
-{{ end }}
-</div>
-</section>
-    <section id="team" class="team">
         <div class="container">
             <div class="row center">
                 <div class="col-10 top-12">
@@ -41,64 +19,26 @@
                     <p>Our core team includes staff and postdoctoral fellows. Our leadership and editorial board members are volunteers.</p>
                 </div>
             </div>
+{{ $team := $.Data.team.team }}
+{{ $lenteam := (len $team) }}
+{{ $columns := 4.0 }}
+{{ $rows := div $lenteam $columns }}
+{{ $rows := math.Ceil $rows }}
+{{ range (seq 1 $rows) }}
+  {{ $y := (add (mul (sub . 1)  4) 1)}}
+  <div class="row center">
+  {{ range (seq 1 $columns) }}
+    {{ $i := ( add . $y ) }}
+    {{ $i := (sub $i 2)}}
+    {{ if (le $i (sub $lenteam 1)) }}
+      {{ $teammember := (index $team $i) }}
+      {{ partial "team.html" $teammember }}
+    {{ end }}
+  {{ end }}
+  </div>
+{{ end }}
+
             <div class="row center">
-                <div class="col-2 top-12">
-                    <img src="/img/team/member.jpg" />
-                    <h5><a href="/authors/karthik-ram">Karthik Ram</a></h5>
-                    <span class="label staff"></span>
-                    <span class="label leadership"></span>
-                    <span class="label editor"></span>
-                </div>
-                <div class="col-2 top-12">
-                    <img src="/img/team/scott.png" />
-                    <h5><a href="/authors/scott-chamberlain">Scott Chamberlain</a></h5>
-                    <span class="label staff"></span>
-                    <span class="label leadership"></span>
-                    <span class="label editor"></span>
-                </div>
-                <div class="col-2 top-12">
-                    <img src="/img/team/jeroen_ooms.jpg" />
-                    <h5><a href="/authors/jeroen-ooms">Jeroen Ooms</a></h5>
-                    <span class="label staff"></span>
-                    <span class="label postdoc"></span>
-                </div>
-                <div class="col-2 top-12">
-                    <img src="/img/team/stefanie_butland.jpg" />
-                    <h5><a href="/authors/stefanie-butland">Stefanie Butland</a></h5>
-                    <span class="label staff"></span>
-                </div>
-            </div>
-            <div class="row center">
-                <div class="col-2 top-12">
-                    <img src="/img/team/maelle_salmon.jpg" />
-                    <h5><a href="/authors/maëlle-salmon">Maëlle Salmon</a></h5>
-                    <span class="label staff"></span>
-                    <span class="label editor"></span>
-                </div>
-                <div class="col-2 top-12">
-                    <img src="/img/team/dan-sholler.jpg" />
-                    <h5><a href="/authors/dan-sholler">Dan Sholler</a></h5>
-                    <span class="label postdoc"></span>
-                </div>
-                <div class="col-2 top-12">
-                    <img src="/img/team/stacey.png" />
-                    <h5>Stacey Dorton</h5>
-                    <span class="label staff"></span>
-                </div>
-                <div class="col-2 top-12">
-                    <img src="/img/team/carl.jpg" />
-                    <h5><a href="https://carlboettiger.info/">Carl Boettiger</a></h5>
-                    <h5>University of California, Berkeley</h5>
-                    <span class="label leadership"></span>
-                </div>
-            </div>
-            <div class="row center">
-                <div class="col-2 top-12">
-                    <img src="/img/team/jenny_bryan.jpg" />
-                    <h5><a href="https://jennybryan.org/">Jenny Bryan</a></h5>
-                    <h5>RStudio</h5>
-                    <span class="label leadership"></span>
-                </div>
                 <div class="col-2 top-12">
                     <img src="/img/team/rich_fitzjohn.jpg" />
                     <h5><a href="http://richfitz.github.io/">Rich FitzJohn</a></h5>

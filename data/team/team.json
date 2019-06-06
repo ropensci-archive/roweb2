@@ -9,9 +9,9 @@
    ]
 },
 {
-   "name": "Karthik Ram",
-   "url": "/authors/karthik-ram",
-   "image" : "/img/team/member.jpg",
+   "name": "Scott Chamberlain",
+   "url": "/authors/scott-chamberlain",
+   "image" : "/img/team/scott.png",
    "roles": [
       "staff",
       "leadership",
@@ -19,12 +19,61 @@
    ]
 },
 {
-   "name": "Karthik Ram",
-   "url": "/authors/karthik-ram",
-   "image" : "/img/team/member.jpg",
+   "name": "Jeroen Ooms",
+   "url": "/authors/jeroen-ooms",
+   "image" : "/img/team/jeroen_ooms.jpg",
    "roles": [
       "staff",
-      "leadership",
+      "postdoc"
+   ]
+},
+{
+   "name": "Stefanie Butland",
+   "url": "/authors/stefanie-butland",
+   "image" : "/img/team/stefanie_butland.jpg",
+   "roles": [
+      "staff"
+   ]
+},
+{
+   "name": "Maëlle Salmon",
+   "url": "/authors/maëlle-salmon",
+   "image" : "/img/team/maelle_salmon.jpg",
+   "roles": [
+      "staff",
       "editor"
+   ]
+},
+{
+   "name": "Dan Sholler",
+   "url": "/authors/dan-sholler",
+   "image" : "/img/team/dan-sholler.jpg",
+   "roles": [
+      "postdoc"
+   ]
+},
+{
+   "name": "Stacey Dorton",
+   "image" : "/img/team/stacey.png",
+   "roles": [
+      "staff"
+   ]
+},
+{
+   "name": "Carl Boettiger",
+   "url": "https://carlboettiger.info/",
+   "image" : "/img/team/carl.jpg",
+   "affiliation" : "University of California, Berkeley",
+   "roles": [
+      "leadership"
+   ]
+},
+{
+   "name": "Jenny Bryan",
+   "url": "https://jennybryan.org/",
+   "image" : "/img/team/jenny_bryan.jpg",
+   "affiliation" : "RStudio",
+   "roles": [
+      "leadership"
    ]
 }]
