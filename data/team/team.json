@@ -157,4 +157,22 @@
    "roles": [
       "advisor"
    ]
+},
+{
+   "name": "Matt Jones",
+   "url": "http://matt.magisa.org/",
+   "image" : "/img/team/matt_jones.png",
+   "affiliation" : "NCEAS",
+   "roles": [
+      "advisor"
+   ]
+},
+{
+   "name": "Nico Cellinese",
+   "url": "https://www.floridamuseum.ufl.edu/museum-voices/nico-cellinese/",
+   "image" : "/img/team/nico_cellinese.jpg",
+   "affiliation" : "University of Florida",
+   "roles": [
+      "advisor"
+   ]
 }]
