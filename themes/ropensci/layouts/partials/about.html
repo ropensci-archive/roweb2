@@ -28,8 +28,41 @@
   {{ end }}
   </div>
 {{ end }}
+</div>
     </section>
     <!-- /team -->
+<section id="team" class="team">
+        <div class="container">
+{{ $team := $.Data.team.alumni }}
+{{ $lenteam := (len $team) }}
+<div class="row center">
+ <div class="col-10 top-12">
+{{ if ( eq $lenteam 1)}}
+ <h2>Meet our Alumnus</h2>
+{{ else }}
+ <h2>Meet our Alumni</h2>
+{{ end }}
+</div>
+</div>
+
+{{ $columns := 4.0 }}
+{{ $rows := div $lenteam $columns }}
+{{ $rows := math.Ceil $rows }}
+{{ range (seq 1 $rows) }}
+  {{ $y := (add (mul (sub . 1)  4) 1)}}
+  <div class="row center">
+  {{ range (seq 1 $columns) }}
+    {{ $i := ( add . $y ) }}
+    {{ $i := (sub $i 2)}}
+    {{ if (le $i (sub $lenteam 1)) }}
+      {{ $teammember := (index $team $i) }}
+      {{ partial "team.html" $teammember }}
+    {{ end }}
+  {{ end }}
+  </div>
+{{ end }}
+</div>
+    </section>
     <section id="team" class="team">
         <div class="container">
             <div class="row center">
