@@ -1,0 +1,18 @@
+{{ $columns := 4.0 }}
+{{ $team := .team }}
+{{ $lenteam := (len $team) }}
+{{ $rows := div $lenteam $columns }}
+{{ $rows := math.Ceil $rows }}
+{{ range (seq 1 $rows) }}
+{{ $y := (add (mul (sub . 1)  4) 1)}}
+  <div class="row center">
+  {{ range (seq 1 $columns) }}
+    {{ $i := ( add . $y ) }}
+    {{ $i := (sub $i 2)}}
+    {{ if (le $i (sub $lenteam 1)) }}
+      {{ $teammember := (index $team $i) }}
+      {{ partial "teammember.html" $teammember }}
+    {{ end }}
+  {{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,170 @@
+[{
+   "name": "Karthik Ram",
+   "url": "/authors/karthik-ram",
+   "image" : "/img/team/member.jpg",
+   "roles": [
+      "staff",
+      "leadership",
+      "editor"
+   ]
+},
+{
+   "name": "Scott Chamberlain",
+   "url": "/authors/scott-chamberlain",
+   "image" : "/img/team/scott.png",
+   "roles": [
+      "staff",
+      "leadership",
+      "editor"
+   ]
+},
+{
+   "name": "Jeroen Ooms",
+   "url": "/authors/jeroen-ooms",
+   "image" : "/img/team/jeroen_ooms.jpg",
+   "roles": [
+      "staff",
+      "postdoc"
+   ]
+},
+{
+   "name": "Stefanie Butland",
+   "url": "/authors/stefanie-butland",
+   "image" : "/img/team/stefanie_butland.jpg",
+   "roles": [
+      "staff"
+   ]
+},
+{
+   "name": "Maëlle Salmon",
+   "url": "/authors/maëlle-salmon",
+   "image" : "/img/team/maelle_salmon.jpg",
+   "roles": [
+      "staff",
+      "editor"
+   ]
+},
+{
+   "name": "Stacey Dorton",
+   "image" : "/img/team/stacey.png",
+   "roles": [
+      "staff"
+   ]
+},
+{
+   "name": "Carl Boettiger",
+   "url": "https://carlboettiger.info/",
+   "image" : "/img/team/carl.jpg",
+   "affiliation" : "University of California, Berkeley",
+   "roles": [
+      "leadership"
+   ]
+},
+{
+   "name": "Jenny Bryan",
+   "url": "https://jennybryan.org/",
+   "image" : "/img/team/jenny_bryan.jpg",
+   "affiliation" : "RStudio",
+   "roles": [
+      "leadership"
+   ]
+},
+{
+   "name": "Rich FitzJohn",
+   "url": "https://richfitz.github.io/",
+   "image" : "/img/team/rich_fitzjohn.jpg",
+   "affiliation" : "Imperial College London",
+   "roles": [
+      "leadership"
+   ]
+},
+{
+   "name": "Noam Ross",
+   "url": "http://www.ecohealthalliance.org/personnel/dr-noam-ross",
+   "image" : "/img/team/noam_ross.png",
+   "affiliation" : "EcoHealth Alliance",
+   "roles": [
+      "editor"
+   ]
+},
+{
+   "name": "Anna Krystalli",
+   "url": "http://annakrystalli.me/",
+   "image" : "/img/team/anna-krystalli.jpg",
+   "affiliation" : "University of Sheffield",
+   "roles": [
+      "editor"
+   ]
+},
+{
+   "name": "Lincoln Mullen",
+   "url": "https://lincolnmullen.com/",
+   "image" : "/img/team/lincoln-mullen.jpg",
+   "affiliation" : "George Mason University",
+   "roles": [
+      "editor"
+   ]
+},
+{
+   "name": "Brooke Anderson",
+   "url": "http://csu-cvmbs.colostate.edu/academics/erhs/Pages/brooke-anderson.aspx",
+   "image" : "/img/team/brooke-anderson.jpg",
+   "affiliation" : "Colorado State University",
+   "roles": [
+      "editor"
+   ]
+},
+{
+   "name": "Melina Vidoni",
+   "url": "https://melvidoni.rbind.io/",
+   "image" : "/img/team/melina-vidoni.jpg",
+   "affiliation" : "RMIT University",
+   "roles": [
+      "editor"
+   ]
+},
+{
+   "name": "Hadley Wickham",
+   "url": "http://hadley.nz/",
+   "image" : "/img/team/hadley-wickham.jpg",
+   "affiliation" : "RStudio",
+   "roles": [
+      "advisor"
+   ]
+},
+{
+   "name": "JJ Allaire",
+   "url": "https://github.com/jjallaire",
+   "image" : "/img/team/jj_allaire.png",
+   "affiliation" : "RStudio",
+   "roles": [
+      "advisor"
+   ]
+},
+{
+   "name": "Mackenzie Smith",
+   "url": "https://www.library.ucdavis.edu/about/university-librarian/",
+   "image" : "/img/team/mackenzie_smith.jpg",
+   "affiliation" : "University of California, Davis",
+   "roles": [
+      "advisor"
+   ]
+},
+{
+   "name": "Matt Jones",
+   "url": "http://matt.magisa.org/",
+   "image" : "/img/team/matt_jones.png",
+   "affiliation" : "NCEAS",
+   "roles": [
+      "advisor"
+   ]
+},
+{
+   "name": "Nico Cellinese",
+   "url": "https://www.floridamuseum.ufl.edu/museum-voices/nico-cellinese/",
+   "image" : "/img/team/nico_cellinese.jpg",
+   "affiliation" : "University of Florida",
+   "roles": [
+      "advisor"
+   ]
+}]
