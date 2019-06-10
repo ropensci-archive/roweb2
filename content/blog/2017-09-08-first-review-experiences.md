@@ -128,7 +128,7 @@ like me.
 
 -   [Form to sign up (just takes a minute)](https://ropensci.org/onboarding/)
 
--   [Information for reviewers](https://ropensci.github.io/dev_guide/reviewerguide.html)
+-   [Information for reviewers](https://devguide.ropensci.org/reviewerguide.html)
 
 -   [Mozilla reviewing guide](https://mozillascience.github.io/codeReview/review.html)
 

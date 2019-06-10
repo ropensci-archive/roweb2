@@ -53,8 +53,8 @@ Many thanks to MEE's Assistant Editor Chris Grieves and Senior Editor Bob O'Hara
 [post1]: https://ropensci.org/blog/2016/03/28/software-review/
 [post2]: https://ropensci.org/blog/2017/09/01/nf-softwarereview/
 [post3]: https://ropensci.org/blog/2017/09/11/software-review-update/
-[fit]: https://ropensci.github.io/dev_guide/policies.html#aims-and-scope
-[policies]: https://ropensci.github.io/dev_guide/policies.html
+[fit]: https://devguide.ropensci.org/policies.html#aims-and-scope
+[policies]: https://devguide.ropensci.org/policies.html
 [rotl]: https://github.com/ropensci/rotl
 [rotlmee]: http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12593/abstract
 [meeaimsscope]: http://www.methodsinecologyandevolution.org/view/0/aimsAndScope.html
