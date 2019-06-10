@@ -17,7 +17,7 @@ tags:
   - Software Peer Review
 ---
 
-rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software review system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, *[associate editors](https://ropensci.github.io/dev_guide/softwarereviewintro.html#associateditors)* manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; *[reviewers](https://ropensci.github.io/dev_guide/#reviewers)*, two per submission, examine the software code and user experience.
+rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software review system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, *[associate editors](https://devguide.ropensci.org/softwarereviewintro.html#associateditors)* manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; *[reviewers](https://devguide.ropensci.org/#reviewers)*, two per submission, examine the software code and user experience.
 
 We are quite proud of our Software Peer Review system and do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at [ropensci.org/software-review/](https://ropensci.org/software-review/).
 
@@ -35,15 +35,15 @@ Since our [last post about updates in the system in September 2017](/blog/2017/0
 
 {{< figure src="/img/blog-images/2019-02-01-software-review-news/guide.png" alt="Screenshot from our online book" width="700" >}}
 
-Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://ropensci.github.io/dev_guide/) created with `bookdown`. Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
+Our guidance for authors, reviewers and editors used to be scattered over single Markdown files in the Software Peer Review GitHub repository, which was getting impractical as these files got bigger, and which was not giving a great reading experience to anyone. We have therefore consolidated all our guidance to [a book](https://devguide.ropensci.org/) created with `bookdown`. Its source is [stored on GitHub](https://github.com/ropensci/dev_guide). It is divided in three sections: 
 
-* [One about our guidelines and tips for package development](https://ropensci.github.io/dev_guide/building.html), useful to read for any package developer.
+* [One about our guidelines and tips for package development](https://devguide.ropensci.org/building.html), useful to read for any package developer.
 
-* [One about the Software Peer Review system itself](https://ropensci.github.io/dev_guide/softwarereviewintro.html), including guidance for the different actors of the system.
+* [One about the Software Peer Review system itself](https://devguide.ropensci.org/softwarereviewintro.html), including guidance for the different actors of the system.
 
-* [One about package maintenance](https://ropensci.github.io/dev_guide/collaboration.html), including a chapter about changing stuff in your package, one about GitHub grooming, etc. This section, too, may be useful for any package developer.
+* [One about package maintenance](https://devguide.ropensci.org/collaboration.html), including a chapter about changing stuff in your package, one about GitHub grooming, etc. This section, too, may be useful for any package developer.
 
-This blog post marks the official release of our guide, whose updates are tracked [via a NEWS appendix](https://ropensci.github.io/dev_guide/booknews.html). The next big update won't be about packaging guidelines though: we're working on adding a cover to the online book with Locke Creatives.
+This blog post marks the official release of our guide, whose updates are tracked [via a NEWS appendix](https://devguide.ropensci.org/booknews.html). The next big update won't be about packaging guidelines though: we're working on adding a cover to the online book with Locke Creatives.
 
 ### Recent changes in our standards
 
@@ -51,22 +51,22 @@ We have completed and improved our standards for package development.
 
 As regards testing,
 
-* Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://ropensci.github.io/dev_guide/ci.html#whichci).
+* Our guide now clearly states [conditions in which to add continuous integration for Windows CI](https://devguide.ropensci.org/ci.html#whichci).
 
-* We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://ropensci.github.io/dev_guide/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
+* We now do not only recommend `httr` but also `crul` and `curl` over `RCurl` for [HTTP requests](https://devguide.ropensci.org/building.html#recommended-scaffolding) and suggest using the rOpenSci packages `vcr` and `webmockr` for testing.
 
 * We have added a rule of thumb for package coverage: "Test coverage below 75% will likely require additional tests or explanation before being sent for review." on top of stating that it is best practice when all key functionalities are tested.
 * We now require that packages with Shiny apps use a unit-testing framework such as [`shinytest`](https://github.com/rstudio/shinytest) to test that interactive interfaces behave as expected.
 
 As regards documentation,
 
-* We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://ropensci.github.io/dev_guide/building.html#creating-metadata-for-your-package). 
+* We now demand the [use of `codemetar` to create a codemeta.json file of package metadata at the root of the package repository](https://devguide.ropensci.org/building.html#creating-metadata-for-your-package). 
 
-* We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://ropensci.github.io/dev_guide/releasing.html#news).
+* We now recommend [using a structure for the release notes, and recommend to call it NEWS.md rather than NEWS](https://devguide.ropensci.org/releasing.html#news).
 
-* We [encourage the use of repostatus.org badges](https://ropensci.github.io/dev_guide/building.html#readme).
+* We [encourage the use of repostatus.org badges](https://devguide.ropensci.org/building.html#readme).
 
-* [Using `roxygen2` for documenting packages is now an explicit requirement](https://ropensci.github.io/dev_guide/building.html#documentation), as is documenting the returning type of a function. 
+* [Using `roxygen2` for documenting packages is now an explicit requirement](https://devguide.ropensci.org/building.html#documentation), as is documenting the returning type of a function. 
 
 We have also made these updates about package building.
 
@@ -76,13 +76,13 @@ We have also made these updates about package building.
 
 Of particular interest are also these changes to our policies and process.
 
-* We have added an [explicity policy about conflict of interests for reviewers and editors](https://ropensci.github.io/dev_guide/policies.html#coi).
+* We have added an [explicity policy about conflict of interests for reviewers and editors](https://devguide.ropensci.org/policies.html#coi).
 
 * We have added expected timelines to the reviewer, author and editor guides, for instance editors are expected to perform editor checks within 5 working days.
 
-* We've extended [our scope](https://ropensci.github.io/dev_guide/policies.html#aims-and-scope) to include packages that wrap utility programs used for scientific research.
+* We've extended [our scope](https://devguide.ropensci.org/policies.html#aims-and-scope) to include packages that wrap utility programs used for scientific research.
 
-Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://ropensci.github.io/dev_guide/booknews.html) chapter, and we will be moving to quarterly releases of updates.
+Our policies and guidance have always been fluid, but as a result, keeping track of changing policy and package-building guidance has been challenging for authors and reviewers. With the release of developers guide, changes to requirements will be tracked in our [`NEWS`](https://devguide.ropensci.org/booknews.html) chapter, and we will be moving to quarterly releases of updates.
 
 ### Issue templates
 
