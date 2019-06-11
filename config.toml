@@ -61,3 +61,6 @@ rssLimit = 20
     disable = false
     enableDNT = true
     simple = false
+  [privacy.instagram]
+    disable = false
+    simple = true
