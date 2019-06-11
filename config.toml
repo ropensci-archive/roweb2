@@ -2,7 +2,7 @@ baseurl = "https://ropensci.org/"
 # languageCode = "en-us"
 title = "rOpenSci - open tools for open science"
 theme = "ropensci"
-googleAnalytics = ""
+googleAnalytics = "UA-462421-6"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
@@ -56,3 +56,10 @@ rssLimit = 20
   taxonomy = ["HTML", "RSS", "JSON"]
   taxonomyTerm = ["HTML", "RSS", "JSON"]
 
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = false
+    respectDoNotTrack = true
+    useSessionStorage = true
+    

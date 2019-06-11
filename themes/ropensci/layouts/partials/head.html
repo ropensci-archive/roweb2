@@ -19,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://use.fontawesome.com/3d3fe91f65.js"></script>
-{{ partial "ga.html" . }}
+{{ template "_internal/google_analytics.html" . }}
 
 {{ if eq .RelPermalink "/" }}
   <title>{{ .Site.Title }}</title>
