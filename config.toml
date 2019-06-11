@@ -56,3 +56,8 @@ rssLimit = 20
   taxonomy = ["HTML", "RSS", "JSON"]
   taxonomyTerm = ["HTML", "RSS", "JSON"]
 
+[privacy]
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
