@@ -56,3 +56,8 @@ rssLimit = 20
   taxonomy = ["HTML", "RSS", "JSON"]
   taxonomyTerm = ["HTML", "RSS", "JSON"]
 
+[privacy]
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true
+    

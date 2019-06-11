@@ -54,9 +54,7 @@ alt = "A Towering Pillar of Hats. https://wiki.teamfortress.com/w/images/f/f5/To
 
 Sometimes I'd source functions from other files but then worry they were broken. I heard this.
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sOUsbtUrXHk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-</center>
+{{< youtube "sOUsbtUrXHk" >}}
 
 
 A wise man ([@njtierney](https://github.com/njtierney)) recently said to me that statisticians can learn a lot from the development community, and he was not wrong.

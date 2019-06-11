@@ -38,10 +38,9 @@ Since this was our first time planning an event like this, we loosely followed a
 
 * A [best practices guide](https://github.com/hadley/httr/blob/master/vignettes/api-packages.Rmd) for working with APIs in R ([Hadley Wickham](http://had.co.nz/)
 
-* [Jure Triglav](http://www.juretriglav.si/) was an awesome remote contributor and built a Ruby gem to [search for citations to R packages](https://github.com/ScienceToolbox/code_citations).</div>
+* [Jure Triglav](http://www.juretriglav.si/) was an awesome remote contributor and built a Ruby gem to [search for citations to R packages](https://github.com/ScienceToolbox/code_citations).
 
-<div class="full_fig"><a href="https://www.youtube.com/watch?v=iUcm5COsKJo&nofeather=True"><img src="/assets/blog-images/2014-05-13-ropenhack/hackathon.jpg"></a></div><div class="col-sm-8 col-sm-offset-2">
-
+{{< youtube "iUcm5COsKJo" >}}
 
 There were several other really cool projects like a new Git binding for R (by our Swedish collaborator [Stefan Widgren](https://github.com/stewid)), spatial tools (Ramnath Vaidyanathan, Scott Chamberlain, Amelia McNamara, Ian A. Muñoz, and Ted Hart), a text-mining applications from [Carson Sievert](http://cpsievert.github.io/) (see [blog post](http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/)).
 
