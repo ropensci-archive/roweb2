@@ -59,19 +59,7 @@ hacky way.”. If you have code falling under the definition below, maybe
 try to re-factor and if needed [get
 help](https://masalmon.eu/2018/07/22/wheretogethelp/).
 
-<!--html_preserve-->
-<blockquote class="twitter-tweet" data-lang="en">
-<p lang="en" dir="ltr">
-It’s that feeling when you want to do something that sounds simple but
-instead your code is like 10 stack overflow snippets slapped together
-that you could never explain to another human what they do 😰
-<a href="https://t.co/IF53AX6QvC">pic.twitter.com/IF53AX6QvC</a>
-</p>
-— Dr. Alison Hill (@apreshill)
-<a href="https://twitter.com/apreshill/status/1035526182392000514?ref_src=twsrc%5Etfw">31
-d’agost de 2018</a>
-</blockquote>
-<!--/html_preserve-->
+{{< tweet 035526182392000514? >}}
 From Markdown to XML
 --------------------
 
