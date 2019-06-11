@@ -19,8 +19,7 @@ See [editorial suggestions](#blog-post-editorial-suggestions). Before that, tech
 1. [Fork the repo](https://happygitwithr.com/fork-and-clone.html)
 2. Create a new file in `/content/blog/YEAR-MONTH-DAY-slug.md`.
     * [Markdown template](2019-06-04-post-template.md), 
-    * [R Markdown template](2019-06-04-post-template-rmd.Rmd), [rendered R Markdown template that you would submit](2019-06-04-post-template-rmd.md). If using this template after knitting you'll need to copy the folder 'img/blog-images/YEAR-MONTH-DAY-slug/' to ' roweb2/themes/ropensci/static/img/blog-images' but the paths in the resulting Markdown will already be valid
-
+    * [ Markdown template]: either [to be copy-pasted](https://github.com/ropenscilabs/rodev/blob/master/inst/rmarkdown/templates/ropensci-blog-post/skeleton/skeleton.Rmd) or install [`rodev`](https://docs.ropensci.org/rodev/) via `remotes::install_github("ropenscilabs/rodev")` after which in RStudio you can click on File > New File > R Markdown... > From Template > rOpenSci Blog Post to create the file.
 3. Your post must include YAML in this format:
 
 ```yaml
