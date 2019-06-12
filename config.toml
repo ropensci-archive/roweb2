@@ -57,6 +57,9 @@ rssLimit = 20
   taxonomyTerm = ["HTML", "RSS", "JSON"]
 
 [privacy]
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true
   [privacy.googleAnalytics]
     anonymizeIP = true
     disable = false
