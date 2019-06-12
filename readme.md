@@ -118,7 +118,7 @@ There are no requirements to simply add a post/fix and push to GitHub for a rend
 
 #### Installing Hugo for local preview
 
-The current version of Hugo on the server uses is defined in [netlify.toml](netlify.toml). 
+The version of Hugo used by the server is defined in [netlify.toml](netlify.toml). 
 
 To install Hugo locally, refer to [Hugo docs](https://gohugo.io/getting-started/installing/) or run `blogdown::install_hugo()`.
 
