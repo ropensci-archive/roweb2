@@ -27,7 +27,7 @@ I like Hugo[^1]. Yes, that is how you add a footnote.
 
 #### First awesome subsection of the first awesome section
 
-Below is an image. We recommend you use a Hugo shortcode to include it.
+Here's how to use a Hugo shortcode to add an image. 
 
 {{< figure src = "/img/blog-images/2019-06-04-post-template/name-of-image.png" width = "200" alt = "this is the alternative text" >}}
 
