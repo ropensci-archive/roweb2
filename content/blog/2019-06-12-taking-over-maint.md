@@ -53,7 +53,7 @@ Package maintainer tasks:
 
 * If the package has been archived by CRAN and there is a maintainer change, have the old maintainer email CRAN and put in writing who the new maintainer is. Make sure to mention that email about the maintainer change when you submit the first new version to CRAN.
 
-    * __If the old maintainer is un-reachable, WHAT HAPPENS? Can rOpenSci step in to authorize the maintainer transfer?__
+* If the old maintainer is un-reachable ... we haven't landed on a solution here yet; we're open to ideas.
 
 Code changes:
 
