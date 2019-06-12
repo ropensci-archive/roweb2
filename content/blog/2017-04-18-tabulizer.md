@@ -21,8 +21,7 @@ tags:
 
 There is no problem in science quite as frustrating as *other peoples' data*. Whether it's malformed spreadsheets, disorganized documents, proprietary file formats, data without metadata, or any other data scenario created by someone else, [scientists have taken to Twitter to complain about it](https://twitter.com/hashtag/otherpeoplesdata?src=hash). As a political scientist who regularly encounters so-called "open data" in PDFs, this problem is particularly irritating. PDFs may have "portable" in their name, making them display consistently on various platforms, but that portability means any information contained in a PDF is irritatingly difficult to extract computationally. Encountering "open data" PDFs therefore makes me shout things like this repeatedly:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">HEY US GOVERNMENT! Tables in PDF documents aren&#39;t &quot;Open Data.&quot; Please provide machine-readable formats or it doesn&#39;t count.</p>&mdash; Anthony A. Boyles (@AABoyles) <a href="https://twitter.com/AABoyles/status/776428077123506176">September 15, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{< tweet 776428077123506176 >}}
 
 What can we do about such data other than extract it by hand? One answer is rely on [`tabulizer`](https://github.com/ropensci/tabulizer) a package I submitted to rOpenSci that reduces some and often all of the hassle of extracting tabular data locked inside PDFs.
 
@@ -34,8 +33,7 @@ Tabula is an extremely powerful tool for extracting tabular data locked in PDFs.
 
 Unfortunately, this means that `tabulizer` is not a universal solution to data trapped in PDFs. In particular, it can only identify and extract tables that are represented as *text* in a PDF:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Oh no no no no no! Just received <a href="https://twitter.com/hashtag/otherpeoplesdata?src=hash">#otherpeoplesdata</a> as a 276 page set of printed tables scanned in to a PDF</p>&mdash; Dr Elizabeth Sargent (@esargent184) <a href="https://twitter.com/esargent184/status/510056437033091074">September 11, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{< tweet 510056437033091074 >}}
 
 If a PDF is a scan of a document or the table is actually an image embedded in the PDF, tabula - and thus `tabulizer` - are useless. In those cases, users might want to check out the OCR functionality of [tesseract](https://github.com/ropensci/tesseract), which Jeroen Ooms developed for rOpenSci and [discussed previously on this blog](https://ropensci.org/blog/blog/2016/11/16/tesseract).
 

@@ -11,7 +11,7 @@ tags:
   - rOpenSci team
 ---
 
-We are pleased to welcome Brooke Anderson and Melina Vidoni to our team of [Associate Editors](https://ropensci.github.io/dev_guide/softwarereviewintro.html#associateditors) for rOpenSci [Software Peer Review](https://ropensci.org/software-review/). They join Scott Chamberlain, Anna Krystalli, Lincoln Mullen, Karthik Ram, Noam Ross and Maëlle Salmon. With the addition of Brooke and Melina, our editorial board now includes four women and four men, located in North America, South America and Europe.
+We are pleased to welcome Brooke Anderson and Melina Vidoni to our team of [Associate Editors](https://devguide.ropensci.org/softwarereviewintro.html#associateditors) for rOpenSci [Software Peer Review](https://ropensci.org/software-review/). They join Scott Chamberlain, Anna Krystalli, Lincoln Mullen, Karthik Ram, Noam Ross and Maëlle Salmon. With the addition of Brooke and Melina, our editorial board now includes four women and four men, located in North America, South America and Europe.
 
 Our open Software Peer Review system for community-contributed R tools is a key component of [our mission](/about/) to create technical infrastructure that lowers barriers to working with data sources on the web. Editors manage the review process, performing initial package checks, identifying reviewers, and moderating the process until the package is accepted by reviewers and transferred to rOpenSci. The number of packages submitted for review has increased every year, resulting in an increased [workload for Editors](/blog/2018/05/03/onboarding-is-work/#work-done-by-editors) and the need to expand the team.
 

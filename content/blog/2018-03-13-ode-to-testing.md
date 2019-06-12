@@ -27,7 +27,7 @@ However, through undertaking this review, which began with the revelation that I
 
 Now I think any `R` user can be a `R`eviewer. That is, surely there's something to be said for having someone who's relatively uninitiated take your package for a whirl, at the very least. We all want our packages to be usable by all data science folk, not just advanced programmers. 
 
-I was delighted that the [`testthat`](https://cran.r-project.org/web/packages/testthat/README.html) package was part of the recommended reviewer workflow, as well as novel [`devtools`](https://github.com/hadley/devtools) functions. Reading the [rOpenSci package guide](https://ropensci.github.io/dev_guide/building.html) was a veritable font of good tips for someone who has only just begun building their first packages. 
+I was delighted that the [`testthat`](https://cran.r-project.org/web/packages/testthat/README.html) package was part of the recommended reviewer workflow, as well as novel [`devtools`](https://github.com/hadley/devtools) functions. Reading the [rOpenSci package guide](https://devguide.ropensci.org/building.html) was a veritable font of good tips for someone who has only just begun building their first packages. 
 
 In this context, *testing* refers to a reproducible and more systematic approach to the kind of ad hoc console testing we `R` peeps do when writing functions. Does it output expected results? For a variety of inputs? Does it fail as it should when passed something it shouldn't be?       
 
@@ -54,9 +54,7 @@ alt = "A Towering Pillar of Hats. https://wiki.teamfortress.com/w/images/f/f5/To
 
 Sometimes I'd source functions from other files but then worry they were broken. I heard this.
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sOUsbtUrXHk" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-</center>
+{{< youtube "sOUsbtUrXHk" >}}
 
 
 A wise man ([@njtierney](https://github.com/njtierney)) recently said to me that statisticians can learn a lot from the development community, and he was not wrong.

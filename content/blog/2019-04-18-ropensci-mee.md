@@ -35,9 +35,9 @@ But who was this reviewer and what was their motivation? What role did the edito
 
 To me, MEE’s role is to help increase the quality of the methods used in ecology and evolution, and this includes research software. It would be great to reach a point where all the research software used in ecology is at the same high standard as the packages that have been through rOpenSci software peer review.
 
-Not all R packages that we receive at MEE fit in with the rOpenSci package scope, but I’d love to see them go through a similar process. This is where the [rOpenSci review checklist](https://ropensci.github.io/dev_guide/reviewtemplate.html) comes in. In my view, it’s the gold standard 🏆 for reviewing R packages and I was thrilled to see that Hao (manuscript reviewer) had used it with this paper.
+Not all R packages that we receive at MEE fit in with the rOpenSci package scope, but I’d love to see them go through a similar process. This is where the [rOpenSci review checklist](https://devguide.ropensci.org/reviewtemplate.html) comes in. In my view, it’s the gold standard 🏆 for reviewing R packages and I was thrilled to see that Hao (manuscript reviewer) had used it with this paper.
 
-The idea of doing code review as part of reviewing a manuscript is new to a lot of people. Often, invited reviewers decline because they don’t think they have the right experience. If you have experience with creating packages though, reviewing code isn’t something to be worried about. [rOpenSci’s guidelines](https://ropensci.github.io/dev_guide/reviewerguide.html) are a great way for people new to reviewing code to become comfortable with the process.
+The idea of doing code review as part of reviewing a manuscript is new to a lot of people. Often, invited reviewers decline because they don’t think they have the right experience. If you have experience with creating packages though, reviewing code isn’t something to be worried about. [rOpenSci’s guidelines](https://devguide.ropensci.org/reviewerguide.html) are a great way for people new to reviewing code to become comfortable with the process.
 <br/>
 <br/>
 

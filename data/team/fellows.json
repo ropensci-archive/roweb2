@@ -1,0 +1,30 @@
+[{
+   "name": "Kelly Hondula",
+   "url": "https://www.sesync.org/users/khondula",
+   "image" : "/img/team/kelly-hondula.jpg",
+   "affiliation" : "University of Maryland, SESYNC"
+},
+{
+   "name": "Zachary Foster",
+   "url": "https://github.com/zachary-foster",
+   "image" : "/img/team/zachary-foster.jpg",
+   "affiliation" : "Oregon State University"
+},
+{
+   "name": "Sam Tyner",
+   "url": "https://sctyner.github.io/",
+   "image" : "/img/team/sam-tyner.jpg",
+   "affiliation" : "Iowa State University, CSAFE"
+},
+{
+   "name": "Jon Zelner",
+   "url": "http://www.jonzelner.net/",
+   "image" : "/img/team/jon-zelner.jpg",
+   "affiliation" : "University of Michigan"
+},
+{
+   "name": "Nick Golding",
+   "url": "https://github.com/goldingn",
+   "image" : "/img/team/nick-golding.jpg",
+   "affiliation" : "University of Melbourne"
+}]

@@ -45,9 +45,9 @@ satisfaction as we continue to grow.
 ![](https://i.imgur.com/Vx0HtQ9.png)![](https://i.imgur.com/N6rYblm.png)
 
 We provide
-[packaging](https://ropensci.github.io/dev_guide/building.html)
+[packaging](https://devguide.ropensci.org/building.html)
 and
-[reviewing](https://ropensci.github.io/dev_guide/reviewerguide.html)
+[reviewing](https://devguide.ropensci.org/reviewerguide.html)
 guides for our authors and reviewers to consult before and during the
 peer-review process. While both were highly rated, enthusiasm was
 greater for the packaging guide than the reviewing guide.
@@ -59,7 +59,7 @@ this was a great suggestion, and have begun the process of porting all
 our documentation for packaging and reviewing, into a common bookdown
 book. Editor Maëlle Salmon is leading this work, and you can find the
 in-progress book, *rOpenSci Packages: Development, Maintenance, and Peer
-Review*, [here](https://ropensci.github.io/dev_guide/).
+Review*, [here](hhttps://devguide.ropensci.org/).
 
 We also got feedback from authors that they wanted guidance on how best
 to acknowledge the efforts of reviewers. This was one of our drivers to

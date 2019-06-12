@@ -473,7 +473,7 @@ Explore more of `codemetar` [in its GitHub
 repo](https://github.com/ropensci/codemetar/), and check out the
 [CodeMeta project itself](https://github.com/codemeta). Read our
 guidelines for package development and maintenance [in this
-gitbook](https://ropensci.github.io/dev_guide/). And have fun ~~adding
+gitbook](https://devguide.ropensci.org/). And have fun ~~adding
 pretty badges to your own package repos~~ upping your package
 development & maintenance game!
 
@@ -481,7 +481,7 @@ development & maintenance game!
 great post of Julia
 Silge’s](https://juliasilge.com/blog/beginners-guide-to-travis/), and
 [this chapter of our guide for package
-development](https://ropensci.github.io/dev_guide/ci.html).
+development](https://devguide.ropensci.org/ci.html).
 
 [2] Memoizing a function means that when called again during the same R
 session with the same parameters, a cached answer is used. See [the

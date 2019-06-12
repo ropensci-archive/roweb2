@@ -83,10 +83,9 @@ Standards changes often take place because we find that both editors and reviewe
 
 **Editors**
 
-As the pace of package submissions increases, we've expanded our editorial team to keep up. [Maëlle Salmon][ms] joined us in February, bringing our [team to four](https://ropensci.github.io/dev_guide/softwarereviewintro.html#associateditors). With four, we need to be more coordinated, so we've moved to a system of a rotating editor-in-chief, who makes decisions about scope, assigns handling editors, and brings up edge cases for discussion with the whole team.
+As the pace of package submissions increases, we've expanded our editorial team to keep up. [Maëlle Salmon][ms] joined us in February, bringing our [team to four](https://devguide.ropensci.org/softwarereviewintro.html#associateditors). With four, we need to be more coordinated, so we've moved to a system of a rotating editor-in-chief, who makes decisions about scope, assigns handling editors, and brings up edge cases for discussion with the whole team.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Welcome <a href="https://twitter.com/ma_salmon">@ma_salmon</a> to our editorial team for open peer review of <a href="https://twitter.com/hashtag/rstats?src=hash">#rstats</a> software <a href="https://t.co/KsL0SF1b6K">https://t.co/KsL0SF1b6K</a> 1/2</p>&mdash; rOpenSci (@rOpenSci) <a href="https://twitter.com/rOpenSci/status/832228045587099649">February 16, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{< tweet 832228045587099649 >}}
 
 The process our editors follow is summarized in our [editors' guide][eg], which will help bring editors up to speed when we further expand our team.
 
@@ -127,17 +126,17 @@ We hope to see you soon in the onboarding repository as a [submitter](https://gi
 [cc]: https://ropensci.org/blog/blog/2017/08/31/comm-call-v14
 [ms]: https://masalmon.eu/
 [pkgfit]: https://github.com/ropensci/onboarding/blob/d796e7d197ad6e632ca237cec931420c51766045/policies.md#package-fit
-[aims]: https://ropensci.github.io/dev_guide/policies.html#aims-and-scope
+[aims]: https://devguide.ropensci.org/policies.html#aims-and-scope
 [presub]: https://github.com/ropensci/software-review/issues?q=is%3Aissue+label%3A0%2Fpresubmission
-[pkgoverlap]: https://ropensci.github.io/dev_guide/policies.html#overlap
+[pkgoverlap]: https://devguide.ropensci.org/policies.html#overlap
 [outofscope]: https://github.com/ropensci/software-review/issues?q=is%3Aissue+is%3Aclosed+label%3Aout-of-scope
 [gp]: https://github.com/MangoTheCat/goodpractice
 [or]: https://github.com/ropensci/software-review
 [magick]: https://github.com/ropensci/magick
 [plotly]: https://github.com/ropensci/plotly
 [git2r]: https://github.com/ropensci/git2r
-[pg]: https://ropensci.github.io/dev_guide/building.html
-[eg]: https://ropensci.github.io/dev_guide/editorguide.html
+[pg]: https://devguide.ropensci.org/building.html
+[eg]: https://devguide.ropensci.org/editorguide.html
 [tidyverse]: https://www.tidyverse.org/
-[over]: https://ropensci.github.io/dev_guide/policies.html#overlap
-[revtemp]: https://ropensci.github.io/dev_guide/reviewtemplate.html
+[over]: https://devguide.ropensci.org/policies.html#overlap
+[revtemp]: https://devguide.ropensci.org/reviewtemplate.html

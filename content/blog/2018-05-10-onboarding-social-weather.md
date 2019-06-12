@@ -43,7 +43,7 @@ possible to listen?!
 
 In the meantime, I’ve now only submitted and reviewed a few packages but
 also become an [associate
-editor](https://ropensci.github.io/dev_guide/softwarereviewintro.html#associateditors). In
+editor](https://devguide.ropensci.org/softwarereviewintro.html#associateditors). In
 general, when one of us editors talks about onboarding, we like to use
 examples illustrating the system in a good light: often excerpts from
 review processes, or quotes of tweets by authors or reviewers. Would
@@ -71,7 +71,7 @@ how I got all onboarding issue threads. Now, I’ll explain how I cleaned
 their text. Why does it need to be cleaned? Well, this text contains
 elements that I wished to remove: code chunks, as well as parts from our
 submission and [review
-templates](https://ropensci.github.io/dev_guide/reviewtemplate.html).
+templates](https://devguide.ropensci.org/reviewtemplate.html).
 
 **Edit: Find a cleaner approach to Markdown text extraction in [this tech note](https://ropensci.org/technotes/2018/09/05/commonmark/).**
 
