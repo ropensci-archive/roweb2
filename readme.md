@@ -62,7 +62,7 @@ tags:
 ![](https://i.imgur.com/HYcQyB4.png)
 ![](https://i.imgur.com/0deI0d3.png)
 
-8. Tag rOpenSci community manager to review your pull request (`@stefaniebutland`) unless you were assigned another reviewer.
+8. Tag rOpenSci Community Manager (`@stefaniebutland`) to review your pull request.
 
 #### Blog post editorial suggestions
 
