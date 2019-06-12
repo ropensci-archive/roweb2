@@ -48,7 +48,7 @@ No community is perfect, and being willing to consider our shortcomings and thin
 
 [Alice Daish](https://twitter.com/alice_data) did a great job capturing the conversation and allowing for more discussion online:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Join the lunchtime <a href="https://twitter.com/hashtag/runconf17?src=hash">#runconf17</a> discussion about the <a href="https://twitter.com/hashtag/rstats?src=hash">#rstats</a> communities - what do we need to do to improve? <a href="https://t.co/ztbXxNfqU7">pic.twitter.com/ztbXxNfqU7</a></p>&mdash; Alice Data (@alice_data) <a href="https://twitter.com/alice_data/status/868198529134510080">May 26, 2017</a></blockquote>
+{{< tweet 868198529134510080 >}}
 
 To summarize here:
 
@@ -65,7 +65,7 @@ To summarize here:
 
 And, when times get tough, look to your community. Get out there. Be active. Communicate with one another. [Tim Phan](https://twitter.com/timothy_phan) brilliantly summarized the importance of action and community in this thread:
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Dear <a href="https://twitter.com/hashtag/runconf17?src=hash">#runconf17</a>, bye for now!Thanks to the organizers for all you do. Here&#39;s an incoming tweet storm on R, community, and open science 1/6 <a href="https://t.co/7DpkceOUC8">pic.twitter.com/7DpkceOUC8</a></p>&mdash; Timothy Phan (@timothy_phan) <a href="https://twitter.com/timothy_phan/status/868231965266325504">May 26, 2017</a></blockquote>
+{{< tweet 868231965266325504 >}}
 
 ## Thank you
 

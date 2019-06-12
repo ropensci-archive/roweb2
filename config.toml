@@ -57,6 +57,13 @@ rssLimit = 20
   taxonomyTerm = ["HTML", "RSS", "JSON"]
 
 [privacy]
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
+  [privacy.instagram]
+    disable = false
+    simple = true
   [privacy.youtube]
     disable = false
     privacyEnhanced = true
@@ -65,4 +72,3 @@ rssLimit = 20
     disable = false
     respectDoNotTrack = true
     useSessionStorage = true
-    
