@@ -7,31 +7,42 @@ authors:
   - Maëlle Salmon
   - Noam Ross
 categories: blog
-topicid: 
+topicid: 1738
 tags:
   - software
   - community
 ---
 
-Software is maintained by people. While software can in theory live on indefinitely, to do it so requires people. People change jobs, move locations, retire, and unfortunately die sometimes. When a software maintainer can no longer maintain a package, what happens to the software?
+Software is maintained by people. While software can in theory live on indefinitely, to do so requires people. People change jobs, move locations, retire, and unfortunately die sometimes. When a software maintainer can no longer maintain a package, what happens to the software?
 
 Because of the fragility of people in software, in an ideal world a piece of software should have as many maintainers as possible. Increasing maintainers increases the so-called [bus factor][bus]. A lower number of maintainers means fewer people have to get hit by a bus to then have no maintainers. 
 
-In theory, finding maintainers for software is easier as the pool of users gets larger. However, at rOpenSci, we generally do not have this luxury. Most rOpenSci packages have a rather focused and small task, and the pool of users is relatively small. Thus, the average rOpenSci package is maintained by one person, making that package sensitive to the maintainer leaving.
+In theory, finding maintainers for software is easier as the pool of users gets larger. However, at rOpenSci, we generally do not have this luxury. Most rOpenSci packages have a rather focused and small task, and the pool of users is likely to be relatively small. The average rOpenSci package has 3 authors listed, while a significant proportion of packages have only one person listed (36%). Authors listed in R packages may or may not be capable of taking over if the maintainer leaves, but more authors increases the chance that at least one of them can take over (caveat: new maintainers may come from outside the current author pool).
+
+<figure class="image">
+  <!-- <img src="{{ include.url }}" alt="{{ include.description }}"> -->
+  <img src="/img/blog-images/2019-06-12-taking-over-maint/ropensci_authors.png" alt="ropensci_authors" style="margin: 0px 10px; width: 500px;" align="center">
+  <figcaption><i>data from <a href="http://crandb.r-pkg.org/">the crandb API</a>; 235 rOpenSci packages, only those on CRAN</i></figcaption>
+</figure>
+<br><br>
 
 ### Small wins
 
-Despite a small number of maintainers per package, the rOpenSci community of users and developers is quite large. That is, whereas individual R packages that are very popular may have a large enough community on their own, individual packages within rOpenSci can benefit from the large community we've cultivated. 
+Even though many rOpenSci packages have a small number of authors per package, the rOpenSci community of users and developers is quite large. Even if an individual R package within rOpenSci doesn't have a large community on their own, individual packages within rOpenSci can benefit from the large community we've cultivated. 
 
-We've had success finding maintainers by reaching out to our community as maintainers have moved on - we've found new maintainers for all five packages that have needed new maintainers. See our latest [rOpenSci News](https://news.ropensci.org/2019-05-13/) "Call For Contributors" section for recent examples. One of these new maintainers, [Julia Silge](https://ropensci.org/authors/julia-silge/), wrote about the experience in her post [Relaunching the qualtRics package](https://ropensci.org/blog/2019/04/30/qualtrics-relaunch/).
+We've had success finding maintainers by reaching out to our community as maintainers have moved on - we've found new maintainers for all six packages that have needed new maintainers. See our latest [rOpenSci News](https://news.ropensci.org/2019-06-10/) "Call For Contributors" section for recent examples. One of these new maintainers, [Julia Silge](https://ropensci.org/authors/julia-silge/), wrote about the experience in her post [Relaunching the qualtRics package](https://ropensci.org/blog/2019/04/30/qualtrics-relaunch/).
 
 ### Taking over
 
-Okay, so you've taken over maintenance of a software package. What next? We want to add a section to our [Software Development Guide][devg] about taking over maintainence; we're first reaching out here to the community to talk through what we're thinking and to get your feedback. This is what we're thinking thus far:
+Okay, so you've taken over maintenance of a software package. What next?
+
+We want to add a section to our [Software Development Guide][devg] to address this exact question; we're first reaching out here to the community to talk through what we're thinking and to get your feedback. This is what we're thinking thus far:
 
 #### Proposed material for dev guide
 
 rOpenSci staff tasks:
+
+* If a repository hasn't seen any action in quite a long time it may simply be a mature package with little need for changes/etc., so take this into account.
 
 * Current maintainer has not responded to issues/PR's in many months, via any of emails, Github issues, or Slack messages:
     
@@ -51,7 +62,7 @@ Package maintainer tasks:
 
 * The rOpenSci Development Guide has guidance about adding new maintainers and collaborators at <https://ropensci.github.io/dev_guide/collaboration.html#onboarding-collaborators> and <https://ropensci.github.io/dev_guide/collaboration.html#welcoming-collaborators-to-ropensci>
 
-* If the package has been archived by CRAN and there is a maintainer change, have the old maintainer email CRAN and put in writing who the new maintainer is. Make sure to mention that email about the maintainer change when you submit the first new version to CRAN.
+* If the package has been archived by CRAN and there is a maintainer change, have the old maintainer email CRAN and put in writing who the new maintainer is. Make sure to mention that email about the maintainer change when you submit the first new version to CRAN. If the old maintainer is unreachable or will not send this email get in touch with rOpenSci staff.
 
 * If the old maintainer is un-reachable ... we haven't landed on a solution here yet; we're open to ideas.
 
