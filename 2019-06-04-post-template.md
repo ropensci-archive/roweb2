@@ -23,7 +23,7 @@ Introduction including outline of the post.
 
 ### First awesome section
 
-I like Hugo[^1]. Yep this was a footnote.
+I like Hugo[^1]. Yes, that is how you add a footnote.
 
 #### First awesome subsection of the first awesome section
 
