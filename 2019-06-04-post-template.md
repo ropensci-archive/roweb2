@@ -41,4 +41,6 @@ Here's how to use a Hugo shortcode to embed a tweet. We recommend the use of [Hu
 
 Have fun writing your blog post!
 
+Here's how to add the footnote text for your reference above.
+
 [^1]: Hugo! https://gohugo.io/
