@@ -40,7 +40,8 @@ I searched for a graphic equaliser javascript library to work with and didn't fi
 
 This seemed to be worth a go. I managed to follow enough of [this tutorial](https://www.htmlwidgets.org/develop_intro.html) to have the library called from R. I modified the javascript canvas code to look a little more familiar, and the first iteration of `geom_realtime()` was born
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3mdiCUbgxi0" frameborder="0" gesture="media" allowfullscreen></iframe>
+{{< youtube "3mdiCUbgxi0" >}}
+
 
 This seemed like enough of an idea that I proposed it in the GitHub Issues for the unconf. It got a bit of attention, which was worrying, because I had no idea what to do with this next. [Peter Hickey](https://github.com/petehaitch) pointed out that [Sean Kross](https://github.com/seankross) had [already wrapped some of the `p5.js` calls into R calls](https://seankross.com/2017/08/11/Beyond-Axes-Simulating-Systems-with-Interactive-Graphics.html) with his `p5` package, so this seemed like a great place to start. It's quite a clever way of doing it too; it involves re-writing the `javascript` which `htmlwidgets` calls on each time you want to do something.
 

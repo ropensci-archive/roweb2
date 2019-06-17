@@ -1,6 +1,6 @@
 ---
 title: elastic tutorial
-package_version: 0.8.0
+package_version: 1.0.0
 ---
 
 
@@ -41,24 +41,39 @@ library("elastic")
 
 **Install Elasticsearch**
 
-* [Elasticsearch installation help](http://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html)
+* [Elasticsearch installation help](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
 
-__Unix (linux/osx)__
+__w/ Docker__
 
-Replace `5.6.0` with the version you are working with.
+Pull the official elasticsearch image
 
-+ Download zip or tar file from Elasticsearch [see here for download](https://www.elastic.co/downloads), e.g., `curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.0.tar.gz`
-+ Extract: `tar -zxvf elasticsearch-5.6.0.tar.gz`
-+ Move it: `sudo mv elasticsearch-5.6.0 /usr/local`
+```
+docker pull elasticsearch
+```
+
+Then start up a container
+
+```
+docker run -d -p 9200:9200 elasticsearch
+```
+
+Then elasticsearch should be available on port 9200, try `curl localhost:9200` and you should get the familiar message indicating ES is on.
+
+If you're using boot2docker, you'll need to use the IP address in place of localhost. Get it by doing `boot2docker ip`.
+
+__on OSX__
+
++ Download zip or tar file from Elasticsearch [see here for download](https://www.elastic.co/downloads), e.g., `curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.1.1-darwin-x86_64.tar.gz`
++ Extract: `tar -zxvf elasticsearch-7.1.1-darwin-x86_64.tar.gz`
++ Move it: `sudo mv elasticsearch-7.1.1 /usr/local`
 + Navigate to /usr/local: `cd /usr/local`
 + Delete symlinked `elasticsearch` directory: `rm -rf elasticsearch`
-+ Add shortcut: `sudo ln -s elasticsearch-5.6.0 elasticsearch` (replace version with your version)
++ Add shortcut: `sudo ln -s elasticsearch-7.1.1 elasticsearch` (replace version with your version)
 
-On OSX, you can install via Homebrew: `brew install elasticsearch`
+You can also install via Homebrew: `brew install elasticsearch`
 
-__Windows__
+> Note: for the 1.6 and greater upgrades of Elasticsearch, they want you to have java 8 or greater. I downloaded Java 8 from here http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html and it seemed to work great.
 
-Windows users can follow the above, but unzip the zip file instead of uncompressing the tar file.
 
 **Start Elasticsearch**
 
@@ -75,18 +90,7 @@ The function `connect()` is used before doing anything else to set the connectio
 
 
 ```r
-connect()
-```
-
-```
-#> transport:  http
-#> host:       127.0.0.1
-#> port:       9200
-#> path:       NULL
-#> username:   NULL
-#> password:   <secret>
-#> errors:     simple
-#> headers (names):  NULL
+x <- connect()
 ```
 
 On package load, your base url and port are set to `http://127.0.0.1` and `9200`, respectively. You can of course override these settings per session or for all sessions.
@@ -95,28 +99,35 @@ On package load, your base url and port are set to `http://127.0.0.1` and `9200`
 
 Elasticsearch has a bulk load API to load data in fast. The format is pretty weird though. It's sort of JSON, but would pass no JSON linter. I include a few data sets in `elastic` so it's easy to get up and running, and so when you run examples in this package they'll actually run the same way (hopefully).
 
-I have prepared a non-exported function useful for preparing the weird format that Elasticsearch wants for bulk data loads (see below). See `elastic:::make_bulk_plos` and `elastic:::make_bulk_gbif`.
+I have prepare a non-exported function useful for preparing the weird format that Elasticsearch wants for bulk data loads, that is somewhat specific to PLOS data (See below), but you could modify for your purposes. See `make_bulk_plos()` and `make_bulk_gbif()` [here](https://github.com/ropensci/elastic/blob/master/R/docs_bulk.r).
 
 **Shakespeare data**
 
 Elasticsearch provides some data on Shakespeare plays. I've provided a subset of this data in this package. Get the path for the file specific to your machine:
 
 
+
+
 ```r
 shakespeare <- system.file("examples", "shakespeare_data.json", package = "elastic")
+# If you're on Elastic v6 or greater, use this one with 1 type instead of 3:
+shakespeare <- system.file("examples", "shakespeare_data_.json", package = "elastic")
 ```
 
 Then load the data into Elasticsearch:
 
+> make sure to create your connection object with `connect()`
+
 
 ```r
-docs_bulk(shakespeare)
+# x <- connect()  # do this now if you didn't do this above
+invisible(docs_bulk(x, shakespeare))
 ```
 
 If you need some big data to play with, the shakespeare dataset is a good one to start with. You can get the whole thing and pop it into Elasticsearch (beware, may take up to 10 minutes or so.):
 
 ```sh
-curl -XGET http://www.elasticsearch.org/guide/en/kibana/current/snippets/shakespeare.json > shakespeare.json
+curl -XGET https://download.elastic.co/demos/kibana/gettingstarted/shakespeare_6.0.json > shakespeare.json
 curl -XPUT localhost:9200/_bulk --data-binary @shakespeare.json
 ```
 
@@ -126,13 +137,24 @@ A dataset inluded in the `elastic` package is metadata for PLOS scholarly articl
 
 
 ```r
-plosdat <- system.file("examples", "plos_data.json", package = "elastic")
-docs_bulk(plosdat)
+if (index_exists(x, "plos")) index_delete(x, "plos")
 ```
+
+```
+#> $acknowledged
+#> [1] TRUE
+```
+
+```r
+plosdat <- system.file("examples", "plos_data.json", package = "elastic")
+invisible(docs_bulk(x, plosdat))
+```
+
+
 
 **More data sets**
 
-There are more datasets formatted for bulk loading in the `ropensci/elastic_data` GitHub repository. Find it at [https://github.com/ropensci/elastic_data](https://github.com/ropensci/elastic_data)
+There are more datasets formatted for bulk loading in the `ropensci/elastic_data` GitHub repository. Find it at <https://github.com/ropensci/elastic_data>
 
 ### Search
 
@@ -140,27 +162,27 @@ Search the `plos` index and only return 1 result
 
 
 ```r
-Search(index="plos", size=1)$hits$hits
+Search(x, index = "plos", size = 1)$hits$hits
 ```
 
 ```
 #> [[1]]
 #> [[1]]$`_index`
 #> [1] "plos"
-#>
+#> 
 #> [[1]]$`_type`
 #> [1] "article"
-#>
+#> 
 #> [[1]]$`_id`
 #> [1] "0"
-#>
+#> 
 #> [[1]]$`_score`
 #> [1] 1
-#>
+#> 
 #> [[1]]$`_source`
 #> [[1]]$`_source`$id
 #> [1] "10.1371/journal.pone.0007737"
-#>
+#> 
 #> [[1]]$`_source`$title
 #> [1] "Phospholipase C-β4 Is Essential for the Progression of the Normal Sleep Sequence and Ultradian Body Temperature Rhythms in Mice"
 ```
@@ -169,29 +191,29 @@ Search the `plos` index, and the `article` document type, and query for _antibod
 
 
 ```r
-Search(index="plos", type="article", q="antibody", size=1)$hits$hits
+Search(x, index = "plos", type = "article", q = "antibody", size = 1)$hits$hits
 ```
 
 ```
 #> [[1]]
 #> [[1]]$`_index`
 #> [1] "plos"
-#>
+#> 
 #> [[1]]$`_type`
 #> [1] "article"
-#>
+#> 
 #> [[1]]$`_id`
-#> [1] "568"
-#>
+#> [1] "813"
+#> 
 #> [[1]]$`_score`
-#> [1] 4.165291
-#>
+#> [1] 5.18676
+#> 
 #> [[1]]$`_source`
 #> [[1]]$`_source`$id
-#> [1] "10.1371/journal.pone.0085002"
-#>
+#> [1] "10.1371/journal.pone.0107638"
+#> 
 #> [[1]]$`_source`$title
-#> [1] "Evaluation of 131I-Anti-Angiotensin II Type 1 Receptor Monoclonal Antibody as a Reporter for Hepatocellular Carcinoma"
+#> [1] "Sortase A Induces Th17-Mediated and Antibody-Independent Immunity to Heterologous Serotypes of Group A Streptococci"
 ```
 
 
@@ -207,39 +229,11 @@ mmatch <- '{
          "speech_number" : {
            "from" : 1, "to": 5
 }}}}}}'
-sapply(Search(index="shakespeare", body=mmatch)$hits$hits, function(x) x$`_source`$speech_number)
+unlist(sapply(Search(x, index="shakespeare", body=mmatch)$hits$hits, function(x) x$`_source`$speech_number))
 ```
 
 ```
-#> [[1]]
-#> NULL
-#>
-#> [[2]]
-#> [1] 6
-#>
-#> [[3]]
-#> [1] 7
-#>
-#> [[4]]
-#> [1] 7
-#>
-#> [[5]]
-#> [1] 7
-#>
-#> [[6]]
-#> [1] 8
-#>
-#> [[7]]
-#> [1] 8
-#>
-#> [[8]]
-#> [1] 9
-#>
-#> [[9]]
-#> [1] 9
-#>
-#> [[10]]
-#> [1] 10
+#> [1] 6 6 7 7 7 7 7
 ```
 
 #### Range query
@@ -249,11 +243,15 @@ With numeric
 
 ```r
 body <- list(query=list(range=list(decimalLongitude=list(gte=1, lte=3))))
-Search('gbif', body=body)$hits$total
+Search(x, 'gbif', body=body)$hits$total
 ```
 
 ```
+#> $value
 #> [1] 24
+#> 
+#> $relation
+#> [1] "eq"
 ```
 
 With dates
@@ -261,11 +259,15 @@ With dates
 
 ```r
 body <- list(query=list(range=list(eventDate=list(gte="2012-01-01", lte="now"))))
-Search('gbif', body=body)$hits$total
+Search(x, 'gbif', body=body)$hits$total
 ```
 
 ```
-#> [1] 899
+#> $value
+#> [1] 301
+#> 
+#> $relation
+#> [1] "eq"
 ```
 
 #### More-like-this query (more_like_this can be shortened to mlt)
@@ -276,17 +278,21 @@ body <- '{
  "query": {
    "more_like_this": {
      "fields": ["abstract","title"],
-     "like_text": "and then",
+     "like": "and then",
      "min_term_freq": 1,
      "max_query_terms": 12
    }
  }
 }'
-Search('plos', body=body)$hits$total
+Search(x, 'plos', body=body)$hits$total
 ```
 
 ```
+#> $value
 #> [1] 488
+#> 
+#> $relation
+#> [1] "eq"
 ```
 
 #### Highlighting
@@ -305,12 +311,16 @@ body <- '{
    }
  }
 }'
-out <- Search('plos', 'article', body=body)
+out <- Search(x, 'plos', 'article', body=body)
 out$hits$total
 ```
 
 ```
+#> $value
 #> [1] 58
+#> 
+#> $relation
+#> [1] "eq"
 ```
 
 
@@ -319,91 +329,76 @@ sapply(out$hits$hits, function(x) x$highlight$title[[1]])[8:10]
 ```
 
 ```
-#> [[1]]
-#> NULL
-#>
-#> [[2]]
-#> NULL
-#>
-#> [[3]]
-#> NULL
-```
-
-
-### Bulk load from R objects
-
-A new feature in `v0.4` is loading data into Elasticsearch via the bulk API (faster than via the
-normal route) from R objects (data.frame, or list). E.g.:
-
-Using a pretty large data.frame, at 53K rows, load `ggplot2` package first
-
-
-```r
-library("ggplot2")
-res <- invisible(docs_bulk(diamonds, "diam"))
-```
-
-```r
-Search(index = "diam")$hits$total
-```
-
-```
-#> [1] 159698
+#> [1] "Functional Analysis of the Drosophila Embryonic Germ <em>Cell</em> Transcriptome by RNA Interference"
+#> [2] "Diversin Is Overexpressed in Breast Cancer and Accelerates <em>Cell</em> Proliferation and Invasion" 
+#> [3] "c-FLIP Protects Eosinophils from TNF-α-Mediated <em>Cell</em> Death In Vivo"
 ```
 
 ### Get documents
 
-Get document with `id=1`
+Get document with id=4
 
 
 ```r
-docs_get(index='plos', type='article', id=1)
+docs_get(x, index = 'plos', type = 'article', id = 4)
 ```
 
 ```
 #> $`_index`
 #> [1] "plos"
-#>
+#> 
 #> $`_type`
 #> [1] "article"
-#>
+#> 
 #> $`_id`
-#> [1] "1"
-#>
+#> [1] "4"
+#> 
 #> $`_version`
 #> [1] 1
-#>
+#> 
+#> $`_seq_no`
+#> [1] 4
+#> 
+#> $`_primary_term`
+#> [1] 1
+#> 
 #> $found
 #> [1] TRUE
-#>
+#> 
 #> $`_source`
 #> $`_source`$id
-#> [1] "10.1371/journal.pone.0098602"
-#>
+#> [1] "10.1371/journal.pone.0107758"
+#> 
 #> $`_source`$title
-#> [1] "Population Genetic Structure of a Sandstone Specialist and a Generalist Heath Species at Two Levels of Sandstone Patchiness across the Strait of Gibraltar"
+#> [1] "Lactobacilli Inactivate Chlamydia trachomatis through Lactic Acid but Not H2O2"
 ```
 
 Get certain fields
 
 
 ```r
-docs_get(index='plos', type='article', id=1, fields='id')
+docs_get(x, index = 'plos', type = 'article', id = 4, fields = 'id')
 ```
 
 ```
 #> $`_index`
 #> [1] "plos"
-#>
+#> 
 #> $`_type`
 #> [1] "article"
-#>
+#> 
 #> $`_id`
-#> [1] "1"
-#>
+#> [1] "4"
+#> 
 #> $`_version`
 #> [1] 1
-#>
+#> 
+#> $`_seq_no`
+#> [1] 4
+#> 
+#> $`_primary_term`
+#> [1] 1
+#> 
 #> $found
 #> [1] TRUE
 ```
@@ -414,7 +409,7 @@ Same index and type, different document ids
 
 
 ```r
-docs_mget(index="plos", type="article", id=3:4)
+docs_mget(x, index = "plos", type = "article", id = 1:2)
 ```
 
 ```
@@ -422,123 +417,104 @@ docs_mget(index="plos", type="article", id=3:4)
 #> $docs[[1]]
 #> $docs[[1]]$`_index`
 #> [1] "plos"
-#>
+#> 
 #> $docs[[1]]$`_type`
 #> [1] "article"
-#>
+#> 
 #> $docs[[1]]$`_id`
-#> [1] "3"
-#>
+#> [1] "1"
+#> 
 #> $docs[[1]]$`_version`
 #> [1] 1
-#>
+#> 
+#> $docs[[1]]$`_seq_no`
+#> [1] 1
+#> 
+#> $docs[[1]]$`_primary_term`
+#> [1] 1
+#> 
 #> $docs[[1]]$found
 #> [1] TRUE
-#>
+#> 
 #> $docs[[1]]$`_source`
 #> $docs[[1]]$`_source`$id
-#> [1] "10.1371/journal.pone.0107756"
-#>
+#> [1] "10.1371/journal.pone.0098602"
+#> 
 #> $docs[[1]]$`_source`$title
-#> [1] "The Effect of S-Adenosylmethionine on Cognitive Performance in Mice: An Animal Model Meta-Analysis"
-#>
-#>
-#>
+#> [1] "Population Genetic Structure of a Sandstone Specialist and a Generalist Heath Species at Two Levels of Sandstone Patchiness across the Strait of Gibraltar"
+#> 
+#> 
+#> 
 #> $docs[[2]]
 #> $docs[[2]]$`_index`
 #> [1] "plos"
-#>
+#> 
 #> $docs[[2]]$`_type`
 #> [1] "article"
-#>
+#> 
 #> $docs[[2]]$`_id`
-#> [1] "4"
-#>
+#> [1] "2"
+#> 
 #> $docs[[2]]$`_version`
 #> [1] 1
-#>
+#> 
+#> $docs[[2]]$`_seq_no`
+#> [1] 2
+#> 
+#> $docs[[2]]$`_primary_term`
+#> [1] 1
+#> 
 #> $docs[[2]]$found
 #> [1] TRUE
-#>
+#> 
 #> $docs[[2]]$`_source`
 #> $docs[[2]]$`_source`$id
-#> [1] "10.1371/journal.pone.0107758"
-#>
+#> [1] "10.1371/journal.pone.0107757"
+#> 
 #> $docs[[2]]$`_source`$title
-#> [1] "Lactobacilli Inactivate Chlamydia trachomatis through Lactic Acid but Not H2O2"
+#> [1] "Cigarette Smoke Extract Induces a Phenotypic Shift in Epithelial Cells; Involvement of HIF1α in Mesenchymal Transition"
 ```
 
 Different indeces, types, and ids
 
 
 ```r
-docs_mget(index_type_id=list(c("plos","article",1), c("gbif","record",1)))$docs[[1]]
+docs_mget(x, index_type_id = list(c("plos", "article", 1), c("gbif", "record", 1)))$docs[[1]]
 ```
 
 ```
 #> $`_index`
 #> [1] "plos"
-#>
+#> 
 #> $`_type`
 #> [1] "article"
-#>
+#> 
 #> $`_id`
 #> [1] "1"
-#>
+#> 
 #> $`_version`
 #> [1] 1
-#>
+#> 
+#> $`_seq_no`
+#> [1] 1
+#> 
+#> $`_primary_term`
+#> [1] 1
+#> 
 #> $found
 #> [1] TRUE
-#>
+#> 
 #> $`_source`
 #> $`_source`$id
 #> [1] "10.1371/journal.pone.0098602"
-#>
+#> 
 #> $`_source`$title
 #> [1] "Population Genetic Structure of a Sandstone Specialist and a Generalist Heath Species at Two Levels of Sandstone Patchiness across the Strait of Gibraltar"
 ```
 
-### Raw JSON data
-
-You can optionally get back raw `json` from `Search()`, `docs_get()`, and `docs_mget()` setting parameter `raw=TRUE`.
-
-For example:
-
-
-```r
-(out <- docs_mget(index="plos", type="article", id=5:6, raw=TRUE))
-```
-
-```
-#> [1] "{\"docs\":[{\"_index\":\"plos\",\"_type\":\"article\",\"_id\":\"5\",\"_version\":1,\"found\":true,\"_source\":{\"id\":\"10.1371/journal.pone.0085123\",\"title\":\"MiR-21 Is under Control of STAT5 but Is Dispensable for Mammary Development and Lactation\"}},{\"_index\":\"plos\",\"_type\":\"article\",\"_id\":\"6\",\"_version\":1,\"found\":true,\"_source\":{\"id\":\"10.1371/journal.pone.0098600\",\"title\":\"Correction: Designing Mixed Species Tree Plantations for the Tropics: Balancing Ecological Attributes of Species with Landholder Preferences in the Philippines\"}}]}"
-#> attr(,"class")
-#> [1] "elastic_mget"
-```
-
-Then parse
-
-
-```r
-jsonlite::fromJSON(out)
-```
-
-```
-#> $docs
-#>   _index   _type _id _version found                   _source.id
-#> 1   plos article   5        1  TRUE 10.1371/journal.pone.0085123
-#> 2   plos article   6        1  TRUE 10.1371/journal.pone.0098600
-#>                                                                                                                                                     _source.title
-#> 1                                                                       MiR-21 Is under Control of STAT5 but Is Dispensable for Mammary Development and Lactation
-#> 2 Correction: Designing Mixed Species Tree Plantations for the Tropics: Balancing Ecological Attributes of Species with Landholder Preferences in the Philippines
-```
-
-
-
-
 ### Citing
 
-> Scott Chamberlain (2017). elastic: General Purpose Interface to Elasticsearch. R package version 0.8.0.
+> Scott Chamberlain (2019). elastic: General Purpose Interface to Elasticsearch. R package version 1.0.0.
   https://cran.rstudio.com/package=elastic
 
 

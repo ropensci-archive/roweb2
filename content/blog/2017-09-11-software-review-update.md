@@ -85,8 +85,7 @@ Standards changes often take place because we find that both editors and reviewe
 
 As the pace of package submissions increases, we've expanded our editorial team to keep up. [Maëlle Salmon][ms] joined us in February, bringing our [team to four](https://devguide.ropensci.org/softwarereviewintro.html#associateditors). With four, we need to be more coordinated, so we've moved to a system of a rotating editor-in-chief, who makes decisions about scope, assigns handling editors, and brings up edge cases for discussion with the whole team.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Welcome <a href="https://twitter.com/ma_salmon">@ma_salmon</a> to our editorial team for open peer review of <a href="https://twitter.com/hashtag/rstats?src=hash">#rstats</a> software <a href="https://t.co/KsL0SF1b6K">https://t.co/KsL0SF1b6K</a> 1/2</p>&mdash; rOpenSci (@rOpenSci) <a href="https://twitter.com/rOpenSci/status/832228045587099649">February 16, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{< tweet 832228045587099649 >}}
 
 The process our editors follow is summarized in our [editors' guide][eg], which will help bring editors up to speed when we further expand our team.
 
