@@ -103,12 +103,14 @@ link: https://kellobri.github.io/
 twitter: kellrstats
 github: kellobri
 gitlab: yourgitlabusername
+keybase: yourkeybaseid
+orcid: your orcidid
 ---
 ```
 
 Example when rendered: [Kelly O'Briant's author page](https://ropensci.org/authors/kelly-obriant/)
 
-At minimum, provide your name and at least one link or Twitter/GitHub/GitLab username. The `link` field is meant for your preferred online presence URL, to be filled only if you have one that's not your GitHub, GitLab or Twitter account. The `twitter`, `github` and `gitlab` fields are for your Twitter/GitHub/GitLab usernames (without "@").
+At minimum, provide your name and at least one link or Twitter/GitHub/GitLab username. The `link` field is meant for your preferred online presence URL, to be filled only if you have one that's not your GitHub, GitLab or Twitter account. The `twitter`, `github`, `gitlab`, `keybase` and `orcid` fields are for your Twitter/GitHub/GitLab/Keybase/ORCID usernames/IDs (without "@").
 
 Then when a reader clicks on your by-line in your blog post, tech note, or a community call you have presented in, they can see how to find you online, as well as seeing a list of all of those you have contributed. 
 

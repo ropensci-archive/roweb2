@@ -29,17 +29,24 @@
                 <br>
                 <p>
                     {{ if isset .Params "github" }}
-                    <a href="https://github.com/{{.Params.github}}"> <i class="fa fa-github"></i></a>
+                    <a href="https://github.com/{{.Params.github}}"> <i class="fab fa-github fa-2x"></i></a>
                     {{ end }}
                     {{ if isset .Params "twitter" }}
-                    <a href="https://twitter.com/{{.Params.twitter}}"> <i class="fa fa-twitter"></i></a>
+                    <a href="https://twitter.com/{{.Params.twitter}}"> <i class="fab fa-twitter fa-2x"></i></a>
                     {{ end }}
                     {{ if isset .Params "link"}}
-                    <a href="{{.Params.link}}"> <i class="fa fa-home"></i></a>
+                    <a href="{{.Params.link}}"> <i class="fas fa-home fa-2x"></i></a>
                     {{ end }}
                     {{ if isset .Params "gitlab" }}
-                    <a href="https://gitlab.com/{{.Params.gitlab}}"> <i class="fa fa-gitlab"></i></a>
+                    <a href="https://gitlab.com/{{.Params.gitlab}}"> <i class="fab fa-gitlab fa-2x"></i></a>
                     {{ end }}
+                    {{ if isset .Params "keybase" }}
+                    <a href="https://keybase.io/{{.Params.keybase}}"> <i class="fab fa-keybase fa-2x"></i></a>
+                    {{ end }}
+                    {{ if isset .Params "orcid" }}
+                    <a href="http://orcid.org/{{.Params.orcid}}"> <i class="ai ai-orcid ai-2x"></i></a>
+                    {{ end }}
+                    
                 </p>
 
             </div>

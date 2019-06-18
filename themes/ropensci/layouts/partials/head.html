@@ -1,4 +1,8 @@
 <meta charset="utf-8" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+<!-- Needed as long as font-awesome doesn't have fa-orcid -->
+<!-- Used in layouts/authors/list.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
   <!-- special treatment for authors pages -->
   {{ if and (in .Section "authors") (eq .Kind "taxonomy") }}
     {{$pages := .Site.Pages.ByPublishDate.Reverse}}
@@ -18,7 +22,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://use.fontawesome.com/3d3fe91f65.js"></script>
 {{ template "_internal/google_analytics.html" . }}
 
 {{ if eq .RelPermalink "/" }}

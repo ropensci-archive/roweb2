@@ -567,7 +567,7 @@ q:before, q:after {
   float: left;
   margin-top: 9px;
 }.fa-icon:before {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 0rem;
   float: left;
   margin-top: 9px;
@@ -582,7 +582,7 @@ q:before, q:after {
 }.icon-collapse:before {
   content: "\74";
 }.fa-onboarding {
-  font-size:1.5rem;
+  font-size:1rem;
   float: right;
   padding-right: 5px
 }.fa-onboarding.yes{
@@ -593,6 +593,8 @@ q:before, q:after {
 	font-size:0.7rem;
 	float: left;
 	padding-right: 5px;
+}.pull-right{
+  float:right;
 }/* Sections */#header {
     padding: 10px 0;
     background-color: #6faef5;
