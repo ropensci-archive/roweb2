@@ -102,7 +102,7 @@ name: Kelly O'Briant
 link: https://kellobri.github.io/
 twitter: kellrstats
 github: kellobri
-gitlab: yourgitlabusernameç
+gitlab: yourgitlabusername
 keybase: yourkeybaseid
 orcid: your orcidid
 ---
