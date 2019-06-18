@@ -41,8 +41,12 @@
                     <a href="https://gitlab.com/{{.Params.gitlab}}"> <i class="fab fa-gitlab fa-2x"></i></a>
                     {{ end }}
                     {{ if isset .Params "keybase" }}
-                    <a href="https://keybase.io/{{.Params.gitlab}}"> <i class="fab fa-keybase fa-2x"></i></a>
+                    <a href="https://keybase.io/{{.Params.keybase}}"> <i class="fab fa-keybase fa-2x"></i></a>
                     {{ end }}
+                    {{ if isset .Params "orcid" }}
+                    <a href="http://orcid.org/{{.Params.orcid}}"> <i class="ai ai-orcid ai-2x"></i></a>
+                    {{ end }}
+                    
                 </p>
 
             </div>
