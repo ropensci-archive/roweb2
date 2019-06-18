@@ -582,7 +582,7 @@ q:before, q:after {
 }.icon-collapse:before {
   content: "\74";
 }.fa-onboarding {
-  font-size:1.5rem;
+  font-size:1rem;
   float: right;
   padding-right: 5px
 }.fa-onboarding.yes{
