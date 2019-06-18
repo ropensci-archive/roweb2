@@ -593,6 +593,8 @@ q:before, q:after {
 	font-size:0.7rem;
 	float: left;
 	padding-right: 5px;
+}.pull-right{
+  float:right;
 }/* Sections */#header {
     padding: 10px 0;
     background-color: #6faef5;
