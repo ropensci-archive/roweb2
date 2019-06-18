@@ -51,9 +51,9 @@ $(document).ready( function () {
                     src = '<p class="label nocran">cran</p>' + src;
                 }
                 if (row.onboarding){
-                  src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fa fa-comments fa-onboarding yes" title = "rOpenSci software review"></i></a>'
+                  src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fas fa-comments fa-onboarding yes" title = "rOpenSci software review"></i></a>'
                 } else {
-                  src = src + '<i class="fa fa-comments fa-onboarding no"></i>'
+                  src = src + '<i class="fas fa-comments fa-onboarding no"></i>'
                 }
                 return src;
 },
