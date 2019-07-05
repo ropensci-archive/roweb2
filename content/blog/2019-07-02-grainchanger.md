@@ -4,7 +4,7 @@ title: Aggregating spatial data with the grainchanger package
 package_version: 0.2.0
 authors:
   - Laura Graham
-date: 2019-07-02
+date: 2019-07-09
 categories: blog
 topicid:
 tags:
@@ -24,7 +24,7 @@ output:
 
 
 
-The grainchanger package provides functionality for data aggregation to a coarser resolution via moving-window or direct methods.
+The [grainchanger](https://docs.ropensci.org/grainchanger/) package provides functionality for data aggregation to a coarser resolution via moving-window or direct methods.
 
 ### Why do we need new methods for data aggregation?
 
@@ -52,7 +52,7 @@ We developed this method and R package in order to overcome some of these issues
 
 The moving-window data aggregation (MWDA) method smooths an input raster using a specified function within a moving window of a specified size and shape prior to aggregation. 
 
-<!--html_preserve--> {{% figure src = "/img/blog-images/2019-07-02-grainchanger/schematic.jpg" width = "200" alt = "Schematic of the moving-window data aggregation approach" %}}
+<!--html_preserve--> {{% figure src = "/img/blog-images/2019-07-02-grainchanger/schematic.jpg" width = "960" alt = "Schematic of the moving-window data aggregation approach" %}}
 <!--/html_preserve-->
 
 The above is a graphical representation of the MWDA method. In calculating the MWDA measure, three aspects of scale are considered. Predictor grain is the characteristic spatial scale of a predictor variable, that is, the resolution of the environmental data; scale‐of‐effect determines the appropriate scale of the relationship between predictor and response, for example, an ecological neighbourhood; response grain is the grain of the unit into which you are predicting, that is, the resolution of the response variable (represented by the black lines). Note that the colour scale is unitless. Yellow cells represent ‘high’ values and dark blue cells ‘low’ values. Panel 1 shows a close up of one of the response grain cells in panel 2, whereas panel 2 shows all response grain cells for the study region. Panel 3 shows the study region after aggregation.
@@ -172,12 +172,12 @@ p1 + p2
 
 ### Contributing
 
-We hope to continue to build on the functions so that they are as optimised as we can make them. If you have a particular function you would like to see included in the package, please get in touch, or submit a pull request making sure develop is the destination branch on the grainchanger repository.
+We hope to continue to build on the functions so that they are as optimised as we can make them. If you have a particular function you would like to see included in the package, please create a new [issue](https://github.com/ropensci/grainchanger/issues), or submit a pull request making sure develop is the destination branch on the grainchanger repository.
 
 In the long term, we would like to move the package into C++ so that all functions are fast. If you are interested in collaborating on this please get in touch. 
 
 ### Acknowledgements
 
-I would really like to acknowledge the [rOpenSci review process](https://github.com/ropensci/software-review/issues/289). The open nature of the reviews made for a thoughtful process, and I learned a lot from it. Thanks to [Max Joseph](https://github.com/mbjoseph) and [John Baumgartner](https://github.com/johnbaums) for their time and expertise. The package and it's documentation is much improved thanks to their input. [Felix Eigenbrod](https://www.southampton.ac.uk/geography/about/staff/fe1y09.page) and I worked on the methods behind the package together as part of the ERC funded project *Scaling rules for ecosystem services*. Thanks also for [Marco Sciaini](https://github.com/marcosci) for helpful discussion around how to optimise some of this code and the tips on R package development. 
+I would really like to acknowledge the [rOpenSci review process](https://github.com/ropensci/software-review/issues/289). The open nature of the reviews made for a thoughtful process, and I learned a lot from it. Thanks to [Max Joseph](https://github.com/mbjoseph) and [John Baumgartner](https://github.com/johnbaums) for their time and expertise. The package and it's documentation are much improved thanks to their input. [Felix Eigenbrod](https://www.southampton.ac.uk/geography/about/staff/fe1y09.page) and I worked on the methods behind the package together as part of the ERC funded project *Scaling rules for ecosystem services*. Thanks also for [Marco Sciaini](https://github.com/marcosci) for helpful discussion around how to optimise some of this code and the tips on R package development. 
 
 [^1]: [Graham et al. (2019) *Methods in Ecology and Evolution*. 10:767–778](https://doi.org/10.1111/2041-210X.13177)

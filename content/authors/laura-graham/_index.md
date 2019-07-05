@@ -1,5 +1,5 @@
 ---
-name: Laura J. Graham
+name: Laura Graham
 link: https://laurajanegraham.github.io/
 twitter: laurajanegraham
 github: laurajanegraham
