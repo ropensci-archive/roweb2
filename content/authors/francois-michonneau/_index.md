@@ -1,5 +1,5 @@
 ---
-name: Francois Michonneau
+name: François Michonneau
 link: http://francoismichonneau.net/
 github: fmichonneau
 twitter: fmic_
