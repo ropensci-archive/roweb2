@@ -35,7 +35,7 @@ We are seeking a creative, dedicated, and collaborative software research scient
 <p>· Participate in and represent the rOpenSci project in person and via on-line fora</p>
 <p>· Participate in other projects and tasks as required or assigned by supervisor</p>
 
-
+<br/>
 <p>Minimum Qualifications</p>
 <p>·      A Master's degree in statistics, computer science, or a related field with a focus on quantitative methodologies, or equivalent experience in statistical methods evaluation and development</p>
 <p>·  Expertise in open-source R package development, including collaborative development using Git and GitHub, testing frameworks, and continuous integration</p>
@@ -43,7 +43,7 @@ We are seeking a creative, dedicated, and collaborative software research scient
 <p>·  Experience in collaborative team projects and consensus building</p>
 <p>·  A passion for improving scientific reproducibility</p>
 
-
+<br/>
 <p>Desired Qualifications</p>
 <p>· A Ph.D. in statistics, computer science, or a related field with a focus on quantitative methodologies, or equivalent experience in statistical methods evaluation and development</p>
 <p>· Published scientific or technical articles or software documentation</p>
