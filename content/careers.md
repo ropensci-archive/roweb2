@@ -14,7 +14,6 @@ Our [team](/about#team) is made up of highly motivated and independent scientist
                 <div class="position top-4">
                     <div class="title">
                         <h5>Software Research Scientist</h5>
-                        <a class="apply"></a>
                     </div>
                     <div class="description">
                         <small class="meta">NYC, Berkeley, Remote. Full Time</small>
