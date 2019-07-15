@@ -6,14 +6,14 @@ authors:
   - Karthik Ram
   - Noam Ross
 categories: blog
-topicid: 
+topicid: 1771
 tags:
   - grant
   - Software Peer Review
   - funding
 ---
 
-We’re delighted to announce that we have received new funding from the [Alfred P. Sloan Foundation](https://sloan.org/). The $678K grant, awarded through the Foundation's Data & Computational Research program, will allow be used to expand our efforts in software peer review.  
+We’re delighted to announce that we have received new funding from the [Alfred P. Sloan Foundation](https://sloan.org/). The $678K grant, awarded through the Foundation's Data & Computational Research program, will be used to expand our efforts in software peer review.  
 
 Software peer review has become a core part of rOpenSci, helping improve scientific software quality, drive best engineering practices into scientific communities, and building community and collaboration through open, constructive reviews.  We're excited to expand our work in this important area. Here's what we'll be doing in the next two years with this support:  
 
