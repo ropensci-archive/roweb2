@@ -52,6 +52,16 @@
    ]
 },
 {
+   "name": "Noam Ross",
+   "url": "http://www.ecohealthalliance.org/personnel/dr-noam-ross",
+   "image" : "/img/team/noam_ross.png",
+   "affiliation" : "EcoHealth Alliance",
+   "roles": [
+      "leadership",
+      "editor"
+   ]
+},
+{
    "name": "Carl Boettiger",
    "url": "https://carlboettiger.info/",
    "image" : "/img/team/carl.jpg",
@@ -76,15 +86,6 @@
    "affiliation" : "Imperial College London",
    "roles": [
       "leadership"
-   ]
-},
-{
-   "name": "Noam Ross",
-   "url": "http://www.ecohealthalliance.org/personnel/dr-noam-ross",
-   "image" : "/img/team/noam_ross.png",
-   "affiliation" : "EcoHealth Alliance",
-   "roles": [
-      "editor"
    ]
 },
 {
