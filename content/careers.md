@@ -26,7 +26,7 @@ Our [team](/about#team) is made up of highly motivated and independent scientist
 We are seeking a creative, dedicated, and collaborative software research scientist to support a two-year project in launching a new software peer-review initiative. The software research scientist will work on the Sloan Foundation supported rOpenSci project, with rOpenSci staff and a statistical methods editorial board.  They will research and develop standards and review guidelines for statistical software, publish findings, and develop R software to test packages against those standards.  The software research scientist will work with staff and the board to collaborate broadly with the statistical and software communities to gather input, refine and promote the standards, and recruit editors and peer reviewers. The candidate must be self-motivated, proactive, collaborative and comfortable working openly and reproducibly with a broad online community.
 </p>
 
-<p>DESCRIPTION AND RESPONSIBILITIES </p>
+<h5>DESCRIPTION AND RESPONSIBILITIES </h5>
 <p>· Research standards and protocols for evaluating statistical software quality and correctness, and the extent of their adoption</p>
 <p>· Create new testing frameworks for R packages</p>
 <p>· Assist rOpenSci staff and project board members in drafting new peer-review evaluation standards, guidelines, and documentation</p>
@@ -35,17 +35,18 @@ We are seeking a creative, dedicated, and collaborative software research scient
 <p>· Participate in and represent the rOpenSci project in person and via on-line fora</p>
 <p>· Participate in other projects and tasks as required or assigned by supervisor</p>
 
-<br/>
-<br/>
-<p>Minimum Qualifications</p>
-<p>·      A Master's degree in statistics, computer science, or a related field with a focus on quantitative methodologies, or equivalent experience in statistical methods evaluation and development</p>
+
+<h5>Minimum Qualifications</h5>
+
+<p>· A Master's degree in statistics, computer science, or a related field with a focus on quantitative methodologies, or equivalent experience in statistical methods evaluation and development</p>
 <p>·  Expertise in open-source R package development, including collaborative development using Git and GitHub, testing frameworks, and continuous integration</p>
 <p>·  Strong writing skills</p>
 <p>·  Experience in collaborative team projects and consensus building</p>
 <p>·  A passion for improving scientific reproducibility</p>
 
-<br />
-<p>Desired Qualifications</p>
+
+<h5>Desired Qualifications</h5>
+
 <p>· A Ph.D. in statistics, computer science, or a related field with a focus on quantitative methodologies, or equivalent experience in statistical methods evaluation and development</p>
 <p>· Published scientific or technical articles or software documentation</p>
 
@@ -53,7 +54,9 @@ We are seeking a creative, dedicated, and collaborative software research scient
 The position will be based at EcoHealth Alliance in New York City. Flexible work arrangements may be made for uniquely qualified candidates. EcoHealth Alliance is an equal opportunity employer and we encourage people with a diverse range of backgrounds to apply. We offer comprehensive benefit package including health, dental, and vision coverage, and a 403(b) pension plan. For further information about EcoHealth Alliance, please visit our website: www.ecohealthalliance.org
 </p>
 
-<p><strong>HOW TO APPLY:</strong> Send an email a single attachment labeled with your first and last name only</p>
+<p><strong>HOW TO APPLY:</strong> 
+
+Send an email a single attachment labeled with your first and last name only</p>
 
 <p>
 (“first_last.pdf”) in PDF format containing with (a) a cover letter, (b) CV, and (c) contact information for three references to jobs@ecohealthalliance.org with "EHA 2019 ROPENSCI RESEARCH SCIENTIST" in the subject line. Applicants should include links to code repositories, online portfolios, and other demonstrations of experience.  Links to contributions to open-source projects (documentation, pull requests, online discussions) are encouraged.
