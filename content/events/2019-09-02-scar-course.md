@@ -3,7 +3,7 @@ title: 'Course: Tools for Southern Ocean Spatial Analysis and Modeling'
 dateStart: '2019-09-02T09:00:00'
 dateEnd: '2019-09-06T17:00:00'
 description: 'Course offered in partnership among the Scientific Committee on Antarctic Research, rOpenSci, and the Antarctic Biodiversity Portal'
-location: 'Brussels, Belgium'
+location: 'Brussels, BE'
 country: '🇧🇪'
 attendees:
   - Anton Van de Putte
