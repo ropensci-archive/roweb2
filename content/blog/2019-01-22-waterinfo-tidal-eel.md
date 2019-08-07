@@ -12,7 +12,7 @@ topicid: 1553
 tags:
   - Software Peer Review
   - R
-  - package
+  - packages
   - water
   - data access
   - tidal data
