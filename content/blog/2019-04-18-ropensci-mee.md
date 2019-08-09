@@ -10,7 +10,7 @@ authors:
   - Thomas White
   - Hao Ye
 categories: blog
-preface: This post is published on the [rOpenSci](https://ropensci.org/blog/) and [Methods in Ecology and Evolution](https://methodsblog.com/) blogs
+preface: This post is published on the [rOpenSci](https://ropensci.org/blog/) and [Methods in Ecology and Evolution](https://methodsblog.com/2019/04/18/ropensci-code-review-guidelines/) blogs
 topicid: 1675
 tags:
   - community
