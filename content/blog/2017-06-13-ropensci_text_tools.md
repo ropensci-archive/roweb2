@@ -10,7 +10,7 @@ tags:
   - R
   - packages
   - software
-  - opendata
+  - open data
   - PDF
 ---
 
