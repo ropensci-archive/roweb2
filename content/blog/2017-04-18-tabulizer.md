@@ -10,7 +10,7 @@ tags:
   - R
   - community
   - software
-  - opendata
+  - open data
   - PDF
   - tabulizer
   - data extraction
