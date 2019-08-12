@@ -10,7 +10,6 @@ categories:
 topicid: 1705
 tags:
   - r
-  - ropensci
   - packages
   - data access
   - data
