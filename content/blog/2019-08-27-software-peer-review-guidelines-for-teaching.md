@@ -3,7 +3,7 @@ slug: "software-peer-review-guidelines-for-teaching"
 title: Using rOpenSci Software Peer Review Guidelines for Teaching
 authors:
   - Tiffany Timbers
-date: 2010-08-12
+date: 2019-08-27
 categories: blog
 topicid:
 tags:
