@@ -6,7 +6,8 @@ authors:
   - Sam Tyner
 date: 2019-08-20
 categories: blog
-topicid:
+topicid: 1805
+preface: This work was funded by a [2018 rOpenSci Research Fellowship](https://ropensci.org/blog/2018/02/14/announcing-2018-ropensci-fellows/) to Sam Tyner. 
 tags:
 - R
 - Open Science
