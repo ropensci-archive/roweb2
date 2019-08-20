@@ -7,7 +7,7 @@ authors:
 date: 2019-08-20
 categories: blog
 topicid: 1805
-preface: This work was funded by a [2018 rOpenSci Research Fellowship](https://ropensci.org/blog/2018/02/14/announcing-2018-ropensci-fellows/) to Sam Tyner. 
+preface: This work was funded by a [2018 rOpenSci Research Fellowship](https://ropensci.org/blog/2018/02/14/announcing-2018-ropensci-fellows/) to Sam Tyner. See the [related post](https://forensicstats.org/news-posts/discover-forensic-applications-of-the-statistical-language-r-in-new-csafe-book) from the Center for Statistics and Applications in Forensic Evidence (CSAFE).
 tags:
 - R
 - Open Science
