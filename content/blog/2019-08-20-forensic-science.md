@@ -24,20 +24,6 @@ output:
   html_document:
     keep_md: true
 ---
-<!--
-Everywhere in this template (YAML, chunk below), you should change "post-template" to the slug of your post, and "2019-06-04" to the publication date.
-
-This template will generate both an .html and an .md. The .md is what you will submit in your pull request to roweb2.
---> 
-
-
-
-<!--
-If using this template, and generating images, after knitting you'll need to copy the folder 'img/blog-images/2019-06-04-post-template/' to ' roweb2/themes/ropensci/static/img/blog-images'. The paths in the resulting Markdown will already be valid so you won't need to edit the Markdown file. -->
-
-<!--html_preserve--> <!--{{% figure src = "/img/blog-images/2019-06-04-post-template/name-of-image.png" width = "200" alt = "this is the alternative text" %}} --> 
-<!--/html_preserve-->
-
 The free online book [*Open Forensic Science in R*](https://sctyner.github.io/OpenForSciR/) was created to foster open science practices in the forensic science community. It is comprised of eight chapters: an introduction and seven chapters covering different areas of forensic science: the validation of DNA interpretation systems, firearms analysis of bullets and casings, latent fingerprints, shoe outsole impressions, trace glass evidence, and decision-making in forensic identification tasks. The chapters of *Open Forensic Science in R* have the same five sections: Introduction, Data, R Package(s), Drawing Conclusions, and Case Study. There is R code throughout the chapter to guide the reader along in an analysis, and the case study walks the reader through solving a forensic science problem in R, from reading the data to answering a specific question such as, "Were these two bullets fired by the same gun?" 
 
 ### The Center for Statistics and Applications in Forensic Evidence (CSAFE)
