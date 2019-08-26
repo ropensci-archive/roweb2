@@ -22,7 +22,7 @@ In this technote I will outline how to use **UCSCXenaTools** package to pull gen
 
 For general usage of **UCSCXenaTools**, please refer to [package vignette](https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html). Any bug or feature request can be reported in [GitHub issues](https://github.com/ropensci/UCSCXenaTools/issues).
 
-## Installation
+### Installation
 
 **UCSCXenaTools** is available from CRAN:
 
@@ -36,7 +36,7 @@ Alternatively, the latest development version can be downloaded from GitHub:
 remotes::install_github("ropensci/UCSCXenaTools", build_vignettes = TRUE, dependencies = TRUE)
 ```
 
-## How it works
+### How it works
 
 Before actually pulling data, understand how **UCSCXenaTools** [^1] works (see Figure 1) will help user locate the most important function to use.
 
@@ -49,7 +49,7 @@ Generally,
 
 To illustrate how to download data and combine with other packages for analysis, here we retrieve expression data of gene [*KRAS*](https://ghr.nlm.nih.gov/gene/KRAS) (which is a known driver in LUAD) and survival status from [TCGA Lung Adenocarcinoma (LUAD)](https://xenabrowser.net/datapages/?cohort=TCGA Lung Adenocarcinoma (LUAD)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443) as example data to finish a survival analysis procedure, which is frequently shown in cancer researches.
 
-## Download data
+### Download data
 
 For obtaining survival status of TCGA LUAD samples, we need to download the TCGA LUAD clinical dataset. For obtaining *KRAS* gene expression, we need to download a subset of TCGA LUAD expression matrix.
 
@@ -82,7 +82,7 @@ luad_cohort
 
 `luad_cohort` contains information of all datasets in TCGA LUAD cohort.
 
-### Download clinical dataset
+#### Download clinical dataset
 
 Now we download clinical dataset of TCGA LUAD cohort and load it into R.
 
@@ -165,7 +165,7 @@ head(cli)
 #> #   pathologic_stage <chr>, pathology_report_file_name <chr>, …
 ```
 
-### Download *KRAS* gene expression
+#### Download *KRAS* gene expression
 
 To download gene expression data, we need select the right dataset firstly.
 
@@ -206,7 +206,7 @@ head(KRAS)
 #>           10.36           10.03
 ```
 
-### Merge expression data and survival status
+#### Merge expression data and survival status
 
 Next, we join the two `data.frame` by `sampleID` and keep necessary columns. Here we focus on ‘Primary Tumor’ for simplicity.
 
@@ -232,7 +232,7 @@ head(merged_data)
 #> 6 TCGA-44-2655-01            9.75  1324      0
 ```
 
-## Survival analysis
+### Survival analysis
 
 To study the effect of *KRAS* gene expression on prognosis of LUAD patients, we have two ways:
 
@@ -249,7 +249,7 @@ library(survminer)
 #> Loading required package: magrittr
 ```
 
-### Cox model
+#### Cox model
 
 ```
 fit = coxph(Surv(time, status) ~ KRAS_expression, data = merged_data)
@@ -267,7 +267,7 @@ fit
 
 We can find that patients with higher *KRAS* gene expression have higher risk (1.34), and this data is statistically significant.
 
-### Risk between expression groups
+#### Risk between expression groups
 
 We can also divide patients into two groups using KRAS median as a cutoff.
 
