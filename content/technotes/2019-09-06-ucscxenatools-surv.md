@@ -275,6 +275,7 @@ fit
 We can find that patients with higher *KRAS* gene expression have higher risk (34% increase per *KRAS* gene expression unit increase), and the effect of *KRAS* gene expression is statistically significant (*p*<0.05).
 
 > If you know little about survival analysis, two blogs are recommended to read:
+>
 > 1. [Survival Analysis Basics](http://www.sthda.com/english/wiki/survival-analysis-basics)
 > 2. [Cox Proportional-Hazards Model](http://www.sthda.com/english/wiki/cox-proportional-hazards-model)
 
