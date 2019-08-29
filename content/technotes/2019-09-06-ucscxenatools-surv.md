@@ -18,9 +18,13 @@ tags:
   - survival analysis
 ---
 
-In this technote I will outline how to use **UCSCXenaTools** package to pull gene expression and clinical data from UCSC Xena for survival analysis.
+[UCSC Xena platform](https://xenabrowser.net/) provides unprecedented resource for public omics data from big projects like The Cancer Genome Atlas (TCGA), however, it is hard
+for users to incorporate multiple datasets or data types, integrate the selected data with 
+popular analysis tools or homebrewed code, and reproduce analysis procedures. To address this issue, we developed an R package **UCSCXenaTools** for enabling data retrieval, analysis integration and reproducible research for omics data from UCSC Xena platform[^1].
 
-For general usage of **UCSCXenaTools**, please refer to [package vignette](https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html). Any bug or feature request can be reported in [GitHub issues](https://github.com/ropensci/UCSCXenaTools/issues).
+In this technote we will outline how to use the **UCSCXenaTools** package to pull gene expression and clinical data from [UCSC Xena](https://xena.ucsc.edu/) for survival analysis.
+
+For general usage of **UCSCXenaTools**, please refer to the [package vignette](https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html). Any bug or feature request can be reported in [GitHub issues](https://github.com/ropensci/UCSCXenaTools/issues).
 
 ### Installation
 
@@ -38,7 +42,7 @@ remotes::install_github("ropensci/UCSCXenaTools", build_vignettes = TRUE, depend
 
 ### How it works
 
-Before actually pulling data, understand how **UCSCXenaTools** [^1] works (see Figure 1) will help user locate the most important function to use.
+Before actually pulling data, understanding how **UCSCXenaTools** works (see Figure 1) will help users locate the most important function to use.
 
 Generally,
 
@@ -47,11 +51,11 @@ Generally,
 
 ![](/img/blog-images/2019-09-06-ucscxenatools-surv/overview.png)*Figure 1. The UCSCXenaTools pipeline*
 
-To illustrate how to download data and combine with other packages for analysis, here we retrieve expression data of gene [*KRAS*](https://ghr.nlm.nih.gov/gene/KRAS) (which is a known driver in LUAD) and survival status from [TCGA Lung Adenocarcinoma (LUAD)](https://xenabrowser.net/datapages/?cohort=TCGA Lung Adenocarcinoma (LUAD)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443) as example data to finish a survival analysis procedure, which is frequently shown in cancer researches.
+We will provide an example illustrating how to use **UCSCXenaTools** to study the effect of expression of the [*KRAS*](https://ghr.nlm.nih.gov/gene/KRAS) gene on prognosis of Lung Adenocarcinoma (LUAD) patients. *KRAS* is a known driver gene in LUAD. We retrieve expression data for the *KRAS* gene and survival status data for [LUAD patients from the TCGA (The Cancer Genome Atlas) program](https://xenabrowser.net/datapages/?cohort=TCGA%20Lung%20Adenocarcinoma%20(LUAD)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443) and use these as input to a survival analysis, frequently used in cancer research.
 
 ### Download data
 
-For obtaining survival status of TCGA LUAD samples, we need to download the TCGA LUAD clinical dataset. For obtaining *KRAS* gene expression, we need to download a subset of TCGA LUAD expression matrix.
+First we get information on all datasets in TCGA LUAD cohort and store as `luad_cohort` object.
 
 ```
 suppressMessages(library(UCSCXenaTools))
@@ -80,11 +84,9 @@ luad_cohort
 #> #   Platform <chr>
 ```
 
-`luad_cohort` contains information of all datasets in TCGA LUAD cohort.
-
 #### Download clinical dataset
 
-Now we download clinical dataset of TCGA LUAD cohort and load it into R.
+Now we download the clinical dataset of the TCGA LUAD cohort and load it into R.
 
 ```
 cli_query = luad_cohort %>% 
@@ -167,7 +169,7 @@ head(cli)
 
 #### Download *KRAS* gene expression
 
-To download gene expression data, we need select the right dataset firstly.
+To download gene expression data, first we need to select the right dataset.
 
 ```
 ge = luad_cohort %>% 
@@ -186,6 +188,11 @@ ge
 Now we fetch *KRAS* gene expression values.
 
 ```
+# You can pass gene symbols to 'identifiers' option
+# to obtain their values in a dataset.
+# A matrix will be returned by 'fetch_dense_values' function
+# with rows corresponding to genes,
+# so here we extract the first row.
 KRAS = fetch_dense_values(host = ge$XenaHosts, 
                           dataset = ge$XenaDatasets, 
                           identifiers = "KRAS",
@@ -234,12 +241,12 @@ head(merged_data)
 
 ### Survival analysis
 
-To study the effect of *KRAS* gene expression on prognosis of LUAD patients, we have two ways:
+To study the effect of *KRAS* gene expression on prognosis of LUAD patients, we show two approaches:
 
-1. use Cox model to determine the function of *KRAS* gene expression increase
-2. use Kaplan-Meier curve and log-rank test to determine the function of different status of*KRAS* gene expression, i.e. high or low
+1. use Cox model to determine the effect when *KRAS* gene expression increases
+2. use Kaplan-Meier curve and log-rank test to observe the difference in different of*KRAS* gene expression status, i.e. high or low
 
-We will use package **survival** and **survminer** to create models and plot survival curves, respectively.
+We will use package [**survival**](https://cran.r-project.org/web/packages/survival/index.html) and [**survminer**](https://cran.r-project.org/web/packages/survminer/index.html) to create models and plot survival curves, respectively.
 
 ```
 library(survival)
@@ -265,7 +272,11 @@ fit
 #>    (12 observations deleted due to missingness)
 ```
 
-We can find that patients with higher *KRAS* gene expression have higher risk (1.34), and this data is statistically significant.
+We can find that patients with higher *KRAS* gene expression have higher risk (34% increase per *KRAS* gene expression unit increase), and the effect of *KRAS* gene expression is statistically significant (*p*<0.05).
+
+> If you know little about survival analysis, two blogs are recommended to read:
+> 1. [Survival Analysis Basics](http://www.sthda.com/english/wiki/survival-analysis-basics)
+> 2. [Cox Proportional-Hazards Model](http://www.sthda.com/english/wiki/cox-proportional-hazards-model)
 
 #### Risk between expression groups
 
@@ -290,8 +301,15 @@ ggsurvplot(fit, pval = TRUE)
 
 ![](/img/blog-images/2019-09-06-ucscxenatools-surv/kmplot.png)*Figure 2. Kaplan-Meier curve*
 
-We can clearly see that patients in ‘KRAS_Low’ group have better survival than patients in ‘KRAS_High’ group.
+Kaplan-Meier plot shows what percent of patients alive at a time point. We can clearly see that patients in ‘KRAS_Low’ group have better survival than patients in ‘KRAS_High’ group because the survival probability of 'KRAS_High' group is always lower than 'KRAS_Low' group over time (the unit is 'day' here). The difference between two group is statistically significant (*p*<0.05 by log-rank test).
 
+### Related project
+
+[**XenaShiny**](https://github.com/openbiox/XenaShiny), a Shiny project based on **UCSCXenaTools**, is under development by me and some friends. You can take a try if you have little programming experience. 
+
+### Acknowledgements
+
+We thank Christine Stawitz and Carl Ganz for their constructive comments. This package is reviewed by rOpenSci at <https://github.com/ropensci/software-review/issues/315>.
 
 [^1]: Wang et al., (2019). The UCSCXenaTools R package: a toolkit for accessing genomics data from UCSC Xena platform, from cancer multi-omics to single-cell RNA-seq. Journal of Open Source Software, 4(40), 1627, https://doi.org/10.21105/joss.01627
 
