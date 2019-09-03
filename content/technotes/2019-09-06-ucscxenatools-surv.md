@@ -18,17 +18,17 @@ tags:
   - survival analysis
 ---
 
-[UCSC Xena platform](https://xenabrowser.net/) provides unprecedented resource for public omics data from big projects like The Cancer Genome Atlas (TCGA), however, it is hard
-for users to incorporate multiple datasets or data types, integrate the selected data with 
-popular analysis tools or homebrewed code, and reproduce analysis procedures. To address this issue, we developed an R package **UCSCXenaTools** for enabling data retrieval, analysis integration and reproducible research for omics data from UCSC Xena platform[^1].
+The [UCSC Xena platform](https://xenabrowser.net/) provides an unprecedented resource for public omics data from big projects like [The Cancer Genome Atlas (TCGA)](https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga), however, it is hard
+for users to incorporate multiple datasets or data types, integrate the selected data with
+popular analysis tools or homebrewed code, and reproduce analysis procedures. To address this issue, we developed an R package UCSCXenaTools for enabling data retrieval, analysis integration and reproducible research for omics data from the UCSC Xena platform[^1].
 
-In this technote we will outline how to use the **UCSCXenaTools** package to pull gene expression and clinical data from [UCSC Xena](https://xena.ucsc.edu/) for survival analysis.
+In this technote we will outline how to use the UCSCXenaTools package to pull gene expression and clinical data from [UCSC Xena](https://xena.ucsc.edu/) for survival analysis.
 
-For general usage of **UCSCXenaTools**, please refer to the [package vignette](https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html). Any bug or feature request can be reported in [GitHub issues](https://github.com/ropensci/UCSCXenaTools/issues).
+For general usage of UCSCXenaTools, please refer to the [package vignette](https://cran.r-project.org/web/packages/UCSCXenaTools/vignettes/USCSXenaTools.html). Any bug or feature request can be reported in [GitHub issues](https://github.com/ropensci/UCSCXenaTools/issues).
 
 ### Installation
 
-**UCSCXenaTools** is available from CRAN:
+UCSCXenaTools is available from CRAN:
 
 ```
 install.packages("UCSCXenaTools")
@@ -42,7 +42,7 @@ remotes::install_github("ropensci/UCSCXenaTools", build_vignettes = TRUE, depend
 
 ### How it works
 
-Before actually pulling data, understanding how **UCSCXenaTools** works (see Figure 1) will help users locate the most important function to use.
+Before actually pulling data, understanding how UCSCXenaTools works (see Figure 1) will help users locate the most important function to use.
 
 Generally,
 
@@ -51,16 +51,16 @@ Generally,
 
 ![](/img/blog-images/2019-09-06-ucscxenatools-surv/overview.png)*Figure 1. The UCSCXenaTools pipeline*
 
-We will provide an example illustrating how to use **UCSCXenaTools** to study the effect of expression of the [*KRAS*](https://ghr.nlm.nih.gov/gene/KRAS) gene on prognosis of Lung Adenocarcinoma (LUAD) patients. *KRAS* is a known driver gene in LUAD. We retrieve expression data for the *KRAS* gene and survival status data for [LUAD patients from the TCGA (The Cancer Genome Atlas) program](https://xenabrowser.net/datapages/?cohort=TCGA%20Lung%20Adenocarcinoma%20(LUAD)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443) and use these as input to a survival analysis, frequently used in cancer research.
+We will provide an example illustrating how to use UCSCXenaTools to study the effect of expression of the [*KRAS*](https://ghr.nlm.nih.gov/gene/KRAS) gene on prognosis of Lung Adenocarcinoma (LUAD) patients. *KRAS* is a known driver gene in LUAD. We retrieve expression data for the *KRAS* gene and survival status data for [LUAD patients from the TCGA](https://xenabrowser.net/datapages/?cohort=TCGA%20Lung%20Adenocarcinoma%20(LUAD)&removeHub=https%3A%2F%2Fxena.treehouse.gi.ucsc.edu%3A443) and use these as input to a survival analysis, frequently used in cancer research.
 
 ### Download data
 
-First we get information on all datasets in TCGA LUAD cohort and store as `luad_cohort` object.
+First we get information on all datasets in the TCGA LUAD cohort and store as `luad_cohort` object.
 
 ```
 suppressMessages(library(UCSCXenaTools))
 suppressMessages(library(dplyr))
-luad_cohort = XenaData %>% 
+luad_cohort = XenaData %>%
   filter(XenaHostNames == "tcgaHub") %>% # select TCGA Hub
   XenaScan("TCGA Lung Adenocarcinoma")   # select LUAD cohort
 
@@ -89,10 +89,10 @@ luad_cohort
 Now we download the clinical dataset of the TCGA LUAD cohort and load it into R.
 
 ```
-cli_query = luad_cohort %>% 
+cli_query = luad_cohort %>%
   filter(DataSubtype == "phenotype") %>%  # select clinical dataset
   XenaGenerate() %>%  # generate a XenaHub object
-  XenaQuery() %>% 
+  XenaQuery() %>%
   XenaDownload()
 #> This will check url status, please be patient.
 #> All downloaded files will under directory /var/folders/mx/rfkl27z90c96wbmn3_kjk8c80000gn/T//Rtmp2ihvVq.
@@ -105,13 +105,13 @@ cli = XenaPrepare(cli_query)
 # See a few rows
 head(cli)
 #> # A tibble: 6 x 157
-#>   sampleID ABSOLUTE_Ploidy ABSOLUTE_Purity AKT1  ALK_translocati… BRAF 
+#>   sampleID ABSOLUTE_Ploidy ABSOLUTE_Purity AKT1  ALK_translocati… BRAF
 #>   <chr>              <dbl>           <dbl> <chr> <chr>            <chr>
-#> 1 TCGA-05…           NA              NA    <NA>  <NA>             <NA> 
+#> 1 TCGA-05…           NA              NA    <NA>  <NA>             <NA>
 #> 2 TCGA-05…            3.77            0.46 none  <NA>             p.A7…
-#> 3 TCGA-05…           NA              NA    <NA>  <NA>             <NA> 
+#> 3 TCGA-05…           NA              NA    <NA>  <NA>             <NA>
 #> 4 TCGA-05…           NA              NA    none  <NA>             p.L6…
-#> 5 TCGA-05…            2.04            0.48 none  <NA>             none 
+#> 5 TCGA-05…            2.04            0.48 none  <NA>             none
 #> 6 TCGA-05…            3.29            0.48 none  <NA>             p.G4…
 #> # … with 151 more variables: CBL <chr>, CTNNB1 <chr>,
 #> #   Canonical_mut_in_KRAS_EGFR_ALK <chr>,
@@ -172,7 +172,7 @@ head(cli)
 To download gene expression data, first we need to select the right dataset.
 
 ```
-ge = luad_cohort %>% 
+ge = luad_cohort %>%
   filter(DataSubtype == "gene expression RNAseq", Label == "IlluminaHiSeq")
 ge
 #> # A tibble: 1 x 17
@@ -193,10 +193,10 @@ Now we fetch *KRAS* gene expression values.
 # A matrix will be returned by 'fetch_dense_values' function
 # with rows corresponding to genes,
 # so here we extract the first row.
-KRAS = fetch_dense_values(host = ge$XenaHosts, 
-                          dataset = ge$XenaDatasets, 
+KRAS = fetch_dense_values(host = ge$XenaHosts,
+                          dataset = ge$XenaDatasets,
                           identifiers = "KRAS",
-                          use_probeMap = TRUE) %>% 
+                          use_probeMap = TRUE) %>%
   .[1, ]
 #> -> Checking identifiers...
 #> -> use_probeMap is TRUE, skipping checking identifiers...
@@ -207,9 +207,9 @@ KRAS = fetch_dense_values(host = ge$XenaHosts,
 #> -> Done. ProbeMap is found.
 
 head(KRAS)
-#> TCGA-69-7978-01 TCGA-62-8399-01 TCGA-78-7539-01 TCGA-50-5931-11 
-#>           10.25           10.29           10.82           10.29 
-#> TCGA-73-4658-01 TCGA-44-6775-01 
+#> TCGA-69-7978-01 TCGA-62-8399-01 TCGA-78-7539-01 TCGA-50-5931-11
+#>           10.25           10.29           10.82           10.29
+#> TCGA-73-4658-01 TCGA-44-6775-01
 #>           10.36           10.03
 ```
 
@@ -219,13 +219,13 @@ Next, we join the two `data.frame` by `sampleID` and keep necessary columns. Her
 
 ```
 merged_data = tibble(sampleID = names(KRAS),
-                     KRAS_expression = as.numeric(KRAS)) %>% 
-  left_join(cli, by = "sampleID") %>% 
+                     KRAS_expression = as.numeric(KRAS)) %>%
+  left_join(cli, by = "sampleID") %>%
   filter(sample_type == "Primary Tumor") %>%  # Keep only 'Primary Tumor'
-  select(sampleID, KRAS_expression, OS.time, OS) %>% 
-  rename(time = OS.time, 
+  select(sampleID, KRAS_expression, OS.time, OS) %>%
+  rename(time = OS.time,
          status = OS)
-  
+
 
 head(merged_data)
 #> # A tibble: 6 x 4
@@ -263,12 +263,12 @@ fit = coxph(Surv(time, status) ~ KRAS_expression, data = merged_data)
 fit
 #> Call:
 #> coxph(formula = Surv(time, status) ~ KRAS_expression, data = merged_data)
-#> 
+#>
 #>                   coef exp(coef) se(coef)     z      p
 #> KRAS_expression 0.2927    1.3400   0.1020 2.871 0.0041
-#> 
+#>
 #> Likelihood ratio test=7.67  on 1 df, p=0.005604
-#> n= 502, number of events= 183 
+#> n= 502, number of events= 183
 #>    (12 observations deleted due to missingness)
 ```
 
@@ -284,7 +284,7 @@ We can find that patients with higher *KRAS* gene expression have higher risk (3
 We can also divide patients into two groups using KRAS median as a cutoff.
 
 ```
-merged_data = merged_data %>% 
+merged_data = merged_data %>%
   mutate(group = case_when(
     KRAS_expression > quantile(KRAS_expression, 0.5) ~ 'KRAS_High',
     KRAS_expression < quantile(KRAS_expression, 0.5) ~ 'KRAS_Low',
@@ -300,17 +300,16 @@ Then we can plot the survival curves for each group.
 ggsurvplot(fit, pval = TRUE)
 ```
 
-![](/img/blog-images/2019-09-06-ucscxenatools-surv/kmplot.png)*Figure 2. Kaplan-Meier curve*
+![](/img/blog-images/2019-09-06-ucscxenatools-surv/kmplot.png)*Figure 2. Kaplan-Meier curve. Survival probability vs Time (days)*
 
-Kaplan-Meier plot shows what percent of patients alive at a time point. We can clearly see that patients in ‘KRAS_Low’ group have better survival than patients in ‘KRAS_High’ group because the survival probability of 'KRAS_High' group is always lower than 'KRAS_Low' group over time (the unit is 'day' here). The difference between two group is statistically significant (*p*<0.05 by log-rank test).
+The Kaplan-Meier plot shows what percent of patients are alive at a time point. We can clearly see that patients in ‘KRAS_Low’ group have better survival than patients in ‘KRAS_High’ group because the survival probability of 'KRAS_High' group is always lower than 'KRAS_Low' group over time (the unit is 'day' here). The difference between the two groups is statistically significant (*p*<0.05 by log-rank test).
 
 ### Related project
 
-[**XenaShiny**](https://github.com/openbiox/XenaShiny), a Shiny project based on **UCSCXenaTools**, is under development by me and some friends. You can take a try if you have little programming experience. 
+[**XenaShiny**](https://github.com/openbiox/XenaShiny), a Shiny project based on UCSCXenaTools, is under development by me and some friends. You can take a try if you have little programming experience.
 
 ### Acknowledgements
 
-We thank Christine Stawitz and Carl Ganz for their constructive comments. This package is reviewed by rOpenSci at <https://github.com/ropensci/software-review/issues/315>.
+We thank [Christine Stawitz](https://github.com/cstawitz) and [Carl Ganz](https://github.com/carlganz) for their constructive comments. This package is reviewed by rOpenSci at <https://github.com/ropensci/software-review/issues/315>.
 
 [^1]: Wang et al., (2019). The UCSCXenaTools R package: a toolkit for accessing genomics data from UCSC Xena platform, from cancer multi-omics to single-cell RNA-seq. Journal of Open Source Software, 4(40), 1627, https://doi.org/10.21105/joss.01627
-
