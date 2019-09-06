@@ -6,7 +6,7 @@ authors:
   - Shixiang Wang
 date: '2019-09-06'
 categories: technotes
-topicid:
+topicid: 1822
 tags:
   - R
   - community
@@ -306,7 +306,7 @@ The Kaplan-Meier plot shows what percent of patients are alive at a time point. 
 
 ### Related project
 
-[**XenaShiny**](https://github.com/openbiox/XenaShiny), a Shiny project based on UCSCXenaTools, is under development by me and some friends. You can take a try if you have little programming experience.
+[**XenaShiny**](https://github.com/openbiox/XenaShiny), a Shiny project based on UCSCXenaTools, is under development by my friends and me.
 
 ### Acknowledgements
 
