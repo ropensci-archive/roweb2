@@ -183,7 +183,7 @@ read_from_oec <- function(p) {
 destination <- c("arg", "bol", "per")
 
 # One problem here is that the API returns a nested JSON that doesn't work with map_df
-# I can obtain the same result with map and flatten
+# I can obtain the same result with map and bind_rows
 oec_data <- map(destination, read_from_oec)
 oec_data <- bind_rows(oec_data[[1]]$data, oec_data[[2]]$data, oec_data[[3]]$data)
 
@@ -210,7 +210,7 @@ as_tibble(oec_data)
 #   year <dbl>
 ```
 
-At first sight the API returned many more rows than in the previous example. To obtain the exact same result I'll need post-filtering at product code. One curious column in the table above is hs07_id_len, and that it reflects length of the HS code. For example, the first row the HS code is 010101 and its length is 6. This can be a huge problem as that column contains values 6 and 8, because the HS does not contain 8 digits codes and those 6 digits codes are not official HS codes.
+At first sight the API returned many more rows than in the previous example. To obtain the exact same result I'll need post-filtering at product code. One curious column in the table above is hs07_id_len, and it reflects length of the HS code. For example, the first row the HS code is 010101 and its length is 6. This can be a huge problem as that column contains values 6 and 8, because the HS does not contain 8 digits codes and those 6 digits codes are not official HS codes.
 
 If you need to join that table with official HS tables, for example, in case of having to append a column with product names, exactly zero of the codes above shall have match. Among all HS codes, "7325" means "Iron or steel; cast articles" and "732510" means "Iron; articles of non-malleable cast iron", and those are official codes used by all customs in the world. In the OEC case, their "157325" code is actually "7325" from the HS, because they append a "15" that stands for "product community #15, metals".
 
