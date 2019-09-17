@@ -1,0 +1,200 @@
+---
+slug: "citecorp"
+title: "citecorp: working with open citations"
+date: 2019-09-17
+authors:
+  - Scott Chamberlain
+categories:
+  - technotes
+topicid: 
+tags:
+- R
+- citecorp
+- citations
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE
+)
+```
+
+citecorp is a new (hit CRAN in late August) R package for working with data from the
+[OpenCitations Corpus][corpus] (OCC).
+[OpenCitations](http://opencitations.net/), run by David Shotton and Silvio Peroni,
+houses the OCC, an open repository of scholarly citation data
+under the very open [CC0 license][CC0]. The [I4OC (Initiative for Open Citations)][i4oc]
+is a collaboration between many parties, with the aim of promoting "unrestricted
+availability of scholarly citation data". Citation data is available through Crossref,
+and available in R via our packages [rcrossref][], [fulltext][] and [crminer][].
+Citation data is also available via the [OCC][corpus]; and this OCC data is now
+available in R through the new package citecorp.
+
+__How much citation data does the OCC have?__
+
+Quoting the OpenCitations website (as of today): 
+
+> the OCC has ingested the references from 326,743 citing bibliographic
+> resources, and contains information about 13,964,148 citation links to 7,565,367
+> cited resources
+
+__Why citation data?__ Citations are the links among scholarly works (articles, books,
+etc.), leading to many important uses including finding related articles, calculating
+article impact, and even use in academic hiring decisions.
+
+__Why open citation data?__ Until recently most citation data has been locked behind
+publisher walls. Unfortunately, many publishers see giving away citation data as
+losing potential profits. Through the [I4OC][i4oc], many publishers have made 
+their citation metadata public, but some of the largest publishers still have not
+done so: Elsevier, American Chemical Society, IEEE. Without all citation data being
+open, any work that builds on citation data only has a sub-sample of all citations;
+you are drawing conclusions about citations from a rather small subset of all
+existing citations. Nonetheless, the currently available open citation data is
+an important resource; and can be amended with citation data behind paywalls
+for those that have access.
+
+## About citecorp and the OCC
+
+OpenCitations created their own identifiers called Open Citation Identifiers (oci), e.g., 
+
+```
+020010009033611182421271436182433010601-02001030701361924302723102137251614233701000005090307
+```
+
+You are probably not going to be using oci identifiers, but rather DOIs and/or PMIDs 
+(PubMed identifier) and/or PMCIDs (PubMed Central identifier) (see the [PubMed Wikipedia entry][pm]
+for more). See `?citecorp::oc_lookup` for methods for cross-walking among identifier types.
+
+OpenCitations has a Sparql endpoint for querying their data; you can find that
+at <http://opencitations.net/sparql>; we do interface with the OCC Sparql endpoint 
+in citecorp, but we don't provide a user interface directly to it in citecorp.
+
+The OCC is also available as [data dumps](https://opencitations.net/download).
+
+<br>
+
+## Links
+
+citecorp source code: <https://github.com/ropenscilabs/citecorp>
+
+citecorp on CRAN: <https://cloud.r-project.org/web/packages/citecorp/>
+
+<br><br>
+
+## Installation
+
+Install from CRAN
+
+```{r eval=FALSE}
+install.packages("citecorp")
+```
+
+Development version
+
+```{r eval=FALSE}
+remotes::install_github("ropenscilabs/citecorp")
+```
+
+Load citecorp
+
+```{r}
+library(citecorp)
+```
+
+<br>
+
+## Converting among identifiers
+
+Three functions are provided for converting among different identifier types;
+each function gives back a data.frame containing the url for the article, PMID,
+PMCID and DOI:
+
+* `oc_doi2ids`
+* `oc_pmid2ids`
+* `oc_pmcid2ids`
+
+```{r}
+oc_doi2ids("10.1097/igc.0000000000000609")
+oc_pmid2ids("26645990")
+oc_pmcid2ids("PMC4679344")
+```
+
+Under the hood we interact with their Sparql endpoint to do these queries.
+
+## COCI methods
+
+A series of three more functions are meant for fetching references of,
+citations to, or metadata for individual scholarly works.
+
+Here, we look for data for the DOI [10.1108/jd-12-2013-0166][paper]
+
+> Peroni, S., Dutton, A., Gray, T. and Shotton, D. (2015), "Setting our 
+> bibliographic references free: towards open citation data", Journal of
+> Documentation, Vol. 71 No. 2, pp. 253-277.
+
+_Note: If you don't load `tibble` you get normal data.frame's_
+
+```{r}
+library(tibble)
+doi <- "10.1108/jd-12-2013-0166"
+```
+
+references: the works cited within the paper
+
+```{r}
+oc_coci_refs(doi)
+```
+citations: the works that cite the paper
+
+```{r}
+oc_coci_cites(doi)
+```
+
+metadata: including the ISSN, volumne, title, authors, etc.
+
+```{r}
+oc_coci_meta(doi)
+```
+
+<br>
+
+## Use cases
+
+There are many example use cases using the OCC already in the literature. Here 
+are a few of those, not necessarily using R:
+
+* [Zhu _et al_. 2019. Nine Million Books and Eleven Million Citations: A Study of Book-Based Scholarly Communication Using OpenCitations. arXiv preprint arXiv:1906.06039](https://arxiv.org/abs/1906.06039)
+* [Kaminska 2019. PLOS ONE – a case study of citation analysis of research papers based on the data in an open citation index (The OpenCitations Corpus)][kaminska]
+* [Simon _et al_. 2019. BioReader: a text mining tool for performing classification of biomedical literature. BMC Bioinformatics, 19(S13). doi:10.1186/s12859-019-2607-x](https://doi.org/10.1186/s12859-019-2607-x) (OpenCitations data used in Fig. 1)
+* [Di Iorio _et al_. 2019. Open data to evaluate academic researchers: an experiment with the Italian Scientific Habilitation. arXiv preprint arXiv:1902.03287](https://arxiv.org/abs/1902.03287)
+
+<br>
+
+## To do
+
+- I'd like to vectorize the functions for converting among IDs (e.g., `oc_doi2ids`)
+to make them more user friendly. See <https://github.com/ropenscilabs/citecorp/issues/1>
+- Contributors! If you'd like to contribute, head on over to [the repo][citecorp] and
+get started
+
+<br>
+
+## Get in touch
+
+Get in touch if you have any citecorp questions in the 
+[issue tracker](https://github.com/ropenscilabs/citecorp/issues) or the 
+[rOpenSci discussion forum](https://discuss.ropensci.org/).
+
+
+
+[citecorp]: https://github.com/ropenscilabs/citecorp
+[corpus]: http://opencitations.net/corpus
+[CC0]: https://creativecommons.org/publicdomain/zero/1.0/
+[i4oc]: https://i4oc.org/
+[paper]: https://doi.org/10.1108/jd-12-2013-0166
+[kaminska]: https://www.researchgate.net/profile/Anna_Kaminska14/publication/320595746_PLOS_ONE_-_a_case_study_of_citation_analysis_of_research_papers_based_on_the_data_in_an_open_citation_index_The_OpenCitations_Corpus/links/5a6491240f7e9b6b8fd9a0e1/PLOS-ONE-a-case-study-of-citation-analysis-of-research-papers-based-on-the-data-in-an-open-citation-index-The-OpenCitations-Corpus.pdf
+[rcrossref]: https://github.com/ropensci/rcrossref
+[fulltext]: https://github.com/ropensci/fulltext
+[crminer]: https://github.com/ropensci/crminer
+[pm]: https://en.wikipedia.org/wiki/PubMed
