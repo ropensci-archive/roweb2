@@ -1,8 +1,5 @@
 <meta charset="utf-8" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
-<!-- Needed as long as font-awesome doesn't have fa-orcid -->
-<!-- Used in layouts/authors/list.html -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.css" integrity="sha256-mxq9NZggfcFYApx6yB2wrWDb2WV8J6ZQaVc8uyzeeog=" crossorigin="anonymous" />
   <!-- special treatment for authors pages -->
   {{ if and (in .Section "authors") (eq .Kind "taxonomy") }}
     {{$pages := .Site.Pages.ByPublishDate.Reverse}}
@@ -11,7 +8,7 @@
 <title>rOpenSci | {{ .Params.name }}</title>
     {{ end }}
   <!-- -->
-  
+
   {{ else }}
 <title>rOpenSci | {{ .Title }}</title>
 
@@ -55,7 +52,7 @@
     <meta property="description" content="{{ $description | default $defaultDescription }}">
     <meta property="og:description" content="{{ $description | default $defaultDescription }}">
   <meta property="og:type" content="article">
-  
+
   {{ if .Params.twitterImg }}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ropensci.org/{{ .Params.twitterImg }}" >
