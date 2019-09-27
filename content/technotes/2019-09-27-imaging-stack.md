@@ -129,7 +129,7 @@ A common use case for Tesseract is extracting printed text from images. Suppose 
 
 ![img](https://jeroen.github.io/images/monkey.jpg)
 
-For analyzing the data, we would like to extract the date (top left) and temperate (top right) from each of these pictures. The `image_crop` function now has a parameter `gravity` which makes it easy to crop certain parts of the image. For example `gravity = 'northeast'` will crop an area of the specified size in the top right corner of the image.
+For analyzing the data, we would like to extract the date (top left) and temperature (top right) from each of these pictures. The `image_crop` function now has a parameter `gravity` which makes it easy to crop certain parts of the image. For example `gravity = 'northeast'` will crop an area of the specified size in the top right corner of the image.
 
 We then use `image_negate` which turns the white text into into black text on a white background, and then we feed it to the OCR:
 
