@@ -18,13 +18,13 @@ Image processing is one of the core focus areas of rOpenSci. Over the last few m
 
 ## Magick 2.2
 
-The [magick](https://docs.ropensci.org/magick) package is one of the most powerful packages for image processing in R. It interfaces to the ImageMagick C++ API and can takes advantage of several other R packages providing imaging functionality in R. This summer we released version 2.1 and 2.2 which, added a lot of fixes and long standing feature requests. The [NEWS](https://cran.r-project.org/web/packages/magick/NEWS) file has the full list of changes.
+The [magick](https://docs.ropensci.org/magick) package is one of the most powerful packages for image processing in R. It interfaces to the ImageMagick C++ API and can takes advantage of several other R packages providing imaging functionality in R. This summer we released version 2.1 and 2.2, which included a lot of fixes and new features. The [NEWS](https://cran.r-project.org/web/packages/magick/NEWS) file has the full list of changes.
 
 ### Shadow effects
 
 One cool new feature is the ability to add sophisticated shadow effects to an image. This makes the image often appear much better inside a paper or webpage. The new `image_shadow` function has several parameters to control the size, color, fade, transparency of a shadow. 
 
-Below a simple example where we create an image object the graphics device, and then add a shadow around around the image:
+Below a simple example where we create an image from the graphics device, and subsequently add a fancy shadow effect around around the image:
 
 ```r
 library(magick)
@@ -44,7 +44,7 @@ So fancy! Another cool example from Twitter:
 
 ### Separate and combine
 
-A feature [requested by Dmytro Perepolkin](https://github.com/ropensci/magick/issues/213) are the `image_separate` and `image_combine` functions. Separate splits an image into multiple frames, one frame per channel, usually 3 (RGB) or 4 (CMYK). Combine does the exact opposite: it joins the mono-channel frames back into a single multi-channel image. This makes it possible to extract or manipulate a single channel of the image.
+A feature [requested by Dmytro Perepolkin](https://github.com/ropensci/magick/issues/213) is implemented in the `image_separate` and `image_combine` functions. Separate splits an image into multiple frames, one frame per channel, usually 3 (RGB) or 4 (CMYK). Combine does the exact opposite: it joins the mono-channel frames back into a single multi-channel image. Together, these functions make it possible to apply operations on a single channel of the image.
 
 Let's look at an example. We first read an RGB image and split it into channels:
 
@@ -67,7 +67,7 @@ image_append(channels)
 
 ![channels](http://jeroen.github.io/images/channels.png)
 
-These images show the values of the R, G, and B channels respectively. Now suppose we manipulate a single channel, and then combine the image back into the original format. Here we turn the Green channel upside-down: 
+These images show the values of the R, G, and B channels respectively. Now we manipulate a single channel, and then combine the image back into the original format. Here we turn the Green channel upside-down: 
 
 ```r
 channels[2] <- image_flip(channels[2])
@@ -76,7 +76,7 @@ out <- image_combine(channels)
 
 ![flipfrink](https://jeroen.github.io/images/flipfrink.png)
 
-Here we see the green channel has now been flipped. But there are also useful applications.
+Here we see the green channel has indeed been flipped. But there are also more useful applications.
 
 ### Text annotation
 
