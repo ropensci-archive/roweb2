@@ -5,12 +5,16 @@ date: '2019-09-27'
 authors:
   - Jeroen Ooms
 categories: technotes
+topicid: 1836
 cover: http://jeroen.github.io/images/channels.png
 tags:
   - R
   - docs
   - packages
   - images
+  - magick
+  - tesseract
+  - av
 ---
 
 Image processing is one of the core focus areas of rOpenSci. Over the last few months we have released several major upgrades to core packages in our imaging suite, including [magick](https://docs.ropensci.org/magick), [tesseract](https://docs.ropensci.org/tesseract), and [av](https://docs.ropensci.org/av). This post highlights a few cool new features.
