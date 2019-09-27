@@ -18,7 +18,7 @@ Image processing is one of the core focus areas of rOpenSci. Over the last few m
 
 ## Magick 2.2
 
-The [magick](https://docs.ropensci.org/magick) package is one of the most powerful packages for image processing in R. It interfaces to the ImageMagick C++ API and can takes advantage of several other R packages providing imaging functionality in R. This summer we released version 2.1 and 2.2, which included a lot of fixes and new features. The [NEWS](https://cran.r-project.org/web/packages/magick/NEWS) file has the full list of changes.
+The [magick](https://docs.ropensci.org/magick) package is one of the most powerful packages for image processing in R. It interfaces to the ImageMagick C++ API and can takes advantage of several other R packages providing imaging functionality in R. Version 2.1 and 2.2 include a lot of small fixes and new features: the [NEWS](https://cran.r-project.org/web/packages/magick/NEWS) file has the full list of changes.
 
 ### Shadow effects
 
@@ -67,7 +67,7 @@ image_append(channels)
 
 ![channels](http://jeroen.github.io/images/channels.png)
 
-These images show the values of the R, G, and B channels respectively. Now we manipulate a single channel, and then combine the image back into the original format. Here we turn the Green channel upside-down: 
+These images show the values of the R, G, and B channels respectively, mapped onto grayscale. Now we manipulate a single channel, and then combine the image back into the original format. Here we turn the Green channel upside-down: 
 
 ```r
 channels[2] <- image_flip(channels[2])
@@ -103,16 +103,19 @@ image_write(out, 'out.gif')
 
 ![earth-annotated](https://jeroen.github.io/images/earth-annotated.gif)
 
+If the `text` parameter is length 1, the same text will be printed on each frame of the image.
+
 
 ## Tesseract 4.1
 
-The [tesseract package](https://docs.ropensci.org/tesseract/) provides a powerful OCR engine in R. It interfaces to Google's Tesseract C++ library for extracting text from images in over 100 languages. 
+The [tesseract package](https://docs.ropensci.org/tesseract/) provides a powerful OCR engine in R. It interfaces to Google's Tesseract C++ library for extracting text from images in over 100 languages. Tesseract 4.1 from CRAN upgrades the C++ library to the latest version of the underlying Tesseract engine.
 
-Tesseract 4.1 is now on CRAN and upgrades the C++ library for Windows and MacOS users to the latest version. Ubuntu users can upgrade `libtesseract` using this new PPA: 
+Windows and MacOS users automatically get the latest version of Tesseract with the R package. Ubuntu users can upgrade to Tesseract 4.1 `libtesseract` using this new PPA: 
 
-```
-sudo add-apt-repository ppa:cran/tesseract
-sudo apt-get install -y libtesseract-dev tesseract-ocr-eng
+```sh
+# PPA for Ubuntu 16.04 and 18.04
+add-apt-repository ppa:cran/tesseract
+apt-get install libtesseract-dev
 ```
 
 This new version of the engine has a lot of [improvements](https://github.com/tesseract-ocr/tesseract/wiki/4.0x-Changelog) with more accurate OCR results so I highly recommend upgrading. Also the "whitelist" control parameter (which allows to limit the OCR engine to a set of characters) has been fixed, which we demonstrate in the example below.
@@ -153,14 +156,14 @@ The `tessedit_char_whitelist` parameter in tesseract limits the characters that 
 
 Another much requested feature is the ability to sample images from a video files. This builds on our new `av` package, which I will write more about in another post.
 
-For example, suppose you have many hours of footage from a camera trap, weather cam, or security camera. As a first pass to look into this, you might want to extract an image every few minutes. 
+For example, suppose you have many hours of footage from a camera trap, weather cam, or security camera. To analyize this, you might want to reduce the video to a set of sample images, one every few seconds or minutes. 
 
 <video width="100%" controls>
 <source src="https://jeroen.github.io/images/blackbear.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-The new `image_read_video` function has a parameter `fps` to set the number of images per second you want to sample from the video stream. This also works with fractions, for example 1/10 will grab one image for every 10 seconds of video. 
+The new `image_read_video` function has a parameter `fps` to set the number of images per second you want to sample from the video stream. This also works with fractions, for example 1/10 will grab one image for every 10 seconds of video.  Let's load the video above:
 
 ```r
 curl::curl_download('https://jeroen.github.io/images/blackbear.mp4', 'blackbear.mp4')
