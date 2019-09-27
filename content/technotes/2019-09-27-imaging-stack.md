@@ -5,6 +5,7 @@ date: '2019-09-27'
 authors:
   - Jeroen Ooms
 categories: technotes
+cover: http://jeroen.github.io/images/channels.png
 tags:
   - R
   - docs
