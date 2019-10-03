@@ -4,12 +4,12 @@ title: 'rOpenSci Dev Guide 0.3.0: Updates Inside and Out'
 date: 2019-10-02
 authors:
   - Scott Chamberlain
-  - Maëlle Salmon
   - Brooke Anderson
   - Anna Krystalli
   - Lincoln Mullen
   - Karthik Ram
   - Noam Ross
+  - Maëlle Salmon
   - Melina Vidoni
 categories: blog
 topicid:
@@ -21,11 +21,7 @@ As [announced in February](/blog/2019/02/01/software-review-news/) updates to ou
 
 ### For editors
 
-We've made a number of changes to the guide to make the editors jobs easier.
-
-First, we've added a [book release guide](https://github.com/ropensci/dev_guide/issues/152) - a guide for shepherding a new version of the developer guide - which culminates in this blog post!
-
-Second, instructions have been added for [nominating packages for blog posts](https://github.com/ropensci/dev_guide/issues/180). That is, we used to ask each package that has gone through review if they would like to write a blog post on our blog. As submissions have increased, we've had to revisit this approach. We now cherry pick some submissions for blog posts.
+We've added a [book release guide](https://github.com/ropensci/dev_guide/issues/152) - a guide for shepherding a new version of the developer guide - which culminates in this blog post!
 
 ### Guide tweaks
 
@@ -35,7 +31,7 @@ We fixed formatting of Appendices B-D in the pdf version of the book (see PDF bu
 
 For book contributors, we've update [instructions in the README](https://github.com/ropensci/dev_guide#notes-for-associate-editors) for rendering the developer guide locally (<https://github.com/ropensci/dev_guide/issues/192>).
 
-[Hugo Gruson](https://github.com/bisaloo/) helped us with a number of things: added a note for package maintainers about the [importance of GitHub recognizing your repository as the language R](https://github.com/ropensci/dev_guide/pull/172), and helped us [update links to `https` from `http`](https://github.com/ropensci/dev_guide/pull/167).
+[Hugo Gruson][hugog] helped us with a number of things: added a note for package maintainers about the [importance of GitHub recognizing your repository as the language R](https://github.com/ropensci/dev_guide/pull/172), and helped us [update links to `https` from `http`](https://github.com/ropensci/dev_guide/pull/167).
 
 
 
@@ -58,7 +54,7 @@ rOpenSci's [Jeroen Ooms](https://ropensci.org/authors/jeroen-ooms/) has built ou
 
 We've changed our guidelines regarding README's and vignettes. If you have chunks shared between the README and any vignettes, then [we recommend using Rmarkdown chunks](https://devguide.ropensci.org/building.html#documentation). Related issues: [ropensci/dev_guide#159](https://github.com/ropensci/dev_guide/issues/159) and [ropensci/dev_guide#161](https://github.com/ropensci/dev_guide/issues/161).
 
-Last, we've removed our recommendation about using the `roxygen2` development version because the latest stable version has what is needed regarding tags and the `rev` contributor role. (thanks [Hugo Gruson](https://github.com/bisaloo/) - [ropensci/dev_guide#165](https://github.com/ropensci/dev_guide/issues/165))
+Last, we've removed our recommendation about using the `roxygen2` development version because the latest stable version has what is needed regarding tags and the `rev` contributor role. (thanks [Hugo Gruson][hugog] - [ropensci/dev_guide#165](https://github.com/ropensci/dev_guide/issues/165))
 
 #### CRAN checks
 
@@ -95,3 +91,4 @@ In this post we summarized the changes incorporated into [our online book "rOpen
 [bowerbird]: https://github.com/ropensci/bowerbird
 [rodev]: https://github.com/ropensci/rodev
 [usethis]: https://github.com/r-lib/usethis
+[hugog]: https://ropensci.org/authors/hugo-gruson/
