@@ -42,8 +42,11 @@ For book contributors, we've update [instructions in the README](https://github.
 We've introduced an important change for anyone thinking of submitting a package. The former "reproducibility" category has been split up into four new categories (with "reproducibility" itself removed). They are:
 
 - data validation and testing
+
 - workflow automation
+
 - version control
+
 - citation management and bibliometrics
 
 For discussion and changes see [ropensci/software-review-meta#81](https://github.com/ropensci/software-review-meta/issues/81) and [ropensci/dev_guide#184](https://github.com/ropensci/dev_guide/pull/184).
