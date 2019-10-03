@@ -54,7 +54,7 @@ rOpenSci's [Jeroen Ooms](https://ropensci.org/authors/jeroen-ooms/) has built ou
 
 We've changed our guidelines regarding README's and vignettes. If you have chunks shared between the README and any vignettes, then [we recommend using Rmarkdown chunks](https://devguide.ropensci.org/building.html#documentation). Related issues: [ropensci/dev_guide#159](https://github.com/ropensci/dev_guide/issues/159) and [ropensci/dev_guide#161](https://github.com/ropensci/dev_guide/issues/161).
 
-Last, we've removed our recommendation about using the `roxygen2` development version because the latest stable version has what is needed regarding tags and the `rev` contributor role. (thanks [Hugo Gruson][hugog] - [ropensci/dev_guide#165](https://github.com/ropensci/dev_guide/issues/165))
+Last, we've removed our recommendation about using the `roxygen2` development version because the latest stable version has what is needed regarding tags and the `rev` contributor role. (thanks again [Hugo Gruson][hugog] - [ropensci/dev_guide#165](https://github.com/ropensci/dev_guide/issues/165))
 
 #### CRAN checks
 
