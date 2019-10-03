@@ -17,7 +17,7 @@ tags:
   - Software Peer Review
 ---
 
-As [announced in February](/blog/2019/02/01/software-review-news/) updates to our Software Peer Review system, all our package development, review and maintenance is available as [an online book](https://devguide.ropensci.org/). Our goal is to update it approximately quarterly - it's time to present the third version. You can [read the changelog](https://devguide.ropensci.org/booknews.html) or this blog post to find out what's new in our dev guide 0.3.0!
+As [announced in February](/blog/2019/02/01/software-review-news/), we now have [an online book](https://devguide.ropensci.org/) containing all things related to rOpenSci software review. Our goal is to update it approximately quarterly - it's time to present the third version. You can [read the changelog](https://devguide.ropensci.org/booknews.html) or this blog post to find out what's new in our dev guide 0.3.0!
 
 ### For editors
 
@@ -25,7 +25,7 @@ We've added a [book release guide](https://github.com/ropensci/dev_guide/issues/
 
 ### Guide tweaks
 
-The developer guide now lives at <https://devguide.ropensci.org/>!
+The developer guide now lives at <https://devguide.ropensci.org/>, its very own subdomain!
 
 We fixed formatting of Appendices B-D in the PDF version of the book (see PDF button in the navbar) with [an issue](https://github.com/ropensci/dev_guide/issues/179) by [Indrajeet Patil](https://github.com/IndrajeetPatil).
 
