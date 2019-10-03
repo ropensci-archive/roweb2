@@ -55,7 +55,7 @@ For discussion and changes see [ropensci/software-review-meta#81](https://github
 
 rOpenSci's [Jeroen Ooms](https://ropensci.org/authors/jeroen-ooms/) has built out a new way for rOpenSci packages to improve documentation for their packages. Many of you have likely been building package documentation websites with [pkgdown][]. There were ways to automate the building of these documentation pages - but nothing as easy as we have now. Docs for each rOpenSci package are now built automatically and can be found at `https://docs.ropensci.org/{package}`, where `{package}` is the package name, e.g., the page for the [bowerbird][] package is <https://docs.ropensci.org/bowerbird/>. Read Jeroen's post for more details [Introducing the new rOpenSci docs server](https://ropensci.org/technotes/2019/06/07/ropensci-docs/) and see the developer guide section [Automatic deployment of the documentation website](https://devguide.ropensci.org/building.html#automatic-deployment-of-the-documentation-website-docsropensci).
 
-We've changed our guidelines regarding README's and vignettes. If you have chunks shared between the README and any vignettes, then [we recommend using Rmarkdown chunks](https://devguide.ropensci.org/building.html#documentation). Related issues: [ropensci/dev_guide#159](https://github.com/ropensci/dev_guide/issues/159) and [ropensci/dev_guide#161](https://github.com/ropensci/dev_guide/issues/161).
+We've changed our guidelines regarding README's and vignettes. If you have chunks shared between the README and any vignettes, then [we suggest using Rmarkdown chunks](https://devguide.ropensci.org/building.html#documentation). Related issues: [ropensci/dev_guide#159](https://github.com/ropensci/dev_guide/issues/159) and [ropensci/dev_guide#161](https://github.com/ropensci/dev_guide/issues/161).
 
 Last, we've removed our recommendation about using the `roxygen2` development version because the latest stable version has what is needed regarding tags and the `rev` contributor role. (thanks again [Hugo Gruson][hugog] - [ropensci/dev_guide#165](https://github.com/ropensci/dev_guide/issues/165))
 
@@ -65,9 +65,9 @@ We've added [explanations of CRAN checks](https://devguide.ropensci.org/building
 
 #### R helpers
 
-The [rodev][] package is a new helper package, maintained by Maëlle. The goal of rodev is to help rOpenSci package developers with common tasks, and to promote best practices. We've added mentions of rodev functions throughout the guide where appropriate.
+[usethis][] is a helper package for R package maintainers. We've added to the guide recommendations for usethis functions to use for adding testing or vignette infrastructure.
 
-Like rodev, [usethis][] is a helper package for maintainers. We've also added to the guide recommendations for usethis functions to use for adding testing or vignette infrastructure.
+Built on usethis, the [rodev][] package is a new helper package, maintained by Maëlle. The goal of rodev is to help rOpenSci package developers with common tasks, and to promote best practices. We've added mentions of rodev functions throughout the guide where appropriate.
 
 #### New section: Changing package maintainers
 
@@ -84,11 +84,12 @@ We'd like to have fleshed out the security chapter more, but in the meantime, we
 #### Other changes
 
 * [Matt Fidler](https://github.com/mattfidler/) amended our section on Console messages [ropensci/dev_guide#178](https://github.com/ropensci/dev_guide/pull/178). We previously said to only use `print()` and/or `cat()` in your `print.*` methods; now the language suggests to use those two functions in either `print.*` or `str.*` methods.
+
 * We previously briefly mentioned "git flow". We [now](https://github.com/ropensci/dev_guide/commit/e34b5f2bb171cb10d1468807f529b0a2ec19ab9e) expand that a bit to discuss two aspects of "git flow": keep master shippable, and use branches because they're cheap.
 
 ### Conclusion
 
-In this post we summarized the changes incorporated into [our online book "rOpenSci Packages: Development, Maintenance, and Peer Review"](https://devguide.ropensci.org/) over the last three months. We are very grateful for all contributions that made this release possible. Now, if _you_ have any feedback about the book, you too can head to [the issue tracker](https://github.com/ropensci/dev_guide/issues/)!
+In this post we summarized the changes incorporated into [our online book "rOpenSci Packages: Development, Maintenance, and Peer Review"](https://devguide.ropensci.org/) over the last four months. We are grateful for all contributions that made this release possible. If _you_ have any feedback about the book, head to [the issue tracker](https://github.com/ropensci/dev_guide/issues/)!
 
 [pkgdown]: https://github.com/r-lib/pkgdown
 [bowerbird]: https://github.com/ropensci/bowerbird
