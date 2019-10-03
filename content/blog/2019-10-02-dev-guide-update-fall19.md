@@ -27,7 +27,7 @@ We've added a [book release guide](https://github.com/ropensci/dev_guide/issues/
 
 The developer guide now lives at <https://devguide.ropensci.org/>!
 
-We fixed formatting of Appendices B-D in the pdf version of the book (see PDF button in the navbar) with [an issue](https://github.com/ropensci/dev_guide/issues/179) by [Indrajeet Patil](https://github.com/IndrajeetPatil).
+We fixed formatting of Appendices B-D in the PDF version of the book (see PDF button in the navbar) with [an issue](https://github.com/ropensci/dev_guide/issues/179) by [Indrajeet Patil](https://github.com/IndrajeetPatil).
 
 For book contributors, we've update [instructions in the README](https://github.com/ropensci/dev_guide#notes-for-associate-editors) for rendering the developer guide locally (<https://github.com/ropensci/dev_guide/issues/192>).
 
