@@ -19,35 +19,20 @@ tags:
 
 As [announced in February](/blog/2019/02/01/software-review-news/), we now have [an online book](https://devguide.ropensci.org/) containing all things related to rOpenSci software review. Our goal is to update it approximately quarterly - it's time to present the third version. You can [read the changelog](https://devguide.ropensci.org/booknews.html) or this blog post to find out what's new in our dev guide 0.3.0!
 
-### For editors
-
-We've added a [book release guide](https://github.com/ropensci/dev_guide/issues/152) - a guide for shepherding a new version of the developer guide - which culminates in this blog post!
-
-### Guide tweaks
-
-The developer guide now lives at <https://devguide.ropensci.org/>, its very own subdomain!
-
-We fixed formatting of Appendices B-D in the PDF version of the book (see PDF button in the navbar) with [an issue](https://github.com/ropensci/dev_guide/issues/179) by [Indrajeet Patil](https://github.com/IndrajeetPatil).
-
-For book contributors, we've update [instructions in the README](https://github.com/ropensci/dev_guide#notes-for-associate-editors) for rendering the developer guide locally (<https://github.com/ropensci/dev_guide/issues/192>).
-
-[Hugo Gruson][hugog] helped us with a number of things: added a note for package maintainers about the [importance of GitHub recognizing your repository as the language R](https://github.com/ropensci/dev_guide/pull/172), and helped us [update links to `https` from `http`](https://github.com/ropensci/dev_guide/pull/167).
-
-
 
 ### Updates to our policies and guidance
 
 #### Scope
 
-We've introduced an important change for anyone thinking of submitting a package. The former "reproducibility" category has been split up into four new categories (with "reproducibility" itself removed). They are:
+We've introduced an important change for anyone thinking of submitting a package. We ask authors to select a category in our [Aims and Scope](https://devguide.ropensci.org/policies.html#aims-and-scope) under which to submit.  We found that the "reproducibility" category was confusing, as almost any R package can be related to reproducibility.  We split "reproducibility" into four new categories that fit the narrower topics it previously included. They are:
 
-- data validation and testing
+- data validation and testing: Tools that enable automated validation and checking of data quality and completeness as part of scientific workflows.
 
-- workflow automation
+- workflow automation: Tools that automate and link together workflows, such as build systems and tools to manage continuous integration.
 
-- version control
+- version control: Tools that facilitate the use of version control in scientific workflows.
 
-- citation management and bibliometrics
+- citation management and bibliometrics: Tools that facilitate managing references, such as for writing manuscripts, creating CVs or otherwise attributing scientific contributions.
 
 For discussion and changes see [ropensci/software-review-meta#81](https://github.com/ropensci/software-review-meta/issues/81) and [ropensci/dev_guide#184](https://github.com/ropensci/dev_guide/pull/184).
 
@@ -87,9 +72,23 @@ We'd like to have fleshed out the security chapter more, but in the meantime, we
 
 * We previously briefly mentioned "git flow". We [now](https://github.com/ropensci/dev_guide/commit/e34b5f2bb171cb10d1468807f529b0a2ec19ab9e) expand that a bit to discuss two aspects of "git flow": keep master shippable, and use branches because they're cheap.
 
+### For editors
+
+We've added a [book release guide](https://github.com/ropensci/dev_guide/issues/152) - a guide for shepherding a new version of the developer guide - which culminates in this blog post!
+
+### Guide tweaks
+
+The developer guide now lives at <https://devguide.ropensci.org/>, its very own subdomain!
+
+We fixed formatting of Appendices B-D in the PDF version of the book (see PDF button in the navbar) with [an issue](https://github.com/ropensci/dev_guide/issues/179) by [Indrajeet Patil](https://github.com/IndrajeetPatil).
+
+For book contributors, we've update [instructions in the README](https://github.com/ropensci/dev_guide#notes-for-associate-editors) for rendering the developer guide locally (<https://github.com/ropensci/dev_guide/issues/192>).
+
+[Hugo Gruson][hugog] helped us with a number of things: added a note for package maintainers about the [importance of GitHub recognizing your repository as the language R](https://github.com/ropensci/dev_guide/pull/172), and helped us [update links to `https` from `http`](https://github.com/ropensci/dev_guide/pull/167).
+
 ### Conclusion
 
-In this post we summarized the changes incorporated into [our online book "rOpenSci Packages: Development, Maintenance, and Peer Review"](https://devguide.ropensci.org/) over the last four months. We are grateful for all contributions that made this release possible. If _you_ have any feedback about the book, head to [the issue tracker](https://github.com/ropensci/dev_guide/issues/)!
+In this post we summarized the changes incorporated into our book ["rOpenSci Packages: Development, Maintenance, and Peer Review"](https://devguide.ropensci.org/) over the last four months. We are grateful for all contributions that made this release possible. If _you_ have any feedback about the book, head to [the issue tracker](https://github.com/ropensci/dev_guide/issues/)!  We are already working on updates for our next version, such as [documenting R6 objects](https://github.com/ropensci/dev_guide/issues/189), [guidance on package citations](https://github.com/ropensci/dev_guide/issues/115), and [adding more content for the security chapter](https://github.com/ropensci/dev_guide/issues/154). Check out the [the issue tracker](https://github.com/ropensci/dev_guide/issues/) if you'd like to contribute.
 
 [pkgdown]: https://github.com/r-lib/pkgdown
 [bowerbird]: https://github.com/ropensci/bowerbird
