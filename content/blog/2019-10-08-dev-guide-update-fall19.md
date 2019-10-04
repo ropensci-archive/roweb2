@@ -1,7 +1,7 @@
 ---
 slug: dev-guide-update-fall19
 title: 'rOpenSci Dev Guide 0.3.0: Updates'
-date: 2019-10-02
+date: 2019-10-08
 authors:
   - Scott Chamberlain
   - Brooke Anderson
