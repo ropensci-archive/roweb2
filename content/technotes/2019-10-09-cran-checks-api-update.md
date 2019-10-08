@@ -79,7 +79,7 @@ If you request a badges route with an uknown flavor or package you get an gray u
 
 ### History
 
-We've had the `/pkgs/:pkg_name:/history` route for quite a while now, but it's been very slow to respond because the SQL database was not optimized. Its now fixed, and you can very quickly get up to the last 30 days of checks history.
+We've had the `/pkgs/:pkg_name:/history` route for quite a while now, but it's been very slow to respond because the SQL database was not optimized. It's now fixed, and you can very quickly get up to the last 30 days of checks history.
 
 If you want more than 30 days in the past, we've got a new route `/history/:date` to get all historical data by day, across all packages. It has daily data back to December 2018. There's a few days missing here and there as I was learning and making mistakes. To get the data, send a request like `/history/2019-10-01`, and you'll get a 302 redirect to a temporary URL (expires in 15 min) for the gzipped JSON file. You can easily get these in R like:
 
@@ -100,7 +100,7 @@ Note above that we use `stream_in()` because the JSON file is new-line delimited
 
 One concrete idea I hope to pursue at some point:
 
-- Notify package maintainers. Notifying them of exactly what would be up to the maintainer. Now that the API exists, we can much more easily build a notification system. For example, a maintainer could say that want to get an email whenever cran checks are failing more than 3 days in a row; or when cran checks details match a certain character string (e.g., segfault); or to ignore cran check results that are just failures due to temporary problems with a dependency package.
+- Notify package maintainers. Notifying them of exactly what would be up to the maintainer. Now that the API exists, we can much more easily build a notification system. For example, a maintainer could say they want to get an email whenever cran checks are failing more than 3 days in a row; or when cran checks details match a certain character string (e.g., segfault); or to ignore cran check results that are just failures due to temporary problems with a dependency package.
 
 I'm sure there's many other ideas I haven't thought of 😸
 
