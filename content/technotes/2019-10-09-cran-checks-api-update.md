@@ -100,7 +100,7 @@ Note above that we use `stream_in()` because the JSON file is new-line delimited
 
 One concrete idea I hope to pursue at some point:
 
-- Notify package maintainers. Notifying them of exactly what would be up to the maintainer. Now that the API exists, we can much more easily build a notification system. For example, a maintainer could say that want to get an email whenever cran checks are failing more than 3 days in a row; or when cran checks details match a certain character string (e.g., segfault); or to ignore cran check results that are just failures due to temporary problems with a dependency package.
+- Notify package maintainers. Notifying them of exactly what would be up to the maintainer. Now that the API exists, we can much more easily build a notification system. For example, a maintainer could say they want to get an email whenever cran checks are failing more than 3 days in a row; or when cran checks details match a certain character string (e.g., segfault); or to ignore cran check results that are just failures due to temporary problems with a dependency package.
 
 I'm sure there's many other ideas I haven't thought of 😸
 
