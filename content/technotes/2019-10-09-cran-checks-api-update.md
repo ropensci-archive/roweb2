@@ -14,7 +14,7 @@ tags:
 - infrastructure
 ---
 
-If you have an R package on CRAN, you probably know about CRAN checks. Each package on CRAN, that is not archived on CRAN, has a checks page, like this one for `ropenaq`:
+If you have an R package on CRAN, you probably know about CRAN checks. Each package on CRAN, that is not archived on CRAN[^1], has a checks page, like this one for `ropenaq`:
 <https://cloud.r-project.org/web/checks/check_results_ropenaq.html>
 
 <center><img src="/img/blog-images/2019-10-09-cran-checks-api-update/cranchecks.png"></center>
@@ -79,7 +79,7 @@ If you request a badges route with an uknown flavor or package you get an gray u
 
 ### History
 
-We've had the `/pkgs/:pkg_name:/history` route for quite a while now, but it's been very slow to respond because the SQL database was not optimized. Its now fixed, and you can very quickly get up to the last 30 days of checks history. 
+We've had the `/pkgs/:pkg_name:/history` route for quite a while now, but it's been very slow to respond because the SQL database was not optimized. Its now fixed, and you can very quickly get up to the last 30 days of checks history.
 
 If you want more than 30 days in the past, we've got a new route `/history/:date` to get all historical data by day, across all packages. It has daily data back to December 2018. There's a few days missing here and there as I was learning and making mistakes. To get the data, send a request like `/history/2019-10-01`, and you'll get a 302 redirect to a temporary URL (expires in 15 min) for the gzipped JSON file. You can easily get these in R like:
 
@@ -106,7 +106,8 @@ I'm sure there's many other ideas I haven't thought of 😸
 
 ## What's next?
 
-- Notifications ([see ropenscilabs/cchecksapi#13](https://github.com/ropenscilabs/cchecksapi/issues/13)) may or may not happen - chime in there if you're interested. 
+- Notifications ([see ropenscilabs/cchecksapi#13](https://github.com/ropenscilabs/cchecksapi/issues/13)) may or may not happen - chime in there if you're interested in helping with this.
 - Add ability to ignore specific NOTEs for badges. It would be nice to ignore NOTEs that can be ignored so you aren't getting a "something's wrong" badge when nothing important is wrong (i.e., CRAN maintainers don't contact the maintainer as it's something rather trivial). See [ropenscilabs/cchecksapi#29](https://github.com/ropenscilabs/cchecksapi/issues/29)
-- Have an idea or comment? [open an issue](https://github.com/ropenscilabs/cchecksapi/issues/new) 
+- Have an idea or comment? [open an issue](https://github.com/ropenscilabs/cchecksapi/issues/new)
 
+[^1]: old versions of the package exist, but binaries are no longer built and checks are no longer performed
