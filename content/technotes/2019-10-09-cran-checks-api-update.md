@@ -6,7 +6,7 @@ authors:
   - Scott Chamberlain
 categories:
   - technotes
-topicid:
+topicid: 1851
 tags:
 - R
 - API
@@ -27,9 +27,7 @@ The only drawback to CRAN checks is that they are not available in a machine rea
 
 ## CRAN Checks API
 
-To make CRAN check data available in a machine readable way I decided to build an API. Two years ago I [introduced the cran checks API](https://recology.info/2017/09/cranchecks-api/) on my blog.
-
-Over the two years the API has gotten some tweaks and fixes, some of which are very recent.
+To make CRAN check data available in a machine readable we [built out the CRAN checks API](https://recology.info/2017/09/cranchecks-api/). Over the two years since it began, the API has gotten some tweaks and fixes, some of which are very recent.
 
 When the API first came out the only routes were:
 
@@ -51,11 +49,17 @@ Now the routes are:
 - `/badges/:type/:package`
 - `/badges/flavor/:flavor/:package`
 
-The big new additions since the beginning are maintainers, badges, and history
+The big new additions since the beginning are maintainers, badges, and history; I'll briefly talk about each.
 
 ### Maintainers
 
-The maintainers route gives you access to the data on the summary pages by package maintainer <https://cloud.r-project.org/web/checks/check_summary_by_maintainer.html>. `/maintainers` gives all maintainers data, while with `/maintainers/:email:` you can get data for a specific maintainer (by their email address).
+The maintainers route gives you access to the data on the summary pages by package maintainer <https://cloud.r-project.org/web/checks/check_summary_by_maintainer.html>. `/maintainers` gives all maintainers data, while with `/maintainers/:email:` you can get data for a specific maintainer (by their email address). Note that with `/maintainers/:email:` at this time you need to use the format CRAN uses for emails to get a match in the API; e.g., with the package `ropenaq`, the maintainer's (Maëlle Salmon) email is `maelle.salmon@yahoo.se`, but it needs to be formatted like `/maintainers/maelle.salmon_at_yahoo.se` in the API. I will at some point make it so that you can just use the actual email address in the route.
+
+The data returned for the `/maintainers` API routes is not the detailed data you get on the `/pkgs` routes. There's two main data fields. 
+
+The `table` slot has an array of hashes, one for each package, with a summary of how many checks were `ok`, `note`, `warn`, and `error`.
+
+The `packages` slot has an array of hahes, one for each package, but includes the URL for the CRAN checks page, and similar to the `table` slot, has a summary of the number of checks in each category.
 
 ### Badges
 
@@ -77,9 +81,19 @@ The `/badges/flavor/:flavor/:package` route allows you to get a badge for a spec
 
 If you request a badges route with an uknown flavor or package you get an gray unknown badge (see above).
 
+To use a CRAN checks badge, simply copy/paste the below text into your README, changing the package name to your own, and selecting the type of badge you want:
+
+`[![cran checks](https://cranchecks.info/badges/summary/reshape)](https://cran.r-project.org/web/checks/check_results_reshape.html)`
+
+or 
+
+`[![cran checks](https://cranchecks.info/badges/summary/reshape)](https://cranchecks.info/pkgs/reshape)`
+
+The former links to the CRAN checks page, while the latter links to the API route for the package.
+
 ### History
 
-We've had the `/pkgs/:pkg_name:/history` route for quite a while now, but it's been very slow to respond because the SQL database was not optimized. It's now fixed, and you can very quickly get up to the last 30 days of checks history.
+We've had the `/pkgs/:pkg_name:/history` route for quite a while now, but it's been very slow to respond because the SQL database was in an ideal situation (we had no indexes; and a ton of data). It's now fixed, and you can very quickly get up to the last 30 days of checks history. We prune out any data older than 30 days; all older day gets put in an Amazon S3 bucket to save disk space on the server and to make them available for the `/history/:date` route.
 
 If you want more than 30 days in the past, we've got a new route `/history/:date` to get all historical data by day, across all packages. It has daily data back to December 2018. There's a few days missing here and there as I was learning and making mistakes. To get the data, send a request like `/history/2019-10-01`, and you'll get a 302 redirect to a temporary URL (expires in 15 min) for the gzipped JSON file. You can easily get these in R like:
 
