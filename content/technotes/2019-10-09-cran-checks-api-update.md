@@ -27,6 +27,8 @@ The only drawback to CRAN checks is that they are not available in a machine rea
 
 ## CRAN Checks API
 
+> For a recent overview of the API, check out the <a href="https://blog.r-hub.io/2019/06/10/cran-checks-api" style="color:grey">Overview of the CRAN checks API</a> blog post on the R-Hub blog.
+
 To make CRAN check data available in a machine readable we [built out the CRAN checks API](https://recology.info/2017/09/cranchecks-api/). Over the two years since it began, the API has gotten some tweaks and fixes, some of which are very recent.
 
 When the API first came out the only routes were:
