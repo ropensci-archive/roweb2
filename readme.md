@@ -18,8 +18,8 @@ See [editorial suggestions](#blog-post-editorial-suggestions). Before that, tech
 
 1. [Fork the repo](https://happygitwithr.com/fork-and-clone.html)
 2. Create a new file in `/content/blog/YEAR-MONTH-DAY-slug.md`, either directly or after developing it in a separate project. i.e. working on an R Markdown file in a separate RStudio project and then moving the images and Markdown output to your fork of the website
-    * [Markdown template](2019-06-04-post-template.md), 
-    * R Markdown template: either [to be copy-pasted](https://github.com/ropenscilabs/rodev/blob/master/inst/rmarkdown/templates/ropensci-blog-post/skeleton/skeleton.Rmd) or install [`rodev`](https://docs.ropensci.org/rodev/) via `remotes::install_github("ropenscilrodev")` after which in RStudio you can click on `File > New File > R Markdown... > From Template > rOpenSci Blog Post `to create the file.
+    * [Markdown template](2019-06-04-post-template.md),
+    * R Markdown template: either [to be copy-pasted](https://github.com/ropenscilabs/rodev/blob/master/inst/rmarkdown/templates/ropensci-blog-post/skeleton/skeleton.Rmd) or install [`rodev`](https://docs.ropensci.org/rodev/) via `remotes::install_github("ropensci/rodev")` after which in RStudio you can click on `File > New File > R Markdown... > From Template > rOpenSci Blog Post `to create the file.
 
 3. Your post must include YAML in this format:
 
@@ -55,7 +55,7 @@ tags:
 {{< figure src="/img/blog-images/<DATE-SLUG>/name-of-image.png" alt="write an alternative text describing the information contained in the image" width="500" >}}
 ```
 
-6. Once you've drafted your blog post, you can [preview locally using Hugo](#installing-hugo-for-local-preview) or skip to the next step to preview on the pull request. 
+6. Once you've drafted your blog post, you can [preview locally using Hugo](#installing-hugo-for-local-preview) or skip to the next step to preview on the pull request.
 
 7. Send a pull request from your fork at least one week prior to the post date to allow time for review. Netlify will start building the new version of the site within seconds and you can preview you changes to make sure everything looks as intended. Otherwise push additional fixes till things look right.  
 
@@ -73,8 +73,8 @@ tags:
 - If you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - Use ### or #### to format headings in your post; larger sizes don't look good. Note long headings with #### don't wrap well.
 - Spell 'rOpenSci', not 'ROpenSci'
-- For references, put `[^1]` after the text you want to cite in body of the post, and put `[^1]: citation details` at the end of the post. They will link to each other. Example in this post [markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2019-04-18-ropensci-mee.md) -> [rendered](https://ropensci.org/blog/2019/04/18/wild-standards/). 
-- Check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an [author's index file for yourself](#author-file). 
+- For references, put `[^1]` after the text you want to cite in body of the post, and put `[^1]: citation details` at the end of the post. They will link to each other. Example in this post [markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2019-04-18-ropensci-mee.md) -> [rendered](https://ropensci.org/blog/2019/04/18/wild-standards/).
+- Check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an [author's index file for yourself](#author-file).
 
 ##### Instructions for posts about peer-reviewed packages
 
@@ -94,7 +94,7 @@ For a post about your experience as a reviewer you can browse other posts with t
 
 If you don't already have one, create `_index.md` in `roweb2/content/authors/firstname-lastname/` with information about your online presence. Keep accents in your name. If you're not sure of how to slugify/urlize your name, look at other people's folder names for examples.
 
-[Template for an author file](author-name.md), Example 
+[Template for an author file](author-name.md), Example
 
 ```yaml
 ---
@@ -112,7 +112,7 @@ Example when rendered: [Kelly O'Briant's author page](https://ropensci.org/autho
 
 At minimum, provide your name and at least one link or Twitter/GitHub/GitLab username. The `link` field is meant for your preferred online presence URL, to be filled only if you have one that's not your GitHub, GitLab or Twitter account. The `twitter`, `github`, `gitlab`, `keybase` and `orcid` fields are for your Twitter/GitHub/GitLab/Keybase/ORCID usernames/IDs (without "@").
 
-Then when a reader clicks on your by-line in your blog post, tech note, or a community call you have presented in, they can see how to find you online, as well as seeing a list of all of those you have contributed. 
+Then when a reader clicks on your by-line in your blog post, tech note, or a community call you have presented in, they can see how to find you online, as well as seeing a list of all of those you have contributed.
 
 ### Installation requirements
 
@@ -120,7 +120,7 @@ There are no requirements to simply add a post/fix and push to GitHub for a rend
 
 #### Installing Hugo for local preview
 
-The version of Hugo used by the server is defined in [netlify.toml](netlify.toml). 
+The version of Hugo used by the server is defined in [netlify.toml](netlify.toml).
 
 To install Hugo locally, refer to [Hugo docs](https://gohugo.io/getting-started/installing/) or run `blogdown::install_hugo()`.
 
