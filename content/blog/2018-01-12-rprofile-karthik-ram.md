@@ -46,7 +46,7 @@ KR: Yeah, I think open source is great because it does come with built-in commun
 
 KO: How much of your work week now is spent actively using R?
 
-KR: That’s kind of a tricky question because I'm the project lead for the [rOpenSci project](https://ropensci.org/) which means that I spend a lot of time just managing people and projects. I don’t get to just write a lot of R code, for me it comes in waves. I’m hoping that for the next few weeks I’ll be doing nothing but coding on my couch. But for the last month I’ve been teaching a lot of R. I spent an average of 4 hours a day on R before other distractions kicked in.
+KR: That’s kind of a tricky question because I'm the project lead for the [rOpenSci project](/) which means that I spend a lot of time just managing people and projects. I don’t get to just write a lot of R code, for me it comes in waves. I’m hoping that for the next few weeks I’ll be doing nothing but coding on my couch. But for the last month I’ve been teaching a lot of R. I spent an average of 4 hours a day on R before other distractions kicked in.
 
 KO: You’re teaching it at the university, and you’re going into summer [This interview was conducted in May], how are you going to spend your summer?  
 
