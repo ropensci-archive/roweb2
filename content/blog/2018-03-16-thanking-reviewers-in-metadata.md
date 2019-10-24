@@ -92,9 +92,9 @@ c(
   )
 ```
 
-[time]: https://ropensci.org/blog/2016/03/28/software-review/#review-takes-a-lot-of-time
+[time]: /blog/2016/03/28/software-review/#review-takes-a-lot-of-time
 
-[R package peer review process]: https://ropensci.org/blog/2017/09/01/nf-softwarereview/
+[R package peer review process]: /blog/2017/09/01/nf-softwarereview/
 
 [change]: https://github.com/wch/r-source/blame/cb9b0506cced030613e06fb92799a1d1807bc257/src/library/utils/R/sysdata.R#L37
 

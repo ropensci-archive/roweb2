@@ -16,7 +16,7 @@ tags:
   - FedData
 ---
 
-The package [`FedData`](https://github.com/ropensci/FedData) has gone through software review and is now part of [rOpenSci](https://ropensci.org/). `FedData` includes functions to automate downloading geospatial data available from several federated data sources (mainly sources maintained by the US Federal government).
+The package [`FedData`](https://github.com/ropensci/FedData) has gone through software review and is now part of [rOpenSci](/). `FedData` includes functions to automate downloading geospatial data available from several federated data sources (mainly sources maintained by the US Federal government).
 
 Currently, the package enables extraction from six datasets:
 
@@ -212,4 +212,4 @@ All that being said, much of the functionality of the `FedData` package could be
 
 `FedData` is a product of SKOPE ([Synthesizing Knowledge of Past Environments](http://www.openskope.org)) and the [Village Ecodynamics Project](http://veparchaeology.org/).
 
-`FedData` was reviewed for [rOpenSci](https://ropensci.org) by [@jooolia](https://github.com/jooolia), with [@sckott](https://github.com/sckott) as onboarding editor, and was greatly improved as a result.
+`FedData` was reviewed for [rOpenSci](/software-review/) by [@jooolia](https://github.com/jooolia), with [@sckott](https://github.com/sckott) as onboarding editor, and was greatly improved as a result.
