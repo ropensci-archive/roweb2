@@ -136,4 +136,4 @@ like me.
 to the tidyverse](http://www.tidyverse.org/articles/2017/08/contributing/) which is
 mostly also applicable to other R packages in my opinion.
 
-If you are generally interested in either submitting or reviewing an R package, I would like to invite you to the [ Community Call on rOpenSci software review and onboarding](https://ropensci.org/blog/blog/2017/08/31/comm-call-v14).
+If you are generally interested in either submitting or reviewing an R package, I would like to invite you to the [ Community Call on rOpenSci software review and onboarding](/blog/2017/08/31/comm-call-v14).
