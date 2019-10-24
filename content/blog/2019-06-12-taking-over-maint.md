@@ -30,7 +30,7 @@ In theory, finding maintainers for software is easier as the pool of users gets 
 
 Even though many rOpenSci packages have a small number of authors per package, the rOpenSci community of users and developers is quite large. Even if an individual R package within rOpenSci doesn't have a large community on their own, individual packages within rOpenSci can benefit from the large community we've cultivated. 
 
-We've had success finding maintainers by reaching out to our community as maintainers have moved on - we've found new maintainers for all six packages that have needed new maintainers. See our latest [rOpenSci News](https://news.ropensci.org/2019-06-10/) "Call For Contributors" section for recent examples. One of these new maintainers, [Julia Silge](https://ropensci.org/authors/julia-silge/), wrote about the experience in her post [Relaunching the qualtRics package](https://ropensci.org/blog/2019/04/30/qualtrics-relaunch/).
+We've had success finding maintainers by reaching out to our community as maintainers have moved on - we've found new maintainers for all six packages that have needed new maintainers. See our latest [rOpenSci News](https://news.ropensci.org/2019-06-10/) "Call For Contributors" section for recent examples. One of these new maintainers, [Julia Silge](/authors/julia-silge/), wrote about the experience in her post [Relaunching the qualtRics package](/blog/2019/04/30/qualtrics-relaunch/).
 
 ### Taking over
 

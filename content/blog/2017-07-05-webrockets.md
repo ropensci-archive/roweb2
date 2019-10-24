@@ -17,7 +17,7 @@ tags:
 
 We, [Alicia Schep](https://github.com/AliciaSchep/) and [Miles
 McBain](https://github.com/MilesMcBain), drove the `webrockets` project
-at [\#runconf17](https://ropensci.org/blog/blog/2017/06/02/unconf2017).
+at [\#runconf17](/blog/blog/2017/06/02/unconf2017).
 To make progress we solicited code, advice, and entertaining anecdotes
 from a host of other attendees, whom we humbly thank for helping to make
 our project possible.
@@ -38,15 +38,15 @@ Alicia Answers Miles' Questions
 ### Q1: What motivated you to apply for \#runconf17 and then to work on `webrockets`?
 
 I first learned about rOpenSci last summer, while doing an internship at
-Genentech. [Jenny Bryan](https://ropensci.org/about/#team) came to
+Genentech. [Jenny Bryan](/about/#team) came to
 give a seminar and also participated in a "women in computing" group
 discussion during her visit. During that discussion, she talked about
 how she thought organizations like rOpenSci that are [welcoming and
-inclusive](https://ropensci.org/blog/blog/2017/06/23/community) are
+inclusive](/blog/blog/2017/06/23/community) are
 great for helping diversify programming (and other) communities. It
 sounded like a really cool organization, and I started exploring some of
-the rOpenSci [packages](https://ropensci.org/packages/) and reading the
-[blog](https://ropensci.org/blog/) but wasn't sure of how to take that
+the rOpenSci [packages](/packages/) and reading the
+[blog](/blog/) but wasn't sure of how to take that
 next step and become more actively involved. When I saw the blog post
 about the unconf, it seemed like a great opportunity to take that next
 step so I went ahead and applied, although I didn't think I had much
@@ -135,7 +135,7 @@ Wow. That's hard. I mean there's the little known but dedicated scene
 inhabited by the R Karaoke People group, the fact that there exists
 someone who takes more unadulterated joy in streaming sensor data than
 me (hey Bob!), the hypnotic power of sing song southern accents,
-[Karthik](https://ropensci.org/about/#team)'s magic Dolittle-level
+[Karthik](/about/#team)'s magic Dolittle-level
 powers over dogs...
 
 But my absolute favorite thing learned would be aspects of all these

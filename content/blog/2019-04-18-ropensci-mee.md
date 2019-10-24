@@ -10,7 +10,7 @@ authors:
   - Thomas White
   - Hao Ye
 categories: blog
-preface: This post is published on the [rOpenSci](https://ropensci.org/blog/) and [Methods in Ecology and Evolution](https://methodsblog.com/2019/04/18/ropensci-code-review-guidelines/) blogs
+preface: This post is published on the [rOpenSci](/blog/) and [Methods in Ecology and Evolution](https://methodsblog.com/2019/04/18/ropensci-code-review-guidelines/) blogs
 topicid: 1675
 tags:
   - community
@@ -25,7 +25,7 @@ Some things are just irresistible to a community manager – PhD student Hugo Gr
 
 !['Pavo tweets'](https://i.imgur.com/sRKKrJ0.png)
 
-I was surprised and intrigued to see an example of our software peer review guidelines being used in a manuscript review, independent of our [formal collaboration](https://ropensci.org/blog/2017/11/29/review-collaboration-mee/) with the journal [Methods in Ecology and Evolution (MEE)](https://besjournals.onlinelibrary.wiley.com/journal/2041210x). This is exactly the kind of thing rOpenSci is working to enable by developing a good set of practices that broadly apply to research software.
+I was surprised and intrigued to see an example of our software peer review guidelines being used in a manuscript review, independent of our [formal collaboration](/blog/2017/11/29/review-collaboration-mee/) with the journal [Methods in Ecology and Evolution (MEE)](https://besjournals.onlinelibrary.wiley.com/journal/2041210x). This is exactly the kind of thing rOpenSci is working to enable by developing a good set of practices that broadly apply to research software.
 
 But who was this reviewer and what was their motivation? What role did the editors handling the manuscript play? I contacted the authors and then the journal and, in less than a week we had everyone on board to talk about their perspectives on the process.  
 <br/>

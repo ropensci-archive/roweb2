@@ -28,7 +28,7 @@
   <meta property="description" content="{{ .Site.Params.description }}">
   <meta property="og:description" content="{{ .Site.Params.description }}">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="http://ropensci.org/android-chrome-512x512.png" >
+  <meta name="twitter:image" content="{{.Site.BaseURL }}android-chrome-512x512.png" >
 {{ else }}
   <!-- special treatment for authors pages -->
   {{ if and (in .Section "authors") (eq .Kind "taxonomy") }}
@@ -55,10 +55,10 @@
 
   {{ if .Params.twitterImg }}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://ropensci.org/{{ .Params.twitterImg }}" >
+    <meta name="twitter:image" content="{{.Site.BaseURL }}{{ .Params.twitterImg }}" >
   {{ else }}
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="http://ropensci.org/android-chrome-512x512.png" >
+    <meta name="twitter:image" content="{{.Site.BaseURL }}android-chrome-512x512.png" >
   {{ end }}
 
 {{ end }}

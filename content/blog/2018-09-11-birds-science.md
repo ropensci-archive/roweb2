@@ -23,11 +23,11 @@ output:
 ---
 
 In the [second post of the series where we obtained data from
-eBird](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) we
+eBird](/blog/2018/08/21/birds-radolfzell/) we
 determined what birds were observed in the county of Constance, and we
 complemented this knowledge with some taxonomic and trait information in
 [the fourth post of the
-series](https://ropensci.org/blog/2018/09/04/birds-taxo-traits/). Now,
+series](/blog/2018/09/04/birds-taxo-traits/). Now,
 we could be curious about the occurrence of these birds in *scientific
 work*. In this post, we will query the scientific literature and an open
 scientific data repository for species names: what have these birds been
@@ -37,7 +37,7 @@ to do so!
 ### Getting a list of 50 species from occurrence data
 
 For more details about the following code, refer to the [previous post
-of the series](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
+of the series](/blog/2018/08/21/birds-radolfzell/).
 The single difference is our adding a step to keep only data for the
 most recent years.
 
@@ -412,7 +412,7 @@ Interface to Europe PMC RESTful Web Service;
 [`jstor`](https://github.com/ropensci/jstor);
 [`suppdata`](https://github.com/ropensci/suppdata) for extracting
 supplemental information, and [much
-more](https://ropensci.org/packages/).
+more](/packages/).
 
 #### Scientific data access… and publication with R
 
@@ -430,7 +430,7 @@ simpler metadata entry.
 
 Explore more of our packages suite, including and beyond access to
 scientific literature &data and data publication,
-[here](https://ropensci.org/packages/).
+[here](/packages/).
 
 #### No more birding? No, your turn!
 
@@ -439,24 +439,24 @@ overview of how rOpenSci packages can help you learn more about birds,
 and can support your workflow. As a reminder, in this series we saw
 
 -   [How to identify spots for birding using open geographical
-    data](https://ropensci.org/blog/2018/08/14/where-to-bird/).
+    data](/blog/2018/08/14/where-to-bird/).
     Featuring `opencage` for geocoding, `bbox` for bounding box
     creation, `osmdata` for OpenStreetMap’s Overpass API querying,
     `osmplotr` for map drawing using OpenStreetMap’s data.
 
 -   [How to obtain bird occurrence data in
-    R](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
+    R](/blog/2018/08/21/birds-radolfzell/).
     Featuring `rebird` for interaction with the eBird’s API, and `auk`
     for munging of the whole eBird dataset.
 
 -   [How to extract text from old natural history
-    drawings](https://ropensci.org/blog/2018/08/28/birds-ocr/).
+    drawings](/blog/2018/08/28/birds-ocr/).
     Featuring `magick` for image manipulation, `tesseract` for Optical
     Character Recognition, `cld2` and `cld3` for language detection, and
     `taxize::gnr_resolve` for taxonomic name resolution.
 
 -   [How to complement an occurrence dataset with taxonomy and trait
-    information](https://ropensci.org/blog/2018/09/04/birds-taxo-traits/).
+    information](/blog/2018/09/04/birds-taxo-traits/).
     Featuring `taxize`, taxonomic toolbelt for R, and `traits`,
     providing access to species traits data.
 

@@ -56,13 +56,13 @@ Three changes relate to what happens after a package has been accepted.
 * We now recommend [package maintainers direct users to the rOpenSci forum for feedback that's neither a bug report nor a feature request](https://devguide.ropensci.org/collaboration.html#contributing-guide).
 
 * The [review template](https://devguide.ropensci.org/reviewtemplate.html) now includes a question asking the reviewer for consent to be added to DESCRIPTION in review template, should the author(s) deem it appropriate. For more context, refer to [our blog post "Thanking Your Reviewers: Gratitude through Semantic Metadata"]
-(https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/).
+(/blog/2018/03/16/thanking-reviewers-in-metadata/).
 
 #### Spreading our guidelines
 
-rOpenSci community manager Stefanie Butland and other authors [recently reported how our software review guidelines ended up being used "in the wild" for a scientific paper](https://ropensci.org/blog/2019/04/18/wild-standards/). Knowing about such use cases makes us happy and helps us assess the usefulness of our material beyond our own system, so we've now added the following wish to several places in our guide ([intro to our software review system](https://devguide.ropensci.org/softwarereviewintro.html), [reviewer guide](https://devguide.ropensci.org/reviewerguide.html), [chapter about contributing to rOpenSci](https://devguide.ropensci.org/contributingguide.html)):
+rOpenSci community manager Stefanie Butland and other authors [recently reported how our software review guidelines ended up being used "in the wild" for a scientific paper](/blog/2019/04/18/wild-standards/). Knowing about such use cases makes us happy and helps us assess the usefulness of our material beyond our own system, so we've now added the following wish to several places in our guide ([intro to our software review system](https://devguide.ropensci.org/softwarereviewintro.html), [reviewer guide](https://devguide.ropensci.org/reviewerguide.html), [chapter about contributing to rOpenSci](https://devguide.ropensci.org/contributingguide.html)):
 
-_If you use our standards/checklists etc. when reviewing software elsewhere, do tell the recipients (e.g. journal editors, students, internal code review) that they came from rOpenSci, and tell us in [our public forum](https://discuss.ropensci.org/c/usecases), or [privately by email](https://ropensci.org/contact/)._
+_If you use our standards/checklists etc. when reviewing software elsewhere, do tell the recipients (e.g. journal editors, students, internal code review) that they came from rOpenSci, and tell us in [our public forum](https://discuss.ropensci.org/c/usecases), or [privately by email](/contact/)._
 
 #### More information about contributing
 

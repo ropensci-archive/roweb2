@@ -29,7 +29,7 @@ Another of our packages, [geojsonio][geojsonio], is used as a tool to ingest Geo
 -----
 
 
-[We covered](https://ropensci.org/blog/blog/2016/03/17/ropensci-geospatial-stack) the state of our geospatial tools in March of this year, but a lot has changed since then so we thought it would be useful to do an overview of these tools and future work.
+[We covered](/blog/blog/2016/03/17/ropensci-geospatial-stack) the state of our geospatial tools in March of this year, but a lot has changed since then so we thought it would be useful to do an overview of these tools and future work.
 
 There are [many geospatial data formats](https://en.wikipedia.org/wiki/GIS_file_formats),
 including [shapefiles](https://en.wikipedia.org/wiki/Shapefile),
@@ -334,7 +334,7 @@ jsonlite::fromJSON(f, FALSE)
 
 
 
-Lastly, the Mapbox folks have a compact binary encoding for geographic data ([Geobuf](https://github.com/mapbox/geobuf)) that provides lossless compression of GeoJSON data into protocol buffers. Our own [Jeroen Ooms](https://ropensci.org/about/#staff) added Geobuf serialization to his [protolite][protolite] package, which we import in `geojson` to allow you to read Geobuf with `from_geobuf()` and write Geobuf with `to_geobuf()`.
+Lastly, the Mapbox folks have a compact binary encoding for geographic data ([Geobuf](https://github.com/mapbox/geobuf)) that provides lossless compression of GeoJSON data into protocol buffers. Our own [Jeroen Ooms](/about/#staff) added Geobuf serialization to his [protolite][protolite] package, which we import in `geojson` to allow you to read Geobuf with `from_geobuf()` and write Geobuf with `to_geobuf()`.
 
 
 ```r
@@ -491,7 +491,7 @@ geojson_hint('{ "type": "FeatureCollection" }', error = TRUE)
 
 [lawn](https://github.com/ropensci/lawn) - `lawn` is an R client wrapping [Turf.js](http://turfjs.org/)
 from Mapbox. Turf is a JS library for doing advanced geospatial analysis. Using the great [V8][v8]
-R client from [Jeroen Ooms](https://ropensci.org/about/#staff) we can wrap Turf.js
+R client from [Jeroen Ooms](/about/#staff) we can wrap Turf.js
 in R.
 
 We released a new version (`v0.3`) late last month that is a big change from the previous
