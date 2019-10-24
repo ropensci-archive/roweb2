@@ -19,7 +19,7 @@ tags:
 
 rOpenSci's [suite of packages](/packages/) is comprised of contributions from staff engineers and the wider R community, bringing considerable diversity of skills, expertise and experience to bear on the suite. How do we ensure that every package is held to a high standard? That's where our software review system comes into play: packages contributed by the community undergo a **transparent, constructive, non adversarial and open review process**. For that process relying mostly on **volunteer work**, *[associate editors](https://devguide.ropensci.org/softwarereviewintro.html#associateditors)* manage the incoming flow and ensure progress of submissions; _authors_ create, submit and improve their package; *[reviewers](https://devguide.ropensci.org/#reviewers)*, two per submission, examine the software code and user experience.
 
-We are quite proud of our Software Peer Review system and do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at [ropensci.org/software-review/](https://ropensci.org/software-review/).
+We are quite proud of our Software Peer Review system and do our best improving it over time. In this post, we summarize some of the more important  recent changes to Software Peer Review at rOpenSci. The most recent information can always be found at [ropensci.org/software-review/](/software-review/).
 
 ### A new and clearer name
 

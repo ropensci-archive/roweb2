@@ -36,13 +36,13 @@ Soon, in this blog, I’ll introduce you to our first rOpenSci Fellowship recipi
 
 In the short term, I’ll be doing a lot of lurking, connecting, listening to and chatting with many of you to gain an appreciation of what you need to be successful in doing open and reproducible research and working with the core team to address those needs. I’ll be learning how the community talks about rOpenSci and thus, how to represent rOpenSci in all its richness.
 
-Big thanks go to the [Helmsley Foundation](/blog/2015/11/19/hemlsley-trust-funding) for funding this position and to [Jenny Bryan](https://ropensci.org/about/#team) for enticing me by saying that the rOpenSci community has her “A+++ five-star rating”.
+Big thanks go to the [Helmsley Foundation](/blog/2015/11/19/hemlsley-trust-funding) for funding this position and to [Jenny Bryan](/about/#team) for enticing me by saying that the rOpenSci community has her “A+++ five-star rating”.
 
 Talk to Me
 ------
 
 Tell me about your challenges and your triumphs. What do you want to read in the [blog](/blog/)? What would you like to learn in a [Community Call](/commcalls/)? (What would you like to present?) How do you define diversity and how can we cultivate it? Who are the connectors in your communities that we should be talking with?
 
-Share your thoughts in the comments below. Ask a question in the [discussion forum](https://discuss.ropensci.org/). Follow [@ropensci](https://twitter.com/rOpenSci) and me [@stefaniebutland](https://twitter.com/stefaniebutland) on Twitter. [Subscribe](https://ropensci.org/#subscribe) to hear about new blog posts.
+Share your thoughts in the comments below. Ask a question in the [discussion forum](https://discuss.ropensci.org/). Follow [@ropensci](https://twitter.com/rOpenSci) and me [@stefaniebutland](https://twitter.com/stefaniebutland) on Twitter. [Subscribe](/#subscribe) to hear about new blog posts.
 
 Let’s do this!
