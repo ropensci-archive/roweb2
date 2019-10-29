@@ -2,10 +2,10 @@
 slug: unconf-sixtips
 title: Six tips for running a successful unconference
 date: '2017-11-17'
-preface: I’m participating in the [AAAS Community Engagement Fellows Program](https://www.aaas.org/cefp/about),
-  funded by the Alfred P. Sloan Foundation. The inaugural cohort of [Fellows](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/)
+preface: I’m participating in the [AAAS Community Engagement Fellows Program](https://www.cscce.org/cefp/),
+  funded by the Alfred P. Sloan Foundation. The inaugural cohort of [Fellows](https://www.cscce.org/2016/12/05/introducing-the-2017-community-engagement-fellows/)
   comprises 17 community managers working in a wide range of scientific communities.
-  This is cross-posted from the [Trellis blog](https://blog.trelliscience.com/six-tips-for-running-a-successful-unconference/)
+  This is cross-posted from the [Trellis blog](https://www.cscce.org/2017/08/09/six-tips-for-running-a-successful-unconference/)
   as part of a series of reflections the Fellows are sharing.
 authors:
   - Stefanie Butland
@@ -17,6 +17,7 @@ tags:
   - unconf
   - rOpenSci team
   - welcome
+  - cefp
 ---
 
 
@@ -54,7 +55,7 @@ I adapted the “[Human Barometer](https://ropensci.org/blog/2018/11/01/icebreak
 
 #### 5. Have a plan to capture content
 
-So much work and money go into running a great unconference, you can’t afford to do it without a plan to capture and disseminate stories about the people and the products. Harness the brain work that went into the ideas! I used the concept of [content pillars](http://www.socialfish.org/2016/11/you-have-more-content-than-you-realize/) to come up with a plan. Every project group was given a public repository on GitHub to house their code and documentation. In a 2-day unconference with 70 people in 20 projects, how do people present their results?! We told everyone that they had just three minutes to present, and that the only presentation material they could use was their project README (the page of documentation in their code repository). No slides allowed! This kept their focus on great documentation for the project rather than an ephemeral set of pretty slides. Practically speaking, this meant that all presentations were accessible from a single laptop connected to the projector and that to access their presentation, a speaker had only to [click on the link to their repo](https://ropenscilabs.github.io/runconf17-projects/). Where did the essence of this great idea come from? From a pre-unconference chat of course!
+So much work and money go into running a great unconference, you can’t afford to do it without a plan to capture and disseminate stories about the people and the products. Harness the brain work that went into the ideas! I used the concept of content pillars to come up with a plan. Every project group was given a public repository on GitHub to house their code and documentation. In a 2-day unconference with 70 people in 20 projects, how do people present their results?! We told everyone that they had just three minutes to present, and that the only presentation material they could use was their project README (the page of documentation in their code repository). No slides allowed! This kept their focus on great documentation for the project rather than an ephemeral set of pretty slides. Practically speaking, this meant that all presentations were accessible from a single laptop connected to the projector and that to access their presentation, a speaker had only to [click on the link to their repo](https://ropenscilabs.github.io/runconf17-projects/). Where did the essence of this great idea come from? From a pre-unconference chat of course!
 
 In the week following the unconference, we used the projects’ README documentation to create a series of five posts released Monday through Friday, noting every one of the 20 projects with links to their code repositories. To get more in-depth stories about people and projects, I let participants know we were keen to host community-contributed blog posts and that accepted posts would be tweeted to rOpenSci’s >13,000 followers. Immediately after the unconference, we invited selected projects to contribute longer form narrative blog posts and posted these once a week. The series ended with [Unconf 2017: The Roads Not Taken](https://ropensci.org/blog/blog/2017/08/08/unconfroadsnottaken), about all the great ideas that were not yet pursued and inviting people to contribute to these.
 
@@ -72,6 +73,6 @@ Community managers do a lot of “emotional work”. In all of this, my #1 key t
 
 **Additional Resources**
 
-- [AAAS Community Engagement Fellows Program](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/)
+- [AAAS Community Engagement Fellows Program](https://www.cscce.org/cefp/)
 - [All together now: Event formats for more practical sessions](https://socialinsilico.wordpress.com/2014/11/07/all-together-now-event-formats-for-more-practical-sessions/)
-- Budd A, Dinkel H, Corpas M, Fuller JC, Rubinat L, Devos DP, et al. (2015) Ten Simple Rules for Organizing an Unconference. PLoS Comput Biol11(1): e1003905. https://doi.org/10.1371/journal.pcbi.1003905 
+- Budd A, Dinkel H, Corpas M, Fuller JC, Rubinat L, Devos DP, et al. (2015) Ten Simple Rules for Organizing an Unconference. PLoS Comput Biol11(1): e1003905. https://doi.org/10.1371/journal.pcbi.1003905
