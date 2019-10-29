@@ -64,7 +64,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Jun 5-7, 2017</td>
 	<td>Stefanie Butland</td>
 	<td>Washington, DC</td>
-	<td><a href="https://www.aaas.org/cefp/meet-our-fellows">AAAS Community Engagement Fellows meeting</a></td>
+	<td><a href="https://www.cscce.org/cefp/">AAAS Community Engagement Fellows meeting</a></td>
 </tr>
 <tr>
 	<td>Jun 8, 2017</td>

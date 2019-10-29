@@ -10,16 +10,17 @@ tags:
   - community
   - rOpenSci team
   - welcome
+  - cefp
 ---
 
 <div class="alert alert-info" role="alert">
-I’m participating in the <a href="https://www.aaas.org/cefp/about" target="_blank">AAAS Community Engagement Fellows Program (CEFP)</a>, funded by the Alfred P. Sloan Foundation. The inaugural <a href="https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/" target="_blank">cohort of Fellows</a> is made up of 17 community managers working in a wide range of scientific communities. This is cross-posted from the <a href="https://blog.trelliscience.com/the-value-of-welcome/"target="_blank">Trellis blog</a> as part of a <a href="https://blog.trelliscience.com/tag/fellows-blog-series" target="_blank"> series of reflections</a> that the CEFP Fellows are sharing.
+I’m participating in the <a href="https://www.cscce.org/cefp/" target="_blank">AAAS Community Engagement Fellows Program (CEFP)</a>, funded by the Alfred P. Sloan Foundation. The inaugural <a href="https://www.cscce.org/2016/12/05/introducing-the-2017-community-engagement-fellows/" target="_blank">cohort of Fellows</a> is made up of 17 community managers working in a wide range of scientific communities. This is cross-posted from the <a href="https://www.cscce.org/2017/07/13/the-value-of-welcome/"target="_blank">Trellis blog</a> as part of a <a href="https://www.cscce.org/tag/fellows-blog-series" target="_blank"> series of reflections</a> that the CEFP Fellows are sharing.
 </div>
 
-In my training as a [AAAS Community Engagement Fellow](https://blog.trelliscience.com/introducing-the-2017-community-engagement-fellows/), I hear repeatedly about the value of extending a personal welcome to your community members. This seems intuitive, but recently I put this to the test. Let me tell you about my experience creating and maintaining a #welcome channel in a community Slack group.
+In my training as a [AAAS Community Engagement Fellow](https://www.cscce.org/2016/12/05/introducing-the-2017-community-engagement-fellows/), I hear repeatedly about the value of extending a personal welcome to your community members. This seems intuitive, but recently I put this to the test. Let me tell you about my experience creating and maintaining a #welcome channel in a community Slack group.
 
 <div id="blimages">
-<img src="https://blog.trelliscience.com/wp-content/uploads/2017/07/4344878104_e537b0248b_z.jpg">
+<img src="<a data-flickr-embed="true" href="https://www.flickr.com/photos/90371939@N00/4344878104"><img src="https://live.staticflickr.com/4047/4344878104_5b22de25b1_h.jpg" width="550" alt="Welcome"></a>
 
 <a href="https://www.flickr.com/photos/90371939@N00/4344878104">"Welcome"</a> by <a href="https://www.flickr.com/photos/90371939@N00/">Nathan</a> under <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
 </div>
