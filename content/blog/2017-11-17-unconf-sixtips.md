@@ -31,7 +31,7 @@ It’s called an “unconference” because there is no schedule set before the 
 
 #### 1. Have a code of conduct
 
-Having a [code of conduct](/blog/blog/2016/12/21/commcallv12-review-coc) that the organizers promote in the welcome goes a long way to creating a welcoming and safe environment and preventing violations in the first place.
+Having a [code of conduct](/blog/2016/12/21/commcallv12-review-coc) that the organizers promote in the welcome goes a long way to creating a welcoming and safe environment and preventing violations in the first place.
 
 
 #### 2. Host online discussion of project ideas before the unconference
@@ -57,9 +57,9 @@ I adapted the “[Human Barometer](/blog/2018/11/01/icebreaker/)” ice breaker 
 
 So much work and money go into running a great unconference, you can’t afford to do it without a plan to capture and disseminate stories about the people and the products. Harness the brain work that went into the ideas! I used the concept of content pillars to come up with a plan. Every project group was given a public repository on GitHub to house their code and documentation. In a 2-day unconference with 70 people in 20 projects, how do people present their results?! We told everyone that they had just three minutes to present, and that the only presentation material they could use was their project README (the page of documentation in their code repository). No slides allowed! This kept their focus on great documentation for the project rather than an ephemeral set of pretty slides. Practically speaking, this meant that all presentations were accessible from a single laptop connected to the projector and that to access their presentation, a speaker had only to [click on the link to their repo](https://ropenscilabs.github.io/runconf17-projects/). Where did the essence of this great idea come from? From a pre-unconference chat of course!
 
-In the week following the unconference, we used the projects’ README documentation to create a series of five posts released Monday through Friday, noting every one of the 20 projects with links to their code repositories. To get more in-depth stories about people and projects, I let participants know we were keen to host community-contributed blog posts and that accepted posts would be tweeted to rOpenSci’s >13,000 followers. Immediately after the unconference, we invited selected projects to contribute longer form narrative blog posts and posted these once a week. The series ended with [Unconf 2017: The Roads Not Taken](/blog/blog/2017/08/08/unconfroadsnottaken), about all the great ideas that were not yet pursued and inviting people to contribute to these.
+In the week following the unconference, we used the projects’ README documentation to create a series of five posts released Monday through Friday, noting every one of the 20 projects with links to their code repositories. To get more in-depth stories about people and projects, I let participants know we were keen to host community-contributed blog posts and that accepted posts would be tweeted to rOpenSci’s >13,000 followers. Immediately after the unconference, we invited selected projects to contribute longer form narrative blog posts and posted these once a week. The series ended with [Unconf 2017: The Roads Not Taken](/blog/2017/08/08/unconfroadsnottaken), about all the great ideas that were not yet pursued and inviting people to contribute to these.
 
-All of this content is tied together in [one blog post to summarize](/blog/blog/2017/06/02/unconf2017) the unconference and link to all staff- and community-contributed posts in the unconference projects series as well as to posts of warm personal and career-focussed reflections by some participants.
+All of this content is tied together in [one blog post to summarize](/blog/2017/06/02/unconf2017) the unconference and link to all staff- and community-contributed posts in the unconference projects series as well as to posts of warm personal and career-focussed reflections by some participants.
 
 
 #### 6. Care about other people’s success

@@ -12,7 +12,7 @@ tags:
   - R
 ---
 
-You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](/packages/) can enable your research, or about our [onboarding](https://github.com/ropensci/software-review) process for contributing new packages, discuss software [sustainability](/blog/blog/2016/05/25/software-sustanability-ropensci) or tell us how we can help you do open and reproducible research.
+You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](/packages/) can enable your research, or about our [onboarding](https://github.com/ropensci/software-review) process for contributing new packages, discuss software [sustainability](/blog/2016/05/25/software-sustanability-ropensci) or tell us how we can help you do open and reproducible research.
 
 <!--more-->
 
@@ -96,7 +96,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 </tr>
 <tr>
 	<td>Dec 11, 2017</td>
-	<td><a href="/blog/blog/2016/12/12/ropensci-fellowship-zoon">Nick Golding</a></td>
+	<td><a href="/blog/2016/12/12/ropensci-fellowship-zoon">Nick Golding</a></td>
 	<td>Ghent, BE</td>
 	<td><a href="http://www.britishecologicalsociety.org/events/annual-meeting-2017/workshop-submissions/">Workshop: Developing R Packages for Accessing, Synthesizing and Analysing Ecological Data</a></td>
 </tr>

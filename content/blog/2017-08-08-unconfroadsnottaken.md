@@ -59,8 +59,8 @@ This year wasn't just our biggest unconf ever, it was the biggest in terms of pr
 ### It's Your Turn
 Interested in pursuing one of these ideas? Pick up on the discussion in the project's [GitHub repo] and the friendly people there will welcome your contributions!
 
-  [many projects]: /blog/blog/2017/06/08/unconf_recap_4
-  [rOpenSci Unconf]: /blog/blog/2017/06/02/unconf2017
+  [many projects]: /blog/2017/06/08/unconf_recap_4
+  [rOpenSci Unconf]: /blog/2017/06/02/unconf2017
   [GitHub repo]: https://github.com/ropensci/unconf17/issues
   [Amazon Web Services]: https://github.com/ropensci/unconf17/issues/14
   [Google Cloud]: https://github.com/ropensci/unconf17/issues/70
@@ -95,5 +95,5 @@ Interested in pursuing one of these ideas? Pick up on the discussion in the proj
   [improve testing]: https://github.com/ropensci/unconf17/issues/25
   [accessing]: https://github.com/ropensci/unconf17/issues/42
   [reminding people about deadlines]: https://github.com/ropensci/unconf17/issues/59
-  [assertr]: /blog/blog/2017/04/11/assertr
+  [assertr]: /blog/2017/04/11/assertr
   [testrmd]: https://github.com/ropenscilabs/testrmd

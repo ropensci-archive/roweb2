@@ -17,7 +17,7 @@ tags:
 
 We, [Alicia Schep](https://github.com/AliciaSchep/) and [Miles
 McBain](https://github.com/MilesMcBain), drove the `webrockets` project
-at [\#runconf17](/blog/blog/2017/06/02/unconf2017).
+at [\#runconf17](/blog/2017/06/02/unconf2017).
 To make progress we solicited code, advice, and entertaining anecdotes
 from a host of other attendees, whom we humbly thank for helping to make
 our project possible.
@@ -42,7 +42,7 @@ Genentech. [Jenny Bryan](/about/#team) came to
 give a seminar and also participated in a "women in computing" group
 discussion during her visit. During that discussion, she talked about
 how she thought organizations like rOpenSci that are [welcoming and
-inclusive](/blog/blog/2017/06/23/community) are
+inclusive](/blog/2017/06/23/community) are
 great for helping diversify programming (and other) communities. It
 sounded like a really cool organization, and I started exploring some of
 the rOpenSci [packages](/packages/) and reading the

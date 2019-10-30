@@ -30,13 +30,13 @@ Your Community Manager
 
 I’m excited to help broaden the understanding and reach of rOpenSci to the researcher community, particularly in domains that aren’t yet well represented. One of my favourite/most gratifying things is to connect people who have complementary needs and skills or interests. In the context of rOpenSci, I’m keen to connect people who have specific research needs with developers who are keen to work in that domain, or connect newer developers with more experienced ones, ultimately helping people do great, open, reproducible research.
 
-Soon, in this blog, I’ll introduce you to our first rOpenSci Fellowship recipient and our soon-to-be-selected new [Postdoctoral Scholar](/blog/blog/2016/09/07/postdoc-position) in Sustainable Software and Reproducible Research.
+Soon, in this blog, I’ll introduce you to our first rOpenSci Fellowship recipient and our soon-to-be-selected new [Postdoctoral Scholar](/blog/2016/09/07/postdoc-position) in Sustainable Software and Reproducible Research.
 
 > Dans les champs de l'observation le hasard ne favorise que les esprits préparés / Chance favours the prepared mind (Louis Pasteur, 1854).
 
 In the short term, I’ll be doing a lot of lurking, connecting, listening to and chatting with many of you to gain an appreciation of what you need to be successful in doing open and reproducible research and working with the core team to address those needs. I’ll be learning how the community talks about rOpenSci and thus, how to represent rOpenSci in all its richness.
 
-Big thanks go to the [Helmsley Foundation](/blog/blog/2015/11/19/hemlsley-trust-funding) for funding this position and to [Jenny Bryan](/about/#team) for enticing me by saying that the rOpenSci community has her “A+++ five-star rating”.
+Big thanks go to the [Helmsley Foundation](/blog/2015/11/19/hemlsley-trust-funding) for funding this position and to [Jenny Bryan](/about/#team) for enticing me by saying that the rOpenSci community has her “A+++ five-star rating”.
 
 Talk to Me
 ------

@@ -122,8 +122,8 @@ We hope to see you soon in the onboarding repository as a [submitter](https://gi
 
 
 [nfpost]: https://www.numfocus.org/blog/how-ropensci-uses-code-review-to-promote-reproducible-science/
-[rostatspost]: /blog/blog/2016/03/28/software-review
-[cc]: /blog/blog/2017/08/31/comm-call-v14
+[rostatspost]: /blog/2016/03/28/software-review
+[cc]: /blog/2017/08/31/comm-call-v14
 [ms]: https://masalmon.eu/
 [pkgfit]: https://github.com/ropensci/onboarding/blob/d796e7d197ad6e632ca237cec931420c51766045/policies.md#package-fit
 [aims]: https://devguide.ropensci.org/policies.html#aims-and-scope

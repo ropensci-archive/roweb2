@@ -35,7 +35,7 @@ Unfortunately, this means that `tabulizer` is not a universal solution to data t
 
 {{< tweet 510056437033091074 >}}
 
-If a PDF is a scan of a document or the table is actually an image embedded in the PDF, tabula - and thus `tabulizer` - are useless. In those cases, users might want to check out the OCR functionality of [tesseract](https://github.com/ropensci/tesseract), which Jeroen Ooms developed for rOpenSci and [discussed previously on this blog](/blog/blog/2016/11/16/tesseract).
+If a PDF is a scan of a document or the table is actually an image embedded in the PDF, tabula - and thus `tabulizer` - are useless. In those cases, users might want to check out the OCR functionality of [tesseract](https://github.com/ropensci/tesseract), which Jeroen Ooms developed for rOpenSci and [discussed previously on this blog](/blog/2016/11/16/tesseract).
 
 But it does mean that a substantial amount of difficult-to-parse tabular information in PDFs is now readily and quickly accessible via just one `tabulizer` function: `extract_tables()`.
 

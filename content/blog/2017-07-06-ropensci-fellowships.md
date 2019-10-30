@@ -23,7 +23,7 @@ The first type of fellowship we seek to support includes any activities (softwar
 The second type of activity we seek to support is working groups, based on [a highly successful problem-solving model](https://www.nceas.ucsb.edu/system/files/HamptonParker_BioSci_2011.pdf) pioneered by the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu/). You propose a critical challenge in the area of scientific open source and reproducibility, and a team of experts, to collaborate intensively for a week at a time. The knowledge and insight your team develops must be broadly relevant to the research community.
 
 
-Our first fellowship was awarded to [Dr. Nick Golding](/blog/blog/2016/12/12/ropensci-fellowship-zoon) in suppport of a reproducibility project. Each fellowship will be in the range of $30,000 to $50,000.  We plan to award 2-3 fellowships (exact number to be determined by the size, scope, and quality of applications we receive) in 2017. We expect to have a similar call in 2018. All successful fellows will also receive additional travel support to participate in our [annual unconference](/blog/blog/2017/06/02/unconf2017).
+Our first fellowship was awarded to [Dr. Nick Golding](/blog/2016/12/12/ropensci-fellowship-zoon) in suppport of a reproducibility project. Each fellowship will be in the range of $30,000 to $50,000.  We plan to award 2-3 fellowships (exact number to be determined by the size, scope, and quality of applications we receive) in 2017. We expect to have a similar call in 2018. All successful fellows will also receive additional travel support to participate in our [annual unconference](/blog/2017/06/02/unconf2017).
 
 ### Fellowship eligibility and criteria
 

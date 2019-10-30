@@ -12,7 +12,7 @@ tags:
   - events
   - governance
 ---
-Our [Community Call](/blog/blog/2016/10/31/comm-call-v12) on December 15th covered a big topic in tech communities: "How do I create a code of conduct for my event/lab/codebase?". Here, we cover some of the key themes and considerations that arose from the discussion and point to curated resources and examples to follow when developing a code of conduct (CoC) for your community.
+Our [Community Call](/blog/2016/10/31/comm-call-v12) on December 15th covered a big topic in tech communities: "How do I create a code of conduct for my event/lab/codebase?". Here, we cover some of the key themes and considerations that arose from the discussion and point to curated resources and examples to follow when developing a code of conduct (CoC) for your community.
 
 Three guest speakers shared different perspectives. Dr Pauline Barmby talked about the process and lessons learned as [Data Carpentry](http://www.datacarpentry.org/) and [Software Carpentry](https://software-carpentry.org/) recently updated their CoC; Ms Safia Abdalla talked about "Codes of conduct for open source: the stuff no one tells you"; and Dr Titus Brown talked about his lab CoC. You can [read their bios](#speaker-bios) below and watch the [video](https://vimeo.com/196503807) of the call. Speakers did not use other presentation materials.
 

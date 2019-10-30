@@ -83,4 +83,4 @@ wordlist     2017-09-07-spelling-release.md:49
 WORDLIST     2017-09-07-spelling-release.md:34
 ```
 
- To accomplish this, we use knitr to drop code chunks, and subsequently parse markdown using [commonmark](/blog/blog/2016/12/02/commonmark) and xml2, which gives us the text nodes and approximate line numbers in the source document.
+ To accomplish this, we use knitr to drop code chunks, and subsequently parse markdown using [commonmark](/blog/2016/12/02/commonmark) and xml2, which gives us the text nodes and approximate line numbers in the source document.

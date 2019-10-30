@@ -29,7 +29,7 @@ Another of our packages, [geojsonio][geojsonio], is used as a tool to ingest Geo
 -----
 
 
-[We covered](/blog/blog/2016/03/17/ropensci-geospatial-stack) the state of our geospatial tools in March of this year, but a lot has changed since then so we thought it would be useful to do an overview of these tools and future work.
+[We covered](/blog/2016/03/17/ropensci-geospatial-stack) the state of our geospatial tools in March of this year, but a lot has changed since then so we thought it would be useful to do an overview of these tools and future work.
 
 There are [many geospatial data formats](https://en.wikipedia.org/wiki/GIS_file_formats),
 including [shapefiles](https://en.wikipedia.org/wiki/Shapefile),
