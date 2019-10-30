@@ -5,7 +5,7 @@ authors:
   - Maëlle Salmon
 date: '2018-04-26'
 preface: This blog post is the first of a 3-post series about a data-driven overview
-  of rOpenSci onboarding. Read the intro to the series [here](/blog/2018/04/26/A-satrday-ct-series/).
+  of rOpenSci onboarding. Read the intro to the series [here](/blog/2018/04/26/a-satrday-ct-series/).
 categories: blog
 topicid: 1152
 tags:
@@ -293,7 +293,7 @@ readr::write_csv(issues, "data/clean_data.csv")
 The role “other” corresponds to anyone chiming in, while the community
 manager role is planning blog posts with the package author. We indeed
 have a [series of guest blog posts from package
-authors](/tags/review/) that illustrate the review
+authors](/tags/software-peer-review/) that illustrate the review
 process as well as their onboarded packages.
 
 Here is the final table. I unselect “body” because formatting in the

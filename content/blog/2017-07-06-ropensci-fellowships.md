@@ -52,7 +52,7 @@ Di is Professor of Business Analytics at Monash University in Australia. Her exp
 
 ## Applying for the fellowship
 
-To apply, please submit a 3-page proposal that describes your goals, expected outcomes, a tentative timeline, collaborators, and a very high level budget (no more than a paragraph or two) at [ropensci.org/fellowships](/fellowships). As part of your submission form, you will also have to provide details about your affiliation, PI status, and the name of your PI (if you cannot serve in that role). For applicants that make the short list, we will request a detailed budget and may also ask for additional clarification.
+To apply, please submit a 3-page proposal that describes your goals, expected outcomes, a tentative timeline, collaborators, and a very high level budget (no more than a paragraph or two) at ropensci.org/fellowships (now closed). As part of your submission form, you will also have to provide details about your affiliation, PI status, and the name of your PI (if you cannot serve in that role). For applicants that make the short list, we will request a detailed budget and may also ask for additional clarification.
 
 **Application deadline is September 1, 2017 (midnight PST).**
 

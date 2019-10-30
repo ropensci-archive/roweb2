@@ -55,8 +55,8 @@ variables that Python's `faker` has.
 that it's just generally easy to install, but also can be used in
 other packages or workflows while bringing along as little baggage
 as possible.
-* Reviewed: it's been reviewed! See reviews by [Brooke Anderson](reviewba) and
-[Tristan Mahr][reviewtj], and handling editor [Noam Ross](https://github.com/noamross)
+* Reviewed: it's been reviewed! See reviews by [Brooke Anderson](https://github.com/ropensci/software-review/issues/94#issuecomment-284578088) and
+[Tristan Mahr](https://github.com/ropensci/software-review/issues/94#issuecomment-283799109), and handling editor [Noam Ross](https://github.com/noamross)
 * R specific features such as methods to create data.frame's (so the
 user doesn’t have to do the extra step of putting vectors together)
 
@@ -354,7 +354,3 @@ Or open a new issue, either way.
 see [issue #40](https://github.com/ropensci/charlatan/issues/40)). The first
 question for me is should we do this - if the answer is yes or at least sometimes,
 then we can explore how. It's not yet clear if it's the right thing to do.
-
-
-[reviewba]: (https://github.com/ropensci/software-review/issues/94#issuecomment-284578088)
-[reviewtj]: (https://github.com/ropensci/software-review/issues/94#issuecomment-283799109)

@@ -63,7 +63,7 @@ By default this unit test will never actually fail; it merely displays potential
 
 ## Under the Hood
 
-The spelling package builds on [hunspell](/blog/technotes/2016/09/12/hunspell-release-20) which has a fully customizable spell checking engine. Most of the code in the spelling package is dedicated to parsing and extracting text from documents before feeding it to the spell checker.
+The spelling package builds on [hunspell](/technotes/2016/09/12/hunspell-release-20) which has a fully customizable spell checking engine. Most of the code in the spelling package is dedicated to parsing and extracting text from documents before feeding it to the spell checker.
 For example, when spell checking an rmarkdown file, we first extract words from headers and paragraphs (but not urls or R syntax).
 
 ```r

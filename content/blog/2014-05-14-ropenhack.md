@@ -42,7 +42,7 @@ Since this was our first time planning an event like this, we loosely followed a
 
 {{< youtube "iUcm5COsKJo" >}}
 
-There were several other really cool projects like a new Git binding for R (by our Swedish collaborator [Stefan Widgren](https://github.com/stewid)), spatial tools (Ramnath Vaidyanathan, Scott Chamberlain, Amelia McNamara, Ian A. Muñoz, and Ted Hart), a text-mining applications from [Carson Sievert](http://cpsievert.github.io/) (see [blog post](/blog/2014/04/16/topic-modeling-in-R/)).
+There were several other really cool projects like a new Git binding for R (by our Swedish collaborator [Stefan Widgren](https://github.com/stewid)), spatial tools (Ramnath Vaidyanathan, Scott Chamberlain, Amelia McNamara, Ian A. Muñoz, and Ted Hart), a text-mining applications from [Carson Sievert](http://cpsievert.github.io/) (see [blog post](/blog/2014/04/16/topic-modeling-in-r/)).
 
 Hosting an event like this in the Bay Area did have other advantages. Given that many of our fantastic colleagues in the larger data science realm were local, we couldn't pass up the opportunity to bring the community together during the event. Thanks to sponsorship from [F100 Research](http://f1000research.com/) and [GitHub](https://github.com/), we invited developers from related projects like IPython and Julia, our friends at various tech companies, data non-profits, and also several PIs from the newly created [Berkeley Institute of Data Science](http://vcresearch.berkeley.edu/datascience/bids-launch-dec-12). The social and dinner was a great opportunity for many of the newer folks to connect but also just another occasion for the community to grow stronger.
 
