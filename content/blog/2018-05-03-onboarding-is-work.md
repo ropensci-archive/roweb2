@@ -6,8 +6,8 @@ authors:
   - Noam Ross
 date: '2018-05-03'
 preface: This blog post is the second of a 3-post series about a data-driven overview
-  of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/)
-  and the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/).
+  of rOpenSci onboarding. Read the intro to the series [here](/blog/2018/04/26/a-satrday-ct-series/)
+  and the first post about data collection [here](/blog/2018/04/26/rectangling-onboarding/).
 categories: blog
 topicid: 1160
 tags:
@@ -181,12 +181,12 @@ then submitted it to get it ready for wider use by the community.
 How much effort is put in by reviewers in this process? Reviewer time
 and effort is one of our most precious resources (you can read more
 about reviewer motivations and perspectives in other blog posts by [Mara
-Averick](https://ropensci.org/blog/2017/08/22/first-package-review/),
+Averick](/blog/2017/08/22/first-package-review/),
 [Verena
-Haunschmid](https://ropensci.org/blog/2017/09/08/first-review-experiences/),
-[Charles T. Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/)
+Haunschmid](/blog/2017/09/08/first-review-experiences/),
+[Charles T. Gray](/blog/2018/03/13/ode-to-testing/)
 and [Miles
-McBain](https://ropensci.org/blog/2018/04/06/peer-review-value/)). We
+McBain](/blog/2018/04/06/peer-review-value/)). We
 measure this effort by asking reviewers to self-report the hours spent
 reviewing. We do so to understand the amount of effort we are asking
 reviewers for, so we can let new reviewers know what to expect, and so
@@ -329,7 +329,7 @@ year](/img/blog-images/2018-05-03-onboarding-is-work/unnamed-chunk-8-1.png)
 ### Outlook: decreasing work by automation
 
 As mentioned [in this blog post about the authors and reviewers
-survey](https://ropensci.org/blog/2018/04/17/author-survey/), we’re in
+survey](/blog/2018/04/17/author-survey/), we’re in
 the process of trying to maximize automation of all than can be
 automated in order to reduce and simplify work for everyone involved.
 This way, humans can focus on what they’re best at. Our current
@@ -347,5 +347,5 @@ If you liked this data exploration, stay tuned for the third and final
 post of this series, about the social weather of onboarding as
 characterized by a tidy text analysis of onboarding threads! And don’t
 forget to check out [the first post of the series, about data
-collection](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
+collection](/blog/2018/04/26/rectangling-onboarding/),
 if you haven’t read it yet.

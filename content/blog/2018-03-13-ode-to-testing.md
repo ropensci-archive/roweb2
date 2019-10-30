@@ -19,11 +19,11 @@ tags:
 ---
 
 
-To give you an idea of where I am in my `R` developer germination, I'd just started reading about [testing](http://r-pkgs.had.co.nz/tests.html) when I received an email from [@rOpenSci](https://ropensci.org/) inviting me to review the [`weathercan`](https://github.com/ropensci/weathercan) package. Many of us in the `R` community feel like [imposters](https://en.wikipedia.org/wiki/Impostor_syndrome) when it comes to software development. In fact, as a statistician, it was a surprise to me when I was recently called a developer. 
+To give you an idea of where I am in my `R` developer germination, I'd just started reading about [testing](http://r-pkgs.had.co.nz/tests.html) when I received an email from [@rOpenSci](/) inviting me to review the [`weathercan`](https://github.com/ropensci/weathercan) package. Many of us in the `R` community feel like [imposters](https://en.wikipedia.org/wiki/Impostor_syndrome) when it comes to software development. In fact, as a statistician, it was a surprise to me when I was recently called a developer. 
 
 In terms of  formal computer science training, I took one subject in first year, with the appropriate [initialism](https://www.quickanddirtytips.com/education/grammar/abbreviations-acronyms-and-initialisms) *OOF*. Ostensibly, this was to school me in Object Oriented Fundamentals, but mostly educated me in just how much one person can pontificate about doubles and floats. I am almost always befuddled by regexes on the rare occasions I come across them.
 
-However, through undertaking this review, which began with the revelation that I'm not alone in thinking, ["What if I have absolutely nothing to say other than, yes, this is, in fact a package?!"](https://ropensci.org/blog/2017/08/22/first-package-review/), I have come to see that all `R` users are `R` family (aw). No doubt these are well worn cobblestones that I judder my bicycle along. Despite this, it felt like a unique journey given my current fascination with testing. 
+However, through undertaking this review, which began with the revelation that I'm not alone in thinking, ["What if I have absolutely nothing to say other than, yes, this is, in fact a package?!"](/blog/2017/08/22/first-package-review/), I have come to see that all `R` users are `R` family (aw). No doubt these are well worn cobblestones that I judder my bicycle along. Despite this, it felt like a unique journey given my current fascination with testing. 
 
 Now I think any `R` user can be a `R`eviewer. That is, surely there's something to be said for having someone who's relatively uninitiated take your package for a whirl, at the very least. We all want our packages to be usable by all data science folk, not just advanced programmers. 
 

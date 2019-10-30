@@ -178,7 +178,7 @@ The spikes in the plot indicate that the stream-flow values are monthly instanta
 
 ### Some final thoughts
 
-Hydrology is being transformed by a plethora[[^2]] of data. These are coming from satellites in space, gauging stations in streams, wells in the subsurface, online weather stations, and many more sources. What is really exciting is that using open source software, such as [R](https://cran.r-project.org/),  Hydrologic Processes can be modeled in a convenient,  reproducible, and transparent way using the Data Science paradigm and the [rOpenSci](https://ropensci.org/about/) orama[[^3]].
+Hydrology is being transformed by a plethora[[^2]] of data. These are coming from satellites in space, gauging stations in streams, wells in the subsurface, online weather stations, and many more sources. What is really exciting is that using open source software, such as [R](https://cran.r-project.org/),  Hydrologic Processes can be modeled in a convenient,  reproducible, and transparent way using the Data Science paradigm and the [rOpenSci](/about/) orama[[^3]].
 
 ### Future developments
 

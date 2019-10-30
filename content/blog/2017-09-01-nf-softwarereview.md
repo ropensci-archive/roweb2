@@ -65,9 +65,9 @@ Code review has been one of rOpenSci’s best initiatives. We build software, bu
 - **Have a clear scope.** Spell out to yourselves and potential contributors what your project will accept, and why. This will save a lot of confusion and effort in the future.
 - **Build a community** through incentives of networking, opportunities to learn, and kindness.
 
-**rOpenSci is eager to work with other groups interested in developing similar review processes**, especially if you are interested in reviewing and curating scientific software in languages other than R or beyond our scope of supporting the data life cycle. Software that implements statistical algorithms, for instance, is an area ripe for open peer review of code. Please [get in touch](https://ropensci.org/contact.html) if you have questions or wish to co-pilot a review system for your project.
+**rOpenSci is eager to work with other groups interested in developing similar review processes**, especially if you are interested in reviewing and curating scientific software in languages other than R or beyond our scope of supporting the data life cycle. Software that implements statistical algorithms, for instance, is an area ripe for open peer review of code. Please [get in touch](/contact.html) if you have questions or wish to co-pilot a review system for your project.
 
-And of course, if you want to review, we’re always looking for volunteers. Sign up at https://ropensci.org/onboarding.
+And of course, if you want to review, we’re always looking for volunteers. Sign up at /onboarding.
 
 ---
 You can support rOpenSci by [becoming a NumFOCUS member](https://www.numfocus.org/community/donate/) or making a [donation to the project](https://www.numfocus.org/open-source-projects/).

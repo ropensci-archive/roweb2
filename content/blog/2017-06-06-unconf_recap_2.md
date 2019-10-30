@@ -13,7 +13,7 @@ tags:
   - unconf17
 ---
 
-Following up on Stefanie's recap of [unconf 17](https://ropensci.org/blog/blog/2017/06/02/unconf2017), we are following up this entire week with summaries of projects developed at the event. We plan to highlight 4-5 projects each day, with detailed posts from a handful of teams to follow.
+Following up on Stefanie's recap of [unconf 17](/blog/blog/2017/06/02/unconf2017), we are following up this entire week with summaries of projects developed at the event. We plan to highlight 4-5 projects each day, with detailed posts from a handful of teams to follow.
 
 
 ## `checkers`

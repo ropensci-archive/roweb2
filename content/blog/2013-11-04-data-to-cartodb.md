@@ -13,7 +13,7 @@ tags:
   - maps
 ---
 
-We have previously written about creating interactive maps on the web from R, with the interactive maps on Github. See [here](http://ropensci.org/blog/2013/10/23/style-geojson-polygon/), [here](http://ropensci.org/blog/2013/07/17/style-geojson/), [here](http://ropensci.org/blog/2013/07/04/rbison-geoson/), and [here](http://recology.info/2013/06/geojson/).
+We have previously written about creating interactive maps on the web from R, with the interactive maps on Github. See [here](/blog/2013/10/23/style-geojson-polygon/), [here](/blog/2013/07/17/style-geojson/), [here](/blog/2013/07/04/rbison-geoson/), and [here](http://recology.info/2013/06/geojson/).
 
 A different approach is to use [CartoDB](http://cartodb.com/), [a freemium service](http://cartodb.com/pricing/) with sql interface to your data tables that provides a map to visualize data in those tables. They released an R interace to their sql API [on Github here](https://github.com/Vizzuality/cartodb-r) - which we can use to make an interactive map from R.
 

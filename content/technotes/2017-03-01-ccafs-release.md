@@ -24,7 +24,7 @@ and climate change forecasting - read more at
 <https://en.wikipedia.org/wiki/General_circulation_model>.
 
 `ccafs` falls in the data client camp - its focus is on getting users
-data - many [rOpenSci packages](https://ropensci.org/packages/#data_access)
+data - many [rOpenSci packages](/packages/#data_access)
 fall into this area. These kinds of packages are important so that
 scientists don't have to recreate the wheel themselves every time, but
 instead use one client that everyone else uses.

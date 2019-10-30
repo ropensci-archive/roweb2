@@ -9,9 +9,9 @@ announced support for interactive maps based on geojson format data.
 geojson is basically just JSON data with additional metadata for mapping
 purposes. We have discussed this before on our blog when we talked about
 [making geojson based
-maps](http://ropensci.org/blog/2013/07/04/rbison-geoson/) and about
+maps](/blog/2013/07/04/rbison-geoson/) and about
 [styling geojson
-maps](http://ropensci.org/blog/2013/07/17/style-geojson/).
+maps](/blog/2013/07/17/style-geojson/).
 
 Here is a brief demo of a simple, but awesome, use case in which you
 have a set of species and you want an interactive map. This is an easy

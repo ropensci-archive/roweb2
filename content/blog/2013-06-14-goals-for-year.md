@@ -10,7 +10,7 @@ tags:
   - funding
 ---
 
-At rOpenSci's virtual HQ we're busy planning out several exciting projects for the coming year thanks to the generous [180k grant from Sloan](http://ropensci.org/blog/2013/06/12/sloan/). In the interest of maintaining transparency with our community here are additional details of what we hope to accomplish and how we'll measure our successes. We have also posted a full copy of our proposal over at [figshare](http://figshare.com/articles/rOpenSci_Open_Tools_to_Facilitate_Data_Driven_Science_in_Ecology_and_Evolution/719786).
+At rOpenSci's virtual HQ we're busy planning out several exciting projects for the coming year thanks to the generous [180k grant from Sloan](/blog/2013/06/12/sloan/). In the interest of maintaining transparency with our community here are additional details of what we hope to accomplish and how we'll measure our successes. We have also posted a full copy of our proposal over at [figshare](http://figshare.com/articles/rOpenSci_Open_Tools_to_Facilitate_Data_Driven_Science_in_Ecology_and_Evolution/719786).
 
 
 

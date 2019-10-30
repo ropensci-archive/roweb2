@@ -10,7 +10,7 @@ tags:
   - jobs
 ---
 
-The rOpenSci team is growing, thanks in part to our [recent funding](https://ropensci.org/blog/2015/11/19/helmsley-trust-funding/). We recently [welcomed](https://ropensci.org/blog/2016/03/01/pdftools-and-jeroen) Jeroen Ooms on the software development side and today we're thrilled to announce a position for community manager.
+The rOpenSci team is growing, thanks in part to our [recent funding](/blog/2015/11/19/helmsley-trust-funding/). We recently [welcomed](/blog/2016/03/01/pdftools-and-jeroen) Jeroen Ooms on the software development side and today we're thrilled to announce a position for community manager.
 
 Our mission is to expand access to scientific data and promote a culture of reproducible research and sustainable research software. We aim to cultivate a vibrant and open community through activities such as our [community calls](http://communitycalls.ropensci.org/), [discussion forums](http://discuss.ropensci.org/), [package review](https://github.com/ropensci/software-review), and [annual unconferences](http://unconf16.ropensci.org/). We are ready for a dedicated community manager to come on board to broaden the understanding and reach of rOpenSci to the researcher community.
 
@@ -34,7 +34,7 @@ What we're looking for in our community manager:
 The position comes with a competitive salary and benefits and is based at the [Berkeley Institute for Data Science](http://bids.berkeley.edu/) at UC Berkeley. Remote work is also an option for the right candidate.
 
 **About Us**
-We're a [team of four](http://ropensci.org/about/#team), with a five person [leadership team](http://ropensci.org/about/#team), and an [advisory board](http://ropensci.org/about/#team). We're a grant funded organization based within UC Berkeley. We have [a large community](http://ropensci.org/community/#community) of contributors, and a much larger community of users. Our tools are focused around the R language, but we promote open science/open source widely.
+We're a [team of four](/about/#team), with a five person [leadership team](/about/#team), and an [advisory board](/about/#team). We're a grant funded organization based within UC Berkeley. We have [a large community](/community/#community) of contributors, and a much larger community of users. Our tools are focused around the R language, but we promote open science/open source widely.
 
 **Apply**
 Informal questions and inquiries welcome at `jobs at ropensci org`. And if you're ready, [go ahead and apply!](https://hrw-vip-prod.is.berkeley.edu/psc/JOBSPROD/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_CE.GBL?Page=HRS_CE_JOB_DTL&Action=A&JobOpeningId=21279&SiteId=1&PostingSeq=1)

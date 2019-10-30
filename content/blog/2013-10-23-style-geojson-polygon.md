@@ -75,8 +75,8 @@ That's it! The map is immediately available on the web, see [here](https://gist.
 <!-- <iframe src="https://gist.github.com/sckott/7121053?scroll=false"></iframe> -->
 <script src="https://gist.github.com/sckott/7121053.js"></script>
 
-[ropost]: http://ropensci.org/blog/2013/07/04/rbison-geoson/
-[ropost2]: http://ropensci.org/blog/2013/07/17/style-geojson/
+[ropost]: /blog/2013/07/04/rbison-geoson/
+[ropost2]: /blog/2013/07/17/style-geojson/
 [scottpost]: http://sckott.github.io/2013/06/geojson/
 [rgbif]: https://github.com/ropensci/rgbif
 [rbison]: https://github.com/ropensci/rbison

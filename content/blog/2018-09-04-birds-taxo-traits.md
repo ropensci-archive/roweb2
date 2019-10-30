@@ -24,7 +24,7 @@ output:
 ---
 
 Thanks to the [second post of the series where we obtained data from
-eBird](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) we know
+eBird](/blog/2018/08/21/birds-radolfzell/) we know
 what birds were observed in the county of Constance. Now, not all
 species’ names mean a lot to me, and even if they did, there are a lot
 of them. In this post, we shall use rOpenSci’s packages accessing
@@ -35,7 +35,7 @@ names of birds, we have access to plenty of open data!
 ### Getting and filtering the occurrence data
 
 For more details about the following code, refer to the [previous post
-of the series](https://ropensci.org/blog/2018/08/21/birds-radolfzell/).
+of the series](/blog/2018/08/21/birds-radolfzell/).
 The single difference is our adding a step to keep only data for the
 most recent years.
 
@@ -335,7 +335,7 @@ purrr::walk(orders$order, plot_order,
 
 Once we have created all these PNGs, we can join them into a gif using
 [Jeroen Ooms’
-`gifski`](https://ropensci.org/technotes/2018/07/23/gifski-release/).
+`gifski`](/technotes/2018/07/23/gifski-release/).
 
 ``` r
 png_files <- fs::dir_ls("taxo", regexp = "[.]png$")
@@ -529,8 +529,8 @@ of Constance, however it could be coupled with more local data:
 localization of observations, and open geographical data. All the
 mentioned data sources are available for free, and can be obtained using
 R packages, cf [the
-first](https://ropensci.org/blog/2018/08/14/where-to-bird/) and
-[second](https://ropensci.org/blog/2018/08/21/birds-radolfzell/) post of
+first](/blog/2018/08/14/where-to-bird/) and
+[second](/blog/2018/08/21/birds-radolfzell/) post of
 the series.
 
 #### Taxonomy and traits data in R
@@ -543,7 +543,7 @@ book](https://github.com/ropensci/taxize-book), while
 Foster, defines taxonomy classes for R. rOpenSci maintains a task view
 of taxonomy packages [here](https://github.com/ropensci/taxonomy), part
 of which [form the rOpenSci taxonomy
-suite](https://ropensci.org/blog/2017/07/27/taxonomy-suite/).
+suite](/blog/2017/07/27/taxonomy-suite/).
 
 Related to taxonomy are phylogenetics. The [`treeio`
 package](https://github.com/GuangchuangYu/treeio) by Guangchuang Yu
@@ -560,7 +560,7 @@ package as we did in this post. Also of interest is the rOpenSci’s
 different datasets about invasive and alien species.
 
 Explore more of our packages suite, including and beyond the taxonomy
-and traits category, [here](https://ropensci.org/packages/).
+and traits category, [here](/packages/).
 
 #### More birding soon!
 

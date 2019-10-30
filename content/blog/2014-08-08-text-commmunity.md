@@ -15,7 +15,7 @@ __UPDATE:__ Use the new discussion forum at http://discuss.ropensci.org/
 
 ## Community
 
-Community is at the heart of rOpenSci. We couldn't have accomplished most of our work without help from various [contributors and users](http://ropensci.org/community/#community).
+Community is at the heart of rOpenSci. We couldn't have accomplished most of our work without help from various [contributors and users](/community/#community).
 
 Most of our discussions with the broader community over the past year have been through twitter or one-on-one conversations. However, we would like to foster more open ended and deeper discussions with our community. To this end, we are resurrecting our [public Google group list](https://groups.google.com/forum/#!forum/ropensci-discuss). We encourage you to sign up and post ideas for packages, solicit feedback on new ideas, and most importantly find other collaborators who share your domain interests. We also plan to use the list to solicit feedback on some of the bigger rOpenSci projects early on in the development phase allowing our community to shape future direction and also collaborate where appropriate.
 

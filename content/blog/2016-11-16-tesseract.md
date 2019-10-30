@@ -40,7 +40,7 @@ Running this in R should recognize the text in the example image almost perfectl
 
 Finding and classifying visual patterns is incredibly difficult for computers, especially if the picture contains noise or other artifacts. Humans take advantage of prior knowledge about the language that we use to "fill in the gaps" when reading text. For this reason recognizing text within a blurred or deformed image is a common CAPTCHA method to tell humans apart from computers.
 
-![captcha](http://ropensci.org/assets/blog-images/captcha.gif)
+![captcha](/assets/blog-images/captcha.gif)
 
 When using OCR to extract text from a document, the result will rarely be perfect. The accuracy of the results varies depending on the quality of the image. Obviously images used by CAPTCHA software are designed to be too difficult to recognize by state of the art OCR methods.
 

@@ -97,4 +97,4 @@ I welcome contributions to [`outcomerate`](https://github.com/ropensci/outcomera
 
 #### Acknowledgements
 
-My thanks goes to [Neil Richardson](https://github.com/nealrichardson), [Carl Ganz](https://github.com/carlganz), and [Karthik Ram](https://github.com/karthik) for their peer review and editorial support at [rOpenSci](https://ropensci.org/). [`outcomerate`](https://github.com/ropensci/outcomerate) is better for it, and my programming style and knowledge has improved. Naturally, I also wish to acknowledge AAPOR for advancing the practice of survey research— this package is built on the definitions they helped standardize.  
+My thanks goes to [Neil Richardson](https://github.com/nealrichardson), [Carl Ganz](https://github.com/carlganz), and [Karthik Ram](https://github.com/karthik) for their peer review and editorial support at [rOpenSci](/). [`outcomerate`](https://github.com/ropensci/outcomerate) is better for it, and my programming style and knowledge has improved. Naturally, I also wish to acknowledge AAPOR for advancing the practice of survey research— this package is built on the definitions they helped standardize.  

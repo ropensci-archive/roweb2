@@ -53,7 +53,7 @@ Please get involved!
 
 -   join the \#antarctic rOpenSci Slack channel for R users and developers — contact us at <antarctic@ropensci.org> for an invitation to join. Slack is a great space in which to have conversations with the rOpenSci community, or to give us feedback in a less-public manner,
 
--   participate in the [broader rOpenSci community](https://ropensci.org/community/). Follow on [Twitter](https://twitter.com/rOpenSci), read the [blog](https://ropensci.org/blog/), and check out the [ecosystem of R packages](https://ropensci.org/packages/).
+-   participate in the [broader rOpenSci community](/community/). Follow on [Twitter](https://twitter.com/rOpenSci), read the [blog](/blog/), and check out the [ecosystem of R packages](/packages/).
 
 The administrative contacts for this initiative are Ben Raymond, Sara Labrousse, Michael Sumner, and Jess Melbourne-Thomas. Contact us via <antarctic@ropensci.org>, or find us on Slack or Twitter.
 

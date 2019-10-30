@@ -17,8 +17,8 @@ We have strived to have meaningful error messages for various arguments that hav
 
 GBIF did a large overhaul of the interface, so the possible arguments to use in each function are quite different. Don't hesitate to get in touch if you have a question! They have a set of methods to look up metadata about sources (under [Registry](http://www.gbif.org/developer/registry)), a set of methods for species names (under [Species](http://www.gbif.org/developer/species)), a set of methods for occurrences (under [Occurrences](http://www.gbif.org/developer/occurrence)), and a set of methods for requesting tile map layers (under [Maps](http://www.gbif.org/developer/maps)). In `rgbif` we provide functions for the first three, Registry, Species, and Occurrences. We don't provide R interfaces to their Maps service as it only makes sense to use in a web native workflow.
 
-Tutorial for old GBIF API: [http://ropensci.org/tutorials/rgbif_tutorial.html](http://ropensci.org/tutorials/rgbif_tutorial.html)
-Tutorial for new GBIF API: [http://ropensci.org/tutorials/rgbif_tutorial_newapi.html](http://ropensci.org/tutorials/rgbif_tutorial_newapi.html)
+Tutorial for old GBIF API: [/tutorials/rgbif_tutorial.html](/tutorials/rgbif_tutorial.html)
+Tutorial for new GBIF API: [/tutorials/rgbif_tutorial_newapi.html](/tutorials/rgbif_tutorial_newapi.html)
 
 *Note: the Mac OSX binary is not available yet on CRAN...*
 

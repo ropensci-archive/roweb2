@@ -364,7 +364,7 @@ We also used two other rOpenSci packages:
 [`bbox`](https://github.com/ropensci/bbox) to get a bounding box and
 [`magick`](https://github.com/ropensci/magick) for image manipulation.
 Explore more of our packages suite, including and beyond the geospatial
-category, [here](https://ropensci.org/packages/).
+category, [here](/packages/).
 
 We also used the [`geodist`
 package](https://github.com/hypertidy/geodist) for ultra lightweight,

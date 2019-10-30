@@ -15,7 +15,7 @@ tags:
   - packages
 ---
 
-Contributing to an open-source community _without_ contributing code is an oft-vaunted idea that can seem nebulous. Luckily, putting vague ideas into action is one of the strengths of the [rOpenSci Community](https://ropensci.org/community/), and their package onboarding system offers a chance to do just that.
+Contributing to an open-source community _without_ contributing code is an oft-vaunted idea that can seem nebulous. Luckily, putting vague ideas into action is one of the strengths of the [rOpenSci Community](/community/), and their package onboarding system offers a chance to do just that.
 
 This was my first time reviewing a package, and, as with so many things in life, I went into it worried that I'd somehow ruin the package-reviewing process— not just the package itself, but the actual onboarding infrastructure...maybe even rOpenSci on the whole.
 
@@ -40,7 +40,7 @@ The latter question is key, and, while I don't have data to back this up, can be
 
 ### Myriad lessons learned 💡
 
-I can't speak for Nick per the utility or lack thereof of my review (you can see [his take here](https://ropensci.org/blog/blog/2017/08/22/visdat), but I _can_ vouch for the package-reviewing experience as a means of methodically inspecting the innards of an R package. Methodical is really the operative word here. Though _"read the docs,"_ or _"look at the code"_ sounds straight-forward enough, it's not always easy to coax oneself into going through the task piece-by-piece without an end goal in mind. While a desire to contribute to open-source software is noble enough (and is how I _personaly_ ended up involved in this process-- with some help/coaxing from [Noam Ross](https://twitter.com/noamross)), it's also an abstraction that can leave one feeling overwhelmed, and not knowing where to begin.[^3]
+I can't speak for Nick per the utility or lack thereof of my review (you can see [his take here](/blog/blog/2017/08/22/visdat), but I _can_ vouch for the package-reviewing experience as a means of methodically inspecting the innards of an R package. Methodical is really the operative word here. Though _"read the docs,"_ or _"look at the code"_ sounds straight-forward enough, it's not always easy to coax oneself into going through the task piece-by-piece without an end goal in mind. While a desire to contribute to open-source software is noble enough (and is how I _personaly_ ended up involved in this process-- with some help/coaxing from [Noam Ross](https://twitter.com/noamross)), it's also an abstraction that can leave one feeling overwhelmed, and not knowing where to begin.[^3]
 
 There are also [self-serving bonus points](https://devguide.ropensci.org/onbtwarereviewro.html#whyreview) that one simply can't avoid, should you go the rOpenSci-package-reviewing route-- especially if package development is new to you.[^4] Heck, the [package reviewing guide](https://devguide.ropensci.org/reviewerguide.html) alone was illuminating.
 

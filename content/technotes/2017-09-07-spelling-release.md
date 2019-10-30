@@ -63,7 +63,7 @@ By default this unit test will never actually fail; it merely displays potential
 
 ## Under the Hood
 
-The spelling package builds on [hunspell](https://ropensci.org/blog/technotes/2016/09/12/hunspell-release-20) which has a fully customizable spell checking engine. Most of the code in the spelling package is dedicated to parsing and extracting text from documents before feeding it to the spell checker.
+The spelling package builds on [hunspell](/blog/technotes/2016/09/12/hunspell-release-20) which has a fully customizable spell checking engine. Most of the code in the spelling package is dedicated to parsing and extracting text from documents before feeding it to the spell checker.
 For example, when spell checking an rmarkdown file, we first extract words from headers and paragraphs (but not urls or R syntax).
 
 ```r
@@ -83,4 +83,4 @@ wordlist     2017-09-07-spelling-release.md:49
 WORDLIST     2017-09-07-spelling-release.md:34
 ```
 
- To accomplish this, we use knitr to drop code chunks, and subsequently parse markdown using [commonmark](https://ropensci.org/blog/blog/2016/12/02/commonmark) and xml2, which gives us the text nodes and approximate line numbers in the source document.
+ To accomplish this, we use knitr to drop code chunks, and subsequently parse markdown using [commonmark](/blog/blog/2016/12/02/commonmark) and xml2, which gives us the text nodes and approximate line numbers in the source document.

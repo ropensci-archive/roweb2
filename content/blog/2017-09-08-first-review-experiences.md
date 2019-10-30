@@ -126,7 +126,7 @@ If I motivated you to become an rOpenSci reviewer, please sign up! Here
 is a list of useful things if you want to become an rOpenSci reviewer
 like me.
 
--   [Form to sign up (just takes a minute)](https://ropensci.org/onboarding/)
+-   [Form to sign up (just takes a minute)](/onboarding/)
 
 -   [Information for reviewers](https://devguide.ropensci.org/reviewerguide.html)
 
@@ -136,4 +136,4 @@ like me.
 to the tidyverse](http://www.tidyverse.org/articles/2017/08/contributing/) which is
 mostly also applicable to other R packages in my opinion.
 
-If you are generally interested in either submitting or reviewing an R package, I would like to invite you to the [ Community Call on rOpenSci software review and onboarding](https://ropensci.org/blog/blog/2017/08/31/comm-call-v14).
+If you are generally interested in either submitting or reviewing an R package, I would like to invite you to the [ Community Call on rOpenSci software review and onboarding](/blog/blog/2017/08/31/comm-call-v14).

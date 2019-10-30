@@ -26,13 +26,13 @@ One of the best ways to start feeling less intimidated is to start talking to ot
 
 > I learned I was not alone. I met a postdoctoral student in computer science at Berkeley. I talked with him about my islands, the darkness, the fear. He answered without hesitations: ‘Oh, I feel that way all the time.’
 
-At rOpenSci unconf18, we learned that it’s ok to feel like you don’t know everything -- indeed, that’s how just about everyone feels! In fact, being willing to share your expertise from your island of knowledge and communicating with other people who have their own islands of expertise is one part of what makes a [community](https://ropensci.org/blog/2017/06/23/community/). 
+At rOpenSci unconf18, we learned that it’s ok to feel like you don’t know everything -- indeed, that’s how just about everyone feels! In fact, being willing to share your expertise from your island of knowledge and communicating with other people who have their own islands of expertise is one part of what makes a [community](/blog/2017/06/23/community/). 
 
 Here’s a short story of about what we learned about sharing knowledge and building community at #runconf18.
 
 ### Look for the gaps
 
-The first step to bridging your island is figuring out what problems exist. They probably exist on other islands too. And a good project doesn’t have to connect all the islands - building one bridge can have a big impact. What is the one little thing in your workflow that annoys you? What’s preventing you from doing reproducible research? Is there something that will [make your life easier in the long run](https://ropensci.org/blog/2018/04/12/ijtiff/) but you’ve been putting it off?
+The first step to bridging your island is figuring out what problems exist. They probably exist on other islands too. And a good project doesn’t have to connect all the islands - building one bridge can have a big impact. What is the one little thing in your workflow that annoys you? What’s preventing you from doing reproducible research? Is there something that will [make your life easier in the long run](/blog/2018/04/12/ijtiff/) but you’ve been putting it off?
 
 ### Our motivation
 

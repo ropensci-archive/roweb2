@@ -38,7 +38,7 @@ For discussion and changes see [ropensci/software-review-meta#81](https://github
 
 #### Documentation
 
-rOpenSci's [Jeroen Ooms](https://ropensci.org/authors/jeroen-ooms/) has built out a new way for rOpenSci packages to improve documentation for their packages. Many of you have likely been building package documentation websites with [pkgdown][]. There were ways to automate the building of these documentation pages - but nothing as easy as we have now. Docs for each rOpenSci package are now built automatically and can be found at `https://docs.ropensci.org/{package}`, where `{package}` is the package name, e.g., the page for the [bowerbird][] package is <https://docs.ropensci.org/bowerbird/>. Read Jeroen's post for more details [Introducing the new rOpenSci docs server](https://ropensci.org/technotes/2019/06/07/ropensci-docs/) and see the developer guide section [Automatic deployment of the documentation website](https://devguide.ropensci.org/building.html#automatic-deployment-of-the-documentation-website-docsropensci).
+rOpenSci's [Jeroen Ooms](/authors/jeroen-ooms/) has built out a new way for rOpenSci packages to improve documentation for their packages. Many of you have likely been building package documentation websites with [pkgdown][]. There were ways to automate the building of these documentation pages - but nothing as easy as we have now. Docs for each rOpenSci package are now built automatically and can be found at `https://docs.ropensci.org/{package}`, where `{package}` is the package name, e.g., the page for the [bowerbird][] package is <https://docs.ropensci.org/bowerbird/>. Read Jeroen's post for more details [Introducing the new rOpenSci docs server](/technotes/2019/06/07/ropensci-docs/) and see the developer guide section [Automatic deployment of the documentation website](https://devguide.ropensci.org/building.html#automatic-deployment-of-the-documentation-website-docsropensci).
 
 We've changed our guidelines regarding README's and vignettes. If you have chunks shared between the README and any vignettes, then [we suggest using Rmarkdown chunks](https://devguide.ropensci.org/building.html#documentation). Related issues: [ropensci/dev_guide#159](https://github.com/ropensci/dev_guide/issues/159) and [ropensci/dev_guide#161](https://github.com/ropensci/dev_guide/issues/161).
 
@@ -64,7 +64,7 @@ We've updated JOSS submission instructions at <https://devguide.ropensci.org/app
 
 #### Security
 
-We'd like to have fleshed out the security chapter more, but in the meantime, we've added a link to an rOpenSci community call on [Security for R](https://ropensci.org/commcalls/2019-05-07/), where you can find lots of resources and discussion on security in R packages.
+We'd like to have fleshed out the security chapter more, but in the meantime, we've added a link to an rOpenSci community call on [Security for R](/commcalls/2019-05-07/), where you can find lots of resources and discussion on security in R packages.
 
 #### Other changes
 
@@ -94,4 +94,4 @@ In this post we summarized the changes incorporated into our book ["rOpenSci Pac
 [bowerbird]: https://github.com/ropensci/bowerbird
 [rodev]: https://github.com/ropensci/rodev
 [usethis]: https://github.com/r-lib/usethis
-[hugog]: https://ropensci.org/authors/hugo-gruson/
+[hugog]: /authors/hugo-gruson/

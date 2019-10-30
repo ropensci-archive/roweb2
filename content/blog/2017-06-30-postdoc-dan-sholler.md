@@ -17,7 +17,7 @@ tags:
 
 We are pleased to welcome our Postdoctoral Fellow, [Dr. Dan Sholler](https://danielsholler.wordpress.com/). Dan is an expert in qualitative research (yes, you read that correctly) and studies digital infrastructure creation, growth, and maintenance efforts. Through this research interest, he was drawn to the open science community and its ongoing development of tools and communities to support sustainable, reproducible, high-quality research. With rOpenSci, he intends to investigate _what drives scientists to engage with or resist open science tools and communities_.
 
-Dan will be the first postdoc for the rOpenSci project, based at UC Berkeley and the [Berkeley Institute for Data Science](https://bids.berkeley.edu/), supervised by Karthik Ram and co-supervised by [Carl Boettiger](https://ropensci.org/about/#team) and [Daniel Katz](http://danielskatz.org/).
+Dan will be the first postdoc for the rOpenSci project, based at UC Berkeley and the [Berkeley Institute for Data Science](https://bids.berkeley.edu/), supervised by Karthik Ram and co-supervised by [Carl Boettiger](/about/#team) and [Daniel Katz](http://danielskatz.org/).
 
 <img src="http://i.imgur.com/piOAomv.jpg" alt="Dr Dan Sholler" align="left" style="margin: 0px 20px" width="250" style="float: left;clear:both">
 
@@ -58,7 +58,7 @@ To answer these questions, I’ll conduct a qualitative, comparative study of mu
 
 ### Q: How do you arrive at doing qualitative research in an environment full of quantitative researchers?
 
-I first heard about rOpenSci through a member of my dissertation committee, [Dr. James Howison](https://www.ischool.utexas.edu/people/person_details?PersonID=175), while at UT-Austin. James is a renowned researcher of scientific software issues, including topics like software citation and attribution in academic journals. He worked with members of the rOpenSci community and clued me into the ongoing development of open science infrastructures. Additionally, I had also heard from my peers about [rOpenSci’s annual unconference](https://ropensci.org/blog/blog/2017/06/02/unconf2017) and its novel approach to building technical and social capacity in the R community.
+I first heard about rOpenSci through a member of my dissertation committee, [Dr. James Howison](https://www.ischool.utexas.edu/people/person_details?PersonID=175), while at UT-Austin. James is a renowned researcher of scientific software issues, including topics like software citation and attribution in academic journals. He worked with members of the rOpenSci community and clued me into the ongoing development of open science infrastructures. Additionally, I had also heard from my peers about [rOpenSci’s annual unconference](/blog/blog/2017/06/02/unconf2017) and its novel approach to building technical and social capacity in the R community.
 
 The open science community has no shortage of exciting, innovative software tools to support scientific research. However, time and again, authors recognize that perhaps the biggest impediment to the widespread use of these tools is eliciting engagement from users who aren’t software developers themselves or who are hesitant to open their methods and data to the broader scientific community. I think my research will support efforts to expand infrastructure participation to these scientists by uncovering what their concerns and hesitations may be and considering how we might begin to address them, both through technical design and social approaches.
 

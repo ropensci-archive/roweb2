@@ -16,7 +16,7 @@ tags:
 
 What's that? You've heard of R? You use R? You develop in R? You know someone else who's mentioned R? Oh, you're breathing? Well, in that case, welcome! Come join the R community!
 
-We recently had a group discussion at [rOpenSci](https://ropensci.org/)'s  [#runconf17](https://twitter.com/search?q=%23runconf17&lang=en) in Los Angeles, CA about the R community. I initially opened the [issue on GitHub](https://github.com/ropensci/unconf17/issues/63). After this issue was well-received (check out the emoji-love below!), we realized people were keen to talk about this and decided to have an optional and informal discussion in person.
+We recently had a group discussion at [rOpenSci](/)'s  [#runconf17](https://twitter.com/search?q=%23runconf17&lang=en) in Los Angeles, CA about the R community. I initially opened the [issue on GitHub](https://github.com/ropensci/unconf17/issues/63). After this issue was well-received (check out the emoji-love below!), we realized people were keen to talk about this and decided to have an optional and informal discussion in person.
 
 ![](https://ShanEllis.github.io/images/github_feedback.png)
 

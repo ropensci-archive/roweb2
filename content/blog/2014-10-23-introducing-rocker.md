@@ -101,7 +101,7 @@ Within the Rocker-org organization on GitHub, we are also working on
 + [Hadleyverse](https://registry.hub.docker.com/u/rocker/hadleyverse/) which
   extends the rstudio container with a number of Hadley packages
 + [rOpenSci](https://registry.hub.docker.com/u/rocker/ropensci/) which
-  extends hadleyverse with a number of [rOpenSci](http://ropensci.org/) packages
+  extends hadleyverse with a number of [rOpenSci](/) packages
 + [r-devel-san](https://registry.hub.docker.com/u/rocker/r-devel-san/)
   provides an R-devel build for "Sanitizer" run-time diagnostics via a properly
   instrumented version of R-devel via a recent compiler build
@@ -137,5 +137,5 @@ We are very appreciative of all comments received by early adopters and
 testers. We also would like to thank RStudio for allowing us the
 redistribution of their RStudio Server binary.
 
-_Published concurrently at [rOpenSci blog](http://ropensci.org/blog/)
+_Published concurrently at [rOpenSci blog](/blog/)
 and [Dirk's blog](http://dirk.eddelbuettel.com/blog)_
