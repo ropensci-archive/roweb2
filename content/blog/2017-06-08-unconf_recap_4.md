@@ -13,7 +13,7 @@ tags:
   - unconf17
 ---
 
-Continuing our series of blog posts ([day 1](/blog/blog/2017/06/05/unconf_recap_1), [day 2](/blog/blog/2017/06/06/unconf_recap_2), [day 3](/blog/blog/2017/06/07/unconf_projects_3)) this week about [unconf 17](/blog/blog/2017/06/02/unconf2017).
+Continuing our series of blog posts ([day 1](/blog/2017/06/05/unconf_recap_1), [day 2](/blog/2017/06/06/unconf_recap_2), [day 3](/blog/2017/06/07/unconf_projects_3)) this week about [unconf 17](/blog/2017/06/02/unconf2017).
 
 
 ## `cityquant`
