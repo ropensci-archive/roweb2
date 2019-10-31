@@ -29,7 +29,7 @@ available in packages such as [ape](http://ape-package.ird.fr/),
 phylogenetic analysis. 
 Yet the many different tree formats are not well integrated, 
 as pointed out in a recent 
-[post](https://ropensci.org/blog/2018/05/17/treeio/).
+[post](/blog/2018/05/17/treeio/).
 
 The standard data structure for phylogenies in R is the "phylo" 
 object, a memory efficient, matrix-based tree representation.
@@ -47,7 +47,7 @@ and plotting publication-quality trees.
 To better integrate the phylo and dendrogram object types, 
 and hence increase the options available for both camps,
 we developed the [phylogram](https://github.com/ropensci/phylogram) 
-package, which is now a part of the [rOpenSci](https://ropensci.org/)
+package, which is now a part of the [rOpenSci](/)
 project. 
 This small package features a handful of functions for tree conversion, 
 importing and exporting trees as parenthetic text, and manipulating
@@ -94,7 +94,7 @@ well-optimized `ape::read.tree` function
 (for [Newick](http://evolution.genetics.washington.edu/phylip/newicktree.html) 
 strings), 
 or the suite of specialized functions in the versatile 
-[treeio](https://ropensci.org/blog/2018/05/17/treeio/) package.
+[treeio](/blog/2018/05/17/treeio/) package.
 To convert a phylo object to a dendrogram, the `phylogram` package includes 
 the function `as.dendrogram`, which retains node height attributes and can handle
 non-ultrametric trees.

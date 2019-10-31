@@ -19,7 +19,7 @@ output:
 
 You might have read [my blog post analyzing the social weather of
 rOpenSci
-onboarding](https://ropensci.org/blog/2018/05/10/onboarding-social-weather/),
+onboarding](/blog/2018/05/10/onboarding-social-weather/),
 based on a text analysis of GitHub issues. I extracted text out of
 Markdown-formatted threads with regular expressions. I basically
 hammered away at the issues using tools I was familiar with until it

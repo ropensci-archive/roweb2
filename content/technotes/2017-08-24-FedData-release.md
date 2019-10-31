@@ -16,7 +16,7 @@ tags:
   - FedData
 ---
 
-The package [`FedData`](https://github.com/ropensci/FedData) has gone through software review and is now part of [rOpenSci](https://ropensci.org/). `FedData` includes functions to automate downloading geospatial data available from several federated data sources (mainly sources maintained by the US Federal government).
+The package [`FedData`](https://github.com/ropensci/FedData) has gone through software review and is now part of [rOpenSci](/). `FedData` includes functions to automate downloading geospatial data available from several federated data sources (mainly sources maintained by the US Federal government).
 
 Currently, the package enables extraction from six datasets:
 

@@ -13,7 +13,7 @@ tags:
 
 
 I’m happy to announce that I’ve started a project with [rOpenSci](https://ropensci.org)
-under [their recent award from the Helmsley Foundation](https://ropensci.org/blog/2015/11/19/helmsley-trust-funding/).
+under [their recent award from the Helmsley Foundation](/blog/2015/11/19/helmsley-trust-funding/).
 
 My work with rOpenSci will focus on sustainability of the project itself.  Sustainability can be defined as having the
 resources to do the necessary work to continue and grow rOpenSci.  This is one of the most difficult challenges for

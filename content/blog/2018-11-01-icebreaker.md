@@ -22,12 +22,12 @@ We've had lots of requests for a detailed description of how we do it. This post
 
 
 ### The Choice
-I knew we would have a group of 60 to 70 people at [unconf17](https://ropensci.org/blog/2017/06/02/unconf2017/), most of whom didn't now each other. My objective was to have everyone introduce themselves to the entire group, and I wanted them to have "real" conversations, since immediately following the ice breaker, people would be self-sorting into groups who would collaborate on projects for two days.
+I knew we would have a group of 60 to 70 people at [unconf17](/blog/2017/06/02/unconf2017/), most of whom didn't now each other. My objective was to have everyone introduce themselves to the entire group, and I wanted them to have "real" conversations, since immediately following the ice breaker, people would be self-sorting into groups who would collaborate on projects for two days.
 
 After participating in several different flavors of ice breakers in an exercise led by [Aidan Budd](https://twitter.com/AidanBudd) with a group of scientific [community engagement managers](https://www.cscce.org/cefp/meet-our-fellows/cefp-2017-cohort/), I chose an exercise called the "Human Barometer", recommended by [Cameron Neylon](https://twitter.com/cameronneylon). The script below explains how it works, and there are [examples like this one](https://www.facinghistory.org/resource-library/teaching-strategies/barometer-taking-stand-controversial-issues) online.
 
 ### The Script
-Ask participants to stand in a line shoulder-to-shoulder facing you. This isn't important after the start but helps people figure out the process. (Aside: This happens to be a perfect time to talk about your [code of conduct](https://ropensci.org/blog/2016/12/21/commcallv12-review-coc/)!)
+Ask participants to stand in a line shoulder-to-shoulder facing you. This isn't important after the start but helps people figure out the process. (Aside: This happens to be a perfect time to talk about your [code of conduct](/blog/2016/12/21/commcallv12-review-coc/)!)
 
 *The objective of this icebreaker is to have all of you interacting across all perceived levels of who an rOpenSci unconf participant is. Here’s how it’s going to go down.*
 
@@ -92,7 +92,7 @@ Some people who participated in this ice breaker at our unconferences have adapt
   - How long have you lived in Santa Barbara?
   - What is your comfort in R?
 
-- [Nick Tierney](https://twitter.com/nj_tierney) used it with 45 people at [ozunconf17](https://ropensci.org/blog/2017/10/31/ozunconf2017/).
+- [Nick Tierney](https://twitter.com/nj_tierney) used it with 45 people at [ozunconf17](/blog/2017/10/31/ozunconf2017/).
 
 ### Tips
 1. Work hard to design questions that relate to your community and event. Start with a frivolous question and then dig deep.

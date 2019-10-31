@@ -5,9 +5,9 @@ authors:
   - Maëlle Salmon
 date: '2018-05-10'
 preface: This blog post is the third of a 3-post series about a data-driven overview
-  of rOpenSci onboarding. Read the intro to the series [here](https://ropensci.org/blog/2018/04/26/a-satrday-ct-series/),
-  the first post about data collection [here](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
-  the second post about quantifying work done by authors, reviewers and editors [here](https://ropensci.org/blog/2018/05/03-is-work/).
+  of rOpenSci onboarding. Read the [intro to the series](/blog/2018/04/26/a-satrday-ct-series/),
+  the [first post about data collection](/blog/2018/04/26/rectangling-onboarding/),
+  the [second post about quantifying work done by authors, reviewers and editors](/blog/2018/05/03/onboarding-is-work/).
 categories: blog
 topicid: 1167
 tags:
@@ -66,14 +66,14 @@ David Robinson, actually met and started working on this project, at
 #### The “tidy text” of the analysis
 
 I’ve described [in the first post of this
-series](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/)
+series](/blog/2018/04/26/rectangling-onboarding/)
 how I got all onboarding issue threads. Now, I’ll explain how I cleaned
 their text. Why does it need to be cleaned? Well, this text contains
 elements that I wished to remove: code chunks, as well as parts from our
 submission and [review
 templates](https://devguide.ropensci.org/reviewtemplate.html).
 
-**Edit: Find a cleaner approach to Markdown text extraction in [this tech note](https://ropensci.org/technotes/2018/09/05/commonmark/).**
+**Edit: Find a cleaner approach to Markdown text extraction in [this tech note](/technotes/2018/09/05/commonmark/).**
 
 My biggest worry was the removal of templates from issues. I was already
 picturing my spending hours writing regular expressions to remove these
@@ -705,8 +705,8 @@ could get extracted from GitHub V4 API as well.
 
 This is the final post of the “Our package review system in review”
 series. The first post presented [data collection from
-GitHub](https://ropensci.org/blog/2018/04/26/rectangling-onboarding/),
+GitHub](/blog/2018/04/26/rectangling-onboarding/),
 the second post aimed at [quantifying the work represented by
-onboarding](https://ropensci.org/blog/2018/05/03/onboarding-is-work/).
+onboarding](/blog/2018/05/03/onboarding-is-work/).
 The posts motivated us to keep using data to illustrate and assess the
 system. Brace yourself for more onboarding data analyses in the future!

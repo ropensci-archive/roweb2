@@ -15,7 +15,7 @@ Here are useful links to learn more about our software review system, and to par
 
 * [discussion of our standards and process](https://github.com/ropensci/software-review-meta/issues)
 
-* [volunteering form for reviewers](https://ropensci.org/onboarding/)
+* [volunteering form for reviewers](/onboarding/)
 
 * [blog post introducing the system](https://www.numfocus.org/blog/how-ropensci-uses-code-review-to-promote-reproducible-science/)
 

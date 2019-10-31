@@ -19,11 +19,11 @@ tags:
 rOpenSci's package review system (aka
 [onboarding](https://github.com/ropensci/software-review/)) is one of our key
 activities to [improve quality and sustainability of scientific R
-packages](https://ropensci.org/blog/2017/09/01/nf-softwarereview/). The
+packages](/blog/2017/09/01/nf-softwarereview/). The
 editorial team are constantly working towards improving the experience
 for both authors and reviewers. After our first year, we [surveyed
 authors and
-reviewers](https://ropensci.org/blog/2016/03/28/software-review/) who
+reviewers](/blog/2016/03/28/software-review/) who
 participated in our onboarding process to help us better understand
 what's working well and where there is room for improvement. At the end
 of last year, we did so again, re-designing our survey so as to better
@@ -58,21 +58,21 @@ be converted to a bookdown website for easier navigation. We thought
 this was a great suggestion, and have begun the process of porting all
 our documentation for packaging and reviewing, into a common bookdown
 book. Editor Maëlle Salmon is leading this work, and you can find the
-in-progress book, *rOpenSci Packages: Development, Maintenance, and Peer
-Review*, [here](hhttps://devguide.ropensci.org/).
+[in-progress book, *rOpenSci Packages: Development, Maintenance, and Peer
+Review*](https://devguide.ropensci.org/).
 
 We also got feedback from authors that they wanted guidance on how best
 to acknowledge the efforts of reviewers. This was one of our drivers to
 get reviewers recognized as MARC author type in package DESCRIPTION
 files, which you can read more about in [in this previous blog
-post](https://ropensci.org/blog/2018/03/16/thanking-reviewers-in-metadata/).
+post](/blog/2018/03/16/thanking-reviewers-in-metadata/).
 
 For the reviewing guide, reviewers suggested greater structure,
 including separation between code and UI reviewing, more advice and
 examples on how to approach review, better guidance on expectations for
 timelines and collaboration between multiple reviewers. We aim to fold
 all these suggestions into the book. There are [great posts about how to
-tackle a peer review on our blog](https://ropensci.org/tags/reviewer/)
+tackle a peer review on our blog](/tags/reviewer/)
 that we will incorporate.
 
 ### Section 3: The review process

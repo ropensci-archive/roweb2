@@ -23,7 +23,7 @@ The first type of fellowship we seek to support includes any activities (softwar
 The second type of activity we seek to support is working groups, based on [a highly successful problem-solving model](https://www.nceas.ucsb.edu/system/files/HamptonParker_BioSci_2011.pdf) pioneered by the [National Center for Ecological Analysis and Synthesis](https://www.nceas.ucsb.edu/). You propose a critical challenge in the area of scientific open source and reproducibility, and a team of experts, to collaborate intensively for a week at a time. The knowledge and insight your team develops must be broadly relevant to the research community.
 
 
-Our first fellowship was awarded to [Dr. Nick Golding](https://ropensci.org/blog/blog/2016/12/12/ropensci-fellowship-zoon) in suppport of a reproducibility project. Each fellowship will be in the range of $30,000 to $50,000.  We plan to award 2-3 fellowships (exact number to be determined by the size, scope, and quality of applications we receive) in 2017. We expect to have a similar call in 2018. All successful fellows will also receive additional travel support to participate in our [annual unconference](https://ropensci.org/blog/blog/2017/06/02/unconf2017).
+Our first fellowship was awarded to [Dr. Nick Golding](/blog/2016/12/12/ropensci-fellowship-zoon) in suppport of a reproducibility project. Each fellowship will be in the range of $30,000 to $50,000.  We plan to award 2-3 fellowships (exact number to be determined by the size, scope, and quality of applications we receive) in 2017. We expect to have a similar call in 2018. All successful fellows will also receive additional travel support to participate in our [annual unconference](/blog/2017/06/02/unconf2017).
 
 ### Fellowship eligibility and criteria
 
@@ -35,7 +35,7 @@ Our first fellowship was awarded to [Dr. Nick Golding](https://ropensci.org/blog
 
 ## Fellowship selection committee
 
-* [**Karthik Ram**](https://ropensci.org/about/#team), Committee Chair
+* [**Karthik Ram**](/about/#team), Committee Chair
 Karthik is a co-founder of rOpenSci and the project lead. Karthik is also a fellow at the Berkeley Institute for Data Science and the Berkeley Initiative in Global Change Biology at UC Berkeley. Prior to joining Berkeley, he earned his PhD in ecology & evolution from the University of California, Davis. Karthik's interests are focused on reproducible research, especially as it applies to global change. Much of his recent work focuses on building tools and services around open data and growing diverse data science communities.
 
 * [**Mine Cetinkaya-Rundel**](http://www2.stat.duke.edu/~mc301/), Duke University
@@ -52,7 +52,7 @@ Di is Professor of Business Analytics at Monash University in Australia. Her exp
 
 ## Applying for the fellowship
 
-To apply, please submit a 3-page proposal that describes your goals, expected outcomes, a tentative timeline, collaborators, and a very high level budget (no more than a paragraph or two) at [ropensci.org/fellowships](https://ropensci.org/fellowships). As part of your submission form, you will also have to provide details about your affiliation, PI status, and the name of your PI (if you cannot serve in that role). For applicants that make the short list, we will request a detailed budget and may also ask for additional clarification.
+To apply, please submit a 3-page proposal that describes your goals, expected outcomes, a tentative timeline, collaborators, and a very high level budget (no more than a paragraph or two) at ropensci.org/fellowships (now closed). As part of your submission form, you will also have to provide details about your affiliation, PI status, and the name of your PI (if you cannot serve in that role). For applicants that make the short list, we will request a detailed budget and may also ask for additional clarification.
 
 **Application deadline is September 1, 2017 (midnight PST).**
 

@@ -78,5 +78,5 @@ testcache(terms = "beetle", cache = 10)
 
 Caching works the same way with the `eol_pages` function. No other API services and associated functions in `taxize` support caching on the server side by the data provider. Of course you can do your own caching using `knitr` or other methods - some of which we discussed in [an earlier post][cacheoff].
 
-[cacheoff]: http://ropensci.org/blog/2014/02/03/caching-offline/
+[cacheoff]: /blog/2014/02/03/caching-offline/
 [eol]: http://eol.org/

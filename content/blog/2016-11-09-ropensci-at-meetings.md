@@ -10,7 +10,7 @@ tags:
   - meetings
 ---
 
-You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](https://ropensci.org/packages/) can enable your research, or about our [onboarding](https://github.com/ropensci/software-review) process for contributing new packages, discuss software [sustainability](https://ropensci.org/blog/blog/2016/05/25/software-sustanability-ropensci) or tell us how we can help you do open and reproducible research.
+You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our [packages](/packages/) can enable your research, or about our [onboarding](https://github.com/ropensci/software-review) process for contributing new packages, discuss software [sustainability](/blog/2016/05/25/software-sustanability-ropensci) or tell us how we can help you do open and reproducible research.
 
 <!--more-->
 
@@ -22,7 +22,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 <thead>
 <tr>
 	<th style="text-align:left;">When</th>
-	<th style="text-align:left;"><a href="https://ropensci.org/about/#team">Who</a></th>
+	<th style="text-align:left;"><a href="/about/#team">Who</a></th>
 	<th style="text-align:left;">Where</th>
 	<th style="text-align:left;">What</th>
 </tr>
@@ -31,7 +31,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 <tbody>
 <tr style="border-bottom:1px solid grey">
 	<td>Nov 13&#8211;18, 2016</td>
-	<td><a href="https://ropensci.org/blog/blog/2016/05/25/software-sustanability-ropensci">Dan Katz</a></td>
+	<td><a href="/blog/2016/05/25/software-sustanability-ropensci">Dan Katz</a></td>
 	<td>Salt Lake City, US</td>
 	<td><a href="http://sc16.supercomputing.org">SC16</a></td>
 </tr>

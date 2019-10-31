@@ -93,7 +93,7 @@ We'd like to thank the Open Tree project for providing such an amazing
 resource, and  for producing a powerful and well-documented API. `rotl` was
 initially developed as part of the [Open Tree's hackathon in Ann Arbor
 in
-2014](https://ropensci.org/blog/2014/08/15/open-tree-of-life-hackathon/).
+2014](/blog/2014/08/15/open-tree-of-life-hackathon/).
 We'd like to thank the Open Tree project for inviting us to the meeting
 and all participants of that meeting for discussions and their feedback
 on `rotl`. The package was reviewed as part of the rOpenSci onboarding

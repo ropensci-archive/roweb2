@@ -23,12 +23,12 @@ output:
 ---
 
 Thanks to the [first post of the
-series](https://ropensci.org/blog/2018/08/14/where-to-bird/) we know
+series](/blog/2018/08/14/where-to-bird/) we know
 where to observe birds near Radolfzell’s Max Planck Institute for
 Ornithology, so we could go and do that! Or we can stay behind our
 laptops and take advantage of [eBird](https://ebird.org/home), a
 fantastic bird sightings aggregator! As explained by Matt Strimas-Mackey
-in [his recent blog post](https://ropensci.org/blog/2018/08/07/auk/),
+in [his recent blog post](/blog/2018/08/07/auk/),
 “The eBird database currently contains over 500 million records of bird
 sightings, spanning every country and over 98% of species, making it an
 extremely valuable resource for bird research and conservation.”.
@@ -115,7 +115,7 @@ map all observations in the last 30 days near Radolfzell in Germany.
 
 The *Radolfzell* part of that sentence is a bit different than in [the
 last post about finding bird hides near the MPI institute for
-ornithology](https://ropensci.org/blog/2018/08/14/where-to-bird/): I
+ornithology](/blog/2018/08/14/where-to-bird/): I
 want all observations inside the polygon of the district of Constance
 (Landkreis Konstanz, including Radolfzell… and a protected natural
 area!) so I’ll first need to get it. For doing that I’ll use
@@ -293,14 +293,14 @@ Now, let’s explore the whole eBird dataset for Germany.
 
 After getting access to a custom dataset corresponding to the EBD for
 Germany only, I used `auk`’s documentation and [this
-post](https://ropensci.org/blog/2018/08/07/auk/) to learn how to process
+post](/blog/2018/08/07/auk/) to learn how to process
 it. Since I wasn’t planning on zero-filling the data to get
 presence/absence counts, I was able to ignore the sampling event data
 that contains the checklist-level information (e.g. time and date,
 location, and search effort information). For an example of a more
 advanced `auk` workflow involving the **full** EBD, and sampling data,
 refer to [Matt Strimas-Mackey’s own blog post about his
-package](https://ropensci.org/blog/2018/08/07/auk/).
+package](/blog/2018/08/07/auk/).
 
 #### Preparing the dataset
 
@@ -522,7 +522,7 @@ packages accessing eBird’s data:
     this way; and `mapr` a utility package for mapping such data.
 
 Explore these packages, and more of rOpenSci’s suite, by checking out
-our [packages page](https://ropensci.org/packages/)!
+our [packages page](/packages/)!
 
 #### More birding soon!
 

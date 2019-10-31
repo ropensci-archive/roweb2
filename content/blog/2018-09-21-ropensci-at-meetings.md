@@ -12,7 +12,7 @@ tags:
   - R
 ---
 
-You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our software [packages](https://ropensci.org/packages/) can enable your research, or about our process for open peer software [review and onboarding](/software-review/), how you can get connected with the [community](https://ropensci.org/community/) or tell us how we can help you do open and reproducible research.
+You can find members of the rOpenSci team at various meetings and workshops around the world. Come say 'hi', learn about how our software [packages](/packages/) can enable your research, or about our process for open peer software [review and onboarding](/software-review/), how you can get connected with the [community](/community/) or tell us how we can help you do open and reproducible research.
 
 <!--more-->
 
@@ -22,7 +22,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 <thead>
 <tr>
 	<th style="text-align:left;">When</th>
-	<th style="text-align:left;"><a href="https://ropensci.org/about/#team">Who</a></th>
+	<th style="text-align:left;"><a href="/about/#team">Who</a></th>
 	<th style="text-align:left;">Where</th>
 	<th style="text-align:left;">What</th>
 </tr>

@@ -15,7 +15,7 @@ tags:
 ---
 
 Textual data and natural language processing are still a niche domain within the R ecosytstem. The [NLP task view](https://cran.r-project.org/view=NaturalLanguageProcessing) gives an overview of existing work however a lot of basic infrastructure is still missing.
-At the rOpenSci [text workshop](https://ropensci.org/blog/blog/2017/05/03/textworkshop17) in April we discussed many ideas for improving text processing in R which revealed several core areas that need improvement:
+At the rOpenSci [text workshop](/blog/2017/05/03/textworkshop17) in April we discussed many ideas for improving text processing in R which revealed several core areas that need improvement:
 
  - Reading: better tools for extracing text and metadata from documents in various formats (doc, rtf, pdf, etc).
  - Encoding: many text packages work well for ascii text but rapidly break down when text contains Hungarian, Korean or emojis.

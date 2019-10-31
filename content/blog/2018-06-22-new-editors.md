@@ -11,7 +11,7 @@ tags:
   - R
   - Software Peer Review
 ---
-Part of rOpenSci's mission is to create technical infrastructure in the form of carefully vetted R software tools that lower barriers to working with data sources on the web. Our open peer software review system for community-contributed tools is a key component of this. As the rOpenSci community grows and more package authors submit their work for peer review, we need to expand our editorial board to maintain a speedy process. As our [recent post](https://ropensci.org/blog/2018/05/03/onboarding-is-work/#work-done-by-editors) shows, package submissions have grown every year since we started this experiment, and we see no reason they will slow down!
+Part of rOpenSci's mission is to create technical infrastructure in the form of carefully vetted R software tools that lower barriers to working with data sources on the web. Our open peer software review system for community-contributed tools is a key component of this. As the rOpenSci community grows and more package authors submit their work for peer review, we need to expand our editorial board to maintain a speedy process. As our [recent post](/blog/2018/05/03/onboarding-is-work/#work-done-by-editors) shows, package submissions have grown every year since we started this experiment, and we see no reason they will slow down!
 
 Editors manage the review process, performing initial package checks, identifying reviewers, and moderating the process until the package is accepted by reviewers and transferred to rOpenSci. Anna Krystalli and Lincoln Mullen have both served as guest editors for rOpenSci and now they join as full members of the [editorial board](https://devguide.ropensci.org/softwarereviewintro.html#associateditors) with Scott Chamberlain, Karthik Ram, Noam Ross and Maëlle Salmon. As a Research Software Engineer for University of Sheffield RSE, Anna brings the experience of working at the intersection of science and software development that we need. Lincoln has worked broadly in reproducibility for the digital humanities, and led editorial for specialized text analysis packages on an ad-hoc basis.
 
@@ -40,9 +40,9 @@ Anna on [GitHub](https://github.com/annakrystalli), [Twitter](https://twitter.co
 Lincoln on [GitHub](https://github.com/lmullen), [Twitter](https://twitter.com/lincolnmullen), [website](https://lincolnmullen.com/)
 
 ### Want to learn more about rOpenci software review?
-- [how we use code review to promote reproducible research](https://ropensci.org/blog/2017/09/01/nf-softwarereview/)
-- [software review collaborations with academic journals](https://ropensci.org/blog/2017/11/29/review-collaboration-mee/)
-- [perspectives of software reviewers](https://ropensci.org/tags/reviewer/)
+- [how we use code review to promote reproducible research](/blog/2017/09/01/nf-softwarereview/)
+- [software review collaborations with academic journals](/blog/2017/11/29/review-collaboration-mee/)
+- [perspectives of software reviewers](/tags/reviewer/)
 - [online book - rOpenSci Packages: Development, Maintenance, and Peer Review](https://devguide.ropensci.org/)
 
 We'd love to see you soon in the [onboarding repository](https://github.com/ropensci/software-review) as a submitter or reviewer!

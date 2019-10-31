@@ -7,7 +7,7 @@ authors:
 date: 2019-08-20
 categories: blog
 topicid: 1805
-preface: This work was funded by a [2018 rOpenSci Research Fellowship](https://ropensci.org/blog/2018/02/14/announcing-2018-ropensci-fellows/) to Sam Tyner. See the [related post](https://forensicstats.org/news-posts/discover-forensic-applications-of-the-statistical-language-r-in-new-csafe-book) from the Center for Statistics and Applications in Forensic Evidence (CSAFE).
+preface: This work was funded by a [2018 rOpenSci Research Fellowship](/blog/2018/02/14/announcing-2018-ropensci-fellows/) to Sam Tyner. See the [related post](https://forensicstats.org/news-posts/discover-forensic-applications-of-the-statistical-language-r-in-new-csafe-book) from the Center for Statistics and Applications in Forensic Evidence (CSAFE).
 tags:
 - R
 - Open Science
@@ -50,7 +50,7 @@ The chapter ["Firearms: bullets"](https://sctyner.github.io/OpenForSciR/bullets.
 
 ### How to Contribute & Acknowledgements 
 
-The book will continue to grow, and contributions are welcome via issues or pull requests on the [Github repo](https://github.com/sctyner/OpenForSciR). If you would like to contribute, please follow our [Contributor Code of Conduct](https://github.com/sctyner/OpenForSciR/blob/master/CODE_OF_CONDUCT.md). Thank you to the many CSAFE and NIST researchers who contributed to this project: [Dr. Heike Hofmann](https://hofmann.public.iastate.edu/) (ISU), Dr. Soyoung Park (ISU), [Xiao Hui Tai](http://www.stat.cmu.edu/~xtai/) (CMU), [Dr. Eric Hare](https://twitter.com/ericrhare) (Omni Analytics, formerly ISU), [Dr. Karen Kafadar](https://statistics.as.virginia.edu/faculty-staff/profile/kk3ab) (UVA), Karen Pan (UVA), [Dr. Amanda Luby](https://twitter.com/amandaluby) (CMU), and Dr. Sarah Riman (NIST). Finally, a big thank you goes to the [rOpenSci Fellowship program](https://ropensci.org/blog/2018/02/14/announcing-2018-ropensci-fellows/) for funding this project.  
+The book will continue to grow, and contributions are welcome via issues or pull requests on the [Github repo](https://github.com/sctyner/OpenForSciR). If you would like to contribute, please follow our [Contributor Code of Conduct](https://github.com/sctyner/OpenForSciR/blob/master/CODE_OF_CONDUCT.md). Thank you to the many CSAFE and NIST researchers who contributed to this project: [Dr. Heike Hofmann](https://hofmann.public.iastate.edu/) (ISU), Dr. Soyoung Park (ISU), [Xiao Hui Tai](http://www.stat.cmu.edu/~xtai/) (CMU), [Dr. Eric Hare](https://twitter.com/ericrhare) (Omni Analytics, formerly ISU), [Dr. Karen Kafadar](https://statistics.as.virginia.edu/faculty-staff/profile/kk3ab) (UVA), Karen Pan (UVA), [Dr. Amanda Luby](https://twitter.com/amandaluby) (CMU), and Dr. Sarah Riman (NIST). Finally, a big thank you goes to the [rOpenSci Fellowship program](/blog/2018/02/14/announcing-2018-ropensci-fellows/) for funding this project.  
 
 [^1]: Heike Hofmann, Susan Vanderplas, Ganesh Krishnan and Eric Hare (2019). x3ptools: Tools for Working with 3D Surface Measurements. R package version 0.0.2.9000. https://github.com/heike/x3ptools
   

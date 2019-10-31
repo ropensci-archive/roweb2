@@ -26,7 +26,7 @@ As our submissions have grown over the past couple of years, our standards aroun
 
 Although a large number of packages submitted to CRAN could also be part of rOpenSci, our submissions are limited to packages that fit our mission and are able to pass a stringent and time intensive review process.
 
-Here, we summarize some of the more important changes to peer review at rOpenSci over the past year.  The most recent information can always be found at <https://ropensci.org/software-review/>.
+Here, we summarize some of the more important changes to peer review at rOpenSci over the past year.  The most recent information can always be found at </software-review/>.
 
 ### We've Expanded Our Scope
 
@@ -115,15 +115,15 @@ Get in touch with us on Twitter ([@ropensci](https://twitter.com/ropensci), or i
 
 To find out more about our software review process join us on the next [rOpenSci Community Call][cc]
 
-We hope to see you soon in the onboarding repository as a [submitter](https://github.com/ropensci/software-review/issues/new) or as a [reviewer](https://ropensci.org/onboarding/)!
+We hope to see you soon in the onboarding repository as a [submitter](https://github.com/ropensci/software-review/issues/new) or as a [reviewer](/onboarding/)!
 
 
 
 
 
 [nfpost]: https://www.numfocus.org/blog/how-ropensci-uses-code-review-to-promote-reproducible-science/
-[rostatspost]: https://ropensci.org/blog/blog/2016/03/28/software-review
-[cc]: https://ropensci.org/blog/blog/2017/08/31/comm-call-v14
+[rostatspost]: /blog/2016/03/28/software-review
+[cc]: /blog/2017/08/31/comm-call-v14
 [ms]: https://masalmon.eu/
 [pkgfit]: https://github.com/ropensci/onboarding/blob/d796e7d197ad6e632ca237cec931420c51766045/policies.md#package-fit
 [aims]: https://devguide.ropensci.org/policies.html#aims-and-scope

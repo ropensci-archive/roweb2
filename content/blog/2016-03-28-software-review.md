@@ -33,7 +33,7 @@ scientists, and our package contributors have a mix of backgrounds. We aim to
 serve our users with high-quality software, and also promote best practices
 among our author base and in the scientific community in general. So for
 the past year, rOpenSci has been piloting a system of peer code review for
-submissions to [our suite of R packages](https://ropensci.org/packages/). Here
+submissions to [our suite of R packages](/packages/). Here
 we'll outline how our system works, and what we've learned from our authors and
 reviewers.
 

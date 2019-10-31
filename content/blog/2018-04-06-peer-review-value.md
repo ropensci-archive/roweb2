@@ -26,7 +26,7 @@ This question has important corollaries which I will explore here based on my ex
 
 
 ### Doing a good job
-As I've read the growing number of reflective posts by other Onboarding reviewers, I'm struck similarities in our experiences. [Mara Averick](https://ropensci.org/blog/2017/08/22/first-package-review/), [Verena Haunschmid](https://ropensci.org/blog/2017/09/08/first-review-experiences/), and [Charles Gray](https://ropensci.org/blog/2018/03/13/ode-to-testing/) all place emphasis on reviewing from a "user's" perspective. For Mara and Charles, this perspective was used to gain traction after initial nervousness about their ability to do a good job.
+As I've read the growing number of reflective posts by other Onboarding reviewers, I'm struck similarities in our experiences. [Mara Averick](/blog/2017/08/22/first-package-review/), [Verena Haunschmid](/blog/2017/09/08/first-review-experiences/), and [Charles Gray](/blog/2018/03/13/ode-to-testing/) all place emphasis on reviewing from a "user's" perspective. For Mara and Charles, this perspective was used to gain traction after initial nervousness about their ability to do a good job.
 
 I shared these initial butterflies. `bowerbird`'s code base was quite large on the first submission. The code embedded a lot of domain specific API knowledge. It was disorientating and I felt like I was thrashing around stumbling onto issues without undertaking a systematic survey.
 

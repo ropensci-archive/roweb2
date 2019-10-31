@@ -117,7 +117,7 @@ Go <a href="https://render.github.com/view/geojson?url=https://raw.github.com/sc
 That's it. have a look at your map, have fun, and let us know if you have any feature requests or bug reports at our Github issues tracker for rgbif [here][rgbifissues].
 
 
-[ropost]: http://ropensci.org/blog/2013/07/04/rbison-geoson/
+[ropost]: /blog/2013/07/04/rbison-geoson/
 [scottpost]: http://sckott.github.io/2013/06/geojson/
 [rgbif]: https://github.com/ropensci/rgbif
 [rgbifissues]: https://github.com/ropensci/rgbif/issues
