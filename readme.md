@@ -73,6 +73,7 @@ tags:
 - If you would like a specific image from your post to be featured in tweets that include a link to your post, add to YAML `twitterImg: img/blog-images/<DATE-SLUG>/name-of-image.png`. Omit the leading `/`
 - Use ### or #### to format headings in your post; larger sizes don't look good. Note long headings with #### don't wrap well.
 - Spell 'rOpenSci', not 'ROpenSci'
+- When adding links to our website please use relative instead of absolute URLs: e.g. `/blog/` instead of `https://ropensci.org/blog/`.
 - For references, put `[^1]` after the text you want to cite in body of the post, and put `[^1]: citation details` at the end of the post. They will link to each other. Example in this post [markdown](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2019-04-18-ropensci-mee.md) -> [rendered](https://ropensci.org/blog/2019/04/18/wild-standards/).
 - Check to see if you're listed on [our authors page](https://ropensci.org/authors/). If you are listed, consider updating the links to your online presence in the author's index file. If not, create an [author's index file for yourself](#author-file).
 
