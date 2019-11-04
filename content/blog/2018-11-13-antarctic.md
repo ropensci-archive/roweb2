@@ -346,6 +346,6 @@ There is plenty more that these and other R packages can do for Antarctic and So
 
 ### References
 
-[1] IMOS (2018) AATAMS Facility - Satellite Relay Tagging Program - Delayed mode data, <https://catalogue-imos.aodn.org.au/geonetwork/srv/en/metadata.show?uuid=06b09398-d3d0-47dc-a54a-a745319fbece>
+[1]: IMOS (2018) AATAMS Facility - Satellite Relay Tagging Program - Delayed mode data, <https://catalogue-imos.aodn.org.au/geonetwork/srv/en/metadata.show?uuid=06b09398-d3d0-47dc-a54a-a745319fbece>
 
-[2] Composite Gazetteer of Antarctica, Scientific Committee on Antarctic Research. GCMD Metadata (<http://gcmd.nasa.gov/records/SCAR_Gazetteer.html>)
+[2]: Composite Gazetteer of Antarctica, Scientific Committee on Antarctic Research. GCMD Metadata (<http://gcmd.nasa.gov/records/SCAR_Gazetteer.html>)
