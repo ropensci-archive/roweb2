@@ -76,7 +76,7 @@ req <- req[!basename(req) %in% installed.packages()[, 1]]
 if (length(req) > 0) remotes::install_github(req)
 ```
 
-Let's say that we have some points of interest in the Southern Ocean — perhaps a ship track, or some stations where we took marine samples, or as we'll use here, the [track of an elephant seal](http://www.meop.net/) as it moves from the Kerguelen Islands to Antarctica and back again (Data from IMOS 2018[1], provided as part of the `SOmap` package).
+Let's say that we have some points of interest in the Southern Ocean — perhaps a ship track, or some stations where we took marine samples, or as we'll use here, the [track of an elephant seal](http://www.meop.net/) as it moves from the Kerguelen Islands to Antarctica and back again (Data from IMOS 2018[^1], provided as part of the `SOmap` package).
 
 ``` r
 library(dplyr)
@@ -293,7 +293,7 @@ plot(ele_sp, col = "darkgreen", add = TRUE)
 
 #### Place names
 
-SCAR maintains a gazetteer of place names in the Antarctic and surrounding Southern Ocean[2], which is available to R users via the [`antanym` package](https://ropensci.github.io/antanym/):
+SCAR maintains a gazetteer of place names in the Antarctic and surrounding Southern Ocean[^2], which is available to R users via the [`antanym` package](https://ropensci.github.io/antanym/):
 
 ``` r
 library(antanym)
