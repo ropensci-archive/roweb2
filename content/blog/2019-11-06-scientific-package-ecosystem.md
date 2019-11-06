@@ -35,7 +35,7 @@ Computational reproducibility will be another vital feature of this infrastructu
 If building any of this infrastructure sounds exciting to you, [we'd love to hear from you! ](https://ropensci.org/contact/)Over the coming weeks we plan to open up a few developer positions (full-time and contract) so stay tuned for those announcements.
 
 
-## Notes
+### Notes
 
 [^1]:
      [https://zenodo.org/record/843607](https://zenodo.org/record/843607)
