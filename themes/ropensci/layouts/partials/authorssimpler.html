@@ -1,10 +1,7 @@
 {{$pages := .Site.Pages.ByPublishDate.Reverse}}
 {{ range $i, $e := .authors }}
-{{ if $i }}, 
-  {{ end }}
+{{ if $i }}-{{ end }}
                             
-  {{ range first 1 (where $pages ".Params.name" $e) }}
-                            &nbsp;
-                            <a href="{{ .RelPermalink }}">{{ .Params.name }}</a>
+  {{ range first 1 (where $pages ".Params.name" $e) }}<a href="{{ .RelPermalink }}">{{ .Params.name }}</a>
   {{ end }}
 {{end}}
