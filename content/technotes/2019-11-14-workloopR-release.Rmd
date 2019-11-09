@@ -163,6 +163,11 @@ We are happy to expand the scope of the package to incorporate even more types o
 
 Should you like to suggest a specific feature, please use the [Issues page](https://github.com/ropensci/workloopR/issues/new/choose) of our repository. 
 
+
+### rOpenSci package review
+
+We are thankful for the suggestions we've already received. `workloopR` benefitted a lot from peer review of code through rOpenSci. Special thanks to Julia Romanowska ([jromanowska](https://github.com/jromanowska)) and Eric Brown ([eebrown](https://github.com/eebrown)) for reviewing our code and giving helpful suggestions on how to improve the clarity of `workloopR`'s presentation.
+
 🐢
 
 
