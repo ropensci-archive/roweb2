@@ -166,7 +166,7 @@ Should you like to suggest a specific feature, please use the [Issues page](http
 
 ### Package review by rOpenSci and JOSS
 
-We are thankful for the suggestions we've already received. workloopR benefited a lot from peer review of code through rOpenSci. Special thanks to Julia Romanowska ([jromanowska](https://github.com/jromanowska)) and Eric Brown ([eebrown](https://github.com/eebrown)) for reviewing our code and giving helpful suggestions on how to improve the clarity of workloopR's presentation.
+We are thankful for the suggestions we've already received. workloopR benefited a lot from [peer review of code](https://github.com/ropensci/software-review/issues/326) through rOpenSci. Special thanks to Julia Romanowska ([jromanowska](https://github.com/jromanowska)) and Eric Brown ([eebrown](https://github.com/eebrown)) for reviewing our code and giving helpful suggestions on how to improve the clarity of workloopR's presentation.
 
 We are also happy to share that a journal article that accompanies this package was also peer reviewed and accepted by the Journal of Open Source Software (JOSS)[^2].
 
