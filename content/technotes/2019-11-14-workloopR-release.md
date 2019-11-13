@@ -38,7 +38,7 @@ Studies of muscle physiology often rely on closed-source, proprietary software f
 <!--html_preserve--> {{% figure src = "/img/blog-images/2019-11-14-workloopR-release/workloopR_icon_300dpi.png" width = "150" alt = "workloopR icon" %}}
 <!--/html_preserve-->
 
-To give muscle physiologists a set of tools to help perform reproducible research, we present our new R package [**workloopR**](https://github.com/ropensci/workloopR).
+To give muscle physiologists a set of tools to help perform reproducible research, we present our new R package [workloopR](https://github.com/ropensci/workloopR).
 
 
 ### What it does
@@ -46,11 +46,11 @@ To give muscle physiologists a set of tools to help perform reproducible researc
 workloopR (pronounced "work looper") provides a variety of features that we hope will help the typical muscle physiology researcher’s workflow. These include: 
 
 * [Data import](https://docs.ropensci.org/workloopR/articles/Introduction-to-workloopR.html#data-import) from `.ddf` files, like those produced by Aurora Scientific[^1], with retention of important metadata like file creation times and stimulus protocols.  
-* Data import from non-`ddf` files through an object constructor ([vignette here!](https://docs.ropensci.org/workloopR/articles/non-ddf-sources.html))
-* Automatic cycle selection within data, with three options for how cycles are defined; see our `select_cycles()` function and some [tips here](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html#more-on-cycle-definitions-in-select_cycles)
-* Gear ratio correction and other forms of transformation; see [Data transformation functions](https://docs.ropensci.org/workloopR/reference/index.html#section-data-transformation-functions)
-* [Work loop analyses](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html), which integrate muscle force and length change to determine mechanical work output (and power output)
-* Analyses of twitch and tetanic data to [determine the time course of force production](https://docs.ropensci.org/workloopR/articles/Calculating-twitch-kinetics.html)
+* Data import from non-`ddf` files through an object constructor ([vignette here!](https://docs.ropensci.org/workloopR/articles/non-ddf-sources.html)).
+* Automatic cycle selection within data, with three options for how cycles are defined; see our `select_cycles()` function and some [tips here](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html#more-on-cycle-definitions-in-select_cycles).
+* Gear ratio correction and other forms of transformation; see [Data transformation functions](https://docs.ropensci.org/workloopR/reference/index.html#section-data-transformation-functions).
+* [Work loop analyses](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html), which integrate muscle force and length change to determine mechanical work output (and power output).
+* Analyses of twitch and tetanic data to [determine the time course of force production](https://docs.ropensci.org/workloopR/articles/Calculating-twitch-kinetics.html).
 
 And the **ability to do all of the above in batch** (i.e., import, wrangle, and analyze all data files within a directory) and then summarize the major results. [Vignette here!](https://docs.ropensci.org/workloopR/articles/batch-processing.html)
 
