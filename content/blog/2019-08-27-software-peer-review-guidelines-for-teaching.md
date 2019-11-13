@@ -10,7 +10,6 @@ tags:
 - Software Peer Review
 - R
 - software
-- packages
 - teaching
 - education
 ---
