@@ -46,11 +46,11 @@ To give muscle physiologists a set of tools to help perform reproducible researc
 workloopR (pronounced "work looper") provides a variety of features that we hope will help the typical muscle physiology researcher’s workflow. These include: 
 
 * [Data import](https://docs.ropensci.org/workloopR/articles/Introduction-to-workloopR.html#data-import) from `.ddf` files, like those produced by Aurora Scientific[^1], with retention of important metadata like file creation times and stimulus protocols.  
-* Data import from non-`ddf` files through an object constructor ([vignette here!](https://docs.ropensci.org/workloopR/articles/non-ddf-sources.html)).
-* Automatic cycle selection within data, with three options for how cycles are defined; see our `select_cycles()` function and some [tips here](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html#more-on-cycle-definitions-in-select_cycles).
-* Gear ratio correction and other forms of transformation; see [Data transformation functions](https://docs.ropensci.org/workloopR/reference/index.html#section-data-transformation-functions).
-* [Work loop analyses](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html), which integrate muscle force and length change to determine mechanical work output (and power output).
-* Analyses of twitch and tetanic data to [determine the time course of force production](https://docs.ropensci.org/workloopR/articles/Calculating-twitch-kinetics.html).
+* Data import from non-`ddf` files through an object constructor ([vignette here!](https://docs.ropensci.org/workloopR/articles/non-ddf-sources.html))
+* Automatic cycle selection within data, with three options for how cycles are defined; see our `select_cycles()` function and some [tips here](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html#more-on-cycle-definitions-in-select_cycles)
+* Gear ratio correction and other forms of transformation; see [Data transformation functions](https://docs.ropensci.org/workloopR/reference/index.html#section-data-transformation-functions)
+* [Work loop analyses](https://docs.ropensci.org/workloopR/articles/Analyzing-workloops.html), which integrate muscle force and length change to determine mechanical work output (and power output)
+* Analyses of twitch and tetanic data to [determine the time course of force production](https://docs.ropensci.org/workloopR/articles/Calculating-twitch-kinetics.html)
 
 And the **ability to do all of the above in batch** (i.e., import, wrangle, and analyze all data files within a directory) and then summarize the major results. [Vignette here!](https://docs.ropensci.org/workloopR/articles/batch-processing.html)
 
@@ -134,7 +134,8 @@ plot(wl_analyzed$cycle_b$Position,
   theme_minimal()
 ```
 
-{{< figure src="/img/blog-images/2019-11-14-workloopR-release/work_loop_plots-1.png" alt="work loop via base R" width="300" >}}{{< figure src="/img/blog-images/2019-11-14-workloopR-release/work_loop_plots-2.png" alt="work loop via ggplot" width="300" >}}
+<!--html_preserve--> {{< figure src="/img/blog-images/2019-11-14-workloopR-release/work_loop_plots-1.png" alt="alt text here" width="300" >}}{{< figure src="/img/blog-images/2019-11-14-workloopR-release/work_loop_plots-2.png" alt="alt text here" width="300" >}}
+<!--/html_preserve-->
 
 See our [Plotting vignette](https://docs.ropensci.org/workloopR/articles/Plotting-workloopR.html) for more plotting ideas.
 
@@ -168,10 +169,10 @@ wl_batch_summarized
 ## 3 03_6pulse.ddf              28     1.575 -24.92               6
 ## 4 04_4pulse.ddf              28     1.575 -24.64               4
 ##   Stimulus_Frequency      mtime     Mean_Work  Mean_Power
-## 1                300 1572637402  0.0027387056 0.078427135
-## 2                300 1572637402  0.0009849216 0.027832717
-## 3                300 1572637402 -0.0002192395 0.004323004
-## 4                300 1572637402  0.0022793831 0.065468837
+## 1                300 1572459771  0.0027387056 0.078427135
+## 2                300 1572459771  0.0009849216 0.027832717
+## 3                300 1572459771 -0.0002192395 0.004323004
+## 4                300 1572459771  0.0022793831 0.065468837
 ```
 
 For more, see our [Batch processing vignette](https://docs.ropensci.org/workloopR/articles/batch-processing.html).
@@ -179,7 +180,7 @@ For more, see our [Batch processing vignette](https://docs.ropensci.org/workloop
 
 ### How to get workloopR
 
-We are not (yet) on CRAN but the package is available through rOpenSci's github:
+We are not (yet) on CRAN but the package is available through rOpenSci's GitHub:
 ``` r
 #install.packages("devtools") # if devtools is not installed
 devtools::install_github("ropensci/workloopR")
@@ -200,11 +201,12 @@ Should you like to suggest a specific feature, please use the [Issues page](http
 
 ### Package review by rOpenSci and JOSS
 
-We are thankful for the suggestions we've already received. workloopR benefited a lot from peer review of code through rOpenSci. Special thanks to Julia Romanowska ([jromanowska](https://github.com/jromanowska)) and Eric Brown ([eebrown](https://github.com/eebrown)) for reviewing our code and giving helpful suggestions on how to improve the clarity of workloopR's presentation.
+We are thankful for the suggestions we've already received. workloopR benefited a lot from [peer review of code](https://github.com/ropensci/software-review/issues/326) through rOpenSci. Special thanks to Julia Romanowska ([jromanowska](https://github.com/jromanowska)) and Eric Brown ([eebrown](https://github.com/eebrown)) for reviewing our code and giving helpful suggestions on how to improve the clarity of workloopR's presentation.
 
-We are also happy to share that a journal article that accompanies this package was also peer reviewed and accepted by the [Journal of Open Source Software](https://joss.theoj.org/) (JOSS); our paper can be found [here](https://doi.org/10.21105/joss.01856).
+We are also happy to share that a journal article that accompanies this package was also peer reviewed and accepted by the Journal of Open Source Software (JOSS)[^2].
 
 🐢
 
 
 [^1]: Software from Aurora Scientific: https://aurorascientific.com/products/muscle-physiology/muscle-software/
+[^2]: Baliga V. and Senthivasan S (2019). workloopR: Analysis of work loops and other data from muscle physiology experiments in R. Journal of Open Source Software, 4(43), 1856, https://doi.org/10.21105/joss.01856
