@@ -174,3 +174,4 @@ We are also happy to share that a journal article that accompanies this package 
 
 
 [^1]: Software from Aurora Scientific: https://aurorascientific.com/products/muscle-physiology/muscle-software/
+[^2]: Baliga V. and Senthivasan S (2019). workloopR: Analysis of work loops and other data from muscle physiology experiments in R. Journal of Open Source Software, 4(43), 1856, https://doi.org/10.21105/joss.01856
