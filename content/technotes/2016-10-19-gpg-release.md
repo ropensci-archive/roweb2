@@ -72,13 +72,13 @@ considered   imported  unchanged
          1          1          0  
 ```
 
-We can now verify the [Release](https://cran.r-project.org/bin/linux/debian/jessie-cran3/Release) file, which contains checksums for all files in the repository.
+We can now verify the [Release](https://cran.r-project.org/bin/linux/debian/buster-cran35/Release) file, which contains checksums for all files in the repository.
 
 ```r
 # Verify the file
 library(curl)
-curl_download('https://cran.r-project.org/bin/linux/debian/jessie-cran3/Release', 'Release')
-curl_download('https://cran.r-project.org/bin/linux/debian/jessie-cran3/Release.gpg', 'Release.gpg')
+curl_download('https://cran.r-project.org/bin/linux/debian/buster-cran35/Release', 'Release')
+curl_download('https://cran.r-project.org/bin/linux/debian/buster-cran35/Release.gpg', 'Release.gpg')
 gpg_verify('Release', 'Release.gpg')
 ```
 
