@@ -145,7 +145,7 @@ For more, see our [Batch processing vignette](https://docs.ropensci.org/workloop
 
 ### How to get workloopR
 
-We are not (yet) on CRAN but the package is available through rOpenSci's github:
+We are not (yet) on CRAN but the package is available through rOpenSci's GitHub:
 ``` r
 #install.packages("devtools") # if devtools is not installed
 devtools::install_github("ropensci/workloopR")
