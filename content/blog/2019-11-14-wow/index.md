@@ -13,7 +13,7 @@ tags:
 # delete the line below
 # if you have no preferred image
 # for Twitter cards
-twitterImg: img/blog-images/2019-06-04-post-template/name-of-image.png
+twitterImg: image1.png
 ---
 
 Save this file under /content/blog/YEAR-MONTH-DAY-slug.md in the local copy of your roweb2 fork.
