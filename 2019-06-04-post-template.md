@@ -1,6 +1,6 @@
 ---
 slug: "post-template"
-title: Wonderful title
+title: Wonderful title wow
 package_version: 0.1.0
 authors:
   - Author Name
