@@ -45,6 +45,14 @@
    ]
 },
 {
+   "name": "Mark Padgham",
+   "url": "/authors/mark-padgham",
+   "image" : "/img/team/member.jpg",
+   "roles": [
+      "staff"
+   ]
+},
+{
    "name": "Stacey Dorton",
    "image" : "/img/team/stacey.png",
    "roles": [
@@ -82,7 +90,7 @@
 {
    "name": "Rich FitzJohn",
    "url": "https://richfitz.github.io/",
-   "image" : "/img/team/rich_fitzjohn.jpg",
+   "image" : "/img/team/rich-fitzjohn.jpg",
    "affiliation" : "Imperial College London",
    "roles": [
       "leadership"
