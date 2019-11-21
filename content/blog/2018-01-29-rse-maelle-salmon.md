@@ -46,7 +46,7 @@ As an Editor, once assigned to a submission, I install packages and test them lo
 
 ### Q: Do you get anything out of all the work you do on your advocacy activities?
 
-I enjoy it, the actual activity and the people I get to interact with, and that’s the main reason I do it. You get to engage with nice people all over the world. Interactions with other R-Ladies are fantastic. I also find it useful and meaningful. But if you really want me to mention other gains: through this, for example, I got invited to [SatRday in Cape Town](http://capetown2018.satrdays.org/), where I’ll give a workshop about R package development and a keynote about the rOpenSci onboarding system. I was also interviewed for the [DataFramed podcast](https://www.datacamp.com/community/podcast) talking about data science, epidemiology and public health, so I guess a few things have come out of these activities.
+I enjoy it, the actual activity and the people I get to interact with, and that’s the main reason I do it. You get to engage with nice people all over the world. Interactions with other R-Ladies are fantastic. I also find it useful and meaningful. But if you really want me to mention other gains: through this, for example, I got invited to [SatRday in Cape Town](http://capetown2018.satrdays.org/), where I’ll give a workshop about R package development and a keynote about the rOpenSci onboarding system. 
 
 ### Q: Why do you blog?
 
