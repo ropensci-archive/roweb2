@@ -22,6 +22,8 @@ _Note from Stefanie:_ When I met Mark in Seattle at rOpenSci’s unconf18, I was
 
 {{< figure src = "/img/team/mark-padgham.jpg" width = "250" alt = "Headshot of Mark Padgham" >}}
 
+> I’ve got a lot of concrete visions for extending testing well beyond anything that’s been done in a computational or quantitative way. Convincing leaders in statistics and statistical software that’s a good idea is certainly going to be challenging and very rewarding.
+
 We talked with Mark to learn more about him, and his work.
 
 
