@@ -22,28 +22,28 @@ _Note from Stefanie:_ When I met Mark in Seattle at rOpenSci’s unconf18, I was
 
 {{< figure src = "/img/team/mark-padgham.jpg" width = "250" alt = "Headshot of Mark Padgham" >}}
 
-> I’ve got a lot of concrete visions for extending testing well beyond anything that’s been done in a computational or quantitative way. Convincing leaders in statistics and statistical software that’s a good idea is certainly going to be challenging and very rewarding.
+> I’ve got a lot of concrete visions for extending testing beyond current computational or quantitative approaches. Convincing leaders in statistics and statistical software to update and innovate on current practices is certainly going to be challenging and very rewarding.
 
 We talked with Mark to learn more about him, and his work.
 
 
 ### What do you want people to know about your background?
 
-I live in Germany, but grew up in Australia. I have an undergraduate degree in physics and maths, a PhD in ecology, qualifications in climatology and meteorology, as well as official teaching qualifications. All of these were obtained from universities in Melbourne, Australia - each one from a different university. Following my PhD, I worked in post-doctoral academic positions at the interface of ecology and climatology, before changing country and continent to Germany, and changing academic direction to the study of urban systems.
+I am originally from Australia, have lived and worked in a few countries along the way (including Japan and Austria), and now live in Germany. I have an undergraduate degree in physics and maths, a PhD in ecology, qualifications in climatology and meteorology, as well as official teaching qualifications. All of these were obtained from universities in Melbourne, Australia - each one from a different university. Following my PhD, I worked in post-doctoral academic positions at the interface of ecology and climatology, before changing country and continent to Germany, and changing academic direction to the study of urban systems.
 
 I have always said I’m dedicated to changing the world one walking trip or one bike trip at a time to change the way people live life in cities, but now I have a much more “meta” personal motivation. I develop software in the hope that it will make the world a better place. It’s focussed on a particular kind of change. My software is primarily motivated by a desire to make the understanding of cities easier and more accessible - from accessing the raw data of street networks (osmdata), to fine-scaled data on mobility (bikedata), to understanding and mapping how, where, and when people move through cities (through the [dodgr](https://github.com/ATFutures/dodgr) package).
 
 
 ### What is your favorite thing about R?
 
-I like to use R (rather than another mainstream language) because R is the best language around to develop master control systems from your raw data input through to documentation outputs, as websites, published reports, dashboards and every step in between. They can all be controlled from the one language. There’s no other language that reaches that level of master control system. It is an accolade of what RStudio has done to transform the utility of the language.
+I like to use R (rather than another mainstream language) because R is the best language to develop master control systems from your raw data input through to documentation outputs, as websites, published reports, dashboards and every step in between. They can all be controlled from the one language. There’s no other language that reaches that level of master control system. It is an accolade of what RStudio has done to transform the utility of the language.
 
 When I sit down with R, the first question I ask myself is, how do I get into C++ from here?
 
 
 ### What’s an R thing you’d like to learn?
 
-Yeah…lots of things [_long pause while Mark tries to choose one thing_]. To really understand how the C-level language of R interfaces with objects compile from other languages and environments - that would be really cool. And at the level of C code, how lazy-evaluation works. Everyone’s gotten so used to that but you don’t even have to think about it. That’s a piece of amazing magic under the hood that I don’t understand.
+Yeah…lots of things [_long pause while Mark tries to choose one thing_]. To really understand how the C-level language of R interfaces with objects compiled from other languages and environments - that would be really cool. And at the level of C code, how lazy-evaluation works. Everyone’s gotten so used to that but you don’t even have to think about it. That’s a piece of amazing magic under the hood that I don’t understand.
 
 
 ### You’ve made so many concrete contributions to rOpenSci, as well as less-visible community contributions. What made you keep coming back to give more?
@@ -57,14 +57,14 @@ It’s in my own interest to continue to contribute to the community because it�
 
 I’ll be working on developing robust tools to assess packages. As an inveterate coder, I love nothing more than to get up in the morning and find myself still sitting there at 4:00 in the afternoon in my “coding-hole”. But a big part of the initial stuff, which I’m really excited about, is about connecting various people who will ultimately be involved in guiding the expansion of rOpenSci into the statistical methods side of things. So it’s much more people-centered than the typical life of a 100% coder. Like so many rOpenSci projects, this aims to be very community-driven.
 
-I’ll really enjoy being between two worlds trying to think in general terms about developing this whole new endeavour [statistical software peer review] and ensuring the development is as general and generalizable as possible. While on the other side, having to be involved with profoundly important brilliant academic experts in various aspects of statistics & statistical software so it will be both very niche and very general at the same time. One of the key challenges will be working with experts in the statistical and software communities and having to foster consensus of opinion on their part in realms that have basically never been tried before. And on the other side, I’ve got a lot of concrete visions for extending testing well beyond anything that’s been done in a computational or quantitative way. Convincing leaders in statistics and statistical software that’s a good idea is certainly going to be challenging and very rewarding.
+I’ll really enjoy being between two worlds trying to think in general terms about developing this whole new endeavour [statistical software peer review] and ensuring the development is as general and generalizable as possible. While on the other side, having to be involved with profoundly important brilliant academic experts in various aspects of statistics & statistical software so it will be both very niche and very general at the same time. One of the key challenges will be working with experts in the statistical and software communities and having to foster consensus of opinion on their part in realms that have basically never been tried before. And on the other side, I’ve got a lot of concrete visions for extending testing beyond current computational or quantitative approaches. Convincing leaders in statistics and statistical software to update and innovate on current practices is certainly going to be challenging and very rewarding.
 
 
 ### What would you like to see in the statistical software standards or package review landscape in two years?
 
-Actual testing of the statistical routines themselves. To date, all systems for evaluating software rely on signature keys of what reliable software might look like externally. It’s like it’s packaged up in a box and you’re evaluated by examining all the things on the outside of the box because getting inside the box is almost impossible. But R is also quite unique in that way, that it allows you to standardize things enough that you know what to look for and then pry into that.
+Actual testing of the statistical routines themselves. To date, all systems for evaluating software rely on signature keys of what reliable software might look like externally. It’s like it’s packaged up in a box and you can only examine all the things on the outside of the box because getting inside the box is almost impossible. But the R package system is also quite unique in that way, that it allows you to standardize things enough that you know what to look for and then pry into that.
 
-I’m excited about the opportunity to develop new packages in a new field for me. All the packages I’ve made, I’ve done because I’ve had this vision of what I can do and where the packages are going. I’m aware of a difference in my mindset - a package that is not critically necessary but get to think about the language as a whole and what people want to use in a package. I’m excited to be thinking about the language itself more deeply and the structure of the way R works.
+I’m excited about the opportunity to develop new packages in a new field for me. All of my packages to date have been intended to meet very concrete, applied needs, and to enable users to do things in R that were not otherwise possible. I’m already cultivating a different mindset in this position, towards developing packages that enable users to do things that might already be possible, yet to do them better -- along the lines of how Jim Hester's glue package (largely) replaces current functionality with better alternatives. I’m excited to be thinking about the language itself more deeply and the structure of the way R works.
 
 Also, the generalizability of everything. At the end I imagine there is this document that says “This is how you construct a new community of software peer review”, regardless of the academic field. That’s incredibly exciting.
 
