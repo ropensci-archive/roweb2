@@ -14,7 +14,7 @@ tags:
 # delete the line below
 # if you have no preferred image
 # for Twitter cards
-twitterImg: /2019/06/04/post-template/name-of-image.png
+twitterImg: /blog/2019/06/04/post-template/name-of-image.png
 output: 
   html_document:
     keep_md: true
