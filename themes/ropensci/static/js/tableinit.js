@@ -19,7 +19,7 @@ $(document).ready( function () {
           
           {
                 "data" : function(row, type, set, meta){
-                return '<a href="' + row.url + '">' + row.name + '</a>';
+                return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
 },
                 title: "Name"
             },
