@@ -11,12 +11,12 @@ tags:
   - packages
 ---
 
-By default, R runs all code from vignettes during `R CMD check` or when generating pkgdown sites. This provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is not what you want because the vignette can only be rendered on your local machine. For example:
+By default, R runs all code from vignettes during `R CMD check` or when generating pkgdown sites. This is useful because it provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is impractical because the vignette should only be rendered on your local machine. For example:
 
-  - The vignette examples requires some special local software or data
-  - The code connects to a web service that requires authentication or other restricitions
-  - You don't want to hammer web services for every vignette run
-  - The vignette code takes very long to run
+  - The vignette examples requires some special local software or data.
+  - The code connects to a web service that requires authentication or has limits.
+  - You don't want to hammer web services for every CMD check.
+  - The vignette code takes very long to execute.
 
 In such cases you could execute the code from vignettes locally, and ship a vignette in the package which already contains the rendered R output. 
 
@@ -31,11 +31,11 @@ knitr::knit("vignettes/longexample.Rmd", "vignettes/longexample.Rmd")
 
 The new output file `longexample.Rmd` now contains markdown with the already executed R output. So it can be treated as a regular vignette, but R can convert it to html instantaneously without having to re-run R code from the vignette.
 
-The [jsonlite package](https://github.com/jeroen/jsonlite/tree/v1.6/vignettes) shows a real world example. In this case I pre-calculated vignettes that access web APIs to prevent services from getting hammered, and eventually banning the check servers.
+The [jsonlite package](https://github.com/jeroen/jsonlite/tree/v1.6/vignettes) shows a real world example. In this case I pre-calculated vignettes that access web APIs to prevent services from getting hammered (and potentially banning the check servers).
 
 ## Saving vignette figures
 
-One gotcha with this trick is that if the vignette output includes figures, you need to store the output image files in the vignettes folder. It is also a good idea to explicitly name your knitr chunks, so that the stored images have sensible names.
+One gotcha with this trick is that if the vignette output includes figures, you need to store the images in the vignettes folder. It is also a good idea to explicitly name your knitr chunks, so that the images have sensible filenames.
 
 Our recently onboarded package [eia](https://github.com/ropensci/eia/tree/master/vignettes) by Matt Leonawicz is a good example. This package provides an R client for US Energy Information Administration Open Data API. The [eia documentation](https://docs.ropensci.org/eia/articles/) gets automatically generated for each commit on the [rOpenSci docs server](https://ropensci.org/technotes/2019/06/07/ropensci-docs/), even though the code in the vignettes actually requires an API key (which the docs server does not have).
 
