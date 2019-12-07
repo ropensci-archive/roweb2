@@ -11,9 +11,9 @@ tags:
   - packages
 ---
 
-By default, R runs all code from vignettes during `R CMD check` or when generating pkgdown sites. This is useful because it provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is impractical because the vignette should only be rendered on your local machine. For example:
+By default, R runs all code from vignettes during `R CMD check` or when generating pkgdown sites. This is useful because it provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is impractical and it would be better to just render the vignette on your local machine. For example:
 
-  - The vignette examples requires some special local software or data.
+  - The vignette examples require some special local software or data.
   - The code connects to a web service that requires authentication or has limits.
   - You don't want to hammer web services for every CMD check.
   - The vignette code takes very long to execute.
