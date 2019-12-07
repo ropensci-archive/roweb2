@@ -11,14 +11,14 @@ tags:
   - packages
 ---
 
-By default, R runs all code from vignettes when running `R CMD check` or when generating pkgdown sites. This provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is not what you want because the vignette can only be rendered on your local machine. For example:
+By default, R runs all code from vignettes during `R CMD check` or when generating pkgdown sites. This provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is not what you want because the vignette can only be rendered on your local machine. For example:
 
   - The vignette examples requires some special local software or data
-  - The vignette accesses a web service that requires authentication
+  - The code connects to a web service that requires authentication or other restricitions
   - You don't want to hammer web services for every vignette run
   - The vignette code takes very long to run
 
-In these cases you should execute the code from vignettes locally, and ship a vignette which already contains the rendered R output. 
+In such cases you could execute the code from vignettes locally, and ship a vignette in the package which already contains the rendered R output. 
 
 ## Locally knit markdown
 
@@ -37,7 +37,7 @@ The [jsonlite package](https://github.com/jeroen/jsonlite/tree/v1.6/vignettes) s
 
 One gotcha with this trick is that if the vignette output includes figures, you need to store the output image files in the vignettes folder. It is also a good idea to explicitly name your knitr chunks, so that the stored images have sensible names.
 
-Our recently onboarded package [eia](https://github.com/ropensci/eia/tree/master/vignettes) by Matt Leonawicz is a good example. This package provides an R client for US Energy Information Administration Open Data API. The [eia documentation](https://docs.ropensci.org/eia/articles/) gets automatically generated for each commit on the [rOpenSci docs server](https://ropensci.org/technotes/2019/06/07/ropensci-docs/), even though the code in the vignettes actually requires an API key (which the server does not have).
+Our recently onboarded package [eia](https://github.com/ropensci/eia/tree/master/vignettes) by Matt Leonawicz is a good example. This package provides an R client for US Energy Information Administration Open Data API. The [eia documentation](https://docs.ropensci.org/eia/articles/) gets automatically generated for each commit on the [rOpenSci docs server](https://ropensci.org/technotes/2019/06/07/ropensci-docs/), even though the code in the vignettes actually requires an API key (which the docs server does not have).
 
 [![screenshot](https://imgur.com/W5NDdOA.png)](https://docs.ropensci.org/eia)
 
