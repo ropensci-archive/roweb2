@@ -5,7 +5,6 @@ date: '2019-12-08'
 authors:
   - Jeroen Ooms
 categories: technotes
-topicid: 1729
 tags:
   - R
   - docs
@@ -14,12 +13,12 @@ tags:
 
 By default, R runs all code from vignettes when running `R CMD check` or when generating pkgdown sites. This provides some extra testing of your code and ensures that documents are reproducible. However, sometimes this is not what you want because the vignette can only be rendered on your local machine. For example:
 
-  - The code requires some special local software or data
-  - The code accesses a web service that requires authentication
+  - The vignette examples requires some special local software or data
+  - The vignette accesses a web service that requires authentication
   - You don't want to hammer web services for every vignette run
-  - The code takes very long to run
+  - The vignette code takes very long to run
 
-In these cases you should execute the code from vignettes locally, and ship the vignette which already contains the rendered R output. 
+In these cases you should execute the code from vignettes locally, and ship a vignette which already contains the rendered R output. 
 
 ## Locally knit markdown
 
