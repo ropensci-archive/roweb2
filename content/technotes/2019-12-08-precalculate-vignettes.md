@@ -11,7 +11,13 @@ tags:
   - packages
 ---
 
-By default, R automatically recreates vignettes by running all R code during `R CMD check` or when generating pkgdown sites. This is useful because it provides some extra testing of your code and ensures that documentation is reproducible. However, sometimes it is not a good idea to run the code on every build server, every time. For example:
+As of earlier this year, we are now [automatically building](http://localhost:1313/technotes/2019/06/07/ropensci-docs/) binaries and pkgdown documentation for [all rOpenSci packages](https://docs.ropensci.org). One issue we encountered is that some packages include vignettes that require some special tools/data/credentials, which are unavailable on generic build servers.
+
+This post explains how to include such vignettes and articles in your package.
+
+### On package vignettes
+
+By default, R automatically recreates vignettes during `R CMD check` or when generating pkgdown sites by running all R code. This is useful because it provides some extra testing of your code and ensures that documentation is reproducible. However, sometimes it is not a good idea to run the code on every build server, every time. For example:
 
   - The vignette examples require some special local software or private data.
   - The code connects to a web service that requires authentication or has limits.
@@ -20,7 +26,7 @@ By default, R automatically recreates vignettes by running all R code during `R 
 
 In such cases it is better to execute the rmarkdown code locally, and ship a vignette in the package which already contains the rendered R output. 
 
-### Locally knitting rmarkdown
+### The solution: locally knitting rmarkdown
 
 Suppose you have a vignette called `longexample.Rmd`. To pre-compute the vignette, rename the input file to something that is not recognized by R as rmarkdown such as: `longexample.Rmd.orig`. Then run knitr in the package directory to execute and replace R code in the rmarkdown:
 
@@ -45,4 +51,5 @@ The [eia vignettes directory](https://github.com/ropensci/eia/blob/master/vignet
 
 ### Don't forget to update
 
-The drawback of this approach is that documents no longer automatically update when the package changes. Therefore you should only pre-compute the vignettes and articles that are problematic, and make a note for yourself to re-knit the vignette occasionally, e.g. before a package release. 
+The drawback of this approach is that documents no longer automatically update when the package changes. Therefore you should only pre-compute the vignettes and articles that are problematic, and make a note for yourself to re-knit the vignette occasionally, e.g. before a package release. Adding a [script](https://github.com/ropensci/eia/blob/master/vignettes/precompile.R) to your vignette folders that does so can be a helpful reminder.
+
