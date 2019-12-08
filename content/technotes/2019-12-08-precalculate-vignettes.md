@@ -32,7 +32,7 @@ Suppose you have a vignette called `longexample.Rmd`. To pre-compute the vignett
 
 ```r
 # Execute the code from the vignette
-knitr::knit("vignettes/longexample.Rmd", output = "vignettes/longexample.Rmd")
+knitr::knit("vignettes/longexample.Rmd.orig", output = "vignettes/longexample.Rmd")
 ```
 
 The new output file `longexample.Rmd` now contains markdown with the already executed R output. So it can be treated as a regular vignette, but R can convert it to html instantaneously without having to re-run R code from the rmarkdown.
