@@ -13,7 +13,7 @@
   {{ $beautifulstart := $start.Format "2006/01/02"}}
   {{ $end := (time .Params.dateEnd)}} 
   {{ $beautifulend := $end.Format "2006/01/02"}}
-  {{ if and (or ($start.After $intervalleft) ($end.After $intervalleft)) ($end.Before ($intervalleft.AddDate 1 0 0))}}
+  {{ if and ($end.After ($intervalleft.AddDate 0 0 -2)) ($end.Before ($intervalleft.AddDate 1 0 0))}}
   <tr>
     <td><a href="{{ .RelPermalink}}" >{{.Title}}</a></td>
     <td>{{ $beautifulstart }}{{if ne $beautifulstart $beautifulend}} - {{ $beautifulend }}{{end}}</td>
