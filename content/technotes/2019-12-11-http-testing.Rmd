@@ -6,7 +6,7 @@ authors:
   - Scott Chamberlain
 categories:
   - technotes
-topicid:
+topicid: 1900
 tags:
 - R
 - API
@@ -155,7 +155,7 @@ testthat::compare(req1, req2)
 
 ### What's new in vcr?
 
-- As webmockr now handles mocking writing to disk, vcr can now handle requests that
+- Just as webmockr now handles mocking writing to disk, vcr can now handle requests that
 write to disk. See `?mocking-disk-writing` to get started.
 - You can now easily turn off vcr completely, either through a function call or 
 using an environment variable (e.g., ideal for those that work on the command line

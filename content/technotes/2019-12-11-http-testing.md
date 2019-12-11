@@ -6,7 +6,7 @@ authors:
   - Scott Chamberlain
 categories:
   - technotes
-topicid:
+topicid: 1900
 tags:
 - R
 - API
@@ -72,7 +72,7 @@ webmockr::enable()
 ```
 
 Then create a stub with `stub_request()`. Here, we stub a request based on
-HTTP method and uri only.
+HTTP method and URL only.
 
 
 ```r
@@ -100,7 +100,7 @@ x$get('get')
 
 ### What's new in webmockr?
 
-- If you were using webmockr with httr, you're in luck. The lastest version of webmockr (`v0.5`)
+- If you were using webmockr with httr, you're in luck. The latest version of webmockr (`v0.5`)
 fixed an issue where we weren't mocking httr simple authentication.
 - A big new feature in `v0.5` is support for writing to disk. Both [crul][] and httr allow 
 users to write to disk as part of the HTTP request. HTTP clients in some other languages
@@ -130,7 +130,7 @@ library(crul)
 
 The main interface in vcr is `vcr::use_cassette()`. Pass a code block to `use_cassette` 
 as the second argument and vcr will allow a real HTTP request the first time the block
-is run, and record the request and reseponse to a file. Any subsequent running of the 
+is run, and record the request and response to a file. Any subsequent running of the 
 same code will use the cached data.
 
 For example, here we make a request to <https://httpbin.org>
@@ -152,7 +152,7 @@ use_cassette(name = "helloworld", {
 })
 ```
 
-uses the `helloworld.yml` file - a real HTTP request is not done on subequent calls.
+uses the `helloworld.yml` file - a real HTTP request is not done on subsequent calls.
 
 And we can test that the returned response is the same in both code blocks above
 
@@ -164,7 +164,7 @@ testthat::compare(req1, req2)
 
 ### What's new in vcr?
 
-- As webmockr now handles mocking writing to disk, vcr can now handle requests that
+- Just as webmockr now handles mocking writing to disk, vcr can now handle requests that
 write to disk. See `?mocking-disk-writing` to get started.
 - You can now easily turn off vcr completely, either through a function call or 
 using an environment variable (e.g., ideal for those that work on the command line
