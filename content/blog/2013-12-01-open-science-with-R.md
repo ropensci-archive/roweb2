@@ -16,7 +16,7 @@ tags:
 
 
 
-We're pleased to announce that the rOpenSci core team has just signed a contract with [CRC Press/Taylor and Francis R series](http://www.taylorandfrancis.com/books/series/CRCTHERSER/) to publish a new book on practical ways to implement open science into your own research using R. Given all the talk about the importance of open science, the discussion often lacks practical suggestions on how one might actually incorporate these practices into their day to day research workflow.
+We're pleased to announce that the rOpenSci core team has just signed a contract with [CRC Press/Taylor and Francis R series](https://www.crcpress.com/go/the-r-series/) to publish a new book on practical ways to implement open science into your own research using R. Given all the talk about the importance of open science, the discussion often lacks practical suggestions on how one might actually incorporate these practices into their day to day research workflow.
 
 In many ways writing this book will be an exercise for us to share our research workflow with the rest of the community. If R plays an important role in your research this book will help you learn how to:
 

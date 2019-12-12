@@ -189,7 +189,7 @@ dryad %>% sort_count %>% gp
 
 ### OpenSNP
 
-* Website: https://opensnp.org/
+* Website: http://opensnp.org//
 * R package: `rsnps`
 
 OpenSNP is a collator of SNP datasets that individuals donate to the site/database. They're an awesome group, and they even won the PLOS/Mendeley code contest a few years back.

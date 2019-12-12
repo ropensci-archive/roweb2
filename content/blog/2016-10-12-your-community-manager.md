@@ -41,7 +41,7 @@ Big thanks go to the [Helmsley Foundation](/blog/2015/11/19/helmsley-trust-fundi
 Talk to Me
 ------
 
-Tell me about your challenges and your triumphs. What do you want to read in the [blog](/blog/)? What would you like to learn in a [Community Call](https://github.com/ropensci/commcalls/)? (What would you like to present?) How do you define diversity and how can we cultivate it? Who are the connectors in your communities that we should be talking with?
+Tell me about your challenges and your triumphs. What do you want to read in the [blog](/blog/)? What would you like to learn in a [Community Call](https://ropensci.org/commcalls//)? (What would you like to present?) How do you define diversity and how can we cultivate it? Who are the connectors in your communities that we should be talking with?
 
 Share your thoughts in the comments below. Ask a question in the [discussion forum](https://discuss.ropensci.org/). Follow [@ropensci](https://twitter.com/rOpenSci) and me [@stefaniebutland](https://twitter.com/stefaniebutland) on Twitter. [Subscribe](/#subscribe) to hear about new blog posts.
 

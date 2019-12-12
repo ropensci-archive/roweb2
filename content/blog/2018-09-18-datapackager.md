@@ -21,7 +21,7 @@ tags:
 
 Sharing data sets for collaboration or publication has always been challenging, but it’s become increasingly problematic as complex and high dimensional data sets have become ubiquitous in the life sciences. Studies are large and time consuming; data collection takes time, data analysis is a moving target, as is the software used to carry it out.
 
-In the vaccine space ([where I work](https://www.fredhutch.org/en/labs/vaccine-and-infectious-disease/vidd-research/biostatistics-bioinformatics-epidemiology/research-overview/visc-faculty.html)) we analyze collections of high-dimensional immunological data sets from a variety of different technologies (RNA sequencing, cytometry, multiplexed antibody binding, and others). These data often arise from clinical trials and can involve tens to hundreds of subjects. The data are analyzed by teams of researchers with a diverse variety of goals. 
+In the vaccine space ([where I work](https://www.fredhutch.org/en/research/divisions/vaccine-infectious-disease-division/research/biostatistics-bioinformatics-and-epidemiology.html)) we analyze collections of high-dimensional immunological data sets from a variety of different technologies (RNA sequencing, cytometry, multiplexed antibody binding, and others). These data often arise from clinical trials and can involve tens to hundreds of subjects. The data are analyzed by teams of researchers with a diverse variety of goals. 
 
 Data from a single study will lead to multiple manuscripts by different principal investigators, dozens of reports, talks, presentations. There are many different consumers of  data sets, and results and conclusions must be consistent and reproducible. 
 

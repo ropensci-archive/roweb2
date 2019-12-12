@@ -91,7 +91,7 @@ Quite handy for our metadata collection!
 Read the source for `extract_badges`
 [here](https://github.com/ropensci/codemetar/blob/dev/R/extract_badges.R)
 and see how it’s used in [this
-script](https://github.com/ropensci/codemetar/blob/dev/R/guess_metadata.R).
+script](https://github.com/ropensci/codemetar/blob/77fc0943a379d27915bb6a8cb9b37cb3349c05da/R/codemeta_readme.R).
 You can also compare [`codemetar`’s
 README](https://github.com/ropensci/codemetar/blob/master/README.md)
 with its

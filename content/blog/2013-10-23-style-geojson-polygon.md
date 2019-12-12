@@ -67,13 +67,13 @@ gist("~/abiesmagmap.geojson", description = "Abies magnifica polygons")
 
 ```
 ## Your gist has been published
-## View gist at https://gist.github.com/sckott/7121053
+## View gist at https://gist.github.com/sckott/9198370
 ```
 
-That's it! The map is immediately available on the web, see [here](https://gist.github.com/sckott/7121053) for the one we just created. And you can embed the map too, like here:
+That's it! The map is immediately available on the web, see [here](https://gist.github.com/sckott/9198370) for the one we just created. And you can embed the map too, like here:
 
-<!-- <iframe src="https://gist.github.com/sckott/7121053?scroll=false"></iframe> -->
-<script src="https://gist.github.com/sckott/7121053.js"></script>
+<!-- <iframe src="https://gist.github.com/sckott/9198370?scroll=false"></iframe> -->
+<script src="https://gist.github.com/sckott/9198370.js"></script>
 
 [ropost]: /blog/2013/07/04/rbison-geoson/
 [ropost2]: /blog/2013/07/17/style-geojson/

@@ -32,11 +32,11 @@ Hopefully more publishers will start using the PLOS ALM open source software - a
 
 [My talk][talk] made the point that **programmatic access** to **OPEN** altmetrics data is important. Although most of the calls to get altmetrics data may come frome websites, it's important to provide programmatic access to altmetrics data for researchers, journalists, and anyone else that doesn't want to use the browser-excel-SAS-SigmaPlot-Word workflow. We don't want altmetrics to end up like text-mining data, do we?
 
-[almworkshop]: http://article-level-metrics.plos.org/alm-workshop-2013/
+[almworkshop]: http://www.lagotto.io/workshop_2013//
 [datachal]: http://almdatachallenge.eventbrite.com/
-[talks]: http://article-level-metrics.plos.org/alm-workshop-2013-preliminary-program/
+[talks]: http://www.lagotto.io/workshop_2013/-preliminary-program/
 [niso]: http://www.niso.org/topics/tl/altmetrics_initiative/
-[talk]: http://recology.info/posterstalks/plosalm13/#1
+[talk]: https://scotttalks.info/plosalm13//#1
 [almapp]: http://alm.plos.org/
 [almcode]: https://github.com/articlemetrics/alm
 [almcran]: http://cran.r-project.org/web/packages/alm/index.html

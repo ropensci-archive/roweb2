@@ -74,7 +74,7 @@ We've battle tested `ft_get()` on a lot of DOIs - but there still may be errors 
 
 ## Documentation
 
-Along with an overhual of the package we have made a new manual for `fulltext`. Check it out at <https://ropensci.github.io/fulltext-book/>
+Along with an overhual of the package we have made a new manual for `fulltext`. Check it out at <https://books.ropensci.org/fulltext//>
 
 <br><br>
 
@@ -101,7 +101,7 @@ devtools::install_github("ropensci/fulltext")
 library(fulltext)
 ```
 
-Below I'll discuss some of the new features of the package, and not do an exhaustive tutorial to the package. Check out the manual for more details: <https://ropensci.github.io/fulltext-book/>
+Below I'll discuss some of the new features of the package, and not do an exhaustive tutorial to the package. Check out the manual for more details: <https://books.ropensci.org/fulltext//>
 
 <br>
 
@@ -176,7 +176,7 @@ res <- ft_get(dois, from = "plos")
 ```
 
 Internally, `ft_get()` attemps to write the file to disk if we can successfully 
-access the file - if an error occurs for any reason (see [ft_get errors](https://ropensci.github.io/fulltext-book/fetch.html#fetch-errors) in the manual) we delete that file so you 
+access the file - if an error occurs for any reason (see [ft_get errors](https://books.ropensci.org/fulltext//fetch.html#fetch-errors) in the manual) we delete that file so you 
 don't end up with partial/empty files. 
 
 Since `ft_get()` writes files to your machine's disk, even if a function call 
@@ -340,5 +340,5 @@ Please do upgrade/install `fulltext`  `v1.0.0` and let us know what you think.
 
 [fulltext]: https://github.com/ropensci/fulltext
 [pdftools]: https://github.com/ropensci/pdftools
-[manual]: https://ropensci.github.io/fulltext-book/
+[manual]: https://books.ropensci.org/fulltext//
 [quanteda]: https://cran.rstudio.com/web/packages/quanteda/

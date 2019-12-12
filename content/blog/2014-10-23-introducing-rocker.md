@@ -46,7 +46,7 @@ from the Dockerfile.  Docker images are analogous to virtual machine images,
 but smaller and built in discrete, extensible and reuseable layers. Images can be
 distributed and run on any machine that has Docker software
 installed---including Windows, OS X and of course Linux. Running instances are called [Docker
-containers](https://docs.docker.com/userguide/usingdocker/). A single
+containers](https://docs.docker.com/get-started//). A single
 machine can run hundreds of such containers, including multiple containers
 running the same image.
 
