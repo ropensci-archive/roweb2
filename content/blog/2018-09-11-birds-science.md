@@ -153,7 +153,7 @@ by open data (by the way you can access CITES trade data (international
 trade in endangered species) in R using
 [`cites`](https://github.com/ecohealthalliance/cites/) and CITES
 Speciesplus database using
-[`rcites`](https://ibartomeus.github.io/rcites/)).
+[`rcites`](https://docs.ropensci.org/rcites//)).
 
 We then apply this function to all 50 species and keep each article only
 once.

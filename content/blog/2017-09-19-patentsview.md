@@ -279,7 +279,7 @@ these are retrievable:
 Let's look at a quick example of pulling and analyzing patent data.
 We'll look at patents from the last ten years that are classified below
 the [H04L63/00 CPC
-code](https://worldwide.espacenet.com/classification#!/CPC=H04L63/02).
+code](https://worldwide.espacenet.com/classification#!/CPC=H04L63/02#!/CPC=H04L63/02).
 Patents in this area relate to "network architectures or network
 communication protocols for separating internal from external
 traffic." [^3] CPC codes offer a quick and dirty way to find patents of
@@ -398,7 +398,7 @@ GitHub](https://github.com/ropensci/patentsview/issues).
 
 I'd like to thank the package's two reviewers, [Paul
 Oldham](https://github.com/poldham) and [Verena
-Haunschmid](http://blog.haunschmid.name/), for taking the time to review
+Haunschmid](https://github.com/expectopatronum/), for taking the time to review
 the package and providing helpful feedback. I'd also like to thank
 [Maëlle Salmon](https://masalmon.eu/) for shepherding the package
 along the rOpenSci review process, as well [Scott
@@ -406,6 +406,6 @@ Chamberlain](https://scottchamberlain.info/) and [Stefanie
 Butland](https://twitter.com/stefaniebutland) for their miscellaneous
 help.
 
-[^1]: This is both good and bad, as there are errors in the disambiguation. The algorithm that is responsible for the disambiguation was created by the winner of the [PatentsView Inventor Disambiguation Technical Workshop](http://www.patentsview.org/workshop/).
+[^1]: This is both good and bad, as there are errors in the disambiguation. The algorithm that is responsible for the disambiguation was created by the winner of the [PatentsView Inventor Disambiguation Technical Workshop](https://www.uspto.gov/about-us/organizational-offices/office-policy-and-international-affairs/patentsview-inventor/).
 [^2]: These two parameters end up getting translated into a MySQL query by the API's server, which then gets sent to a back-end database. `query` and `fields` are used to create the query's `WHERE` and `SELECT` clauses, respectively.
 [^3]: There is a slightly more in-depth definition that says that these are patents "related to the (logical) separation of traffic/(sub-) networks to achieve protection."

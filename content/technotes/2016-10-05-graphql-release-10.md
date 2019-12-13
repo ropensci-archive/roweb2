@@ -45,5 +45,5 @@ Could produce the JSON result:
 }
 ```
 
-The Github API [supports GraphQL](https://developer.github.com/early-access/graphql/) and illustrates how GraphQL reduces the number of requests and data in comparison with traditional REST queries.
+The Github API [supports GraphQL](https://developer.github.com/v4//) and illustrates how GraphQL reduces the number of requests and data in comparison with traditional REST queries.
 

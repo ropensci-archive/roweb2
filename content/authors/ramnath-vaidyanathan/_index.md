@@ -1,4 +1,4 @@
 ---
 name: Ramnath Vaidyanathan
-link: http://ramnathv.github.io/
+link: https://github.com/ramnathv/
 ---

@@ -271,7 +271,7 @@ ggplot(dv_long, aes(x = YYYYMMDD, y = Degrees,
 
 That is quite a swing in air temperatures from well over 40˚ C to well
 below 0˚ C throughout the year. I was going to put together a comparison
-with station data using [GSODR](https://ropensci.github.io/GSODR/)[^9] but
+with station data using [GSODR](https://docs.ropensci.org/GSODR//)[^9] but
 instead found a good reason why you might want to use nasapower to get
 POWER data. When I checked for stations nearby this specified point,
 there were two in the GSOD database, 746190-99999 and 999999-53139.
@@ -543,7 +543,7 @@ Chamberlain](https://github.com/sckott). I welcome further feedback for
 they have only made this package better. If you are interested in this or
 want to know more about how to use the package, I encourage you to
 browse the vignette and other on-line documentation,
-<https://ropensci.github.io/nasapower/articles/nasapower.html>.
+<https://docs.ropensci.org/nasapower//articles/nasapower.html>.
 
 [^1]: Stackhouse, Paul W., Jr., Taiping Zhang, David Westberg, A. Jason Barnett, Tyler Bristow, Bradley Macpherson, and James M. Hoell. 2018. “POWER Release 8 (with GIS Applications) Methodology (Data Parameters, Sources, & Validation)”, Data Version 8.0.1. NASA. <https://power.larc.nasa.gov/documents/POWER_Data_v8_methodology.pdf>.
 
@@ -557,7 +557,7 @@ browse the vignette and other on-line documentation,
 
 [^6]: Sparks, Adam, 2018. “nasapower: A NASA POWER Global Meteorology, Surface Solar Energy and Climatology Data Client for R”. *Journal of Open Source Software*, 3(30), 1035, <https://doi.org/10.21105/joss.01035>.
 
-[^7]: Sparks, Adam. 2019. “nasapower: NASA-POWER Data from R”. R package version 1.1.1, <https://ropensci.github.io/nasapower/>.
+[^7]: Sparks, Adam. 2019. “nasapower: NASA-POWER Data from R”. R package version 1.1.1, <https://docs.ropensci.org/nasapower//>.
 
 [^8]: Chamberlain, Scott. 2018. “crul: HTTP Client”. rOpenSci. <https://CRAN.R-project.org/package=crul>.
 

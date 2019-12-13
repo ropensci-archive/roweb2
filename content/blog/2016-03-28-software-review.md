@@ -42,7 +42,7 @@ reviewers.
 rOpenSci's package review process owes much to the experiments of others
 (such as [Marian Petre](http://mcs.open.ac.uk/mp8/) and the [Mozilla Science Lab](https://mozillascience.org/code-review-for-science-what-we-learned)),
 as well as the [active feedback](https://discuss.ropensci.org/t/code-review-onboarding-milestones/180) [from our
-community](https://discuss.ropensci.org/t/how-could-the-onboarding-package-review-process-be-even-better/302). Here's how it works: When an author submits
+community](https://discuss.ropensci.org/t/how-could-the-onboarding-package-review-process-be-even-better/302/3could-the-onboarding-package-review-process-be-even-better/302). Here's how it works: When an author submits
 a package, our editors evaluate it for fit according to our [criteria](https://github.com/ropensci/policies#package-fit), then assign reviewers who evaluate
 the package for usability, quality, and style based on our [guidelines](https://github.com/ropensci/packaging_guide#ropensci-packaging-guide). After the
 reviewers evaluate and the author makes recommended changes, the package gets
@@ -180,7 +180,7 @@ and [Mozilla Science Lab](https://www.mozillascience.org/projects/contributorshi
 
 - *Automation.* How can we automate more parts of the review process so as to
 get more value out of reviewer and reviewees time? One suggestion has been to submit packages
-[*as* pull requests](https://discuss.ropensci.org/t/how- could-the-onboarding-package-review-process-be-even-better/302/3) to take more advantage of GitHub
+[*as* pull requests](https://discuss.ropensci.org/t/how-could-the-onboarding-package-review-process-be-even-better/302/3 could-the-onboarding-package-review-process-be-even-better/302/3) to take more advantage of GitHub
 review features such as in-line commenting. This may allow us to move the burden
 of setting up continuous integration and testing away from the authors and onto
 our own pipeline, and allow us to add rOpenSci-specific tests. We've also started using [automated reminders](https://github.com/ropenscilabs/heythere) to keep up with reviewers, which reduces the

@@ -27,7 +27,7 @@ Details:
 
 * Date/time: January 14th 2015, 2 pm PST (Find your time at [http://everytimezone.com/#2015-1-14,600,cn3](http://everytimezone.com/#2015-1-14,600,cn3))
 * How to join the call: They'll be a number to call, we'll post details soon...
-* Collaborative notepad: We'll use Etherpad. You can find the Etherpad for this call at [https://ropensci.etherpad.mozilla.org/comm-call-0114](https://ropensci.etherpad.mozilla.org/comm-call-0114).
+* Collaborative notepad: We'll use Etherpad. You can find the Etherpad for this call at [https://docs.google.com/document/d/1nK7Dz2UQrbop2i3Y8cINvpIpNj4taPfOoyN7IBSJ96E/edit](https://docs.google.com/document/d/1nK7Dz2UQrbop2i3Y8cINvpIpNj4taPfOoyN7IBSJ96E/edit).
 
 After each call, we'll archive the notes, and they'll be publicly available.
 

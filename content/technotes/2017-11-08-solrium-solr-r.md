@@ -199,7 +199,7 @@ And the same pattern applies for the other functions:
 
 ## New functions for atomic updates
 
-[A user requested](https://github.com/ropensci/solrium/issues/97) the ability to do [atomic updates](https://lucene.apache.org/solr/guide/7_0/updating-parts-of-documents.html) - partial updates to documents without having to re-index the entire document.
+[A user requested](https://github.com/ropensci/solrium/issues/97) the ability to do [atomic updates](https://lucene.apache.org/solr//guide/7_0/updating-parts-of-documents.html) - partial updates to documents without having to re-index the entire document.
 
 Two functions were added: `update_atomic_json` and `update_atomic_xml` for JSON and XML based updates. Check out their help pages for usage.
 
@@ -262,7 +262,7 @@ Please do upgrade/install `solrium`  `v1` and let us know what you think.
 <br>
 
 
-[solr]: https://lucene.apache.org/solr/
+[solr]: https://lucene.apache.org/solr//
 [solrpkg]: https://github.com/ropensci/solr
 [solrium]: https://github.com/ropensci/solrium
 [es]: https://www.elastic.co/products/elasticsearch

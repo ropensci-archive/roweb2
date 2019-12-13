@@ -555,7 +555,7 @@ wm_synonyms(id = xx$AphiaID)
 ## pegax
 
 <div class="labels">
-<a href="https://github.com/ropensci/pegax"><span class="label" style="background-color:#3598DB">github</span></a>
+<a href="https://github.com/ropenscilabs/pegax"><span class="label" style="background-color:#3598DB">github</span></a>
 </div>
 
 `pegax` aims to be a powerful taxonomic name parser for R. This package started at [#runconf17](http://unconf17.ropensci.org/) - was made possible because the talented [Oliver Keyes](https://github.com/Ironholds/) created a [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar) package for R: [piton](https://github.com/Ironholds/piton)
@@ -608,7 +608,7 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 <a href="https://cran.rstudio.com/web/packages/rotl/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/rotl"><span class="label" style="background-color:#3598DB">github</span></a> <span class="label" style="background-color:#19B698">community</span>
 </div>
 
-`rotl` is maintained by [Francois Michonneau](https://github.com/fmichonneau), [Joseph Brown](https://github.com/josephwb), and [David Winter](https://github.com/dwinter), and is a package to interact with the [Open Tree of Life (OTL)](https://opentreeoflife.org/). OTL main purpose is perhaps about phylogeny data, but they do have a taxonomy they maintain, and `rotl` has functions that let you access that taxonomic data.
+`rotl` is maintained by [Francois Michonneau](https://github.com/fmichonneau), [Joseph Brown](https://github.com/josephwb), and [David Winter](https://github.com/dwinter), and is a package to interact with the [Open Tree of Life (OTL)](https://opentreeoflife.github.io//). OTL main purpose is perhaps about phylogeny data, but they do have a taxonomy they maintain, and `rotl` has functions that let you access that taxonomic data.
 
 `rotl` is used in `taxize` to get OTL data.
 
@@ -618,7 +618,7 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 <a href="https://cran.rstudio.com/web/packages/rredlist/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/rredlist"><span class="label" style="background-color:#3598DB">github</span></a>
 </div>
 
-`rredlist` is an interface to the [IUCN Redlist of Threatened Species](http://www.iucnredlist.org/),
+`rredlist` is an interface to the [IUCN Redlist of Threatened Species](https://www.iucnredlist.org//),
 
 > which provides taxonomic, conservation status and distribution information on plants, fungi and animals that have been globally evaluated using the IUCN Red List Categories and Criteria.
 
@@ -631,7 +631,7 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 <a href="https://cran.rstudio.com/web/packages/bold/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/bold"><span class="label" style="background-color:#3598DB">github</span></a>
 </div>
 
-`bold` is an interface to the [IUCN Redlist of Threatened Species](http://www.iucnredlist.org/),
+`bold` is an interface to the [IUCN Redlist of Threatened Species](https://www.iucnredlist.org//),
 
 > which provides taxonomic, conservation status and distribution information on plants, fungi and animals that have been globally evaluated using the IUCN Red List Categories and Criteria.
 

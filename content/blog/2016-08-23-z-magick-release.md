@@ -14,7 +14,7 @@ tags:
 
 The new [magick](https://cran.r-project.org/web/packages/magick/index.html) package is an ambitious effort to modernize and simplify high-quality image processing in R. It wraps the [ImageMagick STL](https://www.imagemagick.org/Magick++/STL.html) which is perhaps the most comprehensive open-source image processing library available today.
 
-The ImageMagick library has an overwhelming amount of functionality. The current version of Magick exposes a decent chunk of it, but being a first release, documentation is still sparse. This post briefly introduces the most important concepts to get started. There will also be an [rOpenSci community call](https://github.com/ropensci/commcalls/issues/11) on Wednesday in which we demonstrate basic functionality.
+The ImageMagick library has an overwhelming amount of functionality. The current version of Magick exposes a decent chunk of it, but being a first release, documentation is still sparse. This post briefly introduces the most important concepts to get started. There will also be an [rOpenSci community call](https://ropensci.org/commcalls/2016-08-24/) on Wednesday in which we demonstrate basic functionality.
 
 ## Installation
 
@@ -177,6 +177,6 @@ print(animation)
 image_write(animation, "Rlogo-banana.gif")
 ```
 
-If time permits we will demonstrate more examples during our [community call](https://github.com/ropensci/commcalls/issues/11) on Wednesday!
+If time permits we will demonstrate more examples during our [community call](https://ropensci.org/commcalls/2016-08-24/) on Wednesday!
 
 

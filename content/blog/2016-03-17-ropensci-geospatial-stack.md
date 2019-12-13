@@ -173,7 +173,7 @@ head(lsat_scenes())
 
 ## siftgeojson
 
-<i class="fa fa-archive fa-2x"></i> <a href="https://github.com/ropensci/siftgeojson" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
+<i class="fa fa-archive fa-2x"></i> <a href="https://github.com/ropenscilabs/siftgeojson" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
 
 Slice and dice GeoJSON just as easily as you would a data.frame. This is built on top of `jqr`, an R wrapper for [jq](https://stedolan.github.io/jq/), a JSON processor.
 

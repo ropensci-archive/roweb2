@@ -985,7 +985,7 @@ bp +
 
 <img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
 
-See [Forecast/Adivsory GIS](https://ropensci.github.io/rrricanes/articles/articles/forecast_advisory.html) on the `rrricanes` website for an example of putting all of this data together in one map.
+See [Forecast/Adivsory GIS](https://ropensci.github.io/rrricanes/) on the `rrricanes` website for an example of putting all of this data together in one map.
 
 #### gis_prob_storm_surge
 

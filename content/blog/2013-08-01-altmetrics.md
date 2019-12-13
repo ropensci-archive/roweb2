@@ -11,7 +11,7 @@ tags:
   - PLOS
 ---
 
-We recently had a paper come out in [a special issue](http://www.niso.org/publications/isq/2013/v25no2) on *article-level metrics* in the journal Information Standards Quarterly. Our paper basically compared article-level metrics provided by different aggregators. The other papers covered various article-level metrics topics from folks at PLOS, Mendeley, and more. Get our paper [here](http://www.niso.org/publications/isq/2013/v25no2/chamberlain).
+We recently had a paper come out in [a special issue](https://www.niso.org/niso-io/isq/2013/06/information-standards-quarterly-summer-2013) on *article-level metrics* in the journal Information Standards Quarterly. Our paper basically compared article-level metrics provided by different aggregators. The other papers covered various article-level metrics topics from folks at PLOS, Mendeley, and more. Get our paper [here](https://www.niso.org/niso-io/isq/2013/06/information-standards-quarterly-summer-2013/chamberlain).
 
 To get data from the *article-level metrics* providers we used one R package we created to get DOIs for PLOS articles ([rplos](https://github.com/ropensci/rplos)) and three R packages we created to get metrics: [alm](https://github.com/ropensci/alm), [rImpactStory](https://github.com/ropensci/rimpactstory), and [rAltmetric](https://github.com/ropensci/rAltmetric). Here, we will show how we produced visualizations in the paper. The code here is basically that used in the paper - but modified to make it useable by you hopefully.
 

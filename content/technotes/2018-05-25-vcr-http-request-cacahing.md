@@ -62,7 +62,7 @@ vcr_configure(dir = "../fixtures/vcr_cassettes")
 
 `vcr` will set up the new folders given in the `dir` parameter of `vcr_configure` if they don't already exist.
 
-You may have figured this out already, but to be sure: "cassette" means essentially a thing to which you are recording HTTP interactions. There's other terminology in `vcr` like "record" and "eject". See the [terminology book section](https://ropensci.github.io/http-testing-book/intro.html#terminology) for more.
+You may have figured this out already, but to be sure: "cassette" means essentially a thing to which you are recording HTTP interactions. There's other terminology in `vcr` like "record" and "eject". See the [terminology book section](https://books.ropensci.org/http-testing//intro.html#terminology) for more.
 
 <br>
 
@@ -188,7 +188,7 @@ vcr_configure(
 
 Here, we're replacing any instance that matches the output of `Sys.getenv('API_KEY')` (let's say its `123abc`), with `"<<<my_api_key>>>"`. When you run tests, vcr swaps `"<<<my_api_key>>>"` for your actual API key of `123abc` so your tests run smoothly.
 
-See the [Security chapter](https://ropensci.github.io/http-testing-book/security) in the HTTP Testing Book for more. Feedback on security in vcr much appreciated!
+See the [Security chapter](https://books.ropensci.org/http-testing//security) in the HTTP Testing Book for more. Feedback on security in vcr much appreciated!
 
 <br>
 
@@ -207,7 +207,7 @@ vcr_configure(
 
 Here, we set `log = TRUE`, then set a file to log to, a log prefix (so each line has prefix `[Cassette: <your cassette>]`), and use date (if `FALSE`, date not included in each log line).
 
-See the [Logging chapter](https://ropensci.github.io/http-testing-book/logging) in the HTTP Testing Book for more. 
+See the [Logging chapter](https://books.ropensci.org/http-testing//logging) in the HTTP Testing Book for more. 
 
 <br>
 ## Porting from other languages
@@ -248,12 +248,12 @@ There's still a lot of work to do on vcr ant its companion webmockr. Please do g
 [crul]: https://github.com/ropensci/crul
 [HTTPretty]: https://github.com/gabrielfalcao/HTTPretty
 [pook]: https://github.com/h2non/pook
-[httpbook]: https://ropensci.github.io/http-testing-book/
+[httpbook]: https://books.ropensci.org/http-testing//
 [rredlist]: https://github.com/ropensci/rredlist/tree/vcr-integration
 [bold]: https://github.com/ropensci/bold/tree/with-vcr
 [wikitaxa]: https://github.com/ropensci/wikitaxa/tree/with-vcr
 [worrms]: https://github.com/ropensci/worrms
-[microdemic]: https://github.com/ropensci/microdemic/tree/with-vcr
+[microdemic]: https://github.com/ropensci/microdemic/
 [zbank]: https://github.com/ropenscilabs/zbank
 [rplos]: https://github.com/ropensci/rplos
 [ritis]: https://github.com/ropensci/ritis

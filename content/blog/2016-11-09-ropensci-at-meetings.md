@@ -39,7 +39,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Nov 15&#8211;18, 2016</td>
 	<td>Jenny Bryan</td>
 	<td>New York, US</td>
-	<td><a href="https://plotcon.plot.ly/">PLOTCON</a></td>
+	<td><a href="https://moderndata.plot.ly/plotcon-2016-speakers-and-topics-in-r//">PLOTCON</a></td>
 </tr>
 <tr>
 	<td>Nov 30 - Dec 1, 2016</td>
@@ -63,13 +63,13 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Feb 16&#8211;18, 2017</td>
 	<td>Jenny Bryan</td>
 	<td>Cape Town, SA</td>
-	<td><a href="http://satrdays.org/capetown2017/">satRday workshop and conference</a></td>
+	<td><a href="https://capetown2017.satrdays.org//">satRday workshop and conference</a></td>
 </tr>
 <tr>
 	<td>Feb 20&#8211;22, 2017</td>
 	<td>Karthik Ram</td>
 	<td>Queenstown, NZ</td>
-	<td><a href="http://www.eresearchnzconference.org.nz/">eResearch NZ</a></td>
+	<td><a href="https://eresearch2019.org.nz//">eResearch NZ</a></td>
 </tr>
 </tbody>
 </table>

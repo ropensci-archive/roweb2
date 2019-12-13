@@ -61,7 +61,7 @@ To summarize here:
 - Be conscious of your tone. When in doubt, check out [tone checker](http://politeness.cornell.edu/).
 - If you see someone being belittling in their answers, consider reaching out to the person who is behaving inappropriately. There was some agreement that reaching out privately may be more effective as a first approach than calling them out in public.Strong arguments against that strategy and in favor of a public response from [Oliver Keyes](https://twitter.com/kopshtik) can be found [here](https://ironholds.org/not-about-image/).
 - Also, it's often easier to defend on behalf of someone else than it is on one's own behalf. Keep that in mind if you see negative things happening, and consider defending on someone else's behalf.
-- Having a code of conduct is important. [rOpenSci has one](http://unconf.ropensci.org/coc.html), and we like it a whole lot.
+- Having a code of conduct is important. [rOpenSci has one](https://ropensci.org/code-of-conduct/), and we like it a whole lot.
 
 And, when times get tough, look to your community. Get out there. Be active. Communicate with one another. [Tim Phan](https://twitter.com/timothy_phan) brilliantly summarized the importance of action and community in this thread:
 
