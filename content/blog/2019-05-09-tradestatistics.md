@@ -311,7 +311,7 @@ Finally I can get something closer to what can be obtained with OTS API. Here is
 
 ### R package
 
-Even when the package connects to the API, it required a dedicated site with documentation and examples. Please check the documentation [here](https://ropensci.github.io/tradestatistics/).
+Even when the package connects to the API, it required a dedicated site with documentation and examples. Please check the documentation [here](https://docs.ropensci.org/tradestatistics/).
 
 Now that I've compared the APIs I'll dig a bit in the R package we have prepared. If I want to obtain the same data as with the examples above, I can do this:
 

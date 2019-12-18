@@ -106,7 +106,7 @@ From which we select the 10-min frequency tidal timeseries in the Scheldt river:
 |  54936010| 0430068     | Liefkenshoek tij/Zeeschelde  | Beneden-Scheldebekken |
 |  55059010| 0430242     | Melle tij/Zeeschelde         | Beneden-Scheldebekken |
 
-[This `wateRinfo` vignette](https://ropensci.github.io/wateRinfo/articles/download_timeseries_batch.html) shows how to download data for multiple stations at once using `wateRinfo` and [`dplyr`](https://dplyr.tidyverse.org/). We use a similar approach, but instead of manually providing the start and end date, we get these from Princess Buttercup's tracking data:
+[This `wateRinfo` vignette](https://docs.ropensci.org/wateRinfo/articles/download_timeseries_batch.html) shows how to download data for multiple stations at once using `wateRinfo` and [`dplyr`](https://dplyr.tidyverse.org/). We use a similar approach, but instead of manually providing the start and end date, we get these from Princess Buttercup's tracking data:
 
 ``` r
 tidal_data <-
