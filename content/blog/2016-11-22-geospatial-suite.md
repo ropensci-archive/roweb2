@@ -88,7 +88,7 @@ rOpenSci has a growing suite of database tools:
 * [geojsonlint](https://github.com/ropenscilabs/geojsonlint) (Lint GeoJSON) (on CRAN)
 * [lawn](https://github.com/ropensci/lawn) (Turf.js R client) (on CRAN)
 * [geoaxe](https://github.com/ropenscilabs/geoaxe) (split up well known text into chunks) (on CRAN)
-* [wellknown](https://github.com/ropenscilabs/wellknown) (Well-Known-Text <--> GeoJSON) (on CRAN)
+* [wellknown](https://github.com/ropensci/wellknown) (Well-Known-Text <--> GeoJSON) (on CRAN)
 * [geoops](https://github.com/ropenscilabs/geoops) (Operations on GeoJSON, sort of like `rgeos`)
 
 ### Data/Data Services
@@ -738,7 +738,7 @@ are valid, and more.
 
 ## getlandsat
 
-<a href="https://cran.r-project.org/package=getlandsat" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/getlandsats" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
+<a href="https://cran.r-project.org/package=getlandsat" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/getlandsat" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
 
 [getlandsat](https://github.com/ropenscilabs/getlandsat) - `getlandsat` provides
 access to Landsat <https://landsat.usgs.gov> 8 metadata and images hosted on
@@ -914,7 +914,7 @@ there's anything else we should be thinking about making in this space.
 
 We're so so grateful to our community for their hard work on these packages:
 
-* [Maëlle Salmon](https://github.com/masalmon) - `geoparser`
+* [Maëlle Salmon](https://github.com/maelle) - `geoparser`
 * [Andy Teucher](https://github.com/ateucher) - `geojsonio`, `geojsonlint`
 * [Jeff Hollister](https://github.com/jhollist) - `lawn`
 * [Mark Padgham](https://github.com/mpadge) - `osmplotr`

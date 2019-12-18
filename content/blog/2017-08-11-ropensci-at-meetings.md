@@ -92,7 +92,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Dec 10-14, 2017</td>
 	<td>Jenny Bryan</td>
 	<td>Auckland, NZ</td>
-	<td><a href="http://www.stats.org.nz/events-archive/2017-nzsa-conference">IASC-ARS/NZSA Conference</a></td>
+	<td><a href="https://www.statisticsviews.com/details/event/10383501/2017-IASC-ARSNZSA-Conference.html">IASC-ARS/NZSA Conference</a></td>
 </tr>
 <tr>
 	<td>Dec 11, 2017</td>

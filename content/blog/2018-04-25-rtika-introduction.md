@@ -148,7 +148,7 @@ Noam Ross, the editor, helped deal with the unusually large size of the Tika app
 
 The first archive I parsed with Tika was a website retrieved from the Wayback Machine [^10], a treasure trove of historical files. Maintained by the Internet Archive, their crawler downloads sites over decades. When a site is crawled consistently, longitudinal analyses are possible. For example, federal agency websites often change when the executive branch administration changes, so the Internet Archive group and academic partners have increased the consistency of crawling there. In 2016, they archived over 200 terabytes of documents to include, among other things, over 40 million `pdf` files [^11]. I consider these government documents to be in the public domain, even if an administration hides or removes them.
 
-In the following example, the function `wayback_machine_downloader()` gets documents from '<http://www3.epa.gov/climatechange/Downloads>' between January 20th, 2016 and January 20th, 2017.
+In the following example, the function `wayback_machine_downloader()` gets documents from '<? altered by gov't>' between January 20th, 2016 and January 20th, 2017.
 
 ``` r
 # Wayback downloader image: https://github.com/hartator/wayback-machine-downloader
@@ -173,7 +173,7 @@ wayback_machine_downloader <- function(input,
 
 # download over 200 MB of documents given --from and --to dates
 batch <- wayback_machine_downloader(
-  'http://www3.epa.gov/climatechange/Downloads', 
+  '? altered by gov't', 
                     args = c('--from','20160120',
                              '--to','20170120'),
                     download_dir='~/wayback_machine_downloader')

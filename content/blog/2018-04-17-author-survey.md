@@ -120,7 +120,7 @@ be ignored. We're adding
 the new bookdown book.
 
 There were also suggestions for improvement of **goodpractice** itself.
-**goodpractice** was created by [Gábor Csárdi](http://gaborcsardi.org/)
+**goodpractice** was created by [Gábor Csárdi](https://github.com/gaborcsardi/)
 and is maintained by [Mango
 Solutions](https://www.mango-solutions.com/). Thankfully Mango data
 scientist [Hannah

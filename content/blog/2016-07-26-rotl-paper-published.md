@@ -84,7 +84,7 @@ data](https://cran.rstudio.com/web/packages/rotl/vignettes/data_mashups.html)
 and used to [reproduce a comparative
 analysis](https://cran.rstudio.com/web/packages/rotl/vignettes/meta-analysis.html).
 [Another
-vignette](https://cran.rstudio.com/web/packages/rotl/vignettes/how-to-use-rotl.html)
+vignette](https://cran.rstudio.com/web/packages/rotl/vignettes/rotl.html)
 provides and introduction to the package and includes an FAQ.
 
 ### Thanks

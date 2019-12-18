@@ -27,7 +27,7 @@ However, through undertaking this review, which began with the revelation that I
 
 Now I think any `R` user can be a `R`eviewer. That is, surely there's something to be said for having someone who's relatively uninitiated take your package for a whirl, at the very least. We all want our packages to be usable by all data science folk, not just advanced programmers. 
 
-I was delighted that the [`testthat`](https://cran.r-project.org/web/packages/testthat/README.html) package was part of the recommended reviewer workflow, as well as novel [`devtools`](https://github.com/hadley/devtools) functions. Reading the [rOpenSci package guide](https://devguide.ropensci.org/building.html) was a veritable font of good tips for someone who has only just begun building their first packages. 
+I was delighted that the [`testthat`](https://cran.r-project.org/web/packages/testthat/readme/README.html) package was part of the recommended reviewer workflow, as well as novel [`devtools`](https://github.com/hadley/devtools) functions. Reading the [rOpenSci package guide](https://devguide.ropensci.org/building.html) was a veritable font of good tips for someone who has only just begun building their first packages. 
 
 In this context, *testing* refers to a reproducible and more systematic approach to the kind of ad hoc console testing we `R` peeps do when writing functions. Does it output expected results? For a variety of inputs? Does it fail as it should when passed something it shouldn't be?       
 
@@ -35,7 +35,7 @@ It all seemed straightforward when I was reading about it, but sitting down to w
 
 I must admit to holding out actually looking at the test code, I wanted to get a feel for the syntax first and have a try myself. So, when I did pop the hood on the tests directory, I appreciated it more. Looking at the tests written for `weathercan`, it is clear [@steffilazerte](https://github.com/steffilazerte) is a good ways past reading the testing chapter for the first time. 
 
-In a previous existence, I worked as a [musician](http://choosemaths.org.au/charles-gray/) for almost two decades. Everything in my life has a soundtrack, and code is no exception. Looking through @steffilazerte's tests, I heard this. My counterpoint lecturer said this is the single greatest piece of [polyphony](https://en.wikipedia.org/wiki/Polyphony) (more than one melody at the same time).
+In a previous existence, I worked as a [musician](https://careers.amsi.org.au/charles//) for almost two decades. Everything in my life has a soundtrack, and code is no exception. Looking through @steffilazerte's tests, I heard this. My counterpoint lecturer said this is the single greatest piece of [polyphony](https://en.wikipedia.org/wiki/Polyphony) (more than one melody at the same time).
 
 <center>
 <iframe src="https://open.spotify.com/embed/track/0kPhDUZe8IdoFVC6e24CnC" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>

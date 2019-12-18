@@ -16,11 +16,11 @@ tags:
 ---
 
 
-_Editor's note: This is the first in a series of posts from rOpenSci's [recent hackathon](http://ropensci.github.io/hackathon/)._
+_Editor's note: This is the first in a series of posts from rOpenSci's [recent hackathon](https://ropensci.org/blog/2014/05/14/ropenhack//)._
 
 I recently had the pleasure of participating in [rOpenSci's hackathon](https://github.com/ropensci/hackathon/). To be honest, I was quite nervous to work among such notables, but I immediately felt welcome thanks to a warm and personable group. [Alyssa Frazee](http://alyssafrazee.com/) has a [great post summarizing the event](http://simplystatistics.org/2014/04/10/the-ropensci-hackathon-ropenhack/), so check that out if you haven't already. Once again, many thanks to rOpenSci for making it possible!
 
-In addition to learning and socializing at the hackathon, I wanted to ensure my time was productive, so I worked on a mini-project related to my research in text mining. rOpenSci has plethora of [R packages](/packages/) for extracting literary content off the web, including [elife](https://github.com/ropensci/elife), which is a lightweight interface to the [elife API](http://dev.elifesciences.org/). This package is not yet available on CRAN, but we can easily install from GitHub thanks to devtools.
+In addition to learning and socializing at the hackathon, I wanted to ensure my time was productive, so I worked on a mini-project related to my research in text mining. rOpenSci has plethora of [R packages](/packages/) for extracting literary content off the web, including [elife](https://github.com/ropensci/elife), which is a lightweight interface to the [elife API](https://api.elifesciences.org//). This package is not yet available on CRAN, but we can easily install from GitHub thanks to devtools.
 
 #### Installing the package
 

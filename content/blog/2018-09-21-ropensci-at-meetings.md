@@ -39,7 +39,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
   	<td>Sep 24 - 25, 2018</td>
   	<td>Karthik Ram</td>
   	<td>🇺🇸 New York, NY</td>
-  	<td><a href="https://numfocus.org/forum2018">NumFOCUS Project Forum</a></td>
+  	<td><a href="https://numfocus.org/blog/what-happened-at-the-numfocus-summit-2018">NumFOCUS Project Forum</a></td>
   </tr>
   <tr>
   	<td>Oct 26, 2018</td>

@@ -190,7 +190,7 @@ Surely there are other sources of climate data out there that you want to use in
 [rcharts]: https://github.com/ramnathv/rCharts
 [sciordata]: http://scioclimate.wikispaces.com/3W.+Working+With+Science+Data+From+Around+The+Web
 [d3]: http://d3js.org/
-[govdat]: https://github.com/sckott/govdat
+[govdat]: https://github.com/cran/govdat
 [rnoaa]: https://github.com/ropensci/rnoaa
 [rWBclimate]: https://github.com/ropensci/rWBclimate
 [rnpn]: https://github.com/ropensci/rnpn

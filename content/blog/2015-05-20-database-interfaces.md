@@ -80,7 +80,7 @@ install.packages("elastic")
 library("elastic")
 ```
 
-`elastic` is a powerful document database with a built in query engine. It speaks JSON, has a nice HTTP API, which we use to communicate with `elastic` from R. What's great about `elastic` over e.g., `Solr` is that you don't have to worry about specifying a schema for your data. You can simply put data in, and then query on that data. You can [specify configuration settings](http://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html).
+`elastic` is a powerful document database with a built in query engine. It speaks JSON, has a nice HTTP API, which we use to communicate with `elastic` from R. What's great about `elastic` over e.g., `Solr` is that you don't have to worry about specifying a schema for your data. You can simply put data in, and then query on that data. You can [specify configuration settings](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html).
 
 ### Example
 

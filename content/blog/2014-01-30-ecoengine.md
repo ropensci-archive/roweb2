@@ -324,7 +324,7 @@ view_photos(ee_photos(scientific_name = "Gymnogyps californianus", quiet = TRUE)
 
 **Sensor data**
 
-Sensor data come from the [Keck HydroWatch Center](http://nrs.ucop.edu/research/special_projects/Keck_HydroWatchl.htm). Retrieving the data are simple. Three functions provides all the necessary functionality.
+Sensor data come from the [Keck HydroWatch Center](http://hydrowatch.cs.berkeley.edu/). Retrieving the data are simple. Three functions provides all the necessary functionality.
 
 * `ee_list_sensors()`  - provides a list of sensors and the data they provide.
 * `ee_sensor_data()` - retrieves data for any of these sensors (ids obtained by the previous function) and a date window.

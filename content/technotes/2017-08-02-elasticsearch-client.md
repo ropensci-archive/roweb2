@@ -27,7 +27,7 @@ changed their name to Elastic.
 ### What is Elasticsearch?
 
 If you aren't familiar with Elasticsearch, it is a distributed, RESTful search and analytics engine.
-It's similar to [Solr](https://lucene.apache.org/solr/). It falls in the NoSQL bin of databases, holding data in JSON documents, instead
+It's similar to [Solr](https://lucene.apache.org/solr//). It falls in the NoSQL bin of databases, holding data in JSON documents, instead
 of rows and columns. Elasticsearch has a concept of __index__, similar to a database in SQL-land.
 You can hold many documents of similar type within a single index. There is powerful search
 capabilities, including lots of different types of queries that can be done separately
@@ -46,7 +46,7 @@ a human friendly way to compose Elasticsearch queries.
 
 ### Vignettes
 
-Check out the [elastic introduction vignette](https://cran.rstudio.com/web/packages/elastic/vignettes/elastic_intro.html)
+Check out the [elastic introduction vignette](https://cran.rstudio.com/web/packages/elastic/vignettes/elastic.html)
 and the [search vignette](https://cran.rstudio.com/web/packages/elastic/vignettes/search.html) to get started.
 
 ### Noteable features

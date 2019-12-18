@@ -64,5 +64,5 @@ Doctoral Research Student<br>
 [restapi]: https://rest.ensembl.org
 [raspberrypi]: http://www.raspberrypi.org
 [arduino]: http://www.arduino.cc
-[gpio]: http://www.raspberrypi.org/archives/tag/gpio
+[gpio]: https://www.raspberrypi.org/search/gpio
 [aboutme]: http://about.me/gawbul

@@ -104,7 +104,7 @@ map.feature(lang.aff("Sign"), label = lang.aff("Sign"))
 On this map, the labels are displayed on mouse over, but it is also possible to make the labels visible at all times. In this case I used the same vector as a language set, but it is possible to use any other vector (see example in the end of section 3.2).
 
 ## 3. Show language features with a map
-The main goal of the `lingtypology` package is showing different language features on a map. Let's make an example using the built-in data set `ejective_and_n_consonants`, which contains 27 languages from the [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/). The dataset has two variables: the categorical variable `ejectives` indicates whether languages have any ejective sounds[^1], and the numeric variable `consonants` contains information about the number of consonants (based on [LAPSyD database](http://www.lapsyd.ddl.ish-lyon.cnrs.fr/lapsyd/)). I'll make a little change in a dataset for my purposes:
+The main goal of the `lingtypology` package is showing different language features on a map. Let's make an example using the built-in data set `ejective_and_n_consonants`, which contains 27 languages from the [LAPSyD database](http://www.lapsyd.ddl.cnrs.fr/lapsyd//). The dataset has two variables: the categorical variable `ejectives` indicates whether languages have any ejective sounds[^1], and the numeric variable `consonants` contains information about the number of consonants (based on [LAPSyD database](http://www.lapsyd.ddl.cnrs.fr/lapsyd//)). I'll make a little change in a dataset for my purposes:
 
 ```r
 df <- ejective_and_n_consonants

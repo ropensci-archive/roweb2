@@ -484,7 +484,7 @@ Open an issue: <https://github.com/ropensci/webmockr/issues/new>
 [webmock]: https://github.com/bblimke/webmock
 [vcr]: https://github.com/ropensci/vcr
 [fauxpas]: https://github.com/ropenscilabs/fauxpas
-[curl]: https://github.com/ropensci/curl
+[curl]: https://github.com/jeroen/curl
 [httr]: https://github.com/r-lib/httr
 [crul]: https://github.com/ropensci/crul
 [HTTPretty]: https://github.com/gabrielfalcao/HTTPretty

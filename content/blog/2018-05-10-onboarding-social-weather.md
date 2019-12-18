@@ -182,7 +182,7 @@ dplyr::filter(threads, package == "gutenbergr",
 | 2016-05-04 06:09:19 | due date: 2016-05-24                                                                                                                                                                                                                                | FALSE |      2| FALSE        | 0            |
 | 2016-05-12 16:16:38 | having a quick look over this now…                                                                                                                                                                                                                  | FALSE |      1| FALSE        | 0            |
 | 2016-05-12 16:45:59 | @dgrtwo looks great. just a minor thing:                                                                                                                                                                                                            | FALSE |      1| FALSE        | 3:7          |
-| 2016-05-12 16:45:59 | `gutenberg_get_mirror()` throws a warning due to `xml2`, at this line <https://github.com/dgrtwo/gutenbergr/blob/master/r/gutenberg_download.r#l213>                                                                                                | FALSE |      2| FALSE        | 3:7          |
+| 2016-05-12 16:45:59 | `gutenberg_get_mirror()` throws a warning due to `xml2`, at this line <https://github.com/ropensci/gutenbergr/blob/master/R/gutenberg_download.R#l213>                                                                                                | FALSE |      2| FALSE        | 3:7          |
 | 2016-05-12 16:45:59 | \`\`\` r                                                                                                                                                                                                                                            | TRUE  |      3| TRUE         | 3:7          |
 | 2016-05-12 16:45:59 | warning message:                                                                                                                                                                                                                                    | TRUE  |      4| FALSE        | 3:7          |
 | 2016-05-12 16:45:59 | in node\_find\_one(x*n**o**d**e*, *x*doc, xpath = xpath, nsmap = ns) :                                                                                                                                                                              | TRUE  |      5| FALSE        | 3:7          |
@@ -383,7 +383,7 @@ pairwise correlation of words within issue comments.
 
 My using lollipops below was inspired by [this fascinating blog post of
 Tony ElHabr’s about his Google search
-history](https://tonyelhabr.rbind.io/posts/tidy-text-analysis-google-search-history/).
+history](https://tonyelhabr.rbind.io/post/tidy-text-analysis-google-search-history//).
 
 ``` r
 library("ggplot2")

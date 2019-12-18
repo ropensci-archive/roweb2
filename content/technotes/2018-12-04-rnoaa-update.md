@@ -270,7 +270,7 @@ and many people to thank for reporting them:
 * [@potterzot](https://github.com/potterzot)
 * [@jsta](https://github.com/jsta)
 * [@asrivas3](https://github.com/asrivas3)
-* [@kevin-ht-ho](https://github.com/kevin-ht-ho)
+* [@kevin-ht-ho](https://github.com/kev-ho)
 
 <br>
 

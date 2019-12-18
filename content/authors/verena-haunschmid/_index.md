@@ -1,4 +1,4 @@
 ---
 name: Verena Haunschmid
-link: http://blog.haunschmid.name
+link: https://www.katzentante.at/
 ---
