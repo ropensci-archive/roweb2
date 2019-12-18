@@ -34,4 +34,4 @@ This research is funded by the rOpenSci project through a grant from the Helmsel
 - Applicants from natural or social sciences, computer science, statistics or related disciplines are all welcome.
 
 
-To apply, submit the following items online at [https://aprecruit.berkeley.edu/apply/JPF01132](https://aprecruit.berkeley.edu/apply/JPF01132)
+Applications closed.

@@ -16,7 +16,7 @@ tags:
 <br><br>
 # Why Python? A little background!
 
-I started using [Python][python] in the summer of 2010. I had applied for the Master of Research postgraduate degree in [Computational Biology][mrescompbiol] at the [University of York][yorkuni]. They teach the programming portion of their course using Python. I thought it might be useful to learn it, before starting, to give me a bit of a head start.
+I started using [Python][python] in the summer of 2010. I had applied for the Master of Research postgraduate degree in Computational Biology at the [University of York][yorkuni]. They teach the programming portion of their course using Python. I thought it might be useful to learn it, before starting, to give me a bit of a head start.
 
 From the beginning, it was clear to me, that Python was something different, in relation to all the other languages I had previously used. It had a beautiful, simple, clean syntax; and made producing code more about implementing the concept, or being creative with an idea, than about hacking away with an unintuitive and unnecessarily complicated syntax.
 
@@ -55,7 +55,6 @@ Doctoral Research Student<br>
 [http://about.me/gawbul][aboutme]
 
 [python]: http://www.python.org/
-[mrescompbiol]: http://www.york.ac.uk/biology/postgraduate/masters/mres-computational-biology/
 [yorkuni]: http://www.york.ac.uk/
 [myblogpost]: https://medium.com/@gawbul/perl-python-or-ruby-543054dd3bd5
 [pyopensci]: http://github.com/pyOpenSci/

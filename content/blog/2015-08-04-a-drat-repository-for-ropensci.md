@@ -67,7 +67,7 @@ With `ropkgs`, `drat` and `drat.builder`, we now have everything we need to auto
 - it supports custom Docker containers, allowing us to just download a container with most or all the dependencies we need to build packages, etc., without having to wait for them to install manually from source first.
 - it has a convenient web interface for providing secure credentials we'll need to publish the binary repository to GitHub or Amazon.
 
-Circle has other advantages too, like great live help and the ability to ssh into your CI run to troubleshoot when all else fails, but otherwise works like most other CI platforms.  More on that another day. You can see the daily builds here: [CircleCi](https://circleci.com/gh/ropensci/drat/tree/gh-pages), which are triggered by a simple `POST` request running as a cron job.  The [circle.yml](https://github.com/ropensci/drat/blob/gh-pages/circle.yml) configuration file appears in the project's drat repo -- check out how simple it is!
+Circle has other advantages too, like great live help and the ability to ssh into your CI run to troubleshoot when all else fails, but otherwise works like most other CI platforms.  More on that another day. The daily builds are triggered by a simple `POST` request running as a cron job.  The [circle.yml](https://github.com/ropensci/drat/blob/gh-pages/circle.yml) configuration file appears in the project's drat repo -- check out how simple it is!
 
 ### Publishing to Amazon
 
