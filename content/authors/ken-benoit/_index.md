@@ -1,4 +1,4 @@
 ---
 name: Ken Benoit
-link: http://kenbenoit.net
+link: https://kenbenoit.net
 ---

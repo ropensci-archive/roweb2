@@ -55,5 +55,5 @@ create a rasterStack from these
 ### Further reading
 
 The above example comes from [this
-tutorial](http://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf)
+tutorial](https://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf)
 on species distribution modeling.

@@ -28,9 +28,9 @@ tags:
 
 One of the greatest assets human beings possess is the power of speech and language, from which almost all our other accomplishments flow. To be able to analyse communication offers us a chance to gain a greater understanding of one another.
 
-To help you with this, [`googleLanguageR`](http://code.markedmondson.me/googleLanguageR/) is an R package that allows you to perform speech-to-text transcription, neural net translation and natural language processing via the [Google Cloud machine learning services](https://cloud.google.com/products/machine-learning/).
+To help you with this, [`googleLanguageR`](https://code.markedmondson.me/googleLanguageR/) is an R package that allows you to perform speech-to-text transcription, neural net translation and natural language processing via the [Google Cloud machine learning services](https://cloud.google.com/products/machine-learning/).
 
-An introduction to the package is below, but you can find out more details at the [`googleLanguageR` website](http://code.markedmondson.me/googleLanguageR/).
+An introduction to the package is below, but you can find out more details at the [`googleLanguageR` website](https://code.markedmondson.me/googleLanguageR/).
 
 ### Google's bet
 
@@ -70,13 +70,13 @@ Finally, I live and work in Denmark.  As Danish is only spoken by less than 6 mi
 
 ### Using the library
 
-To use these APIs within R, you first need to do a one-time setup to create a Google Project, add a credit card and authenticate which is [detailed on the package website](http://code.markedmondson.me/googleLanguageR/#installation).
+To use these APIs within R, you first need to do a one-time setup to create a Google Project, add a credit card and authenticate which is [detailed on the package website](https://code.markedmondson.me/googleLanguageR/#installation).
 
 After that, you feed in the R objects you want to operate upon.  The [rOpenSci review](https://github.com/ropensci/software-review/issues/127) helped to ensure that this can scale up easily, so that you can feed in large character vectors which the library will parse and rate limit as required.  The functions also work within [tidyverse](https://www.tidyverse.org/) pipe syntax.
 
 #### Speech-to-text
 
-The [Cloud Speech API](http://code.markedmondson.me/googleLanguageR/articles/speech.html) is exposed via the [`gl_speech`](http://code.markedmondson.me/googleLanguageR/reference/gl_speech.html) function.
+The [Cloud Speech API](https://code.markedmondson.me/googleLanguageR/articles/speech.html) is exposed via the [`gl_speech`](https://code.markedmondson.me/googleLanguageR/reference/gl_speech.html) function.
 
 It supports multiple audio formats and languages, and you can either feed a sub-60 second audio file directly, or perform asynchrnous requests for longer audio files.
 
@@ -95,7 +95,7 @@ gl_speech(my_audio)
 
 #### Translation
 
-The [Cloud Translation API](http://code.markedmondson.me/googleLanguageR/articles/translation.html) lets you translate text via [`gl_translate`](http://code.markedmondson.me/googleLanguageR/reference/gl_translate.html)
+The [Cloud Translation API](https://code.markedmondson.me/googleLanguageR/articles/translation.html) lets you translate text via [`gl_translate`](https://code.markedmondson.me/googleLanguageR/reference/gl_translate.html)
 
 As you are charged per character, one tip here if you are working with lots of different languages is to perform detection of language offline first using another rOpenSci package, [`cld2`](https://github.com/ropensci/cld2).  That way you can avoid charges for text that is already in your target language i.e. English.
 
@@ -123,7 +123,7 @@ gl_translate(translate_me)
 
 #### Natural Language Processing
 
-The [Natural Language API](http://code.markedmondson.me/googleLanguageR/articles/nlp.html) reveals the structure and meaning of text, accessible via the [`gl_nlp`](http://code.markedmondson.me/googleLanguageR/reference/gl_nlp.html) function.
+The [Natural Language API](https://code.markedmondson.me/googleLanguageR/articles/nlp.html) reveals the structure and meaning of text, accessible via the [`gl_nlp`](https://code.markedmondson.me/googleLanguageR/reference/gl_nlp.html) function.
 
 It returns several analysis:
 
@@ -187,6 +187,6 @@ str(nlp)
 
 ### Acknowledgements
 
-This package is 10 times better due to the efforts of the rOpenSci reviewers [Neal Richardson](http://enpiar.com/) and [Julia Gustavsen](http://www.juliagustavsen.com/), who have whipped the documentation, outputs and test cases into the form they are today in `0.1.0`.  Many thanks to them.
+This package is 10 times better due to the efforts of the rOpenSci reviewers [Neal Richardson](https://enpiar.com/) and [Julia Gustavsen](https://www.juliagustavsen.com/), who have whipped the documentation, outputs and test cases into the form they are today in `0.1.0`.  Many thanks to them.
 
 Hopefully, this is just the beginning and the package can be further improved by its users - if you do give the package a try and find a potential improvement, [raise an issue on GitHub](https://github.com/ropensci/googleLanguageR/issues) and we can try to implement it.  I'm excited to see what users can do with these powerful tools.

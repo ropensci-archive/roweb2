@@ -1,4 +1,4 @@
 ---
 name: Tim Trice
-link: http://timtrice.net/
+link: https://timtrice.net/
 ---

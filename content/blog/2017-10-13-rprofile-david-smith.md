@@ -48,7 +48,7 @@ DS: I don’t do a lot of training myself, but I work with a lot of other people
 
 KO: What does your day-to-day look like, are you in an office, do you work remote?
 
-DS: I work from home. I had moved from Seattle where Microsoft is headquartered to Chicago a couple of months before the acquisition happened, so I wasn’t about to move back to Seattle. But they let me work from home in Chicago, which has worked out great because most of my job is communicating with the community at large. So I do the [Revolutions Blog](http://blog.revolutionanalytics.com/), which I’ve been writing for eight or nine years now, writing stories about people using R, and applications of R packages. All as a way of communicating to the wider world the cool stuff that people can do with R, and also to the R community occasionally, what kind of things you can do with R in the Microsoft environment.
+DS: I work from home. I had moved from Seattle where Microsoft is headquartered to Chicago a couple of months before the acquisition happened, so I wasn’t about to move back to Seattle. But they let me work from home in Chicago, which has worked out great because most of my job is communicating with the community at large. So I do the [Revolutions Blog](https://blog.revolutionanalytics.com/), which I’ve been writing for eight or nine years now, writing stories about people using R, and applications of R packages. All as a way of communicating to the wider world the cool stuff that people can do with R, and also to the R community occasionally, what kind of things you can do with R in the Microsoft environment.
 
 KO: Have you always been a writer or interested in writing and communications?
 

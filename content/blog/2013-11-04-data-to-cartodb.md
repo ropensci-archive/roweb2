@@ -13,9 +13,9 @@ tags:
   - maps
 ---
 
-We have previously written about creating interactive maps on the web from R, with the interactive maps on Github. See [here](/blog/2013/10/23/style-geojson-polygon/), [here](/blog/2013/07/17/style-geojson/), [here](/blog/2013/07/04/rbison-geoson/), and [here](http://recology.info/2013/06/geojson/).
+We have previously written about creating interactive maps on the web from R, with the interactive maps on Github. See [here](/blog/2013/10/23/style-geojson-polygon/), [here](/blog/2013/07/17/style-geojson/), [here](/blog/2013/07/04/rbison-geoson/), and [here](https://recology.info/2013/06/geojson/).
 
-A different approach is to use [CartoDB](http://cartodb.com/), [a freemium service](http://cartodb.com/pricing/) with sql interface to your data tables that provides a map to visualize data in those tables. They released an R interace to their sql API [on Github here](https://github.com/Vizzuality/cartodb-r) - which we can use to make an interactive map from R.
+A different approach is to use [CartoDB](https://cartodb.com/), [a freemium service](https://cartodb.com/pricing/) with sql interface to your data tables that provides a map to visualize data in those tables. They released an R interace to their sql API [on Github here](https://github.com/Vizzuality/cartodb-r) - which we can use to make an interactive map from R.
 
 We'll first get some data from GBIF, ~500 occurrences of *Puma concolor* in the US, then push that data to a CartoDB table. There are a couple more non-programmatic steps in this workflow than with pushing geojson file to Github as outlined in the previous linked above (i.e., going to the CartoDB site and making a visualization, and making it public).
 
@@ -102,7 +102,7 @@ lapply(rows, function(x) cartodb.row.insert(name = "pumamap", columns = list("na
 ```
 
 
-After the upload is finished, I had to make sure the table was georeferenced, and played with settings to suit my style. And then I made a visualization from the `pumamap` dataset and made it public. And that's it!  You can find the map <a href="http://cdb.io/1fbvgCG">here</a>, and it can be embedded:
+After the upload is finished, I had to make sure the table was georeferenced, and played with settings to suit my style. And then I made a visualization from the `pumamap` dataset and made it public. And that's it!  You can find the map <a href="https://cdb.io/1fbvgCG">here</a>, and it can be embedded:
 
 <br><br><br>
 

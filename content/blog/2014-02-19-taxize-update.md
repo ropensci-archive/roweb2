@@ -70,7 +70,7 @@ plot(tr, no.margin = TRUE)
 
 ### New functions: get_gbfid
 
-The Global Biodiversity Information Facility (GBIF) has their own taxonomy. They allow programmatic access to their taxonomy, see [here](http://www.gbif.org/developer/summary) for details. Also see our [`rgbif` package](https://github.com/ropensci/rgbif) that wraps all their API services.
+The Global Biodiversity Information Facility (GBIF) has their own taxonomy. They allow programmatic access to their taxonomy, see [here](https://www.gbif.org/developer/summary) for details. Also see our [`rgbif` package](https://github.com/ropensci/rgbif) that wraps all their API services.
 
 We added a similar function to our `get_tsn`, `get_uid`, etc. functions for various taxonomies, but for the GBIF taxonomy. Here are some example calls:
 

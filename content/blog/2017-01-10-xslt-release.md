@@ -90,7 +90,7 @@ html <- xml_xslt(doc, style)
 cat(as.character(html))
 ```
 
-This example is explained in more detail on [w3schools](http://www.w3schools.com/xml/xsl_transformation.asp).
+This example is explained in more detail on [w3schools](https://www.w3schools.com/xml/xsl_transformation.asp).
 
 ## Why Use XSLT?
 

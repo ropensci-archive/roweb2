@@ -13,15 +13,15 @@ tags:
 
 Scholarly metadata - the meta-information surrounding articles - can be super useful.  Although metadata does not contain the full content of articles, it contains a lot of useful information, including title, authors, abstract, URL to the article, etc.
 
-One of the largest sources of metadata is provided via the Open Archives Initiative Protocol for Metadata Harvesting or [OAI-PMH](http://www.openarchives.org/OAI/openarchivesprotocol.html). Many publishers, provide their metadata through their own endpoint, and implement the standard OAI-PMH methods: [GetRecord](http://www.openarchives.org/OAI/openarchivesprotocol.html#GetRecord), [Identify](http://www.openarchives.org/OAI/openarchivesprotocol.html#Identify), [ListIdentifiers](http://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers), [ListMetadataFormats](http://www.openarchives.org/OAI/openarchivesprotocol.html#ListMetadataFormats), [ListRecords](http://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords), and [ListSets](http://www.openarchives.org/OAI/openarchivesprotocol.html#ListSets). Many providers use OAI-PMH, including [DataCite](http://oai.datacite.org/), [Dryad](http://wiki.datadryad.org/Data_Access#OAI-PMH), and [PubMed](https://www.ncbi.nlm.nih.gov/pmc/tools/oai//).
+One of the largest sources of metadata is provided via the Open Archives Initiative Protocol for Metadata Harvesting or [OAI-PMH](https://www.openarchives.org/OAI/openarchivesprotocol.html). Many publishers, provide their metadata through their own endpoint, and implement the standard OAI-PMH methods: [GetRecord](https://www.openarchives.org/OAI/openarchivesprotocol.html#GetRecord), [Identify](https://www.openarchives.org/OAI/openarchivesprotocol.html#Identify), [ListIdentifiers](https://www.openarchives.org/OAI/openarchivesprotocol.html#ListIdentifiers), [ListMetadataFormats](https://www.openarchives.org/OAI/openarchivesprotocol.html#ListMetadataFormats), [ListRecords](https://www.openarchives.org/OAI/openarchivesprotocol.html#ListRecords), and [ListSets](https://www.openarchives.org/OAI/openarchivesprotocol.html#ListSets). Many providers use OAI-PMH, including [DataCite](https://oai.datacite.org/), [Dryad](http://wiki.datadryad.org/Data_Access#OAI-PMH), and [PubMed](https://www.ncbi.nlm.nih.gov/pmc/tools/oai//).
 
-Some data-/article-providers provide their metadata via their own APIs. For example, Nature Publishing Group provides their own metadata API [here](http://developers.nature.com/docs) in non OAI-PMH format; you can get PLoS metadata through their [search API](http://api.plos.org/), and the BHL (see below) provides their own custom metadata service.
+Some data-/article-providers provide their metadata via their own APIs. For example, Nature Publishing Group provides their own metadata API [here](http://developers.nature.com/docs) in non OAI-PMH format; you can get PLoS metadata through their [search API](https://api.plos.org/), and the BHL (see below) provides their own custom metadata service.
 
 In addition, CrossRef provides a number of metadata search services: [metadata search](https://www.crossref.org/services/) and [openurl](http://labs.crossref.org/openurl/).
 
 What about the other publishers? (please tell me if I'm wrong about these three)
 
-+ Springer has [a metadata API](http://dev.springer.com/docs), but it is terrible, soooo...
++ Springer has [a metadata API](https://dev.springer.com/docs), but it is terrible, soooo...
 + Elsevier, are you kidding? Well, they do have some sort of API service, but its a pain in the ass.
 + Wiley, no better than Elsevier.
 
@@ -29,13 +29,13 @@ Note that metadata can live in other places:
 
 + Another package being developed by David Springate, [rpubmed](https://github.com/ropensci/rpubmed) can get PubMed metadata.
 + Our wrapper to the Mendeley API, [RMendeley](https://github.com/ropensci/rmendeley), gets article metadata via Mendeley's database.
-+ Our wrapper to the Biodiversity Heritage Library API [here](http://www.biodiversitylibrary.org/api2/docs/docs.html) gets their metadata.
++ Our wrapper to the Biodiversity Heritage Library API [here](https://www.biodiversitylibrary.org/api2/docs/docs.html) gets their metadata.
 
 No, you can't get metadata via Google Scholar - the don't allow scraping, and don't have expose their data via an API.
 
-I have discussed this package [in a previous blog post](http://sckott.github.com/2012/09/rmetadata/), but have since worked on the code a bit, and thought it deserved a new post.
+I have discussed this package [in a previous blog post](https://sckott.github.com/2012/09/rmetadata/), but have since worked on the code a bit, and thought it deserved a new post.
 
-You can see a tutorial for this package [here](http://ropensci.github.com/rmetadata/), and contribute to the code [here](https://github.com/ropensci/rmetadata).
+You can see a tutorial for this package [here](https://ropensci.github.com/rmetadata/), and contribute to the code [here](https://github.com/ropensci/rmetadata).
 
 ***************
 

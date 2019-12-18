@@ -11,7 +11,7 @@ tags:
   - API
 ---
 
-We have started a new R package interacting with NOAA climate data called **rnoaa**. You can find our package in development [here](https://github.com/ropensci/rnoaa) and documentation for NOAA web services [here](http://www.ncdc.noaa.gov/cdo-web/webservices). It is still early days for this package, but we wanted to demo what you can do with the package.
+We have started a new R package interacting with NOAA climate data called **rnoaa**. You can find our package in development [here](https://github.com/ropensci/rnoaa) and documentation for NOAA web services [here](https://www.ncdc.noaa.gov/cdo-web/webservices). It is still early days for this package, but we wanted to demo what you can do with the package.
 
 In this example, we search for stations that collect climate data, then get the data for those stations, pull out only the precipitation data, then get latitude/longitude coordinates for each station, and plot data on a map.
 

@@ -1,4 +1,4 @@
 ---
 name: Daniel Falster
-link: http://danielfalster.com/
+link: https://danielfalster.com/
 ---

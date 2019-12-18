@@ -36,5 +36,5 @@ for the sake of future readers :).
 
 ## What to contribute
 The only criteria for an idea's inclusion is that the package serve a clear scientific use (as an example:
-"wouldn't it be nice if we had an API client for this data repository?" qualifies. [rfoaas](http://cran.r-project.org/web/packages/rfoaas/index.html) probably wouldn't). A good heuristic would be: if you can explain how this package would benefit scientists or
+"wouldn't it be nice if we had an API client for this data repository?" qualifies. [rfoaas](https://cran.r-project.org/web/packages/rfoaas/index.html) probably wouldn't). A good heuristic would be: if you can explain how this package would benefit scientists or
 researchers in a way that's convincing to you, propose it!

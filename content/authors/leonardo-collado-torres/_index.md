@@ -1,6 +1,6 @@
 ---
 name: Leonardo Collado-Torres
-link: http://lcolladotor.github.io/
+link: https://lcolladotor.github.io/
 github: lcolladotor
 twitter: fellgernon
 ---

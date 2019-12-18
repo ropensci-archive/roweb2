@@ -3,7 +3,7 @@ slug: educollab-community
 title: 'rOpenSci Educators Collaborative: How Can We Develop a Community of Innovative
   R Educators?'
 date: '2018-07-26'
-preface: 'At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org)
+preface: 'At the [5th annual rOpenSci unconference](https://unconf18.ropensci.org)
   in May 2018, a group of scientists and educators shared their experiences, frustrations,
   failures, and successes teaching science with R. What came out of this discussion
   was a framework for rOpenSci Educators’ Collaborative: a community of practice for
@@ -59,6 +59,6 @@ Even if they are made open, the problem remains of how to discover their availab
 
 ![](/img/blog-images/2018-07-26-educollab-community/Screen Shot 2018-07-23 at 2.30.01 PM.png)
 
-To address this larger challenge, we propose a new rOpenSci Education profile series, which will include interviews with practicing educators to share their own resources, tools, strategies, and experiences in the classroom. We hope that beginning this dialogue about education with educators will be the beginning of an rOpenSci Educators' Collaborative. We hope that this collaborative will provide a space for new and experienced educators to share what works and what doesn’t. Ideally, in the [words of one expert](http://wenger-trayner.com/introduction-to-communities-of-practice/), this community of practice would work to "develop a shared repertoire of resources: experiences, stories, tools, ways of addressing recurring problems."
+To address this larger challenge, we propose a new rOpenSci Education profile series, which will include interviews with practicing educators to share their own resources, tools, strategies, and experiences in the classroom. We hope that beginning this dialogue about education with educators will be the beginning of an rOpenSci Educators' Collaborative. We hope that this collaborative will provide a space for new and experienced educators to share what works and what doesn’t. Ideally, in the [words of one expert](https://wenger-trayner.com/introduction-to-communities-of-practice/), this community of practice would work to "develop a shared repertoire of resources: experiences, stories, tools, ways of addressing recurring problems."
 
 {{< tweet 999074538666188800 >}}

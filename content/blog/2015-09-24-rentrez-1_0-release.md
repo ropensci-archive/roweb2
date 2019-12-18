@@ -40,7 +40,7 @@ information about a given record in a relatively small and simple file. `rentrez
 provides the function `entrez_summary()` to retrieve these records. When more
 than one unique ID is passed to `entrez_summary` the function returns a list of
 esummary objects. For instance, you could find all the genetic variants associated
-with asthma by finding links between the [OMIM record for asthma](http://www.omim.org/entry/600807) and records in the database dbSNP:
+with asthma by finding links between the [OMIM record for asthma](https://www.omim.org/entry/600807) and records in the database dbSNP:
 
 
 ```r

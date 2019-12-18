@@ -1,6 +1,6 @@
 ---
 name: Nicholas Tierney
-link: http://njtierney.com
+link: https://njtierney.com
 twitter: nj_tierney
 github: njtierney
 ---

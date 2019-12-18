@@ -98,5 +98,5 @@ We'd like to thank the Open Tree project for inviting us to the meeting
 and all participants of that meeting for discussions and their feedback
 on `rotl`. The package was reviewed as part of the rOpenSci onboarding
 process, and we'd like to thank [Scott
-Chamberlain](http://scottchamberlain.info/) for the time and expertise
+Chamberlain](https://scottchamberlain.info/) for the time and expertise
 that went into this review and improved the package.

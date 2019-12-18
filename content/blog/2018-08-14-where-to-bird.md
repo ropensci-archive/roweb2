@@ -356,7 +356,7 @@ Another package of rOpenSci’s interacting with open geographical data,
 that might be of interest for making maps, is
 [`rnaturalearth`](https://github.com/ropensci/rnaturalearth) that
 facilitates interaction with [Natural Earth map
-data](http://www.naturalearthdata.com/).
+data](https://www.naturalearthdata.com/).
 
 #### Other R packages for spatial analyses
 

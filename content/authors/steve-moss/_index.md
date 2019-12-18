@@ -1,4 +1,4 @@
 ---
 name: Steve Moss
-link: http://about.me/gawbul
+link: https://about.me/gawbul
 ---

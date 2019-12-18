@@ -21,7 +21,7 @@ called `faker`.
 `charlatan` is inspired from and ports many things from Python's
 <https://github.com/joke2k/faker> library. In turn, `faker` was inspired from
 [PHP's faker](https://github.com/fzaninotto/Faker),
-[Perl's Faker](http://search.cpan.org/~jasonk/Data-Faker-0.07/), and
+[Perl's Faker](https://search.cpan.org/~jasonk/Data-Faker-0.07/), and
 [Ruby's faker](https://rubygems.org/gems/faker). It appears that the PHP
 library was the original - nice work PHP.
 

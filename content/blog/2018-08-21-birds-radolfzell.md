@@ -47,7 +47,7 @@ these methods,
     Strimas-Mackey](http://strimas.com/),
 
 -   APIs, via `rebird` maintained by [Sebastian
-    Pardo](http://sebpardo.github.io/).
+    Pardo](https://sebpardo.github.io/).
 
 Your use case will help you decide which entry point is the most
 appropriate for your use case. *Note that both packages have documented
@@ -73,10 +73,10 @@ README](https://github.com/CornellLabofOrnithology/auk#auk-vs-rebird).*
 
 -   You want to analyze *your* eBird’s sightings? Check out the
     work-in-progress [`myebird`](https://github.com/sebpardo/myebird) by
-    [Sebastian Pardo](http://sebpardo.github.io/), `rebird`’s
+    [Sebastian Pardo](https://sebpardo.github.io/), `rebird`’s
     maintainer, and [this app](http://www.ebirdedgeapp.io/) by [Simón
     Valdez-Juarez](https://www.sfu.ca/biology/people/profiles/svaldez.html)
-    and [Sebastian Pardo](http://sebpardo.github.io/) highlighting the
+    and [Sebastian Pardo](https://sebpardo.github.io/) highlighting the
     most endangered species you observed.
 
 -   You’re writing a birder’s guide to rOpenSci? Use both `rebird` and
