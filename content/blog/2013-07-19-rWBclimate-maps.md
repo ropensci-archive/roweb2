@@ -33,7 +33,7 @@ library(rWBclimate)
 <br>
 
 
-Aside from access to both temperature and preciptation data, you can download anomaly data, showing the change from some time period and a control period of 1961-2009.  Let's create a precipitation anomaly map to see how much change there will be across North America.  The first thing we'll need to do is download the data and subset it so we have one piece of spatial information per KML polygon.  We'll be using examples with preloaded basin ID's, in this case *NoAm_basin*.  However you can download data with a vector of numbers for [basins](http://data.worldbank.org/sites/default/files/climate_data_api_basins.pdf) or countries using three letter [ISO country codes](http://unstats.un.org/unsd/methods/m49/m49alpha.htm)
+Aside from access to both temperature and preciptation data, you can download anomaly data, showing the change from some time period and a control period of 1961-2009.  Let's create a precipitation anomaly map to see how much change there will be across North America.  The first thing we'll need to do is download the data and subset it so we have one piece of spatial information per KML polygon.  We'll be using examples with preloaded basin ID's, in this case *NoAm_basin*.  However you can download data with a vector of numbers for basins or countries using three letter [ISO country codes](http://unstats.un.org/unsd/methods/m49/m49alpha.htm)
 
 
 ```r

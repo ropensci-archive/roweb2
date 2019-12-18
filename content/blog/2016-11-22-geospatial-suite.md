@@ -664,7 +664,7 @@ name found, the type of geospatial thing, geometry type, and coordinates.
 <a href="https://cran.r-project.org/package=rgeospatialquality" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropenscilabs/rgeospatialquality" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
 
 [rgeospatialquality](https://github.com/ropenscilabs/rgeospatialquality) - `rgeospatialquality`
-is an R client for the [Geospatial Data Quality API](http://api-geospatial.vertnet-portal.appspot.com/geospatial)
+is an R client for the Geospatial Data Quality API
 that detects geospatial quality issues with geostpaial biodiversity occurrence data.
 
 ### Example
