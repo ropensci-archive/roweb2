@@ -35,9 +35,7 @@ n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarCh
 # Visualize
 n1$show(cdn = TRUE)
 ```
-
-
-Check out the output [here][rchartsout]. If you like you can take the source code from the visualization (right click on select *View Page Source*) and put it in your html files, and you're good to go (as long as you have dependencies, etc.) - quicker than learning [d3][d3] and company from scratch, eh. This is a super simple example, but you can imagine the possibilities.
+If you like you can take the source code from the visualization (right click on select *View Page Source*) and put it in your html files, and you're good to go (as long as you have dependencies, etc.) - quicker than learning [d3][d3] and company from scratch, eh. This is a super simple example, but you can imagine the possibilities.
 
 
 ## The data itself
@@ -189,7 +187,6 @@ Surely there are other sources of climate data out there that you want to use in
 
 [sciocweb]: http://scioclimate.wikispaces.com
 [sciox]: https://twitter.com/#sciox
-[rchartsout]: http://sckott.github.io/vis/nvd3_eg.html
 [rcharts]: https://github.com/ramnathv/rCharts
 [sciordata]: http://scioclimate.wikispaces.com/3W.+Working+With+Science+Data+From+Around+The+Web
 [d3]: http://d3js.org/
