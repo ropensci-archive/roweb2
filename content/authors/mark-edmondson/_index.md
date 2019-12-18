@@ -1,4 +1,4 @@
 ---
 name: Mark Edmondson
-link: http://code.markedmondson.me
+link: https://code.markedmondson.me
 ---

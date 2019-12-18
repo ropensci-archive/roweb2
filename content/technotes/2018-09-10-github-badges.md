@@ -74,17 +74,17 @@ codemetar::extract_badges("https://raw.githubusercontent.com/ropensci/drake/mast
 | text                                                                                                       | link                                                     | image\_link                                                                           |
 |:-----------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------|
 | ropensci\_footer                                                                                           | <https://ropensci.org>                                   | </public_images/github_footer.png>                                 |
-| JOSS                                                                                                       | <https://doi.org/10.21105/joss.00550>                    | <http://joss.theoj.org/papers/10.21105/joss.00550/status.svg>                         |
+| JOSS                                                                                                       | <https://doi.org/10.21105/joss.00550>                    | <https://joss.theoj.org/papers/10.21105/joss.00550/status.svg>                         |
 | Licence                                                                                                    | <https://www.gnu.org/licenses/gpl-3.0.en.html>           | <https://img.shields.io/badge/licence-GPL--3-blue.svg>                                |
 | AppVeyor                                                                                                   | <https://ci.appveyor.com/project/ropensci/drake>         | <https://ci.appveyor.com/api/projects/status/4ypc9xnmqt70j94e?svg=true&branch=master> |
 | rOpenSci                                                                                                   | <https://github.com/ropensci/software-review/issues/156>      | <https://badges.ropensci.org/156_status.svg>                                          |
 | minimal R version                                                                                          | <https://cran.r-project.org/>                            | <https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg>                                 |
 | Travis                                                                                                     | <https://travis-ci.org/ropensci/drake>                   | <https://travis-ci.org/ropensci/drake.svg?branch=master>                              |
-| CRAN                                                                                                       | <http://cran.r-project.org/package=drake>                | <http://www.r-pkg.org/badges/version/drake>                                           |
-| downloads                                                                                                  | <http://cran.rstudio.com/package=drake>                  | <http://cranlogs.r-pkg.org/badges/drake>                                              |
+| CRAN                                                                                                       | <https://cran.r-project.org/package=drake>                | <https://www.r-pkg.org/badges/version/drake>                                           |
+| downloads                                                                                                  | <https://cran.rstudio.com/package=drake>                  | <https://cranlogs.r-pkg.org/badges/drake>                                              |
 | Codecov                                                                                                    | <https://codecov.io/github/ropensci/drake?branch=master> | <https://codecov.io/github/ropensci/drake/coverage.svg?branch=master>                 |
 | Zenodo                                                                                                     | <https://zenodo.org/badge/latestdoi/82609103>            | <https://zenodo.org/badge/82609103.svg>                                               |
-| Project Status: Active – The project has reached a stable, usable state and is being actively developed. | <http://www.repostatus.org/#active>                      | <http://www.repostatus.org/badges/latest/active.svg>                                  |
+| Project Status: Active – The project has reached a stable, usable state and is being actively developed. | <https://www.repostatus.org/#active>                      | <https://www.repostatus.org/badges/latest/active.svg>                                  |
 
 Quite handy for our metadata collection!
 
@@ -110,7 +110,7 @@ In this exploration we shall concentrate on CRAN packages that indicate
 a GitHub repo link under the URL field of DESCRIPTION. By the way, if
 you don’t indicate such links in DESCRIPTION of your package yet, you
 can (and should) run
-[`usethis::use_github_links`](http://usethis.r-lib.org/reference/use_github_links.html).
+[`usethis::use_github_links`](https://usethis.r-lib.org/reference/use_github_links.html).
 
 ### Get links to GitHub repos from CRAN information
 

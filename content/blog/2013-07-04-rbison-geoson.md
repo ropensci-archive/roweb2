@@ -82,7 +82,7 @@ head(bison_data(dat, "data_df"))
 
 Before this step I made a folder called *mygeojson* to write data in to, which will also be a Github repository.
 
-In this example, we are using the option method='web' in the `togeojson` function, but we could also use method='local' which wouldl use the `rgdal` package to convert to a geojson file format locally. Specifying method='web' uses the [Ogre web client](http://ogre.adc4gis.com/).
+In this example, we are using the option method='web' in the `togeojson` function, but we could also use method='local' which wouldl use the `rgdal` package to convert to a geojson file format locally. Specifying method='web' uses the [Ogre web client](https://ogre.adc4gis.com/).
 
 
 ```r
@@ -124,8 +124,8 @@ It is as easy as that! We'll add this functionality into our `rgbif` package as 
 
 Further reading:
 
-+ http://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/
-+ I wrote earlier about this topic on my own blog [here](http://sckott.github.io/2013/06/geojson/).
++ https://blog.geomusings.com/2013/06/18/geojson-on-github-now-what/
++ I wrote earlier about this topic on my own blog [here](https://sckott.github.io/2013/06/geojson/).
 + Github help for geojson file https://help.github.com/articles/mapping-geojson-files-on-github#embedding-your-map-elsewhere
 
 [rgbif]: https://github.com/ropensci/rgbif

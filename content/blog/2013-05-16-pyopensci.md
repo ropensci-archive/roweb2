@@ -52,19 +52,19 @@ Lastly, pyOpenSci is, at present, just [me][aboutme]. My time is currently limit
 Pythonista<br>
 Founder of pyOpenSci<br>
 Doctoral Research Student<br>
-[http://about.me/gawbul][aboutme]
+[https://about.me/gawbul][aboutme]
 
-[python]: http://www.python.org/
-[mrescompbiol]: http://www.york.ac.uk/biology/postgraduate/masters/mres-computational-biology/
-[yorkuni]: http://www.york.ac.uk/
+[python]: https://www.python.org/
+[mrescompbiol]: https://www.york.ac.uk/biology/postgraduate/masters/mres-computational-biology/
+[yorkuni]: https://www.york.ac.uk/
 [myblogpost]: https://medium.com/@gawbul/perl-python-or-ruby-543054dd3bd5
-[pyopensci]: http://github.com/pyOpenSci/
-[rstats]: http://www.r-project.org/
-[ropensciwrappers]: http://github.com/rOpenSci/
-[pyensemblrest]: http://github.com/pyOpenSci/pyEnsemblRest/
-[ensembl]: http://www.ensembl.org/
+[pyopensci]: https://github.com/pyOpenSci/
+[rstats]: https://www.r-project.org/
+[ropensciwrappers]: https://github.com/rOpenSci/
+[pyensemblrest]: https://github.com/pyOpenSci/pyEnsemblRest/
+[ensembl]: https://www.ensembl.org/
 [restapi]: https://rest.ensembl.org
-[raspberrypi]: http://www.raspberrypi.org
-[arduino]: http://www.arduino.cc
+[raspberrypi]: https://www.raspberrypi.org
+[arduino]: https://www.arduino.cc
 [gpio]: https://www.raspberrypi.org/search/gpio
-[aboutme]: http://about.me/gawbul
+[aboutme]: https://about.me/gawbul

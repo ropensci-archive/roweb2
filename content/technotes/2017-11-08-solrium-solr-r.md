@@ -209,7 +209,7 @@ Two functions were added: `update_atomic_json` and `update_atomic_xml` for JSON 
 
 `solr_search` and `solr_all` in `v1` gain attributes that include `numFound`, `start`, and `maxScore`. That is, you can get to these three values after data is returned. Note that some Solr instances may not return all three values.
 
-For example, let's use the Public Library of Science Solr search instance at <http://api.plos.org/search>:
+For example, let's use the Public Library of Science Solr search instance at <https://api.plos.org/search>:
 
 
 ```r

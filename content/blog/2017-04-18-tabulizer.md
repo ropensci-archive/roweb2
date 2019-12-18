@@ -27,7 +27,7 @@ What can we do about such data other than extract it by hand? One answer is rely
 
 ## What is `tabulizer`?
 
-`tabulizer` provides R bindings to [the tabula-java library](https://github.com/tabulapdf/tabula-java), the open-source java library that powers [Tabula](http://tabula.technology/) (source code on [GitHub](https://github.com/tabulapdf/tabula)). What this means is that `tabulizer` relies directly on the underlying java classes that power Tabula without the need for system calls or the need to explicitly install Tabula on your system. (A potential downside is the need to handle intricacies of rJava - R's interface to Java, which I discuss in depth below.)
+`tabulizer` provides R bindings to [the tabula-java library](https://github.com/tabulapdf/tabula-java), the open-source java library that powers [Tabula](https://tabula.technology/) (source code on [GitHub](https://github.com/tabulapdf/tabula)). What this means is that `tabulizer` relies directly on the underlying java classes that power Tabula without the need for system calls or the need to explicitly install Tabula on your system. (A potential downside is the need to handle intricacies of rJava - R's interface to Java, which I discuss in depth below.)
 
 Tabula is an extremely powerful tool for extracting tabular data locked in PDFs. It's an incredibly valuable tool because the PDF file specification does not have a "table" representation. Instead, PDFs simply represent tables through the fixed positioning of text into rows and columns. Thus, unlike HTML, Word (.docx), or Open Document (.odt) file formats, there is no easy programmatic way to identify a table in a PDF. Tabula thus implements novel algorithms for identifying rows and columns of data and extracting them. `tabulizer` just provides a thin R layer on top of this power Java code.
 
@@ -62,12 +62,12 @@ If none of these steps work, scroll through [the GitHub issues page](https://git
 
 Elections data are the bread and butter of a lot of quantitative political science research. Many researchers in my field need to know how many citizens voted and for whom in order to make sense of campaigns, election integrity, partisanship, and so forth. Yet a substantial amount of election-related data is locked in government-produced PDFs. Worse, national, state, and local governments have little to no standardization in the formatting of elections data, meaning even if one could figure out a computational strategy for extracting one kind of data about elections in one year from one state, that computational strategy would likely be useless in the same state in another year or in any other state. Elections provide a fantastic and highly visible example of "open" government data that's not really open or usable at all.
 
-As a simple example, [this PDF from the California Secretary of State's office](http://elections.cdn.sos.ca.gov/sov/2016-general/sov/04-historical-voter-reg-participation.pdf) contains historical voter registration and turnout data in a well-formatted table. Why this is a PDF nobody knows. But extracting the tables using `tabulizer`'s `extract_tables()` function is a breeze with no need to even download the file:
+As a simple example, [this PDF from the California Secretary of State's office](https://elections.cdn.sos.ca.gov/sov/2016-general/sov/04-historical-voter-reg-participation.pdf) contains historical voter registration and turnout data in a well-formatted table. Why this is a PDF nobody knows. But extracting the tables using `tabulizer`'s `extract_tables()` function is a breeze with no need to even download the file:
 
 
 ```r
 library("tabulizer")
-sos_url <- "http://elections.cdn.sos.ca.gov/sov/2016-general/sov/04-historical-voter-reg-participation.pdf"
+sos_url <- "https://elections.cdn.sos.ca.gov/sov/2016-general/sov/04-historical-voter-reg-participation.pdf"
 tab1 <- extract_tables(sos_url)
 str(tab1)
 ```

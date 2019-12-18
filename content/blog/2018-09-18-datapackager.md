@@ -72,11 +72,11 @@ The package developed organically over the span of several years, initially as a
 
 #### rOpenSci 
 
-`DataPackageR` was a departure from the [usual tools](http://www.gregfinak.com/#software) we develop, which live mostly on [Bioconductor](http://bioconductor.org). We thought the [rOpenSci](http://ropensci.org) community would be a good place to release the package and reach a wider, more diverse audience.
+`DataPackageR` was a departure from the [usual tools](https://www.gregfinak.com/#software) we develop, which live mostly on [Bioconductor](https://bioconductor.org). We thought the [rOpenSci](https://ropensci.org) community would be a good place to release the package and reach a wider, more diverse audience.
 
 #### The onboarding process
 
-Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), [Kara Woo](https://github.com/karawoo), [Will Landau](https://github.com/wlandau), and [Noam Ross](https://github.com/noamross) volunteered their time to provide in-depth, comprehensive and careful code review, suggestions for features, documentation, and improvements in coding style and unit tests, that ultimately made the software better. It was an impressive effort (you can see the GitHub issue thread for yourself [here](http://www.github.com/ropensci/software-review/issues/230)).
+Onboarding was a great experience. [Maëlle Salmon](https://github.com/maelle), [Kara Woo](https://github.com/karawoo), [Will Landau](https://github.com/wlandau), and [Noam Ross](https://github.com/noamross) volunteered their time to provide in-depth, comprehensive and careful code review, suggestions for features, documentation, and improvements in coding style and unit tests, that ultimately made the software better. It was an impressive effort (you can see the GitHub issue thread for yourself [here](https://www.github.com/ropensci/software-review/issues/230)).
 
 The current version of the package has **100% test coverage** and comprehensive documentation. One great benefit is that as I develop new features in the future, I can be confident I'm not inadvertently breaking something else. 
 
@@ -156,7 +156,7 @@ use_raw_dataset(file.path(tempdir(),"cars.csv"))
 
 `use_raw_dataset()` moves the file or path in its argument into `inst/extdata` under the data package source tree. This raw (usually non-tidy) data will be installed with the data pacakge. 
 
-For large data sets that you may not want to distribute with the package, you could place them in a directory external to the package source, or place them in `inst/extdata` but include them in `.Rbuildignore`. In fact as I write this, there should be an option to add a data set to `.Rbuildignore` automatically. That would be [a good first issue](http://www.github.com/ropensci/DataPackageR/issues/48) for anyone who would like to contribute.
+For large data sets that you may not want to distribute with the package, you could place them in a directory external to the package source, or place them in `inst/extdata` but include them in `.Rbuildignore`. In fact as I write this, there should be an option to add a data set to `.Rbuildignore` automatically. That would be [a good first issue](https://www.github.com/ropensci/DataPackageR/issues/48) for anyone who would like to contribute.
 
 #### Add a data processing script.
 
@@ -459,12 +459,12 @@ package_build(file.path(tempdir(),"TidyCars"))
 
 If you are the data package developer you may consider: 
 
-- Placing the source of the data package under version control (we like [git](https://git-scm.com/downloads) and [GitHub](http://www.github.com)). 
+- Placing the source of the data package under version control (we like [git](https://git-scm.com/downloads) and [GitHub](https://www.github.com)). 
 - Share the package archive (`yourpackage-x.y.z.tar.gz`) 
     - on a public repository.
     - directly with collaborators.
 
-We've placed the [TidyCars data package on GitHub](http://www.github.com/gfinak/TidyCars) so that you can see for yourself how it looks.
+We've placed the [TidyCars data package on GitHub](https://www.github.com/gfinak/TidyCars) so that you can see for yourself how it looks.
 
 #### Limitations and future work
 

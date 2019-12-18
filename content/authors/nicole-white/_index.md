@@ -1,4 +1,4 @@
 ---
 name: Nicole White
-link: http://nicolewhite.github.io/
+link: https://nicolewhite.github.io/
 ---

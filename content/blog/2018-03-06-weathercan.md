@@ -24,9 +24,9 @@ output:
     preserve_yaml: yes
 ---
 
-I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org), data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck. This is one of the reasons why, when I designed [`weathercan`](http://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward.
+I love working with R and have been sharing the love with my friends and colleagues for almost seven years now. I'm one of those really annoying people whose response to most analysis-related questions is "You can do that in R! Five minutes, tops!" or "Three lines of code, I swear!" The problem was that I invariably spent an hour or more showing people how to get the data, load the data, clean the data, transform the data, and join the data, before we could even start the "five minute analysis". With the advent of [`tidyverse`](https://www.tidyverse.org), data manipulation has gotten much, much easier, but I still find that data manipulation is where most new users get stuck. This is one of the reasons why, when I designed [`weathercan`](https://github.com/ropensci/weathercan), I tried as hard as possible to make it simple and straightforward.
 
-`weathercan` is an R package designed to make it easy to access historical weather data from [Environment and Climate Change Canada (ECCC)](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html). It downloads, combines, cleans, and transforms the data from multiple weather stations and across long time frames. So when you access ECCC data, you get everything in one dataset. Nifty, eh?
+`weathercan` is an R package designed to make it easy to access historical weather data from [Environment and Climate Change Canada (ECCC)](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). It downloads, combines, cleans, and transforms the data from multiple weather stations and across long time frames. So when you access ECCC data, you get everything in one dataset. Nifty, eh?
 
 Although downloading data with `weathercan` is fairly straight forward, weather data often needs to be integrated into other data sets. You may want to combine `weathercan` data with other types of measurements (e.g., river water samples on a specific day), or summarize and join it with data on other scales (e.g. temporal or spatial). Depending on the other data this can be a tricky step. That's why I'm going to walk you through some different ways of integrating weather data from `weathercan` with other data sets.
 
@@ -56,7 +56,7 @@ Well, I've told you it's easy to get data from `weathercan`, so let's start by d
 library(weathercan)
 ```
 
-2) Look at the built in `stations` data set to find the specific stations you're interested in (you can also use the `stations_search()` function). Here, we'll use the [`dplyr`](http://dplyr.tidyverse.org/) package (part of [`tidyverse`](https://www.tidyverse.org)) to `filter()` stations to only those in the province of Manitoba, which record data at daily intervals, and which have an end date of 2018 or later (which likely means it's still operational at the date of writing this post). Note that we'll also be removing some columns (`prov`, `climate_id`, `WMO_id`, `TC_id`) just for clarity.
+2) Look at the built in `stations` data set to find the specific stations you're interested in (you can also use the `stations_search()` function). Here, we'll use the [`dplyr`](https://dplyr.tidyverse.org/) package (part of [`tidyverse`](https://www.tidyverse.org)) to `filter()` stations to only those in the province of Manitoba, which record data at daily intervals, and which have an end date of 2018 or later (which likely means it's still operational at the date of writing this post). Note that we'll also be removing some columns (`prov`, `climate_id`, `WMO_id`, `TC_id`) just for clarity.
 
 ``` r
 mb <- filter(stations, 
@@ -255,7 +255,7 @@ glimpse(stream) # Alternative way of looking at data with many columns
     ## $ total_precip <dbl> 0.0, 0.0, 0.0, 2.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5,...
     ## $ total_snow   <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 
-And there you have it! We have neatly combined `weathercan` data from the nearest, most complete stations, with our `stream` data. If you'd like to learn more about joining data, check out the [R for Data Science chapter on Relational Data](http://r4ds.had.co.nz/relational-data.html).
+And there you have it! We have neatly combined `weathercan` data from the nearest, most complete stations, with our `stream` data. If you'd like to learn more about joining data, check out the [R for Data Science chapter on Relational Data](https://r4ds.had.co.nz/relational-data.html).
 
 Small temporal scales
 ---------------------
@@ -264,7 +264,7 @@ In the previous example, we had daily measurements and daily weather data, so it
 
 In this example, we'll use linear interpolation to assign temperature measurements to bird feeding activity (measured over seconds and minutes). This would allow us to control for potential effects of temperature on winter foraging behaviour without losing the fine-scale resolution of our data.
 
-For foraging data, we'll use bird visits to feeders recorded through RFID (radio-frequency identification). When a bird with an RFID tag sits on the perch of a feeder with an RFID logger, their presence is recorded. This data is available through the [animalnexus project](http://animalnexus.ca) hosted at [Thompson Rivers University](https://www.tru.ca/). We can use the [`feedr`](http://github.com/animalnexus/feedr) package to access it:
+For foraging data, we'll use bird visits to feeders recorded through RFID (radio-frequency identification). When a bird with an RFID tag sits on the perch of a feeder with an RFID logger, their presence is recorded. This data is available through the [animalnexus project](http://animalnexus.ca) hosted at [Thompson Rivers University](https://www.tru.ca/). We can use the [`feedr`](https://github.com/animalnexus/feedr) package to access it:
 
 ``` r
 f <- dl_data(start = "2017-01-06", end = "2017-01-10")
@@ -369,12 +369,12 @@ Wide geographic scales
 
 While the `weathercan` data is spatial, it only reflects spatial *points*. You may wish to average over regions or plot these points on a map, which would allow you to look at your data in a different, more visual manner, and to use it in more spatially explicit analyses.
 
-In this final example we will use the [`sf`](http://r-spatial.github.io/sf/) and [`mapview`](https://r-spatial.github.io/mapview/) packages to visualize average temperature across different ecological regions in Manitoba on New Year's Day, 2018.
+In this final example we will use the [`sf`](https://r-spatial.github.io/sf/) and [`mapview`](https://r-spatial.github.io/mapview/) packages to visualize average temperature across different ecological regions in Manitoba on New Year's Day, 2018.
 
-First, we'll need to download and unzip the ecological area shape file from the [Province of Manitoba website](http://mli2.gov.mb.ca/environment/shp_zip_files/env_ecological_areas_py_shp.zip).
+First, we'll need to download and unzip the ecological area shape file from the [Province of Manitoba website](https://mli2.gov.mb.ca/environment/shp_zip_files/env_ecological_areas_py_shp.zip).
 
 ``` r
-download.file("http://mli2.gov.mb.ca/environment/shp_zip_files/env_ecological_areas_py_shp.zip",
+download.file("https://mli2.gov.mb.ca/environment/shp_zip_files/env_ecological_areas_py_shp.zip",
               destfile = "ecological_shp.zip")
 unzip("ecological_shp.zip")
 ```
@@ -463,8 +463,8 @@ I hope these examples will help guide you in the many ways in which you can inte
 -   Make sure your data is summarized to the appropriate level first (i.e. don't try to merge hourly data with yearly data)
 -   Make sure you join data by the correct columns (i.e. include your index columns as well as the appropriate time/date column)
 -   Often, you'll need to make intermediate data frames in which you link weather stations to sites or observations
--   For spatial data, make sure your two data sets have the same CRS, and consider the `st_join()` function from the [`sf` package](http://r-spatial.github.io/sf/) to join them
--   Make it easier on yourself by using [`tidyverse`](https://tidyverse.org), specifically the packages `dplyr` and `tidyr` ([R for Data Science](http://r4ds.had.co.nz) is a great reference)
+-   For spatial data, make sure your two data sets have the same CRS, and consider the `st_join()` function from the [`sf` package](https://r-spatial.github.io/sf/) to join them
+-   Make it easier on yourself by using [`tidyverse`](https://tidyverse.org), specifically the packages `dplyr` and `tidyr` ([R for Data Science](https://r4ds.had.co.nz) is a great reference)
 -   Document the process by which you join your data. This makes it easy for you to keep track of what you've done and makes your work reproducible (consider using the "Knit" button in RStudio as a shortcut for making reports)
 
 Acknowledgements

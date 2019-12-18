@@ -14,7 +14,7 @@ tags:
 ---
 Our [Community Call](/blog/2016/10/31/comm-call-v12) on December 15th covered a big topic in tech communities: "How do I create a code of conduct for my event/lab/codebase?". Here, we cover some of the key themes and considerations that arose from the discussion and point to curated resources and examples to follow when developing a code of conduct (CoC) for your community.
 
-Three guest speakers shared different perspectives. Dr Pauline Barmby talked about the process and lessons learned as [Data Carpentry](http://www.datacarpentry.org/) and [Software Carpentry](https://software-carpentry.org/) recently updated their CoC; Ms Safia Abdalla talked about "Codes of conduct for open source: the stuff no one tells you"; and Dr Titus Brown talked about his lab CoC. You can [read their bios](#speaker-bios) below and watch the [video](https://vimeo.com/196503807) of the call. Speakers did not use other presentation materials.
+Three guest speakers shared different perspectives. Dr Pauline Barmby talked about the process and lessons learned as [Data Carpentry](https://www.datacarpentry.org/) and [Software Carpentry](https://software-carpentry.org/) recently updated their CoC; Ms Safia Abdalla talked about "Codes of conduct for open source: the stuff no one tells you"; and Dr Titus Brown talked about his lab CoC. You can [read their bios](#speaker-bios) below and watch the [video](https://vimeo.com/196503807) of the call. Speakers did not use other presentation materials.
 
 From the talks and discussion it became clear that there are three key components to codes of conduct:
 
@@ -31,7 +31,7 @@ Some notes:
 * Develop and post a CoC whether or not you know of any problems; setting clear expectations is 90% of the work.
 * The CoC has to set expectations for everyone, including the boss (if there is one).
 * One big issue for the Carpentries was whether or not there should be specific lists of prohibited behaviors or protected groups.
-* Because many of our communities cross international boundaries, our CoCs should be accessible in multiple languages. The [Contributor Covenant](http://contributor-covenant.org/) does provide a template CoC in [multiple languages](http://contributor-covenant.org/i18n/).
+* Because many of our communities cross international boundaries, our CoCs should be accessible in multiple languages. The [Contributor Covenant](https://contributor-covenant.org/) does provide a template CoC in [multiple languages](https://contributor-covenant.org/i18n/).
 * For international communities, what is enforceable or criminal depends on where you are. For example, Canadian laws against hate-speech are not necessarily enforceable in other countries.
 
 ### Adopting and Sharing a Code of Conduct
@@ -57,7 +57,7 @@ In an academic research environment, there is a huge grey area between dealing w
 One tricky area of enforcement is around online conversations in discussion forums or in GitHub issues where people sometimes say things they shouldn’t. Safia made the excellent point that it helps to leave a comment on the issue because it will remain visible online. Saying something like “we're willing to help, but we don’t tolerate this kind of communication” means newcomers can see that bad behavior is addressed and not tolerated. This is also critical to maintain or rebuild trust from community members. If you're a GitHub admin you could choose to implement a time-based ban as a consequence. In this situation, recognition of a violation is easy, but there is a big enforcement challenge when that person is a significant contributor. This is where it is critical to have a strong enforcement board and a good structure for raising a violation through the ranks depending on its severity.
 
 ### We Have Work To Do
-rOpenSci currently has CoCs for [our events](http://unconf16.ropensci.org/coc.html), for [software onboarding](https://devguide.ropensci.org/policies.html#code-of-conduct), and for many of our [individual packages](https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md) (working on having this for all our packages!). We'll take what we learned in this Community Call to develop a more comprehensive CoC, make sure it's easily findable and that consequences of violations are enforceable. [Let us know](/contact/) if you'd like to get involved.
+rOpenSci currently has CoCs for [our events](https://unconf16.ropensci.org/coc.html), for [software onboarding](https://devguide.ropensci.org/policies.html#code-of-conduct), and for many of our [individual packages](https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md) (working on having this for all our packages!). We'll take what we learned in this Community Call to develop a more comprehensive CoC, make sure it's easily findable and that consequences of violations are enforceable. [Let us know](/contact/) if you'd like to get involved.
 
 ### Resources
 
@@ -65,20 +65,20 @@ rOpenSci currently has CoCs for [our events](http://unconf16.ropensci.org/coc.ht
 
 * C. Titus Brown's [Laboratory Code of Conduct](http://ivory.idyll.org/lab/coc.html) and [notes on developing it](http://ivory.idyll.org/blog/2016-notes-on-lab-coc.html), including why he did it and what use it's been.
 
-* Data/Software Carpentry’s new [code of conduct](http://www.datacarpentry.org/code-of-conduct/), [reporting guidelines](http://www.datacarpentry.org/CoC-reporting/) and [enforcement policy](http://www.datacarpentry.org/CoC-enforcement/).
+* Data/Software Carpentry’s new [code of conduct](https://www.datacarpentry.org/code-of-conduct/), [reporting guidelines](https://www.datacarpentry.org/CoC-reporting/) and [enforcement policy](https://www.datacarpentry.org/CoC-enforcement/).
 
 * The Ada Initiative's [How to design a code of conduct for your community](https://adainitiative.org/2014/02/18/howto-design-a-code-of-conduct-for-your-community/)
 
-* [Contributor Covenant](http://contributor-covenant.org/). A Code of Conduct for Open Source Projects (in multiple languages)
+* [Contributor Covenant](https://contributor-covenant.org/). A Code of Conduct for Open Source Projects (in multiple languages)
 
 * A template [code of conduct](https://github.com/confcodeofconduct/confcodeofconduct.com), in multiple languages
 
 ### Speaker bios
 
-[**Pauline Barmby**](https://nearby-galaxies.github.io/people/) is an Associate Professor in Physics and Astronomy and Associate Dean of Graduate and Post Doctoral Studies at Western University. Her research focuses on nearby galaxies and [her blog](http://pbarmby.github.io/) contains musings about astrophysics, science teaching, computing, and perhaps knitting, curling, and science fiction. Pauline is the head of Data/Software Carpentry's code of conduct committee and will talk about their experiences in refining their code to ensure it has enforceable consequences.
+[**Pauline Barmby**](https://nearby-galaxies.github.io/people/) is an Associate Professor in Physics and Astronomy and Associate Dean of Graduate and Post Doctoral Studies at Western University. Her research focuses on nearby galaxies and [her blog](https://pbarmby.github.io/) contains musings about astrophysics, science teaching, computing, and perhaps knitting, curling, and science fiction. Pauline is the head of Data/Software Carpentry's code of conduct committee and will talk about their experiences in refining their code to ensure it has enforceable consequences.
 Pauline on [GitHub](https://github.com/PBarmby)
 
-[**Safia Abdalla**](http://safia.rocks/) is a data scientist and software engineer with an interest in open source software and data science for social good. She helps build nteract, a [NumFOCUS](http://www.numfocus.org/open-source-projects.html) fiscally sponsored open source project, and organizes PyData Chicago. Safia has written about codes of conduct in [How To Create A Welcoming and Inclusive Open Source Space](http://blog.safia.rocks/post/141972488250/how-to-create-a-welcoming-and-inclusive-open).
+[**Safia Abdalla**](https://safia.rocks/) is a data scientist and software engineer with an interest in open source software and data science for social good. She helps build nteract, a [NumFOCUS](https://www.numfocus.org/open-source-projects.html) fiscally sponsored open source project, and organizes PyData Chicago. Safia has written about codes of conduct in [How To Create A Welcoming and Inclusive Open Source Space](https://blog.safia.rocks/post/141972488250/how-to-create-a-welcoming-and-inclusive-open).
 Safia on [GitHub](https://github.com/captainsafia)
 
 [**C. Titus Brown**](http://ivory.idyll.org) is an Associate Professor at UC Davis, where his [Lab for Data Intensive Biology](http://ivory.idyll.org/lab/) tackles questions surrounding biological data analysis, data integration, and data sharing. The lab's primary interest is in genomic, transcriptomic, and metagenomic sequence analysis. Titus has developed a [Lab Code of Conduct](http://ivory.idyll.org/lab/coc.html).

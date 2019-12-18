@@ -232,7 +232,7 @@ dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 
 Hopefully users will find the package useful for a range of other applications.
 Bug reports and other suggestions are welcomed, and can be directed to the 
-[GitHub issues page](http://github.com/ropensci/phylogram/issues) 
+[GitHub issues page](https://github.com/ropensci/phylogram/issues) 
 or the [phylogram google group](https://groups.google.com/group/phylogram).
 Thanks to [Will Cornwell](https://github.com/wcornwell) and 
 [Ben J. Ward](https://github.com/BenJWard) 

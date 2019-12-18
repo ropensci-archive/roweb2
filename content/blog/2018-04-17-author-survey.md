@@ -99,7 +99,7 @@ don't see a strong net pull in either direction, we don't plan to change
 submission requirements, and we're worried that a multi-step process
 would make too much work for reviewers. One useful suggestion, though,
 is for authors of early-development packages to open discussions on our
-[forum](http://discuss.ropensci.org/) to solicit early input.
+[forum](https://discuss.ropensci.org/) to solicit early input.
 
 Some respondents noted the challenge of providing an objective review
 under a fully open system, and one suggestion was to consider a single

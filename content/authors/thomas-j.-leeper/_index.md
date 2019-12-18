@@ -1,4 +1,4 @@
 ---
 name: Thomas J. Leeper
-link: http://www.thomasleeper.com/
+link: https://www.thomasleeper.com/
 ---

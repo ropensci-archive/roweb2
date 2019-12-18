@@ -259,11 +259,11 @@ For researchers who work with digital archives, this is a golden age. There is s
 
 [^6]: Wickham, Hadley. 2016. “The Tidy Tools Manifesto.” <https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html>.
 
-[^7]: Gohel, David. 2018. “ArData.” Accessed March 14. <http://www.ardata.fr/>.
+[^7]: Gohel, David. 2018. “ArData.” Accessed March 14. <https://www.ardata.fr/>.
 
 [^8]: Silge, Julia. 2018. “Juliasilge.com.” Accessed March 14. <https://juliasilge.com/>.
 
-[^9]: Ross, Noam. 2018. “Noamross.net.” Accessed March 14. <http://www.noamross.net/>.
+[^9]: Ross, Noam. 2018. “Noamross.net.” Accessed March 14. <https://www.noamross.net/>.
 
 [^10]: Internet Archive. 2018. “Wayback Machine.” Accessed March 14. <https://archive.org/>.
 

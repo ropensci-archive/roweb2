@@ -21,11 +21,11 @@ I'll go over some of the common and less commonly used curl options, and try to 
 
 ## Discover curl options
 
-You can go to the source, that is the curl manual page at [http://curl.haxx.se/docs/manpage.html](http://curl.haxx.se/docs/manpage.html). In R: `RCurl::listCurlOptions()` for finding curl options, give website for more info and equivalent call in `httr` is `httr::httr_options()`. `httr::httr_options()` gives more information for each curl option, including the libcurl variable name (e.g., `CURLOPT_CERTINFO`) and the type of variable (e.g., logical).
+You can go to the source, that is the curl manual page at [https://curl.haxx.se/docs/manpage.html](https://curl.haxx.se/docs/manpage.html). In R: `RCurl::listCurlOptions()` for finding curl options, give website for more info and equivalent call in `httr` is `httr::httr_options()`. `httr::httr_options()` gives more information for each curl option, including the libcurl variable name (e.g., `CURLOPT_CERTINFO`) and the type of variable (e.g., logical).
 
 ## Other ways to use curl besides R
 
-Perhaps the canonical way to use curl is on the command line. You can get curl for your operating system at [http://curl.haxx.se/download.html](http://curl.haxx.se/download.html), though hopefully you already have curl. Once you have curl, you can have lots of fun. For example, get the contents of the Google landing page:
+Perhaps the canonical way to use curl is on the command line. You can get curl for your operating system at [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html), though hopefully you already have curl. Once you have curl, you can have lots of fun. For example, get the contents of the Google landing page:
 
 ```sh
 curl https://www.google.com
@@ -34,7 +34,7 @@ curl https://www.google.com
 * If you like that you may also like [httpie][httpie], a Python command line tool that is a little more convenient than curl (e.g., JSON output is automatically parsed and colorized).
 * Alot of data from the web is in JSON format. A great command line tool to pair with `curl` is [jq][jq].
 
-> Note: if you are on windows you may require extra setup if you want to play with curl on the command line. OSX and linux have it by default. On Windows 8, installing the latest version from here http://curl.haxx.se/download.html#Win64 worked for me.
+> Note: if you are on windows you may require extra setup if you want to play with curl on the command line. OSX and linux have it by default. On Windows 8, installing the latest version from here https://curl.haxx.se/download.html#Win64 worked for me.
 
 ## Install httr
 
@@ -307,14 +307,14 @@ HEAD("http://www.google.com/search", query = list(api_key = "<your key>"))
 
 Another authentication options is OAuth workflows. `OAuth2` is probably more commonly used than `OAuth1`.
 
-* Find OAuth settings for github http://developer.github.com/v3/oauth/
+* Find OAuth settings for github https://developer.github.com/v3/oauth/
 
 
 ```r
 endpts <- oauth_endpoint(authorize = "authorize", access = "access_token", base_url = "https://github.com/login/oauth")
 ```
 
-* Register an application at https://github.com/settings/applications. Use any URL you would like for the homepage URL (http://github.com is fine) and http://localhost:1410 as the callback url. Insert your client ID and secret below - if secret is omitted, it will look it up in the GITHUB_CONSUMER_SECRET environmental variable.
+* Register an application at https://github.com/settings/applications. Use any URL you would like for the homepage URL (https://github.com is fine) and http://localhost:1410 as the callback url. Insert your client ID and secret below - if secret is omitted, it will look it up in the GITHUB_CONSUMER_SECRET environmental variable.
 
 
 ```r
@@ -444,7 +444,7 @@ GET("http://httpbin.org/user-agent", user_agent("its me!"))
 
 Let us know if you have any questions. To a `curl` newbie, it may seem a bit overwhelming, but we're here to help.
 
-[curl]: http://curl.haxx.se/
-[jq]: http://stedolan.github.io/jq/
+[curl]: https://curl.haxx.se/
+[jq]: https://stedolan.github.io/jq/
 [httpie]: https://github.com/jakubroztocil/httpie
-[gbif]: http://www.gbif.org/
+[gbif]: https://www.gbif.org/

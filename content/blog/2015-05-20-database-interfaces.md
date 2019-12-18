@@ -13,13 +13,13 @@ tags:
   - nosql
 ---
 
-There are many different databases. The most familiar are row-column SQL databases like MySQL, SQLite, or PostgreSQL. Another type of database is the key-value store, which as a concept is very simple: you save a value specified by a key, and you can retrieve a value by its key. One more type is the document database, which instead of storing rows and columns, stores blobs of text or even binary files. The key-value and document types fall under the NoSQL umbrella. As there are mature R clients for many SQL databases, and [dplyr](https://github.com/hadley/dplyr) is a great generic interface to SQL backends  (see [`dplyr` vignettes](http://cran.rstudio.com/web/packages/dplyr/) for an intro), we won't delve into SQL clients here.
+There are many different databases. The most familiar are row-column SQL databases like MySQL, SQLite, or PostgreSQL. Another type of database is the key-value store, which as a concept is very simple: you save a value specified by a key, and you can retrieve a value by its key. One more type is the document database, which instead of storing rows and columns, stores blobs of text or even binary files. The key-value and document types fall under the NoSQL umbrella. As there are mature R clients for many SQL databases, and [dplyr](https://github.com/hadley/dplyr) is a great generic interface to SQL backends  (see [`dplyr` vignettes](https://cran.rstudio.com/web/packages/dplyr/) for an intro), we won't delve into SQL clients here.
 
 What is the difference between SQL and NoSQL (key-value, document)? A diagram may be helpful:
 
 ![diagram](/assets/blog-images/2015-05-20-database-interfaces/databases_diagram.jpg)
 
-NoSQL is often interpreted as _Not only SQL_ - meaning a database that is called a NoSQL database may contain some notion of row-column storage, but other details diverge from traditional SQL databases. See [Wikipedia](http://en.wikipedia.org/wiki/NoSQL) for more information.
+NoSQL is often interpreted as _Not only SQL_ - meaning a database that is called a NoSQL database may contain some notion of row-column storage, but other details diverge from traditional SQL databases. See [Wikipedia](https://en.wikipedia.org/wiki/NoSQL) for more information.
 
 If you aren't already using databases, why care about databases? We'll answer this through a number of use cases:
 
@@ -101,7 +101,7 @@ count("diam")
 #> [1] 53940
 ```
 
-We don't have time to go through hardly any of the diverse and powerful Elasticsearch query interface, so as an example, let's plot the price of diamonds in $300 buckets using the [Elasticsearch aggregations search API](http://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html)
+We don't have time to go through hardly any of the diverse and powerful Elasticsearch query interface, so as an example, let's plot the price of diamonds in $300 buckets using the [Elasticsearch aggregations search API](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html)
 
 
 ```r
@@ -349,7 +349,7 @@ install.packages("rerddap")
 library("rerddap")
 ```
 
-ERDDAP is a server built on top of [OPenDAP](http://www.opendap.org/). NOAA serve many differen datasets through ERDDAP servers. Through ERDDAP, you can get gridded data (see `griddap()`), which lets you query from gridded datasets (see `griddap()`), or tablular datasets (see `tabledap()`). ERDDAP is open source, so anyone can use it to serve data.
+ERDDAP is a server built on top of [OPenDAP](https://www.opendap.org/). NOAA serve many differen datasets through ERDDAP servers. Through ERDDAP, you can get gridded data (see `griddap()`), which lets you query from gridded datasets (see `griddap()`), or tablular datasets (see `tabledap()`). ERDDAP is open source, so anyone can use it to serve data.
 
 `rerddap` by default grabs NetCDF files, a binary compressed file type that should be faster to download, and take up less disk space, than other formats (e.g., `csv`). However, this means that you need a client library for NetCDF files - but not to worry, we use `ncdf` by default (for which there are CRAN binaries for all platforms), but you can choose to use `ncdf4` (binaries only for some platforms).
 
@@ -420,7 +420,7 @@ More information on ERDDAP: [http://upwell.pfeg.noaa.gov/erddap/information.html
 
 [ckanr](https://github.com/ropensci/ckanr) - A general purpose R client for any CKAN server.
 
-[CKAN](http://ckan.org/) is similar to ERDDAP in being an open source system to store and provide data via web services (and web interface, but we don't need that here). CKAN bills itself as an _open-source data portal platform_.
+[CKAN](https://ckan.org/) is similar to ERDDAP in being an open source system to store and provide data via web services (and web interface, but we don't need that here). CKAN bills itself as an _open-source data portal platform_.
 
 
 ```r
@@ -467,7 +467,7 @@ package_search(q = '*:*', rows = 2, as = "table")$results[, 1:7]
 #> 2 0a801729-aa94-4d76-a5e0-7b487303f4e5
 ```
 
-More information on CKAN: [http://docs.ckan.org/en/latest/contents.html](http://docs.ckan.org/en/latest/contents.html)
+More information on CKAN: [https://docs.ckan.org/en/latest/contents.html](https://docs.ckan.org/en/latest/contents.html)
 
 ## nodbi
 
@@ -544,6 +544,6 @@ identical(diamonds, res)
 
 
 [dcsql]: https://github.com/datacarpentry/R-ecology/blob/gh-pages/06-r-and-sql.Rmd
-[neo4j]: http://neo4j.com/
+[neo4j]: https://neo4j.com/
 [titan]: https://github.com/thinkaurelius/titan/
-[opentree]: http://opentreeoflife.github.io/
+[opentree]: https://opentreeoflife.github.io/

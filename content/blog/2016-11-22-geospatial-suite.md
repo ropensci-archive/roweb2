@@ -19,7 +19,7 @@ If you're not familiar with geospatial tools, it's helpful to see what people do
 
 __Example 1__
 
-One of our geospatial packages, [geonames][geonames], is used for geocoding, the practice of either sorting out place names from geographic data, or vice versa. `geonames` interfaces with the open database of the same name: <http://www.geonames.org/>. A recent paper in PlosONE highlights a common use case. Harsch & HilleRisLambers[^1] asked how plant species distributions have shifted due to climate warming. They used the `GNsrtm3()` function in `geonames`, which uses [Shuttle Radar Topography Mission](http://www.geonames.org/export/web-services.html#srtm3) elevation data, to fill in missing or incorrect elevation values in their dataset.
+One of our geospatial packages, [geonames][geonames], is used for geocoding, the practice of either sorting out place names from geographic data, or vice versa. `geonames` interfaces with the open database of the same name: <https://www.geonames.org/>. A recent paper in PlosONE highlights a common use case. Harsch & HilleRisLambers[^1] asked how plant species distributions have shifted due to climate warming. They used the `GNsrtm3()` function in `geonames`, which uses [Shuttle Radar Topography Mission](https://www.geonames.org/export/web-services.html#srtm3) elevation data, to fill in missing or incorrect elevation values in their dataset.
 
 __Example 2__
 
@@ -35,14 +35,14 @@ There are [many geospatial data formats](https://en.wikipedia.org/wiki/GIS_file_
 including [shapefiles](https://en.wikipedia.org/wiki/Shapefile),
 [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF), [netCDF](https://en.wikipedia.org/wiki/NetCDF),
 [Well-known text/Well-known binary](https://en.wikipedia.org/wiki/Well-known_text),
-[GeoJSON](http://geojson.org/), and many more. Readers may be more familiar with shape files
+[GeoJSON](https://geojson.org/), and many more. Readers may be more familiar with shape files
 than WKT or GeoJSON. There are  [R tools for shape files](https://cran.rstudio.com/web/views/Spatial.html),
 so our tools largely don't concern themselves with shape files and other geospatial
 data formats. Two formats in particular that we create tools for are GeoJSON and WKT.
 
 ### GeoJSON
 
-With the explosion of Javascript/Node and web-first tools, and increasing dominance of JSON as a data format, [GeoJSON](http://geojson.org/) as a spatial data format has seen increasing use. GeoJSON is a lightweight format based on JSON, and has a very new standard specification: [RFC 7946][rfc7946]. Many of our geospatial tools center around GeoJSON. Our goal with GeoJSON focused tools is to create a pipeline in which users can process GeoJSON data without any headaches due to dependencies.
+With the explosion of Javascript/Node and web-first tools, and increasing dominance of JSON as a data format, [GeoJSON](https://geojson.org/) as a spatial data format has seen increasing use. GeoJSON is a lightweight format based on JSON, and has a very new standard specification: [RFC 7946][rfc7946]. Many of our geospatial tools center around GeoJSON. Our goal with GeoJSON focused tools is to create a pipeline in which users can process GeoJSON data without any headaches due to dependencies.
 
 * links: [specification](https://tools.ietf.org/html/rfc7946) - [Wikipedia entry](https://en.wikipedia.org/wiki/GeoJSON)
 * GeoJSON was inspired in part from Simple Features, but is not part of that specification. The most recent iteration is called [RFC 7946 GeoJSON](https://tools.ietf.org/html/rfc7946).
@@ -54,7 +54,7 @@ With the explosion of Javascript/Node and web-first tools, and increasing domina
 
 ### WKT
 
-Well-known text is a plain text format, just like GeoJSON (WKB is a binary form of WKT). It is often used in SQL databases to store geospatial data. Many of the data sources our R packages work with, for example <http://www.gbif.org/> (see our package [rgbif][rgbif]), use WKT to specify geospatial extent. Thus, `rgbif` shouldn't need to import an entire spatial stack that is hard for some to install only for dealing with a single spatial data format - and only some users will do geospatial queries wih WKT as you can constrain queries simply with country names, while others may not need to constrain spatially. We've been working on tools to make dealing with WKT more lightweight.
+Well-known text is a plain text format, just like GeoJSON (WKB is a binary form of WKT). It is often used in SQL databases to store geospatial data. Many of the data sources our R packages work with, for example <https://www.gbif.org/> (see our package [rgbif][rgbif]), use WKT to specify geospatial extent. Thus, `rgbif` shouldn't need to import an entire spatial stack that is hard for some to install only for dealing with a single spatial data format - and only some users will do geospatial queries wih WKT as you can constrain queries simply with country names, while others may not need to constrain spatially. We've been working on tools to make dealing with WKT more lightweight.
 
 * links: [specification](https://d17oy1vhnax1f7.cloudfront.net/items/291d412o1c3E3s0R112A/06-103r4_Implementation_Specification_for_Geographic_Information_-_Simple_feature_access_-_Part_1_Common_Architecture_v1.2.1%20(1).pdf) - [Wikipedia entry](https://en.wikipedia.org/wiki/Well-known_text)
 * WKT is part of [Simple Features](https://en.wikipedia.org/wiki/Simple_Features) (see `sf` below)
@@ -489,7 +489,7 @@ geojson_hint('{ "type": "FeatureCollection" }', error = TRUE)
 
 <a href="https://cran.r-project.org/package=lawn" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/lawn" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
 
-[lawn](https://github.com/ropensci/lawn) - `lawn` is an R client wrapping [Turf.js](http://turfjs.org/)
+[lawn](https://github.com/ropensci/lawn) - `lawn` is an R client wrapping [Turf.js](https://turfjs.org/)
 from Mapbox. Turf is a JS library for doing advanced geospatial analysis. Using the great [V8][v8]
 R client from [Jeroen Ooms](/about/#staff) we can wrap Turf.js
 in R.
@@ -825,7 +825,7 @@ print_osm_map(map)
 <a href="https://cran.r-project.org/package=rnaturalearth" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/rnaturalearth" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
 
 [rnaturalearth](https://github.com/ropenscilabs/rnaturalearth) - `rnaturalearth`
-facilitates world mapping by making Natural Earth (<http://www.naturalearthdata.com/>)
+facilitates world mapping by making Natural Earth (<https://www.naturalearthdata.com/>)
 map data available in R.
 
 ### Example

@@ -39,7 +39,7 @@ cld2::detect_language(text)
 # [1] "fr" "ja" "ru" "nl"
 ```
 
-[Maëlle](https://maelle.github.io) has written a [cool post](https://masalmon.eu/2017/06/10/rolandgarros/) comparing language classification methods using 18000 `"#RolandGarros2017"` tweets and [Thomas](https://www.stat.auckland.ac.nz/people/tlum005) [reminds us](http://notstatschat.tumblr.com/post/161449071226/stupid-word-games) that algorithms can easily be fooled. Still I found the accuracy on real text quite astonishing given the relatively small size of these libraries.
+[Maëlle](https://maelle.github.io) has written a [cool post](https://masalmon.eu/2017/06/10/rolandgarros/) comparing language classification methods using 18000 `"#RolandGarros2017"` tweets and [Thomas](https://www.stat.auckland.ac.nz/people/tlum005) [reminds us](https://notstatschat.tumblr.com/post/161449071226/stupid-word-games) that algorithms can easily be fooled. Still I found the accuracy on real text quite astonishing given the relatively small size of these libraries.
 
 Note that the algorithm for CLD3 is still under development and the engineers at Google have recently [opened](https://github.com/google/cld3/issues) their Github issues page for feedback.
 
@@ -107,7 +107,7 @@ To extract text from scanned images, also check out our [tesseract](https://cran
 
 ## Stemming, tokenizing and spell checking
 
-Our [hunspell](https://cran.r-project.org/web/packages/hunspell/index.html) package has had a few updates recently as well. The package is a wrapper for [libhunspell](http://hunspell.github.io/) which is a popular library for spell checking:
+Our [hunspell](https://cran.r-project.org/web/packages/hunspell/index.html) package has had a few updates recently as well. The package is a wrapper for [libhunspell](https://hunspell.github.io/) which is a popular library for spell checking:
 
 ```r
 # Extract incorrect from a piece of text

@@ -22,7 +22,7 @@ tags:
 ### So what is Docker?
 
 
-[Docker](http://www.docker.com) is a relatively new [open
+[Docker](https://www.docker.com) is a relatively new [open
 source](https://github.com/docker/docker/tree/master/LICENSE) application
 and service, which is seeing interest across a number of areas. It
 uses recent Linux kernel features (containers, namespaces) to shield
@@ -33,7 +33,7 @@ allows it to start almost instantly, require very little resources and
 hence permits an order of magnitude more deployments per host than a
 virtual machine.
 
-[Docker](http://www.docker.com) offers a standard interface
+[Docker](https://www.docker.com) offers a standard interface
 to creation, distribution and deployment. The _shipping
 container_ analogy is apt: just how shipping containers (via
 their standard size and "interface") allow global trade to
@@ -50,7 +50,7 @@ containers](https://docs.docker.com/get-started//). A single
 machine can run hundreds of such containers, including multiple containers
 running the same image.
 
-There are many good tutorials and introductory materials on [Docker](http://www.docker.com)
+There are many good tutorials and introductory materials on [Docker](https://www.docker.com)
 on the web. The [official online tutorial](https://www.docker.com/tryit/) is a good place to
 start; this post can not go into more detail in order to remain short and introductory.
 
@@ -62,7 +62,7 @@ style="float:left;margin:10px 40px 10px 0;"
 width="100" height="100"
 src="https://en.gravatar.com/userimage/73204427/563567819bd642c7a9e3af9d8ddb7581.png?size=100"/>
 
-At its core, Rocker is a project for running [R](http://www.r-project.org) using Docker
+At its core, Rocker is a project for running [R](https://www.r-project.org) using Docker
 containers. We provide a collection of Dockerfiles and pre-built Docker
 images that can be used and extended for many purposes.
 
@@ -72,7 +72,7 @@ images that can be used and extended for many purposes.
 [Rocker-Org](https://github.com/rocker-org) GitHub organization.
 
 [Rocker](https://hub.docker.com/account/organizations/rocker/) is also the
-name the account under which the automated builds at [Docker](http://www.docker.com) provide
+name the account under which the automated builds at [Docker](https://www.docker.com) provide
 containers ready for download.
 
 
@@ -89,7 +89,7 @@ The Rocker project develops the following containers in the core Rocker reposito
   sources of R
 + [rstudio](https://registry.hub.docker.com/u/rocker/rstudio/) provides the
   base R container as well an
-  [RStudio Server](http://www.rstudio.com/products/rstudio/) instance
+  [RStudio Server](https://www.rstudio.com/products/rstudio/) instance
 
 We have settled on these three core images after earlier work in repositories
 such as docker-debian-r and docker-ubuntu-r.

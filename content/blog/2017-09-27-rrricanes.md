@@ -1489,7 +1489,7 @@ Additionally, data may be added as deemed fitting.
 
 Anyone is more than welcome to contribute to the package. I would definitely appreciate any help. See [Contributions](https://github.com/ropensci/rrricanes/blob/master/.github/CONTRIBUTING.md) for more information.
 
-I would ask that you follow the [Tidyverse style guide](http://style.tidyverse.org/). Release 0.2.1 will fully incorporate these rules.
+I would ask that you follow the [Tidyverse style guide](https://style.tidyverse.org/). Release 0.2.1 will fully incorporate these rules.
 
 You do not need to submit code in order to be listed as a contributor. If there is a data source (that can legally be scraped) that you feel should be added, please feel free to submit a request. Submitting bug reports and feature requests are all extremely valuable to the success of `rrricanes`.
 

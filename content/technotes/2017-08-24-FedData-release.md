@@ -20,9 +20,9 @@ The package [`FedData`](https://github.com/ropensci/FedData) has gone through so
 
 Currently, the package enables extraction from six datasets:
 
--   The [National Elevation Dataset (NED)](http://ned.usgs.gov) digital elevation models (1 and 1/3 arc-second; USGS)
--   The [National Hydrography Dataset (NHD)](http://nhd.usgs.gov) (USGS)
--   The [Soil Survey Geographic (SSURGO) database](http://websoilsurvey.sc.egov.usda.gov/) from the National Cooperative Soil Survey (NCSS), which is led by the Natural Resources Conservation Service (NRCS) under the USDA,
+-   The [National Elevation Dataset (NED)](https://ned.usgs.gov) digital elevation models (1 and 1/3 arc-second; USGS)
+-   The [National Hydrography Dataset (NHD)](https://nhd.usgs.gov) (USGS)
+-   The [Soil Survey Geographic (SSURGO) database](https://websoilsurvey.sc.egov.usda.gov/) from the National Cooperative Soil Survey (NCSS), which is led by the Natural Resources Conservation Service (NRCS) under the USDA,
 NA
 -   The [Daymet](https://daymet.ornl.gov/) gridded estimates of daily weather parameters for North America, version 3, available from the Oak Ridge National Laboratory's Distributed Active Archive Center (DAAC), and
 -   The [International Tree Ring Data Bank (ITRDB)](https://www.ncdc.noaa.gov/data-access/paleoclimatology-data/datasets/tree-ring), coordinated by National Climatic Data Center at NOAA.

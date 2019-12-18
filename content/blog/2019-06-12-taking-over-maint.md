@@ -22,7 +22,7 @@ In theory, finding maintainers for software is easier as the pool of users gets 
 <figure class="image">
   <!-- <img src="{{ include.url }}" alt="{{ include.description }}"> -->
   <img src="/img/blog-images/2019-06-12-taking-over-maint/ropensci_authors.png" alt="ropensci_authors" style="margin: 0px 10px; width: 500px;" align="center">
-  <figcaption><i>data from <a href="http://crandb.r-pkg.org/">the crandb API</a>; 235 rOpenSci packages, only those on CRAN</i></figcaption>
+  <figcaption><i>data from <a href="https://crandb.r-pkg.org/">the crandb API</a>; 235 rOpenSci packages, only those on CRAN</i></figcaption>
 </figure>
 <br><br>
 

@@ -158,7 +158,7 @@ machinery, allowing for application level protocol development without
 concern for HTTP headers or URL strings!
 
 You can read a great explanation
-[here](http://www.websocket.org/quantum.html).
+[here](https://www.websocket.org/quantum.html).
 
 Webrockets <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png" height="20" width="20" align="absmiddle">
 ===================

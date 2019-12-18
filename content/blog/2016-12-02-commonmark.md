@@ -20,7 +20,7 @@ The most exciting change is that the library has gained an extension mechanism t
 
 ## What is CommonMark
 
-[CommonMark](http://spec.commonmark.org/) is an initiative by Professor John MacFarlane (author of Pandoc) to formally define markdown syntax specification and provide high quality reference implementations. His high performance [cmark](https://github.com/jgm/cmark) C library converts markdown text into xml, html, latex or groff man in the [blink of an eye](https://github.com/jgm/cmark#readme).
+[CommonMark](https://spec.commonmark.org/) is an initiative by Professor John MacFarlane (author of Pandoc) to formally define markdown syntax specification and provide high quality reference implementations. His high performance [cmark](https://github.com/jgm/cmark) C library converts markdown text into xml, html, latex or groff man in the [blink of an eye](https://github.com/jgm/cmark#readme).
 
 The [commonmark](https://cran.r-project.org/web/packages/commonmark/index.html) R package wraps libcmark and has been on CRAN for a while. It should replace the old [markdown](https://cran.r-project.org/web/packages/markdown/index.html) package which is based on the deprecated Sundown library (the [author](https://github.com/vmg/sundown) of Sundown now works for Github and is one of the contributors to libcmark).
 
