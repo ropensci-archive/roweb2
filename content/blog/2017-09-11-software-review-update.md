@@ -99,7 +99,7 @@ As submissions increase, the entire process benefits more from automation. Right
 
 **Other changes**
 
-- [JOSS](http://joss.theoj.org/) harmonization/co-submission: For authors wishing to submit their software papers to the Journal of Open Source Software after acceptance, we have also begun streamlining the process. Editors check to make sure that the paper clearly states the scientific application, includes a separate `.bib` file and that the accepted version of the software is deposited at Zenodo or Figshare with a DOI. Having these steps completed allows for a fast track acceptance at JOSS.
+- [JOSS](https://joss.theoj.org/) harmonization/co-submission: For authors wishing to submit their software papers to the Journal of Open Source Software after acceptance, we have also begun streamlining the process. Editors check to make sure that the paper clearly states the scientific application, includes a separate `.bib` file and that the accepted version of the software is deposited at Zenodo or Figshare with a DOI. Having these steps completed allows for a fast track acceptance at JOSS.
 - Reviewer template and guide: We now have a [reviewer template][revtemp] - making reviews more standardized, and helping reviewers know what to look for. In addition, we have an updated reviewer guide that gives high level guidance, as well as specific things to look for, tools to use, and examples of good reviews. In addition, the guide gives guidance on how to submit reviews.
 - Badges: We now have badges for rOpenSci review. The badges show whether a package is under review or has been approved. Packages that are undergoing review or have been approved can put this badge in their README.
 

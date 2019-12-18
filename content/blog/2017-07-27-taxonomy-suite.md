@@ -558,7 +558,7 @@ wm_synonyms(id = xx$AphiaID)
 <a href="https://github.com/ropenscilabs/pegax"><span class="label" style="background-color:#3598DB">github</span></a>
 </div>
 
-`pegax` aims to be a powerful taxonomic name parser for R. This package started at [#runconf17](http://unconf17.ropensci.org/) - was made possible because the talented [Oliver Keyes](https://github.com/Ironholds/) created a [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar) package for R: [piton](https://github.com/Ironholds/piton)
+`pegax` aims to be a powerful taxonomic name parser for R. This package started at [#runconf17](https://unconf17.ropensci.org/) - was made possible because the talented [Oliver Keyes](https://github.com/Ironholds/) created a [Parsing Expression Grammar](https://en.wikipedia.org/wiki/Parsing_expression_grammar) package for R: [piton](https://github.com/Ironholds/piton)
 
 From `piton` PEGs are:
 
@@ -644,7 +644,7 @@ These packages do not primarily deal with taxonomy, but do include taxonomic dat
 <a href="https://cran.rstudio.com/web/packages/rgbif/"><span class="label" style="background-color:#F1C312">cran</span></a> <a href="https://github.com/ropensci/rgbif"><span class="label" style="background-color:#3598DB">github</span></a>
 </div>
 
-`rgbif` is an interface to the [Global Biodiversity Information Facility](http://www.gbif.org/), the largest provider of free and open access biodiversity data.
+`rgbif` is an interface to the [Global Biodiversity Information Facility](https://www.gbif.org/), the largest provider of free and open access biodiversity data.
 
 `rgbif` is used in `taxize` to get GBIF taxonomy data.
 
@@ -668,5 +668,5 @@ What do you think about the taxonomic suite of packages?  Anything we're missing
 
 
 [tiobe]: https://www.tiobe.com/tiobe-index//
-[nature]: http://www.nature.com/news/programming-tools-adventures-with-r-1.16609
-[muenchen]: http://r4stats.com/articles/popularity/
+[nature]: https://www.nature.com/news/programming-tools-adventures-with-r-1.16609
+[muenchen]: https://r4stats.com/articles/popularity/
