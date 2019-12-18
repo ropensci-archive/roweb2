@@ -50,7 +50,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Sep 19-20, 2017</td>
 	<td>Jenny Bryan</td>
 	<td>San Francisco, CA</td>
-	<td><a href="https://www.rstudio.com/workshops/extending-the-tidyverse/">Extending the tidyverse</a></td>
+	<td>Extending the tidyverse</td>
 </tr>
 <tr>
 	<td>Oct 1-4, 2017</td>

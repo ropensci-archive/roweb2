@@ -37,7 +37,7 @@ Anna on [GitHub](https://github.com/annakrystalli), [Twitter](https://twitter.co
 
 > My software has benefitted from rOpenSci's thorough peer reviews. I am glad to join the editorial team to help accomplish the rOpenSci mission of making software recognizable as scholarship.
 
-Lincoln on [GitHub](https://github.com/lmullen), [Twitter](https://twitter.com/lincolnmullen), [website](https://lincolnmullen.com/)
+Lincoln on [GitHub](https://github.com/lmullen), [website](https://lincolnmullen.com/)
 
 ### Want to learn more about rOpenci software review?
 - [how we use code review to promote reproducible research](/blog/2017/09/01/nf-softwarereview/)
