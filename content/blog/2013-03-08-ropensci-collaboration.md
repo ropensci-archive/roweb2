@@ -13,7 +13,7 @@ tags:
 
 We have been writing code for R packages for a couple years, so it is time to take a look back at the data. What data you ask? The commits data from GitHub ~ data that records who did what and when.
 
-Using the [Github commits API](http://developer.github.com/v3/repos/commits/) we can gather data on who commited code to a Github repository, and when they did it. Then we can visualize this hitorical record.
+Using the [Github commits API](https://developer.github.com/v3/repos/commits/) we can gather data on who commited code to a Github repository, and when they did it. Then we can visualize this hitorical record.
 
 ***************
 
@@ -105,7 +105,7 @@ ggplot(outdf_subset, aes(date, value, fill = .id)) +
 ![center](/assets/blog-images/commitsbydate.png)
 
 
-The plot above plots the sum of additions+deletions, and is sorted by the first commit date of reach repo, with the first being [treebase](https://github.com/ropensci/treeBASE), which wraps the [Treebase API](http://treebase.org/treebase-web/urlAPI.html), and the most recent being [rwbclimate](https://github.com/ropensci/rWBclimate), which wraps the [World Blank climate data API](http://data.worldbank.org/developers/climate-data-api).
+The plot above plots the sum of additions+deletions, and is sorted by the first commit date of reach repo, with the first being [treebase](https://github.com/ropensci/treeBASE), which wraps the [Treebase API](https://treebase.org/treebase-web/urlAPI.html), and the most recent being [rwbclimate](https://github.com/ropensci/rWBclimate), which wraps the [World Blank climate data API](https://data.worldbank.org/developers/climate-data-api).
 
 You can see that some repos have recieved commits more or less consistently over their life time, while others have seen a little development here and there.
 

@@ -218,7 +218,7 @@ reviewing](/img/blog-images/2018-05-03-onboarding-is-work/unnamed-chunk-6-1.png)
 It appears to take our reviewers a similar amount of time to review R
 packages as [scientists take to review a manuscript (5 hour median and 9
 hour
-mean)](http://publishingresearchconsortium.com/index.php/112-prc-projects/research-reports/peer-review-in-scholarly-journals-research-report/142-peer-review-in-scholarly-journals-perspective-of-the-scholarly-community-an-international-study).
+mean)](https://publishingresearchconsortium.com/index.php/112-prc-projects/research-reports/peer-review-in-scholarly-journals-research-report/142-peer-review-in-scholarly-journals-perspective-of-the-scholarly-community-an-international-study).
 
 One potential question is whether reviewer time is affected by the size
 of the package reviewed as measured by for instance number of exports

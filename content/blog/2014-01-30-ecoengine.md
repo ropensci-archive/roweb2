@@ -13,13 +13,13 @@ tags:
   - informatics
 ---
 
-Natural history museums have long been valuable repositories of data on species diversity. These data have been critical for fostering and shaping the development of fields such as  biogeography and systematics. The importance of these data repositories is becoming increasingly important, especially in the context of climate change, where a strong understanding of how species responded to past climate is key to understanding their responses in the future. Leading the way in opening up such valuable data is a new effort by the [ Berkeley Initiative in Global Change Biology](http://globalchange.berkeley.edu/ecoinformatics-engine) called the [Ecoengine](http://ecoengine.berkeley.edu/).
+Natural history museums have long been valuable repositories of data on species diversity. These data have been critical for fostering and shaping the development of fields such as  biogeography and systematics. The importance of these data repositories is becoming increasingly important, especially in the context of climate change, where a strong understanding of how species responded to past climate is key to understanding their responses in the future. Leading the way in opening up such valuable data is a new effort by the [ Berkeley Initiative in Global Change Biology](https://globalchange.berkeley.edu/ecoinformatics-engine) called the [Ecoengine](https://ecoengine.berkeley.edu/).
 
-The engine is a [fast and open API](http://ecoengine.berkeley.edu/) that provides access to over 3 million specimens and vegetation data from surveys. Many of these specimens have already been georeferenced opening up several use cases for such data. In addition, the engine also provides access to species checklists and sensor data from the Keck Hydrowatch project from the Eel river field station. Our newest package, `ecoengine`, provides an easy interface to these data.
+The engine is a [fast and open API](https://ecoengine.berkeley.edu/) that provides access to over 3 million specimens and vegetation data from surveys. Many of these specimens have already been georeferenced opening up several use cases for such data. In addition, the engine also provides access to species checklists and sensor data from the Keck Hydrowatch project from the Eel river field station. Our newest package, `ecoengine`, provides an easy interface to these data.
 
 ### Installing the package
 
-A stable version of the package (`1.1`) is now [available on CRAN](http://cran.r-project.org/web/packages/ecoengine/index.html). To install:
+A stable version of the package (`1.1`) is now [available on CRAN](https://cran.r-project.org/web/packages/ecoengine/index.html). To install:
 
 
 ```r
@@ -168,12 +168,12 @@ head(all_lists[, c("footprint", "subject")])
 
 ```
 ##                                                        footprint
-## 1   http://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
-## 2   http://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
-## 3   http://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
-## 4 http://ecoengine.berkeley.edu/api/footprints/hastings-reserve/
-## 5   http://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
-## 6 http://ecoengine.berkeley.edu/api/footprints/hastings-reserve/
+## 1   https://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
+## 2   https://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
+## 3   https://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
+## 4 https://ecoengine.berkeley.edu/api/footprints/hastings-reserve/
+## 5   https://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
+## 6 https://ecoengine.berkeley.edu/api/footprints/hastings-reserve/
 ##      subject
 ## 1    Mammals
 ## 2     Mosses
@@ -204,14 +204,14 @@ spiders
 ## 4  bigcb:specieslist:15
 ## 10 bigcb:specieslist:20
 ##                                                         footprint
-## 4  http://ecoengine.berkeley.edu/api/footprints/hastings-reserve/
-## 10   http://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
+## 4  https://ecoengine.berkeley.edu/api/footprints/hastings-reserve/
+## 10   https://ecoengine.berkeley.edu/api/footprints/angelo-reserve/
 ##                                                                       url
-## 4  http://ecoengine.berkeley.edu/api/checklists/bigcb%3Aspecieslist%3A15/
-## 10 http://ecoengine.berkeley.edu/api/checklists/bigcb%3Aspecieslist%3A20/
+## 4  https://ecoengine.berkeley.edu/api/checklists/bigcb%3Aspecieslist%3A15/
+## 10 https://ecoengine.berkeley.edu/api/checklists/bigcb%3Aspecieslist%3A20/
 ##                                           source subject
-## 4  http://ecoengine.berkeley.edu/api/sources/18/ Spiders
-## 10 http://ecoengine.berkeley.edu/api/sources/18/ Spiders
+## 4  https://ecoengine.berkeley.edu/api/sources/18/ Spiders
+## 10 https://ecoengine.berkeley.edu/api/sources/18/ Spiders
 ```
 
 

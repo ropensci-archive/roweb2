@@ -11,7 +11,7 @@ tags:
   - funding
 ---
 
-rOpenSci's mission is to promote a culture of open, transparent, and reproducible research across various research domains. Everything we do, from developing high-quality open-source software for data science and, [software review](https://github.com/ropensci/software-review), to building community through events like our [community calls](https://ropensci.org/commcalls/) and [annual unconference](http://unconf17.ropensci.org/) are all geared toward lowering barriers to reproducible, open science.
+rOpenSci's mission is to promote a culture of open, transparent, and reproducible research across various research domains. Everything we do, from developing high-quality open-source software for data science and, [software review](https://github.com/ropensci/software-review), to building community through events like our [community calls](https://ropensci.org/commcalls/) and [annual unconference](https://unconf17.ropensci.org/) are all geared toward lowering barriers to reproducible, open science.
 
 The rOpenSci Fellowship presents a unique opportunity for researchers who are engaged in open source to have a bigger voice in their communities. These fellowships are designed to support individual researchers and collaborative efforts to help them do better science, build community around projects or best practices, or develop some tools as part of ongoing research that could impact one or more research domains. Two areas that are of particular interest to us are:
 
@@ -47,7 +47,7 @@ Kenneth Benoit is Professor of Quantitative Social Research Methods at the Londo
 * [**Matthew Jones**](https://www.nceas.ucsb.edu/ecoinfo#team), National Center for Ecological Analysis and Synthesis
 Matt is the Director of Research and Informatics at the National Center for Ecological Analysis and Synthesis and has spent more than a decade developing various global data sharing infrastructure projects such as the KNB Repository and the DataONE federation.
 
-* [**Di Cook**](http://dicook.org/),  Monash University
+* [**Di Cook**](https://dicook.org/),  Monash University
 Di is Professor of Business Analytics at Monash University in Australia. Her expertise is in data visualisation, exploratory data analysis, and interactive graphics. She is an Ordinary Member of the R Foundation and a Fellow of the American Statistical Association.
 
 ## Applying for the fellowship

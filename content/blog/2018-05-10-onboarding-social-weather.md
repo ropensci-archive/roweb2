@@ -61,7 +61,7 @@ In this blog post, I’ll leverage the `tidytext` package, with the help
 of its accompanying book [“Tidy text
 mining”](https://www.tidytextmining.com/). The authors, Julia Silge and
 David Robinson, actually met and started working on this project, at
-[rOpenSci unconf in 2016](http://unconf16.ropensci.org/)!
+[rOpenSci unconf in 2016](https://unconf16.ropensci.org/)!
 
 #### The “tidy text” of the analysis
 
@@ -508,7 +508,7 @@ dplyr::filter(word_cors, item1 == "vignette")
     ## # ... with 843 more rows
 
 Now let’s plot the network of these relationships between words, using
-the [`igraph`](http://igraph.org/r/) package by Gábor Csárdi and Támas
+the [`igraph`](https://igraph.org/r/) package by Gábor Csárdi and Támas
 Nepusz and [`ggraph`](https://github.com/thomasp85/ggraph) package by
 Thomas Lin Pedersen.
 

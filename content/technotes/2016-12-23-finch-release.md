@@ -22,7 +22,7 @@ tags:
 
 GBIF (Global Biodiversity Information Facility) is the biggest holder of biodiversity data. When you request
 data in bulk format from GBIF they call give it to you in what's called a Darwin Core Archive, or
-`DwC-A`. GBIF has a validator for DwC-A files as well: <http://tools.gbif.org/dwca-validator/>
+`DwC-A`. GBIF has a validator for DwC-A files as well: <https://tools.gbif.org/dwca-validator/>
 
 One of our most used packages is probably `rgbif`, a client to interact with GBIF's web services.
 There's a series of functions in `rgbif` to request data in bulk format (see functions starting

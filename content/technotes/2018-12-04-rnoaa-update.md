@@ -188,7 +188,7 @@ lcd(station = "01338099999", year = "2015")
 ### Storm Events Database
 
 The [Storm Events Database][sed] contains records used to create the 
-official [NOAA Storm Data publication](http://www.ncdc.noaa.gov/IPS/sd/sd.html).
+official [NOAA Storm Data publication](https://www.ncdc.noaa.gov/IPS/sd/sd.html).
 
 Data contains:
 

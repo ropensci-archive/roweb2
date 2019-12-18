@@ -14,7 +14,7 @@ tags:
 
 The rOpenSci Unconference is coming to Australia and we are excited!!
 
-The event will take place in sunny Brisbane, on April 21-22 2016 hosted at the [Microsoft Innovation Centre](https://www.microsoftinnovationcenters.com/). You can find more information about the event and how to register at http://auunconf.ropensci.org/.
+The event will take place in sunny Brisbane, on April 21-22 2016 hosted at the [Microsoft Innovation Centre](https://www.microsoftinnovationcenters.com/). You can find more information about the event and how to register at https://auunconf.ropensci.org/.
 
 I was completely and unceremoniously thrown into the deep end when I first started learning R. Contrary to what I initially thought possible, I am now irreversibly converted to the ideology of open source. Create tools to make other people's lives easier? Make methods easily reproducible? Get your hands on state-of-the-art methodology, hot off the presses? Yes please! Can I have some more?
 

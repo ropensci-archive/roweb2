@@ -68,4 +68,4 @@ plot(radfit(out$abd))
 ### Further reading
 
 Read more about plotting abundance distributions
-[here](http://cran.r-project.org/web/packages/vegan/vignettes/diversity-vegan.pdf).
+[here](https://cran.r-project.org/web/packages/vegan/vignettes/diversity-vegan.pdf).

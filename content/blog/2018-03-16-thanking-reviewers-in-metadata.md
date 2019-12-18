@@ -106,7 +106,7 @@ c(
 
 [JSS]: https://www.jstatsoft.org/
 
-[JOSS]: http://joss.theoj.org/
+[JOSS]: https://joss.theoj.org/
 
 [working on]: https://github.com/codemeta/codemeta/issues/177
 

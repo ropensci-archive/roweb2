@@ -1,6 +1,6 @@
 ---
 name: Mara Averick
-link: http://maraaverick.rbind.io
+link: https://maraaverick.rbind.io
 twitter: dataandme
 github: batpigandme
 ---

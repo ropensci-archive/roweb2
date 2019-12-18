@@ -187,12 +187,12 @@ Do use the above pacakges ([govdat][govdat], [rnoaa][rnoaa], [rWBclimate][rWBcli
 
 Surely there are other sources of climate data out there that you want to use in R, right? Let us know what else you want to use. Better yet, if you can sling some R code, start writing your own package to interact with a source of climate data on the web - we can lend a hand.
 
-[sciocweb]: http://scioclimate.wikispaces.com
+[sciocweb]: https://scioclimate.wikispaces.com
 [sciox]: https://twitter.com/#sciox
 [rchartsout]: http://sckott.github.io/vis/nvd3_eg.html
 [rcharts]: https://github.com/ramnathv/rCharts
-[sciordata]: http://scioclimate.wikispaces.com/3W.+Working+With+Science+Data+From+Around+The+Web
-[d3]: http://d3js.org/
+[sciordata]: https://scioclimate.wikispaces.com/3W.+Working+With+Science+Data+From+Around+The+Web
+[d3]: https://d3js.org/
 [govdat]: https://github.com/cran/govdat
 [rnoaa]: https://github.com/ropensci/rnoaa
 [rWBclimate]: https://github.com/ropensci/rWBclimate

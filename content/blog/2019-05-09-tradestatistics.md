@@ -26,7 +26,7 @@ There are alternatives to COMTRADE, for example the [Base Pour L'Analyse du Comm
 
 After contacting UN COMTRADE, and suggesting to them my idea of doing something similar to BACI but available for anyone but keeping commercial purposes out of the scope of the project, I got an authorization to share curated versions of their datasets.
 
-Different projects such as [The Atlas of Economic complexity](http://atlas.cid.harvard.edu/) and [The Obervatory of Economic complexity](http://atlas.media.mit.edu/) use UN COMTRADE data and focus on data visualization to answer questions like:
+Different projects such as [The Atlas of Economic complexity](http://atlas.cid.harvard.edu/) and [The Obervatory of Economic complexity](https://atlas.media.mit.edu/) use UN COMTRADE data and focus on data visualization to answer questions like:
 
 * What did Germany export in 2016?
 * Who imported Electronics in 1980?

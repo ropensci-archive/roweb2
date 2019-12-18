@@ -51,13 +51,13 @@ You can find members of the rOpenSci team at various meetings and workshops arou
   	<td>Nov 22 - 23, 2018</td>
   	<td>Nick Tierney</td>
   	<td>🇦🇺 Melbourne, AU</td>
-  	<td><a href="http://ozunconf18.ropensci.org/">rOpenSci OzUnconf 2018</a></td>
+  	<td><a href="https://ozunconf18.ropensci.org/">rOpenSci OzUnconf 2018</a></td>
   </tr>
   <tr>
   	<td>Jan 15 - 18, 2019</td>
   	<td>Karthik Ram, Jenny Bryan</td>
   	<td>🇺🇸 Austin, TX</td>
-  	<td><a href="http://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx">rstudio::conf</a></td>
+  	<td><a href="https://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx">rstudio::conf</a></td>
   </tr>
   <tr>
   	<td>Jan 24 - 26, 2019</td>

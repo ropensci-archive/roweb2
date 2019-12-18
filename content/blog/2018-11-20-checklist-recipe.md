@@ -53,7 +53,7 @@ Rather than explaining how you can use the Checklist recipe - [we've documented 
 
 #### Cookiecutter data science
 
-The recipe shares the **same repository structure** we use for all our data transformation repositories. We didn't invent one, but adopted [Cookiecutter Data Science](http://drivendata.github.io/cookiecutter-data-science/): "a logical, reasonably standardized, but flexible project structure for doing and sharing data science work". The main advantage we think is that it allows anyone (and us) to easily find their way around a repository, making it easier to contribute. It also saves precious time setting up a repository, because there are fewer decisions (e.g. naming things) to be made.
+The recipe shares the **same repository structure** we use for all our data transformation repositories. We didn't invent one, but adopted [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/): "a logical, reasonably standardized, but flexible project structure for doing and sharing data science work". The main advantage we think is that it allows anyone (and us) to easily find their way around a repository, making it easier to contribute. It also saves precious time setting up a repository, because there are fewer decisions (e.g. naming things) to be made.
 
 Below is the directory structure we [adopted](https://github.com/trias-project/checklist-recipe) for checklist repositories. Files and directories indicated with `GENERATED` should not be edited manually.
 

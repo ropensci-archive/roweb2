@@ -9,7 +9,7 @@ but it also offers provides access to ensemble data derived from all
 models. We'll focus on this for our examples. Here we'll plot
 temperature and precipiation data for Great Britain for the past and two
 [climate
-scenarios](http://climatesanity.wordpress.com/tag/global-depletion-of-groundwater-resources/),
+scenarios](https://climatesanity.wordpress.com/tag/global-depletion-of-groundwater-resources/),
 A2 and B1.
 
 Load the library

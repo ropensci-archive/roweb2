@@ -125,7 +125,7 @@ head(elevation(dat))
 
 ### New function: installations
 
-Gets metdata on installations via the [installations API](http://www.gbif.org/developer/registry#installations).
+Gets metdata on installations via the [installations API](https://www.gbif.org/developer/registry#installations).
 
 This example requests data for installations with the query terms 'france' in the metadata. We'll just look at the first result, and just the description and its first contact.
 

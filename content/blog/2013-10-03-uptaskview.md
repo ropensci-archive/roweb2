@@ -10,7 +10,7 @@ tags:
   - help
 ---
 
-Just a quick note that the Task View we have been working on with others **Web Technologies and Services** is up on CRAN now. Find it here [http://cran.r-project.org/web/views/WebTechnologies.html](http://cran.r-project.org/web/views/WebTechnologies.html).
+Just a quick note that the Task View we have been working on with others **Web Technologies and Services** is up on CRAN now. Find it here [https://cran.r-project.org/web/views/WebTechnologies.html](https://cran.r-project.org/web/views/WebTechnologies.html).
 
 This is the first version - there are definitely changes to come. Changes are being suggested as I write this on Twitter...
 

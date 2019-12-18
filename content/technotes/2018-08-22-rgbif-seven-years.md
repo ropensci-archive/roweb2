@@ -170,7 +170,7 @@ A huge thanks goes to all `rgbif` users and contributors! It's great to see how 
 
 [rgbif]: https://github.com/ropensci/rgbif
 [firstcomm]: https://github.com/ropensci/rgbif/commit/9042246555151240a5136ccf7530d0524bfb1cb5
-[carl]: http://www.carlboettiger.info/
+[carl]: https://www.carlboettiger.info/
 [pygbif]: https://pypi.org/project/pygbif
 [gbifrb]: https://rubygems.org/gems/gbifrb
 [GBIF]: https://www.gbif.org/

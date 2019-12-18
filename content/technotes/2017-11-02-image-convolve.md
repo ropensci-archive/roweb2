@@ -61,7 +61,7 @@ img %>% image_convolve('Gaussian:0x5', scaling = '60,40%')
 ![mixed](https://i.imgur.com/6Vf6c2hl.gif)
 
 The above requires a bit of explanation. ImageMagick defines several common
-[standard kernels](http://www.imagemagick.org/Usage/convolve/) such as the
+[standard kernels](https://www.imagemagick.org/Usage/convolve/) such as the
 gaussian kernel. Most of the standard kernels take one or more parameters,
 e.g. the example above used a gaussian kernel with 0 *radius* and 5 *sigma*.
 
@@ -113,4 +113,4 @@ img %>% image_convolve('DoG:0,0,2', scaling = '100, 100%')
 
 ![combination](https://i.imgur.com/MtcMSn7.gif)
 
-The [ImageMagick documentation](http://www.imagemagick.org/Usage/convolve/) has more examples of convolve with various avaiable kernels.
+The [ImageMagick documentation](https://www.imagemagick.org/Usage/convolve/) has more examples of convolve with various avaiable kernels.

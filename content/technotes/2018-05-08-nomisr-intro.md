@@ -26,7 +26,7 @@ tags:
 
 I'm excited to announce a new package for accessing official statistics from the UK. [`nomisr`](https://github.com/ropensci/nomisr) is the R client for the [Nomis](https://www.nomisweb.co.uk/) database. Nomis is run by Durham University on behalf of the UK's Office for National Statistics (ONS), and contains over a thousand datasets, primarily on the UK labour market, census data, benefit spending and general economic activity. Registration is optional, although registration and the use of an API key allows for larger queries without the risk of being timed out or rate limited by the API.
 
-Most data in Nomis is arranged in statistical geographies -- ranging from the whole of the UK to small output areas, making `nomisr` a useful tool for map-making and social geography. The example below shows how to retrieve the latest data on the number of Job Seekers Allowance claimants in each parliamentary constitutency, and maps them onto a cartogram from the [`parlitools`](https://cran.r-project.org/package=parlitools) package, using the [development version of `ggplot2`](http://github.com/tidyverse/ggplot2/)
+Most data in Nomis is arranged in statistical geographies -- ranging from the whole of the UK to small output areas, making `nomisr` a useful tool for map-making and social geography. The example below shows how to retrieve the latest data on the number of Job Seekers Allowance claimants in each parliamentary constitutency, and maps them onto a cartogram from the [`parlitools`](https://cran.r-project.org/package=parlitools) package, using the [development version of `ggplot2`](https://github.com/tidyverse/ggplot2/)
 
 
 

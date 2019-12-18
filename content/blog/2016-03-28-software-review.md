@@ -104,7 +104,7 @@ and best practices from other authors.
 Interestingly, no one mentioned the credential of an rOpenSci "badge" as a
 positive aspect of review.  While the badge may be a motivating factor,
 it seems from the responses that authors primarily value the feedback itself.
-There has been some [argument](http://simplystatistics.org/2013/09/26/how-could-code-review-discourage-code-disclosure-reviewers-with-motivation/) whether code
+There has been some [argument](https://simplystatistics.org/2013/09/26/how-could-code-review-discourage-code-disclosure-reviewers-with-motivation/) whether code
 review will encourage or discourage scientists to publish their
 code.  While our package authors represent a specific subset of scientists - those knowledgeable and motivated enough to create and disseminate packages - we think
 our pilot shows that a well-designed review process can be encouraging.
@@ -117,7 +117,7 @@ they reported:
 ![plot of chunk reviewer-time](/assets/blog-images/2016-03-28-software-review/reviewer-time-1.png)
 
 Answers varied from 1-10 hours with an average of 4. This is comparable
-to [how long it takes researchers to review scholarly papers](http://publishingresearchconsortium.com/index.php/112-prc-projects/research-reports/peer-review-in-scholarly-journals-research-report/142-peer-review-in-scholarly-journals-perspective-of-the-scholarly-community-an-international-study), but
+to [how long it takes researchers to review scholarly papers](https://publishingresearchconsortium.com/index.php/112-prc-projects/research-reports/peer-review-in-scholarly-journals-research-report/142-peer-review-in-scholarly-journals-perspective-of-the-scholarly-community-an-international-study), but
 it's still a lot of time, and does not include further time corresponding with
 the authors or re-reviewing an updated package.
 
