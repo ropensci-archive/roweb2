@@ -130,7 +130,7 @@ ggplot(tab1df, aes(x = Year, y = RegPerc)) +
 ## Warning: Removed 1 rows containing missing values (geom_path).
 ```
 
-![plot of chunk example1plot](http://i.imgur.com/Gkbc1VO.png)
+![plot of chunk example1plot](https://i.imgur.com/Gkbc1VO.png)
 
 ## Optional arguments
 
@@ -310,7 +310,7 @@ plot(c(0, d[1]), c(0, d[2]), type = "n", xlab = "", ylab = "", asp = 1)
 rasterImage(thispng, 0, 0, d[1], d[2])
 ```
 
-![plot of chunk example2d](http://i.imgur.com/mJZSM3P.png)
+![plot of chunk example2d](https://i.imgur.com/mJZSM3P.png)
 
 And, lastly, the `split_pdf()` and `merge_pdf()` functions can extract specific pages from a PDF or merge multiple PDFs together. Those functions should find multiple uses cases beyond the challenges of working with other peoples' data.
 

@@ -21,7 +21,7 @@ This was my first time reviewing a package, and, as with so many things in life,
 
 Barring the destruction of someone else's hard work and/or an entire organization, I was fairly confident that I'd have little to offer in the way of useful advice. _What if I have absolutely nothing to say other than, yes, this is, in fact, a package?!_
 
-![rOpenSci package review: what I imagined](http://i.imgur.com/np59m8Z.png)
+![rOpenSci package review: what I imagined](https://i.imgur.com/np59m8Z.png)
 
 So, step one (for me) was: confess my inadequacies and seek advice. It turns out that much of the advice vis-à-vis _how to review a package_ is baked right into the documents. The [reviewer template](https://devguide.ropensci.org/reviewtemplate.html) is a great trail map, the utility of which is fleshed out in the [rOpenSci Package Reviewing Guide](https://devguide.ropensci.org/reviewerguide.html). Giving these a thorough read, and perusing a recommended review or two (links in the reviewing guide) will probably have you raring to go. But, if you're feeling particularly neurotic (as I almost always am), the rOpenSci [onboarding editors](https://devguide.ropensci.org/softwarereviewintro.html#associateditors) and larger community are endless founts of wisdom and resources.
 

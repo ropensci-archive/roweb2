@@ -103,7 +103,7 @@ str(extract_tables(f, pages = c(2,2), area = a2, guess = FALSE, method = "data.f
 
 In addition to the programmatic extraction offered by `extract_tables()`, it is also possible to work interactively with PDFs via the `extract_areas()` function. This function triggers a process by which each (specified) page of a PDF is converted to a PNG image file and then loaded as an R graphic. From there, you can use your mouse to specify upper-left and lower-right bounds of an area on each page. Pages are cycled through automatically and, after selecting areas for each page, those areas are extracted auto-magically (and the return value is the same as for `extract_tables()`). Here's a shot of it in action:
 
-[![extract_areas()](http://i.imgur.com/USTyQl7.gif)](http://i.imgur.com/USTyQl7.gif)
+[![extract_areas()](https://i.imgur.com/USTyQl7.gif)](https://i.imgur.com/USTyQl7.gif)
 
 `locate_areas()` handles the area identification process without performing the extraction, which may be useful as a debugger, or simply to define areas to be used in a programmatic extraction.
 
