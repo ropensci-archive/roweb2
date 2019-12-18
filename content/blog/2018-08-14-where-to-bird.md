@@ -343,7 +343,7 @@ In this post we showcased three rOpenSci packages helping you use open
 geographical data in R:
 [`opencage`](https://github.com/ropensci/opencage),
 [`osmdata`](https://ropensci.github.io/osmdata/),
-[`osmplotr`](https://ropensci.github.io/osmplotr), therefore mostly
+[`osmplotr`](https://docs.ropensci.org/osmplotr), therefore mostly
 making use of the awesome OpenStreetMap data (The OpenCage Geocoder uses
 a bit more, but it only warrants [attributing
 OpenStreetMap](https://opencagedata.com/faq#legal)). We therefore added

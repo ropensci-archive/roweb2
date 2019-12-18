@@ -269,6 +269,6 @@ For researchers who work with digital archives, this is a golden age. There is s
 
 [^11]: Jefferson. 2017. “Over 200 Terabytes of the Government Web Archived!” <https://blog.archive.org/2017/05/09/over-200-terabytes-of-the-government-web-archived/>.
 
-[^12]: Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://ropensci.github.io/rtika/articles/rtika_introduction.html>.
+[^12]: Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://docs.ropensci.org/rtika/articles/rtika_introduction.html>.
 
 [^13]: Smith, Ray. 2007. “An Overview of the Tesseract Ocr Engine.” In *Document Analysis and Recognition, 2007. Icdar 2007. Ninth International Conference on*, 2:629–33. IEEE.

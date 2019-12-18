@@ -94,7 +94,7 @@ The `patentsview` R package is a wrapper around the PatentsView API. It
 contains a function that acts as a client to the API (`search_pv()`) as
 well as several supporting functions. Full documentation of the package
 can be found on its
-[website](https://ropensci.github.io/patentsview/index.html).
+[website](https://docs.ropensci.org/patentsview/index.html).
 
 ### Installation
 

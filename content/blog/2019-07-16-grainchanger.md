@@ -131,7 +131,7 @@ p4 <- ggplot(g_sf) +
 
 ![](img/blog-images/2019-07-16-grainchanger/example1-1.png)<!-- -->
 
-See the [package website](https://ropensci.github.io/grainchanger/articles/functions.html) for a description of the built-in functions. 
+See the [package website](https://docs.ropensci.org/grainchanger/articles/functions.html) for a description of the built-in functions. 
 
 ### Why not just use the `raster` package?
 

@@ -64,7 +64,7 @@ lang.aff("Lezgic")
 ## [6] "Archi"     "Udi"       "Budukh"    "Tabasaran"
 ```
 
-Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. So you can search for additional information such as area, country name, ISO code or glottolog code using the same syntax. See the [package manual](https://ropensci.github.io/lingtypology/#2_glottolog_functions) for a full list of functions.
+Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. So you can search for additional information such as area, country name, ISO code or glottolog code using the same syntax. See the [package manual](https://docs.ropensci.org/lingtypology/#2_glottolog_functions) for a full list of functions.
 ```r
 area.lang(c("Bebe", "Irish")) #area
 ```
@@ -247,7 +247,7 @@ map.feature(circassian$language,
 This example shows that it is also possible to add your own coordinates to the `map.feature()`.
 
 ## 4. Conclusions
-In this post I showed the main fucntions of `lingtypology` for creating interactive linguistic maps, but there are a lot of other functions that make the visualizations more flexible, so take a look at the [manual page](https://ropensci.github.io/lingtypology/) for more information on functionalities. 
+In this post I showed the main fucntions of `lingtypology` for creating interactive linguistic maps, but there are a lot of other functions that make the visualizations more flexible, so take a look at the [manual page](https://docs.ropensci.org/lingtypology/) for more information on functionalities. 
 If you have any suggestions, please create an issue on [GitHub](https://github.com/ropensci/lingtypology/issues).
 
 

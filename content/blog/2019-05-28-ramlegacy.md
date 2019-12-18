@@ -32,7 +32,7 @@ ramlegacy is a new R package to download, cache and read in all the different ve
 
 The primary motivation behind developing the caching behavior of the package was to save the user time and effort spent in re-downloading different versions of the database as part of any future analysis.
 
-ramlegacy been tested and peer reviewed thanks to rOpenSci and is now released on CRAN, making this an ideal time to present the package to the world. For installation and the code, see its [home](https://github.com/ropensci/ramlegacy) in rOpenSci, and the package documentation at its [website](https://ropensci.github.io/ramlegacy/).
+ramlegacy been tested and peer reviewed thanks to rOpenSci and is now released on CRAN, making this an ideal time to present the package to the world. For installation and the code, see its [home](https://github.com/ropensci/ramlegacy) in rOpenSci, and the package documentation at its [website](https://docs.ropensci.org/ramlegacy/).
 
 In this post, we’ll talk a little bit about the package development process we went through for ramlegacy.
 
