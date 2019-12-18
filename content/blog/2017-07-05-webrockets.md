@@ -284,8 +284,7 @@ server that would send out messages containing accelerometer data from
 the phone. We modified our `shiny` app to read in and plot that real
 (live!) data.
 
-We used [this
-app](https://play.google.com/store/apps/details?id=net.collaud.android.sensorvisualisation&hl=en)
+We used an app
 from the Android app store to stream our sensor data. *Hot tip*: be sure
 to be running your `shiny` plotting app on the same wifi network as your
 phone. To begin sensor data transmission, hit "start" in the sensor data

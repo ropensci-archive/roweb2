@@ -48,7 +48,7 @@ Hosting an event like this in the Bay Area did have other advantages. Given that
 
 It would have been impossible to put together an event like this without the cooperation of several people and organizations. Our funding from the [Sloan Foundation](http://www.sloan.org/) made it possible to fly in several participants and cover most of the event expenses, GitHub ([Arfon](https://github.com/arfon) and [Kelsey](https://github.com/Kelseyschimm)) were fantastic hosts providing us with great space to hack in (and drinks!), and F1000 Research helped us throw together the hugely successful data science social.
 
-Alyssa Frazee wrote a great summary of the event on the [Simply Statistics blog](http://simplystatistics.org/2014/04/10/the-ropensci-hackathon-ropenhack/), and the fine folks at GitHub ([Peter](https://github.com/furyus) and Kevin) with awesome direction from [Dani Traphagen](http://www.dtrapezoid.com/) made a fantastic video of the event. [Check out the video along with a blog post](https://github.com/blog/1840-improving-github-for-science) by GitHub's chief scientist, [Arfon Smith](https://github.com/blog/1665-arfon-smith-is-a-githubber).
+Alyssa Frazee wrote a great summary of the event on the [Simply Statistics blog](http://simplystatistics.org/2014/04/10/the-ropensci-hackathon-ropenhack/), and the fine folks at GitHub ([Peter](https://github.com/furyus) and Kevin) with awesome direction from [Dani Traphagen](http://www.dtrapezoid.com/) made a fantastic video of the event. [Check out the video along with a blog post](https://github.com/blog/1840-improving-github-for-science) by GitHub's chief scientist, Arfon Smith.
 
 <!-- Video embed code -->
 
