@@ -286,11 +286,11 @@ bad_urls <- dplyr::left_join(bad_urls, info, by = "filepath")
 readr::write_csv(bad_urls, "urls.csv")
 ```
 
-From that spreadsheet links were examined. When there was a replacement
-link, we used it thanks to a code looping over all links. For the about
-50 links without replacement, we amended the posts by hand to make sure
-to take context into account (e.g. removing the link vs. removing the
-whole sentence presenting it).
+From that spreadsheet hundreds of links were examined **manually**! When
+there was a replacement link, we used it thanks to a code looping over
+all links. For the about 50 links without replacement, we amended the
+posts by hand to make sure to take context into account (e.g. removing
+the link vs. removing the whole sentence presenting it).
 
 There were quite a few false positives i.e. actually valid URLs. This
 lead to some edits in
