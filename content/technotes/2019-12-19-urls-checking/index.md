@@ -36,29 +36,31 @@ What is a bad URL?
 
 We tackled a few URL issues:
 
--   We had used absolute links (using our domain name) instead of
-    relative links which is in particular bad when looking at a preview
-    after a change. `https://ropensci.org/blog/` should be `/blog/`.
+-   We had used [absolute links (using our domain name) instead of
+    relative
+    links](https://stackoverflow.com/questions/2005079/absolute-vs-relative-urls).
+    `https://ropensci.org/blog/` should be `/blog/`.
 
--   Some internal and external links were broken, but we obviously did
-    not know which ones.
+-   Some internal and external links were broken, but we did not know
+    which ones.
 
 -   A few links were short links (`bit.ly/blabla`) whereas it’s best to
     store the actual link because the short link could break too.
 
--   Some links were http links, although the same https link might work.
+-   Some links were http links, although the same https link might work
+    and would be preferred over http for security.
 
 -   There were links to ropensci.github.io documentation websites that
     can be replaced with links to [our brand-new docs
     server](/technotes/2019/06/07/ropensci-docs/).
 
-Please read if you try this at home/
-------------------------------------
+Please read if you try this at “home/”
+--------------------------------------
 
 There are three main ingredients to our website spring/fall cleaning: R
 tools, elbow grease and *version control*! Most changes happened in a
-branch, and although one can’t possibly look at a diff of more than one
-hundred files, we tried to be as careful as possible.
+branch, and although one can’t possibly look in detail at a diff of more
+than one hundred files, we tried to be as careful as possible.
 
 From absolute to relative links
 -------------------------------
@@ -87,7 +89,7 @@ fix_ropensci <- function(filepath){
 purrr::walk(mds, fix_ropensci)
 ```
 
-Voilà, we then only had to have a look at the diff!
+Voilà!
 
 Broken URLs
 -----------
@@ -189,7 +191,7 @@ head(links)
 
 So these are the existing internal links. We could also have extracted
 them using [the multi-request features of
-`curl`](https://github.com/jeroen/curl/blob/master/examples/sitemap.R).
+curl](https://github.com/jeroen/curl/blob/master/examples/sitemap.R).
 
 Let’s now extract the internal links we used in the content.
 
@@ -311,7 +313,9 @@ crul::ok("http://animalnexus.ca", verb = "get")
 
     ## [1] TRUE
 
-Sometimes you’ll need an user-agend whose name does not contain crul.
+Sometimes you’ll need an user-agent whose name does not contain “curl”,
+which the default user-agent of crul contains (`crul:::make_ua()` is
+libcurl/7.58.0 r-curl/4.3 crul/0.9.1.9991).
 
 ``` r
 # some urls will require a different useragent string
@@ -391,7 +395,7 @@ You can [browse the related
 PR](https://github.com/ropensci/roweb2/pull/582/). Note that in the
 above, we could have used
 [`urltools`](https://github.com/Ironholds/urltools/) to parse URLs and
-extract their scheme.
+extract their scheme (http or https).
 
 ### docs.ropensci.org
 
