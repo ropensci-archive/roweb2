@@ -9,7 +9,7 @@ authors:
 categories:
   - technotes
 topicid: 1904
-description: How we corrected URLs in our website source (broken internal and external URLs, shortlinks, http scheme, etc.) using R tools (crul::ok(), commonmark and some manual work.
+description: How we corrected URLs in our website source (broken internal and external URLs, shortlinks, http scheme, etc.) using R tools (crul::ok(), commonmark, etc.) and some manual work.
 tags:
   - Markdown
   - RMarkdown
