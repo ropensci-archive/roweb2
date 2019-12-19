@@ -37,4 +37,4 @@ The position comes with a competitive salary and benefits and is based at the [B
 We're a [team of four](/about/#team), with a five person [leadership team](/about/#team), and an [advisory board](/about/#team). We're a grant funded organization based within UC Berkeley. We have [a large community](/community/#community) of contributors, and a much larger community of users. Our tools are focused around the R language, but we promote open science/open source widely.
 
 **Apply**
-Informal questions and inquiries welcome at `jobs at ropensci org`. And if you're ready, [go ahead and apply!](https://hrw-vip-prod.is.berkeley.edu/psc/JOBSPROD/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_CE.GBL?Page=HRS_CE_JOB_DTL&Action=A&JobOpeningId=21279&SiteId=1&PostingSeq=1)
+Informal questions and inquiries welcome at `jobs at ropensci org`. Applications closed.

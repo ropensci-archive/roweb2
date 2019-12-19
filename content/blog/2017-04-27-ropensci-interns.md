@@ -23,7 +23,6 @@ There's a lot of work that goes in to making software: the code that does the th
 	- [Diana on GitHub](https://github.com/diana-ly)
 - Siwei (Steven) Ye:
     - Is a second-year undergraduate student doing a double major in Mathematics and Statistics
-    - [Steven on GitHub](https://github.com/steven2249)
 
 ## What they're working on
 

@@ -21,7 +21,7 @@ In the example below I'm going to download climate data at the basin level for t
 
 
 
-The first step is to grab the [KML](https://developers.google.com/kml/documentation/) files for each river basin making up the US and Mexico, which we [identify with an integer](http://data.worldbank.org/sites/default/files/climate_data_api_basins.pdf).
+The first step is to grab the [KML](https://developers.google.com/kml/documentation/) files for each river basin making up the US and Mexico, which we identify with an integer.
 
 
 ```r

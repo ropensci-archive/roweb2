@@ -45,7 +45,7 @@ Note that extensions are not enabled by default. For example to render tables, y
 
 ## Markdown and Roxygen
 
-We also use commonmark in the upcoming version 6.0 of roxygen2 to support [markdown within roxygen](https://github.com/klutometis/roxygen/blob/master/vignettes/markdown.Rmd), which is super awesome.
+We also use commonmark in the upcoming version 6.0 of roxygen2 to support markdown within roxygen, which is super awesome.
 
 ![roxygenmd](/assets/blog-images/roxygenmd.png)
 
@@ -55,5 +55,5 @@ To give this a try you need the development version of roxygen2:
 devtools::install_github("klutometis/roxygen")
 ```
 
-To enable markdown roxygen for a given package, all you need to do is add a line with `Roxygen: list(markdown = TRUE)` to the package DESCRIPTION file. For more details check out the [vignette](https://github.com/klutometis/roxygen/blob/master/vignettes/markdown.Rmd).
+To enable markdown roxygen for a given package, all you need to do is add a line with `Roxygen: list(markdown = TRUE)` to the package DESCRIPTION file. For more details check out the [vignette](https://roxygen2.r-lib.org/articles/rd-formatting.html).
 There is also package [roxygen2md](https://github.com/r-pkgs/roxygen2md) which will automatically convert existing roxygen code to markdown.

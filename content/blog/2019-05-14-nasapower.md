@@ -485,7 +485,7 @@ plot(T2M_ann_regional, col = viridis(n = n), xlab = "Longitude", ylab = "Latitud
 
 As you can see, because the data are georeferenced it is easy to use
 them in R’s spatial packages including sf and raster.
-[Emerson Del Ponte](https://delpontelab.netlify.com),
+Emerson Del Ponte,
 [(@edelponte)](https://twitter.com/edelponte), used the data in a talk at the
 International Congress of Plant Pathology in August 2018, “[Can Rainfall
 be a Useful Predictor of Epidemic Risk Across Temporal and Spatial

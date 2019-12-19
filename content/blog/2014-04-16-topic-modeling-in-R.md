@@ -50,7 +50,7 @@ The `dois` can now be used to obtain all sorts of meta data associated with thes
 abs <- sapply(dois, function(x) elife_doi(x, ret = "abstract"))
 ```
 
-From here, we have what we need to fit the topic model. I don't want to focus on technical details here, but if you are interested in the statistics involved, I recommend reading [my post on xkcd comics](https://cpsievert.github.io/xkcd/). This post also covers the method I use to determine an optimal number of topics. I've provided all the code used to fit the model [here](https://github.com/cpsievert/cpsievert.github.com/blob/master/elife/elife.R), but let's skip to the fun part and jump right into exploring the model output.
+From here, we have what we need to fit the topic model. I don't want to focus on technical details here, but if you are interested in the statistics involved, I recommend reading [my post on xkcd comics](https://cpsievert.github.io/xkcd/). This post also covers the method I use to determine an optimal number of topics. Let's skip to the fun part and jump right into exploring the model output.
 
 The window below is an interactive visualization of the LDA output derived from elife abstracts. The aim of this visualization is to aid interpretation of topics. Topic interpretation tends to be difficult since each topic is defined by a probability distribution with support over many of words. With this interactive visualization, one can focus on the most "relevant" words for any topic by hovering/clicking over the appropriate circle. We will define "relevance" shortly, but for now, go ahead and click on the circle towards the bottom labeled "11".
 

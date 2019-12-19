@@ -101,8 +101,8 @@ download a custom dataset is variable). While waiting, I worked on the
 #### API key? Not yet
 
 At the moment, `rebird` interfaces the version 1.1 eBird APIs that will
-be retired [“at some point in the
-future”](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW).
+be retired “at some point in the
+future”.
 When this happens, the `rebird` package [will use the new
 API](https://github.com/ropensci/rebird/issues/58) which will mean
 you’ll need an API key. Currently, though, you don’t need any

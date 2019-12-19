@@ -414,8 +414,6 @@ griddap('noaa_esrl_027d_0fb5_5d38',
 
 There are many different ERDDAP servers, see the function `servers()` for help.
 
-More information on ERDDAP: [http://upwell.pfeg.noaa.gov/erddap/information.html](http://upwell.pfeg.noaa.gov/erddap/information.html)
-
 ## ckanr
 
 [ckanr](https://github.com/ropensci/ckanr) - A general purpose R client for any CKAN server.

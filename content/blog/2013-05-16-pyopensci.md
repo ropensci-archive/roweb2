@@ -16,11 +16,11 @@ tags:
 <br><br>
 # Why Python? A little background!
 
-I started using [Python][python] in the summer of 2010. I had applied for the Master of Research postgraduate degree in [Computational Biology][mrescompbiol] at the [University of York][yorkuni]. They teach the programming portion of their course using Python. I thought it might be useful to learn it, before starting, to give me a bit of a head start.
+I started using [Python][python] in the summer of 2010. I had applied for the Master of Research postgraduate degree in Computational Biology at the [University of York][yorkuni]. They teach the programming portion of their course using Python. I thought it might be useful to learn it, before starting, to give me a bit of a head start.
 
 From the beginning, it was clear to me, that Python was something different, in relation to all the other languages I had previously used. It had a beautiful, simple, clean syntax; and made producing code more about implementing the concept, or being creative with an idea, than about hacking away with an unintuitive and unnecessarily complicated syntax.
 
-I'm now around my 3 year anniversary of Python usage, and haven't looked back. I wrote a [blog post][myblogpost] in 2010, after I had started using Python as my primary development language, to outline how I saw it as a formidable force in moving bioinformatics development forward. With every day that I use Python, my view is only reinforced. The only change I would make, is in expanding my prediction of Python's dominance, to be multidisciplinary. I believe the power of Python can be used in everything from Computer Science, through Biology, to the Social Sciences, and even the Arts. In short, I don't think there is **anything** that Python cannot do (with a little imagination).
+I'm now around my 3 year anniversary of Python usage, and haven't looked back. I wrote a blog post in 2010, after I had started using Python as my primary development language, to outline how I saw it as a formidable force in moving bioinformatics development forward. With every day that I use Python, my view is only reinforced. The only change I would make, is in expanding my prediction of Python's dominance, to be multidisciplinary. I believe the power of Python can be used in everything from Computer Science, through Biology, to the Social Sciences, and even the Arts. In short, I don't think there is **anything** that Python cannot do (with a little imagination).
 <br><br>
 # Why pyOpenSci? Enabling transparency!
 
