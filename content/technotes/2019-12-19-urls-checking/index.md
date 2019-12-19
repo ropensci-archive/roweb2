@@ -456,5 +456,5 @@ occur. In [our dev guide](https://devguide.ropensci.org/), we clean
 links [before each
 release](https://devguide.ropensci.org/bookreleaseissue.html#bookreleaseissue),
 but this website has no such schedule, so let’s hope we remember to
-clean URLs once in a while. When do *you* clean URLs in your content,
+clean URLs once in a while. Maybe some old pages could also be ["archived" like this example](https://kb.iu.edu/d/abwp). When do *you* clean URLs in your content,
 and how?
