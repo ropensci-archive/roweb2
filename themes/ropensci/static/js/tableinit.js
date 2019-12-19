@@ -9,6 +9,7 @@ $(document).ready( function () {
             "url": "https://ropensci.github.io/roregistry/registry.json",
             "dataSrc": "packages"
         },
+        "order": [[ 3, "asc" ]],
         "columns": [
           {
                 "data" : function(row, type, set, meta){
@@ -27,6 +28,14 @@ $(document).ready( function () {
                 data: 'status',
                 visible: false,
                 title: "status"
+            },
+            {
+                data: function ( row, type, val, meta ) {
+                   return Math.floor(Math.random() * 100000)
+                    
+                },
+                visible: false,
+                title: "rand"
             },
             {
                 "data": function(row, type, set, meta){
