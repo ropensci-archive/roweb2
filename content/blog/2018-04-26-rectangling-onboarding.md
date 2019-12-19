@@ -49,8 +49,8 @@ or less) describing what’s been changed in the commit. Now, on top of
 that these repositories live on GitHub which means they get to enjoy
 some infratructure such as issue trackers, milestones, starring by
 admirers, etc. If that ecosystem is brand new to you, I recommend
-reading [this book](http://happygitwithr.com/), especially its [big
-picture chapter](http://happygitwithr.com/big-picture.html).
+reading [this book](https://happygitwithr.com/), especially its [big
+picture chapter](https://happygitwithr.com/big-picture.html).
 
 ### Package review processes: weaving the threads
 
@@ -84,7 +84,7 @@ advantages](https://developer.github.com/v4/#why-is-github-using-graphql),
     example!
 
 -   Carl Boettiger told me about [his way to rectangle JSON
-    data](http://www.carlboettiger.info/2017/12/11/data-rectangling-with-jq/),
+    data](https://www.carlboettiger.info/2017/12/11/data-rectangling-with-jq/),
     using [jq](https://stedolan.github.io/jq/), a language for
     processing JSON, via a dedicated rOpenSci package,
     [`jqr`](https://github.com/ropensci/jqr).
@@ -418,7 +418,7 @@ purrr::map_df(packages, get_report) %>%
 Crossing information from the issue threads and from commit logs, I
 could find the latest commit before submission and create a copy of each
 repo before resetting it at this state. This is the closest to a
-[Time-Turner](http://harrypotter.wikia.com/wiki/Time-Turner) that I
+[Time-Turner](https://harrypotter.wikia.com/wiki/Time-Turner) that I
 have!
 
 ``` r

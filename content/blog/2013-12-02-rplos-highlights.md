@@ -14,7 +14,7 @@ tags:
 
 `rplos` is an R package to facilitate easy search and full-text retrieval from all Public Library of Science (PLOS) articles, and we have a little feature which aren't sure if is useful or not. I don't actually do any text-mining for my research, so perhaps text-mining folks can give some feedback.
 
-You can quickly get a lot of results back using `rplos`, so perhaps it is useful to quickly browse what you got. What better tool than a browser to browse? Enter `highplos` and `highbrow`. `highplos` uses the [Solr](http://lucene.apache.org/solr/) capabilities of the PLOS search API, and lets you get back a string with the term you searched for highlighted (by default with `<em>` tag for italics).
+You can quickly get a lot of results back using `rplos`, so perhaps it is useful to quickly browse what you got. What better tool than a browser to browse? Enter `highplos` and `highbrow`. `highplos` uses the [Solr](https://lucene.apache.org/solr/) capabilities of the PLOS search API, and lets you get back a string with the term you searched for highlighted (by default with `<em>` tag for italics).
 
 ## Installation
 

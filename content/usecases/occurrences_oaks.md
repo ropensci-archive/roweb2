@@ -5,7 +5,7 @@ gh: ropensci/rgbif
 ---
 
 This example comes from [Antonio J. Perez-Luque](https://twitter.com/ajpelu) who [shared his plot on
-Twitter](https://twitter.com/ajpelu/status/473951167567757312). Antonio compared the occurrences of Valley Oak (*Quercus lobata*) from [GBIF](http://www.gbif.org/) to the distribution of the same species from the [Atlas of US Trees](http://esp.cr.usgs.gov/data/little/).
+Twitter](https://twitter.com/ajpelu/status/473951167567757312). Antonio compared the occurrences of Valley Oak (*Quercus lobata*) from [GBIF](https://www.gbif.org/) to the distribution of the same species from the [Atlas of US Trees](https://esp.cr.usgs.gov/data/little/).
 
 ### Load libraries
 
@@ -27,11 +27,11 @@ dat.Ql <- occ_search(taxonKey=keyQl, return='data', limit=50000)
 
 ### Get Distribution map of Q. lobata Atlas of US Trees (Little, E.)
 
-From <http://esp.cr.usgs.gov/data/little/>. And save shapefile in same
+From <https://esp.cr.usgs.gov/data/little/>. And save shapefile in same
 directory
 
 ```r
-url <- 'http://esp.cr.usgs.gov/data/little/querloba.zip'
+url <- 'https://esp.cr.usgs.gov/data/little/querloba.zip'
 tmp <- tempdir()
 download.file(url, destfile = "~/querloba.zip")
 unzip("~/querloba.zip", exdir = "querloba")

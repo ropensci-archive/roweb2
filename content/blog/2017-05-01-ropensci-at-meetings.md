@@ -46,13 +46,13 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>May 15-20, 2017</td>
 	<td>Karthik Ram</td>
 	<td>London, UK</td>
-	<td><a href="http://www.nhm.ac.uk/our-science/courses-and-students/advancing-computational-and-data-literacy-for-life-scientists.html">Advancing computational and data literacy skills schools for life scientists</a></td>
+	<td><a href="https://www.nhm.ac.uk/our-science/courses-and-students/advancing-computational-and-data-literacy-for-life-scientists.html">Advancing computational and data literacy skills schools for life scientists</a></td>
 </tr>
 <tr>
 	<td>May 25-26, 2017</td>
 	<td>rOpenSci Team</td>
 	<td>Los Angeles, CA</td>
-	<td><a href="http://unconf17.ropensci.org/">rOpenSci Unconf</a></td>
+	<td><a href="https://unconf17.ropensci.org/">rOpenSci Unconf</a></td>
 </tr>
 <tr>
 	<td>Jun 3, 2017</td>
@@ -70,19 +70,19 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Jun 8, 2017</td>
 	<td>Karthik Ram</td>
 	<td>Stanford, CA</td>
-	<td><a href="http://med.stanford.edu/dbds/education/workshop.html">Stanford biostatistics seminar</a></td>
+	<td><a href="https://med.stanford.edu/dbds/education/workshop.html">Stanford biostatistics seminar</a></td>
 </tr>
 <tr>
 	<td>Jun 11-16, 2017</td>
 	<td>Jenny Bryan</td>
 	<td>Bressanone - Brixen, IT</td>
-	<td><a href="http://www.huber.embl.de/csama2017/">Statistical Data Analysis for Genome Scale Biology</a></td>
+	<td><a href="https://www.huber.embl.de/csama2017/">Statistical Data Analysis for Genome Scale Biology</a></td>
 </tr>
 <tr>
 	<td>Jun 23, 2017</td>
 	<td>Scott Chamberlain</td>
 	<td>Portland, OR</td>
-	<td><a href="http://www.ievobio.org/">iEvoBio</a></td>
+	<td><a href="https://www.ievobio.org/">iEvoBio</a></td>
 </tr>
 <tr>
 	<td>Jul 4-7, 2017</td>

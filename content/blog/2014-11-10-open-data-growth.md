@@ -175,7 +175,7 @@ First, we have to convert all the date-like fields to proper date classes. The w
 
 ### Dryad
 
-* Website: http://datadryad.org/
+* Website: https://datadryad.org/
 * R package: `rdryad`
 
 Dryad is a repository of datasets associated with published papers. We do have an R package on CRAN (`rdryad`), but it is waiting on an update for the new API services being built by the Dryad folks. We did recently add in access to their Solr endpoint - [check it out](https://github.com/ropensci/rdryad/blob/master/R/dryad_solr.r#L8-L41).
@@ -189,7 +189,7 @@ dryad %>% sort_count %>% gp
 
 ### OpenSNP
 
-* Website: http://opensnp.org//
+* Website: https://opensnp.org//
 * R package: `rsnps`
 
 OpenSNP is a collator of SNP datasets that individuals donate to the site/database. They're an awesome group, and they even won the PLOS/Mendeley code contest a few years back.
@@ -240,7 +240,7 @@ npn %>% arrange(date) %>% mutate(count = cumsum(Number_Records)) %>% gp
 
 ### TreeBASE
 
-* Website: http://treebase.org/
+* Website: https://treebase.org/
 * R package: `treebase`
 
 TreeBASE is a database of phylogenetic trees, had a total of 1515 new trees added in 2013, and has been growing at a good pace. Note that these aren't numbers of total phylogenetic trees, but _new trees added each year_ - we couldn't get our hands on total number of trees by year. The current number of total trees as of 2015-03-10 is 12,817.
@@ -254,7 +254,7 @@ treebase %>% arrange(date) %>% rename(count = New.Trees.Added) %>% gp
 
 ### Integrated Taxonomic Information Service (ITIS)
 
-* Website: http://www.itis.gov/
+* Website: https://www.itis.gov/
 * R package: `taxize`
 
 The ITIS database is under the USGS, and holds taxonomic names for mostly North American species. This dataset is interesting, because data goes back to 1977, when they had 16000 names. As of Aug 2013 they had 624282 names.
@@ -268,7 +268,7 @@ itis %>% arrange(date) %>% rename(count = total_names) %>% gp
 
 ### eBird
 
-* Website: http://www.catalogueoflife.org/
+* Website: https://www.catalogueoflife.org/
 * R package: `taxize`
 
 eBird is a database of bird occurence records. They don't give access to all the data they have, but some recent data. Data growth goes up and down through time because we don't have access to all data on each data request, but the overall trend is increasing.
@@ -307,7 +307,7 @@ col %>% arrange(date) %>% rename(count = source_databases) %>% gp
 
 ### Public Library of Science (PLOS)
 
-* Website: http://www.plos.org/
+* Website: https://www.plos.org/
 * R package: `rplos`, `fulltext`
 
 PLOS has had tremendous growth, with a very steep hockey stick growth curve. This year (2014) is left out because the year is not over yet.
@@ -325,7 +325,7 @@ plos_years %>%
 
 ### Biodiversity Heritage Library (BHL)
 
-* Website: http://www.biodiversitylibrary.org/
+* Website: https://www.biodiversitylibrary.org/
 * R package: `rbhl`
 
 BHL has grown tremendously, with 155891133 names, 43650663 pages, 139003 items, and 77169 titles.
@@ -348,7 +348,7 @@ bhl_all %>%
 
 ### Global Biodiversity Information Facility (GBIF)
 
-* Website: http://www.gbif.org/
+* Website: https://www.gbif.org/
 * R package: `rgbif`, `spocc`
 
 GBIF is the largest warehouse of biodiversity occurrence records, pulling in data from 578, and 420 million occurrence records as of Oct. 2013. Growth through time has been dramatic.
@@ -379,7 +379,7 @@ gbif_publishers %>%
 
 ### Neotoma
 
-* Website: http://www.neotomadb.org/
+* Website: https://www.neotomadb.org/
 * R package: `neotoma`
 
 The Neotoma database holds paleoecology records of various kinds, including pollen and fossil records. The R package `neotoma` allows access to data from Neotoma.  Data and datasets have grown rather dramatically, while number of taxa has flattened off recently.

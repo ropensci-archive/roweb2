@@ -36,7 +36,7 @@ or combined. And best of all it's super fast.
 ### Other clients
 
 The Elastic company maintains some official clients, including the Python client
-[elasticsearch-py](http://elasticsearch-py.readthedocs.io/en/master/), and it's higher
+[elasticsearch-py](https://elasticsearch-py.readthedocs.io/en/master/), and it's higher
 level DSL client [elasticsearch-dsl](https://elasticsearch-dsl.readthedocs.io/en/latest/).
 
 I won't talk much about it, but we have slowly been working on an R equivalent of the

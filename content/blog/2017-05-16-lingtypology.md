@@ -20,7 +20,7 @@ tags:
 
 As all other types of visualization, linguistic mapping has two main goals: data presentation and data analysis. The most common purpose for which linguistic maps are used, is simply pointing to the location of one or more languages of interest (presentation). A more sophisticated task is showing the distribution of particular linguistic features or their combination among languages of a certain area (presentation and analysis). There are three linguistic subdisciplines that use maps for visualization: linguistic typology, areal linguistics and dialectology. `lingtypology` makes it easier to create all kinds of linguistic maps simplifying both: data presentation and data analysis.
 
-The `lingtypology` package connects the [Glottolog database (v. 2.7)](http://glottolog.org/), which is a catalogue of the world's languages with the [leaflet package](https://rstudio.github.io/leaflet/) for interactive maps. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](http://clld.org/), which is creating uniform access to linguistic data. Let me walk you through some of its functionalities!
+The `lingtypology` package connects the [Glottolog database (v. 2.7)](https://glottolog.org/), which is a catalogue of the world's languages with the [leaflet package](https://rstudio.github.io/leaflet/) for interactive maps. This package helps researchers to make linguistic maps, using the philosophy of [the Cross-Linguistic Linked Data project](https://clld.org/), which is creating uniform access to linguistic data. Let me walk you through some of its functionalities!
 
 ## 1. Installation
 
@@ -64,7 +64,7 @@ lang.aff("Lezgic")
 ## [6] "Archi"     "Udi"       "Budukh"    "Tabasaran"
 ```
 
-Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. So you can search for additional information such as area, country name, ISO code or glottolog code using the same syntax. See the [package manual](https://ropensci.github.io/lingtypology/#2_glottolog_functions) for a full list of functions.
+Most of the functions in `lingtypology` have the same syntax: **what you need.what you have**. So you can search for additional information such as area, country name, ISO code or glottolog code using the same syntax. See the [package manual](https://docs.ropensci.org/lingtypology/#2_glottolog_functions) for a full list of functions.
 ```r
 area.lang(c("Bebe", "Irish")) #area
 ```
@@ -247,11 +247,11 @@ map.feature(circassian$language,
 This example shows that it is also possible to add your own coordinates to the `map.feature()`.
 
 ## 4. Conclusions
-In this post I showed the main fucntions of `lingtypology` for creating interactive linguistic maps, but there are a lot of other functions that make the visualizations more flexible, so take a look at the [manual page](https://ropensci.github.io/lingtypology/) for more information on functionalities. 
+In this post I showed the main fucntions of `lingtypology` for creating interactive linguistic maps, but there are a lot of other functions that make the visualizations more flexible, so take a look at the [manual page](https://docs.ropensci.org/lingtypology/) for more information on functionalities. 
 If you have any suggestions, please create an issue on [GitHub](https://github.com/ropensci/lingtypology/issues).
 
 
 ## 5. Acknowledgments
 I would like to thank [Misha Daniel](https://www.hse.ru/en/org/persons/6635821), [Samira Verhees](https://www.hse.ru/en/staff/samiraverhees), [Calle Börstell](https://borstell.github.io/#name), [Timo Roettger](http://phonetik.phil-fak.uni-koeln.de/troettger.html) and [Robert Forkel](https://www.shh.mpg.de/person/45369/25522) for their ideas and comments. I sincerely thank the reviewers for their constructive criticism and valuable comments during the rOpenSci reviewing: [Kenton Russell](https://github.com/timelyportfolio), [Taras Zahkarko](https://github.com/tzakharko), [@languageSpaceLabs](https://github.com/languagespacelabs), [Scott Chamberlain](https://github.com/sckott), and [Stefanie Butland](https://github.com/stefaniebutland).
 
-[^1]: You can listen to the [ejective p](https://www.youtube.com/watch?v=mfrAlv-5P1c), [ejective t](https://www.youtube.com/watch?v=Xg_MVMixhQY), [ejective k](https://www.youtube.com/watch?v=UEDqwSQ64VA) or [ejective q](https://www.youtube.com/watch?v=6pL_zGR7d7A) via these links. If you are interested in the distribution of glottolized consonants, see the [WALS chapter](http://wals.info/feature/7A#2/28.6/141.5) by  Ian Maddieson.
+[^1]: You can listen to the [ejective p](https://www.youtube.com/watch?v=mfrAlv-5P1c), [ejective t](https://www.youtube.com/watch?v=Xg_MVMixhQY), [ejective k](https://www.youtube.com/watch?v=UEDqwSQ64VA) or [ejective q](https://www.youtube.com/watch?v=6pL_zGR7d7A) via these links. If you are interested in the distribution of glottolized consonants, see the [WALS chapter](https://wals.info/feature/7A#2/28.6/141.5) by  Ian Maddieson.

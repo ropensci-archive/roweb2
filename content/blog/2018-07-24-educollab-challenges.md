@@ -3,7 +3,7 @@ slug: educollab-challenges
 title: 'rOpenSci Educators Collaborative: What Are The Challenges When Teaching Science
   With R?'
 date: '2018-07-24'
-preface: 'At the [5th annual rOpenSci unconference](http://unconf18.ropensci.org)
+preface: 'At the [5th annual rOpenSci unconference](https://unconf18.ropensci.org)
   in May 2018, a group of scientists and educators shared their experiences, frustrations,
   failures, and successes teaching science with R. What came out of this discussion
   was a framework for rOpenSci Educators’ Collaborative: a community of practice for

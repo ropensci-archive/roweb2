@@ -11,7 +11,7 @@ tags:
   - community
 ---
 
-__UPDATE:__ Use the new discussion forum at http://discuss.ropensci.org/
+__UPDATE:__ Use the new discussion forum at https://discuss.ropensci.org/
 
 ## Community
 
@@ -29,7 +29,7 @@ Sign up for our mailing list, ask questions, and help make this a strong communi
 
 ## Text
 
-Through time we have been attempting to unify our R packages that interact with individual data sources into single packages that handle one use case. For example, [spocc](https://github.com/ropensci/spocc) aims to create a single entry point to many different sources (currently 6) of species occurrence data, including [GBIF](http://www.gbif.org/), [AntWeb](http://www.antweb.org/), and others.
+Through time we have been attempting to unify our R packages that interact with individual data sources into single packages that handle one use case. For example, [spocc](https://github.com/ropensci/spocc) aims to create a single entry point to many different sources (currently 6) of species occurrence data, including [GBIF](https://www.gbif.org/), [AntWeb](https://www.antweb.org/), and others.
 
 Another area we hope to simplify is acquiring text data, specifically text from scholarly journal articles. We call this R package `fulltext`. The goal of `fulltext` is to allow a single user interface to searching for and retrieving full text data from scholarly journal articles. Rather than learning a different interface for each data source, you can learn one interface, making your work easier. `fulltext` will likely only get you data, and make it easy to browse that data, and use it downstream for manipulation, analysis, and vizualization.
 

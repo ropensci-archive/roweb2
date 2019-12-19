@@ -25,7 +25,7 @@ Before everybody made their way to the unconf via [LAX](https://twitter.com/scko
 
 The first [proposal](https://github.com/ropensci/unconf17/issues/69) centered on creating and formatting tables in a reproducible workflow. After many different package suggestions started pouring in, we were left with a classic R user conundrum: "Which package do I choose?"
 
-With over 10,000 packages on CRAN - and thousands more on GitHub and Bioconductor - a useR needs a way to navigate this wealth of options. There are many existing tools to categorize and facilitate searching of R packages such as [CRAN TaskViews](https://cran.r-project.org/web/views/), [RSeek](http://rseek.org/), [Rdocumentation](https://www.rdocumentation.org/), [Crantastic!](http://crantastic.org/), [METACRAN](http://www.r-pkg.org/) and [CRANberries](http://dirk.eddelbuettel.com/cranberries/). GitHub also provides lots of great metrics for individual packages developed there.
+With over 10,000 packages on CRAN - and thousands more on GitHub and Bioconductor - a useR needs a way to navigate this wealth of options. There are many existing tools to categorize and facilitate searching of R packages such as [CRAN TaskViews](https://cran.r-project.org/web/views/), [RSeek](https://rseek.org/), [Rdocumentation](https://www.rdocumentation.org/), [Crantastic!](https://crantastic.org/), [METACRAN](https://www.r-pkg.org/) and [CRANberries](http://dirk.eddelbuettel.com/cranberries/). GitHub also provides lots of great metrics for individual packages developed there.
 
 However, these resources mostly aggregate information at the individual-package level, or compare static sets of packages that may not reflect recent breakthroughs.  To find a suitable option, users must sift through and compare individual packages, which can be a tedious and time-intensive process - particularly for someone new to R.
 
@@ -55,7 +55,7 @@ While there was wide variation in how users gathered their initial lists of pack
 Through these discussions, it became evident that while there are resources for _finding_ packages, tools for _comparing_ packages would be helpful additions. Two possible approaches to comparing packages are:
 
 - **Standardized data collection:** Collecting metrics on criteria that unconf participants use to appraise packages. This can be applied uniformly across packages and hence is closer to an objective comparison. Additionally, metric collection can be wrapped in a package itself which makes it easier to collect these metrics at scale.
-- **Expert user review:** In-depth exploration and review of similar packages - think ["The Wirecutter"](http://thewirecutter.com/) but for R tasks. Reviews and recommendations are more subjective and require time and expertise - but user experience and feedback are important measures of the quality and potential of an R package. There is much insight that can be gained by installing a package and exploring it yourself.
+- **Expert user review:** In-depth exploration and review of similar packages - think ["The Wirecutter"](https://thewirecutter.com/) but for R tasks. Reviews and recommendations are more subjective and require time and expertise - but user experience and feedback are important measures of the quality and potential of an R package. There is much insight that can be gained by installing a package and exploring it yourself.
 
 As the workflow indicates, these two approaches are best used together, rather than relying on a single one.
 

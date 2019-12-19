@@ -15,7 +15,7 @@ We recently had a paper come out in [a special issue](https://www.niso.org/niso-
 
 To get data from the *article-level metrics* providers we used one R package we created to get DOIs for PLOS articles ([rplos](https://github.com/ropensci/rplos)) and three R packages we created to get metrics: [alm](https://github.com/ropensci/alm), [rImpactStory](https://github.com/ropensci/rimpactstory), and [rAltmetric](https://github.com/ropensci/rAltmetric). Here, we will show how we produced visualizations in the paper. The code here is basically that used in the paper - but modified to make it useable by you hopefully.
 
-Note that this entire workflow is in a Github gist [here][gist]. In addition, you will need to sign up for API keys for [ImpactStory](http://impactstory.org/api-docs) and [Altmetric](http://api.altmetric.com/index.html#keys).
+Note that this entire workflow is in a Github gist [here][gist]. In addition, you will need to sign up for API keys for [ImpactStory](https://impactstory.org/api-docs) and [Altmetric](https://api.altmetric.com/index.html#keys).
 
 ### First, let's get some data
 

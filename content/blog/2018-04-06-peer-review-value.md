@@ -19,7 +19,7 @@ tags:
 
 If you read my [reflection #1 on rOpenSci Onboarding](https://milesmcbain.xyz/ropensci-onboarding1/), then you know I see value in the Onboarding process. A LOT of value even. This post is about where that value lies. 
 
-This question has important corollaries which I will explore here based on my experience as a reviewer of [`bowerbird`](https://ropensci.github.io/bowerbird/index.html):
+This question has important corollaries which I will explore here based on my experience as a reviewer of [`bowerbird`](https://docs.ropensci.org/bowerbird/index.html):
 
 1. How is a package peer reviewer's time best spent?
 2. When is the best time in a software package's life cycle to undertake peer review?

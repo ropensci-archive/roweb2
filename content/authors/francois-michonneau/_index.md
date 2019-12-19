@@ -1,6 +1,6 @@
 ---
 name: Francois Michonneau
-link: http://francoismichonneau.net/
+link: https://francoismichonneau.net/
 github: fmichonneau
 twitter: fmic_
 ---

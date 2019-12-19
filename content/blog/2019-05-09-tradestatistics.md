@@ -26,7 +26,7 @@ There are alternatives to COMTRADE, for example the [Base Pour L'Analyse du Comm
 
 After contacting UN COMTRADE, and suggesting to them my idea of doing something similar to BACI but available for anyone but keeping commercial purposes out of the scope of the project, I got an authorization to share curated versions of their datasets.
 
-Different projects such as [The Atlas of Economic complexity](http://atlas.cid.harvard.edu/) and [The Obervatory of Economic complexity](http://atlas.media.mit.edu/) use UN COMTRADE data and focus on data visualization to answer questions like:
+Different projects such as [The Atlas of Economic complexity](http://atlas.cid.harvard.edu/) and [The Obervatory of Economic complexity](https://atlas.media.mit.edu/) use UN COMTRADE data and focus on data visualization to answer questions like:
 
 * What did Germany export in 2016?
 * Who imported Electronics in 1980?
@@ -311,7 +311,7 @@ Finally I can get something closer to what can be obtained with OTS API. Here is
 
 ### R package
 
-Even when the package connects to the API, it required a dedicated site with documentation and examples. Please check the documentation [here](https://ropensci.github.io/tradestatistics/).
+Even when the package connects to the API, it required a dedicated site with documentation and examples. Please check the documentation [here](https://docs.ropensci.org/tradestatistics/).
 
 Now that I've compared the APIs I'll dig a bit in the R package we have prepared. If I want to obtain the same data as with the examples above, I can do this:
 

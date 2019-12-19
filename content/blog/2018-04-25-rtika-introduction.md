@@ -259,16 +259,16 @@ For researchers who work with digital archives, this is a golden age. There is s
 
 [^6]: Wickham, Hadley. 2016. “The Tidy Tools Manifesto.” <https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html>.
 
-[^7]: Gohel, David. 2018. “ArData.” Accessed March 14. <http://www.ardata.fr/>.
+[^7]: Gohel, David. 2018. “ArData.” Accessed March 14. <https://www.ardata.fr/>.
 
 [^8]: Silge, Julia. 2018. “Juliasilge.com.” Accessed March 14. <https://juliasilge.com/>.
 
-[^9]: Ross, Noam. 2018. “Noamross.net.” Accessed March 14. <http://www.noamross.net/>.
+[^9]: Ross, Noam. 2018. “Noamross.net.” Accessed March 14. <https://www.noamross.net/>.
 
 [^10]: Internet Archive. 2018. “Wayback Machine.” Accessed March 14. <https://archive.org/>.
 
 [^11]: Jefferson. 2017. “Over 200 Terabytes of the Government Web Archived!” <https://blog.archive.org/2017/05/09/over-200-terabytes-of-the-government-web-archived/>.
 
-[^12]: Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://ropensci.github.io/rtika/articles/rtika_introduction.html>.
+[^12]: Goodman, Sasha. 2018. “Introduction to Rtika Vignette.” Accessed March 14. <https://docs.ropensci.org/rtika/articles/rtika_introduction.html>.
 
 [^13]: Smith, Ray. 2007. “An Overview of the Tesseract Ocr Engine.” In *Document Analysis and Recognition, 2007. Icdar 2007. Ninth International Conference on*, 2:629–33. IEEE.

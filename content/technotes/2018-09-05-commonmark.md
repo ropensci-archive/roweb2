@@ -146,7 +146,7 @@ Parsing the XML
 
 Let’s say I want to find out which domains are the most often linked
 from rOpenSci’s blog. No need for any regular expression thanks to
-`commonmark`, [`xml2`](http://xml2.r-lib.org/) and `urltools`!
+`commonmark`, [`xml2`](https://xml2.r-lib.org/) and `urltools`!
 
 ``` r
 get_urls <- function(post_xml){
@@ -183,7 +183,7 @@ since `/` would get us here too.
 ### R code parsing
 
 Remember [that cool post by Matt Dancho analyzing David Robinson’s
-code](http://www.business-science.io/learning-r/2018/03/03/how_to_learn_R_pt1.html)?
+code](https://www.business-science.io/learning-r/2018/03/03/how_to_learn_R_pt1.html)?
 In theory you could clone any of your favorite blogs ([David Robinson’s
 blog](https://github.com/dgrtwo/dgrtwo.github.com), [Julia Silge’s
 blog](https://github.com/juliasilge/blog_by_hugo), etc.) to analyze
@@ -315,6 +315,6 @@ stay tuned [and if you want follow this GitHub
 thread](https://github.com/commonmark/cmark/issues/264#issuecomment-417960358)!
 
 Thanks to [Jeroen Ooms](https://github.com/jeroen), [Jenny
-Bryan](http://jennybryan.org/) and [Jim
+Bryan](https://jennybryan.org/) and [Jim
 Hester](https://www.jimhester.com/) for their answering my XML parsing
 (meta) questions.

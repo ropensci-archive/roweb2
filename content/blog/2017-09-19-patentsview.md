@@ -37,7 +37,7 @@ provides its owner with the ability to make money off of something that
 they invented, without having to worry about someone else copying their
 technology. Think Apple would spend millions of dollars developing the
 iPhone if Samsung could just come along and [rip it
-off](http://www.reuters.com/article/us-apple-samsung-elec-appeal-idUSKCN1271LF)?
+off](https://www.reuters.com/article/us-apple-samsung-elec-appeal-idUSKCN1271LF)?
 Probably not.
 
 **2. Patents offer a great opportunity for data analysis**
@@ -74,7 +74,7 @@ PatentsView.
 ### PatentsView and the `patentsview` package
 
 
-[PatentsView](http://www.patentsview.org/web/#viz/relationships) is one
+[PatentsView](https://www.patentsview.org/web/#viz/relationships) is one
 of USPTO's new initiatives intended to increase the usability and value
 of patent data. One feature of this project is a publicly accessible API
 that makes it easy to programmatically interact with the data. A few of
@@ -83,7 +83,7 @@ the reasons why I like the API (and PatentsView more generally):
 -   The API is free (no credential required) and currently doesn't
     impose rate limits/bandwidth throttling.
 -   The project offers [bulk downloads of patent
-    data](http://www.patentsview.org/download/) on their website (in a
+    data](https://www.patentsview.org/download/) on their website (in a
     flat file format), for those who want to be closest to the data.
 -   Both the API and the bulk download data contain disambiguated
     entities such as inventors, assignees, organizations, etc. In other
@@ -94,7 +94,7 @@ The `patentsview` R package is a wrapper around the PatentsView API. It
 contains a function that acts as a client to the API (`search_pv()`) as
 well as several supporting functions. Full documentation of the package
 can be found on its
-[website](https://ropensci.github.io/patentsview/index.html).
+[website](https://docs.ropensci.org/patentsview/index.html).
 
 ### Installation
 
@@ -120,7 +120,7 @@ data with `query`, and which fields you want to retrieve with
 #### `query`
 
 Your query has to use the [PatentsView query
-language](http://www.patentsview.org/api/query-language.html), which is
+language](https://www.patentsview.org/api/query-language.html), which is
 a JSON-based syntax that is similar to the one used by Lucene. You can
 write the query directly and pass it as a string to `search_pv()`:
 

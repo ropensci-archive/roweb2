@@ -81,7 +81,7 @@ gist_create("map.geojson")
 <a href="https://cran.r-project.org/package=lawn" target="_blank"><i class="fa fa-archive fa-2x"></i></a> <a href="https://github.com/ropensci/lawn" target="_blank"><i class="fab fa-github fa-2x"></i></a>
 
 
-An R client for [turf.js](http://turfjs.org/), an _Advanced geospatial analysis for browsers and node_
+An R client for [turf.js](https://turfjs.org/), an _Advanced geospatial analysis for browsers and node_
 
 `lawn` has a function for every method in `turf.js`. In addition, there's:
 
@@ -221,4 +221,4 @@ plot_ly(iris, x = Petal.Length, y = Petal.Width,
 
 <a href="https://github.com/ropensci/maptools" target="_blank"><i class="fab fa-github fa-2x"></i></a> 
 
-[Jeff Hollister](http://jwhollister.com/) is leading the [maptools task view](https://github.com/ropensci/maptools) to organize R mapping tools packages, sources of data, projections, static and interactive mapping, data transformation, and more.
+[Jeff Hollister](https://jwhollister.com/) is leading the [maptools task view](https://github.com/ropensci/maptools) to organize R mapping tools packages, sources of data, projections, static and interactive mapping, data transformation, and more.

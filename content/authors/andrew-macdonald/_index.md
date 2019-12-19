@@ -1,4 +1,6 @@
 ---
 name: Andrew MacDonald
-link: http://aammd.info/
+link: https://thestudyofthehousehold.me/
+github: aammd
+twitter: polesasunder
 ---

@@ -47,7 +47,7 @@ Many thanks to MEE's Assistant Editor Chris Grieves and Senior Editor Bob O'Hara
 [onrepo]: https://github.com/ropensci/software-review/
 [ro]: /
 [roteam]: /about#team
-[joss]: http://joss.theoj.org/
+[joss]: https://joss.theoj.org/
 [meehome]: http://besjournals.onlinelibrary.wiley.com/hub/journal/10.1111/(ISSN)2041-210X/
 [subtemp]: https://github.com/ropensci/software-review/issues/new
 [post1]: /blog/2016/03/28/software-review/
@@ -56,8 +56,8 @@ Many thanks to MEE's Assistant Editor Chris Grieves and Senior Editor Bob O'Hara
 [fit]: https://devguide.ropensci.org/policies.html#aims-and-scope
 [policies]: https://devguide.ropensci.org/policies.html
 [rotl]: https://github.com/ropensci/rotl
-[rotlmee]: http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12593/abstract
+[rotlmee]: https://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12593/abstract
 [meeaimsscope]: http://www.methodsinecologyandevolution.org/view/0/aimsAndScope.html
-[treebasemee]: http://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2012.00247.x/abstract
-[RNeXMLmee]: http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12469/abstract
-[bes]: http://www.britishecologicalsociety.org/
+[treebasemee]: https://onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2012.00247.x/abstract
+[RNeXMLmee]: https://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12469/abstract
+[bes]: https://www.britishecologicalsociety.org/

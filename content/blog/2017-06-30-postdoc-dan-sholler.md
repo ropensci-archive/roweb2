@@ -18,9 +18,9 @@ tags:
 
 We are pleased to welcome our Postdoctoral Fellow, [Dr. Dan Sholler](https://danielsholler.wordpress.com/). Dan is an expert in qualitative research (yes, you read that correctly) and studies digital infrastructure creation, growth, and maintenance efforts. Through this research interest, he was drawn to the open science community and its ongoing development of tools and communities to support sustainable, reproducible, high-quality research. With rOpenSci, he intends to investigate _what drives scientists to engage with or resist open science tools and communities_.
 
-Dan will be the first postdoc for the rOpenSci project, based at UC Berkeley and the [Berkeley Institute for Data Science](https://bids.berkeley.edu/), supervised by Karthik Ram and co-supervised by [Carl Boettiger](/about/#team) and [Daniel Katz](http://danielskatz.org/).
+Dan will be the first postdoc for the rOpenSci project, based at UC Berkeley and the [Berkeley Institute for Data Science](https://bids.berkeley.edu/), supervised by Karthik Ram and co-supervised by [Carl Boettiger](/about/#team) and [Daniel Katz](https://danielskatz.org/).
 
-<img src="http://i.imgur.com/piOAomv.jpg" alt="Dr Dan Sholler" align="left" style="margin: 0px 20px" width="250" style="float: left;clear:both">
+<img src="https://i.imgur.com/piOAomv.jpg" alt="Dr Dan Sholler" align="left" style="margin: 0px 20px" width="250" style="float: left;clear:both">
 
 We interviewed Dan to introduce you to him and his research (a fascinating conversation!). This short introduction can’t do him justice, but he'll share his research plan in another post in Fall 2017.
 

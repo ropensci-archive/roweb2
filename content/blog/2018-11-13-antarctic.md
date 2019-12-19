@@ -293,7 +293,7 @@ plot(ele_sp, col = "darkgreen", add = TRUE)
 
 #### Place names
 
-SCAR maintains a gazetteer of place names in the Antarctic and surrounding Southern Ocean[^2], which is available to R users via the [`antanym` package](https://ropensci.github.io/antanym/):
+SCAR maintains a gazetteer of place names in the Antarctic and surrounding Southern Ocean[^2], which is available to R users via the [`antanym` package](https://docs.ropensci.org/antanym/):
 
 ``` r
 library(antanym)

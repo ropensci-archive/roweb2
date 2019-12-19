@@ -48,12 +48,12 @@ When using OCR to extract text from a document, the result will rarely be perfec
 
 A character can often only be recognized in the context of the word or sentence appears in. For example if a text contains the words *In love* the capital I and lower case l look (nearly) identical when printed.
 
-[![inlove](http://jeroen.github.io/files/inlove.png)](http://jeroen.github.io/files/inlove.png)
+[![inlove](https://jeroen.github.io/files/inlove.png)](https://jeroen.github.io/files/inlove.png)
 
 They can only be distinguished them from their context: both *in* and *love* are common words in English and a preposition may be followed by a noun. From from this context we can derive that the first character is most likely a capital I whereas the third character must be a lower case l.
 
 ```r
-text <- ocr("http://jeroen.github.io/files/inlove.png")
+text <- ocr("https://jeroen.github.io/files/inlove.png")
 cat(text) # In love
 
 ```
@@ -66,7 +66,7 @@ On Windows/MacOS you have to manually download training data for other langauges
 
 Besides training data, the most important aspect of OCR performance is the quality of the input image. High resolution images with horizontal text, high contrast and little noise will achieve the best accuracy. The official [Tesseract Wiki](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality) has some advice on how to improve the image quality.
 
-[![dogs](http://jeroen.github.io/files/dog_hq.png)](http://jeroen.github.io/files/dog_hq.png)
+[![dogs](https://jeroen.github.io/files/dog_hq.png)](https://jeroen.github.io/files/dog_hq.png)
 
 
 To put this to the test, we made two screenshots from the Wikipedia page above. The high quality image in the code below has approximately double the resolution of the low quality image. In addition the font rendering seems slightly better for the high quality image.
@@ -77,7 +77,7 @@ text1 <- ocr("http://jeroen.github.io/files/dog_lq.png")
 cat(text1)
 
 # High quality:
-text2 <- ocr("http://jeroen.github.io/files/dog_hq.png")
+text2 <- ocr("https://jeroen.github.io/files/dog_hq.png")
 cat(text2)
 ```
 

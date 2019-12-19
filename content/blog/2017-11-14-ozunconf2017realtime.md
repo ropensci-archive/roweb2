@@ -59,7 +59,7 @@ With the core goal well underway, people started branching out into aspects they
 
 ![](/img/blog-images/2017-11-14-realtime/realtime_btc_optimised.gif)
 
-and a live-stream of binary-encoded data from the [Australian National University (ANU) Quantum Random Numbers Server](http://qrng.anu.edu.au/index.php)
+and a live-stream of binary-encoded data from the [Australian National University (ANU) Quantum Random Numbers Server](https://qrng.anu.edu.au/index.php)
 
 ![](/img/blog-images/2017-11-14-realtime/realtime_bin_optimised.gif)
 

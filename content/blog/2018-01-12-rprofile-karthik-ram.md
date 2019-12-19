@@ -74,7 +74,7 @@ KR: We're six years old this fall. rOpenSci started in summer 2011 when I was st
 
 KO: How much of your time is spent devoted to rOpenSci vs. your day job?
 
-KR: It’s very haphazard. This week I’m immersed in this [rOpenSci unconference](http://unconf17.ropensci.org/). Last week I was busy teaching a bunch of British scientists how to analyze data. And then the next week I’ll be working with a on a proposal to understand the long-term effects of climate change on southern ocean ecosystems. I have to switch gears a lot. I’m an editor on three different journals. Every Monday I spend just editing for a couple hours, and try to catch up again on Saturday. I’m woefully behind on everything.  
+KR: It’s very haphazard. This week I’m immersed in this [rOpenSci unconference](https://unconf17.ropensci.org/). Last week I was busy teaching a bunch of British scientists how to analyze data. And then the next week I’ll be working with a on a proposal to understand the long-term effects of climate change on southern ocean ecosystems. I have to switch gears a lot. I’m an editor on three different journals. Every Monday I spend just editing for a couple hours, and try to catch up again on Saturday. I’m woefully behind on everything.  
 
 > You have to feel it out, walk into the pool, find where the deep end is and decide where you want to be.
 
@@ -88,7 +88,7 @@ KR: And you don’t understand - I’m like a raging disaster on the inside. I j
 
 KO: Are there any tools that you use to organize your travel and all of the things you’re part of?
 
-KR: I have a [link that I could send you](http://inundata.org/about/setup/) that is a collection of all of my life hacks. But yeah, I use [TripIt](https://www.tripit.com/) to organize my travel, I use [Boomerang](https://www.boomeranggmail.com/) to keep my inbox under some control. I also use a service called [Sanebox](https://www.sanebox.com/) which filters Gmail algorithmically and shows me critical things in my inbox. I have a ton of filters that I use to manage my Github issues. I do the “Boxing my time” which [Hadley](http://hadley.nz/) taught me. If you maintain a lot of open source projects and people add issues, you don’t have to touch a project for six months or a year and then you can close all your issues when you’re done. I acknowledge that you have an issue but I’ll just tell you that I’m not going to fix it for another four months.
+KR: I have a [link that I could send you](https://inundata.org/about/setup/) that is a collection of all of my life hacks. But yeah, I use [TripIt](https://www.tripit.com/) to organize my travel, I use [Boomerang](https://www.boomeranggmail.com/) to keep my inbox under some control. I also use a service called [Sanebox](https://www.sanebox.com/) which filters Gmail algorithmically and shows me critical things in my inbox. I have a ton of filters that I use to manage my Github issues. I do the “Boxing my time” which [Hadley](http://hadley.nz/) taught me. If you maintain a lot of open source projects and people add issues, you don’t have to touch a project for six months or a year and then you can close all your issues when you’re done. I acknowledge that you have an issue but I’ll just tell you that I’m not going to fix it for another four months.
 
 KO: How do you manage collaborating? You mentioned the Github issues but are there other ways that you manage collaboration? Are there things that are easier or harder?  
 

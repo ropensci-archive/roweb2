@@ -87,7 +87,7 @@ run(wd = wd)
 # ^^ running should take about 5 minutes to complete
 ```
 
-For more details on running the pipeline, such as changing the [parameters](https://ropensci.github.io/phylotaR/reference/parameters.html) or understanding the results, see the vignette, `vignette('phylotaR')` or visit the [website](https://ropensci.github.io/phylotaR/).
+For more details on running the pipeline, such as changing the [parameters](https://docs.ropensci.org/phylotaR/reference/parameters.html) or understanding the results, see the vignette, `vignette('phylotaR')` or visit the [website](https://ropensci.github.io/phylotaR/).
 
 ### Timings
 
@@ -150,7 +150,7 @@ print(p)
 ![treemap of tinmous genera](/img/blog-images/2018-08-08-phylotar/treemap.png)
 *Figure 3. Relative number of sequences and clusters per tinamous genus. The larger the size of the box, the more sequences are represented for the genus. The lighter the blue colour, the more clusters are represented for the genus.*
 
-Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://ropensci.github.io/phylotaR/reference/write_sqs.html) function.
+Through interacting with the Phylota object and using the various functions for manipulating it, a user can extract the specific ortholgous sequences of interest and write out the sequences in [fasta format](https://en.wikipedia.org/wiki/FASTA) with the [`write_sqs()`](https://docs.ropensci.org/phylotaR/reference/write_sqs.html) function.
 
 ```r
 # get sequences for a cluster and write out

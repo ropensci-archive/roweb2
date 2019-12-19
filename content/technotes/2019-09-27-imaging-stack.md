@@ -6,7 +6,7 @@ authors:
   - Jeroen Ooms
 categories: technotes
 topicid: 1836
-cover: http://jeroen.github.io/images/channels.png
+cover: https://jeroen.github.io/images/channels.png
 tags:
   - R
   - docs
@@ -70,7 +70,7 @@ channels <- image_separate(frink)
 image_append(channels)
 ```
 
-![channels](http://jeroen.github.io/images/channels.png)
+![channels](https://jeroen.github.io/images/channels.png)
 
 These images show the values of the R, G, and B channels respectively, mapped onto grayscale. Now we manipulate a single channel, and then combine the image back into the original format. Here we turn the Green channel upside-down: 
 

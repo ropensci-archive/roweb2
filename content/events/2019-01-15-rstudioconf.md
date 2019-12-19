@@ -10,7 +10,7 @@ attendees:
   - Jeroen Ooms
 ---
 
-Two members of our team will attend [rstudio::conf](http://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx), chat with them if you have questions about rOpenSci.
+Two members of our team will attend [rstudio::conf](https://www.cvent.com/events/rstudio-conf-austin/event-summary-dd6d75526f3c4554b67c4de32aeffb47.aspx), chat with them if you have questions about rOpenSci.
 
 
 ### A guide to modern reproducible data science

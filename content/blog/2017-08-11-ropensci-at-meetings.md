@@ -32,7 +32,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Aug 7, 2017</td>
 	<td>Scott Chamberlain, Carl Boettiger, Noam Ross</td>
 	<td>Portland, OR</td>
-	<td><a href="http://www.esa.org/portland/">Ecological Society of America Annual Meeting</a></td>
+	<td><a href="https://www.esa.org/portland/">Ecological Society of America Annual Meeting</a></td>
 </tr>
 <tr>
 	<td>Aug 8, 2017</td>
@@ -80,7 +80,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Nov 7-10, 2017</td>
 	<td>Scott Chamberlain</td>
 	<td>Durham, NC</td>
-	<td><a href="http://phenoscape.org/">Phenoscape Hackathon</a></td>
+	<td><a href="https://phenoscape.org/">Phenoscape Hackathon</a></td>
 </tr>
 <tr>
 	<td>Dec 8-9, 2017</td>
@@ -98,7 +98,7 @@ You can find members of the rOpenSci team at various meetings and workshops arou
 	<td>Dec 11, 2017</td>
 	<td><a href="/blog/2016/12/12/ropensci-fellowship-zoon">Nick Golding</a></td>
 	<td>Ghent, BE</td>
-	<td><a href="http://www.britishecologicalsociety.org/events/annual-meeting-2017/workshop-submissions/">Workshop: Developing R Packages for Accessing, Synthesizing and Analysing Ecological Data</a></td>
+	<td><a href="https://www.britishecologicalsociety.org/events/annual-meeting-2017/workshop-submissions/">Workshop: Developing R Packages for Accessing, Synthesizing and Analysing Ecological Data</a></td>
 </tr>
 </tbody>
 </table>

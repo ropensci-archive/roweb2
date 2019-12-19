@@ -72,7 +72,7 @@ The bookdown is now the primary documentation source for mongolite.
 
 ## Why MongoDB
 
-MongoDB is the [most popular](http://db-engines.com/en/ranking) nosql database (by market share), and the 5th most popular database allround. Mongo is relatively young in comparison with the traditional engines (Oracle, Microsoft, MySQL, Postgres), yet well established, fully open source, and backed by a professional company.
+MongoDB is the [most popular](https://db-engines.com/en/ranking) nosql database (by market share), and the 5th most popular database allround. Mongo is relatively young in comparison with the traditional engines (Oracle, Microsoft, MySQL, Postgres), yet well established, fully open source, and backed by a professional company.
 
 MongoDB provides a modern high-performance DB engine with cool features that cannot be found anywhere else. The high quality client drivers are a pleasure to work with, and actively maintained by professional engineers. Writing bindings, it quickly became obvious that Mongo does not suffer from the legacy bloat that I have come to associate with traditional DB engines.
 

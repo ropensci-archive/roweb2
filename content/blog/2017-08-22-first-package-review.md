@@ -21,13 +21,13 @@ This was my first time reviewing a package, and, as with so many things in life,
 
 Barring the destruction of someone else's hard work and/or an entire organization, I was fairly confident that I'd have little to offer in the way of useful advice. _What if I have absolutely nothing to say other than, yes, this is, in fact, a package?!_
 
-![rOpenSci package review: what I imagined](http://i.imgur.com/np59m8Z.png)
+![rOpenSci package review: what I imagined](https://i.imgur.com/np59m8Z.png)
 
 So, step one (for me) was: confess my inadequacies and seek advice. It turns out that much of the advice vis-à-vis _how to review a package_ is baked right into the documents. The [reviewer template](https://devguide.ropensci.org/reviewtemplate.html) is a great trail map, the utility of which is fleshed out in the [rOpenSci Package Reviewing Guide](https://devguide.ropensci.org/reviewerguide.html). Giving these a thorough read, and perusing a recommended review or two (links in the reviewing guide) will probably have you raring to go. But, if you're feeling particularly neurotic (as I almost always am), the rOpenSci [onboarding editors](https://devguide.ropensci.org/softwarereviewintro.html#associateditors) and larger community are endless founts of wisdom and resources.
 
 ### `visdat` 📦👀
 
-I knew nothing about [Nicholas Tierney](https://github.com/njtierney)'s [`visdat`](http://visdat.njtierney.com/) package prior to receiving my [invitation to review](https://github.com/ropensci/software-review/issues/87#issuecomment-270428584) it. So the first (coding-y) thing I did was play around with it in the same way I do for other cool R packages I encounter. This is a totally unstructured mish-mash of running examples, putting my own data in, and seeing what happens. In addition to being amusing, it's a good way to sort of "ground-truth" the package's mission, and make sure there isn't some super helpful feature that's going unsung.
+I knew nothing about [Nicholas Tierney](https://github.com/njtierney)'s [`visdat`](https://visdat.njtierney.com/) package prior to receiving my [invitation to review](https://github.com/ropensci/software-review/issues/87#issuecomment-270428584) it. So the first (coding-y) thing I did was play around with it in the same way I do for other cool R packages I encounter. This is a totally unstructured mish-mash of running examples, putting my own data in, and seeing what happens. In addition to being amusing, it's a good way to sort of "ground-truth" the package's mission, and make sure there isn't some super helpful feature that's going unsung.
 
 If you're _not_ familiar with `visdat`, it "provides a quick way for the user to visually examine the structure of their data set, and, more specifically, where and what kinds of data are missing."[^1] With early-stage EDA (exploratory data analysis), you're really trying to get a _feel_ of your data. So, knowing that I couldn't be much help in the _"here's how you could make this faster with C++"_ department, I decided to fully embrace my role as _"naïve user"_.[^2]
 
@@ -50,7 +50,7 @@ Furthermore, the wise-sage 🦉 [rOpenSci onboarding editors](https://devguide.r
 
 [^2]: So, basically just playing myself... Also I knew that, if nothing more, I can proofread and copy edit.
 
-[^3]: There _are_ lots of good resources out there re. overcoming this obstacle, though (e.g. [First Timers Only](http://www.firsttimersonly.com/); or [Charlotte Wickham](https://twitter.com/cvwickham)'s [Collaborative Coding](http://cwick.co.nz/talks/collab-code-user17/#/) from useR!2017 is esp. 👍 for the R-user).
+[^3]: There _are_ lots of good resources out there re. overcoming this obstacle, though (e.g. [First Timers Only](https://www.firsttimersonly.com/); or [Charlotte Wickham](https://twitter.com/cvwickham)'s [Collaborative Coding](https://cwick.co.nz/talks/collab-code-user17/#/) from useR!2017 is esp. 👍 for the R-user).
 
 [^4]: OK, so I don't have a parallel world wherein a very experienced package-developer version of me is running around getting _less_ out of the process, _but_ if you already deeply understand package structure, you're unlikely to stumble upon quite so many basic "a-ha" moments.
 

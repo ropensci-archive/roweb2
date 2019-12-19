@@ -14,7 +14,7 @@ To help you use rOpenSci packages we put tutorials up on our site at [/tutorials
 
 So we thought of a better plan...
 
-Recently CRAN started accepting R package vignettes (basically, tutorials built in to packages) in R Markdown format. This is great because executable Markdown with code plus text is easy to do with the help of [knitr](http://yihui.name/knitr/). And since our website is created using Jekyll, we can take our package vignettes with only text and code as a .Rmd file, convert to a .md file with text + code + the output of that code, insert some yaml metadata at the top, and have Jekyll automagically generate html pages. This may sound complicated, but once we have the vignette in a package, it's just a few lines of code away from generating the html page for this site.
+Recently CRAN started accepting R package vignettes (basically, tutorials built in to packages) in R Markdown format. This is great because executable Markdown with code plus text is easy to do with the help of [knitr](https://yihui.name/knitr/). And since our website is created using Jekyll, we can take our package vignettes with only text and code as a .Rmd file, convert to a .md file with text + code + the output of that code, insert some yaml metadata at the top, and have Jekyll automagically generate html pages. This may sound complicated, but once we have the vignette in a package, it's just a few lines of code away from generating the html page for this site.
 
 This workflow allows us to easily keep our changes in the functions/etc. of our packages and associated vignettes in sync with tutorials on our website. In addition, the vignette and tutorials on our site should have the same content.
 

@@ -1,4 +1,4 @@
 ---
 name: Remko Duursma
-link: http://www.remkoduursma.com/
+link: https://www.remkoduursma.com/
 ---
