@@ -8,7 +8,8 @@ authors:
   - Stefanie Butland
 categories:
   - technotes
-topicid: 1307
+topicid: 1904
+description: How we corrected URLs in our website source (broken internal and external URLs, shortlinks, http scheme, etc.) using R tools (crul::ok(), commonmark and some manual work.
 tags:
   - Markdown
   - RMarkdown
