@@ -5,7 +5,7 @@ authors:
   - Stefanie Butland
 date: 2019-12-23
 categories: blog
-topicid:
+topicid: 1908
 tags:
   - R
   - community
@@ -30,4 +30,4 @@ Working alongside rOpenSci’s Community Manager, Stefanie Butland, you will use
 
 **Want to apply?** Complete [this form](/careers/intern/) by February 3, 2020.
 
-**Questions?** Take your time, ponder over the holidays and email stefanie@ropensci.org **after** January 2, 2020.
+**Questions?** Take your time, ponder over the holidays and email stefanie at ropensci.org **after** January 2, 2020.
