@@ -3,7 +3,7 @@ title = "Code of Conduct"
 description = "rOpenSci Code of Conduct"
 +++
 
-**Version 2.0 – January 10, 2019**
+**Version 2.1 – January 15, 2020**
 
 rOpenSci's community is our best asset and we believe that our diversity is our strength. We are building a welcoming and diverse global community of software users and developers from a range of research domains. It's so important to us, it's in [our mission statement](/about/). Whether you’re a regular contributor or a newcomer, we care about making this a safe place for you and we’ve got your back.
 
@@ -52,7 +52,7 @@ If you experience or witness unacceptable behavior, or have any other concerns, 
 
 If you are planning to attend an upcoming event or join an online channel, and have concerns regarding another individual who may be present, please submit a report as described above. We will work with you to take precautions to ensure your comfort and safety. These precautions may include: providing an escort, preparing onsite event staff, and/or providing on-site contact cell phone numbers for immediate contact. In some cases, we may take action to prevent a harasser from attending the conference.
 
-The Code of Conduct Committee will investigate and decide responses to reports with the aim of making a decision and implementing enforcement as soon as is reasonably possible. We are committed to transparency with our community while upholding the privacy of victims. We will publish brief, anonymized summaries of incidents on the [forum](https://discuss.ropensci.org/c/conduct) in a dedicated, read-only category, and will publish on the rOpenSci blog an annual transparency report.
+The Code of Conduct Committee will investigate and decide responses to reports with the aim of making a decision and implementing enforcement as soon as is reasonably possible. We are committed to transparency with our community while upholding the privacy of victims and people who report incidents. We will publish brief, anonymized summaries of incidents on the [forum](https://discuss.ropensci.org/c/conduct) in a dedicated, read-only category, and will publish on the rOpenSci blog an annual transparency report.
 
 We welcome your feedback by email to `conduct@ropensci.org`, and we thank you for working with us to make rOpenSci a safe, enjoyable, friendly and enriching experience for everyone who participates.
 
