@@ -55,10 +55,10 @@
 
   {{ if .Params.twitterImg }}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{.Site.BaseURL }}{{ .Params.twitterImg }}" >
+    <meta name="twitter:image" content="{{ .Params.twitterImg | absURL }}" >
   {{ else }}
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="{{.Site.BaseURL }}android-chrome-512x512.png" >
+    <meta name="twitter:image" content="{{ "android-chrome-512x512.png"  | absURL }}" >
   {{ end }}
 
 {{ end }}
