@@ -17,6 +17,9 @@ tags:
 # if you have no preferred image
 # for Twitter cards
 twitterImg: /img/blog-images/2019-07-16-grainchanger/logo.png
+output: 
+  html_document:
+    keep_md: true
 ---
 
 
