@@ -25,7 +25,7 @@ description: "A very short summary of your post"
 # If you have no preferred image for Twitter cards,
 # delete the twitterImg line below 
 # Note there is no '/' symbol before 'img' here
-twitterImg: blog/2020-02-09-post-template/name-of-image.png
+twitterImg: blog/2020-02-09-testRmd/name-of-image.png
 # 'output' is necessary to obtain index.md
 # Do not commit index.html
 output: 
