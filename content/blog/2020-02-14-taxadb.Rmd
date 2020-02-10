@@ -52,6 +52,7 @@ knitr::knit_hooks$set(
 library(tidyverse)
 library(taxadb)
 library(kableExtra)
+library(DT)
 
 knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE)
 ```
