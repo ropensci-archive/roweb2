@@ -14,6 +14,7 @@ author:
 topicid: 1707
 tags:
   - Software Peer Review
+  - dev guide
 ---
 
 As announced in [our recent post about updates to our Software Peer Review system](/blog/2019/02/01/software-review-news/), all our package development, review and maintenance is available as [an online book](https://devguide.ropensci.org/). Our goal is to update it approximately quarterly so it's already time to present its second official version! You can [read the changelog](https://devguide.ropensci.org/booknews.html) or this blog post to find out what's new in our dev guide 0.2.0!
