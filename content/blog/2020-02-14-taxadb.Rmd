@@ -58,7 +58,7 @@ options(knitr.kable.NA = '--')
 printtable <- function(df){
   df %>%
     kableExtra::kable() %>%
-    kableExtra::kable_styling(full_width = F)
+    kableExtra::kable_styling(full_width = F, bootstrap_options = "condensed")
 }
 
 knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE)
