@@ -110,7 +110,7 @@ joined <- full_join(trait_data, status_data, by = c("elton_name" = "iucn_name"))
 printtable(joined)
 ```
 
-This results in only one match between the two datasets. However, if we resolve names first to taxonomic identifiers, which account for synonyms and taxonomic changes we see a different story. 
+This results in only one match - _Falcipennis falcipennis_ - between the two datasets. However, if we resolve names first to taxonomic identifiers, which account for synonyms and taxonomic changes, we see a different story. 
 
 First we get ID's for each dataset:
 
