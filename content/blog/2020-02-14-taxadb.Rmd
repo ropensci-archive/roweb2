@@ -82,7 +82,7 @@ taxadb has three main families of functions:
 Query functions will trigger the automatic one-time set up of the local database for the chosen provider, but set up can also be triggered manually by `td_create()` for one or all providers.
 
 ### taxadb workflow
-taxadb is designed for relatively painless local database setup and easy integration of taxonomic ID's into existing workflows.For example, the common scenario of merging two different datasets with their own taxonomic approaches, such as matching trait data to data on IUCN status. Here we use snippets of data from the Elton Traits v1.0 database [^5] and the IUCN Redlist [^6].
+taxadb is designed for relatively painless local database setup and easy integration of taxonomic ID's into existing workflows. For example, the common scenario of merging two different datasets with their own taxonomic approaches, such as matching trait data to data on IUCN status. Here we use snippets of data from the Elton Traits v1.0 database [^5] and the IUCN Redlist [^6].
 
 ```{r message=FALSE}
 status_data <- read_tsv(system.file("extdata", "status_data.tsv", package="taxadb"))
