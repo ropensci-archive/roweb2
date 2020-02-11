@@ -189,7 +189,7 @@ In addition to facilitating quick and easy incorporation of taxonomic identifier
 For more details on the backend options, providers, and the above examples please see our [docs](https://docs.ropensci.org/taxadb/index.html). We also welcome feedback on our [manuscript](https://github.com/ropensci/taxadb/blob/master/paper/manuscript.Rmd).
 
 ### Acknowledgements
-taxadb was co-developed by [Carl Boettiger](https://github.com/cboettig/). The package was greatly improved by the rOpenSci [peer review](https://github.com/ropensci/software-review/issues/344#issuecomment-581631945) process and reviewers Margaret Siple ([mcsiple](https://github.com/mcsiple)) and Lindsay Platt ([lindsayplatt](https://github.com/lindsayplatt)). 
+taxadb was co-developed by [Carl Boettiger](/authors/carl-boettiger/). The package was greatly improved by the rOpenSci [peer review](https://github.com/ropensci/software-review/issues/344#issuecomment-581631945) process and reviewers [Margaret Siple](/authors/margaret-siple/) and [Lindsay Platt](https://github.com/lindsayplatt). 
 
 ### References
 
