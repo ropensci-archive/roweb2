@@ -1,7 +1,7 @@
 ---
 title: "taxadb: A High-Performance Local Taxonomic Database Interface"
 categories: blog
-date: '2020-02-14'
+date: '2020-02-13'
 description: taxadb provides quick and easy access to taxonomic data from multiple
   providers resolving hundreds of names to taxonomic identifiers in seconds.
 package_version: 0.1.0
