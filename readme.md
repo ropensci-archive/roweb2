@@ -7,7 +7,7 @@ Welcome to the new (October 2017) website for the rOpenSci project. Our old webs
 
 To contribute a blog post or tech note (🙏), first get the go-ahead and a tentative publication date from our community manager [Stefanie Butland](https://ropensci.org/authors/stefanie-butland/).
 
-Please refer to [our in-progress gitbook "rOpenSci Blog Guidelines for Authors and Editors"](https://ropensci-org.github.io/blog-guidance/), in particular the [content guidelines](https://ropensci-org.github.io/blog-guidance/content.html) and [technical guidelines](https://ropensci-org.github.io/blog-guidance/technical.html).
+Please refer to [our in-progress gitbook "rOpenSci Blog Guidelines for Authors and Editors"](https://blogguide.ropensci.org/), in particular the [content guidelines](https://blogguide.ropensci.org/content.html) and [technical guidelines](https://blogguide.ropensci.org/technical.html).
 
 ### Updating page templates
 
