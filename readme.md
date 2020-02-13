@@ -7,7 +7,16 @@ Welcome to the new (October 2017) website for the rOpenSci project. Our old webs
 
 To contribute a blog post or tech note (🙏), first get the go-ahead and a tentative publication date from our community manager [Stefanie Butland](https://ropensci.org/authors/stefanie-butland/).
 
-Please refer to [our in-progress gitbook "rOpenSci Blog Guidelines for Authors and Editors"](https://blogguide.ropensci.org/), in particular the [content guidelines](https://blogguide.ropensci.org/content.html) and [technical guidelines](https://blogguide.ropensci.org/technical.html).
+Please refer to [our in-progress gitbook "rOpenSci Blog Guidelines for Authors and Editors"](https://blogguide.ropensci.org/). There we coach you in thinking through what you might say in your post ([Content Guidelines](https://blogguide.ropensci.org/content.html)) and suggest a workflow with templates, a checklist, and advice on incorporating commonly used elements ([Technical Guidelines](https://blogguide.ropensci.org/technical.html)).
+
+Briefly, the process is:
+1. Fork the repository (repo) of the rOpenSci website.
+1. Draft your post in R Markdown or Markdown and create or update your author metadata.
+1. Preview and refine your post locally.
+1. Submit via pull request and preview your post.
+1. A blog editor reviews your post.
+1. Revise your post in response to review.
+1. Enjoy having your work promoted.
 
 ### Updating page templates
 
