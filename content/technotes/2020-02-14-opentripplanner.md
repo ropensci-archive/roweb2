@@ -2,7 +2,7 @@
 slug: "opentripplanner"
 title: "opentripplanner: Fast and easy multimodal trip planning in R with OpenTripPlanner"
 package_version: 0.2.0
-date: 2020-02-14
+date: 2020-02-22
 authors:
   - Malcolm Morgan
 categories:
@@ -14,7 +14,6 @@ tags:
 - spatial
 - geospatial
 - routing
-- GIS
 output: 
   html_document:
     keep_md: true
@@ -77,7 +76,7 @@ qtm(sf::st_zm(route), lines.lwd = 3,
 
 OTP supports loads more features such as batch routing, isochrones, and geocoding, so we recommend working through the full set of [vignettes](https://docs.ropensci.org/opentripplanner/) before trying to set up your own route planner.
 
-The package has recently passed [peer review](https://github.com/ropensci/software-review/issues/295), so a big thank you to ROpenSci and our reviewers for all their help. We are also keen to hear from users about new features that would be useful; please post your ideas to the [issues](https://github.com/ropensci/opentripplanner/issues) page. 
+The package has recently passed [peer review](https://github.com/ropensci/software-review/issues/295), so a big thank you to rOpenSci and our reviewers for all their help. We are also keen to hear from users about new features that would be useful; please post your ideas to the [issues](https://github.com/ropensci/opentripplanner/issues) page. 
 
 ## References
 
