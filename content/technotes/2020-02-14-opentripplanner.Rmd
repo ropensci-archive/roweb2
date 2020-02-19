@@ -97,4 +97,3 @@ The package has recently passed [peer review](https://github.com/ropensci/softwa
 
 [^1]: Morgan et al., (2019). OpenTripPlanner for R. Journal of Open Source Software, 4(44), 1926, https://doi.org/10.21105/joss.01926
   Open Source Software, 4(44), 1926,
-  https://doi.org/10.21105/joss.01926
