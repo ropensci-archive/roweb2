@@ -1,6 +1,6 @@
 ---
 name: Malcolm Morgan
-link: https://adamhsparks.netlify.com/
+link: https://environment.leeds.ac.uk/transport/staff/964/dr-malcolm-morgan
 twitter: drmalcolmmorgan
 github: mem48
 ---
