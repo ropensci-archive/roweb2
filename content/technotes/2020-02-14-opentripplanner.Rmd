@@ -79,7 +79,7 @@ route <- otp_plan(otpcon,               # Route between two lon/lat coordinates
                   mode = c("WALK","TRANSIT")) 
 ```
 
-If you have the `tmap` package installed, you can view the route within RStudio. Notice the use of `sf::st_zm(route)` this is because `tmap` does not currently support XYZ coordinates. 
+If you have the `tmap` package installed, you can view the route within RStudio. Notice the use of `sf::st_zm(route)`. This is because `tmap` does not currently support XYZ coordinates. 
 
 ```{r, eval = FALSE} 
 library(tmap)                           # Load the tmap package 
