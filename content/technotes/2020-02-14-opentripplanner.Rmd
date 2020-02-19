@@ -2,7 +2,7 @@
 slug: "opentripplanner"
 title: "opentripplanner: Fast and easy multimodal trip planning in R with OpenTripPlanner"
 package_version: 0.2.0
-date: 2020-02-22
+date: 2020-02-25
 authors:
   - Malcolm Morgan
 categories:
