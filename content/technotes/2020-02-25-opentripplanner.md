@@ -2,7 +2,7 @@
 slug: "opentripplanner"
 title: "opentripplanner: Fast and easy multimodal trip planning in R with OpenTripPlanner"
 package_version: 0.2.0
-date: 2020-02-22
+date: 2020-02-25
 authors:
   - Malcolm Morgan
 categories:
@@ -22,9 +22,9 @@ output:
 
 
 
-With services like Google Maps, finding the fastest route from A to B has become quick, cheap, and easy. Not just for driving but walking, cycling and public transport too. But in the field of transport studies, we often want not only a single route, but thousands or millions of routes. This is where we hit a problem for services such as Google or the [Open Route Service](https://openrouteservice.org/), usually only allow a limited number of free routes per day (typically around 1000). So routing is either very time consuming or expensive. Another problem is that we may not be interested in the current travel options, but how those options may change in the future. Such as, after a new bridge has been built or a new bus timetable has been introduced. Therefore, researchers can find it useful to run their own routing services where they have more control and can produce as many routes as necessary. 
+With services like Google Maps, finding the fastest route from A to B has become quick, cheap, and easy. Not just for driving but walking, cycling and public transport too. But in the field of transport studies, we often want not only a single route, but thousands or millions of routes. This is where we hit a problem for services such as Google or the [Open Route Service](https://openrouteservice.org/), that usually only allow a limited number of free routes per day (typically around 1000). So routing is either very time consuming or expensive. Another problem is that we may not be interested in the current travel options, but how those options may change in the future. Such as, after a new bridge has been built or a new bus timetable has been introduced. Therefore, researchers can find it useful to run their own routing services where they have more control and can produce as many routes as necessary. 
 
-The aim of the OpenTripPlanner for R package[^1] to make it easy to set up and use a multimodal trip planner in R. [OpenTripPlanner](https://www.opentripplanner.org/) (OTP) is an open-source multimodal trip planner written in Java. It uses OpenStreetMap for walking, cycling, and driving directions and uses [GTFS](https://developers.google.com/transit/gtfs) files for public timetables. The R package makes it easy to set up and use OpenTripPlanner on your local computer or connecter to a sever running OpenTripPlanner.
+The aim of the OpenTripPlanner for R package[^1] to make it easy to set up and use a multimodal trip planner in R. [OpenTripPlanner](https://www.opentripplanner.org/) (OTP) is an open-source multimodal trip planner written in Java. It uses OpenStreetMap for walking, cycling, and driving directions and uses [GTFS](https://developers.google.com/transit/gtfs) files for public timetables. The R package makes it easy to set up and use OpenTripPlanner on your local computer or connect to a server running OpenTripPlanner.
 
 ## Prerequisites and Installation 
 
@@ -63,7 +63,7 @@ route <- otp_plan(otpcon,               # Route between two lon/lat coordinates
                   mode = c("WALK","TRANSIT")) 
 ```
 
-If you have the `tmap` package installed, you can view the route within RStudio. Notice the use of `sf::st_zm(route)` this is because `tmap` does not currently support XYZ coordinates. 
+If you have the `tmap` package installed, you can view the route within RStudio. Notice the use of `sf::st_zm(route)`. This is because `tmap` does not currently support XYZ coordinates. 
 
 
 ```r
@@ -74,12 +74,10 @@ qtm(sf::st_zm(route), lines.lwd = 3,
 ```
 
 
-OTP supports loads more features such as batch routing, isochrones, and geocoding, so we recommend working through the full set of [vignettes](https://docs.ropensci.org/opentripplanner/) before trying to set up your own route planner.
+The package supports many more features such as batch routing, isochrones, and geocoding, that are described in the [vignettes](https://docs.ropensci.org/opentripplanner/). There are also instructions on how to set up OTP for any area of the world.
 
 The package has recently passed [peer review](https://github.com/ropensci/software-review/issues/295), so a big thank you to rOpenSci and our reviewers for all their help. We are also keen to hear from users about new features that would be useful; please post your ideas to the [issues](https://github.com/ropensci/opentripplanner/issues) page. 
 
 ## References
 
-[^1]: Morgan et al., (2019). OpenTripPlanner for R. Journal of
-  Open Source Software, 4(44), 1926,
-  https://doi.org/10.21105/joss.01926
+[^1]: Morgan et al., (2019). OpenTripPlanner for R. Journal of Open Source Software, 4(44), 1926, https://doi.org/10.21105/joss.01926
