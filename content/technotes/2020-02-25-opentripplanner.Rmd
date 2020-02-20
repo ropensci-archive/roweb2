@@ -16,6 +16,8 @@ tags:
 - geospatial
 - routing
 - community
+- opentripplanner
+- Software Peer Review
 output: 
   html_document:
     keep_md: true
