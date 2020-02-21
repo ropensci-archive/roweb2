@@ -10,6 +10,8 @@ tags:
 - R
 - community
 - unconf
+- unconf15
+- welcome
 preface: "**This is cross-posted at [openscapes](https://www.openscapes.org/blog/2020/02/21/ropensci-leadership/)** At their closing keynote at the 2020 RStudio Conference, Hilary Parker and Roger Peng mentioned that they hatched the idea for their excellent [Not So Standard Deviations podcast](http://nssdeviations.com/) following their reunion at the [2015 rOpenSci unconf, ("runconf15")](https://unconf15.ropensci.org/). That statement went straight to my heart because it pin-pointed how I had been feeling throughout the week of RStudio Conference that I had been unable to name. At rstudio::conf, I was surrounded by so many of the incredible people I had met at that very same runconf15. These folks are visionaries and leaders, founding and leading global efforts in open source software and inclusive culture, and the fact that they were all together at a small event convened by rOpenSci holds great significance. I am so honored to know this community, and to consider them allies and friends. The RStudio Conference ("rstudio::conf"), a conference with 2400 people, felt cozy with their presence and with the visible efforts they have led to make R and beyond a welcoming, innovative space. In a follow-up to an earlier [blog summary of rstudio::conf(2020)](/blog/2020/02/04/rstudioconf-2020/), here I want to reflect on how important runconf15 was, and how truly unique and gamechanging rOpenSci is."
 ---
 
