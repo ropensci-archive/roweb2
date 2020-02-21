@@ -1,6 +1,6 @@
 ---
 slug: "ropensci-leadership"
-title: rOpenSci's leadership in #rstats culture
+title: rOpenSci's Leadership in #rstats Culture
 authors:
   - Julia Stewart Lowndes
 date: 2020-02-21
