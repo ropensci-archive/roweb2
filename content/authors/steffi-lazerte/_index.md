@@ -1,5 +1,6 @@
 ---
 name: Steffi LaZerte
+bio: rOpenSci Community Intern
 link: https://steffilazerte.ca
 twitter: steffilazerte
 github: steffilazerte
