@@ -167,4 +167,12 @@
    "roles": [
       "advisor"
    ]
+},
+{
+   "name": "Steffi LaZerte",
+   "url": "/authors/steffi-lazerte/",
+   "image" : "https://avatars3.githubusercontent.com/u/14676081?s=460&v=4",
+   "roles": [
+      "intern"
+   ]
 }]
