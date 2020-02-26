@@ -689,6 +689,10 @@ q:before, q:after {
   background-color: #748290;
 }.team .label.staff:after{
   content: 'staff';
+}.team .label.intern{
+  background-color: #748290;
+}.team .label.intern:after{
+  content: 'intern';
 }.team .label.leadership{
   background-color: #90897E;
 }.team .label.leadership:after{

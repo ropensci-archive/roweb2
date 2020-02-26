@@ -53,13 +53,6 @@
    ]
 },
 {
-   "name": "Stacey Dorton",
-   "image" : "/img/team/stacey.png",
-   "roles": [
-      "staff"
-   ]
-},
-{
    "name": "Noam Ross",
    "url": "http://www.ecohealthalliance.org/personnel/dr-noam-ross",
    "image" : "/img/team/noam_ross.png",
@@ -67,6 +60,21 @@
    "roles": [
       "leadership",
       "editor"
+   ]
+},
+{
+   "name": "Steffi LaZerte",
+   "url": "/authors/steffi-lazerte/",
+   "image" : "/img/team/steffi-lazerte.jpg",
+   "roles": [
+      "intern"
+   ]
+},
+{
+   "name": "Stacey Dorton",
+   "image" : "/img/team/stacey.png",
+   "roles": [
+      "staff"
    ]
 },
 {
