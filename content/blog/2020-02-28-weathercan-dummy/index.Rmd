@@ -28,7 +28,7 @@ description: "Integrating data from weathercan with different types of data"
 # delete the twitterImg line below 
 # Note there is no '/' symbol before 'img' here
 # if needed replace blog with technotes
-twitterImg: content/blog/2020-02-28-weathercan-dummy/weathercan.png
+twitterImg: content/blog/2020-02-28-weathercan-dummy/weathercan_logo.png
 # 'output' is necessary to obtain index.md
 # Do not commit index.html
 output: 
