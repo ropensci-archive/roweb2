@@ -19,7 +19,7 @@ They use partials, e.g. all templates use the same header, head and footer. Part
 	- [tutorial list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/tutorials/list.html)
 	- [single tutorial page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/tutorials/single.html)
 - **tags page**
-  - [taxonomy list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_defaults/terms.html)
+  - [taxonomy list template](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/_default/terms.html)
   - [template for each tag page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/taxonomy/tag.html)
 - **use cases**
 	- [use case list page](https://github.com/ropensci/roweb2/blob/master/themes/ropensci/layouts/usecases/list.html)
