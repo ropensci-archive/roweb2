@@ -28,7 +28,7 @@ description: "Integrating data from weathercan with different types of data"
 # delete the twitterImg line below 
 # Note there is no '/' symbol before 'img' here
 # if needed replace blog with technotes
-twitterImg: blog/2020-02-28-weathercan-dummy/weathercan.png
+twitterImg: blog/2020/02/28/weathercan-dummy/weathercan_logo.png
 # 'output' is necessary to obtain index.md
 # Do not commit index.html
 output: 
@@ -159,11 +159,11 @@ ggplot(data = mb_weather_all, aes(x = date, y = mean_temp, colour = station_name
 ```
 
 ```
-Warning: Removed 55 rows containing missing values (geom_point).
+Warning: Removed 58 rows containing missing values (geom_point).
 ```
 
 ```
-Warning: Removed 55 rows containing missing values (geom_path).
+Warning: Removed 58 rows containing missing values (geom_path).
 ```
 
 {{<figure src="temperature_fig-1.png" alt="figure of average daily temperature by date for January and February 2020 for different weather stations in Manitoba. Shows two cold spells, one in January, one in February." title="Average daily temperature in Manitoba" caption="Two cold spells" width="300">}}
