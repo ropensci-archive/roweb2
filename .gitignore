@@ -15,8 +15,7 @@ config.codekit3
 .DS_Store
 .Rhistory
 *.Rproj
-addmypost.R
-addmynote.R
 content/blog/*.html
 .gitignore
-content/blog/*.Rmd
+content/blog/*/index.html
+content/technotes/*/index.html
