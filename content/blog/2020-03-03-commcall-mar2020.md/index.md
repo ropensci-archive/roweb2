@@ -13,19 +13,18 @@ tags:
   - R
   - development
   - maintenance
+  - bioconductor
+  - qualtrics
+  - cran
+  - skimr
 ---
 
-Package development often seems like the end goal, but ongoing maintenance is
-crucial in keeping a package alive and useful. Packages maintained by a single
-developer risk being lost as the developer's situation and priorities change. In
-the interest of software sustainability, ideally each package would have more
-than one maintainer, but this is relatively rare. Join this community call to
-hear more about package maintenance through tips and tricks, best practices for
-encouraging contributions, and trials and tribulations of taking over
-maintenance of existing packages.
+For this Community Call, we're trying something different 🤞🏼. We'll start with a short talk by [**Julia Silge**](#speakers), then spend most of the time on Q & A with [four panelists](#speakers) - **Elin Waring**, **Erin Grand**, **Leonardo Collado-Torres**, and **Scott Chamberlain** - moderated by Julia.
 
-This 1-hour Call will include a panel of four speakers and a moderator Q & A.
+Our panelists bring a wide range of perspectives so there's something for everyone. Collectively, they have experience developing and maintaining passion-project packages, very popular packages, too many packages on CRAN, packages on Bioconductor, and taking over maintenance (and changing things!) of a package developed by someone else.
 
+Julia Silge's abstract:
+Maintaining a piece of software is both a technical and social venture that can require skills such as evaluating conflicting user feedback or long-term planning for architecture changes. Although we don’t often talk explicitly about the ups and downs of package management, best practices can lighten the load for maintainers and result in better quality software. Maintaining an R package can be a different experience depending on who uses the package and who originally wrote the package, and encouraging more people to engage in maintenance activities supports the sustainability of our software ecosystem.
 
 🎤 See below for speaker bios, resources, and how to join the call.
 
@@ -49,41 +48,49 @@ Join Zoom Meeting <https://zoom.us/j/595631720>. To join by phone, [find your lo
 🎥 After the Call, we’ll post the video and collaborative notes on the [archive page](/commcalls).
 
 #### Resources
-- [Taking over maintenance of a software package](https://ropensci.org/blog/2019/06/12/taking-over-maint/), by Scott Chamberlain, Maëlle Salmon & Noam Ross
-- [Relaunching the qualtRics package](https://ropensci.org/blog/2019/04/30/qualtrics-relaunch/), by Julia Silge
-- [Package evolution - changing stuff in your package](https://devguide.ropensci.org/evolution.html), Chapter 14 in  the rOpenSci
-- [The mail must get through](http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/ar01s02.html), by Eric Steven Raymond]
+- [Taking over maintenance of a software package](blog/2019/06/12/taking-over-maint/), by Scott Chamberlain, Maëlle Salmon & Noam Ross
+- [Relaunching the qualtRics package](blog/2019/04/30/qualtrics-relaunch/), by Julia Silge
+- [Package evolution - changing stuff in your package](https://devguide.ropensci.org/evolution.html), Chapter 14 in the rOpenSci software development guide
+- [The mail must get through](http://www.catb.org/~esr/writings/cathedral-bazaar/cathedral-bazaar/ar01s02.html), by Eric Steven Raymond
+- [Learning a new codebase with Patrcia Aas](https://www.allthingsgit.com/episodes/learning_a_new_codebase_with_patricia_aas.html)
 
-### Speakers {#speakers}
+#### Speakers {#speakers}
 
-{{< figure src = "julia-silge.jpg" width = "200" alt = "Julia Silge" >}}
+{{< figure src = "julia-silge.jpg" width = "200" alt = "Julia Silge headshot" class = "pull-left">}}
 
-_Julia on [GitHub](https://github.com/juliasilge), [Twitter](https://twitter.com/juliasilge), [Website](https://juliasilge.com/), [rOpenSci](https://ropensci.org/authors/julia-silge/)_  
+**Julia Silge** recently joined RStudio as a Data Scientist & Software Engineer. When rOpenSci put out a call for a new maintainer for the [qualtRics](https://docs.ropensci.org/qualtRics/) package, Julia took it on since she used it in her day job as a data scientist at Stack Overflow, especially working on the [annual Developer Survey](https://insights.stackoverflow.com/survey/2019). Julia also maintains other R packages, including [tidytext](https://github.com/juliasilge/tidytext) which has been downloaded 884K times.
+
+_Julia on [GitHub](https://github.com/juliasilge), [Twitter](https://twitter.com/juliasilge), [Website](https://juliasilge.com/), [rOpenSci](authors/julia-silge/)_
 
 
 
-{{< figure src = "scott-chamberlain.jpg" width = "200" alt = "Scott Chamberlain" >}}
+
+{{< figure src = "elin-waring.jpg" width = "200" alt = "Elin Waring headshot"  class = "pull-left>}}
+_*Elin Waring is* a Professor of Sociology and Interim Dean of the School of Health Sciences, Human Services and Nursing at Lehman College, CUNY. She teaches research methods and statistics. Elin was part of the unconf17 group that developed the skimr package. skimr has become very popular (257k downloads) and Elin works with Michael Quinn to maintain skimr as they have shepherded it through two major releases.  She formerly was a contributor and maintainer for the Joomla! CMS project, and her approach to maintaining is influenced by that. This includes understanding the importance of having a clear concept of what you are trying to achieve, being able to politely but firmly say no and knowing having users changes everything.
+
+_Elin on [GitHub](https://github.com/elinw), [Twitter](https://twitter.com/ElinWaring), [Website](https://elinwaring.org/), [rOpenSci](authors/elin-waring/)_
+
+
+
+{{< figure src = "erin-grand.jpg" width = "200" alt = "Erin Grand headshot"  class = "pull-left>}}
+
+_**Erin Grand** is a Data Scientist at Uncommon Schools and a board member of [R-Ladies NYC](https://www.rladiesnyc.org/). Erin created and maintains a package for NASA's astronomy picture of the day [astropic](https://github.com/eringrand/astropic), inspired by her early love of astronomy and that one of her own images has been [featured](https://apod.nasa.gov/apod/ap090917.html)! (Life goal achieved!) She also maintains a set of internal packages at her work._
+
+_Erin on [GitHub](https://github.com/eringrand), [Twitter](https://www.twitter.com/astroeringrand), [Website](http://eringrand.github.io/),  [rOpenSci](authors/erin-grand/)_  
+
+
+
+{{< figure src = "leonardo-collado-torres.jpg" width = "200" alt = "Leonardo Collado-Torres headshot"  class = "pull-left>}}
+
+_**Leonardo Collado-Torres**, is a Staff Scientist II at the Lieber Institute for Brain Development. He maintains [several](https://bioconductor.org/packages/release/bioc/html/derfinder.html) [Bioconductor](https://bioconductor.org/packages/release/bioc/html/recount.html) packages including the recently submitted [spatialLIBD](https://twitter.com/fellgernon/status/1233661576433061888?s=20) for spatial transcriptomics data.  Leo is a co-founder of the [LIBD rstats club](http://research.libd.org/rstatsclub/) and the [CDSBMexico](https://comunidadbioinfo.github.io/) community of R and Bioconductor developers in Latin America whose members just submitted their [first package to Bioconductor (regutools)](https://twitter.com/CDSBMexico/status/1233885048077721607?s=20), representing a dramatic percent increase in Latin American Bioconductor developers._
+
+_Leo on [GitHub](https://github.com/lcolladotor), [Twitter](https://twitter.com/fellgernon), [Website](http://lcolladotor.github.io/), [rOpenSci](authors/leonardo-collado-torres/)_  
+
+
+
+
+{{< figure src = "scott-chamberlain.jpg" width = "200" alt = "Scott Chamberlain headshot"  class = "pull-left>}}
 
 _**Scott Chamberlain** is Co-founder and Technical Lead of rOpenSci. He maintains probably too many packages. Part of Scott’s work involves finding new maintainers for rOpenSci peer-reviewed packages when current maintainers need to move on._
 
-_Scott on [GitHub](https://github.com/sckott/), [Twitter](https://twitter.com/sckottie), [Website](https://scottchamberlain.info/), [rOpenSci](https://ropensci.org/authors/scott-chamberlain/)_  
-
-
-
-{{< figure src = "leonardo-collado-torres.jpg" width = "200" alt = "Leonardo Collado-Torres" >}}
-
-_Leo on [GitHub](https://github.com/lcolladotor), [Twitter](https://twitter.com/fellgernon), [Website](http://lcolladotor.github.io/), [rOpenSci](https://ropensci.org/authors/leonardo-collado-torres/)_  
-
-
-
-{{< figure src = "erin-grand.jpg" width = "200" alt = "Erin Grand" >}}
-
-_Erin on [GitHub](https://github.com/eringrand), [Twitter](https://www.twitter.com/astroeringrand), [Website](http://eringrand.github.io/),  [rOpenSci](https://ropensci.org/authors/erin-grand/)_  
-
-
-
-
-{{< figure src = "elin-waring.jpg" width = "200" alt = "Elin Waring" >}}
-_*Elin Waring is* a Professor of Sociology and Interim Dean of the School of Health Sciences, Human Services and Nursing at Lehman College, CUNY. She teaches research methods and statistics. Elin was part of the unconf17 group that developed the skimr package. skimr has become very popular (257k downloads) and Elin works with Michael Quinn to maintain skimr as they have shepherded it through two major releases.  She formerly was a contributor and maintainer for the Joomla! CMS project, and her approach to maintaining is influenced by that. This includes understanding the importance of having a clear concept of what you are trying to achieve, being able to politely but firmly say no and knowing having users changes everything._
-
-_Elin on [GitHub](https://github.com/elinw), [Twitter](https://twitter.com/ElinWaring), [Website](https://elinwaring.org/), [rOpenSci](https://ropensci.org/authors/elin-waring/)_
+_Scott on [GitHub](https://github.com/sckott/), [Twitter](https://twitter.com/sckottie), [Website](https://scottchamberlain.info/), [rOpenSci](authors/scott-chamberlain/)_  
