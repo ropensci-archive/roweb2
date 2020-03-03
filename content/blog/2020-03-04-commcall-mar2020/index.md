@@ -58,7 +58,7 @@ Maintaining a piece of software is both a technical and social venture that can 
 
 #### Speakers {#speakers}
 
-<img src="/img/blog-images/2020-03-04-commcall-mar2020/julia-silge.jpg" alt="Julia Silge headshot" style="margin: 0px 20px; width: 200px;" align="left">
+<img src="/img/blog-images/2020-03-04-commcall-mar2020/julia-silge2.jpg" alt="Julia Silge headshot" style="margin: 0px 20px; width: 200px;" align="left">
 _**Julia Silge** recently joined RStudio as a Data Scientist & Software Engineer. When rOpenSci put out a call for a new maintainer for the [qualtRics](https://docs.ropensci.org/qualtRics/) package, Julia took it on since she used it in her day job as a data scientist at Stack Overflow, especially working on the [annual Developer Survey](https://insights.stackoverflow.com/survey/2019). Julia also maintains other R packages, including [tidytext](https://github.com/juliasilge/tidytext) which has been downloaded 884K times._  
 _Julia on [GitHub](https://github.com/juliasilge), [Twitter](https://twitter.com/juliasilge), [Website](https://juliasilge.com/), [rOpenSci](authors/julia-silge/)_
 
@@ -73,7 +73,7 @@ _**Erin Grand** is a Data Scientist at Uncommon Schools and a board member of [R
 _Erin on [GitHub](https://github.com/eringrand), [Twitter](https://www.twitter.com/astroeringrand), [Website](http://eringrand.github.io/),  [rOpenSci](authors/erin-grand/)_  
 
 
-<img sr ="/img/blog-images/2020-03-04-commcall-mar2020/leonardo-collado-torres.jpg" alt="Leonardo Collado-Torres headshot" style="margin: 0px 20px; width: 200px;" align="left">
+<img src ="/img/blog-images/2020-03-04-commcall-mar2020/leonardo-collado-torres.jpg" alt="Leonardo Collado-Torres headshot" style="margin: 0px 20px; width: 200px;" align="left">
 _**Leonardo Collado-Torres** is a Staff Scientist II at the Lieber Institute for Brain Development. He maintains [several](https://bioconductor.org/packages/release/bioc/html/derfinder.html) [Bioconductor](https://bioconductor.org/packages/release/bioc/html/recount.html) packages including the recently submitted [spatialLIBD](https://twitter.com/fellgernon/status/1233661576433061888?s=20) for spatial transcriptomics data.  Leo is a co-founder of the [LIBD rstats club](http://research.libd.org/rstatsclub/) and the [CDSBMexico](https://comunidadbioinfo.github.io/) community of R and Bioconductor developers in Latin America whose members just submitted their [first package to Bioconductor (regutools)](https://twitter.com/CDSBMexico/status/1233885048077721607?s=20), representing a dramatic percent increase in Latin American Bioconductor developers._  
 _Leo on [GitHub](https://github.com/lcolladotor), [Twitter](https://twitter.com/fellgernon), [Website](http://lcolladotor.github.io/), [rOpenSci](authors/leonardo-collado-torres/)_  
 
