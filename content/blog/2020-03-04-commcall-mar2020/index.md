@@ -19,7 +19,7 @@ tags:
   - skimr
 ---
 
-For this Community Call, we're trying something different 🤞🏼. We'll start with a short talk by [**Julia Silge**](#speakers), then spend most of the time on Q & A with [four panelists](#speakers) - **Elin Waring**, **Erin Grand**, **Leonardo Collado-Torres**, and **Scott Chamberlain** - moderated by Julia.
+For this Community Call, we're trying something different. We'll start with a short talk by [**Julia Silge**](#speakers), then spend most of the time on Q & A with [four panelists](#speakers) - **Elin Waring**, **Erin Grand**, **Leonardo Collado-Torres**, and **Scott Chamberlain** - moderated by Julia.
 
 Our panelists bring a wide range of perspectives so there's something for everyone. Collectively, they have experience developing and maintaining passion-project packages, very popular packages, too many packages on CRAN, packages on Bioconductor, and taking over maintenance (and changing things!) of a package developed by someone else.
 
