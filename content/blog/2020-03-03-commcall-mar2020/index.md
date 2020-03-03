@@ -39,7 +39,7 @@ Maintaining a piece of software is both a technical and social venture that can 
 
 #### Join the Call
 
-🕘 **Wednesday, March 18, 9-10 AM PDT / 5-6 PM GMT** ([find your timezone](http://bit.ly/2PLOCte))
+🕘 **Wednesday, March 18, 9-10 AM PDT / 4-5 PM GMT** ([find your timezone](https://bit.ly/3ctkrQj))
 
 ☎️ Everyone is welcome. No RSVP needed. You can use https://zoom.us/test to check that you are set up for audio and video.
 
