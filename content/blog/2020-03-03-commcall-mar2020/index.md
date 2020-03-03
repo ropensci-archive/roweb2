@@ -43,7 +43,9 @@ Maintaining a piece of software is both a technical and social venture that can 
 
 ☎️ Everyone is welcome. No RSVP needed. You can use https://zoom.us/test to check that you are set up for audio and video.
 
-Join Zoom Meeting <https://zoom.us/j/595631720>. To join by phone, [find your local number](https://zoom.us/u/acO2ayYceg). Meeting ID: 595 631 720.
+- Join Zoom Meeting on March 18th (link to come!)<!-- <https://zoom.us/j/595631720>.-->
+- To join by phone, [find your local number](https://zoom.us/u/acO2ayYceg)
+- Meeting ID: 595 631 720
 
 🎥 After the Call, we’ll post the video and collaborative notes on the [archive page](/commcalls).
 
