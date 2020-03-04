@@ -85,5 +85,5 @@ _Leo on [GitHub](https://github.com/lcolladotor), [Twitter](https://twitter.com/
 
 <img src="/img/blog-images/2020-03-04-commcall-mar2020/scott-chamberlain.jpg" alt="Scott Chamberlain headshot" style="margin: 0px 20px; width: 200px;" align="left">
 _**Scott Chamberlain** is Co-founder and Technical Lead of rOpenSci. He maintains probably too many packages. Part of Scott’s work involves finding new maintainers for rOpenSci peer-reviewed packages when current maintainers need to move on._  
-<br/>  
+ 
 _Scott on [GitHub](https://github.com/sckott/), [Twitter](https://twitter.com/sckottie), [Website](https://scottchamberlain.info/), [rOpenSci](authors/scott-chamberlain/)_  
