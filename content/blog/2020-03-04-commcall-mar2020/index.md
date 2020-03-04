@@ -51,7 +51,6 @@ Maintaining a piece of software is both a technical and social venture that can 
 🎥 After the Call, we’ll post the video and collaborative notes on the [archive page](/commcalls).
 
 #### Resources
-- [Announcement blog post](/blog/2020/03/04/commcall-mar2020/)
 - [Taking over maintenance of a software package](/blog/2019/06/12/taking-over-maint/), by Scott Chamberlain, Maëlle Salmon & Noam Ross
 - [Relaunching the qualtRics package](/blog/2019/04/30/qualtrics-relaunch/), by Julia Silge
 - [Package evolution - changing stuff in your package](https://devguide.ropensci.org/evolution.html), Chapter 14 in the rOpenSci software development guide
