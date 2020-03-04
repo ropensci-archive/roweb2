@@ -23,7 +23,8 @@ For this Community Call, we're trying something different. We'll start with a sh
 
 Our panelists bring a wide range of perspectives so there's something for everyone. Collectively, they have experience developing and maintaining passion-project packages, very popular packages, too many packages on CRAN, packages on Bioconductor, and taking over maintenance (and changing things!) of a package developed by someone else.
 
-Julia Silge's abstract:
+**Julia Silge's abstract:**
+
 Maintaining a piece of software is both a technical and social venture that can require skills such as evaluating conflicting user feedback or long-term planning for architecture changes. Although we don’t often talk explicitly about the ups and downs of package management, best practices can lighten the load for maintainers and result in better quality software. Maintaining an R package can be a different experience depending on who uses the package and who originally wrote the package, and encouraging more people to engage in maintenance activities supports the sustainability of our software ecosystem.
 
 🎤 See below for speaker bios, resources, and how to join the call.
