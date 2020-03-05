@@ -52,7 +52,8 @@ This is achieved by its helper packages such as {circle}, {ghactions} or {travis
 
 ## GitHub Actions - the new kid on the block
 
-GitHub Actions is around since about one year.
+GitHub Actions (beta) is around since about one year.
+The official release happened in [November 2019](https://siliconangle.com/2019/11/13/github-universe-announcements-bring-bevy-updates-developers/).
 The hype after the launch was huge: People are used to expect properly developed products from GitHub and having an integrated CI solution without the overhead of connecting to a third party provider sounded promising.
 
 Indeed, GitHub Actions fulfilled this promise: It is way easier to get started with CI now: 
@@ -107,7 +108,7 @@ For the current R 3.6.x release a custom version of `clang7` is used while for R
 - {tic} sets the env var `RGL_USE_NULL` to make it possible to install the {rgl} package if needed
 - {tic} installs all packages from source on Linux instead of using the R package binaries provided by RStudio.
   This is to mimic the normal behavior on Linux and ensure a proper linking against system libraries.
-
+    
 ## Getting Started
 
 If you are triggered now to try out {tic} and GitHub Actions, here is how to get started:
