@@ -67,25 +67,42 @@ However, R was again not among the languages with native support/examples, so it
 After a first shot from [Max Held]() via the [{ghactions}]() package, [Jim Hester]() sat down again and created an "action" which installs R on all platforms with the option to specify different R versions.
 
 While this action is already usable, its still quite young and will mature over time.
-In {tic} we use [r-lib/actions]() as the base and apply some opinionated changes of which we think enhance the CI runs substantially.
+In {tic} we use [r-lib/actions](https://github.com/r-lib/actions) as the base and apply some opinionated changes of which we think enhance the CI runs substantially.
 In the following we explain these changes to be as transparent as possible.
 
 ### Caching
 
-By default [r-lib/actions]() caches all direct dependencies of the package which is being tested on a successful run.
+By default [r-lib/actions](https://github.com/r-lib/actions) caches all direct dependencies of the package which is being tested on a successful run.
+This is done via action [actions/cache](https://github.com/actions/cache) by hashing a list of all package dependencies:
 
-{tic} caches the complete R library of the run.
-This has the advantage that also packages which are needed for side-effects (like building a pkgdown site or running {codecov}) are cached.
-Because caches are immutable, {tic} rebuilds the cache **daily**.
-If not, every runner would otherwise always use the same cache forever.
-If packages are updated on CRAN, {tic} would update those before proceeding to the "script" stage.
-After some time all packages would be outdated and the cache quite useless.
+```{yml}
+- name: Query dependencies
+  run: |
+    install.packages('remotes')
+    saveRDS(remotes::dev_package_deps(dependencies = TRUE), "depends.Rds", version = 2)
+  shell: Rscript {0}
+
+- name: Cache R packages
+  if: runner.os != 'Windows'
+  uses: actions/cache@v1
+  with:
+    path: ${{ env.R_LIBS_USER }}
+    key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('depends.Rds') }}
+    restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-
+```
+
+{tic} instead caches the complete R library of the run **on every run** by using a forked version of [actions/cache](https://github.com/actions/cache): [pat-s/always-upload-cache](https://github.com/pat-s/always-upload-cache).
+
+These differences have the advantage that packages which are needed for side-effects (like building a pkgdown site or running {codecov}) are cached too.
+Because caches are immutable, {tic} (needs to) rebuilds the cache **daily**.
+If this would not happen, every runner would otherwise always use the first cache forever.
+When packages are updated on CRAN, {tic} would download the cache first but then update those before proceeding to the "script" stage.
+After some time all packages from the cache would be outdated, making the cache useless.
 Hence, {tic} rebuilds the cache daily.
 
 The cache rebuilding happens in a scheduled CRON run daily at 3 am in the morning.
-Because {tic} always uploads the cache even if the build failed ([r-lib/actions]() only uploads on a successful build), there will always be a cache available for builds which start during the day.
-
-So even if the build of a repository takes several minutes to install all dependencies, the first commit every day will always make use of an existing cache.
+Because {tic} always uploads the cache even if the build failed ([r-lib/actions](https://github.com/r-lib/actions) only uploads on a successful build), there will always be a cache available for builds which start during the day.
+So even if the build of a repository takes several minutes to install all dependencies, the first commit being made every day will always make use of an existing cache.
 
 ### Installation of dependencies
 
