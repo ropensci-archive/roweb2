@@ -4,7 +4,6 @@ title: rOpenSci developer meeting in March
 date: '2014-02-10'
 authors:
   - Karthik Ram
-categories: blog
 tags:
   - hackathon
   - meetings

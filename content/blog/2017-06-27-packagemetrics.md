@@ -8,7 +8,6 @@ authors:
   - Lori Shepherd
   - Sam Firke
   - William Ampeh
-categories: blog
 topicid: 759
 date: '2017-06-27'
 tags:

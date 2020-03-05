@@ -7,7 +7,6 @@ authors:
   - Maëlle Salmon
   - Karthik Ram
   - Scott Chamberlain
-categories: blog
 topicid: 1101
 tags:
   - community

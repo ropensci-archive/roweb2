@@ -5,7 +5,6 @@ date: '2016-12-12'
 authors:
   - Stefanie Butland
   - Karthik Ram
-categories: blog
 tags:
   - community
   - fellowships

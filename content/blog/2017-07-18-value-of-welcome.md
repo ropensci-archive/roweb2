@@ -4,7 +4,6 @@ title: 'The Value of #Welcome'
 date: '2017-07-18'
 authors:
   - Stefanie Butland
-categories: blog
 topicid: 776
 tags:
   - community

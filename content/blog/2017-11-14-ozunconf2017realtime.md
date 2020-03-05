@@ -4,7 +4,6 @@ title: '2017 rOpenSci ozunconf :: Reflections and the realtime Package'
 date: '2017-11-14'
 authors:
   - Jonathan Carroll
-categories: blog
 topicid: 960
 tags:
   - Australia

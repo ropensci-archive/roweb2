@@ -4,7 +4,6 @@ title: Introducing the BEFData package
 date: '2013-05-10'
 authors:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - packages

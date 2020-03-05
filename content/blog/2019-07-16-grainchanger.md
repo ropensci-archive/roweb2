@@ -5,7 +5,6 @@ package_version: 0.2.0
 authors:
   - Laura Graham
 date: 2019-07-16
-categories: blog
 topicid: 1772
 tags:
 - Software Peer Review

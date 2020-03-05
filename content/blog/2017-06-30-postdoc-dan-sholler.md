@@ -6,7 +6,6 @@ authors:
   - Stefanie Butland
   - Karthik Ram
   - Dan Sholler
-categories: blog
 topicid: 761
 tags:
   - community

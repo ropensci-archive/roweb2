@@ -4,7 +4,6 @@ title: "rOpenSci's Leadership in #rstats Culture"
 authors:
   - Julia Stewart Lowndes
 date: 2020-02-21
-categories: blog
 topicid: 1960
 tags:
 - R

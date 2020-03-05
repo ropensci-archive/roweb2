@@ -4,7 +4,6 @@ title: 'Announcing new software peer review editors: Melina Vidoni and Brooke An
 date: '2019-01-31'
 authors:
   - Stefanie Butland
-categories: blog
 topicid: 1568
 tags:
   - Software Peer Review

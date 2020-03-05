@@ -4,7 +4,6 @@ title: rgbif changes in v0.4
 date: '2013-11-21'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - taxonomy

@@ -4,7 +4,6 @@ title: New package tokenizers joins rOpenSci
 date: '2016-08-23'
 authors:
   - Lincoln Mullen
-categories: blog
 tags:
   - R
   - natural language

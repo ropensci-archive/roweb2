@@ -5,7 +5,6 @@ title: 'Our package reviews in review: Introducing a 3-post series about softwar
 authors:
   - Maëlle Salmon
 date: '2018-04-26'
-categories: blog
 topicid: 1151
 tags:
   - R

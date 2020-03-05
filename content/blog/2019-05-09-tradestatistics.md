@@ -5,7 +5,6 @@ package_version: 0.2.0
 date: '2019-05-09'
 authors:
   - Pachá (aka Mauricio Vargas Sepúlveda)
-categories: blog
 topicid: 1699
 tags:
   - Software Peer Review

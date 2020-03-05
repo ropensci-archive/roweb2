@@ -4,7 +4,6 @@ title: rOpenSci Announces a New Award From The Gordon and Betty Moore Foundation
 date: '2019-11-06'
 authors:
   - Karthik Ram
-categories: blog
 topicid: 1864
 tags:
   - grant

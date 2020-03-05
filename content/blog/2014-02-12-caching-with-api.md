@@ -4,7 +4,6 @@ title: Caching Encyclopedia of Life API calls
 date: '2014-02-12'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

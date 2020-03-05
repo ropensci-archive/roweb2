@@ -4,7 +4,6 @@ title: New fiscal sponsorship agreement with NumFocus foundation
 date: '2014-10-01'
 authors:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - funding

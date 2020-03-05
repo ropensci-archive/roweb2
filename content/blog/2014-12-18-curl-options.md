@@ -4,7 +4,6 @@ title: Curling - exploring web request options
 date: '2014-12-18'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

@@ -7,7 +7,6 @@ authors:
   - Maëlle Salmon
   - Noam Ross
   - Karthik Ram
-categories: blog
 topicid: 863
 tags:
   - software

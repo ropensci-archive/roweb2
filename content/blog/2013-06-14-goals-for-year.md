@@ -5,7 +5,6 @@ date: '2013-06-14'
 authors:
   - Karthik Ram
   - Scott Chamberlain
-categories: blog
 tags:
   - funding
 ---

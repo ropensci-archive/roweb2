@@ -14,7 +14,6 @@ tags:
   - USPTO
   - Software Peer Review
   - community
-categories: blog
 ---
 
 ### Why care about patents?

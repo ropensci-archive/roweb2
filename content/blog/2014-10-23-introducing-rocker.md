@@ -4,7 +4,6 @@ title: 'Introducing Rocker: Docker for R'
 authors:
   - Carl Boettiger
   - Dirk Eddelbuettel
-categories: blog
 date: '2014-10-23'
 tags:
   - R

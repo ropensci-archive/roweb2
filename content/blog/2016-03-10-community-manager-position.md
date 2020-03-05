@@ -5,7 +5,6 @@ date: '2016-03-10'
 authors:
   - Karthik Ram
   - Scott Chamberlain
-categories: blog
 tags:
   - jobs
 ---

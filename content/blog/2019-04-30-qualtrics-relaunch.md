@@ -5,7 +5,6 @@ package_version: 3.1.0
 date: '2019-04-30'
 authors:
   - Julia Silge
-categories: blog
 topicid: 1682
 tags:
   - Software Peer Review

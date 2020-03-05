@@ -4,7 +4,6 @@ title: Altmetrics workshop recap
 date: '2013-10-15'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - altmetrics

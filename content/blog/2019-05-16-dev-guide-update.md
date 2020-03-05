@@ -11,7 +11,6 @@ authors:
   - Karthik Ram
   - Noam Ross
   - Melina Vidoni
-categories: blog
 topicid: 1707
 tags:
   - Software Peer Review

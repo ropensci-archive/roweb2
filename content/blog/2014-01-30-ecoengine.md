@@ -4,7 +4,6 @@ title: Introducing the ecoengine package
 date: '2014-01-30'
 authors:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - taxonomy
