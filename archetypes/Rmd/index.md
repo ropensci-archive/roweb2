@@ -8,8 +8,6 @@ authors:
   - Author Name2
 # Set the date below to the publication date of your post
 date: 2019-06-04
-# Set categories to technotes if this is a tech note
-categories: blog
 # Leave topicid blank below; will be set by editor
 topicid:
 # Minimal tags for a post about a community-contributed package 
