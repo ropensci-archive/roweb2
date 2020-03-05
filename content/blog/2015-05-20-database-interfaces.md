@@ -4,7 +4,6 @@ title: Database interfaces
 date: '2015-05-20'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - databases

@@ -11,7 +11,6 @@ authors:
   - Noam Ross
   - Maëlle Salmon
   - Melina Vidoni
-categories: blog
 topicid: 1848
 tags:
   - Software Peer Review

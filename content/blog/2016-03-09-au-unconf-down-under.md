@@ -4,7 +4,6 @@ title: Australian rOpenSci Unconference
 date: '2016-03-09'
 authors:
   - Nicholas Tierney
-categories: blog
 tags:
   - ozunconf
   - ozunconf16

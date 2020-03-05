@@ -4,7 +4,6 @@ title: From occurrence data to interactive maps on the web
 date: '2013-07-04'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - rbison

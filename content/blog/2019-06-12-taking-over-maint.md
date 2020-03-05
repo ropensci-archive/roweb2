@@ -6,7 +6,6 @@ authors:
   - Scott Chamberlain
   - Maëlle Salmon
   - Noam Ross
-categories: blog
 topicid: 1738
 tags:
   - software

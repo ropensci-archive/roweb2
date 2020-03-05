@@ -6,7 +6,6 @@ authors:
   - Francois Michonneau
   - Joseph Brown
   - David Winter
-categories: blog
 tags:
   - R
   - rotl

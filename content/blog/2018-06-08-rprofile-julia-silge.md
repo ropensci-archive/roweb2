@@ -8,7 +8,6 @@ preface: In this occasional series, we interview someone using a loosely defined
   O’Briant as part of an rOpenSci project called [rOpenInterviews](https://github.com/ropenscilabs/rOpenInterviews/).
 authors:
   - Kelly O'Briant
-categories: blog
 topicid: 1203
 tags:
   - R

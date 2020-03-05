@@ -7,7 +7,6 @@ authors:
   - Noam Ross
   - Scott Chamberlain
   - Maëlle Salmon
-categories: blog
 topicid: 1142
 tags:
   - community

@@ -9,7 +9,6 @@ authors:
   - Scott Chamberlain
   - Rich FitzJohn
   - Karthik Ram
-categories: blog
 tags:
   - software
   - Software Peer Review

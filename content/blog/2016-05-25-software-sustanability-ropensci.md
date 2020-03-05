@@ -4,7 +4,6 @@ title: Software sustainability research with rOpenSci
 date: '2016-05-25'
 authors:
   - Daniel S. Katz
-categories: blog
 tags:
   - sustainability
   - researchsoftware

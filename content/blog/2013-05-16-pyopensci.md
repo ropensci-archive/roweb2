@@ -4,7 +4,6 @@ title: Facilitating Open Science with Python
 date: '2013-05-16'
 authors:
   - Steve Moss
-categories: blog
 tags:
   - Python
   - pyOpenSci

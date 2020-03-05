@@ -4,7 +4,6 @@ title: Open Science with R
 date: '2013-12-02'
 authors:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - book

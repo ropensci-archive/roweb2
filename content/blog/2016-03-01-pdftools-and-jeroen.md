@@ -4,7 +4,6 @@ title: Introducing pdftools - A fast and portable PDF extractor
 date: '2016-03-01'
 authors:
   - Jeroen Ooms
-categories: blog
 tags:
   - R
   - PDF

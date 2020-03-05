@@ -4,7 +4,6 @@ title: 'fulltext v1: text-mining scholarly works'
 date: '2018-01-17'
 authors:
   - Scott Chamberlain
-categories: technotes
 topicid: 1032
 tags:
   - text mining

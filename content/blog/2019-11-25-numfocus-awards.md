@@ -4,7 +4,6 @@ title: NumFOCUS recognizes Melina Vidoni and Will Landau for their contributions
 authors:
   - Stefanie Butland
 date: 2019-11-25
-categories: blog
 topicid: 1885
 tags:
 - R

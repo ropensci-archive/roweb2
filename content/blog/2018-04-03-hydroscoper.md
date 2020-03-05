@@ -5,7 +5,6 @@ package_version: 1.0.0
 authors:
   - Konstantinos Vantas
 date: '2018-04-03'
-categories: blog
 topicid: 1130
 tags:
   - R

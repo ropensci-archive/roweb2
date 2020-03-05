@@ -4,7 +4,6 @@ title: The rOpenSci Taxonomy Suite
 date: '2017-07-27'
 authors:
   - Scott Chamberlain
-categories: blog
 topicid: 796
 tags:
   - R

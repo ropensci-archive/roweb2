@@ -5,7 +5,6 @@ date: '2018-10-06'
 topicid: 1388
 authors:
   - Jeroen Ooms
-categories: technotes
 tags:
   - R
   - packages

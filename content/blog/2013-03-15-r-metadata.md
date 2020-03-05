@@ -4,7 +4,6 @@ title: Scholarly metadata in R
 date: '2013-03-15'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - metadata

@@ -5,7 +5,6 @@ title: googleLanguageR - Analysing language through the Google Cloud Machine Lea
 authors:
   - Mark Edmondson
 date: '2017-10-03'
-categories: blog
 topicid: 904
 tags:
   - R

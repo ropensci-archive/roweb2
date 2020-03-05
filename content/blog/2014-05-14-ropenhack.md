@@ -4,7 +4,6 @@ title: rOpenHack report
 date: '2014-05-14'
 authors:
   - Karthik Ram
-categories: blog
 tags:
   - community
   - events

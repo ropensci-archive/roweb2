@@ -4,7 +4,6 @@ title: Visualizing rOpenSci collaboration
 date: '2013-03-08'
 authors:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - GitHub

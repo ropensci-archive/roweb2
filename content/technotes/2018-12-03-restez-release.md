@@ -5,7 +5,6 @@ package_version: 1.0.0
 authors:
   - Dom Bennett
 date: '2018-12-03'
-categories: technote
 topicid: 1494
 tags:
   - R

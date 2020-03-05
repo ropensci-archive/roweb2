@@ -6,7 +6,6 @@ authors:
   - Stefanie Butland
   - Scott Chamberlain
   - Maëlle Salmon
-categories: blog
 topicid: 1044
 tags:
   - community

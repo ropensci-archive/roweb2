@@ -4,7 +4,6 @@ title: So you (don't) think you can review a package
 date: '2017-08-22'
 authors:
   - Mara Averick
-categories: blog
 topicid: 838
 tags:
   - R

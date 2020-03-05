@@ -9,7 +9,6 @@ preface: In this occasional series, we interview someone using a loosely defined
 authors:
   - Sean Kross
   - Kelly O'Briant
-categories: blog
 topicid: 1060
 tags:
   - R

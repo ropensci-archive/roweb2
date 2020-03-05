@@ -5,7 +5,6 @@ date: '2019-07-15'
 authors:
   - Karthik Ram
   - Noam Ross
-categories: blog
 topicid: 1771
 tags:
   - grant

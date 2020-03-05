@@ -4,7 +4,6 @@ title: Help us build capacity of open software users and developers with Hacktob
 date: '2017-10-02'
 authors:
   - Stefanie Butland
-categories: blog
 topicid: 901
 tags:
   - community

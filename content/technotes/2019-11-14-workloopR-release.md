@@ -5,7 +5,6 @@ package_version: 1.1.2
 authors:
   - Vikram B. Baliga
 date: 2019-11-14
-categories:
   - technotes
 topicid: 1879
 tags:

@@ -9,7 +9,6 @@ preface: I’m participating in the [AAAS Community Engagement Fellows Program](
   as part of a series of reflections the Fellows are sharing.
 authors:
   - Stefanie Butland
-categories: blog
 topicid: 968
 tags:
   - R

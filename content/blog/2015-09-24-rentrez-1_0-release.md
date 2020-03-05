@@ -4,7 +4,6 @@ title: Rentrez 1_0 released
 date: '2015-09-24'
 authors:
   - David Winter
-categories: blog
 tags:
   - R
   - CRAN

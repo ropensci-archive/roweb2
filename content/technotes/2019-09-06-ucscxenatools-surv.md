@@ -5,7 +5,6 @@ package_version: 1.2.5
 authors:
   - Shixiang Wang
 date: '2019-09-06'
-categories: technotes
 topicid: 1822
 tags:
   - R

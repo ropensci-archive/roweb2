@@ -4,7 +4,6 @@ title: "cran checks API: an update"
 date: 2019-10-09
 authors:
   - Scott Chamberlain
-categories:
   - technotes
 topicid: 1851
 tags:
