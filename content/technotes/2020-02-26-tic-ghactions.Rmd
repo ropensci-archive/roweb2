@@ -1,6 +1,6 @@
 ---
 slug: "tic-ghactions"
-title: Supercharge your GitHub Actions experience with {tic}
+title: Supercharge your GitHub Actions Experience with tic
 # Delete the package_version line below if your post is not about a package
 package_version: 0.5.0
 authors:
@@ -20,37 +20,37 @@ tags:
   - GitHub Actions
   - Continuous Integration
 # The summary below will be used by e.g. Twitter cards
-description: "A very short summary of your post"
+description: "tic aims to simplify CI related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions. By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks."
 ---
 
 "Continuous Integration" (CI) has become a standard for proper software development.
 Checking the integrity of software after changes have been made is essential to ensure its proper functionality.
-Also, CI helps catching problems introduced by dependencies early when executed on a regular basis (usually done via scheduled runs via CRON jobs).
+Also, CI helps catching problems introduced by dependencies early when executed on a regular basis (usually done via scheduled [CRON](https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/) runs).
 
-Multiple professional providers exist (Travis CI, Appveyor CI, Circle CI, etc.) which offer CI services to the public.
+Multiple professional providers exist ([Travis CI](https://travis-ci.com/), [Appveyor CI](https://www.appveyor.com/), [Circle CI](https://circleci.com/), etc.) which offer CI services to the public.
 Most services offer limited free build contingents for open-source projects.
-However, it has not been easy for the R community to jump on the train right away as most providers did not support the language from their side.
-Therefore, the R community started to create their own configurations to quickly automate the checking of R packages on Travis CI.
-In fact, the first commit of the official `r.rb` build script was made on [Feb 1st 2015 by Craig Citro](https://github.com/travis-ci/travis-build/commit/c697bb2240cfc1abb92a95f57d2e72c151104431#diff-5b7e1aa01f1c6f058df6e0b9e2486c62).
+However, it has not been easy for the R community to jump on the train right away as most providers did not support the language natively on their side.
+Therefore, the R community started to create their own configurations to quickly automate the checking of R packages on [Travis CI](https://travis-ci.com/).
+In fact, the first commit of the official `r.rb` build script was made on [Feb 1st 2015 by Craig Citro](https://github.com/travis-ci/travis-build/commit/c697bb2240cfc1abb92a95f57d2e72c151104431).
 Since then 21 unique contributors maintained this configuration under the meta-lead of [Jim Hester](https://github.com/jimhester) and [Jeroen Ooms](https://github.com/jeroen) and many thousand R package maintainers jumped onto the train.
 
-However, Travis CI has it limits and therefore people started to try out other providers such as Appveyor CI or Circle CI.
+However, [Travis CI](https://travis-ci.com/) has it limits and therefore people started to try out other providers such as [Appveyor CI](https://www.appveyor.com/) or [Circle CI](https://circleci.com/).
 Besides having to start from scratch, all providers come with their own YAML keys and ways to set up deployment permissions.
 
-With the aim to simplify these processes for users, the {tic} package was created.
+With the aim to simplify these processes for users, the tic package was created.
 It is aimed to provide a CI-agnostic way to check R packages.
 But not just R packages! 
-It also aims to simplify the creation of blogs, websites, drat repos and other things related to CI activities.
+It also aims to simplify the creation of blogs, websites, [drat](https://github.com/eddelbuettel/drat) repositories and other things related to CI activities.
 
-By providing CI YAML templates which forward their actions to a centralized Rscript (`tic.R`), the same setup will trigger identical actions on different CI systems.
-The user does not need to worry about setting up the YAML file for a specific provider but just get familiarized with the "macro" approach of {tic}.
-Macros are sequences of steps for popular actions often requested by people in the R community for R related projects.
+By providing CI YAML templates which forward their actions to a centralized R script (`tic.R`), the same setup will trigger identical actions on different CI systems.
+The user does not need to worry about setting up the YAML file for a specific provider but just get familiarized with the "macro" approach of tic.
+[Macros](https://docs.ropensci.org/tic/articles/tic.html#macros) are sequences of steps for popular actions often requested by people in the R community for R related projects.
 
-Furthermore {tic} aims to simplify the tedious process of setting up deployment permissions for a repo.
+Furthermore tic aims to simplify the tedious process of setting up deployment permissions for a repo.
 ("Deployment" means that a CI run is allowed to perform a `git` push to the repository.)
-This is achieved by its helper packages such as {circle}, {ghactions} or {travis} which perform API calls to the respective CI providers.
+This is achieved by its helper packages such as circle, ghactions or travis which perform API calls to the respective CI providers.
 
-## GitHub Actions - the new kid on the block
+### GitHub Actions - the new kid on the block
 
 GitHub Actions (beta) is around since about one year.
 The official release happened in [November 2019](https://siliconangle.com/2019/11/13/github-universe-announcements-bring-bevy-updates-developers/).
@@ -58,19 +58,20 @@ The hype after the launch was huge: People are used to expect properly developed
 
 Indeed, GitHub Actions fulfilled this promise: It is way easier to get started with CI now: 
 
-- No extra account needs to be created
+- No extra account needs to be created for a third-pary service
 - No restrictions on the available build platforms
-- No issues related to webhooks for third-party providers
+- No issues related to webhooks of third-party providers
 - CI settings configurable via the repository settings
 
 However, R was again not among the languages with native support/examples, so it was not easy to get started.
-After a first shot from [Max Held]() via the [{ghactions}]() package, [Jim Hester]() sat down again and created an "action" which installs R on all platforms with the option to specify different R versions.
+After a first shot from [Max Held](https://github.com/maxheld83) via the [ghactions](https://github.com/maxheld83/ghactions) package, [Jim Hester](https://github.com/jimhester) sat down again and created the [setup-r](https://github.com/r-lib/actions/tree/master/setup-r) actions which installs R on all avaialable platforms with the option to specify different R versions.
 
-While this action is already usable, its still quite young and will mature over time.
-In {tic} we use [r-lib/actions](https://github.com/r-lib/actions) as the base and apply some opinionated changes of which we think enhance the CI runs substantially.
+While this action is already usable, its still in its early days and will mature over time.
+In tic we use [r-lib/setup-r](https://github.com/r-lib/actions/tree/master/setup-r) as the base combined with [r-lib/setup-pandoc](https://github.com/r-lib/actions/tree/master/setup-pandoc) and [r-lib/setup-tinytex](https://github.com/r-lib/actions/tree/master/setup-tinytex).
+We apply some opinionated changes on top of which we think enhance the CI setup substantially.
 In the following we explain these changes to be as transparent as possible.
 
-### Caching
+#### Caching
 
 By default [r-lib/actions](https://github.com/r-lib/actions) caches all direct dependencies of the package which is being tested on a successful run.
 This is done via action [actions/cache](https://github.com/actions/cache) by hashing a list of all package dependencies:
@@ -91,14 +92,14 @@ This is done via action [actions/cache](https://github.com/actions/cache) by has
     restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-
 ```
 
-{tic} instead caches the complete R library of the run **on every run** by using a forked version of [actions/cache](https://github.com/actions/cache): [pat-s/always-upload-cache](https://github.com/pat-s/always-upload-cache).
+tic instead caches the complete R library of the run **on every run** by using a forked version of [actions/cache](https://github.com/actions/cache): [pat-s/always-upload-cache](https://github.com/pat-s/always-upload-cache).
 
-These differences have the advantage that packages which are needed for side-effects (like building a pkgdown site or running {codecov}) are cached too.
-Because caches are immutable, {tic} (needs to) rebuilds the cache **daily**.
+These differences have the advantage that packages which are needed for side-effects (like building a pkgdown site or running codecov) are cached too.
+Because caches are immutable, tic (needs to) rebuilds the cache **daily**.
 If this would not happen, every runner would otherwise always use the first cache forever.
-When packages are updated on CRAN, {tic} would download the cache first but then update those before proceeding to the "script" stage.
+When packages are updated on CRAN, tic would download the cache first but then update those before proceeding to the "script" stage.
 After some time all packages from the cache would be outdated, making the cache useless.
-Hence, {tic} rebuilds the cache daily.
+Hence, tic rebuilds the cache daily.
 Users can change this behavior to their liking by changing the bash code that is used to generate the timestamps used for caching:
 
 ```{yml}
@@ -114,53 +115,56 @@ Users can change this behavior to their liking by changing the bash code that is
 ```
 
 The cache rebuilding happens in a scheduled CRON run daily at 3 am in the morning.
-Because {tic} always uploads the cache even if the build failed ([r-lib/actions](https://github.com/r-lib/actions) only uploads on a successful build), there will always be a cache available for builds which start during the day.
+Because tic always uploads the cache even if the build failed ([r-lib/actions](https://github.com/r-lib/actions) only uploads on a successful build), there will always be a cache available for builds which start during the day.
 So even if the build of a repository takes several minutes to install all dependencies, the first commit being made every day will always make use of an existing cache.
 
-### Installation of dependencies
+#### Installation of dependencies
 
-{tic} uses `ccache` on macOS and Linux to speed up R package installations.
+tic uses `ccache` on macOS and Linux to speed up R package installations.
 This tool helps speeding up the installation of compiled packages by loading the C code parts from the cache.
-{tic} rebuilds the `ccache` only **once a week** making it possible that the CRON builds in the morning can make use of the `ccache` builds when rebuilding the R package cache.
+tic rebuilds the `ccache` only **once a week** making it possible that the CRON builds in the morning can make use of the `ccache` builds when rebuilding the R package cache.
 
-### macOS compiler toolchain
+#### macOS compiler toolchain
 
 macOS is a complicated platform for R.
 CRAN does use a custom compiler for creating the binaries for this platform.
 One reason is that the default `/usr/bin/clang` does not support `openMP`.
 For the current R 3.6.x release a custom version of `clang7` is used while for R 4.x `clang8` will be used.
-{tic} reflects exactly this setting on the macOS-release and macOS-devel runners, eliminating lots of issues when compiling packages from source and giving you the security to have the CRAN setup mirrored in your builds.
+tic reflects exactly this setting on the macOS-release and macOS-devel runners, eliminating lots of issues when compiling packages from source and giving you the security to have the CRAN setup mirrored in your builds.
 
-### Addtional small tweaks
+#### Addtional tweaks
 
-- {tic} always runs `R CMD javareconf` to ensure a working installation of {rJava}
-- {tic} uses four cores for installing dependencies instead of just running sequentially
-- {tic} sets the env var `RGL_USE_NULL` to make it possible to install the {rgl} package if needed
-- {tic} installs all packages from source on Linux instead of using the R package binaries provided by RStudio.
+- tic always runs `R CMD javareconf` to ensure a working installation of rJava.
+- tic uses four cores for installing dependencies instead of just running sequentially.
+- tic sets the env var `RGL_USE_NULL` to make it possible to install the rgl package if needed.
+- tic installs all packages from source on Linux instead of using the R package binaries provided by RStudio.
   This is to mimic the normal behavior on Linux and ensure a proper linking against system libraries.
     
-## Getting Started
+### Getting Started
 
-If you are triggered now to try out {tic} and GitHub Actions, here is how to get started:
+If you are triggered now to try out tic and GitHub Actions, here is how to get started (alternatively you can also run `tic::use_tic()` to start an interactive wizard guiding you through the setup process):
 
 ```{r, eval=FALSE}
 library("tic")
 
 use_ghactions_deploy() # (optional) setup deployment from builds
 use_ghactions_yml() # use deploy = TRUE to deploy from builds
-use_tic_r() # add tic.R (replace `ci_on_travis()` by `ci_on_ghactions()`)
+tic::use_tic_r(repo_type = "package", deploy_on = "ghactions") # add tic.R
 use_tic_badge("ghactions") # (optional) add a badge to README.md/README.Rmd
 ```
 
-Alternatively you can also run `tic::use_tic()` to start an interactive wizard guiding you through the setup process.
-
 After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the repository.
+For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yml).
 
-## Summary
+### Summary
 
-{tic} aims to simplify CI related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions.
+tic aims to simplify CI related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions.
+By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks.
 
-If you encounter problems, please have a look at the vignettes of {tic}, especially the "Troubleshooting" one.
+If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html) one.
 You can also open an issue in the repo if something does not work as planned.
-{tic} will keep improving the existing templates and its internal functionality.
-We have plans to add an update-mechanism in the future - stay tuned for more!
+tic will keep improving the existing templates and its internal functionality[^1].
+
+We have plans to add an update mechanism in the future to simplify staying up-to-date with the latest template changes upstream - stay tuned!
+
+[^1]: Since tic is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date.
