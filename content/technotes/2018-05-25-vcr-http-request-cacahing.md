@@ -2,7 +2,7 @@
 slug: vcr-http-request-cacahing
 title: 'vcr: record and replay HTTP requests'
 date: '2018-05-25'
-authors:
+author:
   - Scott Chamberlain
 categories: technotes
 topicid: 1186

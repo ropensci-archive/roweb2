@@ -1,7 +1,7 @@
 ---
 slug: antarctic
 title: The Antarctic/Southern Ocean rOpenSci community
-authors:
+author:
   - Ben Raymond
   - Michael Sumner
 preface: Ben Raymond and Michael Sumner wrote this post on behalf of the Antarctic/Southern

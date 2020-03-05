@@ -2,7 +2,7 @@
 slug: wild-standards
 title: When Standards Go Wild - Software Review for a Manuscript
 date: '2019-04-18'
-authors:
+author:
   - Stefanie Butland
   - Nick Golding
   - Chris Grieves

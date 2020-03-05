@@ -2,7 +2,7 @@
 slug: rplos-highlights
 title: Highlighting text in text mining
 date: '2013-12-02'
-authors:
+author:
   - Scott Chamberlain
 categories: blog
 tags:

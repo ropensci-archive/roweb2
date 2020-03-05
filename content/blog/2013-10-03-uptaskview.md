@@ -2,7 +2,7 @@
 slug: uptaskview
 title: Web Technologies and Services taskview is up on CRAN
 date: '2013-10-03'
-authors:
+author:
   - Scott Chamberlain
 categories: blog
 tags:

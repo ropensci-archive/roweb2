@@ -2,7 +2,7 @@
 slug: "cran-checks-api-update"
 title: "cran checks API: an update"
 date: 2019-10-09
-authors:
+author:
   - Scott Chamberlain
 categories:
   - technotes

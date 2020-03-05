@@ -2,7 +2,7 @@
 slug: lingtypology
 title: Easy linguistic mapping with lingtypology
 package_version: 1.0.4
-authors:
+author:
   - George Moroz
 date: '2017-05-16'
 categories: blog

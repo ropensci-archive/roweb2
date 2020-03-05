@@ -1,7 +1,7 @@
 ---
 slug: mongolite
 title: Release mongolite 1.0
-authors:
+author:
   - Jeroen Ooms
 categories: blog
 topicid: 626

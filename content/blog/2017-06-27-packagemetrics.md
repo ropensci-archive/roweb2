@@ -1,7 +1,7 @@
 ---
 slug: packagemetrics
 title: packagemetrics - Helping you choose a package since runconf17
-authors:
+author:
   - Becca Krouse
   - Erin Grand
   - Hannah Frick

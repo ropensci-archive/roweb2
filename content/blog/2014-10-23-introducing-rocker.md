@@ -1,7 +1,7 @@
 ---
 slug: introducing-rocker
 title: 'Introducing Rocker: Docker for R'
-authors:
+author:
   - Carl Boettiger
   - Dirk Eddelbuettel
 categories: blog

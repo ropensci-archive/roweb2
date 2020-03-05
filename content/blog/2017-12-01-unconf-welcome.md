@@ -8,7 +8,7 @@ preface: I’m participating in the [AAAS Community Engagement Fellows Program](
   comprises 17 community managers working in a wide range of scientific communities.
   This is cross-posted from the [Trellis blog](https://www.cscce.org/2017/08/11/the-value-of-welcome-part-2-how-to-prepare-40-new-community-members-for-an-unconference/)
   as part of a series of reflections the Fellows are sharing.
-authors:
+author:
   - Stefanie Butland
 categories: blog
 topicid: 983

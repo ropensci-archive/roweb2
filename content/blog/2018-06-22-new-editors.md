@@ -2,7 +2,7 @@
 slug: new_editors
 title: 'Announcing new software review editors: Anna Krystalli and Lincoln Mullen'
 date: '2018-06-22'
-authors:
+author:
   - Stefanie Butland
 categories: blog
 topicid: 1231

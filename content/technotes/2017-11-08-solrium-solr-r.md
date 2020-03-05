@@ -2,7 +2,7 @@
 slug: solrium-solr-r
 title: 'solrium 1.0: Working with Solr from R'
 date: '2017-11-08'
-authors:
+author:
   - Scott Chamberlain
 categories: technotes
 topicid: 953

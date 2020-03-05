@@ -1,7 +1,7 @@
 ---
 slug: onboarding-social-weather
 title: The social weather of rOpenSci onboarding system
-authors:
+author:
   - Maëlle Salmon
 date: '2018-05-10'
 preface: This blog post is the third of a 3-post series about a data-driven overview

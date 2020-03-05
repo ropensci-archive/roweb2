@@ -3,7 +3,7 @@ slug: rtimicropem
 title: 'rtimicropem: Using an *R* package as platform for harmonized cleaning of data
   from RTI MicroPEM air quality sensors'
 date: '2017-08-29'
-authors:
+author:
   - Maëlle Salmon
 categories: blog
 tags:

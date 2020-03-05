@@ -2,7 +2,7 @@
 slug: goals-for-year
 title: What we hope to accomplish with the new funding
 date: '2013-06-14'
-authors:
+author:
   - Karthik Ram
   - Scott Chamberlain
 categories: blog

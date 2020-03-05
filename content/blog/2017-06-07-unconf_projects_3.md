@@ -2,7 +2,7 @@
 slug: unconf_projects_3
 title: 'Unconf projects 3: available, miner, rcheatsheet, ponyexpress'
 date: '2017-06-07'
-authors:
+author:
   - Karthik Ram
 categories: blog
 topicid: 740

@@ -2,7 +2,7 @@
 slug: data-to-cartodb
 title: Species occurrence data to CartoDB
 date: '2013-11-04'
-authors:
+author:
   - Scott Chamberlain
 categories: blog
 tags:

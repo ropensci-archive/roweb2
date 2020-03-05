@@ -2,7 +2,7 @@
 slug: ropensci-changes
 title: 'changes: easy Git-based version control from R'
 date: '2017-11-28'
-authors:
+author:
   - Anikó B. Tóth
   - Nick Golding
 categories: blog

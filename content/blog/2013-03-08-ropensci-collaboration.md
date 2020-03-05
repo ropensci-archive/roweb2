@@ -2,7 +2,7 @@
 slug: ropensci-collaboration
 title: Visualizing rOpenSci collaboration
 date: '2013-03-08'
-authors:
+author:
   - Scott Chamberlain
 categories: blog
 tags:

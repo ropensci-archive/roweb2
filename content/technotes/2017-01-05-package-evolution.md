@@ -2,7 +2,7 @@
 slug: package-evolution
 title: Package evolution - changing stuff in your package
 date: '2017-01-05'
-authors:
+author:
   - Scott Chamberlain
 categories: technotes
 tags:

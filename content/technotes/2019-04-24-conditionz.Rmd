@@ -2,7 +2,7 @@
 slug: "conditionz"
 title: "conditionz: control how many times conditions are thrown"
 date: 2019-04-24
-authors:
+author:
   - Scott Chamberlain
 categories:
   - technotes

@@ -2,7 +2,7 @@
 slug: is-invasive
 title: is.invasive()
 date: '2012-11-26'
-authors:
+author:
   - Ignasi Bartomeus
 categories: blog
 tags:

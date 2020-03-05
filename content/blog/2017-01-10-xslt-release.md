@@ -1,7 +1,7 @@
 ---
 slug: xslt-release
 title: Using xml schema and xslt in R
-authors:
+author:
   - Jeroen Ooms
 categories: blog
 date: '2017-01-10'

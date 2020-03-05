@@ -1,7 +1,7 @@
 ---
 slug: codereview
 title: Community Call Summary - Code Review in the Lab
-authors:
+author:
   - Hao Ye
   - Melanie Frazier
   - Julia Stewart Lowndes

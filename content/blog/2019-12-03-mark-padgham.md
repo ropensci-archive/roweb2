@@ -2,7 +2,7 @@
 date: '2019-12-03'
 slug: mark-padgham
 title: Introducing Mark Padgham, rOpenSci’s new Software Research Scientist
-authors:
+author:
   - Stefanie Butland
   - Mark Padgham
   - Karthik Ram

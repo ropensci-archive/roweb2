@@ -2,7 +2,7 @@
 date: '2017-06-30'
 slug: postdoc_dan_sholler
 title: Introducing our Postdoctoral Fellow, Dr. Dan Sholler
-authors:
+author:
   - Stefanie Butland
   - Karthik Ram
   - Dan Sholler

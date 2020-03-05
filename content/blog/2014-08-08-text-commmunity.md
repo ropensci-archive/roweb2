@@ -2,7 +2,7 @@
 slug: text-commmunity
 title: Community conversations and a new package for full text
 date: '2014-08-08'
-authors:
+author:
   - Scott Chamberlain
   - Karthik Ram
 categories: blog

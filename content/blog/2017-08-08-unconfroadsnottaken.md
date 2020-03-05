@@ -1,6 +1,6 @@
 ---
 slug: unconfroadsnottaken
-authors:
+author:
   - Noam Ross
 categories: blog
 topicid: 814

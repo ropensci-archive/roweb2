@@ -2,7 +2,7 @@
 slug: software-sustanability-ropensci
 title: Software sustainability research with rOpenSci
 date: '2016-05-25'
-authors:
+author:
   - Daniel S. Katz
 categories: blog
 tags:

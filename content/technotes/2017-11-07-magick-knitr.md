@@ -2,7 +2,7 @@
 slug: magick-knitr
 title: Using Magick with RMarkdown and Shiny
 date: '2017-11-07'
-authors:
+author:
   - Jeroen Ooms
 categories: technotes
 cover: https://i.imgur.com/tTFk7ig.jpg

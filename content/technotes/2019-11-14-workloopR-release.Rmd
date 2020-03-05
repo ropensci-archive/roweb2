@@ -2,7 +2,7 @@
 slug: "workloopR-release"
 title: "workloopR: Analysis of work loops and other data from muscle physiology experiments in R"
 package_version: 1.1.2
-authors:
+author:
   - Vikram B. Baliga
 date: 2019-11-14
 categories:

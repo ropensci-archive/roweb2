@@ -2,7 +2,7 @@
 slug: nceas-codefest-follow-up
 title: NCEAS Codefest Follow-up
 date: '2014-09-23'
-authors:
+author:
   - Scott Chamberlain
   - Ted Hart
 categories: blog

@@ -2,7 +2,7 @@
 slug: rnoaa-update
 title: 'rnoaa: new data sources and NCDC units'
 date: '2018-12-04'
-authors:
+author:
   - Scott Chamberlain
 categories: technotes
 topicid: 1497

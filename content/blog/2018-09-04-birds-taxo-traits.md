@@ -1,7 +1,7 @@
 ---
 title: What are these birds? Complement occurrence data with taxonomy and traits information
 slug: birds-taxo-traits
-authors:
+author:
   - Maëlle Salmon
 date: '2018-09-04'
 topicid: 1318

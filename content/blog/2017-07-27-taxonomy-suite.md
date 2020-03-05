@@ -2,7 +2,7 @@
 slug: taxonomy-suite
 title: The rOpenSci Taxonomy Suite
 date: '2017-07-27'
-authors:
+author:
   - Scott Chamberlain
 categories: blog
 topicid: 796

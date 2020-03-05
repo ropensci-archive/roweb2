@@ -2,7 +2,7 @@
 slug: curl-options
 title: Curling - exploring web request options
 date: '2014-12-18'
-authors:
+author:
   - Scott Chamberlain
 categories: blog
 tags:

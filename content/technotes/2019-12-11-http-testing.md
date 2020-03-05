@@ -2,7 +2,7 @@
 slug: "http-testing"
 title: "HTTP testing in R: overview of tools and new features"
 date: 2019-12-11
-authors:
+author:
   - Scott Chamberlain
 categories:
   - technotes

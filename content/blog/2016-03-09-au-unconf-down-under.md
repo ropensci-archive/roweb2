@@ -2,7 +2,7 @@
 slug: au-unconf-down-under
 title: Australian rOpenSci Unconference
 date: '2016-03-09'
-authors:
+author:
   - Nicholas Tierney
 categories: blog
 tags:

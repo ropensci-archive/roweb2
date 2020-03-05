@@ -1,7 +1,7 @@
 ---
 slug: hydrology-task-view
 title: "Getting your toes wet in R: Hydrology, meteorology, and more"
-authors:
+author:
 - Sam Albers
 - Ilaria Prosdocimi
 - Sam Zipper

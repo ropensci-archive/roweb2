@@ -11,7 +11,7 @@ preface: 'At the [5th annual rOpenSci unconference](https://unconf18.ropensci.or
   third of a three-post series about education and R, written by this group of unconf18
   participants. Read the first post about common pedagogical challenges [here](/blog/2018/07/24/educollab-challenges/),
   and the second post about what makes a good open educational resource [here](/blog/2018/07/25/educollab-resources/).'
-authors:
+author:
   - Laura Ación
   - Mara Averick
   - Leonardo Collado Torres

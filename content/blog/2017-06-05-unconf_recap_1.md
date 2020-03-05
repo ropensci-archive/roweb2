@@ -2,7 +2,7 @@
 slug: unconf_recap_1
 title: 'Unconf projects 1: skimr, emldown, testrmd, webrockets'
 date: '2017-06-05'
-authors:
+author:
   - Karthik Ram
 categories: blog
 topicid: 740
