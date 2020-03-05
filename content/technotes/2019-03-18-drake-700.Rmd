@@ -4,7 +4,6 @@ title: "drake transformed"
 date: 2019-03-18
 authors:
   - Will Landau
-categories: technotes
 topicic: 1621
 tags:
   - R

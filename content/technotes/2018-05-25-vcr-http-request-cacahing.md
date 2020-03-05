@@ -4,7 +4,6 @@ title: 'vcr: record and replay HTTP requests'
 date: '2018-05-25'
 authors:
   - Scott Chamberlain
-categories: technotes
 topicid: 1186
 tags:
   - R

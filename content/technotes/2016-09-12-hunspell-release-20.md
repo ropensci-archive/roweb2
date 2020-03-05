@@ -4,7 +4,6 @@ title: 'Hunspell 2.0: High-Performance Stemmer, Tokenizer, and Spell Checker for
 date: '2016-09-12'
 authors:
   - Jeroen Ooms
-categories: technotes
 tags:
   - R
   - hunspell

@@ -5,7 +5,6 @@ package_version: 0.2.0
 date: 2020-02-25
 authors:
   - Malcolm Morgan
-categories:
   - technotes
 topicid: 1966
 tags:

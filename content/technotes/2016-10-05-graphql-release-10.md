@@ -4,7 +4,6 @@ title: 'New package graphql: A GraphQL Query Parser'
 date: '2016-10-05'
 authors:
   - Jeroen Ooms
-categories: technotes
 tags:
   - R
   - graphql

@@ -4,7 +4,6 @@ title: crul - an HTTP client
 date: '2016-11-09'
 authors:
   - Scott Chamberlain
-categories: technotes
 tags:
   - R
   - API

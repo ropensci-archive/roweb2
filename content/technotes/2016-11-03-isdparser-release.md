@@ -4,7 +4,6 @@ title: Parse NOAA Integrated Surface Data Files
 date: '2016-11-03'
 authors:
   - Scott Chamberlain
-categories: technotes
 tags:
   - climate
   - R
