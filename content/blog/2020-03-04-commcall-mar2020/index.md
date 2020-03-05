@@ -2,7 +2,7 @@
 slug: commcall-mar2020
 title: Community Call - Maintaining an R Package
 date: '2020-03-04'
-authors:
+author:
   - Steffi LaZerte
 categories: blog
 topicid: 1973

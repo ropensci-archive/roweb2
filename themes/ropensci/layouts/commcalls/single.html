@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-offset-2 col-8 top-10 bottom-5" style="font-size: 20px; text-align: center;">
                     <p class="authors" style="text-align: center;">
-                        {{$authors := .Params.authors}} {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
+                        {{$authors := .Params.author}} {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
                     </p>
                     <br>
                     <div style="font-size: 20px; color: #2C3E50; margin-top: 15px;">{{ .Date.Format "January 2, 2006" }}</div>

@@ -18,7 +18,7 @@
                         <div align="right"><small class="lighter">{{ .Date.Format "January 2, 2006" }}</small></div>
 
                         <p class="lighter authors">By:
-                            {{$authors := .Params.authors}}
+                            {{$authors := .Params.author}}
                             {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
 
                         </p>
