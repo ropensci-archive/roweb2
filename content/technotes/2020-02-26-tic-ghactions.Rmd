@@ -145,7 +145,7 @@ tic reflects exactly this setting on the macOS-release and macOS-devel runners, 
     
 ### Getting Started
 
-If you are triggered now to try out tic and GitHub Actions, here is how to get started (alternatively you can also run `tic::use_tic()` to start an interactive wizard guiding you through the setup process):
+If you are triggered now to try out tic and GitHub Actions, here is how to get started (alternatively you can also run `tic::use_tic()` to start an interactive wizard which will guide you through the setup process):
 
 ```{r, eval=FALSE}
 library("tic")
