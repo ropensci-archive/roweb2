@@ -95,7 +95,7 @@ This is done via action [actions/cache](https://github.com/actions/cache) by has
     restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-
 ```
 
-tic instead caches the complete R library of the run **on every run** by using a forked version of [actions/cache](https://github.com/actions/cache): [pat-s/always-upload-cache](https://github.com/pat-s/always-upload-cache).
+tic instead caches **the complete R library** of the run **on every run** by using a forked version of [actions/cache](https://github.com/actions/cache): [pat-s/always-upload-cache](https://github.com/pat-s/always-upload-cache).
 
 These differences have the advantage that packages which are needed for side-effects (like building a pkgdown site or running codecov) are cached too.
 Because caches are immutable, tic (needs to) rebuilds the cache **daily**.
