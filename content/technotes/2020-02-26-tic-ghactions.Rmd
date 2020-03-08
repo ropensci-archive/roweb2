@@ -35,7 +35,7 @@ Most services offer limited free build contingents for open-source projects.
 However, it has not been easy for the R community to jump on the train right away as most providers did not support the R language natively on their side.
 Therefore, the R community started to create their own configurations to quickly automate the checking of R packages on [Travis CI](https://travis-ci.com/).
 In fact, the first commit of the official `r.rb` build script was made on [Feb 1st 2015 by Craig Citro](https://github.com/travis-ci/travis-build/commit/c697bb2240cfc1abb92a95f57d2e72c151104431).
-Since then 21 unique contributors maintained this configuration under the meta-lead of [Jim Hester](https://github.com/jimhester) and [Jeroen Ooms](https://github.com/jeroen) and many thousand R package maintainers jumped onto the train.
+Since then 21 unique contributors have maintained this configuration under the meta-lead of [Jim Hester](https://github.com/jimhester) and [Jeroen Ooms](https://github.com/jeroen) which allowed many thousands of R package maintainers to jump onto the train.
 
 However, [Travis CI](https://travis-ci.com/) has it limits and therefore people started to try out other providers such as [Appveyor CI](https://www.appveyor.com/) or [Circle CI](https://circleci.com/).
 Besides having to start from scratch, all providers come with their own YAML keys and ways to set up deployment permissions.
