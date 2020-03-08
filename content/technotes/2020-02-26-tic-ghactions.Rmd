@@ -55,7 +55,7 @@ This is achieved by its helper packages such as circle, ghactions or travis whic
 
 ### GitHub Actions - the new kid on the block
 
-GitHub Actions (beta) is around since about one year.
+GitHub Actions (beta) has been around for about one year.
 The official release happened in [November 2019](https://siliconangle.com/2019/11/13/github-universe-announcements-bring-bevy-updates-developers/).
 The hype after the launch was huge: People are used to expect properly developed products from GitHub and having an integrated CI solution without the overhead of connecting to a third party provider sounded promising.
 
