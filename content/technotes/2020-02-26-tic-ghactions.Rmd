@@ -38,9 +38,9 @@ However, [Travis CI](https://travis-ci.com/) has it limits and therefore people 
 Besides having to start from scratch, all providers come with their own YAML keys and ways to set up deployment permissions.
 
 With the aim to simplify these processes for users, the tic package was created.
-It is aimed to provide a CI-agnostic way to check R packages.
-But not just R packages! 
-It also aims to simplify the creation of blogs, websites, [drat](https://github.com/eddelbuettel/drat) repositories and other things related to CI activities.
+It aims (among others goals) to provide a CI-agnostic way to check R packages.
+Besides packages tic also simplifies the creation of blogs, websites, [drat](https://github.com/eddelbuettel/drat) repositories and other things related to CI activities.
+Overall tic provides a domain-specific language (DSL) for CI stages/steps.
 
 By providing CI YAML templates which forward their actions to a centralized R script (`tic.R`), the same setup will trigger identical actions on different CI systems.
 The user does not need to worry about setting up the YAML file for a specific provider but just get familiarized with the "macro" approach of tic.
@@ -158,7 +158,7 @@ For a full example of the resulting YAML file you can have a look at our example
 
 ### Summary
 
-tic aims to simplify CI related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions.
+tic aims to simplify CI related tasks for various R projects and now provides supercharged support for GitHub Actions.
 By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks.
 
 If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html) one.
