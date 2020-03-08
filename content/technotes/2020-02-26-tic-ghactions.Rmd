@@ -156,7 +156,7 @@ tic::use_tic_r(repo_type = "package", deploy_on = "ghactions") # add tic.R
 use_tic_badge("ghactions") # (optional) add a badge to README.md/README.Rmd
 ```
 
-After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the repository.
+After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the GitHub repository.
 For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yml).
 
 ### Summary
