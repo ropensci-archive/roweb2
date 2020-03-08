@@ -173,4 +173,4 @@ We have plans to add an update mechanism in the future to simplify staying up-to
 [^1]: When writing this post, CRON events ("scheduled") are not supported from the caching actions.
   This is only a temporary state and will most likely change in the future.
   See [this issue](https://github.com/actions/cache/issues/63) for more information.
-[^2]: Since tic is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date.
+[^2]: Since [GitHub](https://github.com/ropensci/tic) is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date.
