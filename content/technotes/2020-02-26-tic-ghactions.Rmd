@@ -47,7 +47,7 @@ It also aims to simplify the creation of blogs, websites, [drat](https://github.
 
 By providing CI YAML templates which forward their actions to a centralized R script (`tic.R`), the same setup will trigger identical actions on different CI systems.
 The user does not need to worry about setting up the YAML file for a specific provider but just get familiarized with the "macro" approach of tic.
-[Macros](https://docs.ropensci.org/tic/articles/tic.html#macros) are sequences of steps for popular actions often requested by people in the R community for R related projects.
+[tic macros](https://docs.ropensci.org/tic/articles/tic.html#macros) are sequences of steps for popular actions often requested by people in the R community for R related projects.
 
 Furthermore tic aims to simplify the tedious process of setting up deployment permissions for a repo.
 ("Deployment" means that a CI run is allowed to perform a `git` push to the repository.)
