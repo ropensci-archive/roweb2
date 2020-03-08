@@ -32,7 +32,7 @@ Also, CI helps catch problems introduced by dependencies early when executed on 
 
 Multiple professional providers exist ([Travis CI](https://travis-ci.com/), [AppVeyor CI](https://www.appveyor.com/), [Circle CI](https://circleci.com/), etc.) which offer CI services to the public.
 Most services offer limited free build contingents for open-source projects.
-However, it has not been easy for the R community to jump on the train right away as most providers did not support the language natively on their side.
+However, it has not been easy for the R community to jump on the train right away as most providers did not support the R language natively on their side.
 Therefore, the R community started to create their own configurations to quickly automate the checking of R packages on [Travis CI](https://travis-ci.com/).
 In fact, the first commit of the official `r.rb` build script was made on [Feb 1st 2015 by Craig Citro](https://github.com/travis-ci/travis-build/commit/c697bb2240cfc1abb92a95f57d2e72c151104431).
 Since then 21 unique contributors maintained this configuration under the meta-lead of [Jim Hester](https://github.com/jimhester) and [Jeroen Ooms](https://github.com/jeroen) and many thousand R package maintainers jumped onto the train.
