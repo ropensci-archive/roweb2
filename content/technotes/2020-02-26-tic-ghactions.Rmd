@@ -69,7 +69,7 @@ Indeed, GitHub Actions fulfilled this promise: It is way easier to get started w
 However, R was again not among the languages with native support/examples, so it was not easy to get started.
 After a first shot from [Max Held](https://github.com/maxheld83) via the [ghactions](https://github.com/maxheld83/ghactions) package, [Jim Hester](https://github.com/jimhester) sat down again and created the [setup-r](https://github.com/r-lib/actions/tree/master/setup-r) actions which installs R on all avaialable platforms with the option to specify different R versions.
 
-While this action is already usable, its still in its early days and will mature over time.
+While this GitHub action is already usable, it's still in its early days and will mature over time.
 In tic we use [r-lib/setup-r](https://github.com/r-lib/actions/tree/master/setup-r) as the base combined with [r-lib/setup-pandoc](https://github.com/r-lib/actions/tree/master/setup-pandoc) and [r-lib/setup-tinytex](https://github.com/r-lib/actions/tree/master/setup-tinytex).
 We apply some opinionated changes on top of which we think enhance the CI setup substantially.
 In the following we explain these changes to be as transparent as possible.
