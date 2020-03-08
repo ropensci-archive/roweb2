@@ -19,6 +19,9 @@ tags:
   - GitHub
   - GitHub Actions
   - Continuous Integration
+  - software-peer-review
+  - tic
+  - community
 # The summary below will be used by e.g. Twitter cards
 description: "tic aims to simplify Continuous Integration (CI) related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions. By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks."
 ---
