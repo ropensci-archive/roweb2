@@ -164,7 +164,7 @@ For a full example of the resulting YAML file you can have a look at our example
 tic aims to simplify CI related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions.
 By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks.
 
-If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html) one.
+If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html).
 You can also open an issue in the repo if something does not work as planned.
 tic will keep improving the existing templates and its internal functionality[^1].
 
