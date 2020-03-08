@@ -76,7 +76,7 @@ In the following we explain these changes to be as transparent as possible.
 
 #### Caching
 
-By default [r-lib/actions](https://github.com/r-lib/actions) caches all direct dependencies of the package which is being tested on a successful run.
+When testing a package, by default [r-lib/actions](https://github.com/r-lib/actions) caches only **direct dependencies** and only on a **successful run**.
 This is done via action [actions/cache](https://github.com/actions/cache) by hashing a list of all package dependencies:
 
 ```{yml}
