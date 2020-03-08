@@ -40,7 +40,7 @@ Since then 21 unique contributors maintained this configuration under the meta-l
 However, [Travis CI](https://travis-ci.com/) has it limits and therefore people started to try out other providers such as [Appveyor CI](https://www.appveyor.com/) or [Circle CI](https://circleci.com/).
 Besides having to start from scratch, all providers come with their own YAML keys and ways to set up deployment permissions.
 
-With the aim to simplify these processes for users, the tic package was created.
+With the aim to simplify these processes for users, the [tic](https://github.com/ropensci/tic) package was created.
 It aims (among others goals) to provide a CI-agnostic way to check R packages.
 Besides packages tic also simplifies the creation of blogs, websites, [drat](https://github.com/eddelbuettel/drat) repositories and other things related to CI activities.
 Overall tic provides a domain-specific language (DSL) for CI stages/steps.
