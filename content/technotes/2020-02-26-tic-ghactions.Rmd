@@ -72,7 +72,7 @@ After a first shot from [Max Held](https://github.com/maxheld83) via the [ghacti
 While this GitHub action is already usable, it's still in its early days and will mature over time.
 In tic we use [r-lib/setup-r](https://github.com/r-lib/actions/tree/master/setup-r) as the base combined with [r-lib/setup-pandoc](https://github.com/r-lib/actions/tree/master/setup-pandoc) and [r-lib/setup-tinytex](https://github.com/r-lib/actions/tree/master/setup-tinytex).
 We apply some opinionated changes on top of which we think enhance the CI setup substantially.
-In the following we explain these changes to be as transparent as possible.
+In the following sections explain these changes to be as transparent as possible.
 
 #### Caching
 
@@ -145,7 +145,7 @@ tic reflects exactly this setting on the macOS-release and macOS-devel runners, 
     
 ### Getting Started
 
-If you are triggered now to try out tic and GitHub Actions, here is how to get started (alternatively you can also run `tic::use_tic()` to start an interactive wizard guiding you through the setup process):
+If you are triggered now to try out tic and GitHub Actions, here is how to get started (alternatively you can also run `tic::use_tic()` to start an interactive wizard which will guide you through the setup process):
 
 ```{r, eval=FALSE}
 library("tic")
@@ -156,7 +156,7 @@ tic::use_tic_r(repo_type = "package", deploy_on = "ghactions") # add tic.R
 use_tic_badge("ghactions") # (optional) add a badge to README.md/README.Rmd
 ```
 
-After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the repository.
+After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the GitHub repository.
 For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yml).
 
 ### Summary
@@ -164,7 +164,7 @@ For a full example of the resulting YAML file you can have a look at our example
 tic aims to simplify CI related tasks for various R projects and now provides supercharged support for GitHub Actions.
 By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks.
 
-If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html) one.
+If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html).
 You can also open an issue in the repo if something does not work as planned.
 tic will keep improving the existing templates and its internal functionality[^2].
 
