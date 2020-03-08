@@ -118,7 +118,7 @@ Users can change this behavior to their liking by changing the bash code that is
 ```
 
 The cache rebuilding happens in a scheduled CRON run daily at 3 am in the morning.
-Because tic always uploads the cache even if the build failed ([r-lib/actions](https://github.com/r-lib/actions) only uploads on a successful build), there will always be a cache available for builds which start during the day.
+Because tic always uploads the cache even if the build failed ([r-lib/actions](https://github.com/r-lib/actions) only uploads on a successful build), there will always be a cache available for builds which start during the day[^1].
 So even if the build of a repository takes several minutes to install all dependencies, the first commit being made every day will always make use of an existing cache.
 
 #### Installation of dependencies
@@ -166,8 +166,11 @@ By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) 
 
 If you encounter problems, please have a look at the vignettes of tic, especially the ["FAQ"](https://docs.ropensci.org/tic/articles/faq.html) one.
 You can also open an issue in the repo if something does not work as planned.
-tic will keep improving the existing templates and its internal functionality[^1].
+tic will keep improving the existing templates and its internal functionality[^2].
 
 We have plans to add an update mechanism in the future to simplify staying up-to-date with the latest template changes upstream - stay tuned!
 
-[^1]: Since tic is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date.
+[^1]: When writing this post, CRON events ("scheduled") are not supported from the caching actions.
+  This is only a temporary state and will most likely change in the future.
+  See [this issue](https://github.com/actions/cache/issues/63) for more information.
+[^2]: Since tic is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date.
