@@ -6,7 +6,7 @@ group 3. posts we're trying to automate embeds for, no topicid and newer than 20
   (to differentiate from older posts that also don't have topicid in their yaml)
 -->
 
-{{ with .topicid }}
+{{ with .Params.topicid }}
 <div class="col-offset-2 col-8 top-4">
   <div id='discourse-comments'></div>
     <script type="text/javascript">
@@ -20,12 +20,12 @@ group 3. posts we're trying to automate embeds for, no topicid and newer than 20
       </script>
         </div>
         {{ else }}
-      {{ if (gt .date.Year 2019) }}
+      {{ if (gt .year 2019) }}
       <div class="col-offset-2 col-8 top-4">
         <div id='discourse-comments'></div>
         <script type="text/javascript">
         DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
-          discourseEmbedUrl: {{ .Page.Permalink | absURL }} };
+          discourseEmbedUrl: {{ .permalink | absURL }} };
         (function() {
           var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
           d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
