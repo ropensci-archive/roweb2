@@ -7,6 +7,7 @@
 /rbloggers/ /rbloggers/index.xml
 /tech-notes /technotes
 /authors /author
+/authors/* /author/*
 /blog-pt	/blog
 /tutorials/taxize.html	/tutorials/taxize_tutorial
 /ambassadors /
