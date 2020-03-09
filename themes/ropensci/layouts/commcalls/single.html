@@ -80,7 +80,7 @@
 {{ end }}
                 </div>
 
-                {{ partial "comments.html" .Params }}
+                {{ partial "comments.html" (dict "Params" .Params "permalink" .Page.Permalink "year" (.Date.Format "2006") ) }}
             </div>
             <br>
         </div>
