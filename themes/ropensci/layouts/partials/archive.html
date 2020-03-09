@@ -4,8 +4,15 @@
         <ul class="allposts">
             <div class="row">
                 {{ range .pages }} {{ if .Params.author }}
+                {{ $authors := "blabla" }}
+{{ if eq (substr (jsonify .Params.author) 0 1) "[" }}
+{{ $authors = .Params.author }}
+{{ else }}
+{{ $authors = (slice .Params.author) }}
+{{ end }}
+
                 <div class="col-10" style="color: #7b869d">
-                    <p><a href="{{ .RelPermalink }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.author }}
+                    <p><a href="{{ .RelPermalink }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := $authors }}
   {{ if $index }}| 
   {{ end }}
   {{ $lc }}
