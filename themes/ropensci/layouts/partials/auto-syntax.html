@@ -1,7 +1,5 @@
  <!-- loads scripts for highlight JS -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-
     <script type="text/javascript">
     hljs.configure({languages: []});
     languages = hljs.listLanguages();
@@ -10,6 +8,7 @@
   document.querySelectorAll('pre code').forEach((block) => {
     // https://stackoverflow.com/a/14784348/5489251
     function loadScript(script_url, blocks){
+      // Once script loaded, highlight chunks
     return $.getScript(script_url).done(function(){
       for (const block of blocks) {
         hljs.highlightBlock(block);
@@ -18,6 +17,7 @@
 }
     var cleanname = block.className.replace("language-", "");
           if (!languages.includes(cleanname) && cleanname.length > 0) {
+            // Register language once for all blocks
             // https://stackoverflow.com/a/14784348/5489251
             var blocks = document.body.getElementsByClassName(block.className);
             loadScript('//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/' + cleanname + '.min.js', blocks);
