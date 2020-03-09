@@ -3,9 +3,9 @@
 
         <ul class="allposts">
             <div class="row">
-                {{ range .pages }} {{ if .Params.authors }}
+                {{ range .pages }} {{ if .Params.author }}
                 <div class="col-10" style="color: #7b869d">
-                    <p><a href="{{ .RelPermalink }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.authors }}
+                    <p><a href="{{ .RelPermalink }}">{{ .Title }}</a> – <small><i> {{ range $index, $lc := .Params.author }}
   {{ if $index }}| 
   {{ end }}
   {{ $lc }}

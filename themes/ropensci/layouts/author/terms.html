@@ -11,7 +11,7 @@
             <div class="col-8 col-offset-2 top-4">
 <ul>
     {{ range .Data.Terms.ByCount }}
-             {{ .Render "summary"}}<span> &#40;{{ .Count }}&#41; </span>
+            <a href="{{ .Page.Permalink }}">{{ .Page.Params.name }}</a><span> &#40;{{ .Count }}&#41; </span>
     {{ end }}
 </ul>
             </div>
