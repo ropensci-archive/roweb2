@@ -5,7 +5,6 @@ title: 'rOpenSci Vancouver Community Meetup: Transforming science through open d
 date: '2018-02-23'
 author:
   - Stefanie Butland
-categories: blog
 topicid: 1076
 tags:
   - community

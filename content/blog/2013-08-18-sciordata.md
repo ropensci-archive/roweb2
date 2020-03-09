@@ -4,7 +4,6 @@ title: Working with climate data from the web in R
 date: '2013-08-18'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - climate change
   - phenology

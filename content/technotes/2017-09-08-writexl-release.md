@@ -4,7 +4,6 @@ title: 'The writexl package: zero dependency xlsx writer for R'
 date: '2017-09-08'
 author:
   - Jeroen Ooms
-categories: technotes
 topicid: 859
 tags:
   - R

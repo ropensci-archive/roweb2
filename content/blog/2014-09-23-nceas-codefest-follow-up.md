@@ -5,7 +5,6 @@ date: '2014-09-23'
 author:
   - Scott Chamberlain
   - Ted Hart
-categories: blog
 tags:
   - R
   - conference

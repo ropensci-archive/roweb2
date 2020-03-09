@@ -7,7 +7,6 @@ author:
   - Matt Pennell
   - Amy Zanne
   - Will Cornwell
-categories: blog
 tags:
   - R
   - reproducible research

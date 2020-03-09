@@ -6,7 +6,6 @@ author:
 - Ilaria Prosdocimi
 - Sam Zipper
 date: '2019-04-02'
-categories: blog
 topicid: 1636
 tags:
 - hydrology

@@ -4,7 +4,6 @@ title: Announcing the rOpenSci Fellowships Program
 date: '2017-07-06'
 author:
   - Karthik Ram
-categories: blog
 topicid: 764
 tags:
   - fellowships

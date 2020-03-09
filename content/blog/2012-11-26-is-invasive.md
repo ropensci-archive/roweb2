@@ -3,7 +3,6 @@ slug: is-invasive
 title: is.invasive()
 date: '2012-11-26'
 author: Ignasi Bartomeus
-categories: blog
 tags:
   - R
   - taxize

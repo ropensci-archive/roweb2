@@ -5,7 +5,6 @@ date: '2018-05-08'
 package_version: 0.2.0
 author:
   - Evan Odell
-categories: technotes
 topicid: 1163
 tags:
   - R

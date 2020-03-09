@@ -4,7 +4,6 @@ title: Consuming article-level metrics
 date: '2013-08-01'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - altmetrics

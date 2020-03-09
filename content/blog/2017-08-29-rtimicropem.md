@@ -5,7 +5,6 @@ title: 'rtimicropem: Using an *R* package as platform for harmonized cleaning of
 date: '2017-08-29'
 author:
   - Maëlle Salmon
-categories: blog
 tags:
   - R
   - community

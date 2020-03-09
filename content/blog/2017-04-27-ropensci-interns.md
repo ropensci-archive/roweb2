@@ -5,7 +5,6 @@ date: '2017-04-27'
 author:
   - Scott Chamberlain
   - Stefanie Butland
-categories: blog
 topicid: 674
 tags:
   - community

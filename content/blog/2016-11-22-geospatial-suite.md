@@ -4,7 +4,6 @@ title: The rOpenSci geospatial suite
 date: '2016-11-22'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - geospatial

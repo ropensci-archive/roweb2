@@ -4,7 +4,6 @@ title: 'Announcing new software review editors: Anna Krystalli and Lincoln Mulle
 date: '2018-06-22'
 author:
   - Stefanie Butland
-categories: blog
 topicid: 1231
 tags:
   - community

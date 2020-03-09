@@ -6,7 +6,6 @@ author:
         url: https://github.com/mitchelloharawild
 date: '2018-05-15'
 output: ~
-categories: technotes
 topicid: 1173
 tags:
   - R

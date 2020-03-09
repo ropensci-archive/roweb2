@@ -6,7 +6,6 @@ author:
   - Kshitiz Gupta
   - Carl Boettiger
 date: '2019-05-28'
-categories: blog
 topicid: 1715
 tags:
 - Software Peer Review

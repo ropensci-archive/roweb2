@@ -5,7 +5,6 @@ package_version: 0.1.7
 author:
   - Sasha Goodman
 date: '2018-04-25'
-categories: blog
 topicid: 1150
 tags:
   - R

@@ -5,7 +5,6 @@ date: '2017-11-02'
 author:
   - Jeroen Ooms
   - Thomas Lin Pedersen
-categories: technotes
 topicid: 941
 tags:
   - R

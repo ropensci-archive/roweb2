@@ -7,7 +7,6 @@ author:
   - Mark Padgham
   - Karthik Ram
   - Noam Ross
-categories: blog
 topicid: 1892
 tags:
   - community

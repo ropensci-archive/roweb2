@@ -4,7 +4,6 @@ title: 'How to precompute package vignettes or pkgdown articles'
 date: '2019-12-08'
 author:
   - Jeroen Ooms
-categories: technotes
 topicid: 1893
 tags:
   - R

@@ -4,7 +4,6 @@ title: Caching API calls offline
 date: '2014-02-03'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

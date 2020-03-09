@@ -5,7 +5,6 @@ package_version: 1.0.4
 author:
   - George Moroz
 date: '2017-05-16'
-categories: blog
 topicid: 721
 tags:
   - R

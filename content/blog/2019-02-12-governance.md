@@ -4,7 +4,6 @@ title: Community Call Follow-up - Governance of Open Source Research Software Or
 author:
   - Dan Sholler
 date: '2019-02-12'
-categories: blog
 topicid: 1578
 tags:
   - governance

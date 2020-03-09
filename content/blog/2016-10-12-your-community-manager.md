@@ -4,7 +4,6 @@ title: Greetings from Your Community Manager!
 date: '2016-10-12'
 author:
   - Stefanie Butland
-categories: blog
 tags:
   - community
   - jobs

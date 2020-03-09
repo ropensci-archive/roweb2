@@ -5,7 +5,6 @@ package_version: 0.1.0
 author:
   - April Wright
 date: '2018-12-11'
-categories: blog
 topicid: 1513
 tags:
   - Software Peer Review

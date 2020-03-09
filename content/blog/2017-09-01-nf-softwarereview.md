@@ -10,7 +10,6 @@ author:
   - Scott Chamberlain
   - Karthik Ram
   - Maëlle Salmon
-categories: blog
 topicid: 850
 tags:
   - software
