@@ -4,7 +4,6 @@ title: "conditionz: control how many times conditions are thrown"
 date: 2019-04-24
 author:
   - Scott Chamberlain
-categories:
   - technotes
 topicid: 1680
 tags:

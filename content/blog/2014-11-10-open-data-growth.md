@@ -4,7 +4,6 @@ title: Growth of open data in biology
 date: '2014-11-10'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - data

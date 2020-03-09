@@ -7,7 +7,6 @@ author:
   - Stijn Van Hoey
   - Peter Desmet
 date: '2019-01-22'
-categories: blog
 topicid: 1553
 tags:
   - Software Peer Review

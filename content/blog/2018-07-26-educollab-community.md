@@ -19,7 +19,6 @@ author:
   - Alison Hill
   - Sean Kross
   - Lincoln Mullen
-categories: blog
 topicid: 1274
 tags:
   - R

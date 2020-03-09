@@ -7,7 +7,6 @@ author:
   - Noam Ross
   - Scott Chamberlain
   - Karthik Ram
-categories: blog
 topicid: 982
 tags:
   - software

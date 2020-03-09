@@ -8,7 +8,6 @@ preface: In this occasional series, we interview someone using a loosely defined
   Kelly O'Briant as part of an rOpenSci unconf17 project.
 author:
   - Kelly O'Briant
-categories: blog
 topicid: 921
 tags:
   - R

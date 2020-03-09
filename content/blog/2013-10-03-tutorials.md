@@ -4,7 +4,6 @@ title: A new tutorials setup
 date: '2013-10-03'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - help

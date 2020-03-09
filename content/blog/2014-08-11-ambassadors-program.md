@@ -4,7 +4,6 @@ title: Announcing our ambassadors program
 date: '2014-08-11'
 author:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - community

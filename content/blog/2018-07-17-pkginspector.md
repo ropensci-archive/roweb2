@@ -12,7 +12,6 @@ author:
   - Noam Ross
   - Omayma Said
 date: '2018-07-17'
-categories: blog
 topicid: 1262
 tags:
   - community

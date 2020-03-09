@@ -4,7 +4,6 @@ title: Chat with the rOpenSci team at upcoming meetings
 date: '2018-06-19'
 author:
   - Stefanie Butland
-categories: blog
 topicid: 1223
 tags:
   - community

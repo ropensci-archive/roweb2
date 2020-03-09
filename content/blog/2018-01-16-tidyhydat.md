@@ -5,7 +5,6 @@ package_version: 0.3.2
 author:
   - Sam Albers
 date: '2018-01-16'
-categories: blog
 topicid: 1030
 tags:
   - R

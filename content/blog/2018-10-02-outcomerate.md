@@ -5,7 +5,6 @@ package_version: 1.0.1
 author:
   - Rafael Pilliard Hellwig
 date: '2018-10-02'
-categories: blog
 topicid: 1381
 tags:
   - R

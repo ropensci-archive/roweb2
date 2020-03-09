@@ -4,7 +4,6 @@ title: New features in the most recent taxize update, v0.2
 date: '2014-02-19'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

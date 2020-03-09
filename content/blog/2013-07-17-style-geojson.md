@@ -4,7 +4,6 @@ title: Style GeoJSON
 date: '2013-07-17'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

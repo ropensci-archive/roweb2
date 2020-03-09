@@ -6,7 +6,6 @@ author:
   - Miles McBain
 date: '2017-07-05'
 topicid: 928
-categories: blog
 tags:
   - community
   - R

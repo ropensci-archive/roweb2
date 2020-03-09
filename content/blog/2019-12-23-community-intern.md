@@ -4,7 +4,6 @@ title: Want to Intern with rOpenSci’s Community Manager?
 author:
   - Stefanie Butland
 date: 2019-12-23
-categories: blog
 topicid: 1908
 tags:
   - R

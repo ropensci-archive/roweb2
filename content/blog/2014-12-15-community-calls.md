@@ -4,7 +4,6 @@ title: Community calls
 date: '2014-12-15'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - community
   - community call

@@ -4,7 +4,6 @@ title: 'nodbi: the NoSQL Database Connector'
 date: '2018-01-25'
 author:
   - name: Scott Chamberlain
-categories: technotes
 topicid: ~
 tags:
   - R

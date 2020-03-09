@@ -4,7 +4,6 @@ title: High Performance CommonMark and Github Markdown Rendering in R
 date: '2016-12-02'
 author:
   - Jeroen Ooms
-categories: blog
 tags:
   - packages
   - commonmark

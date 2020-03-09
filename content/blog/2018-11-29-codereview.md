@@ -8,7 +8,6 @@ author:
   - Carl Boettiger
   - Noam Ross
 date: '2018-11-29'
-categories: blog
 topicid: 1488
 preface: This post is a summary of our Community Call on "Code Review in the Lab,
   or ... How do you review code that accompanies a research project or paper?" held

@@ -4,7 +4,6 @@ title: Advanced Image-Processing in R with Magick, Part I
 date: '2016-08-23'
 author:
   - Jeroen Ooms
-categories: blog
 tags:
   - magick
   - graphics

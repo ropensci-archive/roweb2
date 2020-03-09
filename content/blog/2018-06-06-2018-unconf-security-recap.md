@@ -4,7 +4,6 @@ title: 'Unconf18 projects 2: middlechild, defender, ropsec, keybase'
 date: '2018-06-06'
 author:
   - Karthik Ram
-categories: blog
 topicid: 1200
 tags:
   - community

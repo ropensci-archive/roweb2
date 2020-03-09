@@ -6,7 +6,6 @@ package_version: 0.2.0
 author:
   - - - - - name: Evan Odell
             url: https://github.com/evanodell
-categories: technotes
 tags:
   - R
   - community

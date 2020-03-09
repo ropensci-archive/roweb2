@@ -5,7 +5,6 @@ title: 'Governance, Engagement, and Resistance in the Open Science Movement: A C
 date: '2017-10-06'
 author:
   - Dan Sholler
-categories: blog
 topicid: 911
 tags:
   - R

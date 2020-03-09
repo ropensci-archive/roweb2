@@ -5,7 +5,6 @@ date: '2014-08-08'
 author:
   - Scott Chamberlain
   - Karthik Ram
-categories: blog
 tags:
   - R
   - community

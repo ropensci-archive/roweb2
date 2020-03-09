@@ -4,7 +4,6 @@ title: Community Call - Maintaining an R Package
 date: '2020-03-04'
 author:
   - Steffi LaZerte
-categories: blog
 topicid: 1973
 tags:
   - community call

@@ -4,7 +4,6 @@ title: taxize changes
 date: '2013-11-19'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - taxonomy

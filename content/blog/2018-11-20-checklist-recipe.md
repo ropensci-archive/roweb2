@@ -6,7 +6,6 @@ author:
   - Damiano Oldoni
   - Lien Reyserhove
 date: '2018-11-20'
-categories: blog
 topicid: 1476
 tags:
   - template

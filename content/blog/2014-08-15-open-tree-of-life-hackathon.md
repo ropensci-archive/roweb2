@@ -4,7 +4,6 @@ title: rOpenSci at NESCent Open Tree of Life Hackathon
 date: '2014-08-15'
 author:
   - David Winter
-categories: blog
 tags:
   - R
   - conference

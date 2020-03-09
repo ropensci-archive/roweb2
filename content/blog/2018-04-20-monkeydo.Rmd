@@ -13,7 +13,6 @@ output:
     theme: yeti
   github_document:
     toc: no
-categories: blog
 tags:
   - Software Peer Review
   - community

@@ -4,7 +4,6 @@ title: "taxize: seven years of taxonomy in R"
 date: 2018-05-23
 author:
   - name: Scott Chamberlain
-categories:
   - technotes
 topicid: 1181
 tags:

@@ -4,7 +4,6 @@ title: Topic modeling in R
 author:
   - Carson Sievert
 date: '2014-04-16'
-categories: blog
 tags:
   - R
   - topic modeling

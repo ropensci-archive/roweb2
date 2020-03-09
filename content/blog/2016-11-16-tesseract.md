@@ -4,7 +4,6 @@ title: 'The new Tesseract package: High Quality OCR in R'
 date: '2016-11-16'
 author:
   - Jeroen Ooms
-categories: blog
 tags:
   - packages
   - tesseract

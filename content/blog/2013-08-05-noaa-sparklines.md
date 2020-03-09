@@ -4,7 +4,6 @@ title: NOAA climate sparklines
 date: '2013-08-05'
 author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - ecology

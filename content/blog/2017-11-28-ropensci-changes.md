@@ -5,7 +5,6 @@ date: '2017-11-28'
 author:
   - Anikó B. Tóth
   - Nick Golding
-categories: blog
 topicid: 980
 tags:
   - Australia

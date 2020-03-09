@@ -4,7 +4,6 @@ title: A guide to sustainability models for research software projects
 date: '2017-01-09'
 author:
   - Daniel S. Katz
-categories: blog
 tags:
   - community
   - sustainability
