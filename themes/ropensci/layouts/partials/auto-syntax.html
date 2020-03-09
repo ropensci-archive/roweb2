@@ -4,5 +4,18 @@
 
     <script type="text/javascript">
     hljs.configure({languages: []});
-    hljs.initHighlightingOnLoad();
+    languages = hljs.listLanguages();
+    document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    var cleanname = block.className.replace("language-", "");
+          if (!languages.includes(cleanname) && cleanname.length > 0) {
+            // https://stackoverflow.com/a/14521482/5489251
+            var script = document.createElement('script');
+            script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/'+cleanname+'.min.js';
+            document.head.appendChild(script);
+            languages.push(cleanname);
+          };
+          hljs.highlightBlock(block);
+          });
+});
     </script>
