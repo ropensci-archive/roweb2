@@ -7,12 +7,15 @@
     languages = hljs.listLanguages();
     document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('pre code').forEach((block) => {
+    function loadScript(script_url, block){
+    return $.getScript(script_url).done(function(){
+        hljs.highlightBlock(block)
+    });
+}
     var cleanname = block.className.replace("language-", "");
           if (!languages.includes(cleanname) && cleanname.length > 0) {
-            // https://stackoverflow.com/a/14521482/5489251
-            var script = document.createElement('script');
-            script.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/'+cleanname+'.min.js';
-            document.head.appendChild(script);
+            // https://stackoverflow.com/a/14784348/5489251
+            loadScript('//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/' + cleanname + '.min.js', block);
             languages.push(cleanname);
           };
           hljs.highlightBlock(block);
