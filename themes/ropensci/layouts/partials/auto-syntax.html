@@ -5,8 +5,10 @@
     <script type="text/javascript">
     hljs.configure({languages: []});
     languages = hljs.listLanguages();
+    // "Custom Initialization" in https://highlightjs.org/usage/
     document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('pre code').forEach((block) => {
+    // https://stackoverflow.com/a/14784348/5489251
     function loadScript(script_url, blocks){
     return $.getScript(script_url).done(function(){
       for (const block of blocks) {
