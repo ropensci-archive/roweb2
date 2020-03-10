@@ -35,8 +35,9 @@
                 {{ range .Params.tags }}
                     <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                 {{ end }}
-            </div>
+                <br>
             {{ partial "comments.html" (dict "Params" .Params "permalink" .Page.Permalink "year" (.Date.Format "2006") ) }}
+            </div>
 
         </div>
         <br>
