@@ -8,8 +8,6 @@ author:
   - Author Name2
 # Set the date below to the publication date of your post
 date: 2020-03-10
-# Leave topicid blank below; will be set by editor
-topicid:
 # Minimal tags for a post about a community-contributed package 
 # that has passed software peer review are listed below
 # Consult the Technical Guidelines for information on choosing tags
