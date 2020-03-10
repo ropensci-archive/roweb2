@@ -32,8 +32,8 @@ output:
     keep_md: true
 ---
 
-This is the R Markdown template for a blog post or tech note. 
-To generate your post without R Markdown, use that template instead.
+This is the R Markdown (.Rmd) template for a blog post or tech note. 
+To generate your post with just Markdown (.md), use that template instead.
 
 Throughout this template, including the YAML, 
 you should change "post-template" to the slug of your post, 
