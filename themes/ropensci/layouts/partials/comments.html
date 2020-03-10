@@ -7,7 +7,7 @@ group 3. posts we're trying to automate embeds for, no topicid and newer than 20
 -->
 
 {{ with .Params.topicid }}
-<div class="col-offset-2 col-8 top-4">
+<div class="top-4">
   <div id='discourse-comments'></div>
     <script type="text/javascript">
       DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
@@ -21,7 +21,7 @@ group 3. posts we're trying to automate embeds for, no topicid and newer than 20
         </div>
         {{ else }}
       {{ if (gt .year 2019) }}
-      <div class="col-offset-2 col-8 top-4">
+      <div class="top-4">
         <div id='discourse-comments'></div>
         <script type="text/javascript">
         DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
