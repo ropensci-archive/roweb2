@@ -1,7 +1,7 @@
 ---
 slug: mchtoolbox
 title: Exploring ways to address gaps in maternal-child health research
-authors:
+author:
   - Monica Gerber
   - Jennifer Thompson
   - Jenny Draper

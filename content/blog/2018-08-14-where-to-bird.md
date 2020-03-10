@@ -1,7 +1,7 @@
 ---
 title: Where to go observe birds in Radolfzell? An answer with R and open data
 slug: where-to-bird
-authors:
+author:
   - Maëlle Salmon
   - Mark Padgham
 date: '2018-08-14'

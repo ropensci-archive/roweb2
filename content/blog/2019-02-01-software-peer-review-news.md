@@ -2,7 +2,7 @@
 slug: software-review-news
 title: 'rOpenSci Software Peer Review: Still Improving'
 date: 2019-02-01
-authors:
+author:
   - Maëlle Salmon
   - Brooke Anderson
   - Scott Chamberlain

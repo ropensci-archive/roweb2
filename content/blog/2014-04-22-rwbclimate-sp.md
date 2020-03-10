@@ -2,7 +2,7 @@
 slug: rwbclimate-sp
 title: Overlaying species occurrence data with climate data
 date: '2014-04-22'
-authors:
+author:
   - Ted Hart
 tags:
   - R

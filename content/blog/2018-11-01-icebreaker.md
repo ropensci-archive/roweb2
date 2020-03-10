@@ -2,7 +2,7 @@
 slug: icebreaker
 title: Sharing the Recipe for rOpenSci's Unconf Ice Breaker
 date: '2018-11-01'
-authors:
+author:
   - Stefanie Butland
 topicid: 1436
 twitterImg: img/blog-images/2018-11-01-icebreaker/ropensci-unconf17-community-nistara-randhawa.jpg

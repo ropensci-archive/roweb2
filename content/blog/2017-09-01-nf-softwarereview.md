@@ -5,7 +5,7 @@ preface: This is cross-posted from the NumFOCUS blog. NumFOCUS is a nonprofit th
   supports and promotes world-class, innovative, open source scientific computing,
   including rOpenSci.
 date: '2017-09-01'
-authors:
+author:
   - Noam Ross
   - Scott Chamberlain
   - Karthik Ram

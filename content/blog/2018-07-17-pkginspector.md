@@ -4,7 +4,7 @@ title: What's inside? pkginspector provides helpful tools for inspecting package
 preface: This post describes a project from rOpenSci unconf18. In the spirit of exploration
   and experimentation at our unconferences, projects are not necessarily finished
   products or in scope for rOpenSci packages.
-authors:
+author:
   - Sam Albers
   - Leonardo Collado-Torres
   - Mauro Lepore

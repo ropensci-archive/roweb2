@@ -2,7 +2,7 @@
 slug: ecoengine
 title: Introducing the ecoengine package
 date: '2014-01-30'
-authors:
+author:
   - Karthik Ram
 tags:
   - R

@@ -2,7 +2,7 @@
 slug: rdefra-release-033
 title: Get air quality data for the United Kingdom using the rdefra package
 date: '2016-10-06'
-authors:
+author:
   - Claudia Vitolo
 tags:
   - R

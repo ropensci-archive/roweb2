@@ -6,7 +6,7 @@ preface: In this occasional series, we interview someone using a loosely defined
   of interview questions for the purpose of demystifying the creative and development
   processes of R community members. This interview was conducted by Sean Kross and
   prepared by Kelly O'Briant as part of an rOpenSci unconf17 project.
-authors:
+author:
   - Sean Kross
   - Kelly O'Briant
 topicid: 1060

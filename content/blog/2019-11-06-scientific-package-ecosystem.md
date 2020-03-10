@@ -2,7 +2,7 @@
 slug: scientific-package-ecosystem
 title: rOpenSci Announces a New Award From The Gordon and Betty Moore Foundation to Improve the Scientific Package Ecosystem for R
 date: '2019-11-06'
-authors:
+author:
   - Karthik Ram
 topicid: 1864
 tags:

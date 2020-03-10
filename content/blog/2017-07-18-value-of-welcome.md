@@ -2,7 +2,7 @@
 slug: value-of-welcome
 title: 'The Value of #Welcome'
 date: '2017-07-18'
-authors:
+author:
   - Stefanie Butland
 topicid: 776
 tags:

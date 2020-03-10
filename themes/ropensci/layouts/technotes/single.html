@@ -8,7 +8,7 @@
 
                 <div class="bottom-5 top-10" style="font-size: 20px; text-align: center;">
                     <p class="authors" style="text-align: center;">
-                        {{$authors := .Params.authors}}
+                        {{$authors := .Params.author}}
                             {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
                         <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
                     </p>

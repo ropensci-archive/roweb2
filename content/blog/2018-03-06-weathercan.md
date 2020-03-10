@@ -2,7 +2,7 @@
 slug: weathercan
 title: Integrating data from weathercan
 package_version: 0.2.5
-authors:
+author:
   - Steffi LaZerte
 date: '2018-03-06'
 topicid: 1086

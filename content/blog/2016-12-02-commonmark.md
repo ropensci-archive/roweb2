@@ -2,7 +2,7 @@
 slug: commonmark
 title: High Performance CommonMark and Github Markdown Rendering in R
 date: '2016-12-02'
-authors:
+author:
   - Jeroen Ooms
 tags:
   - packages

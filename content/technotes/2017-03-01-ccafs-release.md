@@ -2,7 +2,7 @@
 slug: ccafs-release
 title: ccafs - client for CCAFS General Circulation Models data
 date: '2017-03-01'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - R

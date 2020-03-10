@@ -2,7 +2,7 @@
 slug: gifski-release
 title: 'Gifski on CRAN: the fastest GIF encoder in the universe'
 date: '2018-07-23'
-authors:
+author:
   - Jeroen Ooms
 topicid: 1270
 cover: https://gif.ski/demo.gif

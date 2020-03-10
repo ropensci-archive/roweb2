@@ -1,7 +1,7 @@
 ---
 slug: peer-review-value
 title: Where is the value in package peer review?
-authors:
+author:
   - Miles McBain
 date: '2018-04-06'
 preface: This reflection on the value of package peer review is a cross-post of the

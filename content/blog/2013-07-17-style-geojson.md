@@ -2,7 +2,7 @@
 slug: style-geojson
 title: Style GeoJSON
 date: '2013-07-17'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - R

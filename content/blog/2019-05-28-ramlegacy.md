@@ -2,7 +2,7 @@
 slug: "ramlegacy"
 title: "ramlegacy: a package for RAM Legacy Database"
 package_version: 0.2.0
-authors:
+author:
   - Kshitiz Gupta
   - Carl Boettiger
 date: '2019-05-28'

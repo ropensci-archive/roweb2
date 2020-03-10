@@ -2,7 +2,7 @@
 slug: plater-blog-post
 title: From a million nested `ifelse`s to the plater package
 date: '2017-02-06'
-authors:
+author:
   - Sean Hughes
 tags:
   - packages

@@ -3,7 +3,7 @@ slug: qualtrics-relaunch
 title: Relaunching the qualtRics package
 package_version: 3.1.0
 date: '2019-04-30'
-authors:
+author:
   - Julia Silge
 topicid: 1682
 tags:

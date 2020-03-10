@@ -1,7 +1,7 @@
 ---
 slug: icon
 title: 'icon: web icons for rmarkdown'
-authors:
+author:
   - - - name: Mitchell O'Hara-Wild
         url: https://github.com/mitchelloharawild
 date: '2018-05-15'

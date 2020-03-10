@@ -2,7 +2,7 @@
 slug: nodbi
 title: 'nodbi: the NoSQL Database Connector'
 date: '2018-01-25'
-authors:
+author:
   - name: Scott Chamberlain
 topicid: ~
 tags:

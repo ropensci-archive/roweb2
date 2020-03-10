@@ -2,7 +2,7 @@
 slug: software-review
 title: 'Onboarding at rOpenSci: A Year in Reviews'
 date: '2016-03-28'
-authors:
+author:
   - Noam Ross
   - Carl Boettiger
   - Jenny Bryan

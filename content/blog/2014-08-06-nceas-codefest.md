@@ -2,7 +2,7 @@
 slug: nceas-codefest
 title: NCEAS Codefest
 date: '2014-08-06'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - R

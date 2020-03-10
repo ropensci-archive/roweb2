@@ -2,7 +2,7 @@
 slug: oaweek-rplos
 title: OA week - A simple use case for programmatic access to PLOS full text
 date: '2013-10-22'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - R

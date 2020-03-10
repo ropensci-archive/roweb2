@@ -2,7 +2,7 @@
 slug: first-review-experiences
 title: Experiences as a first time rOpenSci package reviewer
 date: '2017-09-08'
-authors:
+author:
   - Verena Haunschmid
 topicid: 861
 tags:

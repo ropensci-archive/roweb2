@@ -51,7 +51,7 @@
                         <div style="text-align: justify;" class = "top-5">
                             <p>🕓 {{ $beautifulstart }}. <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso={{ $start}}&p1=791&ah=1&msg={{ .Title | urlize}}" target="_blank">Find your timezone</a>.</p>
                             <div class="col-10 top-2 bottom-2">🎤
-                              {{$authors := .Params.authors}}
+                              {{$authors := .Params.author}}
                               {{ if gt (len $authors) 1}}
                             Speakers:
                             {{ else }}

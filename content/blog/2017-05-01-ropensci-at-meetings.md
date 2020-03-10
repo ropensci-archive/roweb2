@@ -2,7 +2,7 @@
 slug: ropensci-at-meetings
 title: Chat with the rOpenSci team at upcoming meetings
 date: '2017-05-01'
-authors:
+author:
   - Stefanie Butland
 topicid: 683
 tags:

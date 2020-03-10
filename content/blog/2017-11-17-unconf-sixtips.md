@@ -7,7 +7,7 @@ preface: I’m participating in the [AAAS Community Engagement Fellows Program](
   comprises 17 community managers working in a wide range of scientific communities.
   This is cross-posted from the [Trellis blog](https://www.cscce.org/2017/08/09/six-tips-for-running-a-successful-unconference/)
   as part of a series of reflections the Fellows are sharing.
-authors:
+author:
   - Stefanie Butland
 topicid: 968
 tags:

@@ -1,7 +1,7 @@
 ---
 slug: community
 title: Hey! You there! You are welcome here
-authors:
+author:
   - Shannon E. Ellis
 topicid: 755
 date: '2017-06-23'

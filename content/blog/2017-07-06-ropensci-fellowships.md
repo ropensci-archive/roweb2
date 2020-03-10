@@ -2,7 +2,7 @@
 slug: ropensci-fellowships
 title: Announcing the rOpenSci Fellowships Program
 date: '2017-07-06'
-authors:
+author:
   - Karthik Ram
 topicid: 764
 tags:

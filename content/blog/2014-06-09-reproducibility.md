@@ -2,7 +2,7 @@
 slug: reproducibility
 title: Reproducible research is still a challenge
 date: '2014-06-09'
-authors:
+author:
   - Rich FitzJohn
   - Matt Pennell
   - Amy Zanne

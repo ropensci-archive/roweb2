@@ -1,7 +1,7 @@
 ---
 slug: ode-to-testing
 title: An Ode to Testing, my first review
-authors:
+author:
   - Charles T. Gray
 date: '2018-03-13'
 topicid: 1093

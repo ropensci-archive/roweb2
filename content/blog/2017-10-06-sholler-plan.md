@@ -3,7 +3,7 @@ slug: sholler-plan
 title: 'Governance, Engagement, and Resistance in the Open Science Movement: A Comparative
   Study'
 date: '2017-10-06'
-authors:
+author:
   - Dan Sholler
 topicid: 911
 tags:

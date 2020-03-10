@@ -2,7 +2,7 @@
 slug: travis-osx
 title: Testing packages with R Travis for OS-X
 date: '2016-07-12'
-authors:
+author:
   - Jeroen Ooms
 tags:
   - travis

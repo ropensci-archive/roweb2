@@ -2,7 +2,7 @@
 slug: sciordata
 title: Working with climate data from the web in R
 date: '2013-08-18'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - climate change

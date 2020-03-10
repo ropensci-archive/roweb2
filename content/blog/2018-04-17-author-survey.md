@@ -2,7 +2,7 @@
 slug: author-survey
 title: The 2018 author and reviewer survey
 date: '2018-04-17'
-authors:
+author:
   - Karthik Ram
   - Noam Ross
   - Scott Chamberlain

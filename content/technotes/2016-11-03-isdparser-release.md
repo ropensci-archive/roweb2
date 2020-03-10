@@ -2,7 +2,7 @@
 slug: isdparser-release
 title: Parse NOAA Integrated Surface Data Files
 date: '2016-11-03'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - climate

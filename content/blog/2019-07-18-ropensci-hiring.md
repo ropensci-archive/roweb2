@@ -1,7 +1,7 @@
 ---
 slug: "ropensci-hiring"
 title: rOpenSci Hiring for New Position in Statistical Software Testing and Peer Review
-authors:
+author:
   - Karthik Ram
   - Noam Ross
 date: 2019-07-18

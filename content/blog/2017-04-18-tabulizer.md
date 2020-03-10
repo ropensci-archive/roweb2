@@ -1,7 +1,7 @@
 ---
 slug: tabulizer
 title: Release 'open' data from their PDF prisons using tabulizer
-authors:
+author:
   - Thomas J. Leeper
 topicid: 663
 date: '2017-04-18'

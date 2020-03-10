@@ -2,7 +2,7 @@
 slug: "webmockr-intro"
 title: "webmockr: mock HTTP requests"
 date: 2018-02-20
-authors:
+author:
   - name: Scott Chamberlain
   - technotes
 topicid: 1073

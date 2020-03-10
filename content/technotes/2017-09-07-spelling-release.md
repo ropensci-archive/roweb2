@@ -2,7 +2,7 @@
 slug: spelling-release
 title: 'Spelling 1.0: quick and effective spell checking in R'
 date: '2017-09-07'
-authors:
+author:
   - Jeroen Ooms
 topicid: 856
 tags:

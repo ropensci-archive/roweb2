@@ -2,7 +2,7 @@
 slug: dev-guide-update
 title: 'rOpenSci Dev Guide 0.2.0: Updates Inside and Out'
 date: 2019-05-16
-authors:
+author:
   - Maëlle Salmon
   - Brooke Anderson
   - Scott Chamberlain

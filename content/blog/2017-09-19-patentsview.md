@@ -1,7 +1,7 @@
 ---
 title: Accessing patent data with the patentsview package
 slug: patentsview
-authors:
+author:
   - Chris Baker
 date: '2017-09-19'
 topicid: 873

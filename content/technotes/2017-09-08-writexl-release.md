@@ -2,7 +2,7 @@
 slug: writexl-release
 title: 'The writexl package: zero dependency xlsx writer for R'
 date: '2017-09-08'
-authors:
+author:
   - Jeroen Ooms
 topicid: 859
 tags:

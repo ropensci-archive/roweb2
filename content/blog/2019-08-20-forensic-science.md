@@ -2,7 +2,7 @@
 slug: forensic-science
 title: "Introducing Open Forensic Science in R"
 #package_version: 0.1.0
-authors:
+author:
   - Sam Tyner
 date: 2019-08-20
 topicid: 1805

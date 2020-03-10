@@ -3,7 +3,7 @@ slug: commcallv12-review-coc
 title: 'Highlights and Resources from Community Call v12: How do I create a code of
   conduct for my event/lab/codebase?'
 date: '2016-12-21'
-authors:
+author:
   - Stefanie Butland
 tags:
   - community

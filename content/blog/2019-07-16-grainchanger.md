@@ -2,7 +2,7 @@
 slug: grainchanger
 title: Aggregating spatial data with the grainchanger package
 package_version: 0.2.0
-authors:
+author:
   - Laura Graham
 date: 2019-07-16
 topicid: 1772

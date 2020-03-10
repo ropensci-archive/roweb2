@@ -2,7 +2,7 @@
 slug: r-metadata
 title: Scholarly metadata in R
 date: '2013-03-15'
-authors:
+author:
   - Scott Chamberlain
 tags:
   - R

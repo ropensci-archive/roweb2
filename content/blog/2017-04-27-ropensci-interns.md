@@ -2,7 +2,7 @@
 slug: ropensci-interns
 title: Welcome to our rOpenSci Interns
 date: '2017-04-27'
-authors:
+author:
   - Scott Chamberlain
   - Stefanie Butland
 topicid: 674
