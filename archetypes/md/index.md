@@ -7,7 +7,7 @@ author:
   - Author Name1
   - Author Name2
 # Set the date below to the publication date of your post
-date: {{ .Date }}
+date: 2020-03-10
 # Leave topicid blank below; will be set by editor
 topicid:
 # Minimal tags for a post about a community-contributed package 
