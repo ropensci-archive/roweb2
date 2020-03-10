@@ -27,8 +27,8 @@ description: "A very short summary of your post (~ 100 characters)"
 twitterImg: blog/2019/06/04/post-template/name-of-image.png
 ---
 
-This is the markdown template for a blog post or tech note. 
-To generate your post from R Markdown, use that template instead.
+This is the Markdown (.md) template for a blog post or tech note. 
+To generate your post with R Markdown (.Rmd), use that template instead.
 
 Throughout this template, including the YAML, 
 you should change "post-template" to the slug of your post, 
