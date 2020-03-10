@@ -2,7 +2,7 @@
 slug: "urls-tidying"
 title: "We cleaned our website URLs with R!"
 date: 2019-12-19
-authors:
+author:
   - Maëlle Salmon
   - Scott Chamberlain
   - Stefanie Butland
