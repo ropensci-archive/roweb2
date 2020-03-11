@@ -61,7 +61,7 @@ The hype after the launch was huge: People expect properly developed products fr
 
 Indeed, GitHub Actions fulfilled this promise. It is way easier to get started with CI now: 
 
-- No extra account needs to be created for a third-pary service
+- No extra account needs to be created for a third-party service
 - No restrictions on the available build platforms
 - No issues related to webhooks of third-party providers
 - CI settings configurable via the repository settings
@@ -69,7 +69,7 @@ Indeed, GitHub Actions fulfilled this promise. It is way easier to get started w
 However, R was again not among the languages with native support/examples, so it was not easy to get started.
 After a first shot from [Max Held](https://github.com/maxheld83) via the [ghactions](https://github.com/maxheld83/ghactions) package, [Jim Hester](https://github.com/jimhester) sat down again and created the [setup-r](https://github.com/r-lib/actions/tree/master/setup-r) actions which installs R on all available platforms with the option to specify different R versions.
 
-While this GitHub action is already usable, it's still in its early days and will mature over time.
+While the setup-r GitHub action is already usable, it's still in its early days and will mature over time.
 In tic we use [r-lib/setup-r](https://github.com/r-lib/actions/tree/master/setup-r) as the base combined with [r-lib/setup-pandoc](https://github.com/r-lib/actions/tree/master/setup-pandoc) and [r-lib/setup-tinytex](https://github.com/r-lib/actions/tree/master/setup-tinytex).
 We apply some opinionated changes on top of which we think enhance the CI setup substantially.
 In the following sections explain these changes to be as transparent as possible.
@@ -137,7 +137,7 @@ One reason is that the default `/usr/bin/clang` does not support `openMP`.
 For the current R 3.6.x release a custom version of `clang7` is used while for R 4.x `clang8` will be used.
 tic reflects exactly this setting on the macOS-release and macOS-devel runners, eliminating lots of issues when compiling packages from source and giving you the security to have the CRAN setup mirrored in your builds.
 
-#### Addtional tweaks
+#### Additional tweaks
 
 - tic always runs `R CMD javareconf` to ensure a working installation of rJava.
 - tic uses four cores for installing dependencies instead of just running sequentially.
@@ -173,7 +173,7 @@ tic will keep improving the existing templates and its internal functionality[^2
 
 We have plans to add an update mechanism in the future to simplify staying up-to-date with the latest template changes upstream - stay tuned!
 
-### Acknowledgements
+### Acknowledgments
 
 We would like to thank the following reviewers for their valuable input during the [review process](https://github.com/ropensci/software-review/issues/305):
 
