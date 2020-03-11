@@ -6,7 +6,7 @@ package_version: 0.5.0
 authors:
   - Patrick Schratz
 # Set the date below to the publication date of your post
-date: 2020-02-26
+date: 2020-03-13
 # Set categories to technotes if this is a tech note
 categories: technotes
 # Leave topicid blank below; will be set by editor
@@ -77,7 +77,6 @@ In the following sections we explain these changes to be as transparent as possi
 
 When testing a package, by default [r-lib/actions](https://github.com/r-lib/actions) caches only **direct dependencies** and only on a **successful run**.
 This is done via action [actions/cache](https://github.com/actions/cache) by hashing a list of all package dependencies:
-
 
 ```yaml
 - name: Query dependencies
