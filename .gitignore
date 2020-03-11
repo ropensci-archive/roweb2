@@ -14,7 +14,6 @@ config.codekit3
 .Rproj.user
 .DS_Store
 .Rhistory
-*.Rproj
 content/blog/*.html
 .gitignore
 content/blog/*/index.html
