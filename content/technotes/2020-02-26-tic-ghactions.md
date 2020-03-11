@@ -79,7 +79,7 @@ When testing a package, by default [r-lib/actions](https://github.com/r-lib/acti
 This is done via action [actions/cache](https://github.com/actions/cache) by hashing a list of all package dependencies:
 
 
-```yml
+```yaml
 - name: Query dependencies
   run: |
     install.packages('remotes')
@@ -105,7 +105,7 @@ After some time all packages from the cache would be outdated, making the cache 
 Hence, tic rebuilds the cache daily.
 Users can change this time frequency to their liking by altering the bash code that is used to generate the timestamps (within the `run` line of the following code block):
 
-```yml
+```yaml
 - name: "[Cache] Prepare daily timestamp for cache"
   if: runner.os != 'Windows'
   id: date
@@ -152,13 +152,13 @@ If you are triggered now to try out tic and GitHub Actions, here is how to get s
 library("tic")
 
 use_ghactions_deploy() # (optional) setup deployment from builds
-use_ghactions_yml() # use deploy = TRUE to deploy from builds
+use_ghactions_yaml() # use deploy = TRUE to deploy from builds
 tic::use_tic_r(repo_type = "package", deploy_on = "ghactions") # add tic.R
 use_tic_badge("ghactions") # (optional) add a badge to README.md/README.Rmd
 ```
 
-After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the GitHub repository.
-For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yml).
+After that, commit `.github/workflows/main.yaml` and `tic.R` and have a look at the "Actions" pane in the GitHub repository.
+For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yaml).
 
 ### Summary
 
