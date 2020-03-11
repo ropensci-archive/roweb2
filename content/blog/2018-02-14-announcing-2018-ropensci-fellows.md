@@ -2,9 +2,8 @@
 slug: announcing-2018-ropensci-fellows
 title: Introducing the 2018 rOpenSci Research Fellows!
 date: '2018-02-14'
-authors:
+author:
   - Karthik Ram
-categories: blog
 topicid: 1066
 tags:
   - fellowships

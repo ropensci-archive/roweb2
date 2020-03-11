@@ -2,12 +2,10 @@
 slug: "urls-tidying"
 title: "We cleaned our website URLs with R!"
 date: 2019-12-19
-authors:
+author:
   - Maëlle Salmon
   - Scott Chamberlain
   - Stefanie Butland
-categories:
-  - technotes
 topicid: 1904
 description: How we corrected URLs in our website source (broken internal and external URLs, shortlinks, http scheme, etc.) using R tools (crul::ok(), commonmark, etc.) and some manual work.
 tags:

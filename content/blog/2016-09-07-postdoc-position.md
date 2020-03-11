@@ -2,9 +2,8 @@
 slug: postdoc-position
 title: Postdoctoral Scholar – Sustainable Software and Reproducible Research
 date: '2016-09-07'
-authors:
+author:
   - Karthik Ram
-categories: blog
 tags:
   - positions
   - postdoc

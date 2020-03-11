@@ -1,12 +1,11 @@
 ---
 slug: checklist-recipe
 title: Checklist Recipe - How we created a template to standardize species data
-authors:
+author:
   - Peter Desmet
   - Damiano Oldoni
   - Lien Reyserhove
 date: '2018-11-20'
-categories: blog
 topicid: 1476
 tags:
   - template

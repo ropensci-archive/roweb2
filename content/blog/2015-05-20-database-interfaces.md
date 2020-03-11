@@ -2,9 +2,8 @@
 slug: database-interfaces
 title: Database interfaces
 date: '2015-05-20'
-authors:
+author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - databases

@@ -2,7 +2,7 @@
 slug: monkeydo
 title: Monkeying around with Code and Paying it Forward
 package_version: 0.2.0
-authors:
+author:
   - name: Amanda Dobbyn
   - url: http://dobb.ae/
 date: '2018-04-20'
@@ -13,7 +13,6 @@ output:
     theme: yeti
   github_document:
     toc: no
-categories: blog
 tags:
   - Software Peer Review
   - community

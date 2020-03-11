@@ -2,10 +2,9 @@
 slug: restez
 title: 'restez: Query GenBank locally'
 package_version: 1.0.0
-authors:
+author:
   - Dom Bennett
 date: '2018-12-03'
-categories: technote
 topicid: 1494
 tags:
   - R

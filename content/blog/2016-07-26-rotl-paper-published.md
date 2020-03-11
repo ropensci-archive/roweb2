@@ -2,11 +2,10 @@
 slug: rotl-paper-published
 title: rotl paper published
 date: '2016-07-26'
-authors:
+author:
   - Francois Michonneau
   - Joseph Brown
   - David Winter
-categories: blog
 tags:
   - R
   - rotl

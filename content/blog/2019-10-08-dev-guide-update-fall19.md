@@ -2,7 +2,7 @@
 slug: dev-guide-update-fall19
 title: 'rOpenSci Dev Guide 0.3.0: Updates'
 date: 2019-10-08
-authors:
+author:
   - Scott Chamberlain
   - Brooke Anderson
   - Anna Krystalli
@@ -11,7 +11,6 @@ authors:
   - Noam Ross
   - Maëlle Salmon
   - Melina Vidoni
-categories: blog
 topicid: 1848
 tags:
   - Software Peer Review

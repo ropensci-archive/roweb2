@@ -1,7 +1,7 @@
 ---
 title: What have these birds been studied for? Querying science outputs with R
 slug: birds-science
-authors:
+author:
   - Maëlle Salmon
 date: '2018-09-11'
 topicid: 1347

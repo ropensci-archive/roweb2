@@ -1,14 +1,13 @@
 ---
 slug: packagemetrics
 title: packagemetrics - Helping you choose a package since runconf17
-authors:
+author:
   - Becca Krouse
   - Erin Grand
   - Hannah Frick
   - Lori Shepherd
   - Sam Firke
   - William Ampeh
-categories: blog
 topicid: 759
 date: '2017-06-27'
 tags:

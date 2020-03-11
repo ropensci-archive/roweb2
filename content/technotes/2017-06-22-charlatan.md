@@ -2,9 +2,8 @@
 slug: charlatan
 title: All the fake data that's fit to print
 date: '2017-06-22'
-authors:
+author:
   - Scott Chamberlain
-categories: technotes
 topicid: 754
 tags:
   - data

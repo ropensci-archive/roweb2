@@ -2,9 +2,8 @@
 slug: ropensci-geospatial-stack
 title: rOpenSci geospatial libraries
 date: '2016-03-17'
-authors:
+author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

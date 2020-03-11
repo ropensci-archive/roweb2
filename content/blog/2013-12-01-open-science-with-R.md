@@ -2,9 +2,8 @@
 slug: open-science-with-R
 title: Open Science with R
 date: '2013-12-02'
-authors:
+author:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - book

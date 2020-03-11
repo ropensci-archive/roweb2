@@ -2,9 +2,8 @@
 slug: value-of-welcome
 title: 'The Value of #Welcome'
 date: '2017-07-18'
-authors:
+author:
   - Stefanie Butland
-categories: blog
 topicid: 776
 tags:
   - community

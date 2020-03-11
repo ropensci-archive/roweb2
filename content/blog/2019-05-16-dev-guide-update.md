@@ -2,7 +2,7 @@
 slug: dev-guide-update
 title: 'rOpenSci Dev Guide 0.2.0: Updates Inside and Out'
 date: 2019-05-16
-authors:
+author:
   - Maëlle Salmon
   - Brooke Anderson
   - Scott Chamberlain
@@ -11,7 +11,6 @@ authors:
   - Karthik Ram
   - Noam Ross
   - Melina Vidoni
-categories: blog
 topicid: 1707
 tags:
   - Software Peer Review

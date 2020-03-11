@@ -1,9 +1,8 @@
 ---
 slug: rrricanes
 title: rrricanes to Access Tropical Cyclone Data
-authors:
+author:
   - Tim Trice
-categories: blog
 date: '2017-09-27'
 topicid: 887
 tags:

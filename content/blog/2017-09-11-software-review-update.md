@@ -2,12 +2,11 @@
 slug: software-review-update
 title: 'rOpenSci Software Review: Always Improving'
 date: '2017-09-11'
-authors:
+author:
   - Scott Chamberlain
   - Maëlle Salmon
   - Noam Ross
   - Karthik Ram
-categories: blog
 topicid: 863
 tags:
   - software

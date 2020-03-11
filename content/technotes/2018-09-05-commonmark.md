@@ -2,9 +2,8 @@
 slug: commonmark
 title: 'In praise of Commonmark: wrangle (R)Markdown files without regex'
 date: '2018-09-05'
-authors:
+author:
   - Maëlle Salmon
-categories: technotes
 topicid: 1319
 tags:
   - Markdown

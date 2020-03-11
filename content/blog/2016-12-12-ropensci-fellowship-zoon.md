@@ -2,10 +2,9 @@
 slug: ropensci-fellowship-zoon
 title: Announcing our first fellowship awarded to Dr. Nick Golding
 date: '2016-12-12'
-authors:
+author:
   - Stefanie Butland
   - Karthik Ram
-categories: blog
 tags:
   - community
   - fellowships

@@ -2,10 +2,9 @@
 slug: phylogram
 title: 'phylogram: dendrograms for evolutionary analysis'
 package_version: 2.1
-authors:
+author:
   - Shaun Wilkinson
 date: '2018-07-12'
-categories: technote
 topicid: 1256
 tags:
   - R

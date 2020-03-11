@@ -2,10 +2,9 @@
 slug: forensic-science
 title: "Introducing Open Forensic Science in R"
 #package_version: 0.1.0
-authors:
+author:
   - Sam Tyner
 date: 2019-08-20
-categories: blog
 topicid: 1805
 preface: This work was funded by a [2018 rOpenSci Research Fellowship](/blog/2018/02/14/announcing-2018-ropensci-fellows/) to Sam Tyner. See the [related post](https://forensicstats.org/news-posts/discover-forensic-applications-of-the-statistical-language-r-in-new-csafe-book) from the Center for Statistics and Applications in Forensic Evidence (CSAFE).
 tags:

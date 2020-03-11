@@ -2,11 +2,10 @@
 date: '2018-01-29'
 slug: rse-maëlle-salmon
 title: Introducing Maëlle Salmon, rOpenSci’s new Research Software Engineer
-authors:
+author:
   - Stefanie Butland
   - Scott Chamberlain
   - Maëlle Salmon
-categories: blog
 topicid: 1044
 tags:
   - community

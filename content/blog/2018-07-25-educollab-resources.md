@@ -11,7 +11,7 @@ preface: 'At the [5th annual rOpenSci unconference](https://unconf18.ropensci.or
   second of a three-post series about education and R, written by this group of unconf18
   participants. Read the first post about common pedagogical challenges [here](/blog/2018/07/24/educollab-challenges/),
   and how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd).'
-authors:
+author:
   - Laura Ación
   - Mara Averick
   - Leonardo Collado Torres
@@ -19,7 +19,6 @@ authors:
   - Alison Hill
   - Sean Kross
   - Lincoln Mullen
-categories: blog
 topicid: 1272
 tags:
   - R

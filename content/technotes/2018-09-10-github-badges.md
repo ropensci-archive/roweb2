@@ -2,9 +2,8 @@
 slug: github-badges
 title: 'All the Badges One Can Earn: Parsing Badges of CRAN Packages READMEs'
 date: '2018-09-10'
-authors:
+author:
   - Maëlle Salmon
-categories: technotes
 topicid: 1344
 tags:
   - Codemeta

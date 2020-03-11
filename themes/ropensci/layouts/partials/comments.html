@@ -1,0 +1,38 @@
+<!-- discourse comments -->
+<!-- 
+group 1. posts before discourse came along - no discourse embed code
+group 2. posts that have topicid in their yaml header - get discourse embed code with topocid
+group 3. posts we're trying to automate embeds for, no topicid and newer than 2019
+  (to differentiate from older posts that also don't have topicid in their yaml)
+-->
+
+{{ with .Params.topicid }}
+<div class="top-4">
+  <div id='discourse-comments'></div>
+    <script type="text/javascript">
+      DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
+        topicId: {{ . }} };
+      (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+      })();
+      </script>
+        </div>
+        {{ else }}
+      {{ if (gt .year 2019) }}
+      <div class="top-4">
+        <div id='discourse-comments'></div>
+        <script type="text/javascript">
+        DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
+          discourseEmbedUrl: {{ .permalink | absURL }} };
+        (function() {
+          var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+          d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+        })();
+  </script>
+        </div>
+          {{ end }}
+        {{ end }}
+

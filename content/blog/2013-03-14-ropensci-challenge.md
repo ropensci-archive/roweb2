@@ -2,7 +2,7 @@
 slug: ropensci-challenge
 title: The 2013 rOpenSci challenge
 date: '2013-03-14'
-authors:
+author:
   - Karthik Ram
 ---
 

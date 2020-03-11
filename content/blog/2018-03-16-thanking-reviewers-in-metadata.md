@@ -2,12 +2,11 @@
 slug: thanking-reviewers-in-metadata
 title: 'Thanking Your Reviewers: Gratitude through Semantic Metadata'
 date: '2018-03-16'
-authors:
+author:
   - Noam Ross
   - Maëlle Salmon
   - Karthik Ram
   - Scott Chamberlain
-categories: blog
 topicid: 1101
 tags:
   - community

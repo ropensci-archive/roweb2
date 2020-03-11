@@ -2,9 +2,8 @@
 slug: rgbif-update
 title: Changed and new things in the new version of rgbif, v0.5
 date: '2014-02-17'
-authors:
+author:
   - Scott Chamberlain
-categories: blog
 tags:
   - R
   - API

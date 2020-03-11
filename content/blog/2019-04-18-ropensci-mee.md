@@ -2,14 +2,13 @@
 slug: wild-standards
 title: When Standards Go Wild - Software Review for a Manuscript
 date: '2019-04-18'
-authors:
+author:
   - Stefanie Butland
   - Nick Golding
   - Chris Grieves
   - Hugo Gruson
   - Thomas White
   - Hao Ye
-categories: blog
 preface: This post is published on the [rOpenSci](/blog/) and [Methods in Ecology and Evolution](https://methodsblog.com/2019/04/18/ropensci-code-review-guidelines/) blogs
 topicid: 1675
 tags:

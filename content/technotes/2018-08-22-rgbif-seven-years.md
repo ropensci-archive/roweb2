@@ -2,9 +2,8 @@
 slug: rgbif-seven-years
 title: 'rgbif: seven years of GBIF in R'
 date: '2018-08-22'
-authors:
+author:
   - Scott Chamberlain
-categories: technotes
 topicid: 1307
 tags:
   - R

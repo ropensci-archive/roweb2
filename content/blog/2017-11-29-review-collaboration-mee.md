@@ -2,12 +2,11 @@
 slug: review-collaboration-mee
 title: Announcing a New rOpenSci Software Review Collaboration
 date: '2017-11-29'
-authors:
+author:
   - Maëlle Salmon
   - Noam Ross
   - Scott Chamberlain
   - Karthik Ram
-categories: blog
 topicid: 982
 tags:
   - software

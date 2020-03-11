@@ -2,9 +2,8 @@
 slug: introducing-befdata
 title: Introducing the BEFData package
 date: '2013-05-10'
-authors:
+author:
   - Karthik Ram
-categories: blog
 tags:
   - R
   - packages

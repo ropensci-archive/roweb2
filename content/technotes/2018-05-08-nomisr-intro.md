@@ -3,9 +3,8 @@ title: Nomisr - Access 'Nomis' UK Labour Market Data
 slug: nomisr
 date: '2018-05-08'
 package_version: 0.2.0
-authors:
+author:
   - Evan Odell
-categories: technotes
 topicid: 1163
 tags:
   - R

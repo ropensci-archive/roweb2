@@ -2,14 +2,13 @@
 slug: software-review
 title: 'Onboarding at rOpenSci: A Year in Reviews'
 date: '2016-03-28'
-authors:
+author:
   - Noam Ross
   - Carl Boettiger
   - Jenny Bryan
   - Scott Chamberlain
   - Rich FitzJohn
   - Karthik Ram
-categories: blog
 tags:
   - software
   - Software Peer Review

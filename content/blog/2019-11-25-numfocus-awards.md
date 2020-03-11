@@ -1,10 +1,9 @@
 ---
 slug: numfocus-awards
 title: NumFOCUS recognizes Melina Vidoni and Will Landau for their contributions to rOpenSci
-authors:
+author:
   - Stefanie Butland
 date: 2019-11-25
-categories: blog
 topicid: 1885
 tags:
 - R

@@ -1,9 +1,8 @@
 ---
 slug: a-drat-repository-for-ropensci
 title: A drat repository for rOpenSci
-authors:
+author:
   - Carl Boettiger
-categories: blog
 date: '2015-08-04'
 tags:
   - R

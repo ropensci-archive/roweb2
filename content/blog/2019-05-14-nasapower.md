@@ -2,10 +2,9 @@
 slug: nasapower
 title: "POWER to the People"
 date: '2019-05-14'
-authors:
+author:
   - Adam Sparks
 package_version: 1.1.1
-categories:
   - blog
 topicid: 1705
 tags:

@@ -2,10 +2,9 @@
 slug: expanding-software-review
 title: rOpenSci Announces $678K Award from the Sloan Foundation to Expand Software Peer Review
 date: '2019-07-15'
-authors:
+author:
   - Karthik Ram
   - Noam Ross
-categories: blog
 topicid: 1771
 tags:
   - grant

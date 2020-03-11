@@ -2,9 +2,8 @@
 slug: rWBclimate-maps
 title: Making maps of climate change
 date: '2013-07-19'
-authors:
+author:
   - Ted Hart
-categories: blog
 tags:
   - R
   - API

@@ -3,9 +3,8 @@ slug: ropensci-in-yvr
 title: 'rOpenSci Vancouver Community Meetup: Transforming science through open data
   and software'
 date: '2018-02-23'
-authors:
+author:
   - Stefanie Butland
-categories: blog
 topicid: 1076
 tags:
   - community

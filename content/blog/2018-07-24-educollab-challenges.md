@@ -10,7 +10,7 @@ preface: 'At the [5th annual rOpenSci unconference](https://unconf18.ropensci.or
   people interested and engaged in science education using R. This blog post is the
   first of a three-post series about education and R, written by this group of unconf18
   participants. Read about how to get involved [here](https://github.com/ropenscilabs/rOpenSciEd).'
-authors:
+author:
   - Laura Ación
   - Mara Averick
   - Leonardo Collado Torres
@@ -18,7 +18,6 @@ authors:
   - Alison Hill
   - Sean Kross
   - Lincoln Mullen
-categories: blog
 topicid: 1269
 tags:
   - R

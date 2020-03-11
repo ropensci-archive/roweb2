@@ -4,7 +4,7 @@ title = "rOpenSci - open tools for open science"
 theme = "ropensci"
 googleAnalytics = "UA-462421-6"
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$", "index\\.html"]
 footnotereturnlinkcontents = "↩"
 buildFuture = true
 preserveTaxonomyNames = true
@@ -26,10 +26,6 @@ rssLimit = 20
     url = "/about/"
     weight = 2
 [[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
-[[menu.main]]
     name = "Tags"
     url = "/tags/"
     weight = 4
@@ -47,12 +43,11 @@ rssLimit = 20
  
 [taxonomies]
   tag = "tags"
-  author = "authors"
+  author = "author"
   
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS", "JSON"]
-  category = ["HTML", "RSS", "JSON"]
   taxonomy = ["HTML", "RSS", "JSON"]
   taxonomyTerm = ["HTML", "RSS", "JSON"]
 

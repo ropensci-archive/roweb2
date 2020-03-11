@@ -2,9 +2,8 @@
 slug: your-community-manager
 title: Greetings from Your Community Manager!
 date: '2016-10-12'
-authors:
+author:
   - Stefanie Butland
-categories: blog
 tags:
   - community
   - jobs

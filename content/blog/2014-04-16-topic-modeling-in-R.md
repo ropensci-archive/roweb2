@@ -1,10 +1,9 @@
 ---
 slug: topic-modeling-in-R
 title: Topic modeling in R
-authors:
+author:
   - Carson Sievert
 date: '2014-04-16'
-categories: blog
 tags:
   - R
   - topic modeling

@@ -3,9 +3,8 @@ slug: "opentripplanner"
 title: "opentripplanner: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner"
 package_version: 0.2.0
 date: 2020-02-25
-authors:
+author:
   - Malcolm Morgan
-categories:
   - technotes
 topicid: 1966
 tags:

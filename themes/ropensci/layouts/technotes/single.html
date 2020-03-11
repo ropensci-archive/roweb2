@@ -8,38 +8,29 @@
 
                 <div class="bottom-5 top-10" style="font-size: 20px; text-align: center;">
                     <p class="authors" style="text-align: center;">
-                        {{$authors := .Params.authors}}
+                        {{$authors := .Params.author}}
                             {{ partial "authors.html" (dict "authors" $authors "Site" $.Site) }}
                         <small style="color: #5B617A; margin-left: 10px;"> {{ .Date.Format "January 2, 2006" | upper }}</small>
                     </p>
                 </div>
 
-                {{ .Content }}
+               
+            <div class="top-2">
 
-              <br> 
-            <div class="col-offset-2 col-8 top-4 labels" style="margin-left: 0px;">
+                {{ if .Params.preface }}
+                <div class="alert alert-info" role="alert">{{ .Params.preface | markdownify }}</div>
+                {{ end }}
+
+                {{ .Content }}
+            </div>
+            <br>
+            <div class="top-4 labels" style="margin-left: 0px;">
                 {{ range .Params.tags }}
                     <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span class="label">{{ . }}</span></a>
                 {{ end }}
-        </div>
         <br>
-
-
-                {{ if isset .Params "topicid" }}
-                <!-- discourse comments -->
-                <div class="top-4">
-                    <div id='discourse-comments'></div>
-                    <script type="text/javascript">
-                    DiscourseEmbed = { discourseUrl: 'https://discuss.ropensci.org/',
-                                       topicId: {{ .Params.topicid }} };
-                    (function() {
-                      var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-                      d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-                      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-                    })();
-                    </script>
-                </div>
-                {{ end }}
+ {{ partial "comments.html" (dict "Params" .Params "permalink" .Page.Permalink "year" (.Date.Format "2006") ) }}
+        </div>
             </div>
             {{ partial "technotebar.html" . }}
         </div>

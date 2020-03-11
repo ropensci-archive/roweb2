@@ -2,10 +2,9 @@
 slug: image-convolve
 title: Image Convolution in R using Magick
 date: '2017-11-02'
-authors:
+author:
   - Jeroen Ooms
   - Thomas Lin Pedersen
-categories: technotes
 topicid: 941
 tags:
   - R

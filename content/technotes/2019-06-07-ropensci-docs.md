@@ -2,9 +2,8 @@
 slug: ropensci-docs
 title: 'Introducing the new rOpenSci docs server'
 date: '2019-06-07'
-authors:
+author:
   - Jeroen Ooms
-categories: technotes
 topicid: 1729
 tags:
   - R
