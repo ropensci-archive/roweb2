@@ -103,8 +103,7 @@ If this didn't happen, every runner would otherwise always use the first cache f
 When packages are updated on CRAN, tic would download the cache first but then update those before proceeding to the "script" stage.
 After some time all packages from the cache would be outdated, making the cache useless.
 Hence, tic rebuilds the cache daily.
-Users can change this behavior to their liking by changing the bash code that is used to generate the timestamps used for caching:
-
+Users can change this time frequency to their liking by altering the bash code that is used to generate the timestamps (within the `run` line of the following code block):
 
 ```yml
 - name: "[Cache] Prepare daily timestamp for cache"
