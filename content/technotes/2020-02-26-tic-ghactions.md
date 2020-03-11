@@ -26,7 +26,7 @@ tags:
 description: "tic aims to simplify Continuous Integration (CI) related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions. By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks."
 ---
 
-Continuous Integration (CI) has become a standard for proper software development.
+["Continuous Integration"](https://en.wikipedia.org/wiki/Continuous_integration) (CI) has become a standard for proper software development.
 Checking the integrity of software after changes have been made is essential to ensure its proper functionality.
 Also, CI helps catch problems introduced by dependencies early when executed on a regular basis (usually done via scheduled [CRON](https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/) runs).
 
