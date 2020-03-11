@@ -173,7 +173,8 @@ tic will keep improving the existing templates and its internal functionality[^2
 
 We have plans to add an update mechanism in the future to simplify staying up-to-date with the latest template changes upstream - stay tuned!
 
-[^1]: When writing this post, CRON events ("scheduled") are not supported from the caching actions.
-  This is only a temporary state and will most likely change in the future.
+[^1]: At the time of writing this post, CRON events ("scheduled") are not supported from the caching actions.
+  This means that R packages installed during the nightly CRON build will not be cached and need to be installed again during the first real push of the day.
+  This is only a **temporary** state and will most likely change in the future so that users can make use of a cache which is build during sleep.
   See [this issue](https://github.com/actions/cache/issues/63) for more information.
 [^2]: Since [GitHub](https://github.com/ropensci/tic) is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date.
