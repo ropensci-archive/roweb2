@@ -23,7 +23,7 @@ tags:
   - tic
   - community
 # The summary below will be used by e.g. Twitter cards
-description: "tic aims to simplify Continuous Integration (CI) related tasks for R projects (not just packages by the way) and now provides supercharged support for GitHub Actions. By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks."
+description: "tic simplifies CI tasks for R projects and now provides supercharged support for GitHub Actions. By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks."
 ---
 
 ["Continuous Integration"](https://en.wikipedia.org/wiki/Continuous_integration) (CI) has become a standard for proper software development.
@@ -49,13 +49,12 @@ By providing CI YAML templates which forward their actions to a centralized R sc
 The user does not need to worry about setting up the YAML file for a specific provider but just get familiarized with the "macro" approach of tic.
 [tic macros](https://docs.ropensci.org/tic/articles/tic.html#macros) are sequences of steps for popular actions often requested by people in the R community for R related projects.
 
-Furthermore, tic aims to simplify the tedious process of setting up deployment permissions for a repo.
-("Deployment" means that a CI run is allowed to perform a `git` push to the repository.)
+Furthermore, tic aims to simplify the tedious process of setting up deployment permissions for a repo ("deployment" means that a CI run is allowed to perform a `git` push to the repository.)
 This is achieved by its helper packages such as circle, ghactions or travis which perform API calls to the respective CI providers.
 
 ### GitHub Actions - the new kid on the block
 
-GitHub Actions (beta) has been around for about one year.
+GitHub Actions (beta) have been around for about one year.
 The official release happened in [November 2019](https://siliconangle.com/2019/11/13/github-universe-announcements-bring-bevy-updates-developers/).
 The hype after the launch was huge: People expect properly developed products from GitHub and having an integrated CI solution without the overhead of connecting to a third party provider sounded promising.
 
@@ -67,12 +66,12 @@ Indeed, GitHub Actions fulfilled this promise. It is way easier to get started w
 - CI settings configurable via the repository settings
 
 However, R was again not among the languages with native support/examples, so it was not easy to get started.
-After a first shot from [Max Held](https://github.com/maxheld83) via the [ghactions](https://github.com/maxheld83/ghactions) package, [Jim Hester](https://github.com/jimhester) sat down again and created the [setup-r](https://github.com/r-lib/actions/tree/master/setup-r) actions which installs R on all available platforms with the option to specify different R versions.
+After a first shot from [Max Held](https://github.com/maxheld83) via the [ghactions](https://github.com/maxheld83/ghactions) package, [Jim Hester](https://github.com/jimhester) sat down again and created the [setup-r](https://github.com/r-lib/actions/tree/master/setup-r) action which installs R on all available platforms with the option to specify different R versions.
 
 While the setup-r GitHub action is already usable, it's still in its early days and will mature over time.
 In tic we use [r-lib/setup-r](https://github.com/r-lib/actions/tree/master/setup-r) as the base combined with [r-lib/setup-pandoc](https://github.com/r-lib/actions/tree/master/setup-pandoc) and [r-lib/setup-tinytex](https://github.com/r-lib/actions/tree/master/setup-tinytex).
-We apply some opinionated changes on top of which we think enhance the CI setup substantially.
-In the following sections explain these changes to be as transparent as possible.
+We apply some opinionated changes on top, which we think enhance the CI setup substantially.
+In the following sections we explain these changes to be as transparent as possible.
 
 #### Caching
 
@@ -100,7 +99,7 @@ tic instead caches **the complete R library** of the run **on every run** by usi
 
 These differences have the advantage that packages which are needed for side-effects (like building a pkgdown site or running codecov) are cached too.
 Because caches are immutable, tic (needs to) rebuilds the cache **daily**.
-If this would not happen, every runner would otherwise always use the first cache forever.
+If this didn't happen, every runner would otherwise always use the first cache forever.
 When packages are updated on CRAN, tic would download the cache first but then update those before proceeding to the "script" stage.
 After some time all packages from the cache would be outdated, making the cache useless.
 Hence, tic rebuilds the cache daily.
@@ -145,7 +144,7 @@ tic reflects exactly this setting on the macOS-release and macOS-devel runners, 
 - tic installs all packages from source on Linux instead of using the R package binaries provided by RStudio.
   This is to mimic the normal behavior on Linux and ensure a proper linking against system libraries.
     
-### Getting Started
+### Getting started
 
 If you are triggered now to try out tic and GitHub Actions, here is how to get started (alternatively you can also run `tic::use_tic()` to start an interactive wizard which will guide you through the setup process):
 
