@@ -3,7 +3,7 @@ slug: "tic-ghactions"
 title: Supercharge your GitHub Actions Experience with tic
 # Delete the package_version line below if your post is not about a package
 package_version: 0.5.0
-authors:
+author:
   - Patrick Schratz
 # Set the date below to the publication date of your post
 date: 2020-03-13
@@ -37,7 +37,7 @@ Therefore, the R community started to create their own configurations to quickly
 In fact, the first commit of the official `r.rb` build script was made on [Feb 1st 2015 by Craig Citro](https://github.com/travis-ci/travis-build/commit/c697bb2240cfc1abb92a95f57d2e72c151104431).
 Since then 21 unique contributors have maintained this configuration under the meta-lead of [Jim Hester](https://github.com/jimhester) and [Jeroen Ooms](https://github.com/jeroen) which allowed many thousands of R package maintainers to jump onto the train.
 
-However, [Travis CI](https://travis-ci.com/) has it limits and therefore people started to try out other providers such as [Appveyor CI](https://www.appveyor.com/) or [Circle CI](https://circleci.com/).
+However, [Travis CI](https://travis-ci.com/) has its limits and therefore people started to try out other providers such as [Appveyor CI](https://www.appveyor.com/) or [Circle CI](https://circleci.com/).
 Besides having to start from scratch, all providers come with their own YAML keys and ways to set up deployment permissions.
 
 With the aim to simplify these processes for users, the [tic](https://github.com/ropensci/tic) package was created.
@@ -151,20 +151,20 @@ If you are triggered now to try out tic and GitHub Actions, here is how to get s
 library("tic")
 
 use_ghactions_deploy() # (optional) setup deployment from builds
-use_ghactions_yaml() # use deploy = TRUE to deploy from builds
-tic::use_tic_r(repo_type = "package", deploy_on = "ghactions") # add tic.R
+use_ghactions_yml() # use deploy = TRUE to deploy from builds
+use_tic_r(repo_type = "package", deploy_on = "ghactions") # add tic.R
 use_tic_badge("ghactions") # (optional) add a badge to README.md/README.Rmd
 ```
 
-After that, commit `.github/workflows/main.yaml` and `tic.R` and have a look at the "Actions" pane in the GitHub repository.
-For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yaml).
+After that, commit `.github/workflows/main.yml` and `tic.R` and have a look at the "Actions" pane in the GitHub repository.
+For a full example of the resulting YAML file you can have a look at our example repository for packages [tic.package](https://github.com/ropenscilabs/tic.package/blob/25fe68d3d874a671e8a1350dfd47789d7dd19105/.github/workflows/main.yml).
 
 ### Summary
 
 tic aims to simplify CI related tasks for various R projects and now provides supercharged support for GitHub Actions.
 By enhancing the good work of [r-lib/actions](https://github.com/r-lib/actions) tic provides a DSL for R for CI tasks.
 
-tic currently differs to [r-lib/actions](https://github.com/r-lib/actions) in the way caching is done, which compiler toolchain is used for the macOS runners, how package/project dependecies are installed and how deployment is done.
+tic currently differs to [r-lib/actions](https://github.com/r-lib/actions) in the way caching is done, which compiler toolchain is used for the macOS runners, how package/project dependencies are installed and how deployment is done.
 Things might change in the future and possibly align more closely.
 However, since both projects have different goals and are developed asynchronously, there is no guarantee for this.
 You can see tic as a supercharged version of [r-lib/actions](https://github.com/r-lib/actions).
@@ -184,4 +184,4 @@ We would like to thank the following reviewers for their valuable input during t
 - [Max Held](https://www.maxheld.de/)
 
 [^1]: At the time of writing this post, CRON events ("scheduled") are not supported by the caching actions. This means that R packages installed during the nightly CRON build will not be cached and need to be installed again during the first real push of the day. This is not an issue of tic and there is nothing we can do but wait until this is supported. We will inform you in the [tic changelog](https://docs.ropensci.org/tic/news/index.html#tic-0509001) once this feature is supported. See [this issue](https://github.com/actions/cache/issues/63) for more information.
-[^2]: Since [GitHub](https://github.com/ropensci/tic) is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date. All important changes can be found in the ["Changelog"](https://docs.ropensci.org/tic/news/index.html) section of the pkgdown site. Alternatively you can follow the [Github releases](https://github.com/ropensci/tic/releases).
+[^2]: Since [tic](https://github.com/ropensci/tic) is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date. All important changes can be found in the ["Changelog"](https://docs.ropensci.org/tic/news/index.html) section of the pkgdown site. Alternatively you can follow the [Github releases](https://github.com/ropensci/tic/releases).
