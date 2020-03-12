@@ -179,8 +179,8 @@ We have plans to add an update mechanism in the future to simplify staying up-to
 
 We would like to thank the following reviewers for their valuable input during the [review process](https://github.com/ropensci/software-review/issues/305):
 
-- [Anna Krystalli](https://ropensci.org/author/anna-krystalli/)
-- [Laura DeCicco](https://ropensci.org/author/laura-decicco/)
+- [Anna Krystalli](/author/anna-krystalli/)
+- [Laura DeCicco](/author/laura-decicco/)
 - [Max Held](https://www.maxheld.de/)
 
 [^1]: At the time of writing this post, CRON events ("scheduled") are not supported by the caching actions. This means that R packages installed during the nightly CRON build will not be cached and need to be installed again during the first real push of the day. This is not an issue of tic and there is nothing we can do but wait until this is supported. We will inform you in the [tic changelog](https://docs.ropensci.org/tic/news/index.html#tic-0509001) once this feature is supported. See [this issue](https://github.com/actions/cache/issues/63) for more information.
