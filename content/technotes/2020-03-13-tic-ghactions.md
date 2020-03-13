@@ -177,11 +177,11 @@ We have plans to add an update mechanism in the future to simplify staying up-to
 
 ### Acknowledgments
 
-We would like to thank the following reviewers for their valuable input during the [review process](https://github.com/ropensci/software-review/issues/305):
+We would like to thank the following people for their valuable input during the [review process](https://github.com/ropensci/software-review/issues/305):
 
-- [Anna Krystalli](/author/anna-krystalli/)
-- [Laura DeCicco](/author/laura-decicco/)
-- [Max Held](https://www.maxheld.de/)
+- [Anna Krystalli](/author/anna-krystalli/) (editor)
+- [Laura DeCicco](/author/laura-decicco/) (reviewer)
+- [Max Held](https://www.maxheld.de/) (reviewer)
 
 [^1]: At the time of writing this post, CRON events ("scheduled") are not supported by the caching actions. This means that R packages installed during the nightly CRON build will not be cached and need to be installed again during the first real push of the day. This is not an issue of tic and there is nothing we can do but wait until this is supported. We will inform you in the [tic changelog](https://docs.ropensci.org/tic/news/index.html#tic-0509001) once this feature is supported. See [this issue](https://github.com/actions/cache/issues/63) for more information.
 [^2]: Since [tic](https://github.com/ropensci/tic) is not on CRAN yet, you have to watch the development on GitHub for now to stay up-to-date. All important changes can be found in the ["Changelog"](https://docs.ropensci.org/tic/news/index.html) section of the pkgdown site. Alternatively you can follow the [Github releases](https://github.com/ropensci/tic/releases).
