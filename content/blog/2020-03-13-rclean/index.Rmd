@@ -399,15 +399,16 @@ important aid for improving scientific reproducibility
 
 Although the current implementation of Rclean for minimizing code is
 useful on its own, we see promise in connecting it with other
-reproducibility tools. One example is the reprex package, which
-provides a simple API for sharing reproducible examples
-[@R-reprex]. Another possibility is to help transition scripts to
-function, package and workflow creation and refactoring via toolboxes
-like drake [@R-drake]. Rclean could provide a reliable way to
-extract parts of a larger script that would be piped to a simplified
-reproducible example, in the case of reprex, or, since it can
-isolate the code from inputs to one or more outputs, be used to
-extract all of the components needed to write one or more functions
+reproducibility tools. One example is the
+[reprex](https://reprex.tidyerse.org) package, which provides a simple
+API for sharing reproducible examples [@R-reprex]. Rclean could
+provide a reliable way to extract parts of a larger script that would
+be piped to a simplified reproducible example. Another possibility is
+to help transition scripts to functions, packages and workflows
+refactoring via toolboxes like
+[drake](https://docs.ropensci.org/drake) [@R-drake]. Since Rclean can
+isolate the code from inputs to one or more outputs, it could be used
+to extract all of the components needed to write one or more functions
 that would be a part of a package or workflow, as is the goal of
 drake.
 
