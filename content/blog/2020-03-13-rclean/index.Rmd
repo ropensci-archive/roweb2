@@ -100,6 +100,16 @@ library(devtools)
 install_github("ROpenSci/Rclean")
 
 ```
+If you do not already have
+[RGraphviz](https://bioconductor.org/packages/release/bioc/html/Rgraphviz.html),
+you will need to install it using the following code *before*
+installing [Rclean](https://docs.ropensci.org/rclean):
+
+```{R rgraphviz, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Rgraphviz")
+```
 
 ## Isolating Code for a Set of Results
 
