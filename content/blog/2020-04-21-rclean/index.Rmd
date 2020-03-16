@@ -1,12 +1,12 @@
 ---
-slug: "2020-03-13"
+slug: "rclean"
 title: Automatic Code Cleaning in R with Rclean
 # Delete the package_version line below if your post is not about a package
 package_version: 1.1.8
 author:
   - M.K. Lau
 # Set the date below to the publication date of your post
-date: 2020-03-13
+date: 2020-04-21
 # Minimal tags for a post about a community-contributed package 
 # that has passed software peer review are listed below
 # Consult the Technical Guidelines for information on choosing tags
@@ -18,6 +18,7 @@ tags:
   - reproducibility
   - transparency
   - clean code
+  - Rclean
 # the summary below will be used by e.g. Twitter cards
 description: "Automatic isolation of code for reproducing results in R."
 # If you have no preferred image for Twitter cards,
@@ -33,9 +34,35 @@ output:
 bibliography: refs.bib
 ---
 
-> Leave the code cleaner than you found it. 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = "", comment = "", cache = TRUE)
+knitr::knit_hooks$set(
+  plot = function(x, options) {
+    hugoopts <- options$hugoopts
+    paste0(
+      "{{<figure src=",
+      '"', x, '" ',
+      if (!is.null(hugoopts)) {
+        glue::glue_collapse(
+          glue::glue('{names(hugoopts)}="{hugoopts}"'),
+          sep = " "
+        )
+      },
+      ">}}\n"
+    )
+  }
+)
+library("RefManageR")
+mybib <- ReadBib("refs.bib", check = FALSE) 
+cite <- function(key, bib = mybib) {
+  RefManageR::NoCite(bib, key)
+  paste0("[^", key, "]")
+}
+```
 
--- R.C. Martin in *Clean Code*
+> Leave the code cleaner than you found it. 
+> 
+> -- R.C. Martin in *Clean Code*
 
 The R language has become very popular among scientists and analysts
 because it enables the rapid development of software and empowers
@@ -43,7 +70,7 @@ scientific investigation. However, regardless of the language used,
 data analysis is usually complicated. Because of various project
 complexities and time constraints, analytical software often reflects
 these challenges. "What did I measure? What analyses are relevant to
-them? Do I need to transform the data? What's the function for the
+the study? Do I need to transform the data? What's the function for the
 analysis I want to run?" Although many researchers see the value in
 learning to write software, the time investment for learning a
 programming language alone is still exceedingly high for many, let
@@ -53,7 +80,7 @@ a back-seat to just writing code that will get the job "done" leading
 to issues with transparency and software that is highly unstable
 (i.e. buggy and not reproducible).
 
-The goal of [Rclean](https://docs.ropensci.org/rclean) is to provide a
+The goal of the R package [Rclean](https://docs.ropensci.org/rclean) is to provide a
 automated tool to help scientists more easily write better
 code. Specifically, [Rclean](https://docs.ropensci.org/rclean) has
 been designed to facilitate the isolation of the code needed to
@@ -66,7 +93,7 @@ larger set of possible ways to explore a dataset. There are many
 statistical tests and visualizations and other representations that
 can be employed in a myriad of ways depending on how the data are
 processed. This commonly leads to lengthy, complicated scripts from
-which researchers manually subset results, but likely never to be
+which researchers manually subset results, but which are likely never to be
 refactored because of the difficulty in disentangling the code.
 
 The [Rclean](https://docs.ropensci.org/rclean) package uses a
@@ -76,23 +103,24 @@ refactoring for scientists that use R but do not have formal training
 in software design and specifically with the "art" of creating clean
 code, which in part is the development of an intuitive sense of how
 code is and/or should be organized. However, manually culling code is
-tedious and potentially leads to errors, and we see
+tedious and potentially leads to errors regardless of the level of
+expertise a coder might have; therefore, we see
 [Rclean](https://docs.ropensci.org/rclean) as a useful tool for
-everyone at all levels of coding ability in R. Here, we'll cover
+programming in R at any level of ability. Here, we'll cover
 details on the implementation and design of the package, a general
 example of how it can be used and thoughts on its future development.
 
-# How to Use Rclean to Write Cleaner Code
+### How to use rclean to write cleaner code
 
-## Installation
+#### Installation
 
-Through the helpful feedback from the ROpenSci community, the package
-has recently passed software review and a supporting article was
-recently published in the Journal of Open Source Software [@Lau2020],
+Through the helpful feedback from the rOpenSci community, the package
+has recently passed [software review](https://github.com/ropensci/software-review/issues/327) and a supporting article was
+recently published in the Journal of Open Source Software `r cite("Lau2020")`,
 in which you can find more details about the package. The package is
-hosted through the ROpenSci organization on Github, and the package
+hosted through the rOpenSci organization on GitHub, and the package
 can be installed using the [devtools](https://devtools.r-lib.org)
-library [@R-devtools] directly from the repository
+package `r cite("R-devtools")` directly from the repository
 (https://github.com/ROpenSci/Rclean).
 
 ```{R install, eval = FALSE}
@@ -111,7 +139,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("Rgraphviz")
 ```
 
-## Isolating Code for a Set of Results
+#### Isolating code for a set of results
 
 Analytical scripts that have not been refactored are often both long
 and complicated. However, a script doesn't need to be long to be
@@ -125,7 +153,6 @@ script.long <- system.file(
     "example", 
     "long_script.R", 
     package = "Rclean")
-script <- script.long
 
 ```
 
@@ -227,19 +254,23 @@ the test and finding all of the lines that were used to prepare them
 for the analysis would be annoying and difficult, especially given the
 fact that we have used "x" as a prefix for multiple unrelated objects
 in the script. However, [Rclean](https://docs.ropensci.org/rclean) can
-do this easily via the `clean` function.
+do this easily via the `clean()` function.
 
 ```{R long}
 library(Rclean)
+script <- system.file("example", 
+	"long_script.R", 
+	package = "Rclean")
 clean(script, "fit_sqrt_A")
 
 ```
 
 As you can see, [Rclean](https://docs.ropensci.org/rclean) has picked
-through the tangled bits of code and found the minimal set of lines
+through the tangled bits of code (in this case one of the example
+scripts inluded with the package) and found the minimal set of lines
 relevant to our object of interest. This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
-script using `keep`.
+script using `keep()`.
 
 ```{R ex-keep, eval = FALSE}
 fitSA <- clean(script, "fit_sqrt_A")
@@ -257,7 +288,7 @@ keep(fitSA, file = "fit_SA.R")
 
 ```
 
-To explore more possible variables to extract, the `get_vars` function
+To explore more possible variables to extract, the `get_vars()` function
 can be used to produce a list of the variables (aka. objects) that are
 created in the script.
 
@@ -269,18 +300,18 @@ get_vars(script)
 
 Especially when the code for different variables are entangled, it can
 be useful to visual the code in order to devise an approach to
-cleaning. The `code_graph` function can also give us a visual of the
+cleaning. The `code_graph()` function can also give us a visual of the
 code and the objects that they produce.
 
-```{R ex-code_graph, dpi = 300, fig.cap = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code."}
+```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700)}
 
 code_graph(script)
 
 ```
 
-After examining the output from `get_vars` and `code_graph`, it is
+After examining the output from `get_vars()` and `code_graph()`, it is
 possible that more than one object needs to be isolated. To do this is
-simple in `keep` by passing the set of desired objects to the *vars*
+simple in `keep()` by passing the set of desired objects to the *vars*
 argument.
 
 ```{R clean-mlti}
@@ -290,9 +321,9 @@ clean(script, vars = c("fit_sqrt_A", "fit_anova"))
 ```
 
 Currently, libraries can not be isolated directly during the cleaning
-process. So, the `get_libs` function provides a way to detect the
+process. So, the `get_libs()` function provides a way to detect the
 libraries for a given script. We just need to supply a file path and
-`get_libs` will return the libraries that are called by that script.
+`get_libs()` will return the libraries that are called by that script.
 
 ```{R ex-get_libs}
 
@@ -301,9 +332,9 @@ get_libs(script)
 ```
 
 
-# The Provenance Engine Under the Hood
+### The provenance engine under the hood
 
-The `clean` function provides an effective way to remove code that is
+The `clean()` function provides an effective way to remove code that is
 unwanted; however, many researchers are wary about doing this exact
 thing for at least a few reasons. Perhaps the top reason is that the
 main goal of an analysis is the results and taking time to craft
@@ -323,39 +354,38 @@ quality will increase.
 The process that [Rclean](https://docs.ropensci.org/rclean) uses
 relies on the generation of data provenance.  The term provenance
 means information about the origins of some object. Data provenance is
-a formal representation of the execution of a computational process
-(https://www.w3.org/TR/prov-dm/), to rigorously determine the the
-unique computational pathway from inputs to results [@Carata2014]. To
+a [formal representation of the execution of a computational process](https://www.w3.org/TR/prov-dm/), to rigorously determine the the
+unique computational pathway from inputs to results `r cite("Carata2014")`. To
 avoid confusion, note that "data" in this context is used in a broad
 sense to include all of the information generated during computation,
 not just the data that are collected in a research project that are
 used as input to an analysis. Having the formalized, mathematically
 rigorous representation that data provenance provides guarantees that
-the analyses that [Rclean](https://docs.ropensci.org/rclean) conducts
+analyses conducted by [Rclean](https://docs.ropensci.org/rclean) 
 are theoretically sound. Most importantly, because the relationships
 defined by the provenance can be represented as a graph, it is
 possible to apply network search algorithms to determine the minimum
 and sufficient code needed to generate the chosen result in the
-`clean` function.
+`clean()` function.
 
 There are multiple approaches to collecting data provenance, but
 [Rclean](https://docs.ropensci.org/rclean) uses "prospective"
-provenance, which analyzes code and uses language specific information
+provenance, which analyzes code and uses language-specific information
 to predict the relationship among processes and data
-objects. [Rclean](https://docs.ropensci.org/rclean) relies on a
-library called CodeDepends to gather the prospective provenance for
+objects. [Rclean](https://docs.ropensci.org/rclean) relies on an
+R package called CodeDepends to gather the prospective provenance for
 each script. For more information on the mechanics of the CodeDepends
-package, see [@R-CodeDepends]. To get an idea of what data provenance
-is, we can use `code_graph` function to get a graphical representation
+package, see `r cite("R-CodeDepends")`. To get an idea of what data provenance
+is, we can use the `code_graph()` function to get a graphical representation
 of the prospective provenance generated for
-[Rclean](https://docs.ropensci.org/rclean) \ref{fig:prov-graph}.
+[Rclean](https://docs.ropensci.org/rclean).
 
 ```{R load-script, echo = FALSE, results = "hide"}
 library(CodeDepends)
 library(Rclean)
 ```
 
-```{R prov-graph, dpi = 300, fig.cap = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbered) produced which objects (named).", echo = FALSE}
+```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate.", title = "provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), echo = FALSE}
 
 script <- system.file(
     "example", 
@@ -368,9 +398,9 @@ code_graph(script)
 All of this work with the provenance is to get the network
 representation of relationships among functions and objects. The
 provenance network is very powerful because we can now apply
-algorithms analyze the R script with respect to our results. This is
-what empowers the `clean` function, which takes the provenance and
-applies a a network search algorithm to determine the pathways leading
+algorithms to analyze the R script with respect to our results. This is
+what empowers the `clean()` function, which takes the provenance and
+applies a network search algorithm to determine the pathways leading
 from inputs to outputs. In the process any objects or lines of code
 that do not fall along that pathway are by definition not necessary to
 produce the desired set of results and can therefore be removed. As
@@ -390,20 +420,20 @@ lines. Also, comments occupying their own lines usually refer to the
 following lines, but this is also not necessarily the case either, as
 there is no "linguistic" requirement for this. Although
 [Rclean](https://docs.ropensci.org/rclean) cannot operate
-automatically on comments; however, comments in the original code
+automatically on comments, comments in the original code
 remain untouched and can be used to inform the reduced code. Also, as
-the `clean` function is oriented toward isolating code based on a
+the `clean()` function is oriented toward isolating code based on a
 specific result, the resulting code tends to naturally support the
 generation of new comments that are higher level (e.g. "The following
 produces a plot of the mean response of each treatment group."), and
 lower level comments are not necessary because the code is simpler and
-clearer. This process of comments is an important part of writing
+clearer. This process of commenting is an important part of writing
 better code. Lastly, although comments can serve an important role in
 coding, it is worth reflecting on the statement in R.C. Martin's book
 _Clean Code: A Handbook of Agile Software Craftsmanship_ where he
 writes that, "Comments do not compensate for bad code."
 
-# Concluding Remarks and Future Work
+### Concluding remarks and future work
 
 [Rclean](https://docs.ropensci.org/rclean) provides a simple, easy to
 use tool for scientists who would like help refactoring code. Using
@@ -413,20 +443,20 @@ table or figure written to disk) can be easily and *reliably* isolated
 even when tangled with code for other results. Tools, such as this,
 that make it easier to produce transparent, accessible code will be an
 important aid for improving scientific reproducibility
-[@Pasquier2017].
+`r cite("Pasquier2017")`.
 
 Although the current implementation of
 [Rclean](https://docs.ropensci.org/rclean) for minimizing code is
 useful on its own, we see promise in connecting it with other
 reproducibility tools. One example is the
-[reprex](https://reprex.tidyerse.org) package, which provides a simple
+[reprex](https://reprex.tidyverse.org) package, which provides a simple
 API for sharing reproducible examples
-[@R-reprex]. [Rclean](https://docs.ropensci.org/rclean) could provide
+`r cite("R-reprex")`. [Rclean](https://docs.ropensci.org/rclean) could provide
 a reliable way to extract parts of a larger script that would be piped
 to a simplified reproducible example. Another possibility is to help
 transition scripts to functions, packages and workflows refactoring
 via toolboxes like [drake](https://docs.ropensci.org/drake)
-[@R-drake]. Since [Rclean](https://docs.ropensci.org/rclean) can
+`r cite("R-drake")`. Since [Rclean](https://docs.ropensci.org/rclean) can
 isolate the code from inputs to one or more outputs, it could be used
 to extract all of the components needed to write one or more functions
 that would be a part of a package or workflow, as is the goal of
@@ -452,14 +482,31 @@ may present challenges, combining prospective and retrospective
 provenance methods could provide a powerful and flexible solution.
 
 We hope that [Rclean](https://docs.ropensci.org/rclean) makes writing
-scientific software easier for the R community. We look forward to the
-future progress of the package and other "code cleaning" tools. As an
-open-source project, we are very receptive to feedback and help with
-extending it. We invite people to use the package and get involved by
+scientific software easier for the R community. The package has
+already been significantly improved via the [rOpenSci review
+process](https://github.com/ropensci/software-review/issues/327),
+thnaks to the efforts of editor [Anna
+Krystalli](https://www.annakrystalli.me/) and reviewers, [Will
+Landau](https://wlandau.github.io/) and [Clemens
+Schmid](https://nevrome.de/). We look forward to the future progress
+of the package and other "code cleaning" tools. As an open-source
+project, we would like to encourage feedback and help with extending
+the package. We invite people to use the package and get involved by
 reporting bugs and suggesting or (hopefully) contributing
 features. For more information please visit the project page on
-Github.
+[GitHub](https://github.com/ropensci/Rclean).
 
-# References
-
-<!-- Use overleaf papers.bib + knitr::write_bib -->
+```{r bib, echo = FALSE, results = "asis"}
+get_doi <- function(paper) {
+  if (is.null(paper$doi)) {
+    ""
+  } else{
+    paste0(" , https://doi.org/", paper$doi)
+  }
+}
+apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
+    fmtPrefix = function(paper) paste0("[^", attr(paper,"key"), "]:"),
+    extraInfo = function(paper) paste0(paper$url, get_doi(paper)),
+    .init = TRUE)
+RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
+```
