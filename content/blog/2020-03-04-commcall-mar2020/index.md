@@ -41,11 +41,7 @@ Maintaining a piece of software is both a technical and social venture that can 
 
 🕘 **Wednesday, March 18, 9-10 AM PDT / 4-5 PM GMT** ([find your timezone](https://bit.ly/3ctkrQj))
 
-☎️ Everyone is welcome. No RSVP needed. You can use https://zoom.us/test to check that you are set up for audio and video.
-
-- Join Zoom Meeting on March 18th: <https://zoom.us/j/595631720>  
-- To join by phone, [find your local number](https://zoom.us/u/acO2ayYceg)
-- Meeting ID: 595 631 720
+☎️ Everyone is welcome. No RSVP needed. (This event has passed)
 
 🎥 After the Call, we’ll post the video and collaborative notes on the [archive page](/commcalls).
 
