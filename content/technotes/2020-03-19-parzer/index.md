@@ -1,13 +1,15 @@
 ---
 slug: "parzer"
-title: "parzer: parse messy geographic coordinates"
+title: "parzer: Parse Messy Geographic Coordinates"
 date: 2020-03-19
 author:
   - Scott Chamberlain
-description: xxxx.
+description: parzer, a new package for parsing messy geographic coordinates.
 tags:
   - geospatial
   - parzer
+  - software peer review
+  - R
 output: 
   md_document:
     variant: gfm
@@ -168,8 +170,15 @@ pz_d(-121) + pz_m(1) + pz_s(33)
 
 Check out the [parzer use
 cases](https://docs.ropensci.org/parzer/articles/use_cases.html)
-vignette on the docs site. Get in touch if you have a use case that
-might be good to add to that vignette.
+vignette on the docs site. [Get in
+touch](https://github.com/ropensci/parzer/issues) if you have a use case
+that might be good to add to that vignette.
+
+## Thanks
+
+Thanks to the reviewers [Maria Munafó](https://github.com/mvickm) and
+[Julien Brun](https://github.com/brunj7) for their time invested in
+improving the package.
 
 ## To Do
 
