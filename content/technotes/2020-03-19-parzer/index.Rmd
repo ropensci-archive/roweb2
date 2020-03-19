@@ -1,0 +1,43 @@
+---
+slug: "parzer"
+title: "parzer: parse messy geographic coordinates"
+date: 2020-03-19
+author:
+  - Scott Chamberlain
+description: xxxx.
+tags:
+  - geospatial
+  - parzer
+output: 
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+---
+
+[parzer][] is adfadf asdfa
+
+parzer motivation
+------------------
+
+{{< tweet 1070733367522590721 >}}
+
+
+Package basics
+------------------
+
+asdfasdfs
+
+```{r}
+'xxx'
+```
+
+Use cases
+------------------
+
+Check out the [parzer use cases][usecases] vignette on the docs site.
+Get in touch if you have a use case that might be good to add to that
+vignette.
+
+
+[parzer]: https://github.com/ropensci/parzer
+[usecases]: https://docs.ropensci.org/parzer/articles/use_cases.html
