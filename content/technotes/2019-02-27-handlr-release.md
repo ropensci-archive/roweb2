@@ -4,7 +4,6 @@ title: "handlr: convert among citation formats"
 date: 2019-02-27
 author:
   - Scott Chamberlain
-  - technotes
 topicid: 1598
 tags:
 - R

@@ -5,7 +5,6 @@ package_version: 1.1.2
 author:
   - Vikram B. Baliga
 date: 2019-11-14
-  - technotes
 topicid: 1879
 tags:
 - Software Peer Review

@@ -4,7 +4,6 @@ title: "HTTP testing in R: overview of tools and new features"
 date: 2019-12-11
 author:
   - Scott Chamberlain
-  - technotes
 topicid: 1900
 tags:
 - R
