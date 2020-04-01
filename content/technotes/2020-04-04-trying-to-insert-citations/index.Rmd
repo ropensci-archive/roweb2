@@ -1,0 +1,68 @@
+---
+title: Trying to Insert Citations
+author:
+  - Maëlle Salmon
+date: '2020-04-04'
+slug: trying-to-insert-citations
+categories: []
+tags:
+  - citation
+  - bibtex
+package_version: 0.1.0
+description: A very short summary of your post (~ 100 characters)
+output:
+  html_document:
+    keep_md: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = "", comment = "")
+
+knitr::knit_hooks$set(
+  plot = function(x, options) {
+    hugoopts <- options$hugoopts
+    paste0(
+      "{{<figure src=",
+      '"', x, '" ',
+      if (!is.null(hugoopts)) {
+        glue::glue_collapse(
+          glue::glue('{names(hugoopts)}="{hugoopts}"'),
+          sep = " "
+        )
+      },
+      ">}}\n"
+    )
+  }
+)
+library("RefManageR")
+
+mybib <- ReadBib("refs.bib", check = FALSE) 
+
+cite <- function(key, bib = mybib) {
+  RefManageR::NoCite(bib, key)
+  paste0("[^", key, "]")
+}
+```
+
+
+ah ok cool `r cite("drake2018")`, `r cite("Duncantl/CodeDepends:View")`
+ 
+blablablabla
+
+```{r bib, echo = FALSE, results = "asis"}
+lala <- capture.output(RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "draft")))
+lala[lala==""] <- "\n"
+lala <- glue::glue_collapse(lala, sep = " ")
+lala <- gsub("  ", " ", lala)
+lala <- unlist(strsplit(lala, "\n"))
+lala <- sub(
+  "\\*", "]:",
+  sub(
+    "\\*", "[^",
+    lala
+  )
+)
+glue::glue_collapse(lala, sep = "\n")
+
+```
