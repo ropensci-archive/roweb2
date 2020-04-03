@@ -1,10 +1,10 @@
 ---
 slug: "bookdown-learnings"
 title: 10 Things We Learned in Creating the Blog Guide with bookdown
-authors:
+author:
   - Stefanie Butland
   - Maëlle Salmon
-date: 2020-03-01
+date: 2020-04-07
 tags:
   - bookdown
   - usethis
@@ -237,9 +237,12 @@ So if bookdown doesn't really support having alternative text but no captions fo
 
 The lines above live with other styling stuff in a file called `style.css`, that we refer to in [the `_output.yml` config file](https://github.com/ropensci-org/blog-guidance/blob/cae5887f392b4137eec50467779e9bba973b0b69/_output.yml#L3).
 
-#### 5. How to deploy a preview of the book for PRs
+#### 5. How to deploy a preview of the book for pull requests
 
-I felt quite strongly about having some sort of CI/CD for the book. We achieved that using GitHub Actions, a new CI service by GitHub. If you're curious about it, I'd recommend watching [Jim Hester's talk from the RStudio conference earlier this year](https://resources.rstudio.com/rstudio-conf-2020/azure-pipelines-and-github-actions-jim-hester). Our GitHub Actions workflows make good use of [Jim Hester's actions and examples](https://github.com/r-lib/actions).
+I felt quite strongly about having some sort of CI/CD for the book: having each edit to the source automatically resulting in an updated deployed book is a much smoother -- and lazier -- workflow than having to remember to render the book myself. 
+We achieved that using [GitHub Actions](https://help.github.com/en/actions), a new CI service by GitHub. 
+If you're curious about it, I'd recommend watching [Jim Hester's talk from the RStudio conference earlier this year](https://resources.rstudio.com/rstudio-conf-2020/azure-pipelines-and-github-actions-jim-hester), and having a look at [the exploration book](https://ropenscilabs.github.io/actions_sandbox/) written by participants of the [Oz UnConf 2019](/blog/2020/02/05/ozunconf19/). 
+Our GitHub Actions workflows make good use of [Jim's actions and examples](https://github.com/r-lib/actions).
 
 Here's what we now have
 
@@ -298,12 +301,12 @@ jobs:
 </details>
 <br>
 
-* after each commit in a PR from a fork, the book is built so we'd notice something breaking the Rmd. [log example](https://github.com/ropensci-org/blog-guidance/runs/466995315?check_suite_focus=true);
+* after each commit in a pull request from a fork, the book is built so we'd notice something breaking the Rmd. [log example](https://github.com/ropensci-org/blog-guidance/runs/466995315?check_suite_focus=true);
 
-* after each commit in a PR from the repo, the book is built and deployed to a Netlify preview whose URL is posted in the PR checks. [Log example](https://github.com/ropensci-org/blog-guidance/runs/471968808?check_suite_focus=true), [Direct link to the check with the preview link](https://github.com/ropensci-org/blog-guidance/runs/471974005?check_suite_focus=true).
+* after each commit in a pull request from the repo, the book is built and deployed to a Netlify preview whose URL is posted in the pull request checks. [Log example](https://github.com/ropensci-org/blog-guidance/runs/471968808?check_suite_focus=true), [Direct link to the check with the preview link](https://github.com/ropensci-org/blog-guidance/runs/471974005?check_suite_focus=true).
 
 <details closed>
-<summary> <span title='Click to Expand'> PR workflow </span> </summary>
+<summary> <span title='Click to Expand'> pull request workflow </span> </summary>
 
 ```yaml
 
@@ -381,26 +384,26 @@ jobs:
 </details>
 <br>
 
-Highlights from the PR workflow above
+Highlights from the pull request workflow above
 
-* To deploy to Netlify _and_ get the preview URL, the workflow doesn't use Netlify's GitHub Actions but instead installs Netlify CLI, extracts the URL using `jq`[^4] and set it as an environment variable that can be used by next steps. I got the idea from [a thread on Netlify forum](https://community.netlify.com/t/deploying-preview-web-hook-via-api/3320/2).
+* To deploy to Netlify _and_ get the preview URL, the workflow doesn't use Netlify's GitHub Actions but instead installs Netlify CLI, extracts the URL using `jq`[^4] and sets it as an environment variable that can be used by next steps. I got the idea from [a thread on the Netlify forum](https://community.netlify.com/t/deploying-preview-web-hook-via-api/3320/2).
 
 ```yaml
 run: DEPLOY_URL=$(netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --dir=docs --json | jq '.deploy_url' --raw-output);echo "::set-env name=DEPLOY_URL::$DEPLOY_URL"
 ```
 
-* To post the preview URL in the PR, the workflow uses [a GitHub check run](https://developer.github.com/v3/checks/runs/). You can only create and patch them as a GitHub app. Luckily when in a GitHub Actions runner the default token has these permissions! My only regret is that trying to post the preview URL as a "details" URL for that check didn't work (GitHub resets it to the check page on GitHub Actions) but it's not too bad.
+* To post the preview URL in the pull request, the workflow uses [a GitHub check run](https://developer.github.com/v3/checks/runs/). You can only create and patch them as a GitHub app. Luckily when in a GitHub Actions runner the default token has these permissions! My only regret is that trying to post the preview URL as a "details" URL for that check didn't work (GitHub resets it to the check page on GitHub Actions) but it's not too bad.
 
-After the successful deployment of a preview, in the PR checks one check called "Preview book" appears.
+After the successful deployment of a preview, in the pull request checks one check called "Preview book" appears.
 
-<!--html_preserve--> {{< figure src = "PR-checks.png" width = "600" alt = "Screenshots of PR checks in a PR to the blog guide" >}}<!--/html_preserve-->
+<!--html_preserve--> {{< figure src = "PR-checks.png" width = "600" alt = "Screenshots of pull request checks in a pull request to the blog guide" >}}<!--/html_preserve-->
 
 When clicking on "Details" one gets to [a check page where the preview link is prominent](https://github.com/ropensci-org/blog-guidance/runs/471974005?check_suite_focus=true). 
 
 <!--html_preserve--> {{< figure src = "preview-check.png" width = "600" alt = "Screenshots of a GitHub Action check page featuring a Netlify preview link" >}}<!--/html_preserve-->
 
 
-* To find out whether the PR is from a fork (and to skip all deploy steps for that, since forks don't have access to the Netlify secrets saved in our repo settings), I use `jq` on the raw info about the build, idea I got [from Vanessa Sochat](https://github.com/r-universe/vsoch/blob/2bf10b1e30f59f5fab64ec2b7332526c47f1f4d3/.github/workflows/pull-request-update-packages.yml#L26).
+* We want to skip all deploy steps for pull requests _from forks_, since forks don't have access to the Netlify secrets[^5] saved in our repo settings. To find out whether the pull request is from a fork, I use `jq` on the raw info about the build, idea I got [from Vanessa Sochat](https://github.com/r-universe/vsoch/blob/2bf10b1e30f59f5fab64ec2b7332526c47f1f4d3/.github/workflows/pull-request-update-packages.yml#L26).
 
 ```yaml
       - name: Is this a fork
@@ -429,3 +432,4 @@ If _you_ want to get started with bookdown, we'd recommend [the bookdown book](h
 [^2]: Hat-tip to [Julia Stewart Lowndes](/author/julia-stewart-lowndes/) for using this phrasing to describe herself as if she read my mind.
 [^3]: [A tweet by Hadley Wickham about using the config file for ordering chapters rather than numbering their filenames](https://twitter.com/hadleywickham/status/1137317951428747270)
 [^4]: Maëlle discovered `jq` in [a blog post by Carl Boettiger](https://www.carlboettiger.info/2017/12/11/data-rectangling-with-jq/) and reported on her use of `jq` with rOpenSci `jqr` R package [in a blog post about getting data about Software Peer Review](/blog/2018/04/26/rectangling-onboarding/).
+[^5]: The secrets are the site ID and your Netlify access tokens. Refer to [Emil Hvitfeldt's walk-through](https://www.hvitfeldt.me/blog/bookdown-netlify-github-actions/) to see [where to find your site ID](https://www.hvitfeldt.me/blog/bookdown-netlify-github-actions/#create-netlify-site), how to [generate a token](https://www.hvitfeldt.me/blog/bookdown-netlify-github-actions/#get-a-netlify-personal-access-token), and how to [save both in the repo settings](https://www.hvitfeldt.me/blog/bookdown-netlify-github-actions/#store-your-secrets).
