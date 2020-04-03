@@ -38,7 +38,7 @@ Technically, we structured the content as a bookdown gitbook. It was Stef's firs
 
 There is a 9-hour time difference between Maëlle and me for most of the year. I'm in Kamloops, Canada and Maëlle is in Nancy, France. Since so much of this is new to me, text-based explanations from Maëlle via Slack usually boggled my mind. It helped immensely to have a weekly 30-minute  meeting (8:30am for Stef and 5:30pm for Maëlle) with agenda and notes in a shared google doc. We would talk through our approaches and priorities and Maëlle would coach me in new-to-me tools.
 
-At the end of a day, I would send a message to Maëlle on Slack to say "I’m finished for the day, can you please review and merge my pull requests?" or "Please review the structure but not the text yet". Next morning, Maëlle would have done that plus her own work so I could update my local copy of our bookdown book and open new pull requests for new pieces of work.
+At the end of a day, I would send a message to Maëlle on Slack to say _"I’m finished for the day, can you please review and merge my pull requests?"_ or _"Please review the structure but not the text yet"_. Next morning, Maëlle would have done that plus her own work so I could update my local copy of our bookdown book and open new pull requests for new pieces of work.
 
 Part way through the project, we got more strict about [assigning issues to ourselves](https://help.github.com/en/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users) and [tying them to specific milestones](https://help.github.com/en/github/managing-your-work-on-github/about-milestones) like ["official release"](https://github.com/ropensci-org/blog-guidance/milestone/3) or ["nice to have one day"](https://github.com/ropensci-org/blog-guidance/milestone/1). This helped us work asynchronously toward a common goal, showed some light at the end of the tunnel, as well as helping us (try to) avoid [scope-creep](https://en.wikipedia.org/wiki/Scope_creep).
 
@@ -58,7 +58,7 @@ In the process, I have become much more comfortable with installing packages as 
 Years ago I had already used [happygitwithR](https://happygitwithr.com/) to set up my git/GitHub from square-one and my https credentials.
 
 - Maëlle and I both worked on [feature branches of master](/blog/2018/04/20/monkeydo/#gitflow). 
-On any given day we each might work on mulitple chapters of the book. Because each book chapter is generated from one Rmd file (more on that in tip #4), and you don't want one pull request to be _too_ complex, I would create a separate feature branch for any chapter or file I worked on. I would periodically push my work to GitHub in a pull request (more in tip #3) with ["_Draft_" status](https://github.blog/2019-02-14-introducing-draft-pull-requests/) so Maëlle could see I was not yet seeking her review. At the end of a day's commits, I would update the pull request status to "_Ready for review_" and assign Maëlle as reviewer. She would review, edit, and merge my pull requests and open new branches of her own for me to review.
+On any given day we each might work on mulitple chapters of the book. Because each book chapter is generated from one Rmd file (more on that in [tip #4](#4-how-to-fill-up-a-bunch-of-rmd-files-to-make-a-book)), and you don't want one pull request to be _too_ complex, I would create a separate feature branch for any chapter or file I worked on. I would periodically push my work to GitHub in a pull request (more in [tip #3](#3-how-to-usethis)) with ["_Draft_" status](https://github.blog/2019-02-14-introducing-draft-pull-requests/) so Maëlle could see I was not yet seeking her review. At the end of a day's commits, I would update the pull request status to "_Ready for review_" and assign Maëlle as reviewer. She would review, edit, and merge my pull requests and open new branches of her own for me to review.
 
 - Adding "Fix #54" in a pull request description [automatically closes issue](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) #54 when the pull request is merged into master.
 
@@ -103,15 +103,15 @@ Consistently, within days I would take this hard-earned knowledge for granted an
 
 These bookdown books were helpful in exploring those comparisons:
 
-- rOpenSci Packages: Development, Maintenance, and Peer Review [source on GitHub](https://github.com/ropensci/dev_guide) _cf_ [deployed book](https://devguide.ropensci.org/)
+- rOpenSci Packages: Development, Maintenance, and Peer Review [source on GitHub](https://github.com/ropensci/dev_guide) _cf_ [deployed book](https://devguide.ropensci.org/);
 
-- R for Data Science [source on GitHub](https://github.com/hadley/r4ds) _cf_ [deployed book](https://r4ds.had.co.nz/)
+- R for Data Science [source on GitHub](https://github.com/hadley/r4ds) _cf_ [deployed book](https://r4ds.had.co.nz/).
 
 #### 5. How to ... everything
 
 What doesn't appear in this list of tips are all the things I've already forgotten that I had trouble with and learned to overcome by reading error messages and searching and poking at my setup until things worked. 
 Looking back in Slack conversations with Maëlle I see that setting up usethis to use my GitHub credentials and serving the bookdown preview using the RStudio Addin were tricky.
-But errors had a lot to do with making sure the packages I was using were up to date (thus my calendar reminder in tip #2) and needing to install the [development version of usethis](https://community.rstudio.com/t/trouble-with-credentials-in-usethis-pr-init/35136). 
+But errors had a lot to do with making sure the packages I was using were up to date (thus my calendar reminder in [tip #2](#2-how-to-collaborate-in-rstudio-github)) and needing to install the [development version of usethis](https://community.rstudio.com/t/trouble-with-credentials-in-usethis-pr-init/35136). 
 This humbling bookdown experience required me to figure out a whole new workflow and up my skills. 
 
 ### Maëlle (more experienced bookdowner)
@@ -239,7 +239,7 @@ The lines above live with other styling stuff in a file called `style.css`, that
 
 #### 5. How to deploy a preview of the book for pull requests
 
-I felt quite strongly about having some sort of CI/CD for the book: having each edit to the source automatically resulting in an updated deployed book is a much smoother -- and lazier -- workflow than having to remember to render the book myself. 
+I felt quite strongly about having some sort of CI/CD for the book: having each edit to the source automatically resulting in an updated deployed book is a much smoother -- and lazier -- workflow than having to remember to render the book ourselves. 
 We achieved that using [GitHub Actions](https://help.github.com/en/actions), a new CI service by GitHub. 
 If you're curious about it, I'd recommend watching [Jim Hester's talk from the RStudio conference earlier this year](https://resources.rstudio.com/rstudio-conf-2020/azure-pipelines-and-github-actions-jim-hester), and having a look at [the exploration book](https://ropenscilabs.github.io/actions_sandbox/) written by participants of the [Oz UnConf 2019](/blog/2020/02/05/ozunconf19/). 
 Our GitHub Actions workflows make good use of [Jim's actions and examples](https://github.com/r-lib/actions).
@@ -384,7 +384,7 @@ jobs:
 </details>
 <br>
 
-Highlights from the pull request workflow above
+Highlights from the pull request workflow above:
 
 * To deploy to Netlify _and_ get the preview URL, the workflow doesn't use Netlify's GitHub Actions but instead installs Netlify CLI, extracts the URL using `jq`[^4] and sets it as an environment variable that can be used by next steps. I got the idea from [a thread on the Netlify forum](https://community.netlify.com/t/deploying-preview-web-hook-via-api/3320/2).
 
@@ -394,7 +394,7 @@ run: DEPLOY_URL=$(netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${
 
 * To post the preview URL in the pull request, the workflow uses [a GitHub check run](https://developer.github.com/v3/checks/runs/). You can only create and patch them as a GitHub app. Luckily when in a GitHub Actions runner the default token has these permissions! My only regret is that trying to post the preview URL as a "details" URL for that check didn't work (GitHub resets it to the check page on GitHub Actions) but it's not too bad.
 
-After the successful deployment of a preview, in the pull request checks one check called "Preview book" appears.
+After the successful deployment of a preview, in the pull request checks, one check called "Preview book" appears.
 
 <!--html_preserve--> {{< figure src = "PR-checks.png" width = "600" alt = "Screenshots of pull request checks in a pull request to the blog guide" >}}<!--/html_preserve-->
 
