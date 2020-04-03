@@ -1,7 +1,7 @@
 ---
 slug: "devguide-release"
 title: 'rOpenSci Dev Guide 0.4.0: Updates'
-authors:
+author:
   - Maëlle Salmon
   - Brooke Anderson
   - Anna Krystalli
