@@ -11,7 +11,7 @@ tags:
   - spatial
   - geospatial
 description: A short post demonstrating how to use the R package auk to extract eBird data from within a study area defined by a polyon or Shapefile.
-twitterImg: 
+twitterImg: technotes/2020/04/16/ebird-polygon/plot-1.png
 output:
   html_document:
     keep_md: yes
