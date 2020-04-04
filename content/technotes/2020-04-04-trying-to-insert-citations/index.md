@@ -44,7 +44,7 @@ https://CRAN.R-project.org/package=reprex.
 [^Carata2014]: Carata L, Akoush S, Balakrishnan N, Bytheway T, Sohan R,
 Seltzer M, Hopper A (2014). "A Primer on Provenance." _Queue_, *12*(3),
 10-23. ISSN 15427730,
-http://dl.acm.org/citation.cfm?doid=2602649.2602651,
+http://dl.acm.org/citation.cfm?doid=2602649.2602651 ,
 https://doi.org/10.1145/2602649.2602651.
 
 [^R-drake]: Landau WM (2020). _drake: A Pipeline Toolkit for
@@ -53,13 +53,13 @@ https://CRAN.R-project.org/package=drake.
 
 [^Lau2020]: Lau M, Pasquier TFJ, Seltzer M (2020). "Rclean: A Tool for
 Writing Cleaner, More Transparent Code." _Journal of Open Source
-Software_, *5*(46), 1312. https://doi.org/10.21105/joss.01312,
+Software_, *5*(46), 1312. https://doi.org/10.21105/joss.01312 ,
 https://doi.org/10.21105/joss.01312.
 
 [^Pasquier2017]: Pasquier T, Lau MK, Trisovic A, Boose ER, Couturier B,
 Crosas M, Ellison AM, Gibson V, Jones CR, Seltzer M (2017). "If these
 data could talk." _Scientific Data_, *4*, 170114. ISSN 2052-4463,
-http://www.nature.com/articles/sdata2017114,
+http://www.nature.com/articles/sdata2017114 ,
 https://doi.org/10.1038/sdata.2017.114.
 
 [^R-CodeDepends]: Temple Lang D, Peng R, Nolan D, Becker G (2020).

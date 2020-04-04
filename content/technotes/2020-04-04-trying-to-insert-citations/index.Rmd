@@ -69,7 +69,7 @@ get_doi <- function(paper) {
   if (is.null(paper$doi)) {
     ""
   } else{
-    paste0(", https://doi.org/", paper$doi)
+    paste0(" , https://doi.org/", paper$doi)
   }
 }
 apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
