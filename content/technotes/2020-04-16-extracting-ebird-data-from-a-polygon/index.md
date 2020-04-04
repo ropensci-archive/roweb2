@@ -17,18 +17,18 @@ output:
     keep_md: yes
 ---
 
-_This tech note about the [peer-reviewed `auk` package](https://docs.ropensci.org/auk/) was first posted on [Matthew Strimas-Mackey's website](https://strimas.com/post/extracting-ebird-data-polygon/) and kindly contributed to this blog._
+_This tech note about the [peer-reviewed auk package](https://docs.ropensci.org/auk/) was first posted on [Matthew Strimas-Mackey's website](https://strimas.com/post/extracting-ebird-data-polygon/) and kindly contributed to this blog._
 
 
 
-One of the first things I took on when I started at the Cornell Lab of Ornithology was creating the [`auk` R package](https://cornelllabofornithology.github.io/auk/) for accessing eBird data. The entire eBird dataset can be downloaded as a massive text file, called the eBird Basic Dataset (EBD), and `auk` pulls out manageable chunks of the dataset based on various spatial, temporal, or taxonomic filters. I'm often asked "how do I extract data from within a polygon?" (usually "polygon" is replaced by "shapefile", but I try to avoid that word since there's [good reasons to stop using shapefiles](http://switchfromshapefile.org/)). Rather than answer these questions individually, I thought I'd do a quick post about how to do this with `auk`. Note that, at the time of posting, this requires `auk` version 	0.4.1 or higher, which can be installed with:
+One of the first things I took on when I started at the Cornell Lab of Ornithology was creating the [auk R package](https://cornelllabofornithology.github.io/auk/) for accessing eBird data. The entire eBird dataset can be downloaded as a massive text file, called the eBird Basic Dataset (EBD), and auk pulls out manageable chunks of the dataset based on various spatial, temporal, or taxonomic filters. I'm often asked "how do I extract data from within a polygon?" (usually "polygon" is replaced by "shapefile", but I try to avoid that word since there's [good reasons to stop using shapefiles](http://switchfromshapefile.org/)). Rather than answer these questions individually, I thought I'd do a quick post about how to do this with auk. Note that, at the time of posting, this requires auk version 	0.4.1 or higher, which can be installed with:
 
 
 ```r
 install.packages("auk")
 ```
 
-For more details on `auk` and eBird data in general, including how to get access to the EBD, it's worth reading the first two chapters of the [eBird Best Practices book](https://cornelllabofornithology.github.io/ebird-best-practices/). For the sake of speed and smaller file size, I'll be working on a subset of the EBD containing all Northern Bobwhite records from 2019, which I obtained using the [EBD custom download form](https://cornelllabofornithology.github.io/ebird-best-practices/ebird.html#ebird-size-custom), and you can [access here](https://github.com/mstrimas/strimasdotcom/raw/master/content/post/2020-04-02-extracting-ebird-data-polygon/ebd_norbob_201901_201912_relFeb-2020.zip). However, everything I'll show in this post works equally as well (just a lot slower!) on the full EBD. For this example, let's say we want to extract all records from within a polygon defining [Bird Conservation Region](https://nabci-us.org/resources/bird-conservation-regions/) 27 ([Southeastern Coastal Plains](https://nabci-us.org/resources/bird-conservation-regions-map/#bcr27)). A GeoPackage of this region is available on the GitHub repository for the eBird Best Practices book, [download it](https://github.com/CornellLabofOrnithology/ebird-best-practices/raw/master/data/gis-data.gpkg), place it in the `data/` subdirectory of your RStudio project, then load it into R with:
+For more details on auk and eBird data in general, including how to get access to the EBD, it's worth reading the first two chapters of the [eBird Best Practices book](https://cornelllabofornithology.github.io/ebird-best-practices/). For the sake of speed and smaller file size, I'll be working on a subset of the EBD containing all Northern Bobwhite records from 2019, which I obtained using the [EBD custom download form](https://cornelllabofornithology.github.io/ebird-best-practices/ebird.html#ebird-size-custom), and you can [access here](https://github.com/mstrimas/strimasdotcom/raw/master/content/post/2020-04-02-extracting-ebird-data-polygon/ebd_norbob_201901_201912_relFeb-2020.zip). However, everything I'll show in this post works equally as well (just a lot slower!) on the full EBD. For this example, let's say we want to extract all records from within a polygon defining [Bird Conservation Region](https://nabci-us.org/resources/bird-conservation-regions/) 27 ([Southeastern Coastal Plains](https://nabci-us.org/resources/bird-conservation-regions-map/#bcr27)). A GeoPackage of this region is available on the GitHub repository for the eBird Best Practices book, [download it](https://github.com/CornellLabofOrnithology/ebird-best-practices/raw/master/data/gis-data.gpkg), place it in the `data/` subdirectory of your RStudio project, then load it into R with:
 
 
 ```r
@@ -41,7 +41,7 @@ poly <- read_sf("data/gis-data.gpkg", layer = "bcr")
 
 If you have a shapefile, replace `"data/gis-data.gpkg"` with the path to your shapefile and omit `layer = "bcr"`. Now that we have a polygon, extracting eBird data is a two step process:
 
-1. Extract data from the EBD that's within a bounding box containing the polygons using the function `auk_bbox()`. This is necessary because due to the way `auk` works under the hood, it can only filter to ranges of latitudes and longitudes.
+1. Extract data from the EBD that's within a bounding box containing the polygons using the function `auk_bbox()`. This is necessary because due to the way auk works under the hood, it can only filter to ranges of latitudes and longitudes.
 2. Import the resulting data into R and further subset it to just the observations that fall within the polygon.
 
 Fortunately, step 1 is made easier by `auk_bbox()` accepting spatial `sf` or `raster` objects and automatically calculating the bounding box for you. For example, 
@@ -144,7 +144,9 @@ legend("top",
 
 Looks like it worked! We got just the points within the polygon as intended. Two final notes:
 
-1. If you're working with the full EBD (a 200+ GB file), you'll need to follow step 1 and subset the data using `auk` prior to importing into R. However, if you've used the custom download form to get an EBD subset, your file is likely small enough that you can read the data directly into R with `read_ebd()` and skip straight to step 2.
+1. If you're working with the full EBD (a 200+ GB file), you'll need to follow step 1 and subset the data using auk prior to importing into R. However, if you've used the custom download form to get an EBD subset, your file is likely small enough that you can read the data directly into R with `read_ebd()` and skip straight to step 2.
 2. If your intention is to eventually [zero-fill the EBD](https://cornelllabofornithology.github.io/ebird-best-practices/ebird.html#ebird-zf) to produce presence-absence data you'll need to include the sampling event data file in the `auk_ebd()`, subset both the EBD and sampling event data files separately to points within the polygon, the combine them together and zero-fill with `auk_zerofill()`.
+
+ auk users are welcome to submit issues on GitHub with bug reports or feature requests, or to [email me directly](https://github.com/CornellLabofOrnithology/auk/blob/88cf9a370adb8d7a106f07cd45003033c73edc8e/DESCRIPTION#L8). Should you be interested in contributing to auk, there is also a [vignette specifically for adding functionality to the package](https://docs.ropensci.org/auk/articles/development.html).
 
 
