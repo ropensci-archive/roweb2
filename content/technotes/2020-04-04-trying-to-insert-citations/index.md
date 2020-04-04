@@ -20,7 +20,7 @@ output:
 
 
 
-Through the helpful feedback from the ROpenSci community, the package
+Through the helpful feedback from the ROpenSci community[^ropensci], the package
 has recently passed software review and a supporting article was
 recently published in the Journal of Open Source Software [^Lau2020],
 in which you can find more details about the package. The package is
@@ -71,3 +71,5 @@ https://github.com/duncantl/CodeDepends>.
 [^R-devtools]: Wickham H, Hester J, Chang W (2019). _devtools: Tools to
 Make Developing R Packages Easier_. R package version 2.2.1, <URL:
 https://CRAN.R-project.org/package=devtools>.
+
+[^ropensci]: rOpenSci is cool, isn't it?
