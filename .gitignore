@@ -18,4 +18,4 @@ content/blog/*.html
 .gitignore
 content/blog/*/index.html
 content/technotes/*/index.html
-content/technotes/2020-04-16-extracting-ebird-data-from-a-polygon/ebd_norbob_201901_201912_relFeb-2020*
+content/technotes/2020-04-16-extracting-ebird-data-from-a-polygon/data*

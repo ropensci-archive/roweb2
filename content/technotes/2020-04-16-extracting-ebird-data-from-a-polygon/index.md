@@ -33,45 +33,10 @@ For more details on `auk` and eBird data in general, including how to get access
 
 ```r
 library(sf)
-```
-
-```
-Linking to GEOS 3.6.2, GDAL 2.2.3, PROJ 4.9.3
-```
-
-```r
 library(auk)
-```
-
-```
-auk 0.4.1 is designed for EBD files downloaded after 2019-08-15. 
-No EBD data directory set, see ?auk_set_ebd_path to set EBD_PATH 
-eBird taxonomy version:  2019
-```
-
-```r
 library(dplyr)
-```
 
-```
-
-Attaching package: 'dplyr'
-```
-
-```
-The following objects are masked from 'package:stats':
-
-    filter, lag
-```
-
-```
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union
-```
-
-```r
-poly <- read_sf("ebd_norbob_201901_201912_relFeb-2020/gis-data.gpkg", layer = "bcr")
+poly <- read_sf("data/gis-data.gpkg", layer = "bcr")
 ```
 
 If you have a shapefile, replace `"data/gis-data.gpkg"` with the path to your shapefile and omit `layer = "bcr"`. Now that we have a polygon, extracting eBird data is a two step process:
@@ -83,13 +48,13 @@ Fortunately, step 1 is made easier by `auk_bbox()` accepting spatial `sf` or `ra
 
 
 ```r
-auk_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
+auk_ebd("data/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
   auk_bbox(poly)
 ```
 
 ```
 Input 
-  EBD: /home/maelle/Documents/ropensci/roweb2/content/technotes/2020-04-16-extracting-ebird-data-from-a-polygon/ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_201901_201912_relFeb-2020.txt 
+  EBD: /home/maelle/Documents/ropensci/roweb2/content/technotes/2020-04-16-extracting-ebird-data-from-a-polygon/data/ebd_norbob_201901_201912_relFeb-2020.txt 
 
 Output 
   Filters not executed
@@ -115,8 +80,8 @@ Notice that the output of the above command says `Bounding box: Lon -91.6 - -75.
 
 
 ```r
-f_out <- "ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_poly.txt"
-auk_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
+f_out <- "data/ebd_norbob_poly.txt"
+auk_ebd("data/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
   # define filters
   auk_bbox(poly) %>% 
   auk_date(c("*-05-01", "*-08-31")) %>% 
@@ -129,7 +94,7 @@ The results were output to a file, which you can read in with `read_ebd()`.
 
 
 ```r
-ebd <- read_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_poly.txt")
+ebd <- read_ebd("data/ebd_norbob_poly.txt")
 ```
 
 The data are now in a data frame and it's time to proceed to step 2: further subset the data to only keep points within the polygon. First we'll convert this data frame to a spatial `sf` object using the `latitude` and `longitude` columns, then well use `st_within()` to identify the points within the polygon, and use this to subset the data frame. Note that we have to be careful with our coordinate reference system here: `crs = 4326` specifies that the EBD data are in unprojected, lat-long coordinates and we use `st_transform()` to ensure the polygons and points are in the coordinate reference system.
@@ -175,7 +140,7 @@ legend("top",
        ncol = 2)
 ```
 
-{{<figure src="plot-1.png" >}}
+{{<figure src="plot-1.png" alt="map of all occurrences, with the polygon in grey, and the points kept after spatial subsetting in green">}}
 
 Looks like it worked! We got just the points within the polygon as intended. Two final notes:
 

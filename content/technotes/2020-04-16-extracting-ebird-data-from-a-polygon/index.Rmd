@@ -49,12 +49,12 @@ install.packages("auk")
 
 For more details on `auk` and eBird data in general, including how to get access to the EBD, it's worth reading the first two chapters of the [eBird Best Practices book](https://cornelllabofornithology.github.io/ebird-best-practices/). For the sake of speed and smaller file size, I'll be working on a subset of the EBD containing all Northern Bobwhite records from 2019, which I obtained using the [EBD custom download form](https://cornelllabofornithology.github.io/ebird-best-practices/ebird.html#ebird-size-custom), and you can [access here](https://github.com/mstrimas/strimasdotcom/raw/master/content/post/2020-04-02-extracting-ebird-data-polygon/ebd_norbob_201901_201912_relFeb-2020.zip). However, everything I'll show in this post works equally as well (just a lot slower!) on the full EBD. For this example, let's say we want to extract all records from within a polygon defining [Bird Conservation Region](https://nabci-us.org/resources/bird-conservation-regions/) 27 ([Southeastern Coastal Plains](https://nabci-us.org/resources/bird-conservation-regions-map/#bcr27)). A GeoPackage of this region is available on the GitHub repository for the eBird Best Practices book, [download it](https://github.com/CornellLabofOrnithology/ebird-best-practices/raw/master/data/gis-data.gpkg), place it in the `data/` subdirectory of your RStudio project, then load it into R with:
 
-```{r polygon}
+```{r polygon, message = FALSE}
 library(sf)
 library(auk)
 library(dplyr)
 
-poly <- read_sf("ebd_norbob_201901_201912_relFeb-2020/gis-data.gpkg", layer = "bcr")
+poly <- read_sf("data/gis-data.gpkg", layer = "bcr")
 ```
 
 If you have a shapefile, replace `"data/gis-data.gpkg"` with the path to your shapefile and omit `layer = "bcr"`. Now that we have a polygon, extracting eBird data is a two step process:
@@ -65,15 +65,15 @@ If you have a shapefile, replace `"data/gis-data.gpkg"` with the path to your sh
 Fortunately, step 1 is made easier by `auk_bbox()` accepting spatial `sf` or `raster` objects and automatically calculating the bounding box for you. For example, 
 
 ```{r bbox}
-auk_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
+auk_ebd("data/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
   auk_bbox(poly)
 ```
 
 Notice that the output of the above command says `Bounding box: Lon -91.6 - -75.5; Lat 29.3 - 37.3`, which are the bounds of the smallest square that contains the polygon. Let's follow the method [outlined in the Best Practices book](https://cornelllabofornithology.github.io/ebird-best-practices/ebird.html#ebird-extract) to extract some data! We'll get all observations on complete checklists from May to August inside the bounding box of the polygon:
 
 ```{r filter, results='hide'}
-f_out <- "ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_poly.txt"
-auk_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
+f_out <- "data/ebd_norbob_poly.txt"
+auk_ebd("data/ebd_norbob_201901_201912_relFeb-2020.txt") %>% 
   # define filters
   auk_bbox(poly) %>% 
   auk_date(c("*-05-01", "*-08-31")) %>% 
@@ -85,7 +85,7 @@ auk_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_201901_201912_relFeb-20
 The results were output to a file, which you can read in with `read_ebd()`.
 
 ```{r read}
-ebd <- read_ebd("ebd_norbob_201901_201912_relFeb-2020/ebd_norbob_poly.txt")
+ebd <- read_ebd("data/ebd_norbob_poly.txt")
 ```
 
 The data are now in a data frame and it's time to proceed to step 2: further subset the data to only keep points within the polygon. First we'll convert this data frame to a spatial `sf` object using the `latitude` and `longitude` columns, then well use `st_within()` to identify the points within the polygon, and use this to subset the data frame. Note that we have to be careful with our coordinate reference system here: `crs = 4326` specifies that the EBD data are in unprojected, lat-long coordinates and we use `st_transform()` to ensure the polygons and points are in the coordinate reference system.
@@ -108,7 +108,7 @@ ebd_in_poly <- ebd[in_poly[, 1], ]
 
 Finally, let's create a simple map showing the EBD observations before (in black) and after (in green) subsetting the data to be within the polygon.
 
-```{r plot, fig.asp = 0.9, hugoopts=list(alt="map of all occurrences, with the polygon in grey, and the points kept after spatial subsetting in green"}
+```{r plot, fig.asp = 0.9, hugoopts=list(alt="map of all occurrences, with the polygon in grey, and the points kept after spatial subsetting in green")}
 par(mar = c(0, 0, 0, 0))
 plot(poly %>% st_geometry(), col = "grey40", border = NA)
 plot(ebd_sf, col = "black", pch = 19, cex = 0.5, add = TRUE)
