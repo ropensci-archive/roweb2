@@ -65,18 +65,8 @@ more more blabla `r cite("R-reprex")`
 oh right cool `r cite("R-drake")` really `r cite("Carata2014")`
 
 ```{r bib, echo = FALSE, results = "asis"}
-lala <- capture.output(RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "draft")))
-lala[lala==""] <- "\n"
-lala <- glue::glue_collapse(lala, sep = " ")
-lala <- gsub("  ", " ", lala)
-lala <- unlist(strsplit(lala, "\n"))
-lala <- sub(
-  "\\*", "]:",
-  sub(
-    "\\*", "[^",
-    lala
-  )
-)
-glue::glue_collapse(lala, sep = "\n")
-
+apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
+    fmtPrefix = function(paper) paste0("[^", attr(paper,"key"), "]:"),
+       .init = TRUE)
+RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
 ```
