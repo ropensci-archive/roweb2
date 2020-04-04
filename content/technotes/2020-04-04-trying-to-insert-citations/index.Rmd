@@ -46,9 +46,23 @@ cite <- function(key, bib = mybib) {
 ```
 
 
-ah ok cool `r cite("drake2018")`, `r cite("Duncantl/CodeDepends:View")`
- 
-blablablabla
+
+Through the helpful feedback from the ROpenSci community, the package
+has recently passed software review and a supporting article was
+recently published in the Journal of Open Source Software `r cite("Lau2020")`,
+in which you can find more details about the package. The package is
+hosted through the ROpenSci organization on Github, and the package
+can be installed using the [devtools](https://devtools.r-lib.org)
+library `r cite("R-devtools")` directly from the repository
+(https://github.com/ROpenSci/Rclean).
+
+blabla `r cite("R-CodeDepends")`
+
+more blabla `r cite("Pasquier2017")`
+
+more more blabla `r cite("R-reprex")`
+
+oh right cool `r cite("R-drake")` really `r cite("Carata2014")`
 
 ```{r bib, echo = FALSE, results = "asis"}
 lala <- capture.output(RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "draft")))
