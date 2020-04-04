@@ -38,38 +38,36 @@ more more blabla [^R-reprex]
 oh right cool [^R-drake] really [^Carata2014]
 
 [^R-reprex]: Bryan J, Hester J, Robinson D, Wickham H (2019). _reprex:
-Prepare Reproducible Example Code via the Clipboard_. R package version
-0.3.0, <URL: https://CRAN.R-project.org/package=reprex>.
+Prepare Reproducible Example Code via the Clipboard_.
+https://CRAN.R-project.org/package=reprex.
 
 [^Carata2014]: Carata L, Akoush S, Balakrishnan N, Bytheway T, Sohan R,
 Seltzer M, Hopper A (2014). "A Primer on Provenance." _Queue_, *12*(3),
 10-23. ISSN 15427730,
-\Sexpr[results=rd,stage=build]{tools:::Rd_expr_doi("10.1145/2602649.2602651")},
-<URL: http://dl.acm.org/citation.cfm?doid=2602649.2602651>.
+http://dl.acm.org/citation.cfm?doid=2602649.2602651,
+https://doi.org/10.1145/2602649.2602651.
 
 [^R-drake]: Landau WM (2020). _drake: A Pipeline Toolkit for
-Reproducible Computation at Scale_. R package version 7.10.0, <URL:
-https://CRAN.R-project.org/package=drake>.
+Reproducible Computation at Scale_.
+https://CRAN.R-project.org/package=drake.
 
 [^Lau2020]: Lau M, Pasquier TFJ, Seltzer M (2020). "Rclean: A Tool for
 Writing Cleaner, More Transparent Code." _Journal of Open Source
-Software_, *5*(46), 1312.
-\Sexpr[results=rd,stage=build]{tools:::Rd_expr_doi("10.21105/joss.01312")},
-<URL: https://doi.org/10.21105/joss.01312>.
+Software_, *5*(46), 1312. https://doi.org/10.21105/joss.01312,
+https://doi.org/10.21105/joss.01312.
 
 [^Pasquier2017]: Pasquier T, Lau MK, Trisovic A, Boose ER, Couturier B,
 Crosas M, Ellison AM, Gibson V, Jones CR, Seltzer M (2017). "If these
 data could talk." _Scientific Data_, *4*, 170114. ISSN 2052-4463,
-\Sexpr[results=rd,stage=build]{tools:::Rd_expr_doi("10.1038/sdata.2017.114")},
-<URL: http://www.nature.com/articles/sdata2017114>.
+http://www.nature.com/articles/sdata2017114,
+https://doi.org/10.1038/sdata.2017.114.
 
 [^R-CodeDepends]: Temple Lang D, Peng R, Nolan D, Becker G (2020).
 _CodeDepends: Analysis of R Code for Reproducible Research and Code
-Comprehension_. R package version 0.6.5, <URL:
-https://github.com/duncantl/CodeDepends>.
+Comprehension_. https://github.com/duncantl/CodeDepends.
 
 [^R-devtools]: Wickham H, Hester J, Chang W (2019). _devtools: Tools to
-Make Developing R Packages Easier_. R package version 2.2.1, <URL:
-https://CRAN.R-project.org/package=devtools>.
+Make Developing R Packages Easier_.
+https://CRAN.R-project.org/package=devtools.
 
 [^ropensci]: rOpenSci is cool, isn't it?

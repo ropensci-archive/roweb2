@@ -65,9 +65,17 @@ more more blabla `r cite("R-reprex")`
 oh right cool `r cite("R-drake")` really `r cite("Carata2014")`
 
 ```{r bib, echo = FALSE, results = "asis"}
+get_doi <- function(paper) {
+  if (is.null(paper$doi)) {
+    ""
+  } else{
+    paste0(", https://doi.org/", paper$doi)
+  }
+}
 apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
     fmtPrefix = function(paper) paste0("[^", attr(paper,"key"), "]:"),
-       .init = TRUE)
+    extraInfo = function(paper) paste0(paper$url, get_doi(paper)),
+    .init = TRUE)
 RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
 ```
 
