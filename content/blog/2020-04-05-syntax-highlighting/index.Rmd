@@ -1,33 +1,17 @@
 ---
-slug: "post-template"
-title: Post Title in Title Case
-# Delete the package_version line below if your post is not about a package
-package_version: 0.1.0
+title: Syntax Highlighting
 author:
-  - Author Name1
-  - Author Name2
-# Set the date below to the publication date of your post
-date: 2020-03-10
-# Minimal tags for a post about a community-contributed package 
-# that has passed software peer review are listed below
-# Consult the Technical Guidelines for information on choosing tags
-tags:
-  - Software Peer Review
-  - packages
-  - R
-  - community
-# the summary below will be used by e.g. Twitter cards
-description: "A very short summary of your post (~ 100 characters)"
-# If you have no preferred image for Twitter cards,
-# delete the twitterImg line below 
-# Note there is no '/' symbol before 'img' here
-# if needed replace blog with technotes
+  - Maëlle Salmon
+date: '2020-04-05'
+slug: syntax-highlighting
+categories: []
+tags: []
+package_version: 0.1.0
+description: A very short summary of your post (~ 100 characters)
 twitterImg: blog/2019/06/04/post-template/name-of-image.png
-# 'output' is necessary to obtain index.md
-# Do not commit index.html
-output: 
+output:
   html_document:
-    keep_md: true
+    keep_md: yes
 ---
 
 This is the R Markdown (.Rmd) template for a blog post or tech note. 
@@ -46,7 +30,7 @@ The chunk below ensures your plots will be inserted in the same folder as your R
 # And to disable symbols before output
 knitr::opts_chunk$set(fig.path = "", comment = "")
 
-# knitr hook to make images output use Hugo options
+# Knitr hook to make images output use Hugo options
 knitr::knit_hooks$set(
   plot = function(x, options) {
     hugoopts <- options$hugoopts
