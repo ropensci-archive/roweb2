@@ -1222,7 +1222,9 @@ q:before, q:after {
     border-radius: 5px;
     padding: 0.6rem;
     margin-bottom: 20px;
-    overflow-x: auto
+    overflow-x: auto;
+    background: #2b303b;
+    background-color: #2b303b
 }pre code{
   background-color: #2b303b;
   color: #c0c5ce;
