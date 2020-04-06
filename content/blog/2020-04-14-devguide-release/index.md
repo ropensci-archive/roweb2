@@ -25,7 +25,7 @@ rOpenSci Software Peer Review's guidance has been compiled in [an online book](h
 To find out what's new in our dev guide 0.4.0, you can [read the changelog](https://devguide.ropensci.org/booknews.html), 
 or this blog post for more digested information.
 
-> Note that, as indicated in the [README of the software review repo](https://github.com/ropensci/software-review), in the interest of reducing load on reviewers and editors as we manage the COVID-19 crisis, rOpenSci is temporarily pausing new submissions for software peer review for 30 days (and possibly longer). Please check back here again after 17 April for updates. In this period new submissions will not be handled, nor new reviewers assigned. Reviews and responses to reviews will be handled on a ‘best effort’ basis, but no follow-up reminders will be sent.
+> Note that, as indicated in the [README of the software review repo](https://github.com/ropensci/software-review), in the interest of reducing load on reviewers and editors as we manage the COVID-19 crisis, rOpenSci is temporarily pausing new submissions for software peer review for 30 days (and possibly longer). Please check back [in the software review repository](https://github.com/ropensci/software-review) again after 17 April for updates. In this period new submissions will not be handled, nor new reviewers assigned. Reviews and responses to reviews will be handled on a ‘best effort’ basis, but no follow-up reminders will be sent.
 
 ### Policy and governance changes
 
