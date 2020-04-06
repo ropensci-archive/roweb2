@@ -1215,7 +1215,9 @@ q:before, q:after {
   color: #1b6ada;
   border-radius: 20px;
   font-weight: 700;
-}/*  Code stuff */code, pre {
+}/*  Code stuff */code {
+    background: #f3f7ff;
+}code, pre {
     font-family: "Fira Code";
     font-size: .8rem;
 }pre {
