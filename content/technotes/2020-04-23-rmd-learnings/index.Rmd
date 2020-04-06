@@ -160,16 +160,17 @@ if (file.exists('~/.Rprofile')) {
   base::sys.source('~/.Rprofile', envir = environment())
 }
 
-# All options below apply to posts created via the New Post Addin
-# to enforce leaf bundles 
+# All options below apply to posts created via the New Post Addin.
+
+# to enforce leaf bundles:
 options(blogdown.new_bundle = TRUE) 
-# to make blog the subdirectory for new posts by default
+# to make blog the subdirectory for new posts by default:
 options(blogdown.subdir = "blog")
 # to help enforce our strict & pedantic style guide ;-)
 options(blogdown.title_case = TRUE)
 ```
 
-* The blogdown New Post Addin assumes the author name can be stored in the "author" field of the post YAML metadata, whereas our website used to call that field "authors"... that called for a [massive pull request](https://github.com/ropensci/roweb2/pull/635), editing previous posts, and making our templating more resilient to having a single author as a string rather than a list. When [editing the metadata of previous posts I like to use the yaml package](/technotes/2019/01/09/hugo/). I made a few mistakes that were [spotted and fixed later by Steffi LaZerte](https://github.com/ropensci/roweb2/pull/644).
+* The blogdown New Post Addin assumes the author name can be stored in the "author" field of the post YAML metadata, whereas our website used to call that field "authors"... that called for a [massive pull request](https://github.com/ropensci/roweb2/pull/635), editing previous posts, and making our templating more resilient to having a single author as a string rather than a list. When [editing the metadata of previous posts I like to use the yaml package](/technotes/2019/01/09/hugo/). I made a few mistakes that were thankfully [spotted and fixed by Steffi LaZerte](https://github.com/ropensci/roweb2/pull/644).
 
 * Now from RStudio or elsewhere after installing blogdown above version 1.18.1[^blogdownv], we [recommend using the blogdown's New Post Addin](https://blogguide.ropensci.org/technical.html#blogdownaddin)!
 
@@ -177,7 +178,7 @@ options(blogdown.title_case = TRUE)
 {{< figure src="blogdownaddin.png" alt="blogdown New Post Addin" class="center" caption="Screenshot of the blogdown New Post Addin" >}}
 <!--/html_preserve-->
 
-The todo list for a contributor is long but less tedious than creating folders by hand
+The todo list for a contributor is long but less tedious than creating folders by hand:
 
 * Enter a title, no need to worry about title case at this stage.
 
@@ -192,18 +193,54 @@ The todo list for a contributor is long but less tedious than creating folders b
 * Choose an Archetype, Rmd or md, from the drop-down menu.
 
 * Also choose the correct Format: .Rmd if Rmd, Markdown (.md) if md. Never choose .RMarkdown.
-    Ignore Categories.
-    Select any relevant tag and/or create new ones.
-    Click on “Done”, your post draft will have been created and opened.
 
+* Ignore Categories.
 
-Outside of RStudio, in your usual workflow, unless you use `hugo new` yes you'd copy-paste from a file and create a correctly named folder yourself.
+* Select any relevant tag and/or create new ones.
 
-### ignoreFiles field in website config (Hugo)
+* Click on “Done”, your post draft will have been created and opened.
+
+The addin can also be used outside of RStudio. 
+If you don't use that nice little tool, unless you use [`hugo new`](https://gohugo.io/commands/hugo_new/) yes you'd copy-paste from a file and create a correctly named folder yourself.
+
+### ignoreFiles field in the Hugo config
+
+**Problem:** How do we make Hugo ignore useless html from our knitting process without deleting said html by hand?
+
+Because I haven't explored knitr or rmarkdown enough, at the moment our `.Rmd` ~~template~~ archetype output type is 
+
+```
+output:
+  html_document:
+    keep_md: yes
+```
+
+that produces a `.md` like we need. 
+
+I expect we'll find a better way later but in the meantime rendering the `.Rmd` creates the `.md` we want and a `.html` we don't need.
+I knew about `.gitignore` where we have the lines
+
+```
+content/blog/*/index.html
+content/technotes/*/index.html
+```
+
+so that such garbage index.html doesn't get added to pull requests, but it still made Hugo error locally.
 
 <!--html_preserve-->
 {{< figure src="richard-dykes-SPuHHjbSso8-unsplash.jpg" class="center" width="300" link="https://unsplash.com/photos/SPuHHjbSso8" alt="Paper thrown on the ground" caption="Paper thrown on the ground. [Richard Dykes on Unspash](https://unsplash.com/photos/SPuHHjbSso8)." >}}
 <!--/html_preserve-->
+
+Luckily Hugo recognizes a [config field called `ignoreFiles`](https://gohugo.io/getting-started/configuration/#ignore-content-files-when-rendering).
+Ours now mentions index.html.
+
+```
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$", "index\\.html"]
+```
+
+### Conclusion
+
+In this post I reported on a few things our website work taught us about R Markdown (knitr hooks!), Hugo (ignoreFiles, leaf bundles, archetypes) and blogdown (New Post Addin).
 
 
 [^blogdown]: But as you'll see later we actually take advantage of that cool package: we recommend using blogdown's New Post Addin; and we also mention `blogdown::install_hugo()` in the blog guide.
@@ -212,5 +249,3 @@ Outside of RStudio, in your usual workflow, unless you use `hugo new` yes you'd 
 [^setup]: I recently asked and received [references to define the setup chunk](https://community.rstudio.com/t/what-defines-the-setup-chunk/27595).
 [^smoother]: I can also credit this smoother workflow for making _me_ like adding more images, hence the stock pictures in this post!
 [^blogdownv]: At the time of writing blogdown 1.18.1 has to be installed from GitHub via `remotes::install_github("rstudio/blogdown")`.
-
-https://alison.rbind.io/post/2019-02-19-hugo-archetypes/
