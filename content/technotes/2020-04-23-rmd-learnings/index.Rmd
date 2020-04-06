@@ -12,7 +12,7 @@ tags:
   - Markdown
   - knitr
 package_version: 0.1.0
-description: A few things I learnt about R Markdown (knitr hooks!), Hugo (ignoreFiles, leaf bundles, archetypes), blogdown (New Post Addin)
+description: A few things I learned about R Markdown (knitr hooks), Hugo (ignoreFiles, leaf bundles, archetypes), blogdown (New Post Addin)
 output:
   html_document:
     keep_md: yes
@@ -44,7 +44,7 @@ Our website uses Hugo but not blogdown[^blogdown] to render posts: every post is
 We wanted to provide clear guidance for both options, and to stick to the well-documented Hugo way of e.g. inserting figures.
 We also wanted to provide post contributors with an as smooth as possible workflow to create a new post.
 Working on this mission, unsurprisingly we learned a lot, and why not sharing our newly acquired technical know-how?
-In this post I shall go through four things we learnt about Rmd/Hugo, while trying to provide context about the _why_ of our using them.
+In this post I shall go through four things we learned about Rmd/Hugo, while trying to provide context about the _why_ of our using them.
 
 ### knitr hooks
 
@@ -122,7 +122,7 @@ Note that when writing a `.md` post instead of knitting an `.Rmd` file, authors 
 
 **Problem:** Our advice to contributors including ourselves was to add their post under content/ but its images under themes/ropensci/static/img/ which is... not smooth. How do we change that?
 
-Thanks to [Alison Hill's blog post about page bundles](https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/) I learnt you can use a folder to add both a post and its related images to a Hugo website.
+Thanks to [Alison Hill's blog post about page bundles](https://alison.rbind.io/post/2019-02-21-hugo-page-bundles/) I learned you can use a folder to add both a post and its related images to a Hugo website.
 What an improvement over adding the post in one place, the images in another place like we used to!
 It's much smoother to explain to new contributors[^smoother].
 In Hugo speak, each post source is a [leaf bundle](https://gohugo.io/content-management/page-bundles/).
@@ -145,7 +145,7 @@ In R Markdown, in the setup chunk, the option `knitr::opts_chunk$set(fig.path = 
 
 **Problem:** We link to our two templates from the blog guide, and explain where under content the folder corresponding to a post should be created, but that leaves a lot of work to contributors.
 How do we distribute our `.Rmd` and `.md` templates? 
-How do we help authors create a new post without too much clicking around and copy-pasting?
+How do we help authors create a new post without too much clicking around and copy-pasting?[^thxsteffi]
 
 After a bit of digging in Hugo docs and blogdown GitHub, reading [a blog post of Alison Hill's](https://alison.rbind.io/post/2019-02-19-hugo-archetypes/), contributing to blogdown [in spontaneous collaboration with Garrick Aden-Buie](https://github.com/rstudio/blogdown/pull/432), getting [useful feedback from blogdown maintainer Yihui Xie](https://github.com/rstudio/blogdown/pull/435#pullrequestreview-369664310)... here's the place I got to: storing templates as Hugo directory-based archetypes, and recommending the use of a handy blogdown RStudio addin to create new posts. 
 
@@ -207,7 +207,7 @@ If you don't use that nice little tool, unless you use [`hugo new`](https://gohu
 
 **Problem:** How do we make Hugo ignore useless html from our knitting process without deleting said html by hand?
 
-At the moment our `.Rmd` ~~template~~ archetype output type is 
+At the moment the output type in our `.Rmd` ~~template~~ archetype is 
 
 ```
 output:
@@ -216,8 +216,11 @@ output:
 ```
 
 that produces a `.md` like we need. 
-I hope we'll find a better way later but in the meantime rendering the `.Rmd` creates the `.md` we want and a `.html` we don't need.
-I have the perhaps naive impression that blogdown actually follows a similar process when knitting `.RMarkdown` to `.markdown`
+I hope we'll find a better way one day, and welcome any cleaner suggestion for the output field (I tested a few [Markdown variants](https://bookdown.org/yihui/rmarkdown/markdown-document.html) without success!).
+I have the perhaps naive impression that [blogdown actually follows a similar process when knitting `.RMarkdown` to `.markdown`](https://github.com/rstudio/blogdown/blob/ea5c1ae6ed18141e0b1f166552e35969bfb87f0d/inst/scripts/render_page.R#L17)?
+
+So anyway, we currently have an useless html produced when knitting a post from an `.rmd` file, how do we make Hugo ignore it?
+
 I knew about `.gitignore` where we have the lines
 
 ```
@@ -240,7 +243,8 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$", "index\\.html"]
 
 ### Conclusion
 
-In this post I reported on a few things our website work taught us about R Markdown (knitr hooks!), Hugo (ignoreFiles, leaf bundles, archetypes) and blogdown (New Post Addin).
+In this post I reported on a few things our website work taught us about R Markdown (knitr hooks), Hugo (ignoreFiles, leaf bundles, archetypes) and blogdown (New Post Addin).
+Still we're still learning important concepts and tricks thanks to new questions by blog authors and to updates in the ecosystem[^adopt], we shall keep publishing such posts, stay tuned if that's your jam!
 
 
 [^blogdown]: But as you'll see later we actually take advantage of that cool package: we recommend using blogdown's New Post Addin; and we also mention `blogdown::install_hugo()` in the blog guide.
@@ -249,3 +253,5 @@ In this post I reported on a few things our website work taught us about R Markd
 [^setup]: I recently asked and received [references to define the setup chunk](https://community.rstudio.com/t/what-defines-the-setup-chunk/27595).
 [^smoother]: I can also credit this smoother workflow for making _me_ like adding more images, hence the stock pictures in this post!
 [^blogdownv]: At the time of writing blogdown 1.18.1 has to be installed from GitHub via `remotes::install_github("rstudio/blogdown")`.
+[^thxsteffi]: Thanks to [Steffi LaZerte for encouraging work in this direction](https://github.com/ropenscilabs/roblog/issues/37)!
+[^adopt]: I actually wrote a post around [maintaining Hugo websites](https://masalmon.eu/2020/02/29/hugo-maintenance/) in my personal blog.
