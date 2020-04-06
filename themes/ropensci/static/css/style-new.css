@@ -1215,19 +1215,21 @@ q:before, q:after {
   color: #1b6ada;
   border-radius: 20px;
   font-weight: 700;
-}/*  Code stuff */code, pre {
+}/*  Code stuff */code {
+    background: #f3f7ff;
+}code, pre {
     font-family: "Fira Code";
     font-size: .8rem;
-}code {
-    background: #f3f7ff;
 }pre {
     border-radius: 5px;
-    background-color: #2b303b;
     padding: 0.6rem;
     margin-bottom: 20px;
-    overflow-x: auto
+    overflow-x: auto;
+    background: #2b303b;
+    background-color: #2b303b
 }pre code{
   background-color: #2b303b;
+  color: #c0c5ce;
 }h2 code {
     display: inline-block;
     font-size: 2rem;
@@ -1238,52 +1240,7 @@ q:before, q:after {
     font-size: 2rem;
     line-height: 1em;
     font-weight: 500;
-}.hljs-comment, 
-.hljs-quote {
-    color:#65737e
-}.hljs-variable, 
-.hljs-template-variable, 
-.hljs-tag, 
-.hljs-name, 
-.hljs-selector-id, 
-.hljs-selector-class, 
-.hljs-regexp, 
-.hljs-deletion {
-    color:#bf616a
-}.hljs-number, 
-.hljs-built_in, 
-.hljs-builtin-name, 
-.hljs-literal, 
-.hljs-type, 
-.hljs-params, 
-.hljs-meta, 
-.hljs-link {
-    color:#d08770
-}.hljs-attribute {
-    color:#ebcb8b
-}.hljs-string, 
-.hljs-symbol, 
-.hljs-bullet, 
-.hljs-addition {
-    color:#a3be8c
-}.hljs-title, 
-.hljs-section {
-    color:#8fa1b3
-}.hljs-keyword, 
-.hljs-selector-tag {
-    color:#b48ead
-}.hljs {
-    display: block;
-    background: #2b303b;
-    color: #c0c5ce;
-    padding: 0.5em;
-}.hljs:active {
-    overflow-x: auto;
-}.hljs-emphasis {
-    font-style:italic
-}.hljs-strong {
-    font-weight:bold
-}/*  --------------------------------------------------  Media Queries Declaration */@media screen and (orientation: portrait) {
+}/* Background */.chroma { color: #c0c5ce; background-color: #2b303b }/* Error */.chroma .err { color: #960050; background-color: #2b303b }/* LineTableTD */.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }/* LineTable */.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }/* LineHighlight */.chroma .hl { display: block; width: 100%;background-color: #ffffcc; color: #2b303b; }/* LineNumbersTable */.chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }/* LineNumbers */.chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }/* Keyword */.chroma .k { color: #b48ead }/* KeywordConstant */.chroma .kc { color: #b48ead }/* KeywordDeclaration */.chroma .kd { color: #b48ead }/* KeywordNamespace */.chroma .kn { color: #b48ead }/* KeywordPseudo */.chroma .kp { color: #b48ead }/* KeywordReserved */.chroma .kr { color: #b48ead }/* KeywordType */.chroma .kt { color: #b48ead }/* NameAttribute */.chroma .na { color: #d08770 }/* NameClass */.chroma .nc { color: #d08770 }/* NameConstant */.chroma .no { color: #b48ead }/* NameDecorator */.chroma .nd { color: #d08770 }/* NameException */.chroma .ne { color: #d08770 }/* NameFunction */.chroma .nf { color: #c0c5ce }/* NameOther */.chroma .nx { color: #d08770 }/* NameTag */.chroma .nt { color: #b48ead }/* Literal */.chroma .l { color: #d08770 }/* LiteralDate */.chroma .ld { color: #a3be8c }/* LiteralString */.chroma .s { color: #a3be8c }/* LiteralStringAffix */.chroma .sa { color: #a3be8c }/* LiteralStringBacktick */.chroma .sb { color: #a3be8c }/* LiteralStringChar */.chroma .sc { color: #a3be8c }/* LiteralStringDelimiter */.chroma .dl { color: #a3be8c }/* LiteralStringDoc */.chroma .sd { color: #a3be8c }/* LiteralStringDouble */.chroma .s2 { color: #a3be8c }/* LiteralStringEscape */.chroma .se { color: #d08770 }/* LiteralStringHeredoc */.chroma .sh { color: #a3be8c }/* LiteralStringInterpol */.chroma .si { color: #a3be8c }/* LiteralStringOther */.chroma .sx { color: #a3be8c }/* LiteralStringRegex */.chroma .sr { color: #a3be8c }/* LiteralStringSingle */.chroma .s1 { color: #a3be8c }/* LiteralStringSymbol */.chroma .ss { color: #a3be8c }/* LiteralNumber */.chroma .m { color: #d08770 }/* LiteralNumberBin */.chroma .mb { color: #d08770 }/* LiteralNumberFloat */.chroma .mf { color: #d08770 }/* LiteralNumberHex */.chroma .mh { color: #d08770 }/* LiteralNumberInteger */.chroma .mi { color: #d08770 }/* LiteralNumberIntegerLong */.chroma .il { color: #d08770 }/* LiteralNumberOct */.chroma .mo { color: #d08770 }/* Operator */.chroma .o { color: #c0c5ce }/* OperatorWord */.chroma .ow { color: #c0c5ce }/* Comment */.chroma .c { color: #65737e }/* CommentHashbang */.chroma .ch { color: #65737e }/* CommentMultiline */.chroma .cm { color: #65737e }/* CommentSingle */.chroma .c1 { color: #65737e }/* CommentSpecial */.chroma .cs { color: #65737e }/* CommentPreproc */.chroma .cp { color: #65737e }/* CommentPreprocFile */.chroma .cpf { color: #65737e }/* GenericDeleted */.chroma .gd { color: #b48ead }/* GenericEmph */.chroma .ge { font-style: italic }/* GenericInserted */.chroma .gi { color: #d08770 }/* GenericStrong */.chroma .gs { font-weight: bold }/* GenericSubheading */.chroma .gu { color: #65737e }/*  --------------------------------------------------  Media Queries Declaration */@media screen and (orientation: portrait) {
     .center-m {
         text-align: center;
         justify-content: center;
