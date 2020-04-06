@@ -39,10 +39,12 @@ knitr::knit_hooks$set(
 )
 ```
 
-Whilst working on the blog guidance, Stefanie Butland and I consolidated knowledge we had already gained, but it was also the opportunity to up our Rmd/Hugo technical game.
-In this post I shall go through five things I learnt about Rmd/Hugo.
-
-_Note that our website uses Hugo but *not* blogdown to render posts. All posts are based on .md files that are either written directly or generated from .Rmd files._
+Whilst working on the blog guide, Stefanie Butland and I consolidated knowledge we had already gained, but it was also the opportunity to up our Rmd/Hugo technical game.
+Our website uses Hugo but *not* blogdown to render posts: every post is based on an .md file that is either written directly or knit from an .Rmd file.
+We wanted to provide clear guidance for both options, and to stick to the well-documented Hugo way of e.g. inserting figures.
+We also wanted to provide post contributors with an as smooth as possible workflow to create a new post.
+Working on this mission, unsurprisingly we learnt a lot, and why not sharing our newly acquired technical know-how?
+In this post I shall go through five things we learnt about Rmd/Hugo, while trying to provide context about the _why_ of our using them.
 
 ### knitr hooks
 
