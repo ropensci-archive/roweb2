@@ -11,9 +11,8 @@ tags:
   - software peer review
   - R
 output: 
-  md_document:
-    variant: gfm
-    preserve_yaml: true
+  html_document:
+    keep_md: true
 ---
 
 ```{r echo=FALSE}
