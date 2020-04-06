@@ -109,23 +109,23 @@ parse latitudes and longitudes
 ``` r
 lats <- c("40.123°", "40.123N74.123W", "191.89", 12, "N45 04.25764")
 parse_lat(lats)
+#> Warning in pz_parse_lat(lat): invalid characters, got: 40.123n74.123w
+
+#> Warning in pz_parse_lat(lat): not within -90/90 range, got: 191.89
+#>   check that you did not invert lon and lat
+
+#> [1] 40.12300      NaN      NaN 12.00000 45.07096
 ```
 
-    #> Warning in pz_parse_lat(lat): invalid characters, got: 40.123n74.123w
-
-    #> Warning in pz_parse_lat(lat): not within -90/90 range, got: 191.89
-    #>   check that you did not invert lon and lat
-
-    #> [1] 40.12300      NaN      NaN 12.00000 45.07096
 
 ``` r
 longs <- c("45W54.2356", "181", 45, 45.234234, "-45.98739874N")
 parse_lon(longs)
+#> Warning in pz_parse_lon(lon): invalid characters, got: -45.98739874n
+
+#> [1] -45.90393 181.00000  45.00000  45.23423       NaN
 ```
 
-    #> Warning in pz_parse_lon(lon): invalid characters, got: -45.98739874n
-
-    #> [1] -45.90393 181.00000  45.00000  45.23423       NaN
 
 In the above examples you can see there’s a mix of valid coordinate
 values as well as invalid values. There’s a mix of types supported as
@@ -138,14 +138,14 @@ need:
 ``` r
 x <- c("191.89", 12, "N45 04.25764")
 parse_parts_lon(x)
+#> Warning in pz_parse_parts_lon(scrub(str)): invalid characters, got: n45 04.25764
+
+#>   deg min      sec
+#> 1 191  53 23.99783
+#> 2  12   0  0.00000
+#> 3  NA  NA      NaN
 ```
 
-    #> Warning in pz_parse_parts_lon(scrub(str)): invalid characters, got: n45 04.25764
-
-    #>   deg min      sec
-    #> 1 191  53 23.99783
-    #> 2  12   0  0.00000
-    #> 3  NA  NA      NaN
 
 Taking a cue from lubridate, we thought it would be useful to make it
 easier to add or subtract numbers for coordinates. Three functions help
