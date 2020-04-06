@@ -10,8 +10,9 @@ tags:
   - ebird
   - spatial
   - geospatial
+  - ornithology
 description: A short post demonstrating how to use the R package auk to extract eBird data from within a study area defined by a polyon or Shapefile.
-preface: This tech note about the [peer-reviewed auk package](https://docs.ropensci.org/auk/) was first posted on [Matthew Strimas-Mackey's website](https://strimas.com/post/extracting-ebird-data-polygon/) and kindly contributed to this blog.
+preface: This tech note about the [peer-reviewed auk package](https://docs.ropensci.org/auk/) was first posted on [Matthew Strimas-Mackey's website](https://strimas.com/post/extracting-ebird-data-polygon/) and kindly contributed to this blog. A [first longer blog post from 2018](/blog/2018/08/07/auk/) provides more context about the package.
 twitterImg: technotes/2020/04/16/ebird-polygon/plot-1.png
 output:
   html_document:
