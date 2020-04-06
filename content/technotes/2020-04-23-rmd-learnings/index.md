@@ -195,7 +195,7 @@ If you don't use that nice little tool, unless you use [`hugo new`](https://gohu
 
 **Problem:** How do we make Hugo ignore useless html from our knitting process without deleting said html by hand?
 
-Because I haven't explored knitr or rmarkdown enough, at the moment our `.Rmd` ~~template~~ archetype output type is 
+At the moment our `.Rmd` ~~template~~ archetype output type is 
 
 ```
 output:
@@ -204,8 +204,8 @@ output:
 ```
 
 that produces a `.md` like we need. 
-
-I expect we'll find a better way later but in the meantime rendering the `.Rmd` creates the `.md` we want and a `.html` we don't need.
+I hope we'll find a better way later but in the meantime rendering the `.Rmd` creates the `.md` we want and a `.html` we don't need.
+I have the perhaps naive impression that blogdown actually follows a similar process when knitting `.RMarkdown` to `.markdown`
 I knew about `.gitignore` where we have the lines
 
 ```
