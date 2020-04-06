@@ -228,11 +228,12 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$", "index\\.html"]
 
 ### Conclusion
 
+In this post I reported on a few things our website work taught us about R Markdown (knitr hooks!), Hugo (ignoreFiles, leaf bundles, archetypes) and blogdown (New Post Addin).
+
+
 [^blogdown]: But as you'll see later we actually take advantage of that cool package: we recommend using blogdown's New Post Addin; and we also mention `blogdown::install_hugo()` in the blog guide.
 [^esc]: Yes you can escape [Hugo shortcodes in your site content](https://discourse.gohugo.io/t/how-is-the-hugo-doc-site-showing-shortcodes-in-code-blocks/9074)!
 [^grrr]: If you want to join us, follow [the invitation link](https://github.com/frrrenchies/frrrenchies#cat-chat-et-discussions-instantan%C3%A9es-cat). _À bientôt !_
 [^setup]: I recently asked and received [references to define the setup chunk](https://community.rstudio.com/t/what-defines-the-setup-chunk/27595).
 [^smoother]: I can also credit this smoother workflow for making _me_ like adding more images, hence the stock pictures in this post!
 [^blogdownv]: At the time of writing blogdown 1.18.1 has to be installed from GitHub via `remotes::install_github("rstudio/blogdown")`.
-
-https://alison.rbind.io/post/2019-02-19-hugo-archetypes/
