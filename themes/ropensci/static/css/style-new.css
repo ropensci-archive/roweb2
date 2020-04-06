@@ -1218,14 +1218,14 @@ q:before, q:after {
 }/*  Code stuff */code, pre {
     font-family: "Fira Code";
     font-size: .8rem;
-    color: #c0c5ce; 
-    background-color: #2b303b; 
-    background: #2b303b;
 }pre {
     border-radius: 5px;
     padding: 0.6rem;
     margin-bottom: 20px;
-    overflow-x: auto;
+    overflow-x: auto
+}pre code{
+  background-color: #2b303b;
+  color: #c0c5ce;
 }h2 code {
     display: inline-block;
     font-size: 2rem;
