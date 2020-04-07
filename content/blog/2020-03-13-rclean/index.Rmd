@@ -397,7 +397,7 @@ specific result, the resulting code tends to naturally support the
 generation of new comments that are higher level (e.g. "The following
 produces a plot of the mean response of each treatment group."), and
 lower level comments are not necessary because the code is simpler and
-clearer. This process of comments is an important part of writing
+clearer. This process of commenting is an important part of writing
 better code. Lastly, although comments can serve an important role in
 coding, it is worth reflecting on the statement in R.C. Martin's book
 _Clean Code: A Handbook of Agile Software Craftsmanship_ where he
