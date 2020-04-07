@@ -282,7 +282,7 @@ keep(fitSA, file = "fit_SA.R")
 
 ```
 
-To explore more possible variables to extract, the `get_vars` function
+To explore more possible variables to extract, the `get_vars()` function
 can be used to produce a list of the variables (aka. objects) that are
 created in the script.
 
