@@ -404,7 +404,7 @@ representation of relationships among functions and objects. The
 provenance network is very powerful because we can now apply
 algorithms to analyze the R script with respect to our results. This is
 what empowers the `clean()` function, which takes the provenance and
-applies a a network search algorithm to determine the pathways leading
+applies a network search algorithm to determine the pathways leading
 from inputs to outputs. In the process any objects or lines of code
 that do not fall along that pathway are by definition not necessary to
 produce the desired set of results and can therefore be removed. As
