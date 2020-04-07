@@ -264,7 +264,7 @@ through the tangled bits of code (in this case one of the example
 scripts inluded with the package) and found the minimal set of lines
 relevant to our object of interest. This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
-script using `keep`.
+script using `keep()`.
 
 ```{R ex-keep, eval = FALSE}
 fitSA <- clean(script, "fit_sqrt_A")
