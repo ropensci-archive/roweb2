@@ -51,7 +51,8 @@ We developed this method and R package in order to overcome some of these issues
 
 The moving-window data aggregation (MWDA) method smooths an input raster using a specified function within a moving window of a specified size and shape prior to aggregation. 
 
-<!--html_preserve--> {{% figure src = "/img/blog-images/2019-07-16-grainchanger/schematic.jpg" width = "960" alt = "Schematic of the moving-window data aggregation approach" %}}
+<!--html_preserve--> 
+{{% figure src = "/img/blog-images/2019-07-16-grainchanger/schematic.jpg" width = "960" alt = "Schematic of the moving-window data aggregation approach" %}}
 <!--/html_preserve-->
 
 The above is a graphical representation of the MWDA method. In calculating the MWDA measure, three aspects of scale are considered. Predictor grain is the characteristic spatial scale of a predictor variable, that is, the resolution of the environmental data; scale‐of‐effect determines the appropriate scale of the relationship between predictor and response, for example, an ecological neighbourhood; response grain is the grain of the unit into which you are predicting, that is, the resolution of the response variable (represented by the black lines). Note that the colour scale is unitless. Yellow cells represent ‘high’ values and dark blue cells ‘low’ values. Panel 1 shows a close up of one of the response grain cells in panel 2, whereas panel 2 shows all response grain cells for the study region. Panel 3 shows the study region after aggregation.
