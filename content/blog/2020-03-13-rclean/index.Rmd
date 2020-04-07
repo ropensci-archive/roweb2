@@ -109,7 +109,7 @@ example of how it can be used and thoughts on its future development.
 #### Installation
 
 Through the helpful feedback from the rOpenSci community, the package
-has recently passed software review and a supporting article was
+has recently passed [software review](https://github.com/ropensci/software-review/issues/327) and a supporting article was
 recently published in the Journal of Open Source Software [@Lau2020],
 in which you can find more details about the package. The package is
 hosted through the rOpenSci organization on GitHub, and the package
@@ -486,10 +486,16 @@ may present challenges, combining prospective and retrospective
 provenance methods could provide a powerful and flexible solution.
 
 We hope that [Rclean](https://docs.ropensci.org/rclean) makes writing
-scientific software easier for the R community. We look forward to the
-future progress of the package and other "code cleaning" tools. As an
-open-source project, we are very receptive to feedback and help with
-extending it. We invite people to use the package and get involved by
+scientific software easier for the R community. The package has
+already been significantly improved via the [rOpenSci review
+process](https://github.com/ropensci/software-review/issues/327),
+thnaks to the efforts of editor [Anna
+Krystalli](https://www.annakrystalli.me/) and reviewers, [Will
+Landau](https://wlandau.github.io/) and [Clemens
+Schmid](https://nevrome.de/). We look forward to the future progress
+of the package and other "code cleaning" tools. As an open-source
+project, we would like to encourage feedback and help with extending
+the package. We invite people to use the package and get involved by
 reporting bugs and suggesting or (hopefully) contributing
 features. For more information please visit the project page on
 [GitHub](https://github.com/ropensci/Rclean).
