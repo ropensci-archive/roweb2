@@ -423,7 +423,7 @@ there is no "linguistic" requirement for this. Although
 [Rclean](https://docs.ropensci.org/rclean) cannot operate
 automatically on comments; however, comments in the original code
 remain untouched and can be used to inform the reduced code. Also, as
-the `clean` function is oriented toward isolating code based on a
+the `clean()` function is oriented toward isolating code based on a
 specific result, the resulting code tends to naturally support the
 generation of new comments that are higher level (e.g. "The following
 produces a plot of the mean response of each treatment group."), and
