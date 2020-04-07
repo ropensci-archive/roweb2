@@ -419,7 +419,7 @@ Although the current implementation of
 [Rclean](https://docs.ropensci.org/rclean) for minimizing code is
 useful on its own, we see promise in connecting it with other
 reproducibility tools. One example is the
-[reprex](https://reprex.tidyerse.org) package, which provides a simple
+[reprex](https://reprex.tidyverse.org) package, which provides a simple
 API for sharing reproducible examples
 [@R-reprex]. [Rclean](https://docs.ropensci.org/rclean) could provide
 a reliable way to extract parts of a larger script that would be piped
