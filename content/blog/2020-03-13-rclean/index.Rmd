@@ -307,9 +307,9 @@ code_graph(script)
 
 ```
 
-After examining the output from `get_vars` and `code_graph`, it is
+After examining the output from `get_vars()` and `code_graph()`, it is
 possible that more than one object needs to be isolated. To do this is
-simple in `keep` by passing the set of desired objects to the *vars*
+simple in `keep()` by passing the set of desired objects to the *vars*
 argument.
 
 ```{R clean-mlti}
