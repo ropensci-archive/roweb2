@@ -18,6 +18,7 @@ tags:
   - reproducibility
   - transparency
   - clean code
+  - Rclean
 # the summary below will be used by e.g. Twitter cards
 description: "Automatic isolation of code for reproducing results in R."
 # If you have no preferred image for Twitter cards,
