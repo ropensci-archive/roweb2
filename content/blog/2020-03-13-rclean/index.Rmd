@@ -147,7 +147,6 @@ script.long <- system.file(
     "example", 
     "long_script.R", 
     package = "Rclean")
-script <- script.long
 
 ```
 
@@ -253,12 +252,16 @@ do this easily via the `clean` function.
 
 ```{R long}
 library(Rclean)
+script <- system.file("example", 
+	"long_script.R", 
+	package = "Rclean")
 clean(script, "fit_sqrt_A")
 
 ```
 
 As you can see, [Rclean](https://docs.ropensci.org/rclean) has picked
-through the tangled bits of code and found the minimal set of lines
+through the tangled bits of code (in this case one of the example
+scripts inluded with the package) and found the minimal set of lines
 relevant to our object of interest. This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
 script using `keep`.
