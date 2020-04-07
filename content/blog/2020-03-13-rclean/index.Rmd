@@ -376,7 +376,7 @@ each script. For more information on the mechanics of the CodeDepends
 package, see [@R-CodeDepends]. To get an idea of what data provenance
 is, we can use the `code_graph()` function to get a graphical representation
 of the prospective provenance generated for
-[Rclean](https://docs.ropensci.org/rclean) \ref{fig:prov-graph}.
+[Rclean](https://docs.ropensci.org/rclean).
 
 ```{R load-script, echo = FALSE, results = "hide"}
 library(CodeDepends)
