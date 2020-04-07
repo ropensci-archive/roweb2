@@ -1,5 +1,5 @@
 ---
-slug: "2020-03-13"
+slug: "rclean"
 title: Automatic Code Cleaning in R with Rclean
 # Delete the package_version line below if your post is not about a package
 package_version: 1.1.8
