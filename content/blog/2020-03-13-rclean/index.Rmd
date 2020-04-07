@@ -104,9 +104,9 @@ programming in R at any level of ability. Here, we'll cover
 details on the implementation and design of the package, a general
 example of how it can be used and thoughts on its future development.
 
-# How to Use Rclean to Write Cleaner Code
+### How to use rclean to write cleaner code
 
-## Installation
+#### Installation
 
 Through the helpful feedback from the rOpenSci community, the package
 has recently passed software review and a supporting article was
@@ -133,7 +133,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("Rgraphviz")
 ```
 
-## Isolating Code for a Set of Results
+#### Isolating code for a set of results
 
 Analytical scripts that have not been refactored are often both long
 and complicated. However, a script doesn't need to be long to be
@@ -323,7 +323,7 @@ get_libs(script)
 ```
 
 
-# The Provenance Engine Under the Hood
+### The provenance engine under the hood
 
 The `clean` function provides an effective way to remove code that is
 unwanted; however, many researchers are wary about doing this exact
@@ -425,7 +425,7 @@ coding, it is worth reflecting on the statement in R.C. Martin's book
 _Clean Code: A Handbook of Agile Software Craftsmanship_ where he
 writes that, "Comments do not compensate for bad code."
 
-# Concluding Remarks and Future Work
+### Concluding remarks and future work
 
 [Rclean](https://docs.ropensci.org/rclean) provides a simple, easy to
 use tool for scientists who would like help refactoring code. Using
@@ -482,6 +482,6 @@ reporting bugs and suggesting or (hopefully) contributing
 features. For more information please visit the project page on
 [GitHub](https://github.com/ropensci/Rclean).
 
-# References
+### References
 
 <!-- Use overleaf papers.bib + knitr::write_bib -->
