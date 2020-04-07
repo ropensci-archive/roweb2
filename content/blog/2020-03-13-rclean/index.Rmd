@@ -44,7 +44,7 @@ scientific investigation. However, regardless of the language used,
 data analysis is usually complicated. Because of various project
 complexities and time constraints, analytical software often reflects
 these challenges. "What did I measure? What analyses are relevant to
-them? Do I need to transform the data? What's the function for the
+the study? Do I need to transform the data? What's the function for the
 analysis I want to run?" Although many researchers see the value in
 learning to write software, the time investment for learning a
 programming language alone is still exceedingly high for many, let
