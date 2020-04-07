@@ -92,7 +92,7 @@ Through the helpful feedback from the rOpenSci community, the package
 has recently passed software review and a supporting article was
 recently published in the Journal of Open Source Software [@Lau2020],
 in which you can find more details about the package. The package is
-hosted through the ROpenSci organization on Github, and the package
+hosted through the rOpenSci organization on GitHub, and the package
 can be installed using the [devtools](https://devtools.r-lib.org)
 library [@R-devtools] directly from the repository
 (https://github.com/ROpenSci/Rclean).
