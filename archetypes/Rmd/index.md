@@ -100,7 +100,9 @@ We recommend the use of [Hugo shortcodes](https://gohugo.io/content-management/s
 
 **Add an image** by using a Hugo shortcode. The image is saved under `/content/blog/YYYY-MM-DD-slug/name-of-image.png`.
 
-<!--html_preserve--> {{< figure src = "name-of-image.png" width = "400" alt = "this is the alternative text" >}}<!--/html_preserve-->
+<!--html_preserve-->
+{{< figure src = "name-of-image.png" width = "400" alt = "this is the alternative text" >}}
+<!--/html_preserve-->
 
 Consult the Technical Guidelines for tips on changing image size, alignment, and for advice on alternative text.
 
@@ -115,7 +117,9 @@ Once this file is knitted the plot above will be inserted with the correct synta
 
 **Embed a tweet** by using a Hugo shortcode. 
 
-<!--html_preserve--> {{< tweet 1138216112808529920 >}}<!--/html_preserve-->
+<!--html_preserve-->
+{{< tweet 1138216112808529920 >}}
+<!--/html_preserve-->
 
 
 **Tweak code highlighting** Below you can see how to use Hugo [Chroma code highlighting options](https://gohugo.io/content-management/syntax-highlighting/#highlight-shortcode): highlight the 1st and 4th to 6th code lines, number lines as a table starting from 199.
