@@ -34,8 +34,8 @@ bibliography: refs.bib
 ---
 
 > Leave the code cleaner than you found it. 
-
--- R.C. Martin in *Clean Code*
+> 
+> -- R.C. Martin in *Clean Code*
 
 The R language has become very popular among scientists and analysts
 because it enables the rapid development of software and empowers
