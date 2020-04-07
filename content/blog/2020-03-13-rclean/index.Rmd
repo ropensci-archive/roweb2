@@ -364,7 +364,7 @@ are theoretically sound. Most importantly, because the relationships
 defined by the provenance can be represented as a graph, it is
 possible to apply network search algorithms to determine the minimum
 and sufficient code needed to generate the chosen result in the
-`clean` function.
+`clean()` function.
 
 There are multiple approaches to collecting data provenance, but
 [Rclean](https://docs.ropensci.org/rclean) uses "prospective"
