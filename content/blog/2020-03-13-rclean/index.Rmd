@@ -66,7 +66,7 @@ larger set of possible ways to explore a dataset. There are many
 statistical tests and visualizations and other representations that
 can be employed in a myriad of ways depending on how the data are
 processed. This commonly leads to lengthy, complicated scripts from
-which researchers manually subset results, but likely never to be
+which researchers manually subset results, but which are likely never to be
 refactored because of the difficulty in disentangling the code.
 
 The [Rclean](https://docs.ropensci.org/rclean) package uses a
