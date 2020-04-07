@@ -34,6 +34,26 @@ output:
 bibliography: refs.bib
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = "", comment = "")
+
+knitr::knit_hooks$set(
+  plot = function(x, options) {
+    hugoopts <- options$hugoopts
+    paste0(
+      "{{<figure src=",
+      '"', x, '" ',
+      if (!is.null(hugoopts)) {
+        glue::glue_collapse(
+          glue::glue('{names(hugoopts)}="{hugoopts}"'),
+          sep = " "
+        )
+      },
+      ">}}\n"
+    )
+  }
+)
+
 > Leave the code cleaner than you found it. 
 > 
 > -- R.C. Martin in *Clean Code*
