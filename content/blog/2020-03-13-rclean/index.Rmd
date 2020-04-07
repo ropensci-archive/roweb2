@@ -352,8 +352,7 @@ quality will increase.
 The process that [Rclean](https://docs.ropensci.org/rclean) uses
 relies on the generation of data provenance.  The term provenance
 means information about the origins of some object. Data provenance is
-a formal representation of the execution of a computational process
-(https://www.w3.org/TR/prov-dm/), to rigorously determine the the
+a [formal representation of the execution of a computational process](https://www.w3.org/TR/prov-dm/), to rigorously determine the the
 unique computational pathway from inputs to results [@Carata2014]. To
 avoid confusion, note that "data" in this context is used in a broad
 sense to include all of the information generated during computation,
