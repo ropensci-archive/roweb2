@@ -370,8 +370,8 @@ There are multiple approaches to collecting data provenance, but
 [Rclean](https://docs.ropensci.org/rclean) uses "prospective"
 provenance, which analyzes code and uses language-specific information
 to predict the relationship among processes and data
-objects. [Rclean](https://docs.ropensci.org/rclean) relies on a
-library called CodeDepends to gather the prospective provenance for
+objects. [Rclean](https://docs.ropensci.org/rclean) relies on an
+R package called CodeDepends to gather the prospective provenance for
 each script. For more information on the mechanics of the CodeDepends
 package, see [@R-CodeDepends]. To get an idea of what data provenance
 is, we can use `code_graph` function to get a graphical representation
