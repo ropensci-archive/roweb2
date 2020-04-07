@@ -386,7 +386,10 @@ library(Rclean)
 ```{R prov-graph, hugoopts=list(alt= "Network diagram of provenance
 data showing the dependencies of code and variables. Arrows connect
 lines of code with the objects that they generate.", title =
-"provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbered) produced which objects (named).", echo = FALSE}
+"provenance graph",  caption = "Network diagram of the prospective
+data provenance generated for an example script. Arrows indicate which
+lines of code (numbers) produced (outgoing arrow) or used (incoming
+arrow) which objects (names).", echo = FALSE}
 
 script <- system.file(
     "example", 
