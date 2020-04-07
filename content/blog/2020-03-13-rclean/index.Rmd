@@ -458,7 +458,7 @@ open-source project, we are very receptive to feedback and help with
 extending it. We invite people to use the package and get involved by
 reporting bugs and suggesting or (hopefully) contributing
 features. For more information please visit the project page on
-Github.
+[GitHub](https://github.com/ropensci/Rclean).
 
 # References
 
