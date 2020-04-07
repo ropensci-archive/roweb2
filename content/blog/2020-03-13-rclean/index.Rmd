@@ -424,7 +424,7 @@ lines. Also, comments occupying their own lines usually refer to the
 following lines, but this is also not necessarily the case either, as
 there is no "linguistic" requirement for this. Although
 [Rclean](https://docs.ropensci.org/rclean) cannot operate
-automatically on comments; however, comments in the original code
+automatically on comments, comments in the original code
 remain untouched and can be used to inform the reduced code. Also, as
 the `clean()` function is oriented toward isolating code based on a
 specific result, the resulting code tends to naturally support the
