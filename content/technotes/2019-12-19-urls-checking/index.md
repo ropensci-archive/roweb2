@@ -352,7 +352,8 @@ http vs https
 -------------
 
 <!--html_preserve-->
-{{% tweet 1159812119099060224 %}} <!--/html_preserve-->
+{{% tweet 1159812119099060224 %}} 
+<!--/html_preserve-->
 
 We proceeded as previously when checking external links, except we used
 better settings for `crul::ok()`.
