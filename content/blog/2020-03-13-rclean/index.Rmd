@@ -368,7 +368,7 @@ and sufficient code needed to generate the chosen result in the
 
 There are multiple approaches to collecting data provenance, but
 [Rclean](https://docs.ropensci.org/rclean) uses "prospective"
-provenance, which analyzes code and uses language specific information
+provenance, which analyzes code and uses language-specific information
 to predict the relationship among processes and data
 objects. [Rclean](https://docs.ropensci.org/rclean) relies on a
 library called CodeDepends to gather the prospective provenance for
