@@ -374,7 +374,7 @@ objects. [Rclean](https://docs.ropensci.org/rclean) relies on an
 R package called CodeDepends to gather the prospective provenance for
 each script. For more information on the mechanics of the CodeDepends
 package, see [@R-CodeDepends]. To get an idea of what data provenance
-is, we can use `code_graph` function to get a graphical representation
+is, we can use the `code_graph()` function to get a graphical representation
 of the prospective provenance generated for
 [Rclean](https://docs.ropensci.org/rclean) \ref{fig:prov-graph}.
 
