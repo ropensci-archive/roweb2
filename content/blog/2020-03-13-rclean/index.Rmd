@@ -264,7 +264,7 @@ through the tangled bits of code (in this case one of the example
 scripts inluded with the package) and found the minimal set of lines
 relevant to our object of interest. This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
-script using `keep`.
+script using `keep()`.
 
 ```{R ex-keep, eval = FALSE}
 fitSA <- clean(script, "fit_sqrt_A")
@@ -282,7 +282,7 @@ keep(fitSA, file = "fit_SA.R")
 
 ```
 
-To explore more possible variables to extract, the `get_vars` function
+To explore more possible variables to extract, the `get_vars()` function
 can be used to produce a list of the variables (aka. objects) that are
 created in the script.
 
@@ -294,7 +294,7 @@ get_vars(script)
 
 Especially when the code for different variables are entangled, it can
 be useful to visual the code in order to devise an approach to
-cleaning. The `code_graph` function can also give us a visual of the
+cleaning. The `code_graph()` function can also give us a visual of the
 code and the objects that they produce.
 
 ```{R ex-code_graph, hugoopts=list(alt = "code_graph example showing a
@@ -307,9 +307,9 @@ code_graph(script)
 
 ```
 
-After examining the output from `get_vars` and `code_graph`, it is
+After examining the output from `get_vars()` and `code_graph()`, it is
 possible that more than one object needs to be isolated. To do this is
-simple in `keep` by passing the set of desired objects to the *vars*
+simple in `keep()` by passing the set of desired objects to the *vars*
 argument.
 
 ```{R clean-mlti}
@@ -319,9 +319,9 @@ clean(script, vars = c("fit_sqrt_A", "fit_anova"))
 ```
 
 Currently, libraries can not be isolated directly during the cleaning
-process. So, the `get_libs` function provides a way to detect the
+process. So, the `get_libs()` function provides a way to detect the
 libraries for a given script. We just need to supply a file path and
-`get_libs` will return the libraries that are called by that script.
+`get_libs()` will return the libraries that are called by that script.
 
 ```{R ex-get_libs}
 
@@ -332,7 +332,7 @@ get_libs(script)
 
 ### The provenance engine under the hood
 
-The `clean` function provides an effective way to remove code that is
+The `clean()` function provides an effective way to remove code that is
 unwanted; however, many researchers are wary about doing this exact
 thing for at least a few reasons. Perhaps the top reason is that the
 main goal of an analysis is the results and taking time to craft
@@ -364,7 +364,7 @@ are theoretically sound. Most importantly, because the relationships
 defined by the provenance can be represented as a graph, it is
 possible to apply network search algorithms to determine the minimum
 and sufficient code needed to generate the chosen result in the
-`clean` function.
+`clean()` function.
 
 There are multiple approaches to collecting data provenance, but
 [Rclean](https://docs.ropensci.org/rclean) uses "prospective"
@@ -376,7 +376,7 @@ each script. For more information on the mechanics of the CodeDepends
 package, see [@R-CodeDepends]. To get an idea of what data provenance
 is, we can use the `code_graph()` function to get a graphical representation
 of the prospective provenance generated for
-[Rclean](https://docs.ropensci.org/rclean) \ref{fig:prov-graph}.
+[Rclean](https://docs.ropensci.org/rclean).
 
 ```{R load-script, echo = FALSE, results = "hide"}
 library(CodeDepends)
@@ -403,7 +403,7 @@ All of this work with the provenance is to get the network
 representation of relationships among functions and objects. The
 provenance network is very powerful because we can now apply
 algorithms analyze the R script with respect to our results. This is
-what empowers the `clean` function, which takes the provenance and
+what empowers the `clean()` function, which takes the provenance and
 applies a a network search algorithm to determine the pathways leading
 from inputs to outputs. In the process any objects or lines of code
 that do not fall along that pathway are by definition not necessary to
@@ -426,7 +426,7 @@ there is no "linguistic" requirement for this. Although
 [Rclean](https://docs.ropensci.org/rclean) cannot operate
 automatically on comments; however, comments in the original code
 remain untouched and can be used to inform the reduced code. Also, as
-the `clean` function is oriented toward isolating code based on a
+the `clean()` function is oriented toward isolating code based on a
 specific result, the resulting code tends to naturally support the
 generation of new comments that are higher level (e.g. "The following
 produces a plot of the mean response of each treatment group."), and
