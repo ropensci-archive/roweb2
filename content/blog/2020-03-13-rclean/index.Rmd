@@ -294,7 +294,7 @@ get_vars(script)
 
 Especially when the code for different variables are entangled, it can
 be useful to visual the code in order to devise an approach to
-cleaning. The `code_graph` function can also give us a visual of the
+cleaning. The `code_graph()` function can also give us a visual of the
 code and the objects that they produce.
 
 ```{R ex-code_graph, hugoopts=list(alt = "code_graph example showing a
