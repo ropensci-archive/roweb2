@@ -359,7 +359,7 @@ sense to include all of the information generated during computation,
 not just the data that are collected in a research project that are
 used as input to an analysis. Having the formalized, mathematically
 rigorous representation that data provenance provides guarantees that
-the analyses that [Rclean](https://docs.ropensci.org/rclean) conducts
+analyses conducted by [Rclean](https://docs.ropensci.org/rclean) 
 are theoretically sound. Most importantly, because the relationships
 defined by the provenance can be represented as a graph, it is
 possible to apply network search algorithms to determine the minimum
