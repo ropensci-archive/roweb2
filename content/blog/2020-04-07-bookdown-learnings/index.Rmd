@@ -47,7 +47,7 @@ knitr::knit_hooks$set(
 )
 ```
 
-After soliciting, reviewing, and publishing over 100 blog posts and tech notes by rOpenSci community members, we have created the [rOpenSci Blog Guidelines for Authors and Editors](https://blogguide.ropensci.org/) to address many frequently asked questions and frequently given suggestions. 
+After soliciting, reviewing, and publishing over 100 blog posts and tech notes by rOpenSci community members, we have created the [rOpenSci Blog Guide for Authors and Editors](https://blogguide.ropensci.org/) to address many frequently asked questions and frequently given suggestions. 
 
 Technically, we structured the content as a bookdown gitbook. It was Stef's first foray into the glorious process of publishing a book with bookdown, and Maëlle's second[^1]. And oh, we learned a lot.
 
@@ -258,7 +258,7 @@ If you're feeling motivated to add GitHub Actions deployment to your bookdown pr
 
 ### Conclusion
 
-In this post, we shared tips and things we learned from novice and (more) experienced perspectives on bookdown and R project management whilst working on the new [rOpenSci Blog Guidelines for Authors and Editors](https://blogguide.ropensci.org/). 
+In this post, we shared tips and things we learned from novice and (more) experienced perspectives on bookdown and R project management whilst working on the new [rOpenSci Blog Guide for Authors and Editors](https://blogguide.ropensci.org/). 
 We're almost as happy with our new skills as we are with the Blog Guide itself! 
 If _you_ want to get started with bookdown, we'd recommend [the bookdown book](https://bookdown.org/yihui/bookdown/introduction.html), [this introductory slidedeck by Alison Hill](https://alison.rbind.io/talk/2019-rsc-bookdown/) and [the bookdown gallery](https://bookdown.org/home/archive/).
 
