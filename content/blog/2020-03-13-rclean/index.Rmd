@@ -319,9 +319,9 @@ clean(script, vars = c("fit_sqrt_A", "fit_anova"))
 ```
 
 Currently, libraries can not be isolated directly during the cleaning
-process. So, the `get_libs` function provides a way to detect the
+process. So, the `get_libs()` function provides a way to detect the
 libraries for a given script. We just need to supply a file path and
-`get_libs` will return the libraries that are called by that script.
+`get_libs()` will return the libraries that are called by that script.
 
 ```{R ex-get_libs}
 
