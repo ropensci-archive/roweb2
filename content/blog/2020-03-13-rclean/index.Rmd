@@ -53,7 +53,7 @@ a back-seat to just writing code that will get the job "done" leading
 to issues with transparency and software that is highly unstable
 (i.e. buggy and not reproducible).
 
-The goal of [Rclean](https://docs.ropensci.org/rclean) is to provide a
+The goal of the R package [Rclean](https://docs.ropensci.org/rclean) is to provide a
 automated tool to help scientists more easily write better
 code. Specifically, [Rclean](https://docs.ropensci.org/rclean) has
 been designed to facilitate the isolation of the code needed to
