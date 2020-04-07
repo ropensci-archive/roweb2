@@ -96,7 +96,9 @@ Things I learned:
 
 - Appendices A to H (_too many; we know_) are created from a single [appendix.Rmd](https://github.com/ropensci-org/blog-guidance/blob/master/appendix.Rmd) file made up of groupings of a heading, some text, and sometimes a code chunk that points to a file, like a [template](https://github.com/ropensci-org/blog-guidance/tree/master/templates) or [checklist](https://github.com/ropensci-org/blog-guidance/tree/master/checklists) that populates that appendix.
 
-<!--html_preserve--> {{< figure src = "file-comp.png" width = "800" alt = "this is the alternative text" >}}<!--/html_preserve-->
+<!--html_preserve--> 
+{{< figure src = "file-comp.png" width = "800" alt = "this is the alternative text" >}}
+<!--/html_preserve-->
 
 I often felt quite euphoric about the things I was able to figure out comparing GitHub file structures to their books. 
 Consistently, within days I would take this hard-earned knowledge for granted and feel inadequate in the face of my next technical challenge...until I felt the satisfaction of owning that next one too.
@@ -396,11 +398,15 @@ run: DEPLOY_URL=$(netlify deploy --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${
 
 After the successful deployment of a preview, in the pull request checks, one check called "Preview book" appears.
 
-<!--html_preserve--> {{< figure src = "PR-checks.png" width = "600" alt = "Screenshots of pull request checks in a pull request to the blog guide" >}}<!--/html_preserve-->
+<!--html_preserve--> 
+{{< figure src = "PR-checks.png" width = "600" alt = "Screenshots of pull request checks in a pull request to the blog guide" >}}
+<!--/html_preserve-->
 
 When clicking on "Details" one gets to [a check page where the preview link is prominent](https://github.com/ropensci-org/blog-guidance/runs/471974005?check_suite_focus=true). 
 
-<!--html_preserve--> {{< figure src = "preview-check.png" width = "600" alt = "Screenshots of a GitHub Action check page featuring a Netlify preview link" >}}<!--/html_preserve-->
+<!--html_preserve--> 
+{{< figure src = "preview-check.png" width = "600" alt = "Screenshots of a GitHub Action check page featuring a Netlify preview link" >}}
+<!--/html_preserve-->
 
 
 * We want to skip all deploy steps for pull requests _from forks_, since forks don't have access to the Netlify secrets[^5] saved in our repo settings. To find out whether the pull request is from a fork, I use `jq` on the raw info about the build, idea I got [from Vanessa Sochat](https://github.com/r-universe/vsoch/blob/2bf10b1e30f59f5fab64ec2b7332526c47f1f4d3/.github/workflows/pull-request-update-packages.yml#L26).
