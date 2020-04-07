@@ -68,3 +68,8 @@ rssLimit = 20
     disable = false
     respectDoNotTrack = true
     useSessionStorage = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
