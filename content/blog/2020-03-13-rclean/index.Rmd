@@ -294,7 +294,11 @@ be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph` function can also give us a visual of the
 code and the objects that they produce.
 
-```{R ex-code_graph, dpi = 300, fig.cap = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code."}
+```{R ex-code_graph, hugoopts=list(alt = "code_graph example showing a
+network graph of code line and variable dependencies.", title =
+"code_graph example", caption = "Example of the plot produced by the
+code_graph function showing which lines of code produce which
+variables and which variables are used by other lines of code.", width = 300)}
 
 code_graph(script)
 
@@ -377,7 +381,10 @@ library(CodeDepends)
 library(Rclean)
 ```
 
-```{R prov-graph, dpi = 300, fig.cap = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbered) produced which objects (named).", echo = FALSE}
+```{R prov-graph, hugoopts=list(alt= "Network diagram of provenance
+data showing the dependencies of code and variables. Arrows connect
+lines of code with the objects that they generate.", title =
+"provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbered) produced which objects (named).", echo = FALSE}
 
 script <- system.file(
     "example", 
