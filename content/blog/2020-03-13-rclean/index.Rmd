@@ -77,9 +77,10 @@ refactoring for scientists that use R but do not have formal training
 in software design and specifically with the "art" of creating clean
 code, which in part is the development of an intuitive sense of how
 code is and/or should be organized. However, manually culling code is
-tedious and potentially leads to errors, and we see
+tedious and potentially leads to errors regardless of the level of
+expertise a coder might have; therefore, we see
 [Rclean](https://docs.ropensci.org/rclean) as a useful tool for
-everyone at all levels of coding ability in R. Here, we'll cover
+programming in R at any level of ability. Here, we'll cover
 details on the implementation and design of the package, a general
 example of how it can be used and thoughts on its future development.
 
