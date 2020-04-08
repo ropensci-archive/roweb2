@@ -99,8 +99,7 @@ can be installed using the [devtools](https://devtools.r-lib.org)
 package [^R-devtools] directly from the repository
 (https://github.com/ROpenSci/Rclean).
 
-
-```r
+```r 
 library(devtools)
 install_github("ROpenSci/Rclean")
 ```
@@ -109,8 +108,7 @@ If you do not already have
 you will need to install it using the following code *before*
 installing [Rclean](https://docs.ropensci.org/rclean):
 
-
-```r
+```r 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("Rgraphviz")
@@ -126,7 +124,8 @@ get a result would likely prove to be frustrating.
 
 
 
-```r {linenos=table}
+
+```r
 library(stats)
 x <- 1:100
 x <- log(x)
@@ -208,10 +207,11 @@ shapiro.test(residuals(fit_sqrt_A))
 z <- c(rep("A", nrow(x2) / 2), rep("B", nrow(x2) / 2))
 fit_anova <- aov(x2 ~ z, data = data.frame(x2 = x2[, 1], z))
 summary(fit_anova)
-
-
-
 ```
+
+
+
+
 
 So, let's say we've come to our script wanting to extract the code to
 produce one of the results `fit_sqrt_A`, which is an analysis that is
@@ -225,8 +225,7 @@ fact that we have used "x" as a prefix for multiple unrelated objects
 in the script. However, [Rclean](https://docs.ropensci.org/rclean) can
 do this easily via the `clean()` function.
 
-
-```r
+```r 
 library(Rclean)
 script <- system.file("example", 
 	"long_script.R", 
@@ -263,8 +262,7 @@ relevant to our object of interest. This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
 script using `keep()`.
 
-
-```r
+```r 
 fitSA <- clean(script, "fit_sqrt_A")
 keep(fitSA)
 ```
@@ -273,8 +271,7 @@ This will pass the code to the clipboard for pasting into another
 document. To write directly to a new file, a file path can be
 specified.
 
-
-```r
+```r 
 fitSA <- clean(script, "fit_sqrt_A")
 keep(fitSA, file = "fit_SA.R")
 ```
@@ -283,8 +280,7 @@ To explore more possible variables to extract, the `get_vars()` function
 can be used to produce a list of the variables (aka. objects) that are
 created in the script.
 
-
-```r
+```r 
 get_vars(script)
 ```
 
@@ -305,13 +301,56 @@ code_graph(script)
 
 {{<figure src="ex-code_graph-1.png" alt="code_graph example showing a network graph of code line and variable dependencies." title="code_graph example" caption="Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code." width="700">}}
 
+```r {linenos=table}
+library(stats)
+x <- 1:100
+x <- log(x)
+x <- x * 2
+x <- lapply(x, rep, times = 4)
+x <- do.call(cbind, x)
+x2 <- sample(10:1000, 100)
+x2 <- lapply(x2, rnorm)
+x <- x * 2
+colnames(x) <- paste0("X", seq_len(ncol(x)))
+rownames(x) <- LETTERS[seq_len(nrow(x))]
+x <- t(x)
+x[, "A"] <- sqrt(x[, "A"])
+for (i in seq_along(colnames(x))) {
+    set.seed(17)
+    x[, i] <- x[, i] + runif(length(x[, i]), -1, 1)
+}
+lapply(x2, length)[1]
+max(unlist(lapply(x2, length)))
+range(unlist(lapply(x2, length)))
+head(x2[[1]])
+tail(x2[[1]])
+x2 <- lapply(x2, function(x) x[1:10])
+x2 <- do.call(rbind, x2)
+x3 <- x2[, 1:2]
+x3 <- apply(x3, 2, round, digits = 3)
+x[, 1] <- x[, 1] * 2 + 10
+x[, 2] <- x[, 1] + x[, 2]
+x[, "A"] <- x[, "A"] * 2
+fit.23 <- lm(x2 ~ x3, data = data.frame(x2[, 1], x3[, 1]))
+summary(fit.23)
+x <- data.frame(x)
+fit.xx <- lm(A~B, data = x)
+summary(fit.xx)
+shapiro.test(residuals(fit.xx))
+fit_sqrt_A <- lm(I(sqrt(A))~B, data = x)
+summary(fit_sqrt_A)
+shapiro.test(residuals(fit_sqrt_A))
+z <- c(rep("A", nrow(x2) / 2), rep("B", nrow(x2) / 2))
+fit_anova <- aov(x2 ~ z, data = data.frame(x2 = x2[, 1], z))
+summary(fit_anova)
+```
+
 After examining the output from `get_vars()` and `code_graph()`, it is
 possible that more than one object needs to be isolated. To do this is
 simple in `keep()` by passing the set of desired objects to the *vars*
 argument.
 
-
-```r
+```r 
 clean(script, vars = c("fit_sqrt_A", "fit_anova"))
 ```
 
@@ -348,8 +387,7 @@ process. So, the `get_libs()` function provides a way to detect the
 libraries for a given script. We just need to supply a file path and
 `get_libs()` will return the libraries that are called by that script.
 
-
-```r
+```r 
 get_libs(script)
 ```
 

@@ -52,27 +52,6 @@ knitr::knit_hooks$set(
     )
   }
 )
-
-
-# knitr hook to use Hugo highlighting options
-knitr::knit_hooks$set(
-  source = function(x, options) {
-  hlopts <- options$hlopts
-    paste0(
-      "```r ",
-      if (!is.null(hlopts)) {
-      paste0("{",
-        glue::glue_collapse(
-          glue::glue('{names(hlopts)}={hlopts}'),
-          sep = ","
-        ), "}"
-        )
-      },
-      "\n", glue::glue_collapse(x, sep = "\n"), "\n```\n"
-    )
-  }
-)
-
 library("RefManageR")
 mybib <- ReadBib("refs.bib", check = FALSE) 
 cite <- function(key, bib = mybib) {
@@ -177,7 +156,8 @@ script.long <- system.file(
 
 ```
 
-```r {linenos=table}
+```{R long-script, echo = TRUE, eval = FALSE}
+
 library(stats)
 x <- 1:100
 x <- log(x)
@@ -264,6 +244,10 @@ summary(fit_anova)
 
 ```
 
+
+
+
+
 So, let's say we've come to our script wanting to extract the code to
 produce one of the results `fit_sqrt_A`, which is an analysis that is
 the fitted model object for an analysis. We might want to double check
@@ -326,6 +310,16 @@ code and the objects that they produce.
 ```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700)}
 
 code_graph(script)
+
+```
+
+```{r short-script, results="asis", echo=FALSE}
+lalala <- readLines(script.long)
+lalala <- lalala[!grepl("^#", lalala)]
+lalala <- lalala[lalala != ""]
+glue::glue_collapse(
+  c("```r {linenos=table}", lalala, "```"),
+  sep = "\n")
 
 ```
 
