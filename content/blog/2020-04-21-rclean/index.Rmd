@@ -272,7 +272,19 @@ clean(script, "fit_sqrt_A")
 As you can see, [Rclean](https://docs.ropensci.org/rclean) has picked
 through the tangled bits of code (in this case one of the example
 scripts inluded with the package) and found the minimal set of lines
-relevant to our object of interest. This code can now be visually
+relevant to our object of interest. 
+
+It might be easier to see below in this chunk where we highlighted the lines "kept" by RClean.
+
+```{r hl, results = "asis", echo=FALSE}
+original <- readLines(script)
+nos <- which(gsub(" ", "", original) %in% gsub(" ", "", clean(script, "fit_sqrt_A")))
+linenos <- glue::glue_collapse(nos, sep = ",")
+glue::glue_collapse(c(paste0("```r {linenos=table,hl_lines=[", linenos, "]}"),
+                      original, "```"), sep = "\n")
+```
+
+This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
 script using `keep()`.
 
@@ -316,7 +328,6 @@ code_graph(script)
 ```{r short-script, results="asis", echo=FALSE}
 lalala <- readLines(script.long)
 lalala <- lalala[!grepl("^#", lalala)]
-lalala <- lalala[lalala != ""]
 glue::glue_collapse(
   c("```r {linenos=table}", lalala, "```"),
   sep = "\n")
