@@ -144,7 +144,7 @@ Our [script checking URLs](https://github.com/ropensci/dev_guide/blob/master/ins
 #### Conclusion
 
 In this post we summarized the changes incorporated into our book ["rOpenSci Packages: Development, Maintenance, and Peer Review"](https://devguide.ropensci.org/) over the last six months. We are grateful for all contributions that made this release possible. 
-Although our release frequency has now slowed down, we are already working on updates for our next version, such as [how to deal with the documentation website documenting the development vs release version of a package](https://github.com/ropensci/dev_guide/issues/200). 
+Although our release frequency has now slowed down, we are already working on updates for our next version, such as [how to permit multiple documentation websites for development vs release versions of a package](https://github.com/ropensci/dev_guide/issues/200). 
 Check out the [the issue tracker](https://github.com/ropensci/dev_guide/issues/) if you'd like to contribute.
 
 [^1]: We first explored this in the blog guide bookdown BLOG POST LINK
