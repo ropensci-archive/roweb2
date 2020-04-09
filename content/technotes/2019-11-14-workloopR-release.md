@@ -5,7 +5,6 @@ package_version: 1.1.2
 author:
   - Vikram B. Baliga
 date: 2019-11-14
-  - technotes
 topicid: 1879
 tags:
 - Software Peer Review
@@ -34,7 +33,8 @@ output:
 
 Studies of muscle physiology often rely on closed-source, proprietary software for not only recording data but also for data wrangling and analyses. Although specialized software might be necessary to record data from highly-specialized equipment, data wrangling and analyses should be free from this constraint. It's becoming more common for researchers to provide code along with published papers (but usually as Matlab scripts...ugh), but it is still typical for most analyses to be performed with code that stays in-house. Even worse is when some of the steps are carried out in a non-reproducible way, like needing to click and drag sliders across a screen (*by hand!!*) to select a data range of interest.
 
-<!--html_preserve--> {{% figure src = "/img/blog-images/2019-11-14-workloopR-release/workloopR_icon_300dpi.png" width = "150" alt = "workloopR icon" %}}
+<!--html_preserve--> 
+{{< figure src = "/img/blog-images/2019-11-14-workloopR-release/workloopR_icon_300dpi.png" width = "150" alt = "workloopR icon" >}}
 <!--/html_preserve-->
 
 To give muscle physiologists a set of tools to help perform reproducible research, we present our new R package [workloopR](https://github.com/ropensci/workloopR).

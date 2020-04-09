@@ -42,8 +42,11 @@ Save this file under /content/blog/YYYY-MM-DD-slug/index.Rmd in the local copy o
 The chunk below ensures your plots will be inserted in the same folder as your Rmd so you can submit the bundle (.Rmd, .md, images) to roweb2.
 
 ```{r setup, include=FALSE}
+# Options to have images saved in the post folder
+# And to disable symbols before output
 knitr::opts_chunk$set(fig.path = "", comment = "")
 
+# knitr hook to make images output use Hugo options
 knitr::knit_hooks$set(
   plot = function(x, options) {
     hugoopts <- options$hugoopts
@@ -57,6 +60,25 @@ knitr::knit_hooks$set(
         )
       },
       ">}}\n"
+    )
+  }
+)
+
+# knitr hook to use Hugo highlighting options
+knitr::knit_hooks$set(
+  source = function(x, options) {
+  hlopts <- options$hlopts
+    paste0(
+      "```r ",
+      if (!is.null(hlopts)) {
+      paste0("{",
+        glue::glue_collapse(
+          glue::glue('{names(hlopts)}={hlopts}'),
+          sep = ","
+        ), "}"
+        )
+      },
+      "\n", glue::glue_collapse(x, sep = "\n"), "\n```\n"
     )
   }
 )
@@ -78,7 +100,9 @@ We recommend the use of [Hugo shortcodes](https://gohugo.io/content-management/s
 
 **Add an image** by using a Hugo shortcode. The image is saved under `/content/blog/YYYY-MM-DD-slug/name-of-image.png`.
 
-<!--html_preserve--> {{< figure src = "name-of-image.png" width = "400" alt = "this is the alternative text" >}}<!--/html_preserve-->
+<!--html_preserve-->
+{{< figure src = "name-of-image.png" width = "400" alt = "this is the alternative text" >}}
+<!--/html_preserve-->
 
 Consult the Technical Guidelines for tips on changing image size, alignment, and for advice on alternative text.
 
@@ -93,8 +117,22 @@ Once this file is knitted the plot above will be inserted with the correct synta
 
 **Embed a tweet** by using a Hugo shortcode. 
 
-<!--html_preserve--> {{< tweet 1138216112808529920 >}}<!--/html_preserve-->
+<!--html_preserve-->
+{{< tweet 1138216112808529920 >}}
+<!--/html_preserve-->
 
+
+**Tweak code highlighting** Below you can see how to use Hugo [Chroma code highlighting options](https://gohugo.io/content-management/syntax-highlighting/#highlight-shortcode): highlight the 1st and 4th to 6th code lines, number lines as a table starting from 199.
+
+```{r hl, hlopts = list(linenos='table',hl_lines='[1,"4-6"]',linenostart=199)}
+a <- 1
+a <- 1
+a <- 1
+a <- 1
+a <- 1
+a <- 1
+a <- 1
+```
 
 **Add citation or footnote** text by using the format below 
 

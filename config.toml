@@ -8,6 +8,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$", "index\\.html"]
 footnotereturnlinkcontents = "↩"
 buildFuture = true
 preserveTaxonomyNames = true
+pygmentsUseClasses=true
 
 paginate = 5
 paginatePath = "page"
@@ -67,3 +68,8 @@ rssLimit = 20
     disable = false
     respectDoNotTrack = true
     useSessionStorage = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

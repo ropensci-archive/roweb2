@@ -41,11 +41,7 @@ Maintaining a piece of software is both a technical and social venture that can 
 
 🕘 **Wednesday, March 18, 9-10 AM PDT / 4-5 PM GMT** ([find your timezone](https://bit.ly/3ctkrQj))
 
-☎️ Everyone is welcome. No RSVP needed. You can use https://zoom.us/test to check that you are set up for audio and video.
-
-- Join Zoom Meeting on March 18th: <https://zoom.us/j/595631720>  
-- To join by phone, [find your local number](https://zoom.us/u/acO2ayYceg)
-- Meeting ID: 595 631 720
+☎️ Everyone is welcome. No RSVP needed. (This event has passed)
 
 🎥 After the Call, we’ll post the video and collaborative notes on the [archive page](/commcalls).
 
@@ -76,8 +72,8 @@ _**Erin Grand** is a Data Scientist at Uncommon Schools and a board member of [R
 _Erin on [GitHub](https://github.com/eringrand), [Twitter](https://www.twitter.com/astroeringrand), [Website](http://eringrand.github.io/),  [rOpenSci](/authors/erin-grand/)_  
 
 
-<img src ="/img/blog-images/2020-03-04-commcall-mar2020/leonardo-collado-torres.jpg" alt="Leonardo Collado-Torres headshot" style="margin: 0px 20px; width: 200px;" align="left">
-_**Leonardo Collado-Torres** is a Staff Scientist II at the Lieber Institute for Brain Development. He maintains [several](https://bioconductor.org/packages/release/bioc/html/derfinder.html) [Bioconductor](https://bioconductor.org/packages/release/bioc/html/recount.html) packages including the recently submitted [spatialLIBD](https://twitter.com/fellgernon/status/1233661576433061888?s=20) for spatial transcriptomics data.  Leo is a co-founder of the [LIBD rstats club](http://research.libd.org/rstatsclub/) and the [CDSBMexico](https://comunidadbioinfo.github.io/) community of R and Bioconductor developers in Latin America whose members just submitted their [first package to Bioconductor (regutools)](https://twitter.com/CDSBMexico/status/1233885048077721607?s=20), representing a dramatic percent increase in Latin American Bioconductor developers._   
+<img src ="/img/blog-images/2020-03-04-commcall-mar2020/leonardo-collado-torres.png" alt="Leonardo Collado-Torres headshot" style="margin: 0px 20px; width: 200px;" align="left">
+_**Leonardo Collado-Torres** is a Research Scientist at the Lieber Institute for Brain Development. He maintains [several](https://bioconductor.org/packages/release/bioc/html/derfinder.html) [Bioconductor](https://bioconductor.org/packages/release/bioc/html/recount.html) packages including the recently submitted [spatialLIBD](https://twitter.com/fellgernon/status/1233661576433061888?s=20) for spatial transcriptomics data.  Leo is a co-founder of the [LIBD rstats club](http://research.libd.org/rstatsclub/) and the [CDSBMexico](https://comunidadbioinfo.github.io/) community of R and Bioconductor developers in Latin America whose members just submitted their [first package to Bioconductor (regutools)](https://twitter.com/CDSBMexico/status/1233885048077721607?s=20), representing a dramatic percent increase in Latin American Bioconductor developers._   
 _Leo on [GitHub](https://github.com/lcolladotor), [Twitter](https://twitter.com/fellgernon), [Website](http://lcolladotor.github.io/), [rOpenSci](/authors/leonardo-collado-torres/)_  
 
 

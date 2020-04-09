@@ -5,7 +5,6 @@ package_version: 0.2.0
 date: 2020-02-25
 author:
   - Malcolm Morgan
-  - technotes
 topicid: 1966
 tags:
 - R

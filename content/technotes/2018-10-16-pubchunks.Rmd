@@ -3,8 +3,7 @@ slug: "pubchunks"
 title: "pubchunks: extract parts of scholarly XML articles"
 date: 2018-10-16
 author:
-  - name: Scott Chamberlain
-  - technotes
+  - Scott Chamberlain
 topicid: 1415
 tags:
 - R
