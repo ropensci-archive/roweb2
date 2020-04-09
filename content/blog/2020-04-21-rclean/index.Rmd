@@ -532,3 +532,11 @@ apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
     .init = TRUE)
 RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
 ```
+### Acknowledgements
+
+Thanks to [Steffi Lazerte](http://steffilazerte.ca/), [Stefanie
+Butland](https://stefaniebutland.netlify.com/) and [Ma&euml;lle
+Salmon](https://masalmon.eu/) for editorial work and technical
+help. Special word of thanks to [Ma&euml;lle
+Salmon](https://masalmon.eu/) for the addition of the code highighting
+figure in the `clean()` example. 
