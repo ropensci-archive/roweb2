@@ -41,7 +41,7 @@ _Packages that improve reproducibility of real-world workflows through standardi
 Our [reviewer guide](https://devguide.ropensci.org/reviewerguide.html) now includes guidance for off-thread interactions. We're glad for community building but don't want any important information to get lost.
 _If you interact with the package authors and talked about the review outside a review thread (in chats, DMs, in-person, issues in the project repository), please make sure that your review captures and/or links to elements from these conversations that are relevant to the process._
 
-Another change linked to policy is that we clarified our advice related to rOpenSci's Code of Conduct.
+Another change linked to policy is that we clarified our advice related to [rOpenSci's Code of Conduct](/code-of-conduct).
 This Code of Conduct applies automatically to all rOpenSci repositories so maintainers should not include a Code of Conduct to avoid conflict. This way the [default `CODE_OF_CONDUCT.md` of the rOpenSci GitHub organization](https://github.com/ropensci/.github/blob/master/CODE_OF_CONDUCT.md) will be picked up by GitHub in e.g. new issues.
 We recommend authors to add the following text to the package README:
 
