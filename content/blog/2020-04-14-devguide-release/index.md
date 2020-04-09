@@ -147,4 +147,4 @@ In this post we summarized the changes incorporated into our book ["rOpenSci Pac
 Although our release frequency has now slowed down, we are already working on updates for our next version, such as [how to permit multiple documentation websites for development vs release versions of a package](https://github.com/ropensci/dev_guide/issues/200). 
 Check out the [the issue tracker](https://github.com/ropensci/dev_guide/issues/) if you'd like to contribute.
 
-[^1]: We first explored this in the blog guide bookdown BLOG POST LINK
+[^1]: We first explored this for [our blog guide](/blog/2020/04/07/bookdown-learnings/#5-how-to-deploy-a-preview-of-the-book-for-pull-requests).
