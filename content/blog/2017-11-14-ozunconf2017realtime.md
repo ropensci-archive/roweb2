@@ -17,8 +17,6 @@ tags:
   - unconf
 ---
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 This year's [rOpenSci ozunconf](https://ozunconf17.ropensci.org/) was held in Melbourne, bringing together over 45 R enthusiasts from around the country and beyond. As is customary, ideas for projects were discussed in [GitHub Issues](https://github.com/ropensci/ozunconf17/issues) (41 of them by the time the unconf rolled around!) and there was no shortage of enthusiasm, interesting concepts, and varied experience.
 
 I've been to a few unconfs now and I treasure the time I get to spend with new people, new ideas, new backgrounds, new approaches, and new insights. That's not to take away from the time I get to spend with people I met at previous unconfs; I've gained great friendships and started collaborations on side projects with these wonderful people.
