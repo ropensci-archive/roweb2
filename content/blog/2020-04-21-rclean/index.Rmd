@@ -31,7 +31,6 @@ description: "Automatic isolation of code for reproducing results in R."
 output: 
   html_document:
     keep_md: true
-bibliography: refs.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -52,8 +51,12 @@ knitr::knit_hooks$set(
     )
   }
 )
+
+# Load bib file
 library("RefManageR")
 mybib <- ReadBib("refs.bib", check = FALSE) 
+
+# Create helper function
 cite <- function(key, bib = mybib) {
   RefManageR::NoCite(bib, key)
   paste0("[^", key, "]")
@@ -268,7 +271,19 @@ clean(script, "fit_sqrt_A")
 As you can see, [Rclean](https://docs.ropensci.org/rclean) has picked
 through the tangled bits of code (in this case one of the example
 scripts inluded with the package) and found the minimal set of lines
-relevant to our object of interest. This code can now be visually
+relevant to our object of interest. 
+
+It might be easier to see below in this chunk where we highlighted the lines "kept" by RClean.
+
+```{r hl, results = "asis", echo=FALSE}
+original <- readLines(script)
+nos <- which(gsub(" ", "", original) %in% gsub(" ", "", clean(script, "fit_sqrt_A")))
+linenos <- glue::glue_collapse(nos, sep = ",")
+glue::glue_collapse(c(paste0("```r {hl_lines=[", linenos, "]}"),
+                      original, "```"), sep = "\n")
+```
+
+This code can now be visually
 inspected to adapt the original code or ported to a new, "refactored"
 script using `keep()`.
 
@@ -306,6 +321,15 @@ code and the objects that they produce.
 ```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700)}
 
 code_graph(script)
+
+```
+
+For reference below we put the script again but with line numbers.
+
+```{r short-script, results="asis", echo=FALSE}
+  glue::glue_collapse(
+  c("```r {linenos=table}", readLines(script.long), "```\n"),
+  sep = "\n")
 
 ```
 
@@ -497,6 +521,7 @@ features. For more information please visit the project page on
 [GitHub](https://github.com/ropensci/Rclean).
 
 ```{r bib, echo = FALSE, results = "asis"}
+# Print bibliography with our own style very close to JSS style
 get_doi <- function(paper) {
   if (is.null(paper$doi)) {
     ""
