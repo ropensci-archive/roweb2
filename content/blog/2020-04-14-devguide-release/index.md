@@ -41,7 +41,7 @@ _Packages that improve reproducibility of real-world workflows through standardi
 Our [reviewer guide](https://devguide.ropensci.org/reviewerguide.html) now includes guidance for off-thread interactions. We're glad for community building but don't want any important information to get lost.
 _If you interact with the package authors and talked about the review outside a review thread (in chats, DMs, in-person, issues in the project repository), please make sure that your review captures and/or links to elements from these conversations that are relevant to the process._
 
-Another change linked to policy is that we clarified our advice related to [rOpenSci's Code of Conduct](/code-of-conduct).
+Another change linked to policy is that we clarified our advice related to [rOpenSci's Code of Conduct](/code-of-conduct), thanks to a discussion started [by Hugo Gruson](https://discuss.ropensci.org/t/using-ropensci-code-of-conduct-on-github-project/1898) and [by Carl Boettiger](https://github.com/ropensci/dev_guide/issues/240).
 This Code of Conduct applies automatically to all rOpenSci repositories so maintainers should not include a Code of Conduct to avoid conflict. This way the [default `CODE_OF_CONDUCT.md` of the rOpenSci GitHub organization](https://github.com/ropensci/.github/blob/master/CODE_OF_CONDUCT.md) will be picked up by GitHub in e.g. new issues.
 We recommend authors to add the following text to the package README:
 
@@ -95,13 +95,13 @@ The ["Documentation" section of the packaging guide](https://devguide.ropensci.o
 All rOpenSci packages now have [a documentation website that's centrally built](/technotes/2019/06/07/ropensci-docs/).
 We've added [some elements helping package maintainers](https://devdevguide.netlify.com/building.html#website):
 
-* [improved guidance regarding the replacement of "older" pkgdown website links and source](https://devguide.ropensci.org/approvaltemplate.html).
+* [improved guidance regarding the replacement of "older" pkgdown website links and source](https://devguide.ropensci.org/approvaltemplate.html), thanks [Carl Boettiger](/author/carl-boettiger/).
 
 * add package logo guidance. _To use your package logo in the pkgdown homepage, refer to [`usethis::use_logo()`](https://usethis.r-lib.org/reference/use_logo.html). If your package doesn't have any logo, the [rOpenSci docs builder](#docsropensci) will use rOpenSci logo instead._
 
 * *If your package vignettes need credentials (API keys, tokens, etc.) to knit, you might want to [precompute them](/technotes/2019/12/08/precompute-vignettes/) since credentials cannot be used on the docs server.*
 
-* How to use of [MathJax](https://www.mathjax.org/) with rotemplate, thanks to [Hugo Gruson](https://github.com/Bisaloo).
+* How to use of [MathJax](https://www.mathjax.org/) with rotemplate, thanks to [Hugo Gruson](/author/hugo-gruson/).
 
 * A mention that all rOpenSci docs websites automatically have search enabled using [Algolia](https://www.algolia.com). See e.g. [`pdftools` website](https://docs.ropensci.org/pdftools/).
 
@@ -113,7 +113,7 @@ We've added two [CRAN gotchas](https://devguide.ropensci.org/building.html#crang
 
 * _In both the `Title` and `Description` fields, the names of packages or other external software must be quoted using single quotes (e.g., *'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library*)._  Thanks [Aaron Wolen](https://github.com/aaronwolen).
 
-* *Do not put 'in R' or 'with R' in your title as this is obvious from packages hosted on CRAN. If you would like this information to be displayed on your website nonetheless, check the [pkgdown documentation](https://pkgdown.r-lib.org/reference/build_home.html#yaml-config-home) to learn how to override this.* Thanks [Hugo Gruson](https://github.com/Bisaloo).
+* *Do not put 'in R' or 'with R' in your title as this is obvious from packages hosted on CRAN. If you would like this information to be displayed on your website nonetheless, check the [pkgdown documentation](https://pkgdown.r-lib.org/reference/build_home.html#yaml-config-home) to learn how to override this.* Thanks [Hugo Gruson](/author/hugo-gruson/).
 
 #### Forum guidance
 
