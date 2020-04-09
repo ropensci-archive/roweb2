@@ -58,4 +58,4 @@ And the gist function call tells you where to go find your map on your
 github account. Done, that was easy, no? And we can even embed the map
 here, like this:
 
-<script src="https://gist.github.com/sckott/6572814.js"></script>
+{{< gist sckott 6572814 >}}
