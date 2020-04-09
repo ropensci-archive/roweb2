@@ -62,7 +62,7 @@ Our [issue template for submissions](https://github.com/ropensci/software-review
 
 * explicitly mentions the packaging guide and guide for authors
 
-* asks whether the submitted package is intented to go on Bionconductor, similarly to what's asked for CRAN.
+* asks whether the submitted package is intended to go on Bioconductor, similar to what's asked for CRAN.
 
 #### Editor guidance
 
