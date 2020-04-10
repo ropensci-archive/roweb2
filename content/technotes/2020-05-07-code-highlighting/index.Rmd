@@ -114,7 +114,16 @@ In this sub-section I'll mostly refer to [highlight.js](https://highlightjs.org)
 The "client-side" part of this phrase is that the html that is served by your website host does not have styling for the code.
 In highlight.js case, styling appears after a JS script is loaded and applied. 
 
-If we look at [a post of Mara Averick's](https://maraaverick.rbind.io/2018/07/palettes-archer-poster-edition/) at the time of writing, using Firefox Developer Console, 
+If we look at [a post of Mara Averick's](https://maraaverick.rbind.io/2018/07/palettes-archer-poster-edition/) at the time of writing, the html of a block is just
+
+```html
+<pre class="r"><code>pal_a &lt;- extract_colours(&quot;https://i.imgur.com/FyEALqr.jpg&quot;, num_col = 8)
+par(mfrow = c(1,2))
+pie(rep(1, 8), col = pal_a, main = &quot;Palette based on Archer Poster&quot;)
+hist(Nile, breaks = 8, col = pal_a, main = &quot;Palette based on Archer Poster&quot;)</code></pre>
+```
+
+Now, using Firefox Developer Console, 
 
 <!--html_preserve-->
 {{< figure src="mara-blog.png" width=800 alt="Screenshot of blog post with Firefox Developer Console open">}}
@@ -153,7 +162,20 @@ Moreover, Hugo now supports, and uses by default, an alternative that we'll desc
 
 In server-side syntax highlighting, your website html as served already has styling information
 
-* hard-coded in html, as is the case of tidyverse.org and blog.r-hub.io;
+* hard-coded in html, as is since recently the case of [tidyverse.org](https://www.tidyverse.org/) and [blog.r-hub.io](https://blog.r-hub.io);
+
+<!--html_preserve-->
+{{< figure src="tidyverse.png" width=800 alt="Screenshot of blog post with Firefox Developer Console open">}}
+<!--/html_preserve-->
+
+The html source for one of the blocks of [the page screenshot above](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/) is
+
+```html
+div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#666">%&gt;%</span> 
+  <span style="color:#00f">group_by</span>(g1, g2) <span style="color:#666">%&gt;%</span> 
+  <span style="color:#00f">summarise</span>(a <span style="color:#666">=</span> <span style="color:#00f">mean</span>(a), b <span style="color:#666">=</span> <span style="color:#00f">mean</span>(b), c <span style="color:#666">=</span> <span style="color:#00f">mean</span>(c), d <span style="color:#666">=</span> <span style="color:#00f">mean</span>(c))
+</code></pre></div>
+```
 
 * via the use of CSS classes, as is the case of this website where we wanted to keep using our own style.
 
