@@ -174,7 +174,7 @@ You'd use CSS like we do if none of [Chroma default styles](https://xyproto.gith
 How does Chroma know what parts of code is of the string class for instance?
 Once again, regular expressions help, in this case in what is called a lexer. 
 Chroma is inspired by Pygments, and in [Pygments docs](https://pygments.org/docs/quickstart/) it is explained that _"A lexer splits the source into tokens, fragments of the source that have a token type that determines what the text represents semantically (e.g., keyword, string, or comment)."_
-In [R lexer](https://github.com/alecthomas/chroma/blob/master/lexers/r/r.go), ported from Pygments to Chroma by Chroma maintainer Alec Thomas, for strings we e.g. see
+In [R lexer](https://github.com/alecthomas/chroma/blob/master/lexers/r/r.go), ported from Pygments to Chroma by Chroma maintainer [Alec Thomas](https://github.com/alecthomas), for strings we e.g. see
 
 ```go
 			{`\'`, LiteralString, Push("string_squote")},
@@ -332,7 +332,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[1,2]}
+```r {hl_lines=[1,3]}
 a <- 1
 b <- 2
 c <- 3
