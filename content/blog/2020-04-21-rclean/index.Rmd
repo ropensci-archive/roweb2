@@ -506,7 +506,7 @@ We hope that [Rclean](https://docs.ropensci.org/rclean) makes writing
 scientific software easier for the R community. The package has
 already been significantly improved via the [rOpenSci review
 process](https://github.com/ropensci/software-review/issues/327),
-thnaks to the efforts of editor [Anna
+thanks to the efforts of editor [Anna
 Krystalli](https://www.annakrystalli.me/) and reviewers, [Will
 Landau](https://wlandau.github.io/) and [Clemens
 Schmid](https://nevrome.de/). We look forward to the future progress
@@ -538,5 +538,5 @@ Thanks to [Steffi Lazerte](http://steffilazerte.ca/), [Stefanie
 Butland](https://stefaniebutland.netlify.com/) and [Ma&euml;lle
 Salmon](https://masalmon.eu/) for editorial work and technical
 help. Special word of thanks to [Ma&euml;lle
-Salmon](https://masalmon.eu/) for the addition of the code highighting
+Salmon](https://masalmon.eu/) for the addition of the code highlighting
 figure in the `clean()` example. 
