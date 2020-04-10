@@ -315,7 +315,7 @@ be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph()` function can also give us a visual of the
 code and the objects that they produce.
 
-```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700, dpi = 400)}
+```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 400}
 
 code_graph(script)
 
