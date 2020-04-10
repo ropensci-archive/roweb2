@@ -1,0 +1,114 @@
+---
+title: Highlights of Hugo Code Highlighting
+author:
+  - Maëlle Salmon
+date: '2020-05-07'
+slug: code-highlighting
+categories: []
+tags:
+  - RMarkdown
+  - hugo
+package_version: 0.1.0
+description: Explanations around code highlighting in Hugo websites, based on Markdown or R Markdown.
+twitterImg: blog/2019/06/04/post-template/name-of-image.png
+output:
+  html_document:
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+# Options to have images saved in the post folder
+# And to disable symbols before output
+knitr::opts_chunk$set(fig.path = "", comment = "")
+
+# knitr hook to make images output use Hugo options
+knitr::knit_hooks$set(
+  plot = function(x, options) {
+    hugoopts <- options$hugoopts
+    paste0(
+      "{{<figure src=",
+      '"', x, '" ',
+      if (!is.null(hugoopts)) {
+        glue::glue_collapse(
+          glue::glue('{names(hugoopts)}="{hugoopts}"'),
+          sep = " "
+        )
+      },
+      ">}}\n"
+    )
+  }
+)
+
+# knitr hook to use Hugo highlighting options
+knitr::knit_hooks$set(
+  source = function(x, options) {
+  hlopts <- options$hlopts
+    paste0(
+      "```r ",
+      if (!is.null(hlopts)) {
+      paste0("{",
+        glue::glue_collapse(
+          glue::glue('{names(hlopts)}={hlopts}'),
+          sep = ","
+        ), "}"
+        )
+      },
+      "\n", glue::glue_collapse(x, sep = "\n"), "\n```\n"
+    )
+  }
+)
+```
+
+Thanks to a quite overdue update of Hugo on our build system[^netlify], our website can now harness the full power of Hugo code highlighting. 
+What's code highlighting apart from the reason behind a tongue-twister in this post title?
+In this post we shall explain how Hugo's code highlighter, Chroma, helps you prettify your code (i.e. _syntax highlighting_), and accentuate parts of your code (i.e. _line highlighting_).
+
+### Make your code look pretty
+
+If you notice and appreciate the difference between
+
+```
+a <- c(1:7, NA)
+mean(a, na.rm = TRUE)
+```
+
+and 
+
+```r
+a <- c(1:7, NA)
+mean(a, na.rm = TRUE)
+```
+
+you might agree with [Mara Averick's opinion](https://maraaverick.rbind.io/2017/11/r-blog-tips-from-an-inveterate-tweeter-thereof/),
+
+>  Syntax highlighting! 🖍️ Just do it. Life is better when things are colourful.
+
+Now, how does the colours of the second block appear? 
+
+First of all, it's a code block with language information, 
+
+````
+```r
+a <- c(1:7, NA)
+mean(a, na.rm = TRUE)
+```
+````
+
+as opposed to
+
+````
+```
+a <- c(1:7, NA)
+mean(a, na.rm = TRUE)
+```
+````
+
+without language information, that won't get highlighted -- although some syntax highlighting tools, not Hugo Chroma, do some guessing.
+
+There are in general two ways in which colors are added to code blocks:
+
+* **client-side syntax highlighting**
+
+### Emphasize parts of your code
+
+[^netlify]: Our website is deployed via Netlify.
