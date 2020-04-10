@@ -105,10 +105,62 @@ mean(a, na.rm = TRUE)
 
 without language information, that won't get highlighted -- although some syntax highlighting tools, not Hugo Chroma, do some guessing.
 
-There are in general two ways in which colors are added to code blocks:
+There are in general two ways in which colors are added to code blocks, **client-side syntax highlighting** and **server-side syntax highlighting**. 
+The latter is what Hugo supports nowadays but let's dive into both for the sake of completeness (~~or because I'm proud I now get it~~[^strike]).
 
-* **client-side syntax highlighting**
+#### Client-side syntax highlighting
+
+In this sub-section I'll mostly refer to [highlight.js](https://highlightjs.org) but principles probably apply to other client-side syntax highlighting tools.
+The "client-side" part of this phrase is that the html that is served by your website host does not have styling for the code.
+In highlight.js case, styling appears after a JS script is loaded and applied. 
+
+If we look at [a post of Mara Averick's](https://maraaverick.rbind.io/2018/07/palettes-archer-poster-edition/) at the time of writing, using Firefox Developer Console, 
+
+<!--html_preserve-->
+{{< figure src="mara-blog.png" width=800 alt="Screenshot of blog post with Firefox Developer Console open">}}
+<!--/html_preserve-->
+
+we see colours come from CSS classes starting with "hljs".
+
+And in the head of that page (examined via "View source"), there's
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+```
+
+which is the part loading and applying highlight.js to the page.
+Now, how does it know what's an R function for instance?
+If we look at [highlight.js highlighter for the R language](https://github.com/highlightjs/highlight.js/blob/master/src/languages/r.js), authored by [Joe Cheng](https://twitter.com/jcheng) in 2012, it's a bunch of regular expressions, see for instance the [definition of a string](https://github.com/highlightjs/highlight.js/blob/512ae5f5dcdc6dd24185e6e08737c3679073a9b6/src/languages/r.js#L69-L74).
+
+```js
+        className: 'string',
+        contains: [hljs.BACKSLASH_ESCAPE],
+        variants: [
+          {begin: '"', end: '"'},
+          {begin: "'", end: "'"}
+        ]
+```
+
+When using highlight.js on your website, you might need to specify R as a supplementary language in your config, since some languages are bundled by default whilst others are not.
+You could also [whip up some code to conditionally load supplementary highlight.js languages](https://github.com/ropensci/roweb2/pull/637).
+
+A big downside of client-side syntax highlighting is loading time: 
+It appears quite fast if your internet connection isn't poor, but you might have noticed code blocks changing aspect when loading a web page (first unstyled, then styled).
+Moreover, Hugo now supports, and uses by default, an alternative that we'll describe in the following subsection and take advantage of in this post's second section.
+
+#### Server-side syntax highlighting
+
+In server-side syntax highlighting, your website html as served already has styling information
+
+* hard-coded in html, as is the case of tidyverse.org and blog.r-hub.io;
+
+* via the use of CSS classes, as is the case of this website where we wanted to keep using our own style.
+
+How does the styling of an R code block happen?
+As highlight
 
 ### Emphasize parts of your code
 
 [^netlify]: Our website is deployed via Netlify.
+[^strike]: [Support for striking text, with `~~blablabla~~` is also quite new in Hugo](https://gohugo.io/news/0.60.0-relnotes/), thanks to its new Markdown renderer Goldmark!
