@@ -83,10 +83,10 @@ a back-seat to just writing code that will get the job "done" leading
 to issues with transparency and software that is highly unstable
 (i.e. buggy and not reproducible).
 
-The goal of the R package [Rclean](https://docs.ropensci.org/rclean) is to provide a
-automated tool to help scientists more easily write better
-code. Specifically, [Rclean](https://docs.ropensci.org/rclean) has
-been designed to facilitate the isolation of the code needed to
+The goal of the R package [Rclean](https://docs.ropensci.org/rclean)
+is to provide a automated tool to help scientists more easily write
+better code. Specifically, [Rclean](https://docs.ropensci.org/rclean)
+has been designed to facilitate the isolation of the code needed to
 produce one or more results, because more often then not, when someone
 is writing an R script, the ultimate goal is analytical results for
 inference, such as a set of statistical analyses and associated
@@ -96,8 +96,8 @@ larger set of possible ways to explore a dataset. There are many
 statistical tests and visualizations and other representations that
 can be employed in a myriad of ways depending on how the data are
 processed. This commonly leads to lengthy, complicated scripts from
-which researchers manually subset results, but which are likely never to be
-refactored because of the difficulty in disentangling the code.
+which researchers manually subset results, but which are likely never
+to be refactored because of the difficulty in disentangling the code.
 
 The [Rclean](https://docs.ropensci.org/rclean) package uses a
 technique based on data provenance and network algorithms to isolate
@@ -321,7 +321,7 @@ code_graph(script)
 
 ```
 
-For reference below we put the script again but with line numbers.
+For reference, here is the script with line numbers.
 
 ```{r short-script, results="asis", echo=FALSE}
   glue::glue_collapse(
@@ -436,23 +436,28 @@ provenance collection, which currently does not assign them a
 relationship in the provenance network. This is a general issue with
 detecting the relationships between comments and code. For example,
 comments at the end of lines are typically relevant to the line they
-are on, but this is not a requirement and could refer to other
-lines. Also, comments occupying their own lines usually refer to the
-following lines, but this is also not necessarily the case either, as
-there is no "linguistic" requirement for this. Although
-[Rclean](https://docs.ropensci.org/rclean) cannot operate
-automatically on comments, comments in the original code
-remain untouched and can be used to inform the reduced code. Also, as
-the `clean()` function is oriented toward isolating code based on a
-specific result, the resulting code tends to naturally support the
-generation of new comments that are higher level (e.g. "The following
-produces a plot of the mean response of each treatment group."), and
-lower level comments are not necessary because the code is simpler and
-clearer. This process of commenting is an important part of writing
-better code. Lastly, although comments can serve an important role in
-coding, it is worth reflecting on the statement in R.C. Martin's book
-_Clean Code: A Handbook of Agile Software Craftsmanship_ where he
-writes that, "Comments do not compensate for bad code."
+are on but this is not a linguistic requirement. Also, comments
+occupying their own lines usually refer to the following lines but
+this is also not necessarily the case either. In fact comments can
+refer to any or none of the code relative to their position in the
+script, the latter commonly being the case when code is removed from a
+script but comments referring to it have not. The inferred and
+explicit meanings of comments are a cultural and not linguistic.
+
+That being said, although [Rclean](https://docs.ropensci.org/rclean)
+cannot operate automatically on comments, comments in the original
+code remain untouched and can be used to inform the reduced
+code. Also, as the `clean()` function is oriented toward isolating
+code based on a specific result, the resulting code tends to naturally
+support the generation of new comments that are higher level
+(e.g. "The following produces a plot of the mean response of each
+treatment group."), and lower level comments are not necessary because
+the code is simpler and clearer. This process of commenting is an
+important part of writing better code. Lastly, although comments can
+serve an important role in coding, it is worth reflecting on the
+statement in R.C. Martin's book _Clean Code: A Handbook of Agile
+Software Craftsmanship_ where he writes that, "Comments do not
+compensate for bad code."
 
 ### Concluding remarks and future work
 
@@ -481,7 +486,7 @@ via toolboxes like [drake](https://docs.ropensci.org/drake)
 isolate the code from inputs to one or more outputs, it could be used
 to extract all of the components needed to write one or more functions
 that would be a part of a package or workflow, as is the goal of
-drake.
+[drake](https://docs.ropensci.org/drake).
 
 In the future, it would also be useful to extend the existing
 framework to support other provenance methods. One possibility is
@@ -492,15 +497,17 @@ prospective provenance can't. Greater details of the computational
 process would enable other features that could address some
 challenges, such as libraries that are actually used by the code,
 processing comments (as discussed above), parsing control statements
-and replicating random processes. Using retrospective provenance comes
-at a cost, however. In order to gather it, the script needs to be
-executed. When scripts are computationally intensive or contain bugs
-that stop execution, then retrospective provenance can not be obtained
-for part or all of the code. Some work has already been done in the
-direction of implementing retrospective provenance for code cleaning
-in R (see http://end-to-end-provenance.github.io). Although such costs
-may present challenges, combining prospective and retrospective
-provenance methods could provide a powerful and flexible solution.
+and replicating random processes.  Using retrospective provenance
+comes at a cost, however. In order to gather it, the script needs to
+be executed. When scripts are computationally intensive or contain
+bugs that stop execution retrospective provenance can not be obtained
+for part or all of the code. Although such costs may present
+challenges, combining prospective and retrospective provenance methods
+could provide a powerful and flexible solution. Some work has already
+been done in the direction of implementing retrospective provenance
+for code cleaning in R (see http://end-to-end-provenance.github.io);
+however, there doesn't appear to be a tool that synthesizes these two
+approaches to provenance.
 
 We hope that [Rclean](https://docs.ropensci.org/rclean) makes writing
 scientific software easier for the R community. The package has
