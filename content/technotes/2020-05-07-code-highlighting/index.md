@@ -310,7 +310,7 @@ a + b + c
 
 #### Produce line-highlighted code blocks with glue/paste0
 
-What Chroma highlights are code blocks with code fences, which you might as well generate from R Markdown. E.g.
+What Chroma highlights are code blocks with code fences, which you might as well generate from R Markdown using some string manipulation and knitr `results="asis"` chunk option. E.g.
 
 ````markdown
 
@@ -332,7 +332,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[1,3]}
+```r {hl_lines=[3,2]}
 a <- 1
 b <- 2
 c <- 3
