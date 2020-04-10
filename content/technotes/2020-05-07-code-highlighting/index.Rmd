@@ -343,13 +343,14 @@ c <- 1+3
 a + b + c
 ```
 
-> PSA! Note that if you're after line highlighting, or function highlighting, for R Markdown documents _in general_, you should check out [Kelly Bodwin's flair package](https://kbodwin.github.io/flair/index.html)!
+> PSA! Note that if you're after line highlighting, or function highlighting, for R Markdown documents _in general_, you should check out *[Kelly Bodwin's flair package](https://kbodwin.github.io/flair/index.html)*!
 
 #### Produce line-highlighted code blocks with glue/paste0
 
 What Chroma highlights are code blocks with code fences, which you might as well generate from R Markdown. E.g.
 
 ````markdown
+
 ```{r, results="asis"} `r ''`
 script <- c(
   "a <- 1",
@@ -358,18 +359,17 @@ script <- c(
   "a + b + c")
 cool_lines <- sample(1:4, 2)
 cool_lines <- stringr::str_remove(toString(cool_lines), " ")
-glue::glue_collapse(c(
-    paste0('```r {hl_lines=[', cool_lines,']}'),
-  script,
-  "```"
-),
+fences_start <- paste0('```', 'r {hl_lines=[', cool_lines,']}')
+glue::glue_collapse(
+  c(fences_start,  script,  "```"),
 sep = "\n")
 ```
+
 ````
 
 will be knit to produce
 
-```{r, results="asis"}
+```{r, results="asis", echo=FALSE}
 script <- c(
   "a <- 1",
   "b <- 2",
@@ -377,11 +377,9 @@ script <- c(
   "a + b + c")
 cool_lines <- sample(1:4, 2)
 cool_lines <- stringr::str_remove(toString(cool_lines), " ")
-glue::glue_collapse(c(
-    paste0('```r {hl_lines=[', cool_lines,']}'),
-  script,
-  "```"
-),
+fences_start <- paste0('```', 'r {hl_lines=[', cool_lines,']}')
+glue::glue_collapse(
+  c(fences_start,  script,  "```"),
 sep = "\n")
 ```
 

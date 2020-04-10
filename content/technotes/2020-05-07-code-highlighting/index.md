@@ -306,37 +306,41 @@ a + b + c
 [1] 9
 ```
 
-> PSA! Note that if you're after line highlighting, or function highlighting, for R Markdown documents _in general_, you should check out [Kelly Bodwin's flair package](https://kbodwin.github.io/flair/index.html)!
+> PSA! Note that if you're after line highlighting, or function highlighting, for R Markdown documents _in general_, you should check out *[Kelly Bodwin's flair package](https://kbodwin.github.io/flair/index.html)*!
 
 #### Produce line-highlighted code blocks with glue/paste0
 
 What Chroma highlights are code blocks with code fences, which you might as well generate from R Markdown. E.g.
 
-```r 
+````markdown
+
+```{r, results="asis"} 
 script <- c(
   "a <- 1",
   "b <- 2",
   "c <- 3",
   "a + b + c")
 cool_lines <- sample(1:4, 2)
-cool_lines
-```
-[1] 2 3
-```r 
 cool_lines <- stringr::str_remove(toString(cool_lines), " ")
-glue::glue_collapse(c(
-    paste0('```r {hl_lines=[', cool_lines,']}'),
-  script,
-  "```"
-),
+fences_start <- paste0('```', 'r {hl_lines=[', cool_lines,']}')
+glue::glue_collapse(
+  c(fences_start,  script,  "```"),
 sep = "\n")
 ```
-```r {hl_lines=[2,3]}
+
+````
+
+will be knit to produce
+
+```r {hl_lines=[1,2]}
 a <- 1
 b <- 2
 c <- 3
 a + b + c
 ```
+
+This is a rather uninteresting toy example since we used randomly drawn line numbers to be highlighted, but you might find use cases for this.
+We used such an approach in the recent [blog post about Rclean](/blog/2020/04/21/rclean/), actually!
 
 ### Conclusion
 
