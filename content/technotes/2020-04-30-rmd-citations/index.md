@@ -14,48 +14,7 @@ output:
     keep_md: yes
 ---
 
-```{r setup, include=FALSE}
-# Options to have images saved in the post folder
-# And to disable symbols before output
-knitr::opts_chunk$set(fig.path = "", comment = "")
 
-# knitr hook to make images output use Hugo options
-knitr::knit_hooks$set(
-  plot = function(x, options) {
-    hugoopts <- options$hugoopts
-    paste0(
-      "{{<figure src=",
-      '"', x, '" ',
-      if (!is.null(hugoopts)) {
-        glue::glue_collapse(
-          glue::glue('{names(hugoopts)}="{hugoopts}"'),
-          sep = " "
-        )
-      },
-      ">}}\n"
-    )
-  }
-)
-
-# knitr hook to use Hugo highlighting options
-knitr::knit_hooks$set(
-  source = function(x, options) {
-  hlopts <- options$hlopts
-    paste0(
-      "```r ",
-      if (!is.null(hlopts)) {
-      paste0("{",
-        glue::glue_collapse(
-          glue::glue('{names(hlopts)}={hlopts}'),
-          sep = ","
-        ), "}"
-        )
-      },
-      "\n", glue::glue_collapse(x, sep = "\n"), "\n```\n"
-    )
-  }
-)
-```
 
 Our website is based on Markdown content rendered with Hugo.
 Markdown content is in some cases knit from R Markdown, but with [less functionality as if one rendered R Markdown to html as in the blogdown default](https://bookdown.org/yihui/blogdown/output-format.html).
