@@ -100,9 +100,112 @@ In our blog guide, we explain that citations are footnotes [whose text is APA fo
 In most cases, authors are only citing a few references, so that is fine.
 However, sometimes authors would like to use an existing .bib file, that they might have e.g. exported from Zotero.
 
-The .md we use is the by-product of the knitting an .Rmd to .html, and does not involve running Pandoc.
-Therefore, the bibliography parameter from your header and the `@` will simply be ignored.
-However, thanks to RefManageR, you can still use your .bib file!
+Thankfully, using RefManageR, we can provide a workflow for adding citations from a bib file, by creating functions similar to knitcitations' functions.
+
+We are using the .bib file below,
+
+```{r, results="asis"}
+glue::glue_collapse(
+  c("```bibtex",
+    readLines("refs.bib"),
+    "```"),
+  sep = "\n")
+```
+
+We'll start by creating a reference t
+
+```{r readbib}
+mybib <- RefManageR::ReadBib("refs.bib", check = FALSE) 
+mybib
+class(mybib)
+```
+
+Then in another chunk, we'll create a function creating the citations in the format we need it to have it appear as a footnote: `[^key]`
+
+```{r createf}
+cite <- function(key, bib = mybib) {
+  # create a silent reference so RefManageR
+  # knows we've used this entry
+  RefManageR::NoCite(bib, key)
+  # create the string we need in the Markdown document
+  paste0("[^", key, "]")
+}
+```
+
+Now from the three entries of the BibTeX file, let us cite two of them, what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")` (we wrote ` cite("refmanager")` and `cite("my-citation-key-for-r")` as inline code).
+
+Now for the bibliography to appear, we need to add a call to `RefManageR::PrintBibliography()`, after defining our own bibstyle. 
+We need each entry to appear in the Markdown file as
+
+```
+[^mykey]: <APA string>
+```
+
+To get the first part right, we use the `fmtPrefix` of `tools::bibstyle()`.
+To get the second part right, after reading through some [R source code](https://github.com/wch/r-source/blob/28f8367a5514cc0d014cf2aa9e7ce909cd2050af/src/library/tools/R/bibstyle.R), we found how to correctly add DOI and URL when present.
+Note that in our case the order of appearance of entries within the references list in the Markdown file is not important at all, since Hugo Markdown handler, Goldmark, will reorder them based on order of appearance in the text.
+
+The chunk below was used at the very end of the R Markdown file producing this post.
+It came before the definition of another, not citation, footnote.[^footnote]
+
+````markdown
+```{r bib, echo = FALSE, results = "asis"} `r ''`
+get_doi <- function(paper) {
+  if (is.null(paper$doi)) {
+    ""
+  } else{
+    paste0(" , https://doi.org/", paper$doi)
+  }
+}
+apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
+    fmtPrefix = function(paper) paste0("[^", attr(paper,"key"), "]:"),
+    extraInfo = function(paper) paste0(paper$url, get_doi(paper)),
+    .init = TRUE)
+RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
+```
+````
+
+We run it below without the `results="asis"` option to show what the output looks like.
+
+```{r bib, echo = FALSE}
+get_doi <- function(paper) {
+  if (is.null(paper$doi)) {
+    ""
+  } else{
+    paste0(" , https://doi.org/", paper$doi)
+  }
+}
+apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
+    fmtPrefix = function(paper) paste0("[^", attr(paper,"key"), "]:"),
+    extraInfo = function(paper) paste0(paper$url, get_doi(paper)),
+    .init = TRUE)
+RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
+```
+
+### Do even more with bib files
+
+The workflow presented earlier was a cool example of using RefManageR to use a BibTeX file.
+There are other two packages that are worth knowing about.
 
 ### Conclusion
 
+In this tech note we have explained how to use a BibTeX file in a Markdown file generated from R Markdown without using pandoc-citeproc.
+The star of this post was the [RefManageR](https://docs.ropensci.org/RefManageR/) package, that in turns depends on the [bibtex](https://github.com/romainfrancois/bibtex) package and base R functionalities to handle bibliographies.
+If you're interested in learning about yet another workflow involving citations in R Markdown documents, have a look at the Distill web framework wrapped in the R package distill, where [citations handling currently happens via JavaScript](https://github.com/rstudio/distill/issues/45).
+
+```{r bib2, echo = FALSE, results = "asis"}
+get_doi <- function(paper) {
+  if (is.null(paper$doi)) {
+    ""
+  } else{
+    paste0(" , https://doi.org/", paper$doi)
+  }
+}
+apa_style <- tools::bibstyle("apa", sortKeys = function(refs) seq_along(refs),
+    fmtPrefix = function(paper) paste0("[^", attr(paper,"key"), "]:"),
+    extraInfo = function(paper) paste0(paper$url, get_doi(paper)),
+    .init = TRUE)
+RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = ""))
+```
+
+[^footnote]: Hello I am the footnote example.
