@@ -55,10 +55,10 @@ a back-seat to just writing code that will get the job "done" leading
 to issues with transparency and software that is highly unstable
 (i.e. buggy and not reproducible).
 
-The goal of the R package [Rclean](https://docs.ropensci.org/rclean) is to provide a
-automated tool to help scientists more easily write better
-code. Specifically, [Rclean](https://docs.ropensci.org/rclean) has
-been designed to facilitate the isolation of the code needed to
+The goal of the R package [Rclean](https://docs.ropensci.org/rclean)
+is to provide a automated tool to help scientists more easily write
+better code. Specifically, [Rclean](https://docs.ropensci.org/rclean)
+has been designed to facilitate the isolation of the code needed to
 produce one or more results, because more often then not, when someone
 is writing an R script, the ultimate goal is analytical results for
 inference, such as a set of statistical analyses and associated
@@ -68,8 +68,8 @@ larger set of possible ways to explore a dataset. There are many
 statistical tests and visualizations and other representations that
 can be employed in a myriad of ways depending on how the data are
 processed. This commonly leads to lengthy, complicated scripts from
-which researchers manually subset results, but which are likely never to be
-refactored because of the difficulty in disentangling the code.
+which researchers manually subset results, but which are likely never
+to be refactored because of the difficulty in disentangling the code.
 
 The [Rclean](https://docs.ropensci.org/rclean) package uses a
 technique based on data provenance and network algorithms to isolate
@@ -225,6 +225,13 @@ do this easily via the `clean()` function.
 
 ```r
 library(Rclean)
+```
+
+```
+Error in library(Rclean): there is no package called 'Rclean'
+```
+
+```r
 script <- system.file("example", 
 	"long_script.R", 
 	package = "Rclean")
@@ -232,121 +239,34 @@ clean(script, "fit_sqrt_A")
 ```
 
 ```
-x <- 1:100
-x <- log(x)
-x <- x * 2
-x <- lapply(x, rep, times = 4)
-x <- do.call(cbind, x)
-x <- x * 2
-colnames(x) <- paste0("X", seq_len(ncol(x)))
-rownames(x) <- LETTERS[seq_len(nrow(x))]
-x <- t(x)
-x[, "A"] <- sqrt(x[, "A"])
-for (i in seq_along(colnames(x))) {
-  set.seed(17)
-  x[, i] <- x[, i] + runif(length(x[, i]), -1, 1)
-}
-x[, 1] <- x[, 1] * 2 + 10
-x[, 2] <- x[, 1] + x[, 2]
-x[, "A"] <- x[, "A"] * 2
-x <- data.frame(x)
-fit_sqrt_A <- lm(I(sqrt(A)) ~ B, data = x)
+Error in clean(script, "fit_sqrt_A"): could not find function "clean"
 ```
 
-As you can see, [Rclean](https://docs.ropensci.org/rclean) has picked
-through the tangled bits of code (in this case one of the example
-scripts inluded with the package) and found the minimal set of lines
-relevant to our object of interest. 
+The output is the code that [Rclean](https://docs.ropensci.org/rclean)
+has picked out from the tangled bits of code, which in this case is an
+example script included with the package. Here's a view of this
+isolated code highlighted in the original script.
 
-It might be easier to see below in this chunk where we highlighted the lines "kept" by RClean.
 
-```r {hl_lines=[2,3,4,5,9,19,20,21,22,23,25,26,27,28,52,53,54,63,70]}
-library(stats)
-x <- 1:100
-x <- log(x)
-x <- x * 2
-x <- lapply(x, rep, times = 4)
-### This is a note that I made for myself.
-### Next time, make sure to use a different analysis.
-### Also, check with someone about how to run some other analysis.
-x <- do.call(cbind, x)
-
-### Now I'm going to create a different variable.
-### This is the best variable the world has ever seen.
-
-x2 <- sample(10:1000, 100)
-x2 <- lapply(x2, rnorm)
-
-### Wait, now I had another thought about x that I want to work through.
-
-x <- x * 2
-colnames(x) <- paste0("X", seq_len(ncol(x)))
-rownames(x) <- LETTERS[seq_len(nrow(x))]
-x <- t(x)
-x[, "A"] <- sqrt(x[, "A"])
-
-for (i in seq_along(colnames(x))) {
-    set.seed(17)
-    x[, i] <- x[, i] + runif(length(x[, i]), -1, 1)
-}
-
-### Ok. Now I can get back to x2.
-### Now I just need to check out a bunch of stuff with it.
-
-lapply(x2, length)[1]
-max(unlist(lapply(x2, length)))
-range(unlist(lapply(x2, length)))
-head(x2[[1]])
-tail(x2[[1]])
-
-## Now, based on that stuff, I need to subset x2.
-
-x2 <- lapply(x2, function(x) x[1:10])
-
-## And turn it into a matrix.
-x2 <- do.call(rbind, x2)
-
-## Now, based on x2, I need to create x3.
-x3 <- x2[, 1:2]
-x3 <- apply(x3, 2, round, digits = 3)
-
-## Oh wait! Another thought about x.
-
-x[, 1] <- x[, 1] * 2 + 10
-x[, 2] <- x[, 1] + x[, 2]
-x[, "A"] <- x[, "A"] * 2
-
-## Now, I want to run an analysis on two variables in x2 and x3.
-
-fit.23 <- lm(x2 ~ x3, data = data.frame(x2[, 1], x3[, 1]))
-summary(fit.23)
-
-## And while I'm at it, I should do an analysis on x.
-
-x <- data.frame(x)
-fit.xx <- lm(A~B, data = x)
-summary(fit.xx)
-shapiro.test(residuals(fit.xx))
-
-## Ah, it looks like I should probably transform A.
-## Let's try that.
-fit_sqrt_A <- lm(I(sqrt(A))~B, data = x)
-summary(fit_sqrt_A)
-shapiro.test(residuals(fit_sqrt_A))
-
-## Looks good!
-
-## After that. I came back and ran another analysis with 
-## x2 and a new variable.
-
-z <- c(rep("A", nrow(x2) / 2), rep("B", nrow(x2) / 2))
-fit_anova <- aov(x2 ~ z, data = data.frame(x2 = x2[, 1], z))
-summary(fit_anova)
+```
+Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":
+using the former
 ```
 
-This code can now be visually
-inspected to adapt the original code or ported to a new, "refactored"
-script using `keep()`.
+```
+Error in clean(script, "fit_sqrt_A"): could not find function "clean"
+```
+
+```
+Error in glue::glue_collapse(nos, sep = ","): object 'nos' not found
+```
+
+```
+Error in paste0("```r {hl_lines=[", linenos, "]}"): object 'linenos' not found
+```
+
+The isolated code can now be visually inspected to adapt the original
+code or ported to a new, refactored script using `keep()`.
 
 
 ```r
@@ -374,8 +294,7 @@ get_vars(script)
 ```
 
 ```
-[1] "x"          "x2"         "i"          "x3"         "fit.23"    
-[6] "fit.xx"     "fit_sqrt_A" "z"          "fit_anova" 
+Error in get_vars(script): could not find function "get_vars"
 ```
 
 Especially when the code for different variables are entangled, it can
@@ -388,92 +307,19 @@ code and the objects that they produce.
 code_graph(script)
 ```
 
-{{<figure src="ex-code_graph-1.png" alt="code_graph example showing a network graph of code line and variable dependencies." title="code_graph example" caption="Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code." width="700">}}
+```
+Error in code_graph(script): could not find function "code_graph"
+```
 
-For reference below we put the script again but with line numbers.
+For reference, here is the script with line numbers.
+
+
+```
+Warning in file(con, "r"): file("") only supports open = "w+" and open = "w+b":
+using the former
+```
 
 ```r {linenos=table}
-library(stats)
-x <- 1:100
-x <- log(x)
-x <- x * 2
-x <- lapply(x, rep, times = 4)
-### This is a note that I made for myself.
-### Next time, make sure to use a different analysis.
-### Also, check with someone about how to run some other analysis.
-x <- do.call(cbind, x)
-
-### Now I'm going to create a different variable.
-### This is the best variable the world has ever seen.
-
-x2 <- sample(10:1000, 100)
-x2 <- lapply(x2, rnorm)
-
-### Wait, now I had another thought about x that I want to work through.
-
-x <- x * 2
-colnames(x) <- paste0("X", seq_len(ncol(x)))
-rownames(x) <- LETTERS[seq_len(nrow(x))]
-x <- t(x)
-x[, "A"] <- sqrt(x[, "A"])
-
-for (i in seq_along(colnames(x))) {
-    set.seed(17)
-    x[, i] <- x[, i] + runif(length(x[, i]), -1, 1)
-}
-
-### Ok. Now I can get back to x2.
-### Now I just need to check out a bunch of stuff with it.
-
-lapply(x2, length)[1]
-max(unlist(lapply(x2, length)))
-range(unlist(lapply(x2, length)))
-head(x2[[1]])
-tail(x2[[1]])
-
-## Now, based on that stuff, I need to subset x2.
-
-x2 <- lapply(x2, function(x) x[1:10])
-
-## And turn it into a matrix.
-x2 <- do.call(rbind, x2)
-
-## Now, based on x2, I need to create x3.
-x3 <- x2[, 1:2]
-x3 <- apply(x3, 2, round, digits = 3)
-
-## Oh wait! Another thought about x.
-
-x[, 1] <- x[, 1] * 2 + 10
-x[, 2] <- x[, 1] + x[, 2]
-x[, "A"] <- x[, "A"] * 2
-
-## Now, I want to run an analysis on two variables in x2 and x3.
-
-fit.23 <- lm(x2 ~ x3, data = data.frame(x2[, 1], x3[, 1]))
-summary(fit.23)
-
-## And while I'm at it, I should do an analysis on x.
-
-x <- data.frame(x)
-fit.xx <- lm(A~B, data = x)
-summary(fit.xx)
-shapiro.test(residuals(fit.xx))
-
-## Ah, it looks like I should probably transform A.
-## Let's try that.
-fit_sqrt_A <- lm(I(sqrt(A))~B, data = x)
-summary(fit_sqrt_A)
-shapiro.test(residuals(fit_sqrt_A))
-
-## Looks good!
-
-## After that. I came back and ran another analysis with 
-## x2 and a new variable.
-
-z <- c(rep("A", nrow(x2) / 2), rep("B", nrow(x2) / 2))
-fit_anova <- aov(x2 ~ z, data = data.frame(x2 = x2[, 1], z))
-summary(fit_anova)
 ```
 
 After examining the output from `get_vars()` and `code_graph()`, it is
@@ -487,31 +333,7 @@ clean(script, vars = c("fit_sqrt_A", "fit_anova"))
 ```
 
 ```
-x <- 1:100
-x <- log(x)
-x <- x * 2
-x <- lapply(x, rep, times = 4)
-x <- do.call(cbind, x)
-x2 <- sample(10:1000, 100)
-x2 <- lapply(x2, rnorm)
-x <- x * 2
-colnames(x) <- paste0("X", seq_len(ncol(x)))
-rownames(x) <- LETTERS[seq_len(nrow(x))]
-x <- t(x)
-x[, "A"] <- sqrt(x[, "A"])
-for (i in seq_along(colnames(x))) {
-  set.seed(17)
-  x[, i] <- x[, i] + runif(length(x[, i]), -1, 1)
-}
-x2 <- lapply(x2, function(x) x[1:10])
-x2 <- do.call(rbind, x2)
-x[, 1] <- x[, 1] * 2 + 10
-x[, 2] <- x[, 1] + x[, 2]
-x[, "A"] <- x[, "A"] * 2
-x <- data.frame(x)
-fit_sqrt_A <- lm(I(sqrt(A)) ~ B, data = x)
-z <- c(rep("A", nrow(x2) / 2), rep("B", nrow(x2) / 2))
-fit_anova <- aov(x2 ~ z, data = data.frame(x2 = x2[, 1], z))
+Error in clean(script, vars = c("fit_sqrt_A", "fit_anova")): could not find function "clean"
 ```
 
 Currently, libraries can not be isolated directly during the cleaning
@@ -525,7 +347,7 @@ get_libs(script)
 ```
 
 ```
-[1] "stats"
+Error in get_libs(script): could not find function "get_libs"
 ```
 
 
@@ -578,8 +400,18 @@ of the prospective provenance generated for
 [Rclean](https://docs.ropensci.org/rclean).
 
 
+```
+Error in library(CodeDepends): there is no package called 'CodeDepends'
+```
 
-{{<figure src="prov-graph-1.png" alt="Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate." title="provenance graph" caption="Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names)." width="700">}}
+```
+Error in library(Rclean): there is no package called 'Rclean'
+```
+
+
+```
+Error in code_graph(script): could not find function "code_graph"
+```
 
 All of this work with the provenance is to get the network
 representation of relationships among functions and objects. The
@@ -601,23 +433,28 @@ provenance collection, which currently does not assign them a
 relationship in the provenance network. This is a general issue with
 detecting the relationships between comments and code. For example,
 comments at the end of lines are typically relevant to the line they
-are on, but this is not a requirement and could refer to other
-lines. Also, comments occupying their own lines usually refer to the
-following lines, but this is also not necessarily the case either, as
-there is no "linguistic" requirement for this. Although
-[Rclean](https://docs.ropensci.org/rclean) cannot operate
-automatically on comments, comments in the original code
-remain untouched and can be used to inform the reduced code. Also, as
-the `clean()` function is oriented toward isolating code based on a
-specific result, the resulting code tends to naturally support the
-generation of new comments that are higher level (e.g. "The following
-produces a plot of the mean response of each treatment group."), and
-lower level comments are not necessary because the code is simpler and
-clearer. This process of commenting is an important part of writing
-better code. Lastly, although comments can serve an important role in
-coding, it is worth reflecting on the statement in R.C. Martin's book
-_Clean Code: A Handbook of Agile Software Craftsmanship_ where he
-writes that, "Comments do not compensate for bad code."
+are on but this is not a linguistic requirement. Also, comments
+occupying their own lines usually refer to the following lines but
+this is also not necessarily the case either. In fact comments can
+refer to any or none of the code relative to their position in the
+script, the latter commonly being the case when code is removed from a
+script but comments referring to it have not. The inferred and
+explicit meanings of comments are a cultural and not linguistic.
+
+That being said, although [Rclean](https://docs.ropensci.org/rclean)
+cannot operate automatically on comments, comments in the original
+code remain untouched and can be used to inform the reduced
+code. Also, as the `clean()` function is oriented toward isolating
+code based on a specific result, the resulting code tends to naturally
+support the generation of new comments that are higher level
+(e.g. "The following produces a plot of the mean response of each
+treatment group."), and lower level comments are not necessary because
+the code is simpler and clearer. This process of commenting is an
+important part of writing better code. Lastly, although comments can
+serve an important role in coding, it is worth reflecting on the
+statement in R.C. Martin's book _Clean Code: A Handbook of Agile
+Software Craftsmanship_ where he writes that, "Comments do not
+compensate for bad code."
 
 ### Concluding remarks and future work
 
@@ -646,7 +483,7 @@ via toolboxes like [drake](https://docs.ropensci.org/drake)
 isolate the code from inputs to one or more outputs, it could be used
 to extract all of the components needed to write one or more functions
 that would be a part of a package or workflow, as is the goal of
-drake.
+[drake](https://docs.ropensci.org/drake).
 
 In the future, it would also be useful to extend the existing
 framework to support other provenance methods. One possibility is
@@ -657,21 +494,23 @@ prospective provenance can't. Greater details of the computational
 process would enable other features that could address some
 challenges, such as libraries that are actually used by the code,
 processing comments (as discussed above), parsing control statements
-and replicating random processes. Using retrospective provenance comes
-at a cost, however. In order to gather it, the script needs to be
-executed. When scripts are computationally intensive or contain bugs
-that stop execution, then retrospective provenance can not be obtained
-for part or all of the code. Some work has already been done in the
-direction of implementing retrospective provenance for code cleaning
-in R (see http://end-to-end-provenance.github.io). Although such costs
-may present challenges, combining prospective and retrospective
-provenance methods could provide a powerful and flexible solution.
+and replicating random processes.  Using retrospective provenance
+comes at a cost, however. In order to gather it, the script needs to
+be executed. When scripts are computationally intensive or contain
+bugs that stop execution retrospective provenance can not be obtained
+for part or all of the code. Although such costs may present
+challenges, combining prospective and retrospective provenance methods
+could provide a powerful and flexible solution. Some work has already
+been done in the direction of implementing retrospective provenance
+for code cleaning in R (see http://end-to-end-provenance.github.io);
+however, there doesn't appear to be a tool that synthesizes these two
+approaches to provenance.
 
 We hope that [Rclean](https://docs.ropensci.org/rclean) makes writing
 scientific software easier for the R community. The package has
 already been significantly improved via the [rOpenSci review
 process](https://github.com/ropensci/software-review/issues/327),
-thnaks to the efforts of editor [Anna
+thanks to the efforts of editor [Anna
 Krystalli](https://www.annakrystalli.me/) and reviewers, [Will
 Landau](https://wlandau.github.io/) and [Clemens
 Schmid](https://nevrome.de/). We look forward to the future progress
@@ -714,3 +553,11 @@ Comprehension_. https://github.com/duncantl/CodeDepends.
 [^R-devtools]: Wickham H, Hester J, Chang W (2019). _devtools: Tools to
 Make Developing R Packages Easier_.
 https://CRAN.R-project.org/package=devtools.
+### Acknowledgements
+
+Thanks to [Steffi Lazerte](http://steffilazerte.ca/), [Stefanie
+Butland](https://stefaniebutland.netlify.com/) and [Ma&euml;lle
+Salmon](https://masalmon.eu/) for editorial work and technical
+help. Special word of thanks to [Ma&euml;lle
+Salmon](https://masalmon.eu/) for the addition of the code highlighting
+figure in the `clean()` example. 
