@@ -63,6 +63,24 @@ cite <- function(key, bib = mybib) {
 }
 ```
 
+```{r libs, include = FALSE}
+
+if (!(any(installed.packages()[,1] == "devtools"))){
+   install.packages("devtools")
+}else{library("devtools")}
+
+if (!(any(installed.packages()[,1] == "Rgraphviz"))){
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+     install.packages("BiocManager")
+  BiocManager::install("Rgraphviz")
+}
+
+if (!(any(installed.packages()[,1] == "Rclean"))){
+   devtools::install_github("rOpenSci/Rclean")
+}else{library(Rclean)}
+
+```
+
 > Leave the code cleaner than you found it. 
 > 
 > -- R.C. Martin in *Clean Code*
@@ -126,7 +144,8 @@ can be installed using the [devtools](https://devtools.r-lib.org)
 package `r cite("R-devtools")` directly from the repository
 (https://github.com/ROpenSci/Rclean).
 
-```{R install, eval = FALSE}
+```{r install, eval = FALSE}
+
 library(devtools)
 install_github("ROpenSci/Rclean")
 
@@ -136,7 +155,7 @@ If you do not already have
 you will need to install it using the following code *before*
 installing [Rclean](https://docs.ropensci.org/rclean):
 
-```{R rgraphviz, eval = FALSE}
+```{r rgraphviz, eval = FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("Rgraphviz")
@@ -150,7 +169,7 @@ complicated. The following example script presents some challenges
 such that even though it's not a long script, picking through it to
 get a result would likely prove to be frustrating.
 
-```{R long-setup, echo = FALSE, eval = TRUE}
+```{r long-setup, echo = FALSE, eval = TRUE}
 
 script.long <- system.file(
     "example", 
@@ -159,7 +178,7 @@ script.long <- system.file(
 
 ```
 
-```{R long-script, echo = TRUE, eval = FALSE}
+```{r long-script, echo = TRUE, eval = FALSE}
 
 library(stats)
 x <- 1:100
@@ -259,7 +278,7 @@ fact that we have used "x" as a prefix for multiple unrelated objects
 in the script. However, [Rclean](https://docs.ropensci.org/rclean) can
 do this easily via the `clean()` function.
 
-```{R long}
+```{r long}
 library(Rclean)
 script <- system.file("example", 
 	"long_script.R", 
@@ -284,7 +303,7 @@ glue::glue_collapse(c(paste0("```r {hl_lines=[", linenos, "]}"),
 The isolated code can now be visually inspected to adapt the original
 code or ported to a new, refactored script using `keep()`.
 
-```{R ex-keep, eval = FALSE}
+```{r ex-keep, eval = FALSE}
 fitSA <- clean(script, "fit_sqrt_A")
 keep(fitSA)
 
@@ -294,7 +313,7 @@ This will pass the code to the clipboard for pasting into another
 document. To write directly to a new file, a file path can be
 specified.
 
-```{R ex-keep-write, eval = FALSE}
+```{r ex-keep-write, eval = FALSE}
 fitSA <- clean(script, "fit_sqrt_A")
 keep(fitSA, file = "fit_SA.R")
 
@@ -304,7 +323,7 @@ To explore more possible variables to extract, the `get_vars()` function
 can be used to produce a list of the variables (aka. objects) that are
 created in the script.
 
-```{R ex-get_vars-hid, eval = TRUE, echo = TRUE}
+```{r ex-get_vars-hid, eval = TRUE, echo = TRUE}
 
 get_vars(script)
 
@@ -315,7 +334,7 @@ be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph()` function can also give us a visual of the
 code and the objects that they produce.
 
-```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 400}
+```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 700}
 
 code_graph(script)
 
@@ -335,7 +354,7 @@ possible that more than one object needs to be isolated. To do this is
 simple in `keep()` by passing the set of desired objects to the *vars*
 argument.
 
-```{R clean-mlti}
+```{r clean-mlti}
 
 clean(script, vars = c("fit_sqrt_A", "fit_anova"))
 
@@ -346,7 +365,7 @@ process. So, the `get_libs()` function provides a way to detect the
 libraries for a given script. We just need to supply a file path and
 `get_libs()` will return the libraries that are called by that script.
 
-```{R ex-get_libs}
+```{r ex-get_libs}
 
 get_libs(script)
 
@@ -401,12 +420,12 @@ is, we can use the `code_graph()` function to get a graphical representation
 of the prospective provenance generated for
 [Rclean](https://docs.ropensci.org/rclean).
 
-```{R load-script, echo = FALSE, results = "hide"}
+```{r load-script, echo = FALSE, results = "hide"}
 library(CodeDepends)
 library(Rclean)
 ```
 
-```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate.", title = "provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), echo = FALSE}
+```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate.", title = "provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), dpi = 700, echo = FALSE}
 
 script <- system.file(
     "example", 
