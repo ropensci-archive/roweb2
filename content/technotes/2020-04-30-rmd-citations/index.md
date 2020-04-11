@@ -1,5 +1,5 @@
 ---
-title: About citations in Rmd with and without pandoc
+title: A roundup of R tools for handling BibTeX
 author:
   - Maëlle Salmon
 date: '2020-04-30'
@@ -42,6 +42,8 @@ To repeat information presented in [Nicholas Tierney's excellent online book "R 
 * inserts citations using their key, e.g. `@my-citation-key-for-r` for the entry above,
 
 * and optionally uses CSL to control the look of the references list; and a bookdown output format to have the bibliography placed somewhere else than the end.
+
+#### Handy R packages for references: citr and knitcitations
 
 Some R tools out there simplify part of the workflow, mimicking tools you could find in Microsoft Word:
 
@@ -87,7 +89,7 @@ We are using the .bib file below,
     note = {R package version 1.1.0},
     url = {https://CRAN.R-project.org/package=jqr},
   }
-  
+
 ```
 
 #### Create a bibliography object
@@ -189,16 +191,16 @@ To summarize our workflow
 
 * Instead of referencing the bibliography file in the Document metadata we create an object refering to it in a chunk by calling `RefManageR::ReadBib()`;
 
-* We use a custom-made `cite()` function using `RefManageR::NoCite()` to signal the use of the reference and string manipulation to add it in the correct format;
+* We use a custom-made `cite()` function using `RefManageR::NoCite()` to signal the use of the reference, and string manipulation to add it in the correct format;
 
 * We make the bibliography appear using `RefManageR::PrintBibliography` and `tools::bibstyle()` in a chunk with the `results="asis"` option, chunk that we put exactly where we want the bibliography to appear.
 
-### Do even more with bib files
+### Do even more with BibTeX files
 
 The workflow presented earlier was a cool example of using RefManageR to use a BibTeX file.
 There are other two packages that are worth knowing about for more .bib gymnastics: bib2df and handlr.
 
-#### bib2df
+#### bib2df: from BibTeX to tibble
 
 [bib2df](https://docs.ropensci.org/bib2df/) by [Philipp Ottolinger](http://www.ottlngr.de/)[^social] is a package that converts bibliography data from .bib to `tibble` and vice versa. 
 Like RefManageR it has also been [peer-reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/124).
@@ -208,13 +210,6 @@ Let's try it on our .bib file.
 
 ```r 
 df <- bib2df::bib2df("refs.bib")
-```
-
-```
-Warning in readLines(file): incomplete final line found on 'refs.bib'
-```
-
-```r 
 df
 ```
 
@@ -338,19 +333,24 @@ df2$author
 `bib2df` even supports separating name, using [`humaniformat`](https://github.com/ironholds/humaniformat/)
 
 ```r 
-bib2df::bib2df("refs.bib", separate_names = TRUE)$author
+bib2df::bib2df("refs.bib", separate_names = TRUE)$AUTHOR
 ```
 
 ```
-Warning in readLines(file): incomplete final line found on 'refs.bib'
-```
+[[1]]
+  salutation first_name middle_name last_name suffix   full_name
+1       <NA>          R        Core      Team   <NA> R Core Team
 
-```
-Warning: Unknown or uninitialised column: 'author'.
-```
+[[2]]
+  salutation first_name middle_name last_name suffix             full_name
+1       <NA>     Mathew     William    McLean   <NA> Mathew William McLean
 
-```
-NULL
+[[3]]
+  salutation first_name middle_name   last_name suffix            full_name
+1       <NA>       Rich        <NA>    FitzJohn   <NA>        Rich FitzJohn
+2       <NA>     Jeroen        <NA>        Ooms   <NA>          Jeroen Ooms
+3       <NA>      Scott        <NA> Chamberlain   <NA>    Scott Chamberlain
+4       <NA>    {Stefan      Milton       Bache   <NA> {Stefan Milton Bache
 ```
 
 bib2df helps doing fun or serious analyses or reference databases.
@@ -359,7 +359,7 @@ bib2df helps doing fun or serious analyses or reference databases.
 {{< tweet 887962776806842369 >}}
 <!--/html_preserve-->
 
-#### handlr
+#### handlr: from BibTeX to RIS, schema.org, etc.
 
 [handlr](https://docs.ropensci.org/handlr/) by [Scott Chamberlain](/author/scott-chamberlain) is less mature but not less cool.
 It's _a tool for converting among citation formats_, inspired by Ruby [bolognese library](https://github.com/datacite/bolognese).
@@ -505,8 +505,9 @@ Quite an arsenal for your bibliography conversion needs!
 ### Conclusion
 
 In this tech note we have explained how to use a BibTeX file in a Markdown file generated from R Markdown without using pandoc-citeproc.
-The star of this post was the [RefManageR](https://docs.ropensci.org/RefManageR/) package, that in turns depends on the [bibtex](https://github.com/romainfrancois/bibtex) package and base R functionalities to handle bibliographies.
-You can learn more about RefManageR functionalities [on its documentation website](https://docs.ropensci.org/RefManageR/).
+The star of this post was the [RefManageR](https://docs.ropensci.org/RefManageR/) package, that in turns depends on the [bibtex](https://github.com/romainfrancois/bibtex) package and base R functionality to handle bibliographies.
+You can learn more about RefManageR functions [on its documentation website](https://docs.ropensci.org/RefManageR/).
+We have also mentioned other R packages offering functionality around BibTeX files: [citr](https://github.com/crsh/citr) and [knitcitations](https://github.com/cboettig/knitcitations) for more easily adding references in standard R Markdown documents, [bib2df](https://docs.ropensci.org/bib2df/) and [handlr](https://docs.ropensci.org/handlr/) for converting BibTeX files to other formats.
 If you're interested in learning about yet another workflow involving citations in R Markdown documents, have a look at the Distill web framework wrapped in the R package distill, where [citations handling currently happens via JavaScript](https://github.com/rstudio/distill/issues/45).
 
 [^refmanager]: McLean MW (2017). "RefManageR: Import and Manage BibTeX
