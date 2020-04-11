@@ -116,7 +116,7 @@ When using highlight.js on your website, you might need to specify R as a supple
 You could also [whip up some code to conditionally load supplementary highlight.js languages](https://github.com/ropensci/roweb2/pull/637).
 
 A big downside of client-side syntax highlighting is loading time: 
-it appears quite fast if your internet connection isn't poor, but you might have noticed code blocks changing aspect when loading a web page (first unstyled, then styled).
+it appears quite fast if your internet connection isn't poor, but you might have noticed code blocks changing aspect when loading a web page (first not styled, then styled).
 Moreover, Hugo now supports, and uses by default, an alternative that we'll describe in the following subsection and take advantage of in this post's second section.
 
 #### Server-side syntax highlighting
@@ -332,7 +332,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[3,2]}
+```r {hl_lines=[3,4]}
 a <- 1
 b <- 2
 c <- 3
@@ -346,10 +346,10 @@ We used such an approach in the recent [blog post about Rclean](/blog/2020/04/21
 
 In this post we've explained some concepts around code highlighting: both client-side and server-side syntax highlighting; and line highlighting with Chroma.
 Being able to properly decorate code might make your content more attractive to your readers, or motivate you to write more documentation, which is great.
-Now, how much time fiddling with code appearance is probably a question of taste. 
+Now, how much time to fiddle with code appearance is probably a question of taste. 
 
 [^netlify]: Our website is deployed via Netlify.
-[^strike]: [Support for striking text, with `~~blablabla~~` is also quite new in Hugo](https://gohugo.io/news/0.60.0-relnotes/), thanks to its new Markdown renderer Goldmark!
+[^strike]: [Support for striking text, with `~~blablabla~~` is also quite new in Hugo](https://gohugo.io/news/0.60.0-relnotes/), thanks to its new Markdown handler Goldmark!
 [^css]: Translating CSS classes from what highlight.js does to what Chroma needs was not easy for me, but I'm a CSS n00b.
 [^fences]: There is also a [highlight shortcode](https://gohugo.io/content-management/syntax-highlighting/#example-highlight-shortcode) which to me is less natural to use in R Markdown or in Markdown as someone used to Markdown.
 [^rss]: In this case colors are also hard-coded in RSS feeds which means the posts will look better in feed readers... and maybe even on R-Bloggers?
