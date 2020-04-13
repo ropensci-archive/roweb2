@@ -332,7 +332,9 @@ get_vars(script)
 Especially when the code for different variables are entangled, it can
 be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph()` function can also give us a visual of the
-code and the objects that they produce.
+code and the objects that they produce. Note that since
+[Rclean](https://docs.ropensci.org/rclean) removes comments, it does
+not count them when it is indexing the line numbers of the code. 
 
 ```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 700}
 
@@ -340,7 +342,9 @@ code_graph(script)
 
 ```
 
-For reference, here is the script with line numbers.
+For reference, here is the script with line numbers. Again, because
+commented lines are removed, code graph numbers lines without counting
+the comments only lines.
 
 ```{r short-script, results="asis", echo=FALSE}
   glue::glue_collapse(
