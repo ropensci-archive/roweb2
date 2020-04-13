@@ -65,17 +65,17 @@ cite <- function(key, bib = mybib) {
 
 ```{r libs, include = FALSE}
 
-if (!(any(installed.packages()[,1] == "devtools"))){
+if (!(all(installed.packages()[,1] != "devtools"))){
    install.packages("devtools")
 }else{library("devtools")}
 
-if (!(any(installed.packages()[,1] == "Rgraphviz"))){
+if (!(all(installed.packages()[,1] != "Rgraphviz"))){
   if (!requireNamespace("BiocManager", quietly = TRUE))
      install.packages("BiocManager")
   BiocManager::install("Rgraphviz")
 }
 
-if (!(any(installed.packages()[,1] == "Rclean"))){
+if (!(all(installed.packages()[,1] != "Rclean"))){
    devtools::install_github("rOpenSci/Rclean")
 }else{library(Rclean)}
 
