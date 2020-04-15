@@ -336,7 +336,7 @@ code and the objects that they produce. Note that since
 [Rclean](https://docs.ropensci.org/rclean) removes comments, it does
 not count them when it is indexing the line numbers of the code. 
 
-```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 700}
+```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "Figure 1: code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 700}
 
 code_graph(script)
 
@@ -429,7 +429,7 @@ library(CodeDepends)
 library(Rclean)
 ```
 
-```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate.", title = "provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), dpi = 700, echo = FALSE}
+```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate.", title = "Figure 2: provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), dpi = 700, echo = FALSE}
 
 script <- system.file(
     "example", 
