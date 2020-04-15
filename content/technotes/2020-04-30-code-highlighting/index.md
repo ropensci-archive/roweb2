@@ -191,6 +191,11 @@ In [R lexer](https://github.com/alecthomas/chroma/blob/master/lexers/r/r.go), po
 Chroma works on Markdown content, so if you use [blogdown to generate pages as html](https://bookdown.org/yihui/blogdown/output-format.html), you can only use client-side highlighting, like [this tidyverse.org page](https://www.tidyverse.org/blog/2017/09/erratum-tidyr-0.7.0/) whose [source is html](https://github.com/tidyverse/tidyverse.org/blob/7ceea9b9bd40207d25e75681041568d600c9d903/content/blog/2017-09-erratum-tidyr/index.html).
 By default nowadays Hugo does server-side syntax highlighting but you could choose to turn it off via [`codeFences = false`](https://gohugo.io/getting-started/configuration-markup#highlight).
 
+#### Accessible highlighting?
+
+When selecting a style for code highlighting on your website, or when creating your own CSS classes, it is important to keep accessibility in mind.
+For instance, comments could be darker than code, but their being too dark might make contrast between code and background too low!
+
 We have now seen how Hugo websites have [syntax highlighting, which for Yihui Xie _"is only for cosmetic purposes"_](https://yihui.org/en/2017/07/on-syntax-highlighting/).
 Well, Chroma actually also offers one thing more: line numbering and line highlighting!
 
@@ -332,7 +337,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[4,3]}
+```r {hl_lines=[3,4]}
 a <- 1
 b <- 2
 c <- 3
@@ -341,6 +346,11 @@ a + b + c
 
 This is a rather uninteresting toy example since we used randomly drawn line numbers to be highlighted, but you might find use cases for this.
 We used such an approach in the recent [blog post about Rclean](/blog/2020/04/21/rclean/), actually!
+
+#### Accessible emphasis
+
+When highlighting a line, its background will have a different colour than normal code.
+This colour also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea.
 
 ### Conclusion
 
