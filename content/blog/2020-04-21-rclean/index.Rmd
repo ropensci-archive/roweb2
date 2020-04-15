@@ -357,12 +357,12 @@ executable code).
 
   thecode <- readLines(script.long)
   # remove comments
-  thecode <- thecode[!grepl("^#", thecode]
+  thecode <- thecode[!grepl("^#", thecode)]
   # if you need to remove empty lines
-  # thecode <- thecode[thecode != ""]
+  thecode <- thecode[thecode != ""]
   glue::glue_collapse(
-  c("```r {linenos=table}", thecode, "```\n"),
-  sep = "\n")
+     c("```r {linenos=table}", thecode, "```\n"),
+     sep = "\n")
 
 ```
 
