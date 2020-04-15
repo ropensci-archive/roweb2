@@ -337,7 +337,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[3,4]}
+```r {hl_lines=[2,1]}
 a <- 1
 b <- 2
 c <- 3
@@ -351,6 +351,7 @@ We used such an approach in the recent [blog post about Rclean](/blog/2020/04/21
 
 When highlighting a line, its background will have a different colour than normal code.
 This colour also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea.
+It would also be a bad idea to only rely on line highlighting, as opposed to commenting code blocks, since some readers might not be able to differentiate highlighted lines.
 
 ### Conclusion
 
