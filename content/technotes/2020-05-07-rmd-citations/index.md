@@ -2,7 +2,7 @@
 title: A roundup of R tools for handling BibTeX
 author:
   - Maëlle Salmon
-date: '2020-04-30'
+date: '2020-05-07'
 slug: rmd-citations
 categories: []
 tags:
@@ -45,9 +45,9 @@ To repeat information presented in [Nicholas Tierney's excellent online book "R 
 
 #### Handy R packages for references: citr and knitcitations
 
-Some R tools out there simplify part of the workflow, mimicking tools you could find in Microsoft Word:
+Some R tools out there simplify part of the workflow:
 
-* [citr](https://github.com/crsh/citr) by [Frederik Aust](https://github.com/crsh) provides an RStudio add-in to search for references in a .bib file, inserting the key in the document;
+* [citr](https://github.com/crsh/citr) by [Frederik Aust](https://github.com/crsh) provides an RStudio add-in to search for references in a .bib file, inserting the key in the document (mimicking tools you could find in Microsoft Word);
 
 * [knitcitations](https://github.com/cboettig/knitcitations) by [Carl Boettiger](/author/carl-boettiger) allows you to not only use the keys, but also DOIs and URLs to cite a paper. E.g. `citet("10.1098/rspb.2013.1372")` will create a citation to `@Boettiger_2013` after querying the web; and `write.bibtex(file = "references.bib")` will allow you to cache entries in a bibliography file.
 
@@ -189,7 +189,7 @@ Computing, Vienna, Austria. https://www.R-project.org/.
 
 To summarize our workflow
 
-* Instead of referencing the bibliography file in the Document metadata we create an object refering to it in a chunk by calling `RefManageR::ReadBib()`;
+* Instead of referencing the bibliography file in the Document metadata we create an object referring to it in a chunk by calling `RefManageR::ReadBib()`;
 
 * We use a custom-made `cite()` function using `RefManageR::NoCite()` to signal the use of the reference, and string manipulation to add it in the correct format;
 
@@ -203,13 +203,24 @@ There are other two packages that are worth knowing about for more .bib gymnasti
 #### bib2df: from BibTeX to tibble
 
 [bib2df](https://docs.ropensci.org/bib2df/) by [Philipp Ottolinger](http://www.ottlngr.de/)[^social] is a package that converts bibliography data from .bib to `tibble` and vice versa. 
-Like RefManageR it has also been [peer-reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/124).
+Like RefManageR, it has been [peer-reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/124).
 In the [words of one the reviewers, Adam Sparks](https://github.com/ropensci/software-review/issues/124#issuecomment-308617830), bib2df is _"something that is simple and does one job and does it well."_.
 
 Let's try it on our .bib file.
 
 ```r 
 df <- bib2df::bib2df("refs.bib")
+```
+
+```
+Warning: `as_data_frame()` is deprecated as of tibble 2.0.0.
+Please use `as_tibble()` instead.
+The signature and semantics have changed, see `?as_tibble`.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_warnings()` to see where this warning was generated.
+```
+
+```r 
 df
 ```
 
@@ -353,7 +364,7 @@ bib2df::bib2df("refs.bib", separate_names = TRUE)$AUTHOR
 4       <NA>    {Stefan      Milton       Bache   <NA> {Stefan Milton Bache
 ```
 
-bib2df helps doing fun or serious analyses or reference databases.
+bib2df helps doing fun or serious analyses of reference databases.
 
 <!--html_preserve-->
 {{< tweet 887962776806842369 >}}
@@ -361,9 +372,9 @@ bib2df helps doing fun or serious analyses or reference databases.
 
 #### handlr: from BibTeX to RIS, schema.org, etc.
 
-[handlr](https://docs.ropensci.org/handlr/) by [Scott Chamberlain](/author/scott-chamberlain) is less mature but not less cool.
+[handlr](https://docs.ropensci.org/handlr/) by [Scott Chamberlain](/author/scott-chamberlain) is less mature but not less useful.
 It's _a tool for converting among citation formats_, inspired by Ruby [bolognese library](https://github.com/datacite/bolognese).
-It has an all-in-one objects, but you could also use [individual functions reading and writing different formats](https://docs.ropensci.org/handlr/reference/index.html).
+It defines an R6 class so it has all-in-one objects, but you could also use [individual functions reading and writing different formats](https://docs.ropensci.org/handlr/reference/index.html).
 
 ```r 
 citation <- handlr::HandlrClient$new(x = "refs.bib")
@@ -380,126 +391,16 @@ citation
 ```
 
 ```r 
-citation$write(format = "citeproc")
+citation$write(format = "ris")
 ```
 
 ```
-[
-  {
-    "type": "misc",
-    "id": {},
-    "categories": [],
-    "language": {},
-    "author": [
-      {
-        "type": "Person",
-        "family": "R Core Team",
-        "given": "",
-        "literal": "R Core Team"
-      }
-    ],
-    "editor": [],
-    "issued": {
-      "date-parts": {}
-    },
-    "submitted": {
-      "date-parts": {}
-    },
-    "abstract": {},
-    "container-title": {},
-    "DOI": {},
-    "issue": {},
-    "page": "",
-    "publisher": {},
-    "title": "R: A Language and Environment for Statistical Computing",
-    "URL": "https://www.R-project.org/",
-    "version": {},
-    "volume": {}
-  },
-  {
-    "type": "article-journal",
-    "id": "https://doi.org/10.21105%2fjoss.00338",
-    "categories": [],
-    "language": {},
-    "author": [
-      {
-        "type": "Person",
-        "family": "McLean",
-        "given": "Mathew William",
-        "literal": "McLean"
-      }
-    ],
-    "editor": [],
-    "issued": {
-      "date-parts": {}
-    },
-    "submitted": {
-      "date-parts": {}
-    },
-    "abstract": {},
-    "container-title": {},
-    "DOI": "10.21105/joss.00338",
-    "issue": {},
-    "page": "",
-    "publisher": {},
-    "title": "RefManageR: Import and Manage BibTeX and BibLaTeX References in R",
-    "URL": {},
-    "version": {},
-    "volume": {}
-  },
-  {
-    "type": "misc",
-    "id": {},
-    "categories": [],
-    "language": {},
-    "author": [
-      {
-        "type": "Person",
-        "family": "FitzJohn",
-        "given": "Rich",
-        "literal": "FitzJohn"
-      },
-      {
-        "type": "Person",
-        "family": "Ooms",
-        "given": "Jeroen",
-        "literal": "Ooms"
-      },
-      {
-        "type": "Person",
-        "family": "Chamberlain",
-        "given": "Scott",
-        "literal": "Chamberlain"
-      },
-      {
-        "type": "Person",
-        "family": "Stefan Milton Bache",
-        "given": "",
-        "literal": "Stefan Milton Bache"
-      }
-    ],
-    "editor": [],
-    "issued": {
-      "date-parts": {}
-    },
-    "submitted": {
-      "date-parts": {}
-    },
-    "abstract": {},
-    "container-title": {},
-    "DOI": {},
-    "issue": {},
-    "page": "",
-    "publisher": {},
-    "title": "jqr: Client for 'jq', a 'JSON' Processor",
-    "URL": "https://CRAN.R-project.org/package=jqr",
-    "version": {},
-    "volume": {}
-  }
-] 
+[1] "TY  - GEN\r\nT1  - R: A Language and Environment for Statistical Computing\r\nAU  - R Core Team\r\nUR  - https://www.R-project.org/\r\nER  - "                                                                         
+[2] "TY  - JOUR\r\nT1  - RefManageR: Import and Manage BibTeX and BibLaTeX References in R\r\nAU  - McLeanMathew William\r\nDO  - 10.21105/joss.00338\r\nER  - "                                                            
+[3] "TY  - GEN\r\nT1  - jqr: Client for 'jq', a 'JSON' Processor\r\nAU  - FitzJohnRich\r\nAU  - OomsJeroen\r\nAU  - ChamberlainScott\r\nAU  - Stefan Milton Bache\r\nUR  - https://CRAN.R-project.org/package=jqr\r\nER  - "
 ```
 
-At the moment, there are supported readers for citeproc, ris, bibtex, codemeta and supported writers for citeproc, ris, bibtex, schema.org, rdfxml, codemeta.
+At the moment, there are supported readers for CiteProc, RIS, BibTeX, CodeMeta and supported writers for CiteProc, RIS, BibTeX, schema.org, RDF/XML, CodeMeta.
 Quite an arsenal for your bibliography conversion needs!
 
 ### Conclusion
