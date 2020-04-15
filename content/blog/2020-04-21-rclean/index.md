@@ -647,8 +647,8 @@ scientific software easier for the R community. The package has
 already been significantly improved via the [rOpenSci review
 process](https://github.com/ropensci/software-review/issues/327),
 thanks to the efforts of editor [Anna
-Krystalli](author/anna-krystalli/) and reviewers, [Will
-Landau](author/will-landau/) and [Clemens
+Krystalli](/author/anna-krystalli/) and reviewers, [Will
+Landau](/author/will-landau/) and [Clemens
 Schmid](https://nevrome.de/). We look forward to the future progress
 of the package and other "code cleaning" tools. As an open-source
 project, we would like to encourage feedback and help with extending
@@ -691,9 +691,9 @@ Make Developing R Packages Easier_.
 https://CRAN.R-project.org/package=devtools.
 ### Acknowledgements
 
-Thanks to [Steffi Lazerte](author/steffi-lazerte), [Stefanie
-Butland](author/stefanie-butland/) and [Ma&euml;lle
-Salmon](author/maëlle-salmon/) for editorial work and technical
+Thanks to [Steffi Lazerte](/author/steffi-lazerte), [Stefanie
+Butland](/author/stefanie-butland/) and [Ma&euml;lle
+Salmon](/author/maëlle-salmon/) for editorial work and technical
 help. Special word of thanks to [Ma&euml;lle
-Salmon](author/maëlle-salmon/) for the addition of the code
+Salmon](/author/maëlle-salmon/) for the addition of the code
 highlighting figure in the `clean()` example.
