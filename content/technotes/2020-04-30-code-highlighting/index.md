@@ -2,7 +2,7 @@
 title: Highlights of Hugo Code Highlighting
 author:
   - Maëlle Salmon
-date: '2020-05-07'
+date: '2020-04-30'
 slug: code-highlighting
 categories: []
 tags:
@@ -332,7 +332,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[3,4]}
+```r {hl_lines=[4,3]}
 a <- 1
 b <- 2
 c <- 3
