@@ -17,7 +17,6 @@ tags:
   - taxadb
   - tic
 description: Semi-monthly summary of the rOpenSci Newsletter, April 2020
-twitterImg: blog/2020/04/17/news-apr2020/2months2mins_hex_apr2020_wh.png
 preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropensci.org/) including software reviews, packages on CRAN, use cases, posts from staff and community, and events. March 2 to April 13, 2020"
 ---
 
@@ -49,7 +48,7 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 * [osfr](https://docs.ropensci.org/osfr/) - Interface to the Open Science Framework (OSF). Author: [Aaron Wolen](https://github.com/aaronwolen)
 * [outsider.base](https://docs.ropensci.org/outsider.base/) - Base package for [outsider](https://docs.ropensci.org/outsider/). Author: [Dom Bennett](/author/dom-bennett/)
 * [parzer](https://docs.ropensci.org/parzer/) - Parse messy geographic coordinates. Author: [Scott Chamberlain](/author/scott-chamberlain/)
-* [taxadb](https://docs.ropensci.org//taxadb/) - A High-Performance Local Taxonomic Database Interface. Author: [Kari Norman](/author/kari-norman/)
+* [taxadb](https://docs.ropensci.org/taxadb/) - A High-Performance Local Taxonomic Database Interface. Author: [Kari Norman](/author/kari-norman/)
 
 
 {{< figure src="2months2mins_hex_apr2020_wh.png" width="500" class="center" alt="hex logos of R packages osfr outsider opentripplanner taxadb" >}}
@@ -61,15 +60,15 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 #### From the rOpenSci team
 
 * [parzer: Parse Messy Geographic Coordinates](/technotes/2020/03/19/parzer/) Tech Note - [Scott Chamberlain](/author/scott-chamberlain/)
-* [10 Things We Learned in Creating the Blog Guide with bookdown](/blog/2020/01/16/conduct/) - [Stefanie Butland](/author/stefanie-butland/), [Maëlle Salmon](/author/ma%C3%ABlle-salmon/)
+* [10 Things We Learned in Creating the Blog Guide with bookdown](/blog/2020/04/07/bookdown-learnings/) - [Stefanie Butland](/author/stefanie-butland/), [Maëlle Salmon](/author/ma%C3%ABlle-salmon/)
 * [2 Months in 2 Minutes - rOpenSci News, February 2020](/blog/2020/02/20/news-feb2020/) - [Stefanie Butland](/author/stefanie-butland/)
 
 
 #### From the community
 
-* [rOpenSci's Leadership in #rstats Culture](blog/2020/02/21/ropensci-leadership/) - [Julia Stewart Lowndes](/author/julia-stewart-lowndes/)
+* [rOpenSci's Leadership in #rstats Culture](/blog/2020/02/21/ropensci-leadership/) - [Julia Stewart Lowndes](/author/julia-stewart-lowndes/)
 * [opentripplanner: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner](/technotes/2020/02/25/opentripplanner/) - [Malcolm Morgan](/author/malcolm-morgan/)
-* [Supercharge your GitHub Actions Experience with tic](/technotes/2020/03/13/tic-ghactions/) –  [Patrick Schratz](/author/patrick-schratz/)
+* [Supercharge your GitHub Actions Experience with tic](/technotes/2020/03/13/tic-ghactions/) Tech Note - [Patrick Schratz](/author/patrick-schratz/)
 
 &nbsp;
 
