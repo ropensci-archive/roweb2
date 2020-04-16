@@ -17,7 +17,7 @@ tags:
   - taxadb
   - tic
 description: Semi-monthly summary of the rOpenSci Newsletter, April 2020
-twitterImg: blog/2020/04/17/news-apr2020/2months2mins_hex_apr2020.png
+twitterImg: blog/2020/04/17/news-apr2020/2months2mins_hex_apr2020_wh.png
 preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropensci.org/) including software reviews, packages on CRAN, use cases, posts from staff and community, and events. March 2 to April 13, 2020"
 ---
 
@@ -52,7 +52,7 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 * [taxadb](https://docs.ropensci.org//taxadb/) - A High-Performance Local Taxonomic Database Interface. Author: [Kari Norman](/author/kari-norman/)
 
 
-{{< figure src="2months2mins_hex_apr2020.png" width="500" class="center" alt="hex logos of R packages osfr outsider opentripplanner taxadb" >}}
+{{< figure src="2months2mins_hex_apr2020_wh.png" width="500" class="center" alt="hex logos of R packages osfr outsider opentripplanner taxadb" >}}
 
 &nbsp;
 
@@ -71,9 +71,7 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 * [opentripplanner: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner](/technotes/2020/02/25/opentripplanner/) - [Malcolm Morgan](/author/malcolm-morgan/)
 * [Supercharge your GitHub Actions Experience with tic](/technotes/2020/03/13/tic-ghactions/) –  [Patrick Schratz](/author/patrick-schratz/)
 
-ADD NEW IMAGE
-{{< figure src="/img/blog-images/2020-02-05-ozunconf19/ozunconf19-group.jpg" width="500" class="center" caption="Photo by Steph Stammel" alt="group photo of 40 participants at OzUnconf19" >}}
-
+&nbsp;
 
 ### Use Cases
 
