@@ -67,7 +67,9 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 #### From the community
 
 * [rOpenSci's Leadership in #rstats Culture](/blog/2020/02/21/ropensci-leadership/) - [Julia Stewart Lowndes](/author/julia-stewart-lowndes/)
+
 * [opentripplanner: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner](/technotes/2020/02/25/opentripplanner/) - [Malcolm Morgan](/author/malcolm-morgan/)
+
 * [Supercharge your GitHub Actions Experience with tic](/technotes/2020/03/13/tic-ghactions/) Tech Note - [Patrick Schratz](/author/patrick-schratz/)
 
 &nbsp;
@@ -80,6 +82,26 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 _Have you used an rOpenSci package? [Share your use case](https://discuss.ropensci.org/c/usecases) and we’ll tweet about it._
 
 &nbsp;
+
+### From the Forum
+
+_We have a discussion forum (using Discourse) for the rOpenSci community. It’s a really nice way to have conversations on the internet. From time to time we’ll highlight recent discussions of interest._
+
+* Peter Desmet asked a question that many R package maintainers run in to: [What if raw data in package is too large?](https://discuss.ropensci.org/t/what-if-raw-data-in-package-is-too-large/1955)
+* Emilio Bruna asked: [What is best practice when a dependency is removed from CRAN?](https://discuss.ropensci.org/t/what-is-best-practice-when-a-dependency-is-removed-from-cran/1971)
+
+&nbsp;
+
+### In the News
+
+* [Python 101: Learning About Lists](https://www.blog.pythonlibrary.org/2020/03/10/python-101-learning-about-lists/)
+A good introduction to lists in Python; they’re kind of like R lists. It’s an important data structure to know if you’re going to be learning Python
+* [Necessary & Sufficient](https://blog.testdouble.com/posts/2020-02-25-necessary-and-sufficient/)
+A good read on how to think about testing in general
+
+
+&nbsp;
+
 
 ### Keep up with rOpenSci
 
