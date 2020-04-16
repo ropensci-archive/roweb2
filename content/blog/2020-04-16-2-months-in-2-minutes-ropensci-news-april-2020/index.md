@@ -23,7 +23,9 @@ preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropen
 
 ### rOpenSci HQ
 
-* The recording, collaborative notes and links to community discussion and resources are up for our latest Community Call - [Maintaining an R package](/commcalls/2020-03-18/). Panel moderated by Julia Silge included Elin Waring, Erin Grand, Leonardo Collado-Torres, and Scott Chamberlain.
+* The recording, collaborative notes and links to community discussion and resources are up for our latest [Community Call on Maintaining an R package](/commcalls/2020-03-18/). Panel moderated by Julia Silge included Elin Waring, Erin Grand, Leonardo Collado-Torres, and Scott Chamberlain.
+
+&nbsp;
 
 ### Software Peer Review
 
@@ -37,6 +39,8 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 
 <!---- _Consider [submitting your package](https://devguide.ropensci.org/softwarereviewintro.html) or [volunteering to review](https://devguide.ropensci.org/softwarereviewintro.html#whyreview)._ ---->
 
+&nbsp;
+
 ### Software
 
 5 new packages from the community and our staff are on CRAN.
@@ -47,6 +51,7 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 * [parzer](https://docs.ropensci.org/parzer/) - Parse messy geographic coordinates. Author: [Scott Chamberlain](/author/scott-chamberlain/)
 * [taxadb](https://docs.ropensci.org//taxadb/) - A High-Performance Local Taxonomic Database Interface. Author: [Kari Norman](/author/kari-norman/)
 
+&nbsp;
 
 ### On the Blog
 
@@ -74,11 +79,14 @@ ADD NEW IMAGE
 
 _Have you used an rOpenSci package? [Share your use case](https://discuss.ropensci.org/c/usecases) and we’ll tweet about it._
 
+&nbsp;
 
 ### Keep up with rOpenSci
 
 We create a newsletter every two weeks. You can subscribe via rss feed in [XML](https://news.ropensci.org/feed.xml) or [JSON](https://news.ropensci.org/feed.json) or via our one-way [mailing list](/#subscribe).
 
 Follow [@rOpenSci](https://twitter.com/ropensci) on Twitter.
-<br/>
+
+&nbsp;
+
 Find out how you can [contribute](https://devguide.ropensci.org/contributingguide.html) to rOpenSci as a user or developer.
