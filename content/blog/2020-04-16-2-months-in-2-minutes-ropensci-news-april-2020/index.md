@@ -17,7 +17,7 @@ tags:
   - taxadb
   - tic
 description: Semi-monthly summary of the rOpenSci Newsletter, April 2020
-# twitterImg: blog/2019/06/04/post-template/name-of-image.png
+twitterImg: blog/2020/04/17/news-apr2020/2months2mins_hex_apr2020.png
 preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropensci.org/) including software reviews, packages on CRAN, use cases, posts from staff and community, and events. March 2 to April 13, 2020"
 ---
 
@@ -54,6 +54,7 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 
 {{< figure src="2months2mins_hex_apr2020.png" width="500" class="center" alt="hex logos of R packages osfr outsider opentripplanner taxadb" >}}
 
+&nbsp;
 
 ### On the Blog
 
