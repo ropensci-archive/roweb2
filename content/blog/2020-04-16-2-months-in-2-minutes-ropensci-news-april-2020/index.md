@@ -51,7 +51,9 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 * [parzer](https://docs.ropensci.org/parzer/) - Parse messy geographic coordinates. Author: [Scott Chamberlain](/author/scott-chamberlain/)
 * [taxadb](https://docs.ropensci.org//taxadb/) - A High-Performance Local Taxonomic Database Interface. Author: [Kari Norman](/author/kari-norman/)
 
-&nbsp;
+
+{{< figure src="2months2mins_hex_apr2020.png" width="500" class="center" alt="hex logos of R packages osfr outsider opentripplanner taxadb" >}}
+
 
 ### On the Blog
 
