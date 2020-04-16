@@ -18,7 +18,7 @@ tags:
   - tic
 description: Semi-monthly summary of the rOpenSci Newsletter, April 2020
 # twitterImg: blog/2019/06/04/post-template/name-of-image.png
-preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropensci.org/) including software reviews, packages on CRAN, use cases, posts from staff and community, and events. January 6 to February 17, 2020"
+preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropensci.org/) including software reviews, packages on CRAN, use cases, posts from staff and community, and events. March 2 to April 13, 2020"
 ---
 
 ### rOpenSci HQ
@@ -31,13 +31,12 @@ preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropen
 
 <!---- alphabetical order. For link to package, use 1) https://docs.ropensci.org/pkgname when docs are rendered without errors or bad links to images or 2) to the source code page e.g. https://github.com/ropensci/grainchanger when docs page has errors
 ---->
-**[parzer](https://docs.ropensci.org/parzer/)** - Parse messy geographic coordinates. Author: [Scott Chamberlain](/author/scott-chamberlain/); Reviewers: [Julien Brun](https://github.com/brunj7), [María Victoria Munafó](https://github.com/mvickm); Read the [Review](https://github.com/ropensci/onboarding/issues/341)
+* **[parzer](https://docs.ropensci.org/parzer/)** - Parse messy geographic coordinates. Author: [Scott Chamberlain](/author/scott-chamberlain/); Reviewers: [Julien Brun](https://github.com/brunj7), [María Victoria Munafó](https://github.com/mvickm); Read the [Review](https://github.com/ropensci/onboarding/issues/341)
 
-On March 16, we paused new submissions for software peer review for 30 days (possibly longer) in the interest of reducing load on reviewers and editors in light of the COVID-19 crisis. 
+_On March 16, we paused new submissions for software peer review for 30 days (possibly longer) in the interest of reducing load on reviewers and editors in light of the COVID-19 crisis._ 
 
-_Consider [submitting your package](https://devguide.ropensci.org/softwarereviewintro.html) or [volunteering to review](https://devguide.ropensci.org/softwarereviewintro.html#whyreview)._
+<!---- _Consider [submitting your package](https://devguide.ropensci.org/softwarereviewintro.html) or [volunteering to review](https://devguide.ropensci.org/softwarereviewintro.html#whyreview)._ ---->
 
-<br/><br/>
 ### Software
 
 5 new packages from the community and our staff are on CRAN.
@@ -64,15 +63,14 @@ _Consider [submitting your package](https://devguide.ropensci.org/softwarereview
 * [opentripplanner: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner](/technotes/2020/02/25/opentripplanner/) - [Malcolm Morgan](/author/malcolm-morgan/)
 * [Supercharge your GitHub Actions Experience with tic](/technotes/2020/03/13/tic-ghactions/) –  [Patrick Schratz](/author/patrick-schratz/)
 
-
+ADD NEW IMAGE
 {{< figure src="/img/blog-images/2020-02-05-ozunconf19/ozunconf19-group.jpg" width="500" class="center" caption="Photo by Steph Stammel" alt="group photo of 40 participants at OzUnconf19" >}}
 
-<br/><br/>
 
 ### Use Cases
 
 * 76 published works cited or used rOpenSci software (listed in individual newsletters)
-* 2 use cases for our packages or resources were posted in our [discussion forum](https://discuss.ropensci.org/c/usecases) Look for microdemic, magick.
+* 2 use cases for our packages or resources were posted in our [discussion forum](https://discuss.ropensci.org/c/usecases) Look for microdemic, magick
 
 _Have you used an rOpenSci package? [Share your use case](https://discuss.ropensci.org/c/usecases) and we’ll tweet about it._
 
