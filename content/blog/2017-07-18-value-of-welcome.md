@@ -18,13 +18,7 @@ I’m participating in the <a href="https://www.cscce.org/cefp/" target="_blank"
 
 In my training as a [AAAS Community Engagement Fellow](https://www.cscce.org/2016/12/05/introducing-the-2017-community-engagement-fellows/), I hear repeatedly about the value of extending a personal welcome to your community members. This seems intuitive, but recently I put this to the test. Let me tell you about my experience creating and maintaining a #welcome channel in a community Slack group.
 
-<div id="blimages">
-<img src="<a data-flickr-embed="true" href="https://www.flickr.com/photos/90371939@N00/4344878104"><img src="https://live.staticflickr.com/4047/4344878104_5b22de25b1_h.jpg" width="550" alt="Welcome"></a>
-
-<a href="https://www.flickr.com/photos/90371939@N00/4344878104">"Welcome"</a> by <a href="https://www.flickr.com/photos/90371939@N00/">Nathan</a> under <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
-</div>
-
-<br>
+{{< figure class="center" src="https://live.staticflickr.com/4047/4344878104_5b22de25b1_h.jpg" width=550 alt="welcome" link="https://www.flickr.com/photos/90371939@N00/4344878104" caption="[Welcome](https://www.flickr.com/photos/90371939@N00/4344878104) by [Nathan](https://www.flickr.com/photos/90371939@N00/) under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)" >}}
 
 I listen in on and occasionally participate in a Slack group for [R-Ladies](https://rladies.org/) community organizers (R-Ladies is a global organization with local meetup chapters around the world, for women who do/want to do programming in R). Their Slack is incredibly well-organized and has a #welcome channel where new joiners are invited to introduce themselves in a couple of sentences. The leaders regularly jump in to add a wave emoji and ask people to introduce themselves if they have not already.
 

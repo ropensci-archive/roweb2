@@ -111,7 +111,6 @@ mocking HTTP requests that write to disk.
 Check out the [release notes](https://github.com/ropensci/webmockr/releases)
 for all webmockr changes
 
-<br><br>
 
 ## Record and replay requests with vcr
 
@@ -180,7 +179,6 @@ into problems with any of the above features.
 Check out the [release notes](https://github.com/ropensci/vcr/releases)
 for all vcr changes
 
-<br><br>
 
 ## HTTP Testing Book
 

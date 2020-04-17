@@ -53,9 +53,8 @@ This year wasn't just our biggest unconf ever, it was the biggest in terms of pr
 -   What's the right [blend] of vignettes, R markdown templates, and parameterized reports for getting new learners up and running?
 -   One of the things we hope to do more of is enable scientists to publish and get credit for their software and data. How about [automating software citation], or packages for auto-submission to [software] or [data] journals?
 
-<br><br>
-
 ### It's Your Turn
+
 Interested in pursuing one of these ideas? Pick up on the discussion in the project's [GitHub repo] and the friendly people there will welcome your contributions!
 
   [many projects]: /blog/2017/06/08/unconf_recap_4

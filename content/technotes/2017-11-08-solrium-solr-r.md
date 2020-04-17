@@ -17,13 +17,13 @@ tags:
 
 Nearly 4 years ago I wrote on this blog about an R package [solr][solrpkg] for working with the database [Solr][solr]. Since then we've created a refresh of that package in the [solrium][] package. Since `solrium` first hit CRAN about two years ago, users have raised a number of issues that required breaking changes. Thus, this blog post is about a major version bump in `solrium`.
 
-<br>
+
 
 ## What is Solr?
 
 Solr is a "search platform" - a NoSQL database - data is organized by so called documents that are xml/json/etc blobs of text. Documents are nested within either collections or cores (depending on the mode you start Solr in). Solr makes it easy to search for documents, with a huge variety of parameters, and a number of different data formats (json/xml/csv). Solr is similar to [Elasticsearch][es] (see our Elasticsearch client [elastic][]) - and was around before it. Solr in my opinion is harder to setup than Elasticsearch, but I don't claim to be an expert on either.
 
-<br>
+
 
 ## Vignettes
 
@@ -63,7 +63,7 @@ devtools::install_github("ropensci/solrium")
 library(solrium)
 ```
 
-<br>
+
 
 ## Initialize a client
 
@@ -141,7 +141,7 @@ If the instance uses SSL, simply specify that like:
 SolrClient$new(host = "foobar.com", path = "search", port = NULL, scheme = "https")
 ```
 
-<br>
+
 
 ## Query and body parameters
 
@@ -194,7 +194,7 @@ And the same pattern applies for the other functions:
 - `solr_stats`
 - `solr_all`
 
-<br>
+
 
 ## New functions for atomic updates
 
@@ -202,7 +202,7 @@ And the same pattern applies for the other functions:
 
 Two functions were added: `update_atomic_json` and `update_atomic_xml` for JSON and XML based updates. Check out their help pages for usage.
 
-<br>
+
 
 ## Search results as attributes
 
@@ -234,19 +234,19 @@ attr(res, "maxScore")
 #> [1] 1
 ```
 
-<br>
+
 
 ## Automatically adjust rows parameter
 
 [A user higlighted](https://github.com/ropensci/solrium/pull/102) that [there's a performance penalty when asking for too many rows](https://wiki.apache.org/solr/SolrPerformanceProblems#Asking_for_too_many_rows). The resulting change in `solrium` is that in some search functions we automatically adjust the `rows` parameter to avoid the performance penalty.
 
-<br>
+
 
 ## Usage in other packages
 
 I maintain 4 other packages that use `solrium`: [rplos][], [ritis][], [rdatacite][], and [rdryad][]. If you are interested in using `solrium` in your package, looking at any of those four packages will give a good sense of how to do it.
 
-<br>
+
 
 ## Notes
 
@@ -258,7 +258,7 @@ The `solr` package will soon be archived on CRAN. We've moved all packages depen
 
 Please do upgrade/install `solrium`  `v1` and let us know what you think.
 
-<br>
+
 
 
 [solr]: https://lucene.apache.org/solr//

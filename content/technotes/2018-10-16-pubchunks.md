@@ -62,7 +62,7 @@ Other functions that you may run in to:
 * `pub_sections()`: sections `pubchunks` knows how to handle
 * `pub_providers()`: providers (i.e., publishers) `pubchunks` knows how to handle explicitly
 
-<br>
+
 
 ## How it works
 
@@ -77,7 +77,7 @@ that we've written to extract that section from the XML.
 The ouput is a named list, where names are the sections; and the output is an S3 class with 
 a print method to make it more easily digestable. 
 
-<br>
+
 
 ## Installation
 
@@ -111,7 +111,7 @@ Load the package
 library(pubchunks)
 ```
 
-<br>
+
 
 ## Pub chunks
 
@@ -307,7 +307,7 @@ pub_chunks(fulltext::ft_collect(x), sections="authors")
 #> [1] TRUE
 ```
 
-<br>
+
 
 ## Tabularize
 
@@ -388,7 +388,7 @@ data.table::rbindlist(pub_tabularize(out), fill = TRUE)
 #> 4:  frontiers 10.3389/fmicb.2012.00403
 ```
 
-<br>
+
 
 
 ## TO DO

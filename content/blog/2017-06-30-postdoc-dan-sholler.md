@@ -19,14 +19,15 @@ We are pleased to welcome our Postdoctoral Fellow, [Dr. Dan Sholler](https://dan
 
 Dan will be the first postdoc for the rOpenSci project, based at UC Berkeley and the [Berkeley Institute for Data Science](https://bids.berkeley.edu/), supervised by Karthik Ram and co-supervised by [Carl Boettiger](/about/#team) and [Daniel Katz](https://danielskatz.org/).
 
-<img src="https://i.imgur.com/piOAomv.jpg" alt="Dr Dan Sholler" align="left" style="margin: 0px 20px" width="250" style="float: left;clear:both">
+{{< figure class="pull-left" src="https://i.imgur.com/piOAomv.jpg" alt="Dr Dan Sholler" width=250 >}}
 
 We interviewed Dan to introduce you to him and his research (a fascinating conversation!). This short introduction can’t do him justice, but he'll share his research plan in another post in Fall 2017.
 
-<br><br>
 
 ---
+
 ### Q: Tell us a bit about your background
+
 I'm a (mostly) qualitative, ethnographic researcher who studies user acceptance, resistance, and adaptation in digital infrastructure development programs. In other words, I like to study the factors that motivate people to engage with or resist new technologies, with the goal of helping to improve design and implementation strategies for eliciting engagement.
 
 I completed my B.A. in [Science, Technology and Society at University of Pennsylvania](https://hss.sas.upenn.edu/undergraduate/science-technology-society-major). During that time, I learned that technologies don’t just succeed or fail based on their merit; instead, a host of social and political factors play influential roles in determining technological outcomes. My Ph.D. research at the [University of Texas School of Information](https://www.ischool.utexas.edu/) under [Dr. Diane Bailey](https://www.dianebailey.me/) involved looking at contemporary deployments of new information technologies in developing countries, in government agencies, and in healthcare clinics. Alongside my research, I took courses in organizational theory, organizational behaviour, and information systems, sparking my interest in studying how organizational IT persist and become robust, or fail in the face of resistance from users during the implementation and use phases.
@@ -40,6 +41,7 @@ I want to leverage my experience to explore how and why scientists engage with o
 ---
 
 ### Q: What would you like to accomplish with your postdoc?
+
 Just like any other academic postdoc, I plan to publish papers - in my case, examining the development of open science communities - and draw upon theories that might help to understand engagement and resistance. I intend to apply what I learn from the project and advise rOpenSci (and other open science communities) about strategies for anticipating, dealing with, and overcoming issues related to user engagement and/or resistance.
 
 I’ll strive to gain a deeper understanding of the open science movement, focusing first on general questions like:
@@ -67,6 +69,7 @@ The rOpenSci community, to me, is an ideal place to carry out a qualitative rese
 ---
 
 ### Want to learn more about Dan Sholler?
+
 Read Dan’s publications on [Google Scholar](https://scholar.google.com/citations?user=fHVPc94AAAAJ&hl=en&oi=ao)
-<br>
+
 Follow [Dan on Twitter](https://twitter.com/dansholler)

@@ -64,7 +64,7 @@ Near end of the exercise, ask anyone who did not speak up to introduce themselve
 
 The “I know where I fit as a member of the R community” question was ideal coming at the end of the ice breaker because people had become comfortable with the flow of discussion and were willing to be a bit more vulnerable and share slightly more personal opinions. Someone noted that there was a much larger proportion of women in the group who indicated “I don't know where I fit in the R community” than in the other group. One acknowledged expert had themselves standing on the “I don't know where I fit in the R community” side, and they indicated that this was because they suffered from imposter syndrome. This gave me an opportunity to explain [impostor syndrome](https://en.wikipedia.org/wiki/Impostor_syndrome) and subsequently, when we polled the entire group, two thirds said they identified with it!
 
-<img src="/img/blog-images/2018-11-01-icebreaker/ropensci-unconf17-community-nistara-randhawa.jpg" alt="unconf17 photo(c) Nistara Randhawa" style="margin: 0px 20px;">
+{{< figure src="/img/blog-images/2018-11-01-icebreaker/ropensci-unconf17-community-nistara-randhawa.jpg" alt="unconf17 photo(c) Nistara Randhawa" >}}
 
 The photo above might look like a "we're a happy community" picture, but it's actually the response to "who here feels like they have imposter syndrome"?
 

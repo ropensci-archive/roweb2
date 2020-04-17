@@ -16,12 +16,14 @@ tags:
   - rprofile
 ---
 
-<img src="/img/blog-images/2018-01-12-rprofile-karthik-ram/karthik-ram.png" alt="Karthik Ram" style="margin: 0px 20px; width: 250px;" align="left">
+{{< imgtxt src="/img/blog-images/2018-01-12-rprofile-karthik-ram/karthik-ram.png" alt="Karthik Ram" >}}
+
 _Karthik Ram is a Data Scientist at the Berkeley Institute for Data Science and Berkeley Institute for Global Change Biology. He is a co-founder of rOpenSci, a collective to support the development of R-based tools which facilitate open science and access to open data. In this interview, Karthik and I discuss the birth of rOpenSci, tools and life hacks for staying sane while managing the constant stress of work fires and the importance of saying no._
+
+{{< /imgtxt >}}
 
 ---
 
-<br>
 
 [This interview occurred at the 2017 rOpenSci unconference]
 

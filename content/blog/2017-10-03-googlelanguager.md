@@ -21,8 +21,8 @@ tags:
 ---
 
 <!-- open source image taken from: https://upload.wikimedia.org/wikipedia/commons/2/21/Bell_System_switchboard.jpg -->
-<span>
-<div align="center"><img src="/assets/blog-images/2017-10-03-googlelanguager/switchboard.jpg"></div>
+
+{{< figure class="center" link="https://upload.wikimedia.org/wikipedia/commons/2/21/Bell_System_switchboard.jpg" src="/assets/blog-images/2017-10-03-googlelanguager/switchboard.jpg" >}}
 </span>
 
 One of the greatest assets human beings possess is the power of speech and language, from which almost all our other accomplishments flow. To be able to analyse communication offers us a chance to gain a greater understanding of one another.
@@ -36,9 +36,7 @@ An introduction to the package is below, but you can find out more details at th
 Google predicts that machine learning is to be a fundamental feature of business, and so they are looking to become the infrastructure that makes machine learning possible. Metaphorically speaking: If machine learning is electricity, then Google wants to be the pylons carrying it around the country.
 
 <!-- open source image taken from: https://pixabay.com/en/pylon-sky-electricity-tower-2515429/ -->
-<span>
-<div align="center"><img src="/assets/blog-images/2017-10-03-googlelanguager/pylon.jpg"></div>
-</span>
+{{< figure class="center" link="https://pixabay.com/en/pylon-sky-electricity-tower-2515429/" src="/assets/blog-images/2017-10-03-googlelanguager/pylon.jpg" >}}
 
 Google may not be the only company with such ambitions, but one advantage Google has is the amount of data it possesses. Twenty years of web crawling has given it an unprecedented corpus to train its models.  In addition, its recent moves into voice and video gives it one of the biggest audio and speech datasets, all of which have been used to help create machine learning applications within its products such as search and Gmail. Further investment in machine learning is shown by Google's purchase of [Deepmind](https://deepmind.com/), a UK based A.I. research firm that recently was in the news for defeating the top Go champion with its neural network trained Go bot.  Google has also taken an open-source route with the creation and publication of [Tensorflow](https://www.tensorflow.org/), a leading machine learning framework.
 
@@ -57,11 +55,7 @@ One reason why I started looking at this area was the growth of 'fake news', and
 
 Another motivating application is the growth of voice commands that will become the primary way of user interface with technology.  Already, [Google reports up to 20% of search in its app](https://www.thinkwithgoogle.com/data-gallery/detail/google-app-voice-search/) is via voice search.  I'd like to be able to say "R, print me out that report for client X".  A Shiny app that records your voice, uploads to the API then parses the return text into actions gives you a chance to create your very own Alexa-like infrastructure.
 
-<span style="text-align:center">
-<div align="center"><img src="/assets/blog-images/2017-10-03-googlelanguager/alexa.jpg"></div>
-</span>
-
-*The voice activated internet connected speaker, Amazon's Alexa - image from www.amazon.co.uk*
+{{< figure class="center" src="/assets/blog-images/2017-10-03-googlelanguager/alexa.jpg" caption="The voice activated internet connected speaker, Amazon's Alexa - image from www.amazon.co.uk" >}}
 
 #### Translate everything
 

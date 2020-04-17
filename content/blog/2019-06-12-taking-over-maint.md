@@ -18,12 +18,7 @@ Because of the fragility of people in software, in an ideal world a piece of sof
 
 In theory, finding maintainers for software is easier as the pool of users gets larger. However, at rOpenSci, we generally do not have this luxury. Most rOpenSci packages have a rather focused and small task, and the pool of users is likely to be relatively small. The average rOpenSci package has 3 authors listed, while a significant proportion of packages have only one person listed (36%). Authors listed in R packages may or may not be capable of taking over if the maintainer leaves, but more authors increases the chance that at least one of them can take over (caveat: new maintainers may come from outside the current author pool).
 
-<figure class="image">
-  <!-- <img src="{{ include.url }}" alt="{{ include.description }}"> -->
-  <img src="/img/blog-images/2019-06-12-taking-over-maint/ropensci_authors.png" alt="ropensci_authors" style="margin: 0px 10px; width: 500px;" align="center">
-  <figcaption><i>data from <a href="https://crandb.r-pkg.org/">the crandb API</a>; 235 rOpenSci packages, only those on CRAN</i></figcaption>
-</figure>
-<br><br>
+{{< figure src="/img/blog-images/2019-06-12-taking-over-maint/ropensci_authors.png" alt="ropensci_authors" width=500 class="center" caption="_data from the [crandb API](https://crandb.r-pkg.org/); 235 rOpenSci packages, only those on CRAN_" >}}
 
 ### Small wins
 

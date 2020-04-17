@@ -29,7 +29,7 @@ Links:
 * rnoaa source code: <https://github.com/ropensci/rnoaa>
 * rnoaa on CRAN: <https://cran.rstudio.com/web/packages/rnoaa/>
 
-<br>
+
 
 ## Installation
 
@@ -54,7 +54,7 @@ Load `rnoaa`
 library(rnoaa)
 ```
 
-<br>
+
 
 ## New data sources
 
@@ -127,7 +127,7 @@ bsw(date = "2017-10-01", resolution = "daily")
 #>         Data_Calendar_Date: 2017-10-01
 ```
 
-<br>
+
 
 ### Local Climatological Data
 
@@ -182,7 +182,7 @@ lcd(station = "01338099999", year = "2015")
 #> #   oc1 <chr>, od1 <chr>, rem <chr>, eqd <chr>
 ```
 
-<br>
+
 
 ### Storm Events Database
 
@@ -228,7 +228,7 @@ se_data(year = 1988, type = "fatalities")
 #> #   event_yearmonth <int>
 ```
 
-<br>
+
 
 ## NCDC data gets units
 
@@ -252,7 +252,7 @@ We should also note that `ncdc()` now returns tibbles in the data slot. This way
 get back a huge number of rows it won't print to console for a long time. You can revert 
 the tibbles back to data.frames just by using `as.data.frame` or similar.
 
-<br>
+
 
 ## Bug fixes!
 
@@ -271,7 +271,7 @@ and many people to thank for reporting them:
 * [@asrivas3](https://github.com/asrivas3)
 * [@kevin-ht-ho](https://github.com/kev-ho)
 
-<br>
+
 
 ## Get in touch
 

@@ -16,12 +16,13 @@ tags:
   - rprofile
 ---
 
-<img src="/img/blog-images/2017-11-10-rprofile-mara-averick/mara_averick.png" alt="Mara Averick, Data Nerd At Large" style="margin: 0px 20px; width: 250px;" align="left">
-_Mara Averick is a non-profit data nerd, NBA stats junkie, and most recently, tidyverse developer advocate at RStudio. She is the voice behind two very popular Twitter accounts, @dataandme and @batpigandme. Mara and I discussed sports analytics, how attending a cool conference can change the approach to your career, and how she uses Twitter as a mechanism for self-imposed forced learning._
+{{< imgtxt src="/img/blog-images/2017-11-10-rprofile-mara-averick/mara_averick.png" alt="Mara Averick, Data Nerd At Large" >}}
+
+_Mara Averick is a non-profit data nerd, NBA stats junkie, and most recently, tidyverse developer advocate at RStudio. She is the voice behind two very popular Twitter accounts, [@dataandme](https://twitter.com/dataandme) and [@batpigandme](https://twitter.com/batpigandme). Mara and I discussed sports analytics, how attending a cool conference can change the approach to your career, and how she uses Twitter as a mechanism for self-imposed forced learning._
+
+{{< /imgtxt >}}
 
 ---
-
-<br>
 
 KO: What is your name, job title, and how long have you been using R? [Note: This interview took place in May 2017. Mara joined RStudio as their tidyverse developer advocate in November 2017.]
 
@@ -123,6 +124,6 @@ KO: What are some of your favorite things on the internet? Blogs, Twitter Accoun
 
 MA: I have never skipped one of [Julia Silge’s blog](https://juliasilge.com/) posts. Her posts are always something that I know I should learn how to do. Both she and D-Rob [David Robinson] know their stuff and they write really well. So those are two blogs and follows that I love. [Bob Rudis](https://rud.is/b/) - almost daily, I can’t believe how quickly he churns stuff out. R-Bloggers is a great way to discover new stuff. Dr. Simon J [[Simon Jackson](https://drsimonj.svbtle.com/)] - I literally think of people by their twitter handles [[@drsimonj](https://twitter.com/drsimonj)], and there are so many others.
 
-<img src="/img/blog-images/2017-11-10-rprofile-mara-averick/put-a-bird-on-it.png" alt="PUT A BIRD ON IT!" align="right" style="margin: 0px 20px", width="350px">
+{{< figure src="/img/blog-images/2017-11-10-rprofile-mara-averick/put-a-bird-on-it.png" alt="PUT A BIRD ON IT!" class="pull-right" width=350 >}}
 
 Every day I’m amazed by all the stuff I didn’t know existed. And also there’s stuff that people wrote three or four years ago. A lot of the data vis stuff I end up finding from weird angles. So those are some of my favorites - I’m sure there are more. Oh! Thomas Lin Pedersen, [Data Imaginist is his blog](https://www.data-imaginist.com). There are so many good blogs. My plea to everyone who has a blog is to put their twitter handle somewhere on it. I actually try really hard to find attribution stuff. Every now and then I get it really wrong and it’ll be someone who has nothing to do with it but who has the same name. There’s a bikini model who has the same name as someone who I said wrote a thing - which I vetted it too! I was like, well she’s multi-faceted, good for her! And then somebody was like, I don’t think that’s the right one. Oops! I have to say that that’s the one thing that Medium nailed - when you click share it gives you their twitter handle. If you have a blog, put your twitter handle there so I don’t end up attributing it to a bikini model.

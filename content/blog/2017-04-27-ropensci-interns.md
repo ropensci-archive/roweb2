@@ -27,7 +27,7 @@ There's a lot of work that goes in to making software: the code that does the th
 
 ### Katie
 
-<img src="/assets/blog-images/2017-04-27-ropensci-interns/katie.jpg" width="250">
+{{< figure src="/assets/blog-images/2017-04-27-ropensci-interns/katie.jpg" width=350 >}}
 
 README's are the first thing someone reads when landing on a GitHub repository. Thus, it's important that the README has sufficient information to tell the reader what the software is for, who it's meant for, what it does, how to install and how to give feedback.
 
@@ -40,17 +40,15 @@ Check out Katie's [GitHub activity for rOpenSci related work](https://github.com
 
 ### Diana
 
-<img src="/assets/blog-images/2017-04-27-ropensci-interns/diana.jpg" width="350">
+{{< figure src="/assets/blog-images/2017-04-27-ropensci-interns/diana.jpg" width=350 >}}
 
 Diana is just getting started. She'll be working on documentation and maintenance.
 
 In addition, she'll be working on an R package that will make it easy to make [cheatsheets](https://github.com/ropensci/cheatsheets) for packages from simple markdown templates - no editing powerpoint or keynote files needed!
 
-<br>
-
 ### Steven
 
-<img src="/assets/blog-images/2017-04-27-ropensci-interns/steven.JPG" width="250">
+{{< figure src="/assets/blog-images/2017-04-27-ropensci-interns/steven.JPG" width=350 >}}
 
 [Software unit tests](https://en.wikipedia.org/wiki/Unit_testing) (method to determine whether software components perform as designed) are very important. We have it as [policy that packages submitted to our onboarding repository have tests](https://devguide.ropensci.org/building.html#testing).
 
@@ -63,8 +61,6 @@ Lastly, it's ideal to signal to potential users that you have continuous integra
 This is where Steven comes in! When a package has tests already, he adds integration for Codecov and a badge for it (like the one above) when it's missing. When packages don't have tests, he writes them, including integrating Codecov.
 
 Check out Steven's [GitHub activity for rOpenSci related work](https://github.com/search?p=1&q=is%3Apr+involves%3Asteven2249+user%3Aropensci&type=Issues).
-
-<br><br>
 
 ## Want to be an rOpenSci intern?
 

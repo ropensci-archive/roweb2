@@ -26,8 +26,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 **Github:** <https://github.com/ropenscilabs/cityquant>
 
-
-<br><br>
+&nbsp;
 
 ## `notary`
 
@@ -35,8 +34,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 `notary`: An R package for signing and verification of R packages. It has functions for installing and verifying packages, validating GitHub releases, sourcing files with verification, and more.
 
-<!-- ![notary](/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png) -->
-<img src="/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png" width="300">
+{{< figure src="/assets/blog-images/2017-06-08-unconf_recap_4/notarylogo.png" width="300" >}}
 
 `r-security-practices`: A [bookdown book](https://ropenscilabs.github.io/r-security-practices/index.html) targeting users, developers, and admins on R security best practices.
 
@@ -46,8 +44,7 @@ They also had a "spin-off" project called [selfquant](https://github.com/maczokn
 
 **Github:** <https://github.com/ropenscilabs/notary> / <https://github.com/ropenscilabs/r-security-practices>
 
-
-<br><br>
+&nbsp;
 
 ## `packagemetrics`
 
@@ -62,8 +59,7 @@ This project combined two ideas from our brainstorming stage: [Avoiding redundan
 
 **Github:** <https://github.com/ropenscilabs/packagemetrics>
 
-
-<br><br><br>
+&nbsp;
 
 ## `pegax`
 

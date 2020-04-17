@@ -165,7 +165,7 @@ x <- dendrapply(x, set_label)
 plot(x, horiz = TRUE)
 ```
 
-<img src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-6-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+{{< figure src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-6-1.png" width=1000 >}}
 
 
 ### Applications
@@ -204,7 +204,7 @@ dndlist <- dendextend::dendlist(dnd1, dnd2)
 dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 ```
 
-<img src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-7-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+{{< figure src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-7-1.png" width=1000 >}}
 
 \
 
@@ -225,7 +225,7 @@ dndlist <- dendextend::dendlist(dnd1, dnd3)
 dendextend::tanglegram(dndlist, fast = TRUE, margin_inner = 5)
 ```
 
-<img src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-8-1.png" width="1000px" style="display: block; margin: auto auto auto 0;" />
+{{< figure src="/img/blog-images/2018-07-12-phylogram/unnamed-chunk-8-1.png" width=1000 >}}
 
 \
 

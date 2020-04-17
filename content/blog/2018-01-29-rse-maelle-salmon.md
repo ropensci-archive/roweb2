@@ -20,7 +20,7 @@ You might know Maëlle from [her popular blog](https://masalmon.eu/) in which sh
 
 We talked with Maëlle to learn more about her, how she first encountered rOpenSci, her role on the editorial board and what her work with rOpenSci will entail.
 
-<img src="/img/blog-images/2018-01-29-rse-maelle-salmon/maelle-salmon.jpg" alt="Maëlle Salmon" style="margin: 0px 20px; width: 250px;" align="left">
+{{< figure src="/img/blog-images/2018-01-29-rse-maelle-salmon/maelle-salmon.jpg" alt="Maëlle Salmon" width=250 class="pull-left" >}}
 
 > Let my toolset change your mindset about your dataset
 

@@ -43,7 +43,7 @@ And the following writers are supported:
 
 `handlr` has not yet focused on performance, but we will do so in future versions.
 
-<br>
+
 
 Links:
 
@@ -51,7 +51,7 @@ Links:
 * handlr on CRAN: <https://cran.rstudio.com/web/packages/handlr/>
 
 
-<br>
+
 
 ## Installation
 
@@ -79,7 +79,7 @@ Load `handlr`
 library(handlr)
 ```
 
-<br>
+
 
 ## The R6 approach
 
@@ -192,7 +192,7 @@ bibtex_reader(x = z)
 #>     id/doi: https://doi.org/10.1890%2f15-1397.1
 ```
 
-<br>
+
 
 ## To do
 
@@ -201,7 +201,7 @@ bibtex_reader(x = z)
 - Problems with very large files, e.g., [ropensci/handlr#9](https://github.com/ropensci/handlr/issues/9)
 - Documentation, there is very little thus far
 
-<br>
+
 
 ## Get in touch
 

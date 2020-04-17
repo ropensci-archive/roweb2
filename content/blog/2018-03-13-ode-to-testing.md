@@ -44,12 +44,7 @@ So, I dragged my feet a bit on the review, largely because the more I read the m
 
 I'm half-way through my doctorate in statistics, coming through from a maths background. So, up until now, my analyses have been horrible [towering pillars](https://wiki.teamfortress.com/wiki/Towering_Pillar_of_Hats) of  `R` script files which sourced functions from each other. 
 
-<center>
-<img src= "/img/blog-images/2018-03-13-ode-to-testing/Towering_Pillar_of_Hats.png" style = "width: 400px"
-alt = "A Towering Pillar of Hats. https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png" >
-<br>
-<div style="font-size: 1em"> [A Towering Pillar of Hats](https://wiki.teamfortress.com/wiki/Towering_Pillar_of_Hats")</div>
-</center>
+{{< figure class="center" src= "/img/blog-images/2018-03-13-ode-to-testing/Towering_Pillar_of_Hats.png" width=400 alt="A Towering Pillar of Hats" link="https://wiki.teamfortress.com/w/images/f/f5/Towering_Pillar_of_Hats.png" caption="[A Towering Pillar of Hats](https://wiki.teamfortress.com/wiki/Towering_Pillar_of_Hats)" >}}
 
 Sometimes I'd source functions from other files but then worry they were broken. I heard this.
 
@@ -68,9 +63,4 @@ Writing functions with documentation and tests *at the same time* feels like thi
 
 Now, not only do I know where everything is, but I can also trust that the functions work the way I intended in the documentation using testing. No longer will Current Charles be cursing Past Charles for her inscrutable code!  
 
-<center>
-<img src= "https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" style = "width: 400px"
-alt = "D.Va portrait. https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" >
-<br>
-<div style="font-size: 1em"> [Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](https://en.wikipedia.org/wiki/D.Va)</div>
-</center>
+{{< figure class="center" width=400 src= "https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" alt="D.Va portrait." link="https://upload.wikimedia.org/wikipedia/en/5/55/D.Va_Overwatch.png" caption="[Writing GitHub-integrated packaged analyses makes me feel like this. And, **yes**, I really do main D.Va.](https://en.wikipedia.org/wiki/D.Va)" >}}

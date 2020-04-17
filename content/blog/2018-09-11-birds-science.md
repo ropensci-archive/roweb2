@@ -254,10 +254,7 @@ I wasn’t able to `webshot` the resulting html despite increasing the
 magick::image_read("screenshot.png")
 ```
 
-<img src="/img/blog-images/2018-09-11-birds-science/wordcloud2-1.png" alt="wordcloud shaped as a bird" width="1366" />
-<p class="caption">
-wordcloud shaped as a bird
-</p>
+{{< figure src="/img/blog-images/2018-09-11-birds-science/wordcloud2-1.png" alt="wordcloud shaped as a bird" width="1366" caption="wordcloud shaped as a bird" >}}
 
 The result is a bit kitsch, doesn’t include the word “species”, one
 needs to know it’s the silhouette of a bird to recognize it, and we’d

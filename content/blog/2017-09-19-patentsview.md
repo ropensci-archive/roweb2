@@ -339,7 +339,6 @@ interest, though getting a sense of their hierarchy can be tricky.
 
 ![](/assets/blog-images/2017-09-19-patentsview/unnamed-chunk-9-1.png)
 
-<br>
 
 1.  Plot the growth of the field's topics over time
 

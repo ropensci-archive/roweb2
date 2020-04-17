@@ -18,7 +18,7 @@ A recent video on the [PBS Ideas Channel](https://video.pbs.org/program/idea-cha
 
 
 ##  Install rWBclimate
-<br>
+
 
 
 ```r
@@ -29,7 +29,7 @@ library(rWBclimate)
 
 ## Map of North American precipitation anomalies
 
-<br>
+
 
 
 Aside from access to both temperature and preciptation data, you can download anomaly data, showing the change from some time period and a control period of 1961-2009.  Let's create a precipitation anomaly map to see how much change there will be across North America.  The first thing we'll need to do is download the data and subset it so we have one piece of spatial information per KML polygon.  We'll be using examples with preloaded basin ID's, in this case *NoAm_basin*.  However you can download data with a vector of numbers for basins or countries using three letter [ISO country codes](https://unstats.un.org/unsd/methods/m49/m49alpha.htm)
@@ -70,7 +70,7 @@ Here you can see that northern latitudes are expected to get much rainier while 
 
 ##  Creating a global temperature map
 
-<br>
+
 You could also create custom global maps.  Let's put it all together and make a world map at the basin level for temperature anomaly.  This will take a bit of time to run beacuse you're downloading 438 kml files.
 
 

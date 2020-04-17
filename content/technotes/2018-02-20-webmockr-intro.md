@@ -37,14 +37,14 @@ It is a port of the Ruby gem [webmock][].
 CRAN release, which is also preparation for a first release of the related [vcr][] package.  The following is a 
 run down of major features and how to use the package, including a bit on testing at the end.
 
-<br>
+
 
 ## Similar art in other languages
 
 `webmockr` was most closely inspired by Ruby's [webmock][], but there are others out there, e.g,. [HTTPretty][] and [pook][] for Python, from which we'll steal ideas as time allows.
 
 
-<br>
+
 
 ## Installation
 
@@ -79,7 +79,7 @@ Load `webmockr`
 library(webmockr)
 ```
 
-<br><br>
+
 
 ## Using webmockr
 
@@ -252,7 +252,7 @@ stub_request("get", "https://httpbin.org/get") %>%
 #>   should_raise: FALSE
 ```
 
-<br>
+
 
 ### Stubbing responses
 
@@ -283,7 +283,7 @@ stub_request("get", "https://httpbin.org/get") %>%
 #>   should_raise: FALSE
 ```
 
-<br>
+
 
 ### Stubbing HTTP exceptions
 
@@ -352,7 +352,7 @@ x$post('post')
 Check out [fauxpas][] for more information about HTTP exceptions.
 
 
-<br>
+
 
 ## Allowing real requests
 
@@ -380,7 +380,7 @@ You can check whether you are allowing real requests with
 `webmockr_net_connect_allowed()`, and you can see your `webmockr` configuration with 
 `webmockr_configuration()`. 
 
-<br>
+
 
 ## Storing actual HTTP responses
 
@@ -455,11 +455,6 @@ expect_equal(z$status_code, 200)
 expect_equal(z$parse("UTF-8"), "success!")
 ```
 
-
-
-<br><br>
-<hr style="color:pink">
-
 ## Todo
 
 There are a number of things to still get done with `webmockr`
@@ -470,7 +465,7 @@ There are a number of things to still get done with `webmockr`
 * Support regex patterns for URI's and [URI templates](https://github.com/ropensci/webmockr/issues/20)
 * and probably lots more ...
 
-<br>
+
 
 ## Feedback!
 

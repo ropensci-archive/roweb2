@@ -28,10 +28,7 @@ tags:
   - educollab
 ---
 
-<center>
-<img alt = 'educollab hashtags' src='/img/blog-images/2018-07-24-educollab-challenges/educollab-logo.png' />
-</center>
-
+{{< figure alt="educollab hashtags" src="/img/blog-images/2018-07-24-educollab-challenges/educollab-logo.png" >}}
 Educators who teach science using R tend to face common pedagogical problems, regardless of their scientific domain. Yet instructors who teach with R often feel isolated at their institutions. They may be the only ones in their departments to teach using R. Even if there are others, the culture of collaboration around teaching is generally impoverished, unlike the rich culture of collaboration around research. In this three-part series of blog posts, participants at the [rOpenSci 2018 unconf](https://unconf18.ropensci.org/) briefly survey the state of teaching science with R. 
 
 {{< tweet 1004132496458407937 >}}

@@ -186,10 +186,8 @@ mb_weather %>%
   labs(title = "Site A: Stations < 25 km")
 ```
 
-<center>
-<img src = "/img/blog-images/2018-03-06-weathercan/naniarA-1.png" style = "width: 80%">
-</center>
-<p>
+{{< figure class="center" src="/img/blog-images/2018-03-06-weathercan/naniarA-1.png" width="80%" >}}
+
 ``` r
 # Stations near site B (< 35 km)
 mb_weather %>%
@@ -198,10 +196,8 @@ mb_weather %>%
   labs(title = "Site B: Stations < 35 km")
 ```
 
-<center>
-<img src = "/img/blog-images/2018-03-06-weathercan/naniarB-1.png" style = "width: 80%">
-</center>
-<p>
+{{< figure class="center" src="/img/blog-images/2018-03-06-weathercan/naniarB-1.png" width="80%" >}}
+
 Except for station 43185, no station has much snow data. However, while 43185 has snow, it doesn't have any temperature data. So, for site A, unless we're willing to lose all temperature data, it definitely looks like station 28051 has the most complete data (temperature and precipitation, at least). Neither station at site B has snow data, but both have full temperature data sets, so we can use either station.
 
 **Note:** Factors other than distance may also play a role in deciding on a station, such as habitat type, elevation, etc. Depending on what you hope to achieve, you may want to consider these when choosing a station.
@@ -357,10 +353,8 @@ ggplot(data = f_temp[1:25,], aes(x = time, y = temp)) +
   labs(x = "Time", y = "Temperature (C)")
 ```
 
-<center>
-<img src = "/img/blog-images/2018-03-06-weathercan/interpolate-1.png" style = "width: 100%">
-</center>
-<p>
+{{< figure class="center" src="/img/blog-images/2018-03-06-weathercan/interpolate-1.png" width="80%" >}}
+
 `weather_interp` draws a line between the two temperature points and figures out the corresponding intermediate temperature based on the linear function. You can think of this as a weighted average temperature, where the temperature is weighted towards the closest measurement in time.
 
 Wide geographic scales
@@ -448,10 +442,8 @@ Finally, we can plot this as a map using `mapview`. In this manner all the data 
 mapview(MB, zcol = "mean_temp", legend = TRUE)
 ```
 
-<center>
-<img src = "/img/blog-images/2018-03-06-weathercan/mapview-1.png" style = "width:80%">
-</center>
-<p>
+{{< figure class="center" src="/img/blog-images/2018-03-06-weathercan/mapview-1.png" width="80%" >}}
+
 Surprisingly Churchill, MB (the north-eastern, green area) was almost balmy compared to south-western Manitoba!
 
 General tips for combining data

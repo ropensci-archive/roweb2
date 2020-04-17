@@ -101,7 +101,6 @@ rOpenSci has a growing suite of database tools:
 
 -----------
 
-<br><br>
 
 For each package below, there are 2-3 badges. One for whether the package is on CRAN
 or not (<span class="label label-warning">cran</span> if on CRAN, <span class="label label-default">cran</span>

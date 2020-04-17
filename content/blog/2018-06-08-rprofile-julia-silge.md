@@ -16,8 +16,11 @@ tags:
   - rprofile
 ---
 
-<img src="/img/blog-images/2018-06-08-rprofile-julia-silge/julia-silge.jpg" alt="Julia Silge" style="margin: 0px 20px; width: 250px;" align="left">
+{{< imgtxt src="/img/blog-images/2018-06-08-rprofile-julia-silge/julia-silge.jpg" alt="Julia Silge" >}}
+
 _Dr. Julia Silge [@juliasilge on Twitter] is a data scientist at Stack Overflow. We talked about why R brings Julia joy, her path to a career in data science and what it was like to co-write a book for O'Reilly Media. This interview occurred on February 3, 2018 at the RStudio Conference in San Diego._
+
+{{< /imgtxt >}}
 
 ---
 
@@ -41,7 +44,7 @@ JS: I worked on a product for higher ed STEM course content. The part of my care
 
 KO: What have the last three years working in R meant to you? Why is that a big deal for you?
 
-<img src="/img/blog-images/2018-06-08-rprofile-julia-silge/julia-tweet.png" alt="BEING AMAZING!" align="right" style="margin: 0px 20px", width="350px">
+{{< figure src="/img/blog-images/2018-06-08-rprofile-julia-silge/julia-tweet.png" alt="BEING AMAZING!" class="pull-right" width="350px" >}}
 
 JS: I learned my first programming language back in high school - Basic. But my first serious programming language was learning C in college and in grad school. When I got to a point in my professional life where I was interested in making a transition into data science, I sat back and I surveyed the programming language landscape. I said, okay, I need to learn something new here and update these skills so that maybe someone will hire me to do something. And I dabbled a little bit in - what are the kids doing these days? What are they using?
 

@@ -44,7 +44,6 @@ So fancy! Another cool example from Twitter:
 
 {{< tweet 1155078546102083584 >}}
 
-<br />
 
 ### Separate and combine
 

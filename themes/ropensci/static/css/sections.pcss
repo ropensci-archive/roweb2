@@ -270,8 +270,12 @@ article {
     }
     & p {
         margin-bottom: 15px;
-        display: inline-block;
+        display: block;
         vertical-align: top;
+    }
+    & figure {
+        margin-bottom: 15px;
+        margin-top: 10px;
     }
     & section {
         margin-bottom: 60px;
@@ -280,7 +284,7 @@ article {
         margin-bottom: 20px;
     }
     & h4 {
-        margin: 20px 0;
+        margin: 20px 5px;
     }
     & .labels {
         width: 100%;
@@ -517,4 +521,10 @@ article {
 .coc {
       text-align: left;
       line-height: 1.7em;
+}
+
+article p img {
+  object-fit: fill;
+  width: initial;
+  max-width: 100%;
 }

@@ -64,7 +64,7 @@ library(parzer)
 
 Check out the package documentation to get started: <https://docs.ropensci.org/parzer/>
 
-<br><br>
+
 
 Package basics
 ------------------
@@ -154,7 +154,7 @@ pz_d(-121) + pz_m(1) + pz_s(33)
 #> -120.9742
 ```
 
-<br><br>
+
 
 Use cases
 ------------------

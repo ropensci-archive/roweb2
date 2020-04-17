@@ -486,7 +486,7 @@ You can generate a default plot for the entire globe with `tracking_chart`:
 tracking_chart()
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-11-1.png" >}}
 
 You may find this handy when examining cyclones that cross basins (from the Atlantic to east Pacific such as Hurricane Otto, 2016).
 
@@ -505,7 +505,7 @@ We do not see countries and states in the map above because of the ggplot defaul
 tracking_chart(color = "black", size = 0.1, fill = "white")
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+{{< figure  src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-12-1.png" >}}
 
 We can "zoom in" on each basin with helper functions `al_tracking_chart` and `ep_tracking_chart`:
 
@@ -514,14 +514,14 @@ We can "zoom in" on each basin with helper functions `al_tracking_chart` and `ep
 al_tracking_chart(color = "black", size = 0.1, fill = "white")
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-13-1.png" >}}
 
 
 ```r
 ep_tracking_chart(color = "black", size = 0.1, fill = "white")
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-14-1.png" >}}
 
 ### GIS Data
 
@@ -787,7 +787,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
   geom_path(data = shp_to_df(gis$al092017_019_5day_lin), aes(x = long, y = lat))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-21-1.png" >}} 
 
 Use `geom_path` instead of `geom_line` to keep the positions in order.
 
@@ -829,7 +829,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-24-1.png" >}} 
 
 That's much better. For simplicity I'm going to save the base map, `bp`, without the line plot.
 
@@ -881,7 +881,7 @@ bp +
              aes(x = LON, y = LAT))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-28-1.png"  style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-28-1.png"  >}} 
 
 Better.
 
@@ -899,7 +899,7 @@ bp +
                aes(x = long, y = lat, color = FCSTPRD))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-29-1.png"  style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-29-1.png"  >}} 
 
 Nothing there!
 
@@ -937,7 +937,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
                   aes(x = long, y = lat))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-30-1.png"  style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-30-1.png"  >}} 
 
 We do, however, have a 120-hour forecast cone for Hurricane Harvey. Let's go ahead and plot that.
 
@@ -948,7 +948,7 @@ bp +
                aes(x = long, y = lat), alpha = 0.15)
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-31-1.png"  style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-31-1.png"  >}} 
 
 It's an odd-looking forecast cone, for sure. But this demonstrates the entire area that Harvey could have potentially traveled.
 
@@ -963,7 +963,7 @@ bp +
             aes(x = long, y = lat, group = group, color = TCWW), size = 1)
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-32-1.png"  style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-32-1.png"  >}} 
 
 The paths won't follow our coastlines exactly but you get the idea. The abbreviations don't really give much information, either. Convert `TCWW` to factor and provide better labels for your legend.
 
@@ -982,7 +982,7 @@ bp +
             aes(x = long, y = lat, group = group, color = TCWW), size = 1)
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-33-1.png" >}} 
 
 See [Forecast/Adivsory GIS](https://ropensci.github.io/rrricanes/) on the `rrricanes` website for an example of putting all of this data together in one map.
 
@@ -1158,7 +1158,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-43-1.png" title="plot of chunk unnamed-chunk-43" alt="plot of chunk unnamed-chunk-43" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-43-1.png" title="plot of chunk unnamed-chunk-43" alt="plot of chunk unnamed-chunk-43" >}} 
 
 This plot tells us that, along the central Texas coast, the expected storm surge along with tides is greater than 7.5 feet and there is a 50% chance of this height being exceeded.
 
@@ -1217,7 +1217,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-47-1.png" title="plot of chunk unnamed-chunk-47" alt="plot of chunk unnamed-chunk-47" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-47-1.png" title="plot of chunk unnamed-chunk-47" alt="plot of chunk unnamed-chunk-47" >}} 
 
 This map shows the cumulative probability that a storm surge of greater than 20 feet will be seen within the highlighted regions.
 
@@ -1235,7 +1235,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-48-1.png" title="plot of chunk unnamed-chunk-48" alt="plot of chunk unnamed-chunk-48" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-48-1.png" title="plot of chunk unnamed-chunk-48" alt="plot of chunk unnamed-chunk-48" >}} 
 
 #### gis_windfield
 
@@ -1281,7 +1281,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-51-1.png" title="plot of chunk unnamed-chunk-51" alt="plot of chunk unnamed-chunk-51" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-51-1.png" title="plot of chunk unnamed-chunk-51" alt="plot of chunk unnamed-chunk-51" >}} 
 
 And add the forecast wind radii data onto the chart (modifying `bb`):
 
@@ -1301,7 +1301,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-52-1.png" title="plot of chunk unnamed-chunk-52" alt="plot of chunk unnamed-chunk-52" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-52-1.png" title="plot of chunk unnamed-chunk-52" alt="plot of chunk unnamed-chunk-52" >}} 
 
 #### gis_wsp
 
@@ -1419,7 +1419,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
               ylim = c(bb[2,1], bb[2,2]))
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" >}} 
 
 There aren't many ways we can narrow this down other than using arbitrary longitude values. The observations in the dataset do not have a variable identifying which storm each set of values belongs to. So, I'll remove the `coord_equal` call so we're only focused on the Atlantic basin.
 
@@ -1431,7 +1431,7 @@ al_tracking_chart(color = "black", size = 0.1, fill = "white") +
                alpha = 0.25)
 ```
 
-<img src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-59-1.png" title="plot of chunk unnamed-chunk-59" alt="plot of chunk unnamed-chunk-59" style="display: block; margin: auto;" />
+{{< figure src="/assets/blog-images/2017-09-27-rrricanes/unnamed-chunk-59-1.png" title="plot of chunk unnamed-chunk-59" alt="plot of chunk unnamed-chunk-59" >}} 
 
 Of course, you can narrow it down further as you see fit.
 

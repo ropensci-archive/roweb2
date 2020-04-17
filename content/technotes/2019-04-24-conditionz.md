@@ -37,7 +37,7 @@ Exported but mostly meant for internal use:
 - `capture_message()`
 - `capture_warning()`
 
-<br>
+
 
 Links:
 
@@ -46,7 +46,7 @@ Links:
 * blog post on the braintstorming period of this package: <https://recology.info/2018/12/condition-control/>
 
 
-<br>
+
 
 ## Installation
 
@@ -71,7 +71,7 @@ Load conditionz
 library(conditionz)
 ```
 
-<br>
+
 
 ## ConditionKeeper
 
@@ -172,7 +172,7 @@ bar(1:10, times = 3)
 #>  [1]   1   4   9  16  25  36  49  64  81 100
 ```
 
-<br>
+
 
 ## handle_conditions
 
@@ -231,7 +231,7 @@ handle_messages(foo(1:5))
 For warnings, call `handle_warnings()` or set `handle_conditions(..., condition = "warning")`
 
 
-<br>
+
 
 ## To do
 
@@ -241,7 +241,7 @@ to actually have `times` parameter work as advertised
 - I'll use this package in the [brranching][] package soon, so it will get a real world
 test
 
-<br>
+
 
 ## Get in touch
 

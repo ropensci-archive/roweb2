@@ -37,14 +37,9 @@ sp.map + geom_point(data=gbifdata(out),aes(y=decimalLatitude,x=decimalLongitude,
 
 ```
 
-<br>
-![center](/assets/blog-images/2013-07-29-rWBclimate-rgbif/gbifmap1.png)
-*************
-<br>
+{{< figure src="/assets/blog-images/2013-07-29-rWBclimate-rgbif/gbifmap1.png" class="center">}}
 
 ## Overlaying climate data with occurrence data
-
-<br>
 
 So that's how you could make a basic map, but what if you want to overlay climate data with occurrence data?  That's easy too.  You repeat essentially the same steps as above, but be sure to grab some climate data too. In this example I've chose to grab data for 8 different tree species that exhibit somewhat of a lattitudinal gradient.  I'll map them on top of historical temperature data.  In this case I'll be using the average annual temperature from 1990 to 2000.  Because I want a bit better spatial resolution I'll be using basin level data instead of country level data.
 
@@ -84,8 +79,7 @@ usmex.map + geom_point(data=gbifdata(out),aes(y=decimalLatitude,x=decimalLongitu
 
 ```
 
-<br>
-![center](/assets/blog-images/2013-07-29-rWBclimate-rgbif/gbifmap2.png)
+{{< figure src="/assets/blog-images/2013-07-29-rWBclimate-rgbif/gbifmap2.png" class="center" >}}
 
 
 The map doesn't have borders because it's created at the basin level, but it would be easy enough to add an outline for the countries.  You could also plot any of your own data over climate maps because they are based on decimal lattitude and longitude coordinates, or data from multiple sources.

@@ -10,11 +10,11 @@ tags:
   - PLOS
 ---
 
-We recently had a paper come out in [a special issue](https://www.niso.org/niso-io/isq/2013/06/information-standards-quarterly-summer-2013) on *article-level metrics* in the journal Information Standards Quarterly. Our paper basically compared article-level metrics provided by different aggregators. The other papers covered various article-level metrics topics from folks at PLOS, Mendeley, and more. Get our paper [here](https://www.niso.org/niso-io/isq/2013/06/information-standards-quarterly-summer-2013/chamberlain).
+We recently had a paper come out in [a special issue](https://www.niso.org/niso-io/isq/2013/06/information-standards-quarterly-summer-2013) on *article-level metrics* in the journal Information Standards Quarterly. Our paper basically compared article-level metrics provided by different aggregators. The other papers covered various article-level metrics topics from folks at PLOS, Mendeley, and more. [Get our paper](https://www.niso.org/niso-io/isq/2013/06/information-standards-quarterly-summer-2013/chamberlain).
 
 To get data from the *article-level metrics* providers we used one R package we created to get DOIs for PLOS articles ([rplos](https://github.com/ropensci/rplos)) and three R packages we created to get metrics: [alm](https://github.com/ropensci/alm), [rImpactStory](https://github.com/ropensci/rimpactstory), and [rAltmetric](https://github.com/ropensci/rAltmetric). Here, we will show how we produced visualizations in the paper. The code here is basically that used in the paper - but modified to make it useable by you hopefully.
 
-Note that this entire workflow is in a Github gist [here][gist]. In addition, you will need to sign up for API keys for [ImpactStory](https://impactstory.org/api-docs) and [Altmetric](https://api.altmetric.com/index.html#keys).
+Note that this entire workflow is in [a Github gist][gist]. In addition, you will need to sign up for API keys for [ImpactStory](https://impactstory.org/api-docs) and [Altmetric](https://api.altmetric.com/index.html#keys).
 
 ### First, let's get some data
 
@@ -32,31 +32,31 @@ library(httr)
 library(lubridate)
 ```
 
-<br>
+
 Define a function `parse_is` to parse ImpactStory results
 
 *See [this gist][gist] for the function*
 
-<br>
+
 Define a function `compare_altmet_prov` to collect altmetrics from three providers
 
 *See [this gist][gist] for the function*
 
-<br>
+
 Safe version in case of errors
 
 ```r
 compare_altmet_prov_safe <- plyr::failwith(NULL, compare_altmet_prov)
 ```
 
-<br>
+
 Search for and get DOIs for 50 papers (we used more in the paper)
 
 ```r
 res <- searchplos(terms = "*:*", fields = "id", toquery = list("publication_date:[2011-06-30T00:00:00Z TO 2012-06-01T23:59:59Z] ", "doc_type:full"), start = 0, limit = 50)
 ```
 
-<br>
+
 Get data from each provider
 
 ```r
@@ -64,7 +64,7 @@ dat <- llply(as.character(res[, 1]), compare_altmet_prov_safe, isaddifnot = TRUE
 dat <- ldply(dat)
 ```
 
-<br><br>
+
 ### Plot differences
 
 Great, we have data! Next, let's make a plot of the difference between max and min value across the three providers for 7 article-level metrics.
@@ -104,9 +104,8 @@ ggplot(dat_split_df_melt, aes(x = log10(value), fill = variable)) +
         panel.border = element_rect(size = 1))
 ```
 
-![center](/assets/blog-images/2013-08-01-altmetrics/dataconst_plot1.png)
+{{< figure src="/assets/blog-images/2013-08-01-altmetrics/dataconst_plot1.png" class="center" >}}
 
-<br><br>
 ### Different collection dates?
 Okay, so there are some inconsistencies in data from different providers. Perhaps the same metric (e.g., tweets) were collected on different days for each provider? Let's take a look. We first define a function to get the difference in days between a vector of values, then apply that function over the data for each metric. We then reshape the data a bit using the `reshape2` package, and make the plot.
 
@@ -139,7 +138,7 @@ ggplot(dat_split_df_melt, aes(x = datediff, y = log10(value + 1), colour = varia
 
 ![center](/assets/blog-images/2013-08-01-altmetrics/dataconst_plot2.png)
 
-<br><br>
+
 ### Diggin' in
 Let's dig in to indivdual articles. Here, we reshape some data, selecting just 20 DOIs (i.e., papers), and plot the values of each metric for each DOI, coloring points by provider. Note that points are slightly offset horizontally to make them easier to see.
 

@@ -86,7 +86,7 @@ ele <- SOmap_data$mirounga_leonina %>% dplyr::filter(id == "ct96-05-13")
 with(ele, plot(lon, lat))
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/get_track_data-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/get_track_data-1.png" >}}
 
 #### Fetching our environmental data
 
@@ -165,7 +165,7 @@ plot(bx)
 lines(ele$lon, ele$lat)
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/plotbathy-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/plotbathy-1.png" >}}
 
 We can also extract the depth values along our track using the `extract()` function in `raadtools`:
 
@@ -179,7 +179,7 @@ Plot the histogram of depth values, showing that most of the track points are lo
 ggplot(ele, aes(depth)) + geom_histogram(bins = 100) + theme_bw()
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/histbathy-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/histbathy-1.png" >}}
 
 This type of extraction will also work with time-varying data — for example, we can extract the sea-ice conditions along our track, based on each track point's location and time:
 
@@ -190,11 +190,11 @@ ele$ice[is.na(ele$ice)] <- 0
 ggplot(ele, aes(date, ice, colour = lat)) + geom_path() + theme_bw()
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/temp2-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/temp2-1.png" >}}
 
 Or a fancy animated plot, using `gganimate` (code not shown for brevity, but you can find it in the [page source](https://raw.githubusercontent.com/ropensci/roweb2/master/content/blog/2018-11-13-antarctic.md)). The hypnotic blue line shows the edge of the sea ice as it grows over the winter season, and the orange is our elephant seal:
 
-<img src="/img/blog-images/2018-11-13-antarctic/plotanim-1.gif" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/plotanim-1.gif" >}}
 
 <!--
 ## code for animation, not shown in rendered markdown
@@ -265,7 +265,7 @@ library(SOmap)
 SOauto_map(ele$lon, ele$lat, mask = FALSE)
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/somap1-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/somap1-1.png" >}}
 
 Or a full-hemisphere map:
 
@@ -288,7 +288,7 @@ SOmanagement(MPA = TRUE, mpacol = "darkblue")
 plot(ele_sp, col = "darkgreen", add = TRUE)
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/somap2-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/somap2-1.png" >}}
 
 #### Place names
 
@@ -337,7 +337,7 @@ with(xns, text(x = longitude, y= latitude, labels = place_name,
                pos = 2 + 2*(longitude > 0)))
 ```
 
-<img src="/img/blog-images/2018-11-13-antarctic/antanym2-1.png" style="display: block; margin: auto;" />
+{{< figure src="/img/blog-images/2018-11-13-antarctic/antanym2-1.png" >}}
 
 ### Next steps
 
