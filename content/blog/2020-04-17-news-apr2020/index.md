@@ -74,7 +74,7 @@ _On March 16, we paused new submissions for software peer review for 30 days (po
 
 * [rOpenSci's Leadership in #rstats Culture](/blog/2020/02/21/ropensci-leadership/) - [Julia Stewart Lowndes](/author/julia-stewart-lowndes/)
 
-* [**opentripplanner**: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner](/technotes/2020/02/25/opentripplanner/) - [Malcolm Morgan](/author/malcolm-morgan/)
+* [**opentripplanner**: Fast and Easy Multimodal Trip Planning in R with OpenTripPlanner](/technotes/2020/02/25/opentripplanner/) Tech Note - [Malcolm Morgan](/author/malcolm-morgan/)
 
 * [Supercharge your GitHub Actions Experience with **tic**](/technotes/2020/03/13/tic-ghactions/) Tech Note - [Patrick Schratz](/author/patrick-schratz/)
 
