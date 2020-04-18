@@ -135,9 +135,8 @@ We did not have to "convert" old posts since both systems can peacefully coexist
 
 Below is the directory tree of a recent blog post added as a leaf bundle.
 
-```{r leaf}
+```{r leaf, echo = FALSE}
 fs::dir_tree("/home/maelle/Documents/ropensci/roweb2/content/blog/2020-02-21-ropensci-leadership")
-```
 
 In R Markdown, in the setup chunk, the option `knitr::opts_chunk$set(fig.path = "")` needs to be set.
 
