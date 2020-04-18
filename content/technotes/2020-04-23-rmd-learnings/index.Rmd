@@ -43,7 +43,7 @@ Whilst [working on the blog guide](/blog/2020/04/07/bookdown-learnings/), Stefan
 Our website uses Hugo but not blogdown[^blogdown] to render posts: every post is based on an .md file that is either written directly or knit from an .Rmd file.
 We wanted to provide clear guidance for both options, and to stick to the well-documented Hugo way of e.g. inserting figures.
 We also wanted to provide post contributors with an as smooth as possible workflow to create a new post.
-Working on this mission, unsurprisingly we learned a lot, and why not sharing our newly acquired technical know-how?
+Working on this mission, unsurprisingly we learned a lot, and why not share our newly acquired technical know-how?
 In this post I shall go through four things we learned about Rmd/Hugo, while trying to provide context about the _why_ of our using them.
 
 ### knitr hooks
