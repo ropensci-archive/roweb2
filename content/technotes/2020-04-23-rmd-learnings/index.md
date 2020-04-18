@@ -1,5 +1,5 @@
 ---
-title: Miscellaneous wisdom about R Markdown & Hugo gained from work on our website
+title: Miscellaneous Wisdom about R Markdown & Hugo Gained from Work on our Website
 author:
   - Maëlle Salmon
 date: '2020-04-23'
@@ -20,20 +20,20 @@ output:
 
 
 
-Whilst [working on the blog guide](/blog/2020/04/07/bookdown-learnings/), Stefanie Butland and I consolidated knowledge we had already gained, but it was also the opportunity to up our Rmd/Hugo technical game.
+Whilst [working on the blog guide](/blog/2020/04/07/bookdown-learnings/), [Stefanie Butland](/authors/stefanie-butland/) and I consolidated knowledge we had already gained, but it was also the opportunity to up our Rmd/Hugo technical game.
 Our website uses Hugo but not blogdown[^blogdown] to render posts: every post is based on an .md file that is either written directly or knit from an .Rmd file.
 We wanted to provide clear guidance for both options, and to stick to the well-documented Hugo way of e.g. inserting figures.
 We also wanted to provide post contributors with an as smooth as possible workflow to create a new post.
-Working on this mission, unsurprisingly we learned a lot, and why not sharing our newly acquired technical know-how?
+Working on this mission, unsurprisingly we learned a lot, and why not share our newly acquired technical know-how?
 In this post I shall go through four things we learned about Rmd/Hugo, while trying to provide context about the _why_ of our using them.
 
 ### knitr hooks
 
-**Problem:** Hugo has a nice [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) with options such as width. How do we make R Markdown output such a shortcode from a code chunk, instead of the usual figure syntax? I.e. how to get[^esc]
+**Problem:** Hugo has a nice [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) with options such as width. How do we make R Markdown output these shortcodes from a code chunk, instead of the usual figure syntax? I.e. how to get[^esc]
 
-<!--html_preserve-->
+```html
 {{</* figure src="chunkname-1.png" alt="alternative text please make it informative" title="title of the image" caption="this is what this image shows, write it here or in the paragraph after the image as you prefer" width="300" */>}}
-<!--/html_preserve-->
+```
 
 not 
 
@@ -117,17 +117,13 @@ We did not have to "convert" old posts since both systems can peacefully coexist
 Below is the directory tree of a recent blog post added as a leaf bundle.
 
 
-```r
-fs::dir_tree("/home/maelle/Documents/ropensci/roweb2/content/blog/2020-02-21-ropensci-leadership")
-```
-
 ```
 /home/maelle/Documents/ropensci/roweb2/content/blog/2020-02-21-ropensci-leadership
 ├── index.md
 └── ropensci-butland-welcome.png
 ```
 
-In R Markdown, in the setup chunk, the option `knitr::opts_chunk$set(fig.path = "")` needs to be set.
+In R Markdown, in the setup chunk, the option `fig.path` needs to be set to `""` via `knitr::opts_chunk$set(fig.path = "")`.
 
 ### Hugo archetypes and blogdown New Post Addin
 
