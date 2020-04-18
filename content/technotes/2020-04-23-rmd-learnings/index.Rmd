@@ -48,7 +48,7 @@ In this post I shall go through four things we learned about Rmd/Hugo, while try
 
 ### knitr hooks
 
-**Problem:** Hugo has a nice [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) with options such as width. How do we make R Markdown output such a shortcode from a code chunk, instead of the usual figure syntax? I.e. how to get[^esc]
+**Problem:** Hugo has a nice [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) with options such as width. How do we make R Markdown output these shortcodes from a code chunk, instead of the usual figure syntax? I.e. how to get[^esc]
 
 <!--html_preserve-->
 {{</* figure src="chunkname-1.png" alt="alternative text please make it informative" title="title of the image" caption="this is what this image shows, write it here or in the paragraph after the image as you prefer" width="300" */>}}
