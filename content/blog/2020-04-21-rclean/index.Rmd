@@ -272,8 +272,8 @@ the fitted model object for an analysis. We might want to double check
 the results, and we also might need to use the code again for another
 purpose, such as creating a plot of the patterns supported by the
 test. Manually tracing through our code for all the variables used in
-the test and finding all of the lines that were used to prepare them
-for the analysis would be annoying and difficult, especially given the
+the test and finding all of the code used to prepare them
+for the analysis would be difficult, especially given the
 fact that we have used "x" as a prefix for multiple unrelated objects
 in the script. However, [Rclean](https://docs.ropensci.org/rclean) can
 do this easily via the `clean()` function.
@@ -336,7 +336,7 @@ code and the objects that they produce. Note that since
 [Rclean](https://docs.ropensci.org/rclean) removes comments, it does
 not count them when it is indexing the line numbers of the code. 
 
-```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of code line and variable dependencies.", title = "Figure 1: code_graph example", caption = "Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code.", width = 700), dpi = 700}
+```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of function and variable dependencies.", title = "Figure 1: code_graph example", caption = "Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions.", width = 700), dpi = 700}
 
   code_graph(script)
 
@@ -444,7 +444,7 @@ library(CodeDepends)
 library(Rclean)
 ```
 
-```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate.", title = "Figure 2: provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), dpi = 700, echo = FALSE}
+```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect functions with the objects that they generate.", title = "Figure 2: provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which functions (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), dpi = 700, echo = FALSE}
 
 script <- system.file(
     "example", 
@@ -460,7 +460,7 @@ provenance network is very powerful because we can now apply
 algorithms to analyze the R script with respect to our results. This is
 what empowers the `clean()` function, which takes the provenance and
 applies a network search algorithm to determine the pathways leading
-from inputs to outputs. In the process any objects or lines of code
+from inputs to outputs. In the process any objects or functions
 that do not fall along that pathway are by definition not necessary to
 produce the desired set of results and can therefore be removed. As
 demonstrated in the example, this property of the provenance network
