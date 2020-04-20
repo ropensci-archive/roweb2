@@ -332,9 +332,7 @@ get_vars(script)
 Especially when the code for different variables are entangled, it can
 be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph()` function can also give us a visual of the
-code and the objects that they produce. Note that since
-[Rclean](https://docs.ropensci.org/rclean) removes comments, it does
-not count them when it is indexing the line numbers of the code. 
+code and the objects that they produce. 
 
 ```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of function and variable dependencies.", title = "Figure 1: code_graph example", caption = "Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions.", width = 700), dpi = 700}
 
@@ -342,36 +340,12 @@ not count them when it is indexing the line numbers of the code.
 
 ```
 
-For reference, here is the script with line numbers. Again, because
-commented lines are removed, code graph numbers lines without counting
-the lines that only contain comments (i.e. they don't contain
-executable code).
-
-```{r short-script-all, results="asis", echo=FALSE, include = FALSE}
-  glue::glue_collapse(
-  c("```r {linenos=table}", readLines(script.long), "```\n"),
-  sep = "\n")
-```
-
-```{r short-script, results="asis", echo=FALSE}
-
-  thecode <- readLines(script.long)
-  # remove comments
-  thecode <- thecode[!grepl("^#", thecode)]
-  # if you need to remove empty lines
-  thecode <- thecode[thecode != ""]
-  glue::glue_collapse(
-     c("```r {linenos=table}", thecode, "```\n"),
-     sep = "\n")
-
-```
-
-
 
 After examining the output from `get_vars()` and `code_graph()`, it is
-possible that more than one object needs to be isolated. To do this is
-simple in `keep()` by passing the set of desired objects to the *vars*
-argument.
+possible that more than one object needs to be isolated. This can be
+done by adding additional objects to the list of *vars*.
+
+
 
 ```{r clean-mlti}
 
