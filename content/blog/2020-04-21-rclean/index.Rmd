@@ -334,7 +334,7 @@ be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph()` function can also give us a visual of the
 code and the objects that they produce. 
 
-```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of function and variable dependencies.", title = "Figure 1: code_graph example", caption = "Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions.", width = 700), dpi = 700}
+```{r ex-code_graph, hugoopts=list(alt = "code_graph example showing a network graph of function and variable dependencies.", caption = "**Figure 1 `code_graph()` example:** *Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions.*", width = 700), dpi = 700}
 
   code_graph(script)
 
@@ -418,7 +418,7 @@ library(CodeDepends)
 library(Rclean)
 ```
 
-```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect functions with the objects that they generate.", title = "Figure 2: provenance graph",  caption = "Network diagram of the prospective data provenance generated for an example script. Arrows indicate which functions (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).", width = 700), dpi = 700, echo = FALSE}
+```{r prov-graph, hugoopts=list(alt= "Network diagram of provenance data showing the dependencies of code and variables. Arrows connect functions with the objects that they generate.", caption = "**Figure 2 provenance graph:** *Network diagram of the prospective data provenance generated for an example script. Arrows indicate which functions (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).*", width = 700), dpi = 700, echo = FALSE}
 
 script <- system.file(
     "example", 

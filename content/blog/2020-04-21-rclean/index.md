@@ -387,7 +387,7 @@ code and the objects that they produce.
   code_graph(script)
 ```
 
-{{<figure src="ex-code_graph-1.png" alt="code_graph example showing a network graph of function and variable dependencies." title="Figure 1: code_graph example" caption="Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions." width="700">}}
+{{<figure src="ex-code_graph-1.png" alt="code_graph example showing a network graph of function and variable dependencies." caption="**Figure 1 `code_graph()` example:** *Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions.*" width="700">}}
 
 
 After examining the output from `get_vars()` and `code_graph()`, it is
@@ -494,7 +494,7 @@ of the prospective provenance generated for
 
 
 
-{{<figure src="prov-graph-1.png" alt="Network diagram of provenance data showing the dependencies of code and variables. Arrows connect functions with the objects that they generate." title="Figure 2: provenance graph" caption="Network diagram of the prospective data provenance generated for an example script. Arrows indicate which functions (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names)." width="700">}}
+{{<figure src="prov-graph-1.png" alt="Network diagram of provenance data showing the dependencies of code and variables. Arrows connect functions with the objects that they generate." caption="**Figure 2 provenance graph:** *Network diagram of the prospective data provenance generated for an example script. Arrows indicate which functions (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names).*" width="700">}}
 
 All of this work with the provenance is to get the network
 representation of relationships among functions and objects. The
