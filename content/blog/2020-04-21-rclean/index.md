@@ -218,8 +218,8 @@ the fitted model object for an analysis. We might want to double check
 the results, and we also might need to use the code again for another
 purpose, such as creating a plot of the patterns supported by the
 test. Manually tracing through our code for all the variables used in
-the test and finding all of the lines that were used to prepare them
-for the analysis would be annoying and difficult, especially given the
+the test and finding all of the code used to prepare them
+for the analysis would be difficult, especially given the
 fact that we have used "x" as a prefix for multiple unrelated objects
 in the script. However, [Rclean](https://docs.ropensci.org/rclean) can
 do this easily via the `clean()` function.
@@ -380,74 +380,21 @@ get_vars(script)
 Especially when the code for different variables are entangled, it can
 be useful to visual the code in order to devise an approach to
 cleaning. The `code_graph()` function can also give us a visual of the
-code and the objects that they produce. Note that since
-[Rclean](https://docs.ropensci.org/rclean) removes comments, it does
-not count them when it is indexing the line numbers of the code. 
+code and the objects that they produce. 
 
 
 ```r
   code_graph(script)
 ```
 
-{{<figure src="ex-code_graph-1.png" alt="code_graph example showing a network graph of code line and variable dependencies." title="Figure 1: code_graph example" caption="Example of the plot produced by the code_graph function showing which lines of code produce which variables and which variables are used by other lines of code." width="700">}}
-
-For reference, here is the script with line numbers. Again, because
-commented lines are removed, code graph numbers lines without counting
-the lines that only contain comments (i.e. they don't contain
-executable code).
-
-
-
-```r {linenos=table}
-library(stats)
-x <- 1:100
-x <- log(x)
-x <- x * 2
-x <- lapply(x, rep, times = 4)
-x <- do.call(cbind, x)
-x2 <- sample(10:1000, 100)
-x2 <- lapply(x2, rnorm)
-x <- x * 2
-colnames(x) <- paste0("X", seq_len(ncol(x)))
-rownames(x) <- LETTERS[seq_len(nrow(x))]
-x <- t(x)
-x[, "A"] <- sqrt(x[, "A"])
-for (i in seq_along(colnames(x))) {
-    set.seed(17)
-    x[, i] <- x[, i] + runif(length(x[, i]), -1, 1)
-}
-lapply(x2, length)[1]
-max(unlist(lapply(x2, length)))
-range(unlist(lapply(x2, length)))
-head(x2[[1]])
-tail(x2[[1]])
-x2 <- lapply(x2, function(x) x[1:10])
-x2 <- do.call(rbind, x2)
-x3 <- x2[, 1:2]
-x3 <- apply(x3, 2, round, digits = 3)
-x[, 1] <- x[, 1] * 2 + 10
-x[, 2] <- x[, 1] + x[, 2]
-x[, "A"] <- x[, "A"] * 2
-fit.23 <- lm(x2 ~ x3, data = data.frame(x2[, 1], x3[, 1]))
-summary(fit.23)
-x <- data.frame(x)
-fit.xx <- lm(A~B, data = x)
-summary(fit.xx)
-shapiro.test(residuals(fit.xx))
-fit_sqrt_A <- lm(I(sqrt(A))~B, data = x)
-summary(fit_sqrt_A)
-shapiro.test(residuals(fit_sqrt_A))
-z <- c(rep("A", nrow(x2) / 2), rep("B", nrow(x2) / 2))
-fit_anova <- aov(x2 ~ z, data = data.frame(x2 = x2[, 1], z))
-summary(fit_anova)
-```
-
+{{<figure src="ex-code_graph-1.png" alt="code_graph example showing a network graph of function and variable dependencies." title="Figure 1: code_graph example" caption="Example of the plot produced by the code_graph function showing which functions produce which variables and which variables are used as inputs to other functions." width="700">}}
 
 
 After examining the output from `get_vars()` and `code_graph()`, it is
-possible that more than one object needs to be isolated. To do this is
-simple in `keep()` by passing the set of desired objects to the *vars*
-argument.
+possible that more than one object needs to be isolated. This can be
+done by adding additional objects to the list of *vars*.
+
+
 
 
 ```r
@@ -547,7 +494,7 @@ of the prospective provenance generated for
 
 
 
-{{<figure src="prov-graph-1.png" alt="Network diagram of provenance data showing the dependencies of code and variables. Arrows connect lines of code with the objects that they generate." title="Figure 2: provenance graph" caption="Network diagram of the prospective data provenance generated for an example script. Arrows indicate which lines of code (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names)." width="700">}}
+{{<figure src="prov-graph-1.png" alt="Network diagram of provenance data showing the dependencies of code and variables. Arrows connect functions with the objects that they generate." title="Figure 2: provenance graph" caption="Network diagram of the prospective data provenance generated for an example script. Arrows indicate which functions (numbers) produced (outgoing arrow) or used (incoming arrow) which objects (names)." width="700">}}
 
 All of this work with the provenance is to get the network
 representation of relationships among functions and objects. The
@@ -555,7 +502,7 @@ provenance network is very powerful because we can now apply
 algorithms to analyze the R script with respect to our results. This is
 what empowers the `clean()` function, which takes the provenance and
 applies a network search algorithm to determine the pathways leading
-from inputs to outputs. In the process any objects or lines of code
+from inputs to outputs. In the process any objects or functions
 that do not fall along that pathway are by definition not necessary to
 produce the desired set of results and can therefore be removed. As
 demonstrated in the example, this property of the provenance network
