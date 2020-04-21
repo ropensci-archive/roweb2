@@ -122,13 +122,17 @@ In Hugo speak, each post source is a [leaf bundle](https://gohugo.io/content-man
 
 We did not have to "convert" old posts since both systems can peacefully coexist.
 
-Below is the directory tree of a recent blog post added as a leaf bundle.
+Below is the directory tree of this very tech note, added as a leaf bundle.
 
 
 ```
-/home/maelle/Documents/ropensci/roweb2/content/blog/2020-02-21-ropensci-leadership
+/home/maelle/Documents/ropensci/roweb2/content/technotes/2020-04-23-rmd-learnings
+├── blogdownaddin.png
+├── index.Rmd
 ├── index.md
-└── ropensci-butland-welcome.png
+├── orange-mug-near-macbook-3219546.jpg
+├── person-holding-purple-crochet-hook-and-white-yarn-3945638.jpg
+└── richard-dykes-SPuHHjbSso8-unsplash.jpg
 ```
 
 In R Markdown, in the setup chunk, the option `fig.path` needs to be set to `""` via `knitr::opts_chunk$set(fig.path = "")`.
