@@ -1,5 +1,20 @@
 {{ $intervalleft := .intervalleft}}
-   
+
+{{ $scratch := newScratch }}
+{{ $scratch.Set "eventno" 0 }}
+
+{{ range (.pages.ByParam "dateStart") }}
+  {{ $start := (time .Params.dateStart)}}
+  {{ $beautifulstart := $start.Format "2006/01/02"}}
+  {{ $end := (time .Params.dateEnd)}} 
+  {{ $beautifulend := $end.Format "2006/01/02"}}
+  {{ if and ($end.After ($intervalleft.AddDate 0 0 -2)) ($end.Before ($intervalleft.AddDate 1 0 0))}}
+  {{ $scratch.Add "eventno" 1 }}
+{{ end }}
+{{ end }}
+
+{{ if gt ($scratch.Get "eventno") 0 }}
+
 <table>
   <thead>
     <th>Event</th>
@@ -26,4 +41,7 @@
   
 </table>
 
+{{ else }}
+<p> No event currently scheduled. </p>
+{{ end }}
   

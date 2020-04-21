@@ -138,15 +138,13 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="row center">
-            <div class="col-10 top-0"> 
+            <div class="row center">
+              <div class="col-10 top-0"> 
 {{ $pages := where .Site.Pages ".Params.attendees" "!=" nil }}
   {{ partial "calendar.html" (dict "pages" $pages "Site" $.Site "intervalleft" now "intervalright" "") }}
   
-</div>
-</div>
-            </div> 
+           </div>
+              </div>
         </div>
         </section>
         <br></br>
