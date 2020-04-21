@@ -241,7 +241,7 @@ content/technotes/*/index.html
 so that such garbage index.html doesn't get added to pull requests, but it still made Hugo error locally.
 
 <!--html_preserve-->
-{{< figure src="richard-dykes-SPuHHjbSso8-unsplash.jpg" class="center" width="300" link="https://unsplash.com/photos/SPuHHjbSso8" alt="Paper thrown on the ground" caption="Paper thrown on the ground. [Richard Dykes on Unspash](https://unsplash.com/photos/SPuHHjbSso8)." >}}
+{{< figure src="richard-dykes-SPuHHjbSso8-unsplash.jpg" class="center" width="300" link="https://unsplash.com/photos/SPuHHjbSso8" alt="Paper thrown on the ground" caption="[Richard Dykes on Unspash](https://unsplash.com/photos/SPuHHjbSso8)." >}}
 <!--/html_preserve-->
 
 Luckily Hugo recognizes a [config field called `ignoreFiles`](https://gohugo.io/getting-started/configuration/#ignore-content-files-when-rendering).
@@ -254,7 +254,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$", "index\\.html"]
 ### Conclusion
 
 In this post I reported on a few things our website work taught us about R Markdown (knitr hooks), Hugo (ignoreFiles, leaf bundles, archetypes) and blogdown (New Post Addin).
-Still we're still learning important concepts and tricks thanks to new questions by blog authors and to updates in the ecosystem[^adopt], we shall keep publishing such posts, stay tuned if that's your jam!
+We're still learning important concepts and tricks thanks to new questions by blog authors and to updates in the ecosystem[^adopt], we shall keep publishing such posts, stay tuned if that's your jam!
 
 
 [^blogdown]: But as you'll see later we actually take advantage of that cool package: we recommend using blogdown's New Post Addin; and we also mention `blogdown::install_hugo()` in the blog guide.
