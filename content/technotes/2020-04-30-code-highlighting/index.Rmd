@@ -89,7 +89,7 @@ Now, how do the colours of the second block appear?
 
 First of all, it's a code block with language information, in this case R (note the `r` after the backticks),
 
-````
+````markdown
 ```r
 a <- c(1:7, NA)
 mean(a, na.rm = TRUE)
@@ -98,7 +98,7 @@ mean(a, na.rm = TRUE)
 
 as opposed to
 
-````
+````markdown
 ```
 a <- c(1:7, NA)
 mean(a, na.rm = TRUE)

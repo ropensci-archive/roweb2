@@ -44,11 +44,11 @@ you might agree with [Mara Averick's opinion](https://maraaverick.rbind.io/2017/
 
 Syntax highlighting means some elements of code blocks, like functions, operators, comments, etc. get styled differently: they could be colored or in italic.
 
-Now, how does the colours of the second block appear? 
+Now, how do the colours of the second block appear? 
 
-First of all, it's a code block with language information, 
+First of all, it's a code block with language information, in this case R (note the `r` after the backticks),
 
-````
+````markdown
 ```r
 a <- c(1:7, NA)
 mean(a, na.rm = TRUE)
@@ -57,7 +57,7 @@ mean(a, na.rm = TRUE)
 
 as opposed to
 
-````
+````markdown
 ```
 a <- c(1:7, NA)
 mean(a, na.rm = TRUE)
@@ -313,7 +313,7 @@ a + b + c
 
 > PSA! Note that if you're after line highlighting, or function highlighting, for R Markdown documents _in general_, you should check out *[Kelly Bodwin's flair package](https://kbodwin.github.io/flair/index.html)*!
 
-#### Produce line-highlighted code blocks with glue/paste0
+#### Produce line-highlighted code blocks with `glue`/`paste0`
 
 What Chroma highlights are code blocks with code fences, which you might as well generate from R Markdown using some string manipulation and knitr `results="asis"` chunk option. E.g.
 
