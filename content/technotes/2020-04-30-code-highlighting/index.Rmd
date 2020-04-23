@@ -87,7 +87,7 @@ Syntax highlighting means some elements of code blocks, like functions, operator
 
 Now, how do the colours of the second block appear? 
 
-First of all, it's a code block with language information, 
+First of all, it's a code block with language information, in this case R (note the `r` after the backticks),
 
 ````
 ```r
