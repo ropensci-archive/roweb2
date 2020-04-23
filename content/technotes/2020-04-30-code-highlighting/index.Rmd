@@ -85,7 +85,7 @@ you might agree with [Mara Averick's opinion](https://maraaverick.rbind.io/2017/
 
 Syntax highlighting means some elements of code blocks, like functions, operators, comments, etc. get styled differently: they could be colored or in italic.
 
-Now, how do the colours of the second block appear? 
+Now, how do the colors of the second block appear? 
 
 First of all, it's a code block with language information, in this case R (note the `r` after the backticks),
 
@@ -131,7 +131,7 @@ Now, using Firefox Developer Console,
 {{< figure src="mara-blog.png" width=800 alt="Screenshot of blog post with Firefox Developer Console open" link="https://maraaverick.rbind.io/2018/07/palettes-archer-poster-edition/">}}
 <!--/html_preserve-->
 
-we see colours come from CSS classes starting with "hljs".
+we see colors come from CSS classes starting with "hljs".
 
 And in the head of that page (examined via "View source"), there's
 
@@ -183,7 +183,7 @@ div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><co
 
 The style used is [indicated in the website config](https://gohugo.io/getting-started/configuration-markup#highlight) and picked from [Chroma style gallery](https://xyproto.github.io/splash/docs/all.html).
 
-* via the use of CSS classes also indicated in html, as is the case of this website where we wanted to keep using our own style.
+* via the use of CSS classes also indicated in html, as is the case of this website.
 
 <!--html_preserve-->
 {{< figure src="ropensci.png" width=800 alt="Screenshot of blog post with Firefox Developer Console open" link="http://localhost:1313/technotes/2020/03/19/parzer/">}}
@@ -210,6 +210,8 @@ pygmentsUseClasses=true
 
 which confusingly enough uses the name "Pygments", not Chroma, for historical reasons.
 You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).
+To generate a stylesheet for a given style, [use Hugo `hugo gen chromastyles --style=monokai > syntax.css` command](https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css). 
+You can then use the stylesheet as is, or tweak it.
 
 <!--html_preserve-->
 <button id="theme-toggle">Switch to dark mode</button>
@@ -258,11 +260,6 @@ In [R lexer](https://github.com/alecthomas/chroma/blob/master/lexers/r/r.go), po
 
 Chroma works on Markdown content, so if you use [blogdown to generate pages as html](https://bookdown.org/yihui/blogdown/output-format.html), you can only use client-side highlighting, like [this tidyverse.org page](https://www.tidyverse.org/blog/2017/09/erratum-tidyr-0.7.0/) whose [source is html](https://github.com/tidyverse/tidyverse.org/blob/7ceea9b9bd40207d25e75681041568d600c9d903/content/blog/2017-09-erratum-tidyr/index.html).
 By default nowadays Hugo does server-side syntax highlighting but you could choose to turn it off via [`codeFences = false`](https://gohugo.io/getting-started/configuration-markup#highlight).
-
-#### Accessible highlighting?
-
-When selecting a style for code highlighting on your website, or when creating your own CSS classes, it is important to keep accessibility in mind.
-For instance, comments could be darker than code, but their being too dark might make contrast between code and background too low!
 
 We have now seen how Hugo websites have [syntax highlighting, which for Yihui Xie _"is only for cosmetic purposes"_](https://yihui.org/en/2017/07/on-syntax-highlighting/).
 Well, Chroma actually also offers one thing more: line numbering and line highlighting!
@@ -418,11 +415,21 @@ sep = "\n")
 This is a rather uninteresting toy example since we used randomly drawn line numbers to be highlighted, but you might find use cases for this.
 We used such an approach in the recent [blog post about Rclean](/blog/2020/04/21/rclean/), actually!
 
-#### Accessible emphasis
+### Accessibility
 
-When highlighting a line, its background will have a different colour than normal code.
-This colour also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea.
+Since highlighting syntax and lines changes the color of things, it might make it harder for some people to read your content, so the choice color is a bit more than about cosmetics.
+
+_Disclaimer: I am not an accessibility expert_
+
+For instance, comments could be darker than code, but their being too dark might make contrast between code and background too low!
+This was the case on our website before, which we were able to assess [with an online tool](https://color.a11y.com/).
+
+Furthermore, when highlighting a line, its background will have a different color than normal code.
+This color also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea: in this post, for the dark mode, we used the "vim" Chroma style but with `#301934` as background color for the highlighted lines.
 It would also be a bad idea to only rely on line highlighting, as opposed to commenting code blocks, since some readers might not be able to differentiate highlighted lines.
+Commenting code blocks is probably a good practice in general anyway, explaining what it does instead of just sharing the code like you'd share a gist.
+
+For further reading on accessibility of R Markdown documents, we recommend ["Accessible R Markdown Documents" by A. Jonathan R. Godfrey](https://r-resources.massey.ac.nz/rmarkdown/).
 
 ### Conclusion
 
