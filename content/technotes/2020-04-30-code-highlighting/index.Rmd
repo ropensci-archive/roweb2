@@ -209,7 +209,34 @@ pygmentsUseClasses=true
 ```
 
 which confusingly enough uses the name "Pygments", not Chroma, for historical reasons.
-You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if, like we did, had some special highlighting that you'd like to keep.[^css]
+You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).
+
+<!--html_preserve-->
+<button id="theme-toggle">Switch to dark mode</button>
+<script type="text/javascript">
+// this one is jut to wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+
+    const themeStylesheet = document.getElementById('code');
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        // if it's light -> go dark
+        if(themeStylesheet.href.includes('friendly')){
+            themeStylesheet.href = '/css/vim.css';
+            themeToggle.innerText = 'Switch to light mode';
+        } else {
+            // if it's dark -> go light
+            themeStylesheet.href = '/css/friendly.css';
+            themeToggle.innerText = 'Switch to dark mode';
+
+        }
+    })
+})
+
+</script>
+<!--/html_preserve-->
+
+
 
 
 How does Chroma know what parts of code is of the string class for instance?
@@ -242,7 +269,7 @@ Well, Chroma actually also offers one thing more: line numbering and line highli
 
 ### Emphasize parts of your code
 
-With Chroma, you can [apply special options to code blocks defined with fences](https://gohugo.io/content-management/syntax-highlighting/)[^fences].
+With Chroma, you can [apply special options to code blocks defined with fences, i.e. starting with three backticks and language info, and ending with three backticks](https://gohugo.io/content-management/syntax-highlighting/)[^fences].
 
 #### On Chroma options for line highlighting
 
