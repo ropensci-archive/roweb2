@@ -256,6 +256,8 @@ q:before, q:after {
     margin-top: 15px;
 }.wrapper>*{
     display: inline;
+}.wrapper p {
+    display:block; 
 }.wrapper>div:first-child{
     display:block;
 }.floatLeft {
