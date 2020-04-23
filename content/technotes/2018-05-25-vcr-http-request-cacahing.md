@@ -26,13 +26,13 @@ Ruby's [vcr][vcrruby] plugs in to many other HTTP gems via [webmock][], another 
 
 About 3.5 years ago I made my first commits on ports of Ruby's vcr to R called [vcr](https://github.com/ropensci/vcr/commit/6690a23), and one for Ruby's webmock, called [webmockr](https://github.com/ropensci/webmockr/commit/7fe4225). It took me a long time to get these out on CRAN, which I'll talk about below.
 
-<br>
+
 
 # vcr
 
 Let's get right into it. How do we use `vcr`?
 
-<br>
+
 
 ## Setup
 
@@ -63,7 +63,7 @@ vcr_configure(dir = "../fixtures/vcr_cassettes")
 
 You may have figured this out already, but to be sure: "cassette" means essentially a thing to which you are recording HTTP interactions. There's other terminology in `vcr` like "record" and "eject". See the [terminology book section](https://books.ropensci.org/http-testing//intro.html#terminology) for more.
 
-<br>
+
 
 ## Basic usage
 
@@ -135,13 +135,13 @@ http_interactions:
   recorded_with: vcr/0.1.0, webmockr/0.2.6, crul/0.5.2
 ```
 
-<br>
+
 
 ## Why vcr and webmockr?
 
 The power of both vcr and webmockr is they abstract away the gory details, and present a single user interface to (eventually) many different HTTP R libraries (only `crul` right now, but `curl` and `httr` are in development). In addition, though not available yet, vcr will have many different serialization formats; it has only YAML now, but could include JSON and other formats. Both packages will handle a relatively complex set of use cases that come from many years of input from lots of users.
 
-<br>
+
 
 ## http testing book
 
@@ -151,7 +151,7 @@ The book will cover high level concepts of testing R packges that make HTTP requ
 
 Do let us know if you have any feedback on the book! You can send a PR if you want to suggest a change by clicking on the edit button.
 
-<br>
+
 
 ## vcr in the wild
 
@@ -171,7 +171,7 @@ There are a number more on GitHub, soon to head to CRAN:
 
 You can get a sense for how `vcr` is used in real packages by looking at the `tests` directory in any of the packages above.
 
-<br>
+
 
 ## Security
 
@@ -189,7 +189,7 @@ Here, we're replacing any instance that matches the output of `Sys.getenv('API_K
 
 See the [Security chapter](https://books.ropensci.org/http-testing//security) in the HTTP Testing Book for more. Feedback on security in vcr much appreciated!
 
-<br>
+
 
 ## Logging
 
@@ -208,7 +208,7 @@ Here, we set `log = TRUE`, then set a file to log to, a log prefix (so each line
 
 See the [Logging chapter](https://books.ropensci.org/http-testing//logging) in the HTTP Testing Book for more. 
 
-<br>
+
 ## Porting from other languages
 
 I sometimes peruse [Rubygems](https://rubygems.org/) and [pypi](https://pypi.org/) looking for ideas in topic areas that I develop packages in. I noticed `vcr` and `webmockr` at some point in Ruby land, and over 3 years ago started in earnest porting them over to R. 
@@ -221,10 +221,10 @@ Probably the biggest stumbling block was [monkey patching](https://en.wikipedia.
 
 Last, if I could start over, I'd probably try to get to a MVP much faster, then add more features, instead of trying to port everything over before anything was put out. 
 
-<br>
+
 
 ## Upcoming work
-<br>
+
 
 There's still a lot of work to do on vcr ant its companion webmockr. Please do get in touch with any feedback. Let us know if you have any problems using vcr in your package. Here's some highlights of upcoming work:
 
@@ -235,7 +235,7 @@ There's still a lot of work to do on vcr ant its companion webmockr. Please do g
 * Work on integrating `curl` lib going on in `webmockr` in a branch [adapter-curl](https://github.com/ropensci/webmockr/tree/adapter-curl)
 * Work on integrating `httr` lib going on in `webmockr` in a branch [adapter-httr](https://github.com/ropensci/webmockr/tree/adapter-httr)
 
-<br>
+
 
 [webmock]: https://github.com/bblimke/webmock
 [webmockr]: https://github.com/ropensci/webmockr

@@ -260,13 +260,7 @@ ggplot(dv_long, aes(x = YYYYMMDD, y = Degrees,
   theme_ipsum()
 ```
 
-<figure>
-  <img src="/img/blog-images/2019-05-14-nasapower/graph_t-1.png"
-  alt="Line graph for NASA POWER Climatology mean temperature at 2 meters above the Earth's surface for the POWER grid cell covering Death Valley in California, USA."/>
-  <figcaption style="font-size:smaller">Figure 1: Daily temperature extremes at 2 meters above the Earth's surface for the grid cell covering Death Valley, California, USA for the time-period from 1983 to 2018.
-</figcaption>
-</figure>
-<div class="horizontalgap" style="width:10px"></div>
+{{< figure src="/img/blog-images/2019-05-14-nasapower/graph_t-1.png" alt="Line graph for NASA POWER Climatology mean temperature at 2 meters above the Earth's surface for the POWER grid cell covering Death Valley in California, USA." caption="Figure 1: Daily temperature extremes at 2 meters above the Earth's surface for the grid cell covering Death Valley, California, USA for the time-period from 1983 to 2018." >}}
 
 That is quite a swing in air temperatures from well over 40˚ C to well
 below 0˚ C throughout the year. I was going to put together a comparison
@@ -403,12 +397,7 @@ n <- length(unique(global_t2m$ANN))
 plot(T2M_ann, col = viridis(n = n), xlab = "Longitude", ylab = "Latitude")
 ```
 
-<figure>
-  <img src="/img/blog-images/2019-05-14-nasapower/global-T2M-1.png"
-  alt="NASA POWER Climatology annual mean temperature data for global surface."/>
-  <figcaption style="font-size:smaller">Figure 2: Global 30-year annual meteorological (January 1984 - December 2013) average temperature at 2 meters above the Earth's surface modelled from satellite derived data. You can mostly make out the outlines of the continents and especially the mountain ranges such as the Andes and Rocky Mountains to the left and the Tibetan plateau at about 100˚ longitude (x-axis) and 45˚ latitude (y-axis).</figcaption>
-</figure>
-<div class="horizontalgap" style="width:10px"></div>
+{{< figure src="/img/blog-images/2019-05-14-nasapower/global-T2M-1.png" alt="NASA POWER Climatology annual mean temperature data for global surface." caption="Figure 2: Global 30-year annual meteorological (January 1984 - December 2013) average temperature at 2 meters above the Earth's surface modelled from satellite derived data. You can mostly make out the outlines of the continents and especially the mountain ranges such as the Andes and Rocky Mountains to the left and the Tibetan plateau at about 100˚ longitude (x-axis) and 45˚ latitude (y-axis)" >}}
 
 #### Retrieving Regional Data
 
@@ -475,12 +464,7 @@ n <- length(unique(regional_t2m$ANN))
 plot(T2M_ann_regional, col = viridis(n = n), xlab = "Longitude", ylab = "Latitude")
 ```
 
-<figure>
-  <img src="/img/blog-images/2019-05-14-nasapower/regional-t2m-1.png"
-  alt="NASA POWER Climatology annual mean temperature data for a region covering south-west Australia."/>
-  <figcaption style="font-size:smaller">Figure 3: Regional 30-year annual meteorological (January 1984 - December 2013) average temperature at 2 meters above the Earth's surface modelled from satellite derived data for the south-western coastal area of Australia, illustrating the maximum allowable cells in a regional query.</figcaption>
-</figure>
-<div class="horizontalgap" style="width:10px"></div>
+{{< figure src="/img/blog-images/2019-05-14-nasapower/regional-t2m-1.png" alt="NASA POWER Climatology annual mean temperature data for a region covering south-west Australia." caption="Figure 3: Regional 30-year annual meteorological (January 1984 - December 2013) average temperature at 2 meters above the Earth's surface modelled from satellite derived data for the south-western coastal area of Australia, illustrating the maximum allowable cells in a regional query" >}}
 
 As you can see, because the data are georeferenced it is easy to use
 them in R’s spatial packages including sf and raster.

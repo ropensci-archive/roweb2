@@ -16,12 +16,14 @@ tags:
   - rprofile
 ---
 
-<img src="/img/blog-images/2017-12-08-rprofile-jenny-bryan/jenny_bryan_lowres.jpg" alt="Jenny Bryan" style="margin: 0px 20px; width: 250px;" align="left">
+{{< imgtxt src="/img/blog-images/2017-12-08-rprofile-jenny-bryan/jenny_bryan_lowres.jpg" alt="Jenny Bryan" >}}
+
 _Jenny Bryan @JennyBryan is a Software Engineer at RStudio and is on leave from being an Associate Professor at the University of British Columbia. Jenny serves in leadership positions with rOpenSci and [Forwards](https://forwards.github.io/) and as an Ordinary member of [The R Foundation](https://www.r-project.org/foundation/)._
+
+{{< /imgtxt >}}
 
 ---
 
-<br>
 
 KO: What is your name, your title, and how many years have you worked in R?
 

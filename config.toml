@@ -9,6 +9,7 @@ footnotereturnlinkcontents = "↩"
 buildFuture = true
 preserveTaxonomyNames = true
 pygmentsUseClasses=true
+enableEmoji=true
 
 paginate = 5
 paginatePath = "page"

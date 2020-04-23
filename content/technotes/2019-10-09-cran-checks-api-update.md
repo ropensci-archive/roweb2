@@ -15,7 +15,7 @@ tags:
 If you have an R package on CRAN, you probably know about CRAN checks. Each package on CRAN, that is not archived on CRAN[^1], has a checks page, like this one for `ropenaq`:
 <https://cloud.r-project.org/web/checks/check_results_ropenaq.html>
 
-<center><img src="/img/blog-images/2019-10-09-cran-checks-api-update/cranchecks.png"></center>
+{{< figure src="/img/blog-images/2019-10-09-cran-checks-api-update/cranchecks.png" >}}
 
 The table above is results of running R CMD CHECK on the package on a combination of different operating systems, R versions and compilers. CRAN maintainers presumably use these as a basis for getting in touch with maintainers when these checks are failing.
 

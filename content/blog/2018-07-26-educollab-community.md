@@ -40,9 +40,7 @@ tags:
 In previous posts in this series, we identified challenges that individual instructors typically face when teaching science with R, and shared characteristics of effective educational resources to help address these challenges. However, the toughest challenges that educators in this area face are human, rather than technological. Our shared experiences highlight the need for a strong community of innovative R educators. However, this community is currently not well-connected or easily discoverable. 
 
 
-<center>
-<img alt = 'educollab hashtags' src='/img/blog-images/2018-07-24-educollab-challenges/educollab-logo.png' />
-</center>
+{{< figure alt="educollab hashtags" src="/img/blog-images/2018-07-24-educollab-challenges/educollab-logo.png" class="center" >}}
 
 In this final post, we propose a framework for developing an rOpenSci Educators' Collaborative: a community of practice for people interested and engaged in science education using R. A community of practice is defined as a group of skilled practitioners who share a common passion, and who learn how to do it better by interacting with each other regularly. To develop this kind of community, we need to go beyond shared domains of interest in R and education. Here, we’d like to invite educators to join us in discussing how to put the other ingredients in place. 
 

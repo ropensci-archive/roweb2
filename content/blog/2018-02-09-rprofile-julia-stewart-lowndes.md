@@ -17,12 +17,14 @@ tags:
   - rprofile
 ---
 
-<img src="/img/blog-images/2018-02-09-julia-stewart-lowndes/lowndes_profile.jpg" alt="Julia Stewart Lowndes" style="margin: 0px 20px; width: 250px;" align="left">
+{{< imgtxt src="/img/blog-images/2018-02-09-julia-stewart-lowndes/lowndes_profile.jpg" alt="Julia Stewart Lowndes" >}}
+
 _Dr. Julia Stewart Lowndes [@juliesquid on Twitter] is the Science Program Lead for the Ocean Health Index and works at the National Center for Ecological Analysis and Synthesis. She and Sean Kross discussed how data science, open science, and community can help reproducibility in research._
+
+{{< /imgtxt >}}
 
 ---
 
-<br>
 
 [This interview occurred at the 2017 rOpenSci unconference]
 

@@ -24,7 +24,7 @@ Another hardship with text-mining is the huge number of publishers together with
 
 **`fulltext` is a package to help R users address the above problems, and get published literature from the web in it's many forms, and across all publishers.**
 
-<br><br>
+
 
 ## the fulltext package
 
@@ -40,7 +40,7 @@ Another hardship with text-mining is the huge number of publishers together with
 
 `fulltext` organizes functions around the above use cases, then provides flexiblity to query many data sources within that use case (i.e. function). For example `fulltext::ft_search` searches for articles - you can choose among one or more of many data sources to search, passing options to each source as needed.
 
-<br>
+
 
 ## What does a workflow with fulltext look like?
 
@@ -50,7 +50,7 @@ Another hardship with text-mining is the huge number of publishers together with
 - Extract sections of articles needed with `ft_chunks()`, or 
 - Combine texts into a data.frame ready for `quanteda` or similar text-mining packages 
 
-<br>
+
 
 ## Package overhaul
 
@@ -69,13 +69,13 @@ Another hardship with text-mining is the huge number of publishers together with
 
 We've battle tested `ft_get()` on a lot of DOIs - but there still may be errors - let us know if you have any problems.
 
-<br>
+
 
 ## Documentation
 
 Along with an overhual of the package we have made a new manual for `fulltext`. Check it out at <https://books.ropensci.org/fulltext//>
 
-<br><br>
+
 
 ## Setup
 
@@ -102,7 +102,7 @@ library(fulltext)
 
 Below I'll discuss some of the new features of the package, and not do an exhaustive tutorial to the package. Check out the manual for more details: <https://books.ropensci.org/fulltext//>
 
-<br>
+
 
 ## Fetch abstracts: ft_abstract
 
@@ -135,7 +135,7 @@ ft_abstract(x = res$plos$data$id, from = "plos")
 ##   [PLOS: 90; Scopus: 0; Microsoft: 0; Crossref: 0]
 ```
 
-<br>
+
 
 ## Fetch articles: ft_get
 
@@ -244,7 +244,7 @@ ft_get(dois, from = "plos") %>%
   ft_tabularize()
 ```
 
-<br>
+
 
 ## Extract text: ft_extract
 
@@ -263,7 +263,7 @@ ft_extract(path)
 ##   Creation date: 2015-07-17
 ```
 
-<br><br>
+
 
 ## Gather text into a data.frame: ft_table
 
@@ -323,19 +323,19 @@ head(quanteda::kwic(z, "cell"))
 ##  cell | cathode 4. Electrovaya,
 ```
 
-<br><br>
+
 
 ## Todo
 
 We have lots of ideas to make `fulltext` even better. Check out what we'll be working on in the [issue tracker](https://github.com/ropensci/fulltext/issues).
 
-<br><br>
+
 
 ### Feedback!
 
 Please do upgrade/install `fulltext`  `v1.0.0` and let us know what you think.
 
-<br>
+
 
 [fulltext]: https://github.com/ropensci/fulltext
 [pdftools]: https://github.com/ropensci/pdftools

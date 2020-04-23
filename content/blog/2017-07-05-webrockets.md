@@ -159,7 +159,7 @@ concern for HTTP headers or URL strings!
 You can read a great explanation
 [here](https://www.websocket.org/quantum.html).
 
-Webrockets <img src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png" height="20" width="20" align="absmiddle">
+Webrockets :rocket:
 ===================
 
 We've discussed our personal motivations, but the [project
@@ -318,7 +318,7 @@ The plot changes to:
 
 Voila! Now you can create a demo like this:
 
-<img src="/assets/blog-images/2017-07-05_launching_webrockets/phonerocket.gif" width="600" title="accelerometer gif">
+{{< figure src="/assets/blog-images/2017-07-05_launching_webrockets/phonerocket.gif" width="600" alt="accelerometer gif" >}}
 
 The plot updates with the acceleration of the phones in the x, y, an z
 directions in real time as Miles moves the phone around!

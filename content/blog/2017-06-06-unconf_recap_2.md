@@ -28,7 +28,7 @@ In addition, checkers includes a [descriptive guide for best practices](https://
 
 **Github:** <https://github.com/ropenscilabs/checkers>
 
-<br><br>
+&nbsp;
 
 ## `gramr`
 
@@ -42,7 +42,7 @@ p.s. Two of the three (Ben/Gordon) were remote participants.
 
 **Github:** <https://github.com/ropenscilabs/gramr>
 
-<br><br>
+&nbsp;
 
 ## `data-packages`
 
@@ -56,7 +56,7 @@ In addition, the team created a [best practices document for data packages](http
 
 **Github:** <https://github.com/ropenscilabs/data-packages>
 
-<br><br><br>
+&nbsp;
 
 ## `exploRingJSON`
 

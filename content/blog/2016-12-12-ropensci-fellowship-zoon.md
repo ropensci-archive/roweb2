@@ -16,16 +16,13 @@ rOpenSci's overarching mission is to promote a culture of transparent, open, and
 
 To further promote reproducible research activities within specialized domains, we will soon be announcing our annual fellowship program. These fellowships will provide support for collaborative research projects that strengthen one or more of rOpenSci's core efforts. These activities may include development of new domain-specific tools, or supporting projects that are exemplars of reproducible research. Our early fellowships are by invitation and an open call will be forthcoming in early 2017.
 
+{{< figure src="/img/team/nick-golding.jpg" alt="Dr Nick Golding, rOpenSci Fellow" class="pull-left" >}}
 
 We are pleased to award the first fellowship to [Dr. Nick Golding](https://scholar.google.co.uk/citations?user=peoal7wAAAAJ&hl=en) to continue developing a framework for building and sharing reproducible species distribution models (SDM). Nick Golding is a Research Fellow in the [Quantitative & Applied Ecology Group](https://qaeco.com/) at the University of Melbourne, Australia. He develops statistical models and software to predict the distributions of species and human diseases like those caused by the Zika and Ebola viruses. Nick is particularly interested in improving these models with information about traits, mechanistic relationships and population dynamics.
-
-<img src="/assets/blog-images/2016-12-12-ropensci-fellowship-zoon/nick-golding.jpg" alt="Dr Nick Golding, rOpenSci Fellow" align="left" style="margin: 0px 20px">
 
 We interviewed Nick to learn more about him, the project, and what the fellowship will help him and his collaborators accomplish.
 
 ---
-
-<br><br><br>
 
 ### Q: What is the Zoon Project?
 

@@ -17,7 +17,7 @@ tags:
 
 [taxize][] was seven years old this last Saturday! 
 
-<br><br>
+
 
 ## What is taxize?
 
@@ -34,17 +34,17 @@ A samping of use cases covered in `taxize` (all of these across many different d
 * Lowest common taxon and rank for an identifier or name
 * Resolve taxonomic names, i.e., fix spelling errors
 
-<br>
+
 
 ## History
 
-`taxize` was one of our first packages. Our first commit was on [2011-05-19][firstcomm], uneventfully adding an empty README:
+`taxize` was one of our first packages. Our first commit was on [2011-05-19](https://github.com/ropensci/taxize/commit/667004eac), uneventfully adding an empty README:
 
-[![first_commit](/img/blog-images/2018-05-23-taxize-seven-years/taxize-first-commit.png)][firstcomm]
+{{< figure src="/img/blog-images/2018-05-23-taxize-seven-years/taxize-first-commit.png" link="https://github.com/ropensci/taxize/commit/667004eac" alt="screenshot of the first commit" class="center" width=200 >}}
 
 We've come a long way since May 2011. We've added a lot of new functionality and many new contributors.
 
-<br>
+
 
 ### Commit history
 
@@ -118,7 +118,7 @@ ggplot(firstdates, aes(as.Date(date), cumsum)) +
 
 [afkoeppel](https://github.com/afkoeppel) - [ahhurlbert](https://github.com/ahhurlbert) - [albnd](https://github.com/albnd) - [Alectoria](https://github.com/Alectoria) - [andzandz11](https://github.com/andzandz11) - [antagomir](https://github.com/antagomir) - [arendsee](https://github.com/arendsee) - [ashenkin](https://github.com/ashenkin) - [ashiklom](https://github.com/ashiklom) - [bomeara](https://github.com/bomeara) - [bw4sz](https://github.com/bw4sz) - [cboettig](https://github.com/cboettig) - [cdeterman](https://github.com/cdeterman) - [ChrKoenig](https://github.com/ChrKoenig) - [chuckrp](https://github.com/chuckrp) - [clarson2191](https://github.com/clarson2191) - [claudenozeres](https://github.com/claudenozeres) - [cmzambranat](https://github.com/cmzambranat) - [daattali](https://github.com/daattali) - [DanielGMead](https://github.com/DanielGMead) - [davharris](https://github.com/davharris) - [davidvilanova](https://github.com/davidvilanova) - [diogoprov](https://github.com/diogoprov) - [dlebauer](https://github.com/dlebauer) - [dlenz1](https://github.com/dlenz1) - [dschlaep](https://github.com/dschlaep) - [EDiLD](https://github.com/EDiLD) - [emhart](https://github.com/emhart) - [fdschneider](https://github.com/fdschneider) - [fgabriel1891](https://github.com/fgabriel1891) - [fmichonneau](https://github.com/fmichonneau) - [gedankenstuecke](https://github.com/gedankenstuecke) - [gimoya](https://github.com/gimoya) - [GISKid](https://github.com/GISKid) - [git-og](https://github.com/git-og) - [glaroc](https://github.com/glaroc) - [gustavobio](https://github.com/gustavobio) - [ibartomeus](https://github.com/ibartomeus) - [jangorecki](https://github.com/jangorecki) - [jarioksa](https://github.com/jarioksa) - [jebyrnes](https://github.com/jebyrnes) - [johnbaums](https://github.com/johnbaums) - [jonmcalder](https://github.com/jonmcalder) - [JoStaerk](https://github.com/PrincessPi314) - [jsgosnell](https://github.com/jsgosnell) - [kamapu](https://github.com/kamapu) - [karthik](https://github.com/karthik) - [KevCaz](https://github.com/KevCaz) - [kgturner](https://github.com/kgturner) - [kmeverson](https://github.com/kmeverson) - [Koalha](https://github.com/Koalha) - [ljvillanueva](https://github.com/ljvillanueva) - [Markus2015](https://github.com/Markus2015) - [mcsiple](https://github.com/mcsiple) - [MikkoVihtakari](https://github.com/MikkoVihtakari) - [millerjef](https://github.com/millerjef) - [miriamgrace](https://github.com/miriamgrace) - [mpnelsen](https://github.com/mpnelsen) - [MUSEZOOLVERT](https://github.com/MUSEZOOLVERT) - [nate-d-olson](https://github.com/nate-d-olson) - [nmatzke](https://github.com/nmatzke) - [npch](https://github.com/npch) - [paternogbc](https://github.com/paternogbc) - [philippi](https://github.com/philippi) - [pmarchand1](https://github.com/pmarchand1) - [pssguy](https://github.com/pssguy) - [RodgerG](https://github.com/RodgerG) - [rossmounce](https://github.com/rossmounce) - [sariya](https://github.com/sariya) - [scelmendorf](https://github.com/scelmendorf) - [sckott](https://github.com/sckott) - [SimonGoring](https://github.com/SimonGoring) - [snsheth](https://github.com/snsheth) - [snubian](https://github.com/snubian) - [Squiercg](https://github.com/Squiercg) - [tdjames1](https://github.com/tdjames1) - [tmkurobe](https://github.com/tmkurobe) - [tpaulson1](https://github.com/tpaulson1) - [tpoisot](https://github.com/tpoisot) - [vijaybarve](https://github.com/vijaybarve) - [wcornwell](https://github.com/wcornwell) - [willpearse](https://github.com/willpearse) - [wpetry](https://github.com/wpetry) - [zachary-foster](https://github.com/zachary-foster)
 
-<br>
+
 
 ## taxize usage
 
@@ -136,18 +136,14 @@ One example comes from the paper
 
 > Weber, M. G., Porturas, L. D., & Taylor, S. A. (2016). Foliar nectar enhances plant–mite mutualisms: the effect of leaf sugar on the control of powdery mildew by domatia-inhabiting mites. Annals of Botany, 118(3), 459–466. doi:10.1093/aob/mcw118
 
-<div style="width:100%; text-align:center">
-<a href="https://doi.org/10.1093/aob/mcw118" target="_blank"><img src="/img/blog-images/2018-05-23-taxize-seven-years/taxize-methods.png" title="taxize methods example" ></a>
-</div>
-
-<br>
+{{< figure class="center" link="https://doi.org/10.1093/aob/mcw118" src="/img/blog-images/2018-05-23-taxize-seven-years/taxize-methods.png" caption="taxize methods example" >}}
 
 ## Features coming down the road
 
 * Integration with [taxa][] package (maintained by one of our rOpenSci fellows [Zachary Foster](https://github.com/zachary-foster)) in all `get_*()` functions. This will make the outputs of all `get_*()` more consistent and easier to integrate into your downstream workflows.
 * not taxize per se, but [taxizedb][] is starting to really take shape due to help from [Zebulun Arendsee][zeb]. `taxizedb` will make taxonomic name work much faster for large datasets. It's worth checking out.
 
-<br>
+
 
 ## Thanks!
 
@@ -159,4 +155,3 @@ A huge thanks goes to all `taxize` users and contributors. It's awesome to see h
 [taxa]: https://github.com/ropensci/taxa
 [pegax]: https://github.com/ropenscilabs/pegax
 [zeb]: https://github.com/arendsee
-[gn]: LINK

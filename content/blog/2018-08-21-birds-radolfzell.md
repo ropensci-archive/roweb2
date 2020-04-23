@@ -283,9 +283,9 @@ birds2 <- spocc::occ(from = "ebird",
 mapr::map_leaflet(birds2)
 ```
 
-![mapr leaflet map of observations
-locations](/img/blog-images/2018-08-21-birds-radolfzell/mapr-1.png)
-<br> Quite handy!
+{{< figure alt="mapr leaflet map of observations locations" src="/img/blog-images/2018-08-21-birds-radolfzell/mapr-1.png" >}}
+
+Quite handy!
 
 Now, let’s explore the whole eBird dataset for Germany.
 

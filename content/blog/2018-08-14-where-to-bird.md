@@ -182,7 +182,7 @@ magick::image_read('map_a1.png') %>%
                          gravity = "south")
 ```
 
-<img src="/img/blog-images/2018-08-14-where-to-bird/map1-print-1.png" width="600" />
+{{< figure src="/img/blog-images/2018-08-14-where-to-bird/map1-print-1.png" width="600" >}}
 
 Quite pretty! The lakes can be seen because of the absence of roads and
 buildings on them.
@@ -233,7 +233,7 @@ magick::image_read('map_a2.png') %>%
                          gravity = "south")
 ```
 
-<img src="/img/blog-images/2018-08-14-where-to-bird/map2-print-1.png" width="600" />
+{{< figure src="/img/blog-images/2018-08-14-where-to-bird/map2-print-1.png" width="600" >}}
 
 Aha, now we see where the bird hide is, fantastic! But as Mark noted,
 birds can actually be observed from other places.
@@ -326,7 +326,7 @@ magick::image_read('map_a3.png') %>%
                          gravity = "south")
 ```
 
-<img src="/img/blog-images/2018-08-14-where-to-bird/unnamed-chunk-9-1.png" width="600" />
+{{< figure src="/img/blog-images/2018-08-14-where-to-bird/unnamed-chunk-9-1.png" width="600" >}}
 
 On the map, the yellower/lighter a road is, the better it is to observe
 birds according to Mark’s assumption that birds are most likely to be

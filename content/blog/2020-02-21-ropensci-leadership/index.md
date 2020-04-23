@@ -50,5 +50,3 @@ But rOpenSci is all about welcoming more and more people into the rOpenSci and #
 And what I am trying to do with Openscapes is to connect additional tributaries to this rOpenSci watershed. I think that the most important thing I do here with Openscapes is to pass forward what I've learned from rOpenSci leadership and community, and welcome additional scientists to join. When we talk about the awesomeness of R communities in our mentor sessions, it's not only to encourage them to become a part of them, but also to extend its ethos and kick-start [kinder science](https://blogs.scientificamerican.com/observations/open-software-means-kinder-science/) around them. 
 
 Thank you rOpenSci leadership and the greater community for being so welcoming and supportive of me and everyone like me. 
-
-<br>

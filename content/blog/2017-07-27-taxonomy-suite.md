@@ -67,7 +67,6 @@ The packages:
 * `worrms` - get WORMS (World Register of Marine Species) taxonomic data
 * `pegax` - taxonomy PEG (Parsing Expression Grammar)
 
-<br><br>
 
 For each package below, there are 2-3 badges. One for whether the package is on CRAN
 <br>

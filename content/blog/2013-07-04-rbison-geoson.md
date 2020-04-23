@@ -15,17 +15,14 @@ We have a number of packages for getting species occurrence data: [rgbif][rgbif]
 
 However, when dealing with occurrence data on maps, it is often useful to be able to interact with the visualization. [Github][github], a code hosting and collaboration site, now renders a particular type of map file format as an interactive map. This file format is called `.geojson`. Here is an example of an interactive map hosted on Github, embedded here:
 
-<br>
 
 <script src="https://embed.github.com/view/geojson/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson"></script>
 
-<br>
 
 Note that you can go full screen on these maps too. Check it out [here](https://render.github.com/view/geojson?url=https://raw.github.com/geobabbler/geodata/master/geojson/leonardtown_bldgs.geojson).
 
 To demonstrate how easy it can be to do this on your own, the following is a small demo of searching for occurrence data, converting to geojson, and pushing up to Github.
 
-<br>
 
 ### Install rbison from Github
 
@@ -105,15 +102,10 @@ git remote add origin https://github.com/sckott/mygeojson.git
 git push origin master
 ```
 
-<br>
-
 Then go to your new repo on Github and click on the `.geojson` file you created, and you'll get a map. You can share this with others, and even embed the interactive map in other web sites, as you can see below. Try clicking on the points - they give metadata associated with each point.
-
-<br>
 
 <script src="https://embed.github.com/view/geojson/sckott/mygeojson/master/bison_bison.geojson"></script>
 
-<br>
 
 Check out the full screen version [here](https://render.github.com/view/geojson?url=https://raw.github.com/sckott/mygeojson/master/bison_bison.geojson).
 

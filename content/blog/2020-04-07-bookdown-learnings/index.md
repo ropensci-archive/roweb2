@@ -218,7 +218,6 @@ show_checklist <- function(filenames) {
 ```
 
 </details>
-<br>
 
 Our bookdown project uses `DESCRIPTION` to track dependencies, I suppose I could use the package infrastructure more and define the helper functions as functions _of a package_, but the approach above is pleasant too.
 
@@ -301,7 +300,6 @@ jobs:
 ```
 
 </details>
-<br>
 
 * after each commit in a pull request from a fork, the book is built so we'd notice something breaking the Rmd. [log example](https://github.com/ropensci-org/blog-guidance/runs/466995315?check_suite_focus=true);
 
@@ -384,7 +382,6 @@ jobs:
 ```
 
 </details>
-<br>
 
 Highlights from the pull request workflow above:
 

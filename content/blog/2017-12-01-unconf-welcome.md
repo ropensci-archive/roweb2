@@ -27,13 +27,13 @@ A challenge of this year’s unconference was the fact that we were inviting 70 
 
 So I sent this email to 45 first-time participants:
 
-<img src="/img/blog-images/2017-12-01-unconf-welcome/pre-unconf-email.png" alt="pre-unconf-email">
+{{< figure src="/img/blog-images/2017-12-01-unconf-welcome/pre-unconf-email.png" alt="pre-unconf-email" >}}
 
 Arranging meetings is one of my least favorite activities, but the free [Calendly tool](https://calendly.com/) made this process relatively painless. When a person clicks on the calendar link in the email above, it reveals only times that I am available in my Google Calendar, the time slot they choose shows up in my calendar, and I receive a confirmation email indicating who booked a meeting with me. In my busiest week, I had 19 meetings, but that meant the bulk of them were done!
 
 To make the meeting time most effective I followed AAAS-CEFP program director [Lou Woodley’s](https://twitter.com/LouWoodley) model for onboarding our AAAS CEFP cohort by sending a set of questions to be answered in advance. I took the model to the next level by creating a free [Google Form](https://www.google.ca/forms/about/) questionnaire so that all answers were automatically collected and could be viewed per individual or collectively, and automatically exported to a spreadsheet.
 
-<img src="/img/blog-images/2017-12-01-unconf-welcome/pre-unconf-google-form.png" alt="pre-unconf-google-form">
+{{< figure src="/img/blog-images/2017-12-01-unconf-welcome/pre-unconf-google-form.png" alt="pre-unconf-google-form" >}}
 
 **Questions included:**
 
@@ -64,7 +64,7 @@ These questions encouraged participants to reflect in advance. The example answe
 
 The answers to the question “List three things you hope to get from the unconf” were so heartening:
 
-<img src="/img/blog-images/2017-12-01-unconf-welcome/unconf-three-things.png" alt="unconf-three-things">
+{{< figure src="/img/blog-images/2017-12-01-unconf-welcome/unconf-three-things.png" alt="unconf-three-things" >}}
 
 Beautiful, but in a different way, were answers to the question, “Do you have any concerns about your readiness to participate?”. People expressed real concerns about impostor syndrome, their perceived ability to contribute "as much or as well" as others, and feeling "outclassed by all the geniuses present". These responses prompted me to reassure people that they were 100% qualified to participate, and opened an opportunity to listen to and address specific concerns.
 
