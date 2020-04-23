@@ -52,7 +52,6 @@ Continue with brief introductions and sharing opinions to the entire group for 1
 
 > Question 2: When I need to do something I’ve never done before, I a) consult an outside authority e.g. read the documentation or talk to an expert and try to understand the big picture OR b) I try to find a working example and modify it for my purposes
 
-</br>
 
 > Question 3: I know where I fit as a member of the R community (agree vs disagree)
 
