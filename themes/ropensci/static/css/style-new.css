@@ -251,12 +251,6 @@ q:before, q:after {
 }.last {
     -webkit-box-ordinal-group: 2;
             order: 1;
-}.col-2 figure {
-  margin-top: 0;
-}.col-2.myfig figure > img {
-  object-fit: cover;
-  height: 250px;
-  max-width: 200%;
 }/* Vertical Spacing */.top-1{
   margin-top: 5px;
 }.bottom-1{
