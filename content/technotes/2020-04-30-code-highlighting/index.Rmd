@@ -85,7 +85,7 @@ you might agree with [Mara Averick's opinion](https://maraaverick.rbind.io/2017/
 
 Syntax highlighting means some elements of code blocks, like functions, operators, comments, etc. get styled differently: they could be colored or in italic.
 
-Now, how does the colours of the second block appear? 
+Now, how do the colours of the second block appear? 
 
 First of all, it's a code block with language information, 
 
