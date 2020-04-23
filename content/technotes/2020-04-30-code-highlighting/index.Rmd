@@ -298,7 +298,7 @@ nrow(df)
 There are also options related to line numbering.
 
 
-````
+````markdown
 ```r {hl_lines=[1,"4-5"],linenos=table,linenostart=3}
 library("dplyr")
 df %>%
