@@ -361,7 +361,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[1,4]}
+```r {hl_lines=[1,2]}
 a <- 1
 b <- 2
 c <- 3
@@ -397,5 +397,5 @@ Now, how much time to fiddle with code appearance is probably a question of tast
 [^strike]: [Support for striking text, with `~~blablabla~~` is also quite new in Hugo](https://gohugo.io/news/0.60.0-relnotes/), thanks to its new Markdown handler Goldmark!
 [^css]: Translating CSS classes from what highlight.js does to what Chroma needs was not easy for me, but I'm a CSS n00b.
 [^fences]: There is also a [highlight shortcode](https://gohugo.io/content-management/syntax-highlighting/#example-highlight-shortcode) which to me is less natural to use in R Markdown or in Markdown as someone used to Markdown.
-[^rss]: In this case colors are also hard-coded in RSS feeds which means the posts will look better in feed readers... and maybe even on R-Bloggers?
+[^rss]: In this case colors are also hard-coded in RSS feeds which means the posts will look better in feed readers.
 [^chunk]: I never remember how to show code chunks without their being evaluated so I always need to look at [the source](https://github.com/gadenbuie/garrickadenbuie-com/blob/897d8cde5387a8237eb641490e69cabab39129c1/content/blog/2018/2018-03-05-dry-vignette-and-readme.Rmd) of [Garrick Aden-Buie's blog post about Rmd fragments](https://www.garrickadenbuie.com/blog/dry-vignette-and-readme/).
