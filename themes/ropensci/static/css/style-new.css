@@ -251,6 +251,16 @@ q:before, q:after {
 }.last {
     -webkit-box-ordinal-group: 2;
             order: 1;
+}/* http://jsfiddle.net/venkateshwar/yLUnC/5/ */.wrapper {
+    overflow:auto;
+    margin-top: 15px;
+}.wrapper>*{
+    display: inline;
+}.wrapper>div:first-child{
+    display:block;
+}.floatLeft {
+    float: left; 
+    clear:both;
 }/* Vertical Spacing */.top-1{
   margin-top: 5px;
 }.bottom-1{

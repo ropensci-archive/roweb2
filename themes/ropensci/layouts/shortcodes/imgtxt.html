@@ -1,4 +1,6 @@
-<figure class="pull-left" style="margin-bottom: 0px;">
+
+<div class="wrapper">
+<figure class="floatLeft" style="margin-bottom: 0px;">
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end }}
@@ -6,7 +8,7 @@
          {{- if or (.Get "alt") (.Get "caption") }}
          alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
          {{- end -}}
-         style="height: 250px;max-width: 100%;"
+         style="  object-fit: cover; object-position: center;  height: 250px;  width: 250px; margin-right: 15px"
     /> <!-- Closing img tag -->
     {{- if .Get "link" }}</a>{{ end -}}
 </figure>
@@ -26,5 +28,4 @@
         </p>
     {{- end }}
 <p>{{ .Inner | markdownify }}</p>
-<div class="row">
 </div>
