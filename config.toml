@@ -74,4 +74,4 @@ rssLimit = 20
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "fruity"
+    style = "friendly"
