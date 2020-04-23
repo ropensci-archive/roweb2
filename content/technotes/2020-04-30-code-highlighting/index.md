@@ -169,8 +169,8 @@ pygmentsUseClasses=true
 
 which confusingly enough uses the name "Pygments", not Chroma, for historical reasons.
 You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).
-To generate a stylesheet for a given style, [use Hugo `hugo gen chromastyles --style=monokai > syntax.css` command](https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css). 
-You can then use the stylesheet as is, or tweak it.
+Click the button below! 
+It will also let you switch back to light mode.
 
 <!--html_preserve-->
 <button id="theme-toggle">Switch to dark mode</button>
@@ -198,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <!--/html_preserve-->
 
 
-
+To generate a stylesheet for a given style, [use Hugo `hugo gen chromastyles --style=monokai > syntax.css` command](https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css). 
+You can then use the stylesheet as is, or tweak it.
 
 How does Chroma know what parts of code is of the string class for instance?
 Once again, regular expressions help, in this case in what is called a lexer. 
@@ -361,7 +362,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[1,2]}
+```r {hl_lines=[1,3]}
 a <- 1
 b <- 2
 c <- 3
