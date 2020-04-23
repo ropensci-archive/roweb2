@@ -209,7 +209,7 @@ pygmentsUseClasses=true
 ```
 
 which confusingly enough uses the name "Pygments", not Chroma, for historical reasons.
-You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).
+You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).[^button]
 Click the button below! 
 It will also let you switch back to light mode.
 
@@ -435,6 +435,7 @@ For further reading on accessibility of R Markdown documents, we recommend ["Acc
 ### Conclusion
 
 In this post we've explained some concepts around code highlighting: both client-side and server-side syntax highlighting; and line highlighting with Chroma.
+We've even included a [button for switching to dark mode and back](#theme-toggle) as a proof-of-concept.
 Being able to properly decorate code might make your content more attractive to your readers, or motivate you to write more documentation, which is great.
 Now, how much time to fiddle with code appearance is probably a question of taste. 
 
@@ -444,3 +445,4 @@ Now, how much time to fiddle with code appearance is probably a question of tast
 [^fences]: There is also a [highlight shortcode](https://gohugo.io/content-management/syntax-highlighting/#example-highlight-shortcode) which to me is less natural to use in R Markdown or in Markdown as someone used to Markdown.
 [^rss]: In this case colors are also hard-coded in RSS feeds which means the posts will look better in feed readers.
 [^chunk]: I never remember how to show code chunks without their being evaluated so I always need to look at [the source](https://github.com/gadenbuie/garrickadenbuie-com/blob/897d8cde5387a8237eb641490e69cabab39129c1/content/blog/2018/2018-03-05-dry-vignette-and-readme.Rmd) of [Garrick Aden-Buie's blog post about Rmd fragments](https://www.garrickadenbuie.com/blog/dry-vignette-and-readme/).
+[^button]: With color not hard-coded in the html, but as classes, you could imagine folks developing browser extensions to override your highlighting style.
