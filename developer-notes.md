@@ -1,6 +1,6 @@
 ## Deployment
 
-The website is setup to automatically deploy as soon as a PR is merged. Each PR also generates a preview of the website with changes (see deployment preview in the PR) so that any problems can be fixed before hitting the merge button. Once merged, the website is rendered live within minutes.
+The website is setup to automatically deploy via Netlify as soon as a PR is merged. Each PR also generates a preview of the website with changes (see deployment preview in the PR) so that any problems can be fixed before hitting the merge button. Once merged, the website is rendered live within minutes.
 
 ## Key Files For Templating
 
