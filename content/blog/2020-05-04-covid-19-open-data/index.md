@@ -42,7 +42,6 @@ Biology
 
 * [rentrez][]/[phylotaR][]/[biomartr][]: very brief description of data size
 * [rgbif][]: very brief description of data size
-* [rebird][]/[auk][]: very brief description of data size
 * [taxize][]: very brief description of data size
 
 Social science
@@ -54,6 +53,9 @@ Climate/Spatial
 
 * [MODIStsp][]: very brief description of data size
 * [rnoaa][]: very brief description of data size
+
+Chemistry
+
 * [webchem][]: very brief description of data size
 
 Economics
