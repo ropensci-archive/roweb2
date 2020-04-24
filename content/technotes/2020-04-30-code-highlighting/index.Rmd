@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
         // if it's light -> go dark
         if(themeStylesheet.href.includes('friendly')){
-            themeStylesheet.href = '/css/vim.css';
+            themeStylesheet.href = '/css/fruity.css';
             themeToggle.innerText = 'Switch to light mode';
         } else {
             // if it's dark -> go light
@@ -273,7 +273,7 @@ With Chroma, you can [apply special options to code blocks defined with fences, 
 
 See how
 
-````
+````markdown
 ```r {hl_lines=[1,"4-5"]}
 library("dplyr")
 df %>%
@@ -426,7 +426,7 @@ For instance, comments could be darker than code, but their being too dark might
 This was the case on our website before, which we were able to assess [with an online tool](https://color.a11y.com/).
 
 Furthermore, when highlighting a line, its background will have a different color than normal code.
-This color also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea: in this post, for the dark mode, we used the "vim" Chroma style but with `#301934` as background color for the highlighted lines.
+This color also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea: in this post, for the dark mode, we used the "fruity" Chroma style but with `#301934` as background color for the highlighted lines.
 It would also be a bad idea to only rely on line highlighting, as opposed to commenting code blocks, since some readers might not be able to differentiate highlighted lines.
 Commenting code blocks is probably a good practice in general anyway, explaining what it does instead of just sharing the code like you'd share a gist.
 
