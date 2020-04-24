@@ -78,18 +78,17 @@ some text ... (max 1000 characters?)
 Questions? thought? data you want that you can't access in R easily?
 
 
-[biomartr]: https://github.com/ropensci/biomartr
-[rentrez]: https://github.com/ropensci/rentrez
-[phylotaR]: https://github.com/ropensci/phylotaR
-[rgbif]: https://github.com/ropensci/rgbif
-[rebird]: https://github.com/ropensci/rebird
-[auk]: https://github.com/ropensci/auk
-[internetarchive]: https://github.com/ropensci/internetarchive
-[MODIStsp]: https://github.com/ropensci/MODIStsp
-[rnoaa]: https://github.com/ropensci/rnoaa
-[rcrossref]: https://github.com/ropensci/rcrossref
-[webchem]: https://github.com/ropensci/webchem
-[taxize]: https://github.com/ropensci/taxize
-[skynet]: https://github.com/ropensci/skynet
-[essurvey]: https://github.com/ropensci/essurvey
-[comtradr]: https://github.com/ropensci/comtradr
+[biomartr]: https://docs.ropensci.org/biomartr
+[rentrez]: https://docs.ropensci.org/rentrez
+[phylotaR]: https://docs.ropensci.org/phylotaR
+[rgbif]: https://docs.ropensci.org/rgbif
+[rebird]: https://docs.ropensci.org/rebird
+[auk]: https://docs.ropensci.org/auk
+[MODIStsp]: https://docs.ropensci.org/MODIStsp
+[rnoaa]: https://docs.ropensci.org/rnoaa
+[rcrossref]: https://docs.ropensci.org/rcrossref
+[webchem]: https://docs.ropensci.org/webchem
+[taxize]: https://docs.ropensci.org/taxize
+[skynet]: https://docs.ropensci.org/skynet
+[essurvey]: https://docs.ropensci.org/essurvey
+[comtradr]: https://docs.ropensci.org/comtradr
