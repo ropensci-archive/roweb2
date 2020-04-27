@@ -168,7 +168,7 @@ pygmentsUseClasses=true
 ```
 
 which confusingly enough uses the name "Pygments", not Chroma, for historical reasons.
-You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).[^button]
+You'd use CSS like we do if none of [Chroma default styles](https://xyproto.github.io/splash/docs/all.html) suited you, if you wanted to make sure the style colors respect WCAG color contrast guidelines (see [last section](#accessibility)), or if you want to add a button switching the CSS applied to the classes, which we did for this note [using a dev.to post by Alberto Montalesi](https://dev.to/albertomontalesi/add-dark-mode-to-your-website-with-just-a-few-lines-of-code-5baf).[^button]
 Click the button below! 
 It will also let you switch back to light mode.
 
@@ -376,12 +376,21 @@ We used such an approach in the recent [blog post about Rclean](/blog/2020/04/21
 
 Since highlighting syntax and lines changes the color of things, it might make it harder for some people to read your content, so the choice color is a bit more than about cosmetics.
 
-_Disclaimer: I am not an accessibility expert_
+_Disclaimer: I am not an accessibility expert. Our efforts were focused on contrast only, not differences between say green and red, since these do not endanger legibility of code._
 
-For instance, comments could be darker than code, but their being too dark might make contrast between code and background too low!
-This was the case on our website before, which we were able to assess [with an online tool](https://color.a11y.com/).
+We referred to [the contrast criterion of the Web Content Accessibility Guidelines of the World Wide Web Consortium](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) that state _The intent of this Success Criterion is to provide enough contrast between text and its background so that it can be read by people with moderately low vision (who do not use contrast-enhancing assistive technology)._
 
-Furthermore, when highlighting a line, its background will have a different color than normal code.
+For instance, comments could be lighter or darker than code, but it is crucial to pay attention to the contrast between comments and code background!
+Like [Max Chadwick](https://maxchadwick.xyz/blog/syntax-highlighting-and-color-contrast-accessibility), we darkened colors of a default Chroma style, [friendly](https://xyproto.github.io/splash/docs/longer/friendly.html), until it passed on [an online tool](https://color.a11y.com/).
+Interestingly, this online tool can only work with a stylesheet: for a website with colors written in-line (Hugo default of `pygmentsUseClasses=false`), it won't pick up color contrast problems.
+We chose friendly as a basis because its background can stand out a bit against white, without being a dark theme, which might be bad on a mobile device in direct sunglight.
+Comments are moreover in italic which helps distinguish them from other code parts.
+
+
+Our approach is less good than [having an actual designer pick colors like what Codepen recently did](https://blog.codepen.io/2019/09/09/new-high-contrast-syntax-highlighting-themes/), but will do for now.
+Apart from [Max Chadwick efforts on 10 Pygments styles](https://github.com/mpchadwick/pygments-high-contrast-stylesheets), we only know of [Eric Bailey's a11y dark and light themes as highlighting themes that are advertised as accessible](https://github.com/ericwbailey/a11y-syntax-highlighting).
+
+A further aspect of contrast when using Chroma is that when highlighting a line, its background will have a different color than normal code.
 This color also needs to not endanger the contrast between code and code background, so if your code highlighting is "dark mode", yellow highlighting is probably a bad idea: in this post, for the dark mode, we used the "fruity" Chroma style but with `#301934` as background color for the highlighted lines.
 It would also be a bad idea to only rely on line highlighting, as opposed to commenting code blocks, since some readers might not be able to differentiate highlighted lines.
 Commenting code blocks is probably a good practice in general anyway, explaining what it does instead of just sharing the code like you'd share a gist.
