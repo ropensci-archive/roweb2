@@ -1,5 +1,5 @@
 ---
-title: A roundup of R tools for handling BibTeX
+title: A Roundup of R Tools for Handling BibTeX
 author:
   - Maëlle Salmon
 date: '2020-05-07'
@@ -8,6 +8,12 @@ categories: []
 tags:
   - citations
   - RMarkdown
+  - BibTeX
+  - RefManageR
+  - citr
+  - knitcitations
+  - bib2df
+  - handlr
 description: Some tips around the use of citations/references in R Markdown, in particular with RefManageR
 output:
   html_document:
@@ -19,14 +25,14 @@ output:
 Our website is based on Markdown content rendered with Hugo.
 Markdown content is in some cases knit from R Markdown, but with [less functionality than if one rendered R Markdown to html as in the blogdown default](https://bookdown.org/yihui/blogdown/output-format.html).
 In particular, we cannot use the usual BibTex + CSL + Pandoc-citeproc [dance](https://github.com/rstudio/distill/issues/45) to handle a bibliography.
-Thankfully, using the rOpenSci package RefManageR, we can still make our own bibliography building from a BibTeX file without formatting references by hand.
+Thankfully, using the rOpenSci package RefManageR, we can still make our own bibliography from a BibTeX file without formatting references by hand.
 In this post we shall present our custom workflow for inserting citations, as well as more mainstream tools.
 
 ### Usual citation workflow in Rmd
 
-To repeat information presented in [Nicholas Tierney's excellent online book "R Markdown for Scientists"](https://rmd4sci.njtierney.com/citing-articles-bibliography-styles.html), to get a bibliography one
+To repeat information presented in [Nicholas Tierney's excellent online book "R Markdown for Scientists"](https://rmd4sci.njtierney.com/citing-articles-bibliography-styles.html), to get a bibliography we have to perform several steps. We must...
 
-* references a bibliography style in the document YAML metadata, with entries such as the one below for R,
+* reference a bibliography style in the document YAML metadata, with entries such as the one below for R,
 
 ```bibtex
   @Manual{my-citation-key-for-r,
@@ -39,9 +45,9 @@ To repeat information presented in [Nicholas Tierney's excellent online book "R 
   }
 ```
 
-* inserts citations using their key, e.g. `@my-citation-key-for-r` for the entry above,
+* insert citations using their key, e.g. `@my-citation-key-for-r` for the entry above,
 
-* and optionally uses CSL to control the look of the references list; and a bookdown output format to have the bibliography placed somewhere else than the end.
+* and, optionally, use CSL to control the look of the references list; and a bookdown output format to have the bibliography placed somewhere else than the end.
 
 #### Handy R packages for references: citr and knitcitations
 
@@ -51,18 +57,18 @@ Some R tools out there simplify part of the workflow:
 
 * [knitcitations](https://github.com/cboettig/knitcitations) by [Carl Boettiger](/author/carl-boettiger) allows you to not only use the keys, but also DOIs and URLs to cite a paper. E.g. `citet("10.1098/rspb.2013.1372")` will create a citation to `@Boettiger_2013` after querying the web; and `write.bibtex(file = "references.bib")` will allow you to cache entries in a bibliography file.
 
-Both these packages imports [RefManageR](https://docs.ropensci.org/RefManageR/) by [Mathew W. McLean](http://mwmclean.github.io/), a package that _provides tools for importing and working with bibliographic references_, and that has been [peer-reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/119).
+Both these packages import [RefManageR](https://docs.ropensci.org/RefManageR/) by [Mathew W. McLean](http://mwmclean.github.io/), a package that _provides tools for importing and working with bibliographic references_, and that has been [peer-reviewed by rOpenSci](https://github.com/ropensci/software-review/issues/119).
 
 ### Citation workflow without Pandoc, with RefManageR
 
 Now, for generating Markdown content like this post source, one cannot use the tools presented earlier.
 In our blog guide, we explain that citations are footnotes [whose text is APA formatted](https://blogguide.ropensci.org/technical.html#addcitation) and we explain how to [find that citation text for a package or article](https://blogguide.ropensci.org/technical.html#how-to-find-citation-text-for-a-package-or-article).
 In most cases, authors are only citing a few references, so that is fine.
-However, sometimes authors would like to use an existing .bib file, that they might have e.g. exported from Zotero.
+However, sometimes authors would like to use an existing .bib file, that they might have e.g. exported from [Zotero](https://www.zotero.org/).
 
 Thankfully, using RefManageR, we can provide a workflow for adding citations from a bib file, by creating functions similar to knitcitations' functions.
 
-We are using the .bib file below,
+In the following examples, we'll use the .bib file below,
 
 ```bibtex
 @Manual{my-citation-key-for-r,
@@ -125,7 +131,7 @@ class(mybib)
 
 #### Create and use a cite function
 
-Then in another chunk, we'll create a function creating the citations in the format we need it to have it appear as a footnote: `[^key]`.
+Then in another R code chunk, we'll create a function which writes the citations in the format we want. Our citation format is a footnote: `[^key]`.
 
 ```r 
 cite <- function(key, bib = mybib) {
@@ -137,23 +143,32 @@ cite <- function(key, bib = mybib) {
 }
 ```
 
-From the three entries of the BibTeX file, let us cite two of them, what a nice package[^refmanager] built on top of R[^my-citation-key-for-r] (we wrote ` cite("refmanager")` and `cite("my-citation-key-for-r")` as inline code).
+From the three entries in the BibTeX file, let us cite two of them:
+
+```markdown
+what a nice package[^refmanager] built on top of R[^my-citation-key-for-r]
+```
+
+when rendered becomes:
+
+what a nice package[^refmanager] built on top of R[^my-citation-key-for-r].
+
 
 #### Print the references list
 
 Finally, for the bibliography to appear, we need to add a call to `RefManageR::PrintBibliography()`, after defining our own bibstyle. 
-We need each entry to appear in the Markdown file as
+This way, each entry will appear in the Markdown file as
 
 ```
 [^mykey]: <APA string>
 ```
 
-To get the first part right, we use the `fmtPrefix` of `tools::bibstyle()`.
-To get the second part right, after reading through some [R source code](https://github.com/wch/r-source/blob/28f8367a5514cc0d014cf2aa9e7ce909cd2050af/src/library/tools/R/bibstyle.R), we found how to correctly add DOI and URL when present.
-Note that in our case the order of appearance of entries within the references list in the Markdown file is not important at all, since Hugo Markdown handler, Goldmark, will reorder them based on order of appearance in the text.
+To get the first part (`[^mykey]`), we use the `fmtPrefix` of `tools::bibstyle()`.
+To get the second part (`<APA string>`), we read through some [R source code](https://github.com/wch/r-source/blob/28f8367a5514cc0d014cf2aa9e7ce909cd2050af/src/library/tools/R/bibstyle.R), in which we found how to create a function that correctly adds DOIs and URLs.
+Note that in our case the order of appearance of entries within the references list in the Markdown file is not important at all, since the Hugo Markdown handler, Goldmark, will reorder them based on order of appearance in the text.
 
-The chunk below was used at the very end of the R Markdown file producing this post.
-It came before the definition of another, not citation, footnote.[^footnote]
+To produce the bibliography, we combined everything together in an R code chunk. For example, the chunk below was used at the very end of the R Markdown file producing this post.
+It came before the definition of another, non-citation, footnote.[^footnote]
 
 ````markdown
 ```{r bib, echo = FALSE, results = "asis"} 
@@ -172,7 +187,7 @@ RefManageR::PrintBibliography(mybib, .opts = list(bib.style = "apa", sorting = "
 ```
 ````
 
-We run it below without the `results="asis"` option to show what the output looks like.
+This produces the following in markdown, which is then used by Hugo to produce the citations for this post.
 
 
 ```
@@ -189,16 +204,16 @@ Computing, Vienna, Austria. https://www.R-project.org/.
 
 To summarize our workflow
 
-* Instead of referencing the bibliography file in the Document metadata we create an object referring to it in a chunk by calling `RefManageR::ReadBib()`;
+* Instead of referencing the bibliography file in the Document metadata we create an object referring to it in an R code chunk by calling `RefManageR::ReadBib()`;
 
 * We use a custom-made `cite()` function using `RefManageR::NoCite()` to signal the use of the reference, and string manipulation to add it in the correct format;
 
-* We make the bibliography appear using `RefManageR::PrintBibliography` and `tools::bibstyle()` in a chunk with the `results="asis"` option, chunk that we put exactly where we want the bibliography to appear.
+* We make the bibliography appear using `RefManageR::PrintBibliography` and `tools::bibstyle()` in a chunk with the `results="asis"` option. We put that chunk exactly where we want the bibliography to appear.
 
 ### Do even more with BibTeX files
 
 The workflow presented earlier was a cool example of using RefManageR to use a BibTeX file.
-There are other two packages that are worth knowing about for more .bib gymnastics: bib2df and handlr.
+There are two other packages that are worth knowing about for more .bib gymnastics: bib2df and handlr.
 
 #### bib2df: from BibTeX to tibble
 
@@ -210,17 +225,6 @@ Let's try it on our .bib file.
 
 ```r 
 df <- bib2df::bib2df("refs.bib")
-```
-
-```
-Warning: `as_data_frame()` is deprecated as of tibble 2.0.0.
-Please use `as_tibble()` instead.
-The signature and semantics have changed, see `?as_tibble`.
-This warning is displayed once every 8 hours.
-Call `lifecycle::last_warnings()` to see where this warning was generated.
-```
-
-```r 
 df
 ```
 
@@ -341,7 +345,7 @@ df2$author
 [3] "Rich FitzJohn and Jeroen Ooms and Scott Chamberlain and {Stefan Milton Bache}"
 ```
 
-`bib2df` even supports separating name, using [`humaniformat`](https://github.com/ironholds/humaniformat/)
+`bib2df` even supports separating names, using [`humaniformat`](https://github.com/ironholds/humaniformat/)
 
 ```r 
 bib2df::bib2df("refs.bib", separate_names = TRUE)$AUTHOR
@@ -374,7 +378,7 @@ bib2df helps doing fun or serious analyses of reference databases.
 
 [handlr](https://docs.ropensci.org/handlr/) by [Scott Chamberlain](/author/scott-chamberlain) is less mature but not less useful.
 It's _a tool for converting among citation formats_, inspired by Ruby [bolognese library](https://github.com/datacite/bolognese).
-It defines an R6 class so it has all-in-one objects, but you could also use [individual functions reading and writing different formats](https://docs.ropensci.org/handlr/reference/index.html).
+It defines an R6 class so it has all-in-one objects, but you could also use [individual functions to read and write different formats](https://docs.ropensci.org/handlr/reference/index.html).
 
 ```r 
 citation <- handlr::HandlrClient$new(x = "refs.bib")

@@ -8,6 +8,12 @@ categories: []
 tags:
   - citations
   - RMarkdown
+  - BibTeX
+  - RefManageR
+  - citr
+  - knitcitations
+  - bib2df
+  - handlr
 description: Some tips around the use of citations/references in R Markdown, in particular with RefManageR
 output:
   html_document:
@@ -139,13 +145,13 @@ cite <- function(key, bib = mybib) {
 
 From the three entries in the BibTeX file, let us cite two of them:
 
-    ```
-    what a nice package`cite("refmanager")` built on top of R`cite("my-citation-key-for-r")`
-    ```
+```markdown
+what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`
+```
 
-    when rendered becomes:
+when rendered becomes:
 
-    what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`.
+what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`.
 
 
 #### Print the references list
