@@ -145,13 +145,11 @@ cite <- function(key, bib = mybib) {
 
 From the three entries in the BibTeX file, let us cite two of them:
 
-```markdown
-what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`
-```
+"what a nice package&#96;r cite("refmanager")&#96; built on top of R&#96;r cite("my-citation-key-for-r")&#96;"
 
-when rendered becomes:
+when rendered becomes: 
 
-what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`.
+"what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`".
 
 
 #### Print the references list
