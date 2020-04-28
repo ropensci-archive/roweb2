@@ -101,9 +101,9 @@ a back-seat to just writing code that will get the job "done" leading
 to issues with transparency and software that is highly unstable
 (i.e. buggy and not reproducible).
 
-The goal of the R package [Rclean](https://docs.ropensci.org/rclean)
+The goal of the R package [Rclean](https://docs.ropensci.org/Rclean)
 is to provide a automated tool to help scientists more easily write
-better code. Specifically, [Rclean](https://docs.ropensci.org/rclean)
+better code. Specifically, [Rclean](https://docs.ropensci.org/Rclean)
 has been designed to facilitate the isolation of the code needed to
 produce one or more results, because more often then not, when someone
 is writing an R script, the ultimate goal is analytical results for
@@ -117,7 +117,7 @@ processed. This commonly leads to lengthy, complicated scripts from
 which researchers manually subset results, but which are likely never
 to be refactored because of the difficulty in disentangling the code.
 
-The [Rclean](https://docs.ropensci.org/rclean) package uses a
+The [Rclean](https://docs.ropensci.org/Rclean) package uses a
 technique based on data provenance and network algorithms to isolate
 code for a desired result *automatically*. The intent is to ease
 refactoring for scientists that use R but do not have formal training
@@ -126,12 +126,12 @@ code, which in part is the development of an intuitive sense of how
 code is and/or should be organized. However, manually culling code is
 tedious and potentially leads to errors regardless of the level of
 expertise a coder might have; therefore, we see
-[Rclean](https://docs.ropensci.org/rclean) as a useful tool for
+[Rclean](https://docs.ropensci.org/Rclean) as a useful tool for
 programming in R at any level of ability. Here, we'll cover
 details on the implementation and design of the package, a general
 example of how it can be used and thoughts on its future development.
 
-### How to use rclean to write cleaner code
+### How to use Rclean to write cleaner code
 
 #### Installation
 
@@ -153,7 +153,7 @@ install_github("ROpenSci/Rclean")
 If you do not already have
 [RGraphviz](https://bioconductor.org/packages/release/bioc/html/Rgraphviz.html),
 you will need to install it using the following code *before*
-installing [Rclean](https://docs.ropensci.org/rclean):
+installing [Rclean](https://docs.ropensci.org/Rclean):
 
 ```{r rgraphviz, eval = FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -275,7 +275,7 @@ test. Manually tracing through our code for all the variables used in
 the test and finding all of the code used to prepare them
 for the analysis would be difficult, especially given the
 fact that we have used "x" as a prefix for multiple unrelated objects
-in the script. However, [Rclean](https://docs.ropensci.org/rclean) can
+in the script. However, [Rclean](https://docs.ropensci.org/Rclean) can
 do this easily via the `clean()` function.
 
 ```{r long}
@@ -287,7 +287,7 @@ clean(script, "fit_sqrt_A")
 
 ```
 
-The output is the code that [Rclean](https://docs.ropensci.org/rclean)
+The output is the code that [Rclean](https://docs.ropensci.org/Rclean)
 has picked out from the tangled bits of code, which in this case is an
 example script included with the package. Here's a view of this
 isolated code highlighted in the original script.
@@ -384,7 +384,7 @@ version control systems and digital notebooks, the practice of
 "saving" analytical ideas in a script will become less common and code
 quality will increase.
 
-The process that [Rclean](https://docs.ropensci.org/rclean) uses
+The process that [Rclean](https://docs.ropensci.org/Rclean) uses
 relies on the generation of data provenance.  The term provenance
 means information about the origins of some object. Data provenance is
 a [formal representation of the execution of a computational process](https://www.w3.org/TR/prov-dm/), to rigorously determine the the
@@ -394,7 +394,7 @@ sense to include all of the information generated during computation,
 not just the data that are collected in a research project that are
 used as input to an analysis. Having the formalized, mathematically
 rigorous representation that data provenance provides guarantees that
-analyses conducted by [Rclean](https://docs.ropensci.org/rclean) 
+analyses conducted by [Rclean](https://docs.ropensci.org/Rclean) 
 are theoretically sound. Most importantly, because the relationships
 defined by the provenance can be represented as a graph, it is
 possible to apply network search algorithms to determine the minimum
@@ -402,16 +402,16 @@ and sufficient code needed to generate the chosen result in the
 `clean()` function.
 
 There are multiple approaches to collecting data provenance, but
-[Rclean](https://docs.ropensci.org/rclean) uses "prospective"
+[Rclean](https://docs.ropensci.org/Rclean) uses "prospective"
 provenance, which analyzes code and uses language-specific information
 to predict the relationship among processes and data
-objects. [Rclean](https://docs.ropensci.org/rclean) relies on an
+objects. [Rclean](https://docs.ropensci.org/Rclean) relies on an
 R package called CodeDepends to gather the prospective provenance for
 each script. For more information on the mechanics of the CodeDepends
 package, see `r cite("R-CodeDepends")`. To get an idea of what data provenance
 is, we can use the `code_graph()` function to get a graphical representation
 of the prospective provenance generated for
-[Rclean](https://docs.ropensci.org/rclean).
+[Rclean](https://docs.ropensci.org/Rclean).
 
 ```{r load-script, echo = FALSE, results = "hide"}
 library(CodeDepends)
@@ -442,7 +442,7 @@ is what facilitates the robust isolation of the minimal code necessary
 to generate the output we want.
 
 One important topic to discuss is that
-[Rclean](https://docs.ropensci.org/rclean) *does not* keep comments
+[Rclean](https://docs.ropensci.org/Rclean) *does not* keep comments
 present in code. This is the result of a limitation of the data
 provenance collection, which currently does not assign them a
 relationship in the provenance network. This is a general issue with
@@ -456,7 +456,7 @@ script, the latter commonly being the case when code is removed from a
 script but comments referring to it have not. The inferred and
 explicit meanings of comments are a cultural and not linguistic.
 
-That being said, although [Rclean](https://docs.ropensci.org/rclean)
+That being said, although [Rclean](https://docs.ropensci.org/Rclean)
 cannot operate automatically on comments, comments in the original
 code remain untouched and can be used to inform the reduced
 code. Also, as the `clean()` function is oriented toward isolating
@@ -473,9 +473,9 @@ compensate for bad code."
 
 ### Concluding remarks and future work
 
-[Rclean](https://docs.ropensci.org/rclean) provides a simple, easy to
+[Rclean](https://docs.ropensci.org/Rclean) provides a simple, easy to
 use tool for scientists who would like help refactoring code. Using
-[Rclean](https://docs.ropensci.org/rclean), the code necessary to
+[Rclean](https://docs.ropensci.org/Rclean), the code necessary to
 produce a specified result (e.g., an object stored in memory or a
 table or figure written to disk) can be easily and *reliably* isolated
 even when tangled with code for other results. Tools, such as this,
@@ -484,17 +484,17 @@ important aid for improving scientific reproducibility
 `r cite("Pasquier2017")`.
 
 Although the current implementation of
-[Rclean](https://docs.ropensci.org/rclean) for minimizing code is
+[Rclean](https://docs.ropensci.org/Rclean) for minimizing code is
 useful on its own, we see promise in connecting it with other
 reproducibility tools. One example is the
 [reprex](https://reprex.tidyverse.org) package, which provides a simple
 API for sharing reproducible examples
-`r cite("R-reprex")`. [Rclean](https://docs.ropensci.org/rclean) could provide
+`r cite("R-reprex")`. [Rclean](https://docs.ropensci.org/Rclean) could provide
 a reliable way to extract parts of a larger script that would be piped
 to a simplified reproducible example. Another possibility is to help
 transition scripts to functions, packages and workflows refactoring
 via toolboxes like [drake](https://docs.ropensci.org/drake)
-`r cite("R-drake")`. Since [Rclean](https://docs.ropensci.org/rclean) can
+`r cite("R-drake")`. Since [Rclean](https://docs.ropensci.org/Rclean) can
 isolate the code from inputs to one or more outputs, it could be used
 to extract all of the components needed to write one or more functions
 that would be a part of a package or workflow, as is the goal of
@@ -521,7 +521,7 @@ for code cleaning in R (see http://end-to-end-provenance.github.io);
 however, there doesn't appear to be a tool that synthesizes these two
 approaches to provenance.
 
-We hope that [Rclean](https://docs.ropensci.org/rclean) makes writing
+We hope that [Rclean](https://docs.ropensci.org/Rclean) makes writing
 scientific software easier for the R community. The package has
 already been significantly improved via the [rOpenSci review
 process](https://github.com/ropensci/software-review/issues/327),
