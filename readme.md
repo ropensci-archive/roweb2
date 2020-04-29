@@ -29,3 +29,4 @@ The rOpenSci project is a fiscally sponsored project of [NumFOCUS](https://www.n
 ![](https://i.imgur.com/zlWonsc.png)
 
 ![](ccby.png) Contents of this website are licensed as CC-BY **unless otherwise noted**. All fonts are licensed for use on this domain and may require a separate license to use elsewhere.
+
