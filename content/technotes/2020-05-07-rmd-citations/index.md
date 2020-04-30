@@ -143,14 +143,21 @@ cite <- function(key, bib = mybib) {
 }
 ```
 
-From the three entries in the BibTeX file, let us cite two of them:
+From the three entries in the BibTeX file, let us cite two of them.
 
-"what a nice package&#96;r cite("refmanager")&#96; built on top of R&#96;r cite("my-citation-key-for-r")&#96;"
+In the Rmd file we write:
 
-when rendered becomes: 
+```markdown
+what a nice package`r cite("refmanager")` built on top of R`r cite("my-citation-key-for-r")`.
+```
 
-"what a nice package[^refmanager] built on top of R[^my-citation-key-for-r]".
+Which when knit, becomes this in the md file:
 
+```markdown
+what a nice package[^refmanager] built on top of R[^my-citation-key-for-r].
+```
+
+Which when rendered by Hugo, becomes this in the html file: what a nice package[^refmanager] built on top of R[^my-citation-key-for-r].
 
 #### Print the references list
 
