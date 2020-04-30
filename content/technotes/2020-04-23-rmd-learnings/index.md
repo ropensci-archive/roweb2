@@ -91,7 +91,7 @@ produces
 
 in the `.md` file which is what we wanted.
 
-Now, a bit later in our website journey, I had a quite similar question: Hugo has nice [highlighting options for code fences](https://gohugo.io/content-management/syntax-highlighting/#highlighting-in-code-fences). How to make R Markdown show R source code with such options? This time there was no need to ask anyone, searching the internet for the _name_ of the right knitr hook was enough: our `.Rmd` has to feature a [knitr source hook](https://bookdown.org/yihui/rmarkdown-cookbook/output-hooks.html). More on that highlighting chapter another time, but in the meantime refer to [our standard `.Rmd`](https://github.com/ropensci/roweb2/blob/master/archetypes/Rmd/index.md).
+Now, a bit later in our website journey, I had a quite similar question: Hugo has nice [highlighting options for code fences](https://gohugo.io/content-management/syntax-highlighting/#highlighting-in-code-fences). How to make R Markdown show R source code with such options? This time there was no need to ask anyone, searching the internet for the _name_ of the right knitr hook was enough: our `.Rmd` has to feature a [knitr source hook](https://bookdown.org/yihui/rmarkdown-cookbook/output-hooks.html). Read more on that highlighting chapter [in another tech note](/technotes/2020/04/30/code-highlighting/).
 
 Note that when writing a `.md` post instead of knitting an `.Rmd` file, authors can use Hugo syntax directly. And when adding figures in an `.Rmd` file that come from say a stock photos website rather than a code chunk, authors can also use Hugo syntax, granted they write the shortcode between `html_preserve` markers, see below the lines I used to add the crochet hook picture in the `.Rmd` producing this post.
 
