@@ -89,27 +89,16 @@ for (i in 1:nrow(packages)) {
     )
 }
 
-packages <- packages[, c("package", "what", "citations")]
-```
+names(packages)
+registry <- jsonlite::read_json("https://ropensci.github.io/roregistry/registry.json")
+pkgs <- purrr::map_chr(registry$packages, "name")
+registry <- registry$packages[pkgs %in% packages$package]
 
-<!--html_preserve-->
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#packages').DataTable();
-} );
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js" integrity="sha256-t5ZQTZsbQi8NxszC10CseKjJ5QeMw5NINtOXQrESGSU=" crossorigin="anonymous"></script>
-
-<!--/html_preserve-->
-
-```{r show, echo = FALSE}
-knitr::kable(
-  packages[1:2,], 
-  format = "html", 
-  escape = FALSE,
-  table.attr = "id=\"packages\""
-  )
-
+for (i in 1:length(registry)) {
+  registry[[i]]$citations <- packages$citations[packages$package == registry[[i]]$name]
+  
+    registry[[i]]$data_source <- packages$`data source`[packages$package == registry[[i]]$name]
+}
 
 ```
 
