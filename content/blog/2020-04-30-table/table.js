@@ -1,7 +1,12 @@
 function format ( d ) {
     var markdown = new showdown.Converter();
+    if (d.citations) {
     return markdown.makeHtml(d.details)+
-        d.citations;
+       'Scientific use cases' +
+        markdown.makeHtml(d.citations);
+    } else {
+    return markdown.makeHtml(d.details)
+    }
 }
  
 $(document).ready(function() {
@@ -19,7 +24,9 @@ $(document).ready(function() {
                 "defaultContent": ""
             },
             {
-                data: 'name',
+                "data" : function(row, type, set, meta){
+                return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
+},
                 title: "Package"
             },
             {
@@ -27,7 +34,13 @@ $(document).ready(function() {
                 title: "Description",
             },
             {
-                data: 'data_source',
+                data:  function(row, type, set, meta){
+                  if (row.link) {
+                     return '<a href="' + row.link + '">' + row.data_source + '</a>'; 
+                  } else {
+                    return row.data_source;
+                  }               
+},
                 title: "Data Source"
             },
             {
