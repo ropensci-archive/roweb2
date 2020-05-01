@@ -1,6 +1,6 @@
 function format ( d ) {
     var markdown = new showdown.Converter();
-    return markdown.makeHtml(d.details)+'<br>'+
+    return markdown.makeHtml(d.details)+
         d.citations;
 }
  

@@ -1279,6 +1279,10 @@ q:before, q:after {
   color: #1b6ada;
   border-radius: 20px;
   font-weight: 700;
+}table.dataTable td.details-control:before {
+   content: '\01F4D5';
+}table.dataTable tr.details td.details-control:before {
+  content: '\01F4D6';
 }/*  Code stuff */code {
     background: #f3f7ff;
 }code, pre {
