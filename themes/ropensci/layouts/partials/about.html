@@ -398,8 +398,8 @@
     <!-- /collaborators -->
     {{ partial "donate.html" . }}
     <!-- jQuery and jQuery UI loading for easing -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    {{ partial "jquery.html" }}
+    {{ partial "jquery-migrate.html" }}
     <script type="text/javascript" src="/js/slick.min.js"></script>
     <script type="text/javascript">
         $('.siema').slick({
