@@ -21,7 +21,8 @@ $(document).ready(function() {
                 "class":          "details-control",
                 "orderable":      false,
                 "data":           null,
-                "defaultContent": ""
+                "defaultContent": "",
+                title: "<small>Click for Details</small>"
             },
             {
                 "data" : function(row, type, set, meta){
