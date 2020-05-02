@@ -75,9 +75,28 @@ _for each thematic area:_
 
 some text ... (max 1000 characters?)
 
-## Feedback
+## This is where you come in
 
-Questions? thought? data you want that you can't access in R easily?
+We want graduate students, postdocs, and their advisors to see real life success stories where publications have come out of using open data (_as a chapter that's part of a lab or field research thesis? have to clearly frame the niche - what kinds of examples do we NOT want?_) 
+**Are you an academic - advisor or advisee** - who has used one or more of these data sources in your research?
+Comment on this post to share your story or add it to our [discussion forum use cases category][]. 
+
+**Need help?** (_need to say what kind of help here?_)
+Ask your question in our [discussion forum packages category][]. 
+If your question is about a specific package, add the package name as a tag. 
+(_need to clarify use of questions vs packages categories_)
+
+**What’s missing?** Is there an data source you need to access programmatically but there’s no R package to do that? 
+We want to build robust tools for things people actually need. Add your request to our wishlist. 
+(_need to have wishlist ready for this. Stef to follow up_)
+
+**Do you maintain one of these tools?** 
+Comment on this post to tell people more, point to tutorials or a blog post about it, or let them know where they can ask you questions.
+
+**Are you developing an R package to access an open data source** and you’d like people to know about it?
+Post to our [discussion forum packages category][].
+Consider submitting the package for [software peer review][].
+
 
 
 [biomartr]: https://docs.ropensci.org/biomartr
@@ -94,3 +113,6 @@ Questions? thought? data you want that you can't access in R easily?
 [skynet]: https://docs.ropensci.org/skynet
 [essurvey]: https://docs.ropensci.org/essurvey
 [comtradr]: https://docs.ropensci.org/comtradr
+[software peer review]: https://devguide.ropensci.org/
+[discussion forum packages category]: https://discuss.ropensci.org/c/packages/
+[discussion forum use cases category]:https://discuss.ropensci.org/c/usecases/
