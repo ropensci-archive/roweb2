@@ -1,12 +1,20 @@
 function format ( d ) {
     var markdown = new showdown.Converter();
+    
+    var src = "";
+    
+    src = src + markdown.makeHtml(d.details);
+    
+    if (d.onboarding){
+                  src = src + '<p><a target=\"_blank\" href="' + d.onboarding + '">Open Software Peer Review</a>.</p>';
+                } 
     if (d.citations) {
-    return markdown.makeHtml(d.details)+
+    src = src +
        'Scientific use cases' +
         markdown.makeHtml(d.citations);
-    } else {
-    return markdown.makeHtml(d.details)
-    }
+    } 
+    
+    return src
 }
  
 $(document).ready(function() {
