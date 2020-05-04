@@ -23,7 +23,13 @@ $(document).ready(function() {
         "ajax": {
             "url": "registry.json",
             "dataSrc": "packages"
-        },
+        }, // Disables ability to change results number per page
+                "language": {
+            "search": ' ', // Changes 'Search' label value
+            "searchPlaceholder": "Search by: name, maintainer, or keyword", // adds placeholder text to search field
+            "paginate": {
+                "previous": "Prev", //changes 'Previous' label value
+            }},
         "columns": [
             {
                 "class":          "details-control",
@@ -55,6 +61,14 @@ $(document).ready(function() {
             {
                 data: 'maintainer',
                 title: "Maintainer"
+            },
+            {
+                "data": function(row, type, set, meta){return row.keywords || ""},
+                "visible": false
+            },
+            {
+                "data": function(row, type, set, meta){return row.citations || ""},
+                "visible": false
             }
         ],
         "order": [[1, 'asc']]

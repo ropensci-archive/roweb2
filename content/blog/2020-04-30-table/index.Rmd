@@ -58,16 +58,6 @@ knitr::knit_hooks$set(
 ```
 
 
-### Table of resources
-
-The table below uses JS libraries including DataTable and jQuery.
-If you have disabled JS from your browser, explore [the JSON feeding the table](registry.json).
-For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
-
-You can expand rows by clicking on the book emoji :closed_book:.
-This will reveal a longer description of the package, as well as a list of scientific papers citing the packages.
-Click on the book emoji :book: again to collapse the row.
-
 ```{r table, echo=FALSE, message=FALSE}
 packages <- readr::read_csv2("data-repos.csv")
 packages <- dplyr::rename(packages, data_desc = description)
@@ -125,6 +115,18 @@ jsonlite::write_json(
   pretty = TRUE
   )
 ```
+
+### Table of `r length(registry)` packages
+
+The table below uses JS libraries including DataTable and jQuery.
+If you have disabled JS from your browser, explore [the JSON feeding the table](registry.json).
+For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
+
+You can expand rows by clicking on the book emoji :closed_book:.
+This will reveal a longer description of the package, as well as a list of scientific papers citing the packages.
+Click on the book emoji :book: again to collapse the row.
+
+There are `r length(registry)` packages in the table below.
 
 <!--html_preserve-->
 
