@@ -22,17 +22,17 @@ tags:
 description: "Covid-19 and Open Data from rOpenSci."
 # twitterImg: blog/2019/06/04/post-template/name-of-image.png
 ---
+The Covid-19 pandemic has changed all of our lives. For students in particular, field and lab observation may not be possible right now, making it impossible to collect the data you were planning to use for your thesis. However, if you have internet service, it may still be possible to conduct scientific research based on the massive amounts of open data that are available.
 
+Open data is becoming an important part of modern research. Many scientific fields have discovered the value of sharing data to better understand and reproduce results, build upon each other’s work, and get a higher return on investment for data collection efforts. Extensive tools and databases have become available to publish and retrieve all sorts of scientific data, which allow for performing additional analyses or combining data from multiple sources, leading to new insights or better results.
 
-Covid-19 has changed all of our lives. For researchers in particular, field and lab based research may not be possible, derailing lives and long-term research projects. However, if you still have internet service, you can conduct research with the massive amount of open data available.
+Learning about what open data is available in your field and how to take advantage of it can be a valuable research experience. It may not be the same as collecting your own data, but there are also benefits. Maybe you could access much more data than you would otherwise, allowing for advanced analysis methods to test a complex hypothesis. Or perhaps you get involved with colleagues from another institution who have provided the data, or are researching the same topic and are interested in your findings. But how do you get started? Where to look for data that may be interesting to your research? How to access it, and give proper credit?
 
-What it takes to do research using open data probably will not require new skills beyond what most researchers already know. Instead of using primary research data collected in the field or lab however, researchers can instead use open data as their starting point.
-
-some other text ...?
+### Open Data at rOpenSci
 
 rOpenSci packages make open data easy to incorporate into your reproducibile R workflow. What R packages do we have and how much and what data do they provide? We'll answer these questions below.
 
-## A lot of data
+### A lot of data
 
 <!-- Below we'll cover a variety of research areas (see _Thematic Areas_),  -->
 
@@ -63,7 +63,7 @@ Economics
 * [skynet][]: very brief description of data size
 
 
-## Thematic Areas
+### Thematic Areas
 
 We've invited some rOpenSci community members to summarize packages for accessing open data in each of a number of thematic areas. The thematic areas are: water, Antarctica, ecology, biodiversity, taxonomy, space and weather, and text-mining.
 
