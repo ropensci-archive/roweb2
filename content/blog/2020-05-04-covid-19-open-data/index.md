@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: Levaraging open data for research
+title: rOpenSci tools to access a world of open data for your research project
 author:
   - Maëlle Salmon
   - Stefanie Butland
@@ -22,15 +22,23 @@ tags:
 description: "Covid-19 and Open Data from rOpenSci."
 # twitterImg: blog/2019/06/04/post-template/name-of-image.png
 ---
-The Covid-19 pandemic has changed all of our lives. For students in particular, field and lab observation may not be possible right now, making it impossible to collect the data you were planning to use for your thesis. However, if you have internet service, it may still be possible to conduct scientific research based on the massive amounts of open data that are available.
 
-Open data is becoming an important part of modern research. Many scientific fields have discovered the value of sharing data to better understand and reproduce results, build upon each other’s work, and get a higher return on investment for data collection efforts. Extensive tools and databases have become available to publish and retrieve all sorts of scientific data, which allow for performing additional analyses or combining data from multiple sources, leading to new insights or better results.
+The Covid-19 pandemic has changed all of our lives. For many students, the lab or field research that they had planned for their dissertation may not be possible right now, stalling progress of their studies. However, if you have internet service, it may still be possible to conduct scientific research based on the massive amounts of open data that are available.
 
-Learning about what open data is available in your field and how to take advantage of it can be a valuable research experience. It may not be the same as collecting your own data, but there are also benefits. Maybe you could access much more data than you would otherwise, allowing for advanced analysis methods to test a complex hypothesis. Or perhaps you get involved with colleagues from another institution who have provided the data, or are researching the same topic and are interested in your findings. But how do you get started? Where to look for data that may be interesting to your research? How to access it, and give proper credit?
+In this post we highlight the possibilities of open data for academic research, and illustrate with a few rOpenSci packages that access open data from R. We hope specifically to inspire students and their advisers to consider exploring what open data has to offer in their field, and if it could be an option to continue making progress on their research during these uncertain times.
 
-### Open Data at rOpenSci
 
-rOpenSci packages make open data easy to incorporate into your reproducibile R workflow. What R packages do we have and how much and what data do they provide? We'll answer these questions below.
+### Exploring Open Data
+
+Open data is becoming an important part of modern research. Many scientific fields have discovered the value of sharing data to better understand and reproduce results, build upon each other’s work, and get a bigger return on investment for collecting the data. Extensive tools and databases have become available to publish all sorts of scientific data, allowing for additional analysis or combining data from multiple sources, which leads to new insights and more reliable results.
+
+Learning about the open data that is available in your field and how to take advantage of it can be a valuable research experience in itself. Sure it may not be the same as collecting your own data, but there are also major benefits to shared data: you can probably access much larger datasets than you would collect yourself, which allows for advanced analysis methods or test complex hypotheses. And perhaps you get end up connecting with colleagues from another institution who provide the data, or are working on the same topics and are interested in your findings.
+
+So maybe there are opportunities to take advantage of readily available open data for your disseratation topic. But how do you get started? Where to look for data that may be interesting to your research? What format is it stored in? Which tools are needed to retrieve and open the data? How to evaluate if the data is trustworth, and how to give proper credit?
+
+Perhaps you are the first in your research group to explore open data, and your adviser does not have the answer to these questions. But if you know a bit of R, rOpenSci is a good place to start. We have over 120 data-access packages for R, which are contributed by fellow researchers, and provide well tested tooling to access various kinds of public data repositories. Many of these packages are surrounded by a community of fellow users that may be able to answer your questions or at least point you in the right direction when you get stuck.
+
+
 
 ### A lot of data
 
