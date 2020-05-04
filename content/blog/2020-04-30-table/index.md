@@ -24,10 +24,16 @@ If you have disabled JS from your browser, explore [the JSON feeding the table](
 For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
 
 You can expand rows by clicking on the book emoji :closed_book:.
-This will reveal a longer description of the package, as well as a list of scientific papers citing the packages, with their DOI link presented via a link emoji :link:.
+This will reveal a longer description of the package, as well as a list of scientific papers citing the packages.
 Click on the book emoji :book: again to collapse the row.
 
 
+```
+Warning: 2 parsing failures.
+row         col           expected actual             file
+ 78 description delimiter or quote      S 'data-repos.csv'
+ 78 description delimiter or quote        'data-repos.csv'
+```
 
 <!--html_preserve-->
 

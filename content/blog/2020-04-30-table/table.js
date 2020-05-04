@@ -6,7 +6,7 @@ function format ( d ) {
     src = src + markdown.makeHtml(d.details);
     
     if (d.onboarding){
-                  src = src + '<p><a target=\"_blank\" href="' + d.onboarding + '">Open Software Peer Review</a>.</p>';
+                  src = src + '<p><a target=\"_blank\" href="' + d.onboarding + '">This package has passed open software peer review.</a>.</p>';
                 } 
     if (d.citations) {
     src = src +

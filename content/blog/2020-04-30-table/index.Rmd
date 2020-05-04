@@ -65,11 +65,14 @@ If you have disabled JS from your browser, explore [the JSON feeding the table](
 For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
 
 You can expand rows by clicking on the book emoji :closed_book:.
-This will reveal a longer description of the package, as well as a list of scientific papers citing the packages, with their DOI link presented via a link emoji :link:.
+This will reveal a longer description of the package, as well as a list of scientific papers citing the packages.
 Click on the book emoji :book: again to collapse the row.
 
 ```{r table, echo=FALSE, message=FALSE}
-packages <- readr::read_tsv("data-access-pkgs.tsv")
+packages <- readr::read_csv2("data-repos.csv")
+packages <- dplyr::rename(packages, data_desc = description)
+packages <- dplyr::rename(packages, package = name)
+packages <- dplyr::rename(packages, data_source = location)
 citations <- readr::read_tsv("citations_all.tsv")
 citations <- citations[!is.na(citations$doi),]
 citations$citation <- gsub("https://doi\\.org.*", "", citations$citation)
@@ -89,7 +92,7 @@ get_citations <- function(package, citations) {
   return(
     glue::glue_collapse(glue::glue_data(
       table,
-      '📃 {citation} <a href="https://doi.org/{doi}/">🔗</a>'), 
+      '📃 {citation} <a href="https://doi.org/{doi}" target="_blank">https://doi.org/{doi}</a>'), 
       sep = "<br>")
   )
 }
@@ -110,9 +113,7 @@ registry <- registry$packages[pkgs %in% packages$package]
 for (i in 1:length(registry)) {
   registry[[i]]$citations <- packages$citations[packages$package == registry[[i]]$name]
   
-    registry[[i]]$data_source <- packages$`data source`[packages$package == registry[[i]]$name]
-    
-   registry[[i]]$link <- packages$link[packages$package == registry[[i]]$name]  
+    registry[[i]]$data_source <- packages$data_source[packages$package == registry[[i]]$name]
     
   registry[[i]]$details <- gsub("\\\n","", registry[[i]]$details)
 }
