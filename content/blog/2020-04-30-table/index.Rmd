@@ -79,14 +79,13 @@ get_description <- function(list) {
 }
 
 get_data_source <- function(list) {
-  source <- linkify(
+  source <- 
       cran_unquote(
           trimws(
             toString(
               list$details$data_source
               )
     )
-  )
   )
   
   if (source == "NA"){
