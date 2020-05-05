@@ -18,14 +18,8 @@ output:
 
 
 
-```
-Warning: 2 parsing failures.
-row         col           expected actual             file
- 78 description delimiter or quote      S 'data-repos.csv'
- 78 description delimiter or quote        'data-repos.csv'
-```
 
-### Table of 118 packages
+### Table of 105 packages
 
 The table below uses JS libraries including DataTable and jQuery.
 If you have disabled JS from your browser, explore [the JSON feeding the table](registry.json).
@@ -35,7 +29,7 @@ You can expand rows by clicking on the book emoji :closed_book:.
 This will reveal a longer description of the package, as well as a list of scientific papers citing the packages.
 Click on the book emoji :book: again to collapse the row.
 
-There are 118 packages in the table below.
+There are 105 packages in the table below.
 
 <!--html_preserve-->
 

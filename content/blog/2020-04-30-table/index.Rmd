@@ -59,10 +59,52 @@ knitr::knit_hooks$set(
 
 
 ```{r table, echo=FALSE, message=FALSE}
-packages <- readr::read_csv2("data-repos.csv")
-packages <- dplyr::rename(packages, data_desc = description)
-packages <- dplyr::rename(packages, package = name)
-packages <- dplyr::rename(packages, data_source = location)
+
+cran_unquote <- function(string) {
+  gsub("\\'(.*?)\\'", "\\1", string)
+}
+
+get_name <- function(list) {
+  list$package[[1]]
+}
+
+get_description <- function(list) {
+  cran_unquote(
+    trimws(
+    toString(
+      list$details$description
+      )
+  )
+  )
+}
+
+get_data_source <- function(list) {
+  source <- linkify(
+      cran_unquote(
+          trimws(
+            toString(
+              list$details$data_source
+              )
+    )
+  )
+  )
+  
+  if (source == "NA"){
+    return("")
+  }
+  
+  return(source)
+}
+
+packages_json <- jsonlite::read_json("temp.json")
+
+packages <- tibble::tibble(
+  package = purrr::map_chr(packages_json, get_name),
+  data_desc = purrr::map_chr(packages_json, get_description),
+  data_source = purrr::map_chr(packages_json, get_data_source)
+  )
+
+
 citations <- readr::read_tsv("citations_all.tsv")
 citations <- citations[!is.na(citations$doi),]
 citations$citation <- gsub("https://doi\\.org.*", "", citations$citation)

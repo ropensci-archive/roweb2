@@ -53,7 +53,8 @@ $(document).ready(function() {
                   if (row.link) {
                      return '<a href="' + row.link + '">' + row.data_source + '</a>'; 
                   } else {
-                    return row.data_source;
+                      var markdown = new showdown.Converter({simplifiedAutoLink: true});
+                      return markdown.makeHtml(row.data_source);
                   }               
 },
                 title: "Data Source"

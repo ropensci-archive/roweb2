@@ -18,227 +18,6 @@
       "data_source": "http://ebird.org"
     },
     {
-      "name": "cricketdata",
-      "description": "International Cricket Data",
-      "details": "Data on all international cricket matches is provided by ESPNCricinfo.  This package provides some scraper functions to download the data  into tibbles ready for analysis. Some innings-level data sourced from Howzstat  is also included in the package.",
-      "maintainer": "Rob Hyndman",
-      "keywords": "cricket, cricket-data, ozunconf17, unconf",
-      "github": "https://github.com/ropenscilabs/cricketdata",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/cricketdata",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2019-01-26 05:52:10",
-      "citations": "",
-      "data_source": "ESPNCricinfo"
-    },
-    {
-      "name": "eechidna",
-      "description": "Exploring Election and Census Highly Informative Data Nationally for\n    Australia",
-      "details": "Data from the seven Australian Federal Elections (House of    Representatives) between 2001 and 2019, and from the four Australian    Censuses over the same period. Includes tools for visualizing and    analysing the data, as well as imputing Census data for years in    which a Census does not occur. This package incorporates    data that is copyright Commonwealth of Australia (Australian    Electoral Commission and Australian Bureau of Statistics) 2019.",
-      "maintainer": "Jeremy Forbes",
-      "keywords": "australia, auunconf, census-data, election, unconf",
-      "github": "https://github.com/ropenscilabs/eechidna",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": true,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/eechidna",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2020-04-19 07:36:19",
-      "citations": "",
-      "data_source": "Australian Electoral Commission and Australian Bureau of Statistics"
-    },
-    {
-      "name": "ghrecipes",
-      "description": "Provides some helper functions for using the GitHub V4 API",
-      "details": "Uses the ghql package and jqr to get some common data from Github V4 API.",
-      "maintainer": "Maëlle Salmon",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/ghrecipes",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/ghrecipes",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2020-04-13 12:25:12",
-      "citations": "",
-      "data_source": null
-    },
-    {
-      "name": "hoasts",
-      "description": "Host and Parasite Data Across Sources",
-      "details": "Host and Parasite Data Across Sources.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/hoasts",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/hoasts",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2018-01-28 18:04:18",
-      "citations": "",
-      "data_source": null
-    },
-    {
-      "name": "identifires",
-      "description": "'identifiers.org' API Client",
-      "details": "'identifiers.org' API (<https://identifiers.org/restws>) client.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "identifiers",
-      "github": "https://github.com/ropenscilabs/identifires",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/identifires",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2018-05-10 18:33:52",
-      "citations": "",
-      "data_source": "https://identifiers.org/"
-    },
-    {
-      "name": "laselva",
-      "description": "FIA Data",
-      "details": "Fetch FIA data list and datasets.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/laselva",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/laselva",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2018-01-28 18:04:43",
-      "citations": "",
-      "data_source": null
-    },
-    {
-      "name": "ozflights",
-      "description": "Get Australian Flight Data, 1985-2016",
-      "details": "A package to obtain Australian aviation data from BITRE.    This incudes airport traffic data between 1985-2016 covering international freight data,     and both international and domestic data on number of passengers, and flight movements -     for both regional and metropolitan airports.    The Package also includes distances of flight originating in or ending in Australia, and the    location of all relevant airports. ",
-      "maintainer": "Mathew Ling",
-      "keywords": "ozunconf17, unconf",
-      "github": "https://github.com/ropenscilabs/ozflights",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/ozflights",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2019-12-12 03:33:34",
-      "citations": "",
-      "data_source": "BITRE"
-    },
-    {
-      "name": "ridb",
-      "description": "Client for the Index Database of Remote Sensing Indices",
-      "details": "Index Database (<http://www.indexdatabase.de/>) of remote    sensing indices.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/ridb",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/ridb",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2016-12-08 20:19:48",
-      "citations": "",
-      "data_source": "http://www.indexdatabase.de"
-    },
-    {
-      "name": "riodata",
-      "description": "Get data related to transportation and cultural places from Rio de\n    Janeiro, Brazil.",
-      "details": "Get data related to transportation and cultural places from Rio de    Janeiro, Brazil.",
-      "maintainer": "Gabriela de Queiroz",
-      "keywords": "unconf, unconf16",
-      "github": "https://github.com/ropenscilabs/riodata",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/riodata",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2016-04-02 00:00:28",
-      "citations": "",
-      "data_source": null
-    },
-    {
-      "name": "rwdpa",
-      "description": "World Database of Protected Areas Client",
-      "details": "Client for the World Database of Protected Areas from    Protected Planet (<https://api.protectedplanet.net/>).    Fetching csv, kml, or shape files for protected areas,    and functions for interacting with their API.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "api-client, conservation, protected-areas",
-      "github": "https://github.com/ropenscilabs/rwdpa",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/rwdpa",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2017-11-22 16:22:18",
-      "citations": "",
-      "data_source": "https://api.protectedplanet.net"
-    },
-    {
-      "name": "spplist",
-      "description": "Get Species Lists from Many Data Sources",
-      "details": "Get species lists form many data sources, including any available via     the spocc and rgbif packages.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/spplist",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/spplist",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2018-01-28 18:08:03",
-      "citations": "",
-      "data_source": "spocc and rgbif packages, and more"
-    },
-    {
-      "name": "spplit",
-      "description": "Combine Literature and Species Occurrence Data",
-      "details": "Combine literature and species occurrence data. Literature    data sources include the Biodiversity Heritage Library, and species    occurrence data sources include the Global Biodiversity Information    Facility (GBIF; <https://www.gbif.org/>) and the Integrated Digitized    Biocollections (iDigBio; <https://www.idigbio.org/>). More data    sources to come.",
-      "maintainer": "Scott Chamberlain",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/spplit",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/spplit",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2020-02-03 23:47:22",
-      "citations": "",
-      "data_source": "Biodiversity Heritage Library, Global Biodiversity Information Facility (GBIF,"
-    },
-    {
-      "name": "tRainspotting",
-      "description": "Public transport vehicle locations",
-      "details": "Retrieves vehicle locations from gtfs-realtime feeds",
-      "maintainer": "Richard Beare",
-      "keywords": "",
-      "github": "https://github.com/ropenscilabs/tRainspotting",
-      "status": "concept",
-      "onboarding": "",
-      "on_cran": false,
-      "on_bioc": false,
-      "url": "https://github.com/ropenscilabs/tRainspotting",
-      "ropensci_category": "data-access",
-      "date_last_commit": "2019-12-05 12:08:43",
-      "citations": "",
-      "data_source": "Open Data New South Wales, Australia"
-    },
-    {
       "name": "antanym",
       "description": "Antarctic Geographic Place Names",
       "details": "Antarctic geographic names from the Composite Gazetteer of Antarctica, and functions for working with those place names.",
@@ -304,7 +83,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-04-12 21:49:22",
       "citations": "📃 Drost, H.-G., Gabel, A., Liu, J., Quint, M., & Grosse, I. (2017). myTAI: evolutionary transcriptomics with R. Bioinformatics. <a href=\"https://doi.org/10.1093/bioinformatics/btx835\" target=\"_blank\">https://doi.org/10.1093/bioinformatics/btx835<\/a><br>📃 Gogleva, A., Drost, H.-G., & Schornack, S. (2018). SecretSanta: flexible pipelines for functional secretome prediction. Bioinformatics. <a href=\"https://doi.org/10.1093/bioinformatics/bty088\" target=\"_blank\">https://doi.org/10.1093/bioinformatics/bty088<\/a><br>📃 Ng, P. K.-S., Li, J., Jeong, K. J., Shao, S., Chen, H., Tsang, Y. H., … Mills, G. B. (2018). Systematic Functional Annotation of Somatic Mutations in Cancer. Cancer Cell, 33(3), 450–462.e10. <a href=\"https://doi.org/10.1016/j.ccell.2018.01.021\" target=\"_blank\">https://doi.org/10.1016/j.ccell.2018.01.021<\/a><br>📃 Schwalie, P. C., Dong, H., Zachara, M., Russeil, J., Alpern, D., Akchiche, N., … Deplancke, B. (2018). A stromal cell population that inhibits adipogenesis in mammalian fat depots. Nature. <a href=\"https://doi.org/10.1038/s41586-018-0226-8\" target=\"_blank\">https://doi.org/10.1038/s41586-018-0226-8<\/a><br>📃 Wegrzyn, J. L., Falk, T., Grau, E., Buehler, S., Ramnath, R., & Herndon, N. (2019). Cyberinfrastructure and resources to enable an integrative approach to studying forest trees. Evolutionary Applications. <a href=\"https://doi.org/10.1111/eva.12860\" target=\"_blank\">https://doi.org/10.1111/eva.12860<\/a><br>📃 Karakülah, G., Arslan, N., Yandım, C., & Suner, A. (2019). TEffectR: an R package for studying the potential effects of transposable elements on gene expression with linear regression model. PeerJ, 7, e8192. <a href=\"https://doi.org/10.7717/peerj.8192\" target=\"_blank\">https://doi.org/10.7717/peerj.8192<\/a><br>📃 Noecker, C., Chiu, H. C., McNally, C. P., & Borenstein, E. (2019). Defining and evaluating microbial contributions to metabolite variation in microbiome-metabolome association studies. mSystems, 4(6). <a href=\"https://doi.org/10.1128/mSystems.00579-19\" target=\"_blank\">https://doi.org/10.1128/mSystems.00579-19<\/a><br>📃 Kim, J., Yoon, S., & Nam, D. (2020). netGO: R-Shiny package for network-integrated pathway enrichment analysis. Bioinformatics. <a href=\"https://doi.org/10.1093/bioinformatics/btaa077\" target=\"_blank\">https://doi.org/10.1093/bioinformatics/btaa077<\/a>",
-      "data_source": "'NCBI RefSeq', 'NCBI Genbank', 'ENSEMBL', and 'UniProt' databases, plus"
+      "data_source": "NCBI RefSeq, NCBI Genbank, ENSEMBL, and UniProt databases, plus"
     },
     {
       "name": "bittrex",
@@ -355,7 +134,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 12:14:36",
       "citations": "📃 Mayor, J. R., Sanders, N. J., Classen, A. T., Bardgett, R. D., Clément, J.-C., Fajardo, A., et al. (2017). Elevation alters ecosystem properties across temperate treelines globally. Nature, 542(7639), 91–95. <a href=\"https://doi.org/10.1038/nature21027\" target=\"_blank\">https://doi.org/10.1038/nature21027<\/a><br>📃 Giroldo, A. B., Scariot, A., & Hoffmann, W. A. (2017). Trait shifts associated with the subshrub life-history strategy in a tropical savanna. Oecologia. <a href=\"https://doi.org/10.1007/s00442-017-3930-4\" target=\"_blank\">https://doi.org/10.1007/s00442-017-3930-4<\/a><br>📃 Van de Peer, T., Mereu, S., Verheyen, K., María Costa Saura, J., Morillas, L., Roales, J., … Muys, B. (2018). Tree seedling vitality improves with functional diversity in a Mediterranean common garden experiment. Forest Ecology and Management, 409, 614–633. <a href=\"https://doi.org/10.1016/j.foreco.2017.12.001\" target=\"_blank\">https://doi.org/10.1016/j.foreco.2017.12.001<\/a><br>📃 Bemmels, J. B., Wright, S. J., Garwood, N. C., Queenborough, S. A., Valencia, R., & Dick, C. W. (2018). Filter-dispersal assembly of lowland Neotropical rainforests across the Andes. Ecography. <a href=\"https://doi.org/10.1111/ecog.03473\" target=\"_blank\">https://doi.org/10.1111/ecog.03473<\/a><br>📃 Gastauer, M., Caldeira, C. F., Trotter, I., Ramos, S. J., & Neto, J. A. A. M. (2018). Optimizing community trees using the open tree of life increases the reliability of phylogenetic diversity and dispersion indices. Ecological Informatics. <a href=\"https://doi.org/10.1016/j.ecoinf.2018.06.008\" target=\"_blank\">https://doi.org/10.1016/j.ecoinf.2018.06.008<\/a><br>📃 Albert, S., Flores, O., Rouget, M., Wilding, N., & Strasberg, D. (2018). Why are woody plants fleshy-fruited at low elevations? Evidence from a high-elevation oceanic island. Journal of Vegetation Science. <a href=\"https://doi.org/10.1111/jvs.12676\" target=\"_blank\">https://doi.org/10.1111/jvs.12676<\/a><br>📃 Gill, B. A., Musili, P. M., Kurukura, S., Hassan, A. A., Goheen, J. R., Kress, W. J., … Kartzinel, T. R. (2019). Plant DNA-barcode library and community phylogeny for a semi-arid East African savanna. Molecular Ecology Resources. <a href=\"https://doi.org/10.1111/1755-0998.13001\" target=\"_blank\">https://doi.org/10.1111/1755-0998.13001<\/a><br>📃 Redmond, M. D., Morris, T. L., & Cramer, M. C. (2019). The cost of standing tall: wood nutrients associated with tree invasions in nutrient‐poor fynbos soils of South Africa. Ecosphere, 10(9). <a href=\"https://doi.org/10.1002/ecs2.2831\" target=\"_blank\">https://doi.org/10.1002/ecs2.2831<\/a><br>📃 Vidal, M. C., Quinn, T. W., Stireman, J. O., Tinghitella, R. M., & Murphy, S. M. (2019). Geography is more important than host plant use for the population genetic structure of a generalist insect herbivore. Molecular Ecology. <a href=\"https://doi.org/10.1111/mec.15218\" target=\"_blank\">https://doi.org/10.1111/mec.15218<\/a><br>📃 Bohner, T., & Diez, J. (2019). Extensive mismatches between species distributions and performance and their relationship to functional traits. Ecology Letters. <a href=\"https://doi.org/10.1111/ele.13396\" target=\"_blank\">https://doi.org/10.1111/ele.13396<\/a><br>📃 Roddy, A. B., Théroux-Rancourt, G., Abbo, T., Benedetti, J. W., Brodersen, C. R., Castro, M., … Simonin, K. A. (2019). The Scaling of Genome Size and Cell Size Limits Maximum Rates of Photosynthesis with Implications for Ecological Strategies. International Journal of Plant Sciences. <a href=\"https://doi.org/10.1086/706186\" target=\"_blank\">https://doi.org/10.1086/706186<\/a><br>📃 Herrera, C. M. (2020). Flower traits, habitat, and phylogeny as predictors of pollinator service: a plant community perspective. Ecological Monographs. <a href=\"https://doi.org/10.1002/ecm.1402\" target=\"_blank\">https://doi.org/10.1002/ecm.1402<\/a><br>📃 Théroux-Rancourt, G., Roddy, A. B., Earles, J. M., Gilbert, M. E., Zwieniecki, M. A., Boyce, C. K., … Brodersen, C. R. (2020). Maximum CO2 diffusion inside leaves is limited by the scaling of cell size and genome size. <a href=\"https://doi.org/10.1101/2020.01.16.904458\" target=\"_blank\">https://doi.org/10.1101/2020.01.16.904458<\/a><br>📃 Larson, J. E., Anacker, B. L., Wanous, S., & Funk, J. L. (2020). Ecological strategies begin at germination: Traits, plasticity and survival in the first 4 days of plant life. Functional Ecology. <a href=\"https://doi.org/10.1111/1365-2435.13543\" target=\"_blank\">https://doi.org/10.1111/1365-2435.13543<\/a>",
-      "data_source": "'Phylomatic' http://phylodiversity.net/phylomatic, and 'Phylocom'"
+      "data_source": "Phylomatic http://phylodiversity.net/phylomatic, and Phylocom"
     },
     {
       "name": "camsRad",
@@ -389,7 +168,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 12:18:13",
       "citations": "",
-      "data_source": "Models ('GCM') data."
+      "data_source": "Models (GCM) data."
     },
     {
       "name": "chromer",
@@ -457,7 +236,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-04-04 08:17:42",
       "citations": "📃 Ahmed, M., Nguyen, H., Lai, T., & Kim, D. R. (2018). miRCancerdb: a database for correlation analysis between microRNA and gene expression in cancer. BMC Research Notes, 11(1). <a href=\"https://doi.org/10.1186/s13104-018-3160-9\" target=\"_blank\">https://doi.org/10.1186/s13104-018-3160-9<\/a>",
-      "data_source": "Cistrome Cancer Liu et al. (2011) <doi:10.1186/gb-2011-12-8-r83> and"
+      "data_source": "Cistrome Cancer Liu et al. (2011) &lt;<a href='https://doi.org/10.1186/gb-2011-12-8-r83'>doi:10.1186/gb-2011-12-8-r83<\/a>&gt; and"
     },
     {
       "name": "dappr",
@@ -508,7 +287,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 20:57:57",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "ecoengine",
@@ -610,7 +389,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 13:10:08",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "getCRUCLdata",
@@ -661,7 +440,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-04-18 07:53:45",
       "citations": "📃 H Sparks, A., Hengl, T., & Nelson, A. (2017). GSODR: Global Summary Daily Weather Data in R. The Journal of Open Source Software, 2(10). <a href=\"https://doi.org/10.21105/joss.00177\" target=\"_blank\">https://doi.org/10.21105/joss.00177<\/a>",
-      "data_source": "Centers for Environmental Information ('NCEI')."
+      "data_source": "Centers for Environmental Information (NCEI)."
     },
     {
       "name": "gtfsr",
@@ -678,7 +457,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-05 19:13:15",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "gutenbergr",
@@ -712,7 +491,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 13:20:26",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "hddtools",
@@ -797,7 +576,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 13:22:27",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "isdparser",
@@ -848,7 +627,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-06 08:56:28",
       "citations": "📃 Busetto, L., & Ranghetti, L. (2016). MODIStsp : An  R  package for automatic preprocessing of MODIS Land Products time series. Computers & Geosciences, 97, 40–48. <a href=\"https://doi.org/10.1016/j.cageo.2016.08.020\" target=\"_blank\">https://doi.org/10.1016/j.cageo.2016.08.020<\/a><br>📃 Bellón, B., Bégué, A., Lo Seen, D., de Almeida, C., & Simões, M. (2017). A Remote Sensing Approach for Regional-Scale Mapping of Agricultural Land-Use Systems Based on NDVI Time Series. Remote Sensing, 9(6), 600. <a href=\"https://doi.org/10.3390/rs9060600\" target=\"_blank\">https://doi.org/10.3390/rs9060600<\/a><br>📃 Hurtado, L. A., Calzada, J. E., Rigg, C. A., Castillo, M., & Chaves, L. F. (2018). Climatic fluctuations and malaria transmission dynamics, prior to elimination, in Guna Yala, República de Panamá. Malaria Journal, 17(1). <a href=\"https://doi.org/10.1186/s12936-018-2235-3\" target=\"_blank\">https://doi.org/10.1186/s12936-018-2235-3<\/a><br>📃 Ranghetti, L., Cardarelli, E., Boschetti, M., Busetto, L., & Fasola, M. (2018). Assessment of Water Management Changes in the Italian Rice Paddies from 2000 to 2016 Using Satellite Data: A Contribution to Agro-Ecological Studies. Remote Sensing, 10(3), 416. <a href=\"https://doi.org/10.3390/rs10030416\" target=\"_blank\">https://doi.org/10.3390/rs10030416<\/a><br>📃 Bellón, B., Bégué, A., Lo Seen, D., Lebourgeois, V., Evangelista, B. A., Simões, M., & Demonte Ferraz, R. P. (2018). Improved regional-scale Brazilian cropping systems’ mapping based on a semi-automatic object-based clustering approach. International Journal of Applied Earth Observation and Geoinformation, 68, 127–138. <a href=\"https://doi.org/10.1016/j.jag.2018.01.019\" target=\"_blank\">https://doi.org/10.1016/j.jag.2018.01.019<\/a><br>📃 Manfron, G., Delmotte, S., Busetto, L., Hossard, L., Ranghetti, L., Brivio, P. A., & Boschetti, M. (2017). Estimating inter-annual variability in winter wheat sowing dates from satellite time series in Camargue, France. International Journal of Applied Earth Observation and Geoinformation, 57, 190–201. <a href=\"https://doi.org/10.1016/j.jag.2017.01.001\" target=\"_blank\">https://doi.org/10.1016/j.jag.2017.01.001<\/a><br>📃 Araya, S., Ostendorf, B., Lyle, G., & Lewis, M. (2018). CropPhenology: An R package for extracting crop phenology from time series remotely sensed vegetation index imagery. Ecological Informatics, 46, 45–56. <a href=\"https://doi.org/10.1016/j.ecoinf.2018.05.006\" target=\"_blank\">https://doi.org/10.1016/j.ecoinf.2018.05.006<\/a><br>📃 Adisa, O., Botai, J., Hassen, A., Darkey, D., Adeola, A., Tesfamariam, E., … Adisa, A. (2018). Variability of Satellite Derived Phenological Parameters across Maize Producing Areas of South Africa. Sustainability, 10(9), 3033. <a href=\"https://doi.org/10.3390/su10093033\" target=\"_blank\">https://doi.org/10.3390/su10093033<\/a><br>📃 Granell, C., Miralles, I., Rodríguez-Pupo, L., González-Pérez, A., Casteleyn, S., Busetto, L., … Huerta, J. (2017). Conceptual Architecture and Service-Oriented Implementation of a Regional Geoportal for Rice Monitoring. ISPRS International Journal of Geo-Information, 6(7), 191. <a href=\"https://doi.org/10.3390/ijgi6070191\" target=\"_blank\">https://doi.org/10.3390/ijgi6070191<\/a><br>📃 Boschetti, M., Busetto, L., Manfron, G., Laborte, A., Asilo, S., Pazhanivelan, S., & Nelson, A. (2017). PhenoRice: A method for automatic extraction of spatio-temporal information on rice crops using satellite data time series. Remote Sensing of Environment, 194, 347–365. <a href=\"https://doi.org/10.1016/j.rse.2017.03.029\" target=\"_blank\">https://doi.org/10.1016/j.rse.2017.03.029<\/a><br>📃 Nutini, F., Stroppiana, D., Busetto, L., Bellingeri, D., Corbari, C., Mancini, M., … Boschetti, M. (2017). A Weekly Indicator of Surface Moisture Status from Satellite Data for Operational Monitoring of Crop Conditions. Sensors, 17(6), 1338. <a href=\"https://doi.org/10.3390/s17061338\" target=\"_blank\">https://doi.org/10.3390/s17061338<\/a><br>📃 Moura, M. M., dos Santos, A. R., Pezzopane, J. E. M., Alexandre, R. S., da Silva, S. F., Pimentel, S. M., … de Carvalho, J. R. (2019). Relation of El Niño and La Niña phenomena to precipitation, evapotranspiration and temperature in the Amazon basin. Science of The Total Environment, 651, 1639–1651. <a href=\"https://doi.org/10.1016/j.scitotenv.2018.09.242\" target=\"_blank\">https://doi.org/10.1016/j.scitotenv.2018.09.242<\/a><br>📃 Hurtado, L., Rigg, C., Calzada, J., Dutary, S., Bernal, D., Koo, S., & Chaves, L. (2018). Population Dynamics of Anopheles albimanus (Diptera: Culicidae) at Ipetí-Guna, a Village in a Region Targeted for Malaria Elimination in Panamá. Insects, 9(4), 164. <a href=\"https://doi.org/10.3390/insects9040164\" target=\"_blank\">https://doi.org/10.3390/insects9040164<\/a><br>📃 Sodnomov, B. V., Ayurzhanaev, A. A., Tsydypov, B. Z., Garmaev, E. Z., & Tulokhonov, A. K. (2018). Software for analysis of vegetation indices dynamics. IOP Conference Series: Earth and Environmental Science, 211, 012083. <a href=\"https://doi.org/10.1088/1755-1315/211/1/012083\" target=\"_blank\">https://doi.org/10.1088/1755-1315/211/1/012083<\/a><br>📃 Marcos, B., Gonçalves, J., Alcaraz-Segura, D., Cunha, M., & Honrado, J. P. (2019). Improving the detection of wildfire disturbances in space and time based on indicators extracted from MODIS data: a case study in northern Portugal. International Journal of Applied Earth Observation and Geoinformation, 78, 77–85. <a href=\"https://doi.org/10.1016/j.jag.2018.12.003\" target=\"_blank\">https://doi.org/10.1016/j.jag.2018.12.003<\/a><br>📃 Rigg, C. A., Hurtado, L. A., Calzada, J. E., & Chaves, L. F. (2019). Malaria infection rates in Anopheles albimanus (Diptera: Culicidae) at Ipetí-Guna, a village within a region targeted for malaria elimination in Panamá. Infection, Genetics and Evolution, 69, 216–223. <a href=\"https://doi.org/10.1016/j.meegid.2019.02.003\" target=\"_blank\">https://doi.org/10.1016/j.meegid.2019.02.003<\/a><br>📃 Nghiem, J., Potter, C., & Baiman, R. (2019). Detection of Vegetation Cover Change in Renewable Energy Development Zones of Southern California Using MODIS NDVI Time Series Analysis, 2000 to 2018. Environments, 6(4), 40. <a href=\"https://doi.org/10.3390/environments6040040\" target=\"_blank\">https://doi.org/10.3390/environments6040040<\/a><br>📃 Marcos, B., Gonçalves, J., Alcaraz-Segura, D., Cunha, M., & Honrado, J. P. (2019). Improving the detection of wildfire disturbances in space and time based on indicators extracted from MODIS data: a case study in northern Portugal. International Journal of Applied Earth Observation and Geoinformation, 78, 77-85. <a href=\"https://doi.org/10.1016/j.jag.2018.12.003\" target=\"_blank\">https://doi.org/10.1016/j.jag.2018.12.003<\/a><br>📃 Bhattarai, N., Mallick, K., Stuart, J., Vishwakarma, B. D., Niraula, R., Sen, S., & Jain, M. (2019). An automated multi-model evapotranspiration mapping framework using remotely sensed and reanalysis data. Remote Sensing of Environment, 229, 69–92. <a href=\"https://doi.org/10.1016/j.rse.2019.04.026\" target=\"_blank\">https://doi.org/10.1016/j.rse.2019.04.026<\/a><br>📃 Adeola, A. M., Botai, J. O., Mukarugwiza Olwoch, J., DeW. Rautenbach, H. C. J., Adisa, O. M., De Jager, C., … Aaron, M. (2019). Predicting malaria cases using remotely sensed environmental variables in Nkomazi, South Africa. Geospatial Health, 14(1). <a href=\"https://doi.org/10.4081/gh.2019.676\" target=\"_blank\">https://doi.org/10.4081/gh.2019.676<\/a><br>📃 Nelli, L., Ferguson, H. M., & Matthiopoulos, J. (2019). Achieving explanatory depth and spatial breadth in infectious disease modelling: Integrating active and passive case surveillance. Statistical Methods in Medical Research, 096228021985638. <a href=\"https://doi.org/10.1177/0962280219856380\" target=\"_blank\">https://doi.org/10.1177/0962280219856380<\/a><br>📃 Pilogallo, A., Saganeiti, L., Scorza, F., & Murgante, B. (2019). Investigating Urban Growth Dynamic – Land Surface Temperature Relationship. Lecture Notes in Computer Science, 701–710. <a href=\"https://doi.org/10.1007/978-3-030-24302-9_51\" target=\"_blank\">https://doi.org/10.1007/978-3-030-24302-9_51<\/a><br>📃 Verstraeten, W. W., Dujardin, S., Hoebeke, L., Bruffaerts, N., Kouznetsov, R., Dendoncker, N., … Delcloo, A. W. (2019). Spatio-temporal monitoring and modelling of birch pollen levels in Belgium. Aerobiologia. <a href=\"https://doi.org/10.1007/s10453-019-09607-w\" target=\"_blank\">https://doi.org/10.1007/s10453-019-09607-w<\/a><br>📃 Yoo, B. H., Kim, K. S., & Lee, J. (2019). MODIS 대기자료를 활용한 남북한 기상관측소에서의 냉방도일 추정. 한국농림기상학회지, 21(2), 97–109. <a href=\"https://doi.org/10.5532/KJAFM.2019.21.2.97\" target=\"_blank\">https://doi.org/10.5532/KJAFM.2019.21.2.97<\/a><br>📃 Mpandeli, S., Nhamo, L., Moeletsi, M., Masupha, T., Magidi, J., Tshikolomo, K., … Mabhaudhi, T. (2019). Assessing climate change and adaptive capacity at local scale using observed and remotely sensed data. Weather and Climate Extremes, 26, 100240. <a href=\"https://doi.org/10.1016/j.wace.2019.100240\" target=\"_blank\">https://doi.org/10.1016/j.wace.2019.100240<\/a><br>📃 Badreldin, N., Abu Hatab, A., & Lagerkvist, C.-J. (2019). Spatiotemporal dynamics of urbanization and cropland in the Nile Delta of Egypt using machine learning and satellite big data: implications for sustainable development. Environmental Monitoring and Assessment, 191(12). <a href=\"https://doi.org/10.1007/s10661-019-7934-x\" target=\"_blank\">https://doi.org/10.1007/s10661-019-7934-x<\/a><br>📃 Estrada-Peña, A., Nava, S., Tarragona, E., Bermúdez, S., de la Fuente, J., Domingos, A., … Guglielmone, A. A. (2019). Species occurrence of ticks in South America, and interactions with biotic and abiotic traits. Scientific Data, 6(1). <a href=\"https://doi.org/10.1038/s41597-019-0314-0\" target=\"_blank\">https://doi.org/10.1038/s41597-019-0314-0<\/a><br>📃 Fatikhunnada, A., Liyantono, Solahudin, M., Buono, A., Kato, T., & Seminar, K. B. (2020). Assessment of pre-treatment and classification methods for Java paddy field cropping pattern detection on MODIS images. Remote Sensing Applications: Society and Environment, 17, 100281. <a href=\"https://doi.org/10.1016/j.rsase.2019.100281\" target=\"_blank\">https://doi.org/10.1016/j.rsase.2019.100281<\/a><br>📃 Akpoti, K., Kabo-bah, A. T., Dossou-Yovo, E. R., Groen, T. A., & Zwart, S. J. (2020). Mapping suitability for rice production in inland valley landscapes in Benin and Togo using environmental niche modeling. Science of The Total Environment, 709, 136165. <a href=\"https://doi.org/10.1016/j.scitotenv.2019.136165\" target=\"_blank\">https://doi.org/10.1016/j.scitotenv.2019.136165<\/a>",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "musemeta",
@@ -967,7 +746,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2015-04-02 20:04:16",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "originr",
@@ -984,7 +763,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 13:41:53",
       "citations": "",
-      "data_source": "Encyclopedia of Life (<http://eol.org>), Flora 'Europaea'"
+      "data_source": "Encyclopedia of Life (&lt;<a href='http://eol.org'>http://eol.org<\/a>&gt;), Flora Europaea"
     },
     {
       "name": "osmdata",
@@ -1018,7 +797,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 13:44:44",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "paleobioDB",
@@ -1103,7 +882,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-01-10 22:18:00",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "qualtRics",
@@ -1171,7 +950,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-01-29 01:27:02",
       "citations": "📃 Jaspers, S., De Troyer, E., & Aerts, M. (2018). Machine learning techniques for the automation of literature reviews and systematic reviews in EFSA. EFSA Supporting Publications, 15(6), 1427E. <a href=\"https://doi.org/10.2903/sp.efsa.2018.EN-1427\" target=\"_blank\">https://doi.org/10.2903/sp.efsa.2018.EN-1427<\/a>",
-      "data_source": "'biodiversity' studies"
+      "data_source": "biodiversity studies"
     },
     {
       "name": "rbison",
@@ -1341,7 +1120,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-04-09 14:18:09",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "rentrez",
@@ -1426,7 +1205,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 21:25:44",
       "citations": "📃 Drozd, P., & Šipoš, J. (2013). R for all (I): Introduction to the new age of biological analyses. Casopis Slezskeho Zemskeho Muzea (A), 62(1). <a href=\"https://doi.org/10.2478/cszma-2013-0004\" target=\"_blank\">https://doi.org/10.2478/cszma-2013-0004<\/a>",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "rflybase",
@@ -1511,7 +1290,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 18:55:15",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "riem",
@@ -1596,7 +1375,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-04-07 15:02:34",
       "citations": "📃 Bowman, D. C., & Lees, J. M. (2015). Near real time weather and ocean model data access with rNOMADS. Computers & Geosciences, 78, 88–95. <a href=\"https://doi.org/10.1016/j.cageo.2015.02.013\" target=\"_blank\">https://doi.org/10.1016/j.cageo.2015.02.013<\/a><br>📃 Grosser, S., Scofield, R. P., & Waters, J. M. (2017). Multivariate skeletal analyses support a taxonomic distinction between New Zealand and Australian Eudyptula penguins (Sphenisciformes: Spheniscidae). Emu - Austral Ornithology, 117(3), 276–283. <a href=\"https://doi.org/10.1080/01584197.2017.1315310\" target=\"_blank\">https://doi.org/10.1080/01584197.2017.1315310<\/a><br>📃 Zhu, G., Matthews, C., Wei, P., Lorch, M., & Chakravarty, S. (2018). En Route Flight Time Prediction Under Convective Weather Events. 2018 Aviation Technology, Integration, and Operations Conference. <a href=\"https://doi.org/10.2514/6.2018-3670\" target=\"_blank\">https://doi.org/10.2514/6.2018-3670<\/a><br>📃 Fitzpatrick, M. C., & Dunn, R. R. (2019). Contemporary climatic analogs for 540 North American urban areas in the late 21st century. Nature Communications, 10(1). <a href=\"https://doi.org/10.1038/s41467-019-08540-3\" target=\"_blank\">https://doi.org/10.1038/s41467-019-08540-3<\/a><br>📃 Blakey, R. V., Webb, E. B., Kesler, D. C., Siegel, R. B., Corcoran, D., & Johnson, M. (2019). Bats in a changing landscape: Linking occupancy and traits of a diverse montane bat community to fire regime. Ecology and Evolution. <a href=\"https://doi.org/10.1002/ece3.5121\" target=\"_blank\">https://doi.org/10.1002/ece3.5121<\/a><br>📃 Pinsky, M. L., Eikeset, A. M., McCauley, D. J., Payne, J. L., & Sunday, J. M. (2019). Greater vulnerability to warming of marine versus terrestrial ectotherms. Nature, 569(7754), 108–111. <a href=\"https://doi.org/10.1038/s41586-019-1132-4\" target=\"_blank\">https://doi.org/10.1038/s41586-019-1132-4<\/a><br>📃 Dumitrescu, A., Cheval, S., & Guijarro, J. A. (2019). Homogenization of a combined hourly air temperature dataset over Romania. International Journal of Climatology. <a href=\"https://doi.org/10.1002/joc.6353\" target=\"_blank\">https://doi.org/10.1002/joc.6353<\/a><br>📃 Zhong, B. H. W., Wiersma, J. J., Sheaffer, C. C., Steffenson, B. J., & Smith, K. P. (2019). Assessment of Winter Barley in Minnesota: Relationships among Cultivar, Fall Seeding Date, Winter Survival, and Grain Yield. Cftm, 5(1), 0. <a href=\"https://doi.org/10.2134/cftm2019.07.0055\" target=\"_blank\">https://doi.org/10.2134/cftm2019.07.0055<\/a><br>📃 Kearney, M. R., Gillingham, P. K., Bramer, I., Duffy, J. P., & Maclean, I. M. D. (2019). A method for computing hourly, historical, terrain‐corrected microclimate anywhere on earth. Methods in Ecology and Evolution. <a href=\"https://doi.org/10.1111/2041-210x.13330\" target=\"_blank\">https://doi.org/10.1111/2041-210x.13330<\/a>",
-      "data_source": "severe weather, historical observing 'Metadata', and storm and tornade data."
+      "data_source": "severe weather, historical observing Metadata, and storm and tornade data."
     },
     {
       "name": "rnpn",
@@ -1647,7 +1426,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-04-20 18:39:16",
       "citations": "📃 Michonneau, F., Brown, J. W., & Winter, D. J. (2016). rotl: an R package to interact with the Open Tree of Life data. Methods in Ecology and Evolution. <a href=\"https://doi.org/10.1111/2041-210x.12593\" target=\"_blank\">https://doi.org/10.1111/2041-210x.12593<\/a><br>📃 Killen, S. S., Norin, T., & Halsey, L. G. (2016). Do method and species lifestyle affect measures of maximum metabolic rate in fishes? Journal of Fish Biology. <a href=\"https://doi.org/10.1111/jfb.13195\" target=\"_blank\">https://doi.org/10.1111/jfb.13195<\/a><br>📃 Estrada-Peña, A., & de la Fuente, J. (2016). Species interactions in occurrence data for a community of tick-transmitted pathogens. Scientific Data, 3, 160056. <a href=\"https://doi.org/10.1038/sdata.2016.56\" target=\"_blank\">https://doi.org/10.1038/sdata.2016.56<\/a><br>📃 Matthews, A. E., Klimov, P. B., Proctor, H. C., Dowling, A. P. G., Diener, L., Hager, S. B., … Boves, T. J. (2017). Cophylogenetic assessment of New World warblers (Parulidae) and their symbiotic feather mites (Proctophyllodidae). Journal of Avian Biology. <a href=\"https://doi.org/10.1111/jav.01580\" target=\"_blank\">https://doi.org/10.1111/jav.01580<\/a><br>📃 Santorelli, S., Magnusson, W. E., & Deus, C. P. (2018). Most species are not limited by an Amazonian river postulated to be a border between endemism areas. Scientific Reports, 8(1). <a href=\"https://doi.org/10.1038/s41598-018-20596-7\" target=\"_blank\">https://doi.org/10.1038/s41598-018-20596-7<\/a><br>📃 Farquharson, K. A., Hogg, C. J., & Grueber, C. E. (2018). A meta-analysis of birth-origin effects on reproduction in diverse captive environments. Nature Communications, 9(1). <a href=\"https://doi.org/10.1038/s41467-018-03500-9\" target=\"_blank\">https://doi.org/10.1038/s41467-018-03500-9<\/a><br>📃 Portugal, S. J., & White, C. R. (2018). Miniaturisation of biologgers is not alleviating the 5% rule. Methods in Ecology and Evolution. <a href=\"https://doi.org/10.1111/2041-210x.13013\" target=\"_blank\">https://doi.org/10.1111/2041-210x.13013<\/a><br>📃 Barneche, D. R., Robertson, D. R., White, C. R., & Marshall, D. J. (2018). Fish reproductive-energy output increases disproportionately with body size. Science, 360(6389), 642–645. <a href=\"https://doi.org/10.1126/science.aao6868\" target=\"_blank\">https://doi.org/10.1126/science.aao6868<\/a><br>📃 Morais, R. A., & Bellwood, D. R. (2018). Global drivers of reef fish growth. Fish and Fisheries. <a href=\"https://doi.org/10.1111/faf.12297\" target=\"_blank\">https://doi.org/10.1111/faf.12297<\/a><br>📃 Gastauer, M., Caldeira, C. F., Trotter, I., Ramos, S. J., & Neto, J. A. A. M. (2018). Optimizing community trees using the open tree of life increases the reliability of phylogenetic diversity and dispersion indices. Ecological Informatics. <a href=\"https://doi.org/10.1016/j.ecoinf.2018.06.008\" target=\"_blank\">https://doi.org/10.1016/j.ecoinf.2018.06.008<\/a><br>📃 Paseka, R. E., & Grunberg, R. L. (2018). Allometric and trait-based patterns in parasite stoichiometry. Oikos. <a href=\"https://doi.org/10.1111/oik.05339\" target=\"_blank\">https://doi.org/10.1111/oik.05339<\/a><br>📃 Barneche, D. R., Burgess, S. C., & Marshall, D. J. (2018). Global environmental drivers of marine fish egg size. Global Ecology and Biogeography, 27(8), 890–898. <a href=\"https://doi.org/10.1111/geb.12748\" target=\"_blank\">https://doi.org/10.1111/geb.12748<\/a><br>📃 Merkling, T., Nakagawa, S., Lagisz, M., & Schwanz, L. E. (2017). Maternal Testosterone and Offspring Sex-Ratio in Birds and Mammals: A Meta-Analysis. Evolutionary Biology, 45(1), 96–104. <a href=\"https://doi.org/10.1007/s11692-017-9432-9\" target=\"_blank\">https://doi.org/10.1007/s11692-017-9432-9<\/a><br>📃 Becker, D., Czirják, G., Rynda-Apple, A., & Plowright, R. (2018). Handling stress and sample storage are associated with weaker complement-mediated bactericidal ability in birds but not bats. Physiological and Biochemical Zoology. <a href=\"https://doi.org/10.1086/701069\" target=\"_blank\">https://doi.org/10.1086/701069<\/a><br>📃 O’Dea, R. E., Lagisz, M., Hendry, A. P., & Nakagawa, S. (2018). Developmental temperature affects phenotypic means and variability: a meta-analysis of fish data. <a href=\"https://doi.org/10.32942/osf.io/ge7f8\" target=\"_blank\">https://doi.org/10.32942/osf.io/ge7f8<\/a><br>📃 Tresch, S., Frey, D., Le Bayon, R.-C., Zanetta, A., Rasche, F., Fliessbach, A., & Moretti, M. (2018). Litter decomposition driven by soil fauna, plant diversity and soil management in urban gardens. Science of The Total Environment. <a href=\"https://doi.org/10.1016/j.scitotenv.2018.12.235\" target=\"_blank\">https://doi.org/10.1016/j.scitotenv.2018.12.235<\/a><br>📃 Mathot, K. J., Dingemanse, N. J., & Nakagawa, S. (2018). The covariance between metabolic rate and behaviour varies across behaviours and thermal types: meta-analytic insights. Biological Reviews. <a href=\"https://doi.org/10.1111/brv.12491\" target=\"_blank\">https://doi.org/10.1111/brv.12491<\/a><br>📃 Pettersen, A. K., White, C. R., Bryson-Richardson, R. J., & Marshall, D. J. (2019). Linking life-history theory and metabolic theory explains the offspring size-temperature relationship. Ecology Letters. <a href=\"https://doi.org/10.1111/ele.13213\" target=\"_blank\">https://doi.org/10.1111/ele.13213<\/a><br>📃 Halsey, L. G., & White, C. R. (2019). Terrestrial locomotion energy costs vary considerably between species: no evidence that this is explained by rate of leg force production or ecology. Scientific Reports, 9(1). <a href=\"https://doi.org/10.1038/s41598-018-36565-z\" target=\"_blank\">https://doi.org/10.1038/s41598-018-36565-z<\/a><br>📃 Ohmer, M. E. B., Cramp, R. L., White, C. R., Harlow, P. S., McFadden, M. S., Merino-Viteri, A., … Franklin, C. E. (2019). Phylogenetic investigation of skin sloughing rates in frogs: relationships with skin characteristics and disease-driven declines. Proceedings of the Royal Society B: Biological Sciences, 286(1896), 20182378. <a href=\"https://doi.org/10.1098/rspb.2018.2378\" target=\"_blank\">https://doi.org/10.1098/rspb.2018.2378<\/a><br>📃 Shefferson, R. P., Bunch, W., Cowden, C. C., Lee, Y., Kartzinel, T. R., Yukawa, T., … Jiang, H. (2019). Does evolutionary history determine specificity in broad ecological interactions? Journal of Ecology. <a href=\"https://doi.org/10.1111/1365-2745.13170\" target=\"_blank\">https://doi.org/10.1111/1365-2745.13170<\/a><br>📃 Pinto, N. S., Palaoro, A. V., & Peixoto, P. E. C. (2019). All by myself? Meta‐analysis of animal contests shows stronger support for self than for mutual assessment models. Biological Reviews. <a href=\"https://doi.org/10.1111/brv.12509\" target=\"_blank\">https://doi.org/10.1111/brv.12509<\/a><br>📃 Kovacevic, A., Latombe, G., & Chown, S. L. (2019). Rate dynamics of ectotherm responses to thermal stress. Proceedings of the Royal Society B: Biological Sciences, 286(1902), 20190174. <a href=\"https://doi.org/10.1098/rspb.2019.0174\" target=\"_blank\">https://doi.org/10.1098/rspb.2019.0174<\/a><br>📃 Mihalitsis, M., & Bellwood, D. R. (2019). Morphological and functional diversity of piscivorous fishes on coral reefs. Coral Reefs. <a href=\"https://doi.org/10.1007/s00338-019-01820-w\" target=\"_blank\">https://doi.org/10.1007/s00338-019-01820-w<\/a><br>📃 Tetzlaff, S. J., Sperry, J. H., & DeGregorio, B. A. (2019). Effects of antipredator training, environmental enrichment, and soft release on wildlife translocations: A review and meta-analysis. Biological Conservation, 236, 324–331. <a href=\"https://doi.org/10.1016/j.biocon.2019.05.054\" target=\"_blank\">https://doi.org/10.1016/j.biocon.2019.05.054<\/a><br>📃 McTavish, E. J. (2019). Linking Biodiversity Data Using Evolutionary History. Biodiversity Information Science and Standards, 3. <a href=\"https://doi.org/10.3897/biss.3.36207\" target=\"_blank\">https://doi.org/10.3897/biss.3.36207<\/a><br>📃 Kravchuk, O. I., Lyupina, Y. V., Erokhov, P. A., Finoshin, A. D., Adameyko, K. I., Mishyna, M. Y., … Mikhailov, V. S. (2019). Characterization of the 20S proteasome of the lepidopteran, Spodoptera frugiperda. Biochimica et Biophysica Acta (BBA) - Proteins and Proteomics. <a href=\"https://doi.org/10.1016/j.bbapap.2019.06.010\" target=\"_blank\">https://doi.org/10.1016/j.bbapap.2019.06.010<\/a><br>📃 Peters, A., Delhey, K., Nakagawa, S., Aulsebrook, A., & Verhulst, S. (2019). Immunosenescence in wild animals: meta‐analysis and outlook. Ecology Letters. <a href=\"https://doi.org/10.1111/ele.13343\" target=\"_blank\">https://doi.org/10.1111/ele.13343<\/a><br>📃 Park, A. W. (2019). Food web structure selects for parasite host range. Proceedings of the Royal Society B: Biological Sciences, 286(1908), 20191277. <a href=\"https://doi.org/10.1098/rspb.2019.1277\" target=\"_blank\">https://doi.org/10.1098/rspb.2019.1277<\/a><br>📃 Mihalitsis, M., & Bellwood, D. (2019). Functional implications of dentition-based morphotypes in piscivorous fishes. Royal Society Open Science, 6(9), 190040. <a href=\"https://doi.org/10.1098/rsos.190040\" target=\"_blank\">https://doi.org/10.1098/rsos.190040<\/a><br>📃 Sánchez-Tójar, A., Moran, N. P., O’Dea, R. E., Reinhold, K., & Nakagawa, S. (2019). Illustrating the importance of meta-analysing variances alongside means in ecology and evolution. <a href=\"https://doi.org/10.32942/osf.io/yhfvk\" target=\"_blank\">https://doi.org/10.32942/osf.io/yhfvk<\/a><br>📃 Li, X., Zhu, H., Geisen, S., Bellard, C., Hu, F., Li, H., … Liu, M. (2019). Agriculture erases climate constraints on soil nematode communities across large spatial scales. Global Change Biology. <a href=\"https://doi.org/10.1111/gcb.14821\" target=\"_blank\">https://doi.org/10.1111/gcb.14821<\/a><br>📃 Maherali, H. (2019). Mutualism as a plant functional trait: linking variation in the mycorrhizal symbiosis to climatic tolerance, geographic range and population dynamics. International Journal of Plant Sciences. <a href=\"https://doi.org/10.1086/706187\" target=\"_blank\">https://doi.org/10.1086/706187<\/a><br>📃 Defolie, C., Merkling, T., & Fichtel, C. (2019). Patterns and variation in the mammal parasite–glucorticoid relationship. Biological Reviews. <a href=\"https://doi.org/10.1111/brv.12555\" target=\"_blank\">https://doi.org/10.1111/brv.12555<\/a><br>📃 Estrada-Peña, A., Nava, S., Tarragona, E., Bermúdez, S., de la Fuente, J., Domingos, A., … Guglielmone, A. A. (2019). Species occurrence of ticks in South America, and interactions with biotic and abiotic traits. Scientific Data, 6(1). <a href=\"https://doi.org/10.1038/s41597-019-0314-0\" target=\"_blank\">https://doi.org/10.1038/s41597-019-0314-0<\/a><br>📃 Godfrey, J. M., Riggio, J., Orozco, J., Guzmán‐Delgado, P., Chin, A. R. O., & Zwieniecki, M. A. (2020). Ray fractions and carbohydrate dynamics of tree species along a 2750 m elevation gradient indicate climate response, not spatial storage limitation. New Phytologist, 225(6), 2314–2330. <a href=\"https://doi.org/10.1111/nph.16361\" target=\"_blank\">https://doi.org/10.1111/nph.16361<\/a><br>📃 Clark, T. J., & Luis, A. D. (2019). Nonlinear population dynamics are ubiquitous in animals. Nature Ecology & Evolution, 4(1), 75–81. <a href=\"https://doi.org/10.1038/s41559-019-1052-6\" target=\"_blank\">https://doi.org/10.1038/s41559-019-1052-6<\/a><br>📃 Shan, S., Soltis, P. S., Soltis, D. E., & Yang, B. (2020). Considerations in adapting CRISPR/Cas9 in nongenetic model plant systems. Applications in Plant Sciences, 8(1). <a href=\"https://doi.org/10.1002/aps3.11314\" target=\"_blank\">https://doi.org/10.1002/aps3.11314<\/a><br>📃 Horne, C. R., Hirst, A. G., & Atkinson, D. (2020). Selection for increased male size predicts variation in sexual size dimorphism among fish species. Proceedings of the Royal Society B: Biological Sciences, 287(1918), 20192640. <a href=\"https://doi.org/10.1098/rspb.2019.2640\" target=\"_blank\">https://doi.org/10.1098/rspb.2019.2640<\/a><br>📃 Walczyńska, A., Gudowska, A., & Sobczyk, Ł. (2020). Should I shrink or should I flow? – body size adjustment to thermo-oxygenic niche. <a href=\"https://doi.org/10.1101/2020.01.14.905901\" target=\"_blank\">https://doi.org/10.1101/2020.01.14.905901<\/a><br>📃 Gomez Isaza, D. F., Cramp, R. L., & Franklin, C. E. (2020). Living in polluted waters: A meta-analysis of the effects of nitrate and interactions with other environmental stressors on freshwater taxa. Environmental Pollution, 114091. <a href=\"https://doi.org/10.1016/j.envpol.2020.114091\" target=\"_blank\">https://doi.org/10.1016/j.envpol.2020.114091<\/a><br>📃 Finoshin, A. D., Adameyko, K. I., Mikhailov, K. V., Kravchuk, O. I., Georgiev, A. A., Gornostaev, N. G., … Lyupina, Y. V. (2020). Iron metabolic pathways in the processes of sponge plasticity. PLOS ONE, 15(2), e0228722. <a href=\"https://doi.org/10.1371/journal.pone.0228722\" target=\"_blank\">https://doi.org/10.1371/journal.pone.0228722<\/a><br>📃 Jhwueng, D.-C., & O’Meara, B. C. (2020). On the Matrix Condition of Phylogenetic Tree. Evolutionary Bioinformatics, 16, 117693432090172. <a href=\"https://doi.org/10.1177/1176934320901721\" target=\"_blank\">https://doi.org/10.1177/1176934320901721<\/a><br>📃 Perez‐Lamarque, B., Selosse, M., Öpik, M., Morlon, H., & Martos, F. (2020). Cheating in arbuscular mycorrhizal mutualism: a network and phylogenetic analysis of mycoheterotrophy. New Phytologist. <a href=\"https://doi.org/10.1111/nph.16474\" target=\"_blank\">https://doi.org/10.1111/nph.16474<\/a><br>📃 Marshall, D. J., Pettersen, A. K., Bode, M., & White, C. R. (2020). Developmental cost theory predicts thermal environment and vulnerability to global warming. Nature Ecology & Evolution, 4(3), 406–411. <a href=\"https://doi.org/10.1038/s41559-020-1114-9\" target=\"_blank\">https://doi.org/10.1038/s41559-020-1114-9<\/a><br>📃 Wei, N., Kaczorowski, R. L., Arceo-Gómez, G., O’Neill, E. M., Hayes, R. A., & Ashman, T.-L. (2020). Pollinator niche partitioning and asymmetric facilitation contribute to the maintenance of diversity. <a href=\"https://doi.org/10.1101/2020.03.02.974022\" target=\"_blank\">https://doi.org/10.1101/2020.03.02.974022<\/a><br>📃 Allen, D., & Kim, A. Y. (2020). A permutation test and spatial cross-validation approach to assess models of interspecific competition between trees. PLOS ONE, 15(3), e0229930. <a href=\"https://doi.org/10.1371/journal.pone.0229930\" target=\"_blank\">https://doi.org/10.1371/journal.pone.0229930<\/a>",
-      "data_source": "'Open Tree of Life'"
+      "data_source": "Open Tree of Life"
     },
     {
       "name": "rperseus",
@@ -1817,7 +1596,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 21:32:13",
       "citations": "📃 Teixeira, F., & Derudder, B. (2018). SKYNET: An R package for generating air passenger networks for urban studies. Urban Studies, 004209801880325. <a href=\"https://doi.org/10.1177/0042098018803258\" target=\"_blank\">https://doi.org/10.1177/0042098018803258<\/a>",
-      "data_source": "https://www.transtats.bts.gov/databases.asp?Mode_ID=1&Mode_Desc=Aviation&Subject_ID2=0"
+      "data_source": "https://www.transtats.bts.gov/databases.asp?Mode_ID=1&amp;Mode_Desc=Aviation&amp;Subject_ID2=0"
     },
     {
       "name": "smapr",
@@ -1834,7 +1613,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 19:26:30",
       "citations": "",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "solrium",
@@ -1868,7 +1647,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-02-11 18:59:46",
       "citations": "📃 Alfsnes, K., Leinaas, H. P., & Hessen, D. O. (2017). Genome size in arthropods: different roles of phylogeny, habitat and life history in insects and crustaceans. Ecology and Evolution. <a href=\"https://doi.org/10.1002/ece3.3163\" target=\"_blank\">https://doi.org/10.1002/ece3.3163<\/a><br>📃 Vanderhoeven, S., Adriaens, T., Desmet, P., Strubbe, D., Backeljau, T., Barbier, Y., … Groom, Q. (2017). Tracking Invasive Alien Species (TrIAS): Building a data-driven framework to inform policy. Research Ideas and Outcomes, 3, e13414. <a href=\"https://doi.org/10.3897/rio.3.e13414\" target=\"_blank\">https://doi.org/10.3897/rio.3.e13414<\/a><br>📃 Dallas, T., Decker, R. R., & Hastings, A. (2017). Species are not most abundant in the centre of their geographic range or climatic niche. Ecology Letters. <a href=\"https://doi.org/10.1111/ele.12860\" target=\"_blank\">https://doi.org/10.1111/ele.12860<\/a><br>📃 Oldham, K. A., & Weeks, A. (2017). Varieties of Melampyrum Lineare (Orobanchaceae) Revisited. Rhodora. <http://www.rhodorajournal.org/ <a href=\"https://doi.org/10.3119/16-13\" target=\"_blank\">https://doi.org/10.3119/16-13<\/a><br>📃 Sales, L. P., Ribeiro, B. R., Hayward, M. W., Paglia, A., Passamani, M., & Loyola, R. (2017). Niche conservatism and the invasive potential of the wild boar. Journal of Animal Ecology, 86(5), 1214–1223. <a href=\"https://doi.org/10.1111/1365-2656.12721\" target=\"_blank\">https://doi.org/10.1111/1365-2656.12721<\/a><br>📃 Longbottom, J., Shearer, F. M., Devine, M., Alcoba, G., Chappuis, F., Weiss, D. J., … Pigott, D. M. (2018). Vulnerability to snakebite envenoming: a global mapping of hotspots. The Lancet. <a href=\"https://doi.org/10.1016/S0140-6736(18)31224-8\" target=\"_blank\">https://doi.org/10.1016/S0140-6736(18)31224-8<\/a><br>📃 Samy, A. M., Alkishe, A. A., Thomas, S., Wang, L., & Zhang, W. (2018). Mapping the potential distributions of etiological agent, vectors, and reservoirs of Japanese Encephalitis in Asia and Australia. Acta Tropica. <a href=\"https://doi.org/10.1016/j.actatropica.2018.08.014\" target=\"_blank\">https://doi.org/10.1016/j.actatropica.2018.08.014<\/a><br>📃 Pfeffer, D. A., Lucas, T. C. D., May, D., Harris, J., Rozier, J., Twohig, K. A., … Gething, P. W. (2018). malariaAtlas: an R interface to global malariometric data hosted by the Malaria Atlas Project. Malaria Journal, 17(1). <a href=\"https://doi.org/10.1186/s12936-018-2500-5\" target=\"_blank\">https://doi.org/10.1186/s12936-018-2500-5<\/a><br>📃 Perez, T. M., Valverde-Barrantes, O., Bravo, C., Taylor, T. C., Fadrique, B., Hogan, J. A., … Feeley, K. J. (2018). Botanic gardens are an untapped resource for studying the functional ecology of tropical plants. Philosophical Transactions of the Royal Society B: Biological Sciences, 374(1763), 20170390. <a href=\"https://doi.org/10.1098/rstb.2017.0390\" target=\"_blank\">https://doi.org/10.1098/rstb.2017.0390<\/a><br>📃 Zuquim, G., Costa, F. R. C., Tuomisto, H., Moulatlet, G. M., & Figueiredo, F. O. G. (2019). The importance of soils in predicting the future of plant habitat suitability in a tropical forest. Plant and Soil. <a href=\"https://doi.org/10.1007/s11104-018-03915-9\" target=\"_blank\">https://doi.org/10.1007/s11104-018-03915-9<\/a><br>📃 Myers, E. A., Xue, A. T., Gehara, M., Cox, C., Davis Rabosky, A. R., Lemos‐Espinal, J., … Burbrink, F. T. (2019). Environmental Heterogeneity and Not Vicariant Biogeographic Barriers Generate Community Wide Population Structure in Desert Adapted Snakes. Molecular Ecology. <a href=\"https://doi.org/10.1111/mec.15182\" target=\"_blank\">https://doi.org/10.1111/mec.15182<\/a><br>📃 Pender, J. E., Hipp, A. L., Hahn, M., Kartesz, J., Nishino, M., & Starr, J. R. (2019). How sensitive are climatic niche inferences to distribution data sampling? A comparison of Biota of North America Program (BONAP) and Global Biodiversity Information Facility (GBIF) datasets. Ecological Informatics, 100991. <a href=\"https://doi.org/10.1016/j.ecoinf.2019.100991\" target=\"_blank\">https://doi.org/10.1016/j.ecoinf.2019.100991<\/a><br>📃 Báez, J. C., Barbosa, A. M., Pascual, P., Ramos, M. L., & Abascal, F. (2019). Ensemble modeling of the potential distribution of the whale shark in the Atlantic Ocean. Ecology and Evolution, 10(1), 175–184. <a href=\"https://doi.org/10.1002/ece3.5884\" target=\"_blank\">https://doi.org/10.1002/ece3.5884<\/a><br>📃 Reyes, J. A., & Lira-Noriega, A. (2020). Current and future global potential distribution of the fruit fly Drosophila suzukii (Diptera: Drosophilidae). The Canadian Entomologist, 1–13. <a href=\"https://doi.org/10.4039/tce.2020.3\" target=\"_blank\">https://doi.org/10.4039/tce.2020.3<\/a>",
-      "data_source": "Facility ('GBIF'), 'USGSs' Biodiversity Information Serving Our Nation"
+      "data_source": "Facility (GBIF), USGSs Biodiversity Information Serving Our Nation"
     },
     {
       "name": "suppdata",
@@ -1885,7 +1664,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2020-02-17 17:06:07",
       "citations": "📃 D Pearse, W., & A Chamberlain, S. (2018). Suppdata: Downloading Supplementary Data from Published Manuscripts. Journal of Open Source Software, 3(25), 721. <a href=\"https://doi.org/10.21105/joss.00721\" target=\"_blank\">https://doi.org/10.21105/joss.00721<\/a>",
-      "data_source": null
+      "data_source": ""
     },
     {
       "name": "tidyhydat",
@@ -1919,7 +1698,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2019-12-09 19:39:38",
       "citations": "📃 Michonneau, F., Brown, J. W., & Winter, D. J. (2016). rotl: an R package to interact with the Open Tree of Life data. Methods in Ecology and Evolution. <a href=\"https://doi.org/10.1111/2041-210x.12593\" target=\"_blank\">https://doi.org/10.1111/2041-210x.12593<\/a><br>📃 LeBauer, D., Kooper, R., Mulrooney, P., Rohde, S., Wang, D., Long, S. P., & Dietze, M. C. (2017). BETYdb: a yield, trait, and ecosystem service database applied to second‐generation bioenergy feedstock production. GCB Bioenergy. <a href=\"https://doi.org/10.1111/gcbb.12420\" target=\"_blank\">https://doi.org/10.1111/gcbb.12420<\/a>",
-      "data_source": "'NCBI', plant trait data from 'BETYdb', plant data from the USDA plants"
+      "data_source": "NCBI, plant trait data from BETYdb, plant data from the USDA plants"
     },
     {
       "name": "treebase",
@@ -1970,7 +1749,7 @@
       "ropensci_category": "data-access",
       "date_last_commit": "2018-06-08 16:29:21",
       "citations": "",
-      "data_source": "U.S. Census Bureau, the Newberry Library's 'Historical Atlas of U.S. County"
+      "data_source": "U.S. Census Bureau, the Newberry Librarys Historical Atlas of U.S. County"
     },
     {
       "name": "weathercan",
@@ -2002,9 +1781,9 @@
       "on_bioc": false,
       "url": "https://github.com/ropensci/webchem",
       "ropensci_category": "data-access",
-      "date_last_commit": "2020-04-30 13:31:51",
+      "date_last_commit": "2020-05-04 18:13:29",
       "citations": "📃 Pirhadi, S., Sunseri, J., & Koes, D. R. (2016). Open Source Molecular Modeling. Journal of Molecular Graphics and Modelling. <a href=\"https://doi.org/10.1016/j.jmgm.2016.07.008\" target=\"_blank\">https://doi.org/10.1016/j.jmgm.2016.07.008<\/a><br>📃 Bergmann, A. J., Scott, R. P., Wilson, G., & Anderson, K. A. (2018). Development of quantitative screen for 1550 chemicals with GC-MS. Analytical and Bioanalytical Chemistry, 1-10. <https://link.springer.com/article/10.1007/s00216-018-0997-7> <a href=\"https://doi.org/10.1007/s00216-018-0997-7\" target=\"_blank\">https://doi.org/10.1007/s00216-018-0997-7<\/a><br>📃 Stanstrup, J., Broeckling, C., Helmus, R., Hoffmann, N., Mathé, E., Naake, T., … Neumann, S. (2019). The metaRbolomics Toolbox in Bioconductor and beyond. Metabolites, 9(10), 200. <a href=\"https://doi.org/10.3390/metabo9100200\" target=\"_blank\">https://doi.org/10.3390/metabo9100200<\/a><br>📃 Tada, I., Tsugawa, H., Meister, I., Zhang, P., Shu, R., Katsumi, R., … Chaleckis, R. (2019). Creating a Reliable Mass Spectral–Retention Time Library for All Ion Fragmentation-Based Metabolomics. Metabolites, 9(11), 251. <a href=\"https://doi.org/10.3390/metabo9110251\" target=\"_blank\">https://doi.org/10.3390/metabo9110251<\/a><br>📃 Malaj, E., Liber, K., & Morrissey, C. A. (2019). Spatial distribution of agricultural pesticide use and predicted wetland exposure in the Canadian Prairie Pothole Region. Science of The Total Environment, 134765. <a href=\"https://doi.org/10.1016/j.scitotenv.2019.134765\" target=\"_blank\">https://doi.org/10.1016/j.scitotenv.2019.134765<\/a>",
-      "data_source": null
+      "data_source": ""
     }
   ]
 }
