@@ -95,7 +95,7 @@ get_data_source <- function(list) {
   return(source)
 }
 
-packages_json <- jsonlite::read_json("temp.json")
+packages_json <- jsonlite::read_json("pkgs.json")
 
 packages <- tibble::tibble(
   package = purrr::map_chr(packages_json, get_name),
