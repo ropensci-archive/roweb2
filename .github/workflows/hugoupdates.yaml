@@ -1,0 +1,67 @@
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 12 7 * *'
+      
+jobs:  
+  hugo-update:
+    name: hugo-update
+    runs-on: ubuntu-latest
+
+    steps:    
+    - uses: actions/checkout@v2
+      
+    - name: Assess update need
+      # Get currently used Hugo version from netlify.toml -- needs to be HUGO_VERSION = "blabla" with spaces
+      # Get latest Hugo version from GitHub API
+      # Compare both
+      run: |
+          ov=$(grep 'HUGO_VERSION' netlify.toml -m 1 | grep -o -P '(?<=HUGO\_VERSION[[:space:]]\=[[:space:]]\").*(?=\")')
+          nv=$(curl --request GET \
+          --url https://api.github.com/repos/gohugoio/hugo/releases/latest \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          | jq --raw-output .name)
+          nv=${nv#v}
+          needupdate=false
+          if [ $ov != $nv ]
+            then
+              needupdate=true
+              echo "Hugo needs to be updated, PR coming..."
+            else
+              echo "Hugo already up-to-date! :-)"
+          fi
+          echo "::set-env name=needupdate::$needupdate"
+          echo "::set-env name=ov::$ov"
+          echo "::set-env name=nv::$nv"
+      # Now if needed, update by editing netlify.toml,
+      # Creating a branch and the corresponding PR
+    - name: Updating
+      if: env.needupdate == 'true'
+      run: |
+          git config --global user.email "example@example.com"
+          git config --global user.name "gh-pages committer"
+          git checkout -b "hugo-update${{ env.nv }}"
+          sedp="s/HUGO_VERSION\s=\s\"${{ env.ov }}\"/HUGO_VERSION \= \"${{ env.nv }}\"/g" 
+          sed -i "$sedp" netlify.toml
+          git commit netlify.toml -m 'Update Hugo' || echo "No changes to commit"
+          git push --set-upstream origin "hugo-update${{ env.nv }}"
+          head="${{ github.repository_owner }}:hugo-update${{ env.nv }}"
+          docsurl="https://gohugo.io/news/${{ env.nv }}-relnotes/"
+          # https://stackoverflow.com/questions/17029902/using-curl-post-with-variables-defined-in-bash-script-functions
+          generate_pr_data()
+          {
+          cat <<EOF
+          {
+          "title": "Update Hugo to ${{ env.nv }}",
+          "body": "Hugo needs to be updated. :rocket: \n [Release notes for Hugo ${{ env.nv }}]($docsurl).",
+          "head": "$head",
+          "base": "master"
+          }
+          EOF
+          }
+          echo "$(generate_pr_data)" 
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/pulls \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --data "$(generate_pr_data)"
+          
