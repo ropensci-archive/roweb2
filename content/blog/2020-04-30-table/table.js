@@ -1,68 +1,79 @@
 function format ( d ) {
-    console.log(d);
     var markdown = new showdown.Converter();
     
     var src = "";
     
-    src = src + markdown.makeHtml(d[5]);
+    src = src + markdown.makeHtml(d.details);
     
-    if (d[7]){
-                  src = src + '<p><a target=\"_blank\" href="' + d[7] + '">This package has passed open software peer review.</a></p>';
+    if (d.onboarding){
+                  src = src + '<p><a target=\"_blank\" href="' + d.onboarding + '">This package has passed open software peer review.</a>.</p>';
                 } 
-    if (d[8]) {
+    if (d.citations) {
     src = src +
        'Scientific use cases' +
-        markdown.makeHtml(d[8]);
+        markdown.makeHtml(d.citations);
     } 
     
     return src
 }
  
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
 $(document).ready(function() {
+    clearBox('packagestable');
     var dt = $('#packagestable').DataTable( {
-        // Disables ability to change results number per page
+        
+        "ajax": {
+            "url": "registry.json",
+            "dataSrc": "packages"
+        }, // Disables ability to change results number per page
                 "language": {
             "search": ' ', // Changes 'Search' label value
             "searchPlaceholder": "Search by: name, maintainer, or keyword", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }},
-        "columnDefs": [
+        "columns": [
             {
                 "class":          "details-control",
                 "orderable":      false,
-                targets:           [ 0 ],
-                visible: true,
+                "data":           null,
+                "defaultContent": "",
                 title: "<small>Click for Details</small>"
             },
             {
-                render : function(data, type, row, meta){
-                return '<a href="https://docs.ropensci.org/' + data + '">' + data + '</a>';
+                "data" : function(row, type, set, meta){
+                return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
 },
-                targets: [1],
-                visible: true
+                title: "Package"
             },
             {
-                targets: [2],
+                data: "description",
                 title: "Description",
-                visible: true
             },
             {
-                render:  function(data, type, row, meta){
-                  var markdown = new showdown.Converter({simplifiedAutoLink: true});
-                      return markdown.makeHtml(data);             
+                data:  function(row, type, set, meta){
+                  if (row.link) {
+                     return '<a href="' + row.link + '">' + row.data_source + '</a>'; 
+                  } else {
+                      var markdown = new showdown.Converter({simplifiedAutoLink: true});
+                      return markdown.makeHtml(row.data_source);
+                  }               
 },
-                title: "Data Source",
-                targets: [3],
-                visible: true
+                title: "Data Source"
             },
             {
-                targets: [4],
-                title: "Maintainer",
-                visible: true
+                data: 'maintainer',
+                title: "Maintainer"
             },
             {
-                "targets": '_all',
+                "data": function(row, type, set, meta){return row.keywords || ""},
+                "visible": false
+            },
+            {
+                "data": function(row, type, set, meta){return row.citations || ""},
                 "visible": false
             }
         ],
