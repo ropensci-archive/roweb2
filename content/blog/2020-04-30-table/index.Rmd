@@ -160,7 +160,8 @@ jsonlite::write_json(
 ### Table of `r length(registry)` packages
 
 The table below uses JS libraries including DataTable and jQuery.
-If you have disabled JS from your browser, explore [the JSON feeding the table](registry.json).
+If you have disabled JS from your browser, the table will be a vanilla html table. 
+You can also explore [the JSON feeding the table](registry.json).
 For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
 
 You can expand rows by clicking on the book emoji :closed_book:.
@@ -169,11 +170,19 @@ Click on the book emoji :book: again to collapse the row.
 
 There are `r length(registry)` packages in the table below.
 
+
+
+```{r, echo=FALSE}
+library("magrittr")
+registry %>%
+  purrr::map(tibble::as_tibble) %>%
+  dplyr::bind_rows() %>%
+  dplyr::mutate(book = "") %>%
+  dplyr::select(book, name, description, data_source, maintainer, details, keywords, onboarding, citations) %>%
+  knitr::kable(format = "html", table.attr = "class=\"display\" style=\"width:100%\" id=\"packagestable\"", escape = FALSE)
+```
+
 <!--html_preserve-->
-
-<table  class="display" style="width:100%" id="packagestable">
-
-</table>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.7/showdown.min.js" integrity="sha256-CKVcPmoyXVeFTOJvk7+k99gKxTMnKIGs9u8RKFQngVk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js" integrity="sha256-t5ZQTZsbQi8NxszC10CseKjJ5QeMw5NINtOXQrESGSU=" crossorigin="anonymous"></script>

@@ -1,17 +1,18 @@
 function format ( d ) {
+    console.log(d);
     var markdown = new showdown.Converter();
     
     var src = "";
     
-    src = src + markdown.makeHtml(d.details);
+    src = src + markdown.makeHtml(d[5]);
     
-    if (d.onboarding){
-                  src = src + '<p><a target=\"_blank\" href="' + d.onboarding + '">This package has passed open software peer review.</a>.</p>';
+    if (d[7]){
+                  src = src + '<p><a target=\"_blank\" href="' + d[7] + '">This package has passed open software peer review.</a></p>';
                 } 
-    if (d.citations) {
+    if (d[8]) {
     src = src +
        'Scientific use cases' +
-        markdown.makeHtml(d.citations);
+        markdown.makeHtml(d[8]);
     } 
     
     return src
@@ -19,56 +20,49 @@ function format ( d ) {
  
 $(document).ready(function() {
     var dt = $('#packagestable').DataTable( {
-        
-        "ajax": {
-            "url": "registry.json",
-            "dataSrc": "packages"
-        }, // Disables ability to change results number per page
+        // Disables ability to change results number per page
                 "language": {
             "search": ' ', // Changes 'Search' label value
             "searchPlaceholder": "Search by: name, maintainer, or keyword", // adds placeholder text to search field
             "paginate": {
                 "previous": "Prev", //changes 'Previous' label value
             }},
-        "columns": [
+        "columnDefs": [
             {
                 "class":          "details-control",
                 "orderable":      false,
-                "data":           null,
-                "defaultContent": "",
+                targets:           [ 0 ],
+                visible: true,
                 title: "<small>Click for Details</small>"
             },
             {
-                "data" : function(row, type, set, meta){
-                return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
+                render : function(data, type, row, meta){
+                return '<a href="https://docs.ropensci.org/' + data + '">' + data + '</a>';
 },
-                title: "Package"
+                targets: [1],
+                visible: true
             },
             {
-                data: "description",
+                targets: [2],
                 title: "Description",
+                visible: true
             },
             {
-                data:  function(row, type, set, meta){
-                  if (row.link) {
-                     return '<a href="' + row.link + '">' + row.data_source + '</a>'; 
-                  } else {
-                      var markdown = new showdown.Converter({simplifiedAutoLink: true});
-                      return markdown.makeHtml(row.data_source);
-                  }               
+                render:  function(data, type, row, meta){
+                  var markdown = new showdown.Converter({simplifiedAutoLink: true});
+                      return markdown.makeHtml(data);             
 },
-                title: "Data Source"
+                title: "Data Source",
+                targets: [3],
+                visible: true
             },
             {
-                data: 'maintainer',
-                title: "Maintainer"
+                targets: [4],
+                title: "Maintainer",
+                visible: true
             },
             {
-                "data": function(row, type, set, meta){return row.keywords || ""},
-                "visible": false
-            },
-            {
-                "data": function(row, type, set, meta){return row.citations || ""},
+                "targets": '_all',
                 "visible": false
             }
         ],
