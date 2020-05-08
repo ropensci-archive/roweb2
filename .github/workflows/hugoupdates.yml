@@ -3,6 +3,8 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '00 12 8 * *'
       
+name: hugo-updates
+
 jobs:  
   hugo-update:
     name: hugo-update
