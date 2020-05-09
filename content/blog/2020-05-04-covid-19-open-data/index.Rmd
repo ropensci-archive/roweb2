@@ -188,6 +188,143 @@ Economics
 * [skynet][]: very brief description of data size
 
 
+```{r table, echo=FALSE, message=FALSE}
+
+cran_unquote <- function(string) {
+  gsub("\\'(.*?)\\'", "\\1", string)
+}
+
+get_name <- function(list) {
+  list$package[[1]]
+}
+
+get_description <- function(list) {
+  cran_unquote(
+    trimws(
+    toString(
+      list$details$description
+      )
+  )
+  )
+}
+
+get_data_source <- function(list) {
+  source <- 
+      cran_unquote(
+          trimws(
+            toString(
+              list$details$data_source
+              )
+    )
+  )
+  
+  if (source == "NA"){
+    return("")
+  }
+  
+  return(source)
+}
+
+packages_json <- jsonlite::read_json("pkgs.json")
+
+packages <- tibble::tibble(
+  package = purrr::map_chr(packages_json, get_name),
+  data_desc = purrr::map_chr(packages_json, get_description),
+  data_source = purrr::map_chr(packages_json, get_data_source)
+  )
+
+packages <- packages[packages$package != "genderdata",]
+packages <- dplyr::bind_rows(
+  packages,
+  tibble::tibble(package = "tradestatistics",
+                 data_source = "https://tradestatistics.io/")
+)
+
+citations <- readr::read_tsv("citations_all.tsv")
+citations <- citations[!is.na(citations$doi),]
+citations$citation <- gsub("https://doi\\.org.*", "", citations$citation)
+citations$citation <- gsub("http://doi\\.org.*", "", citations$citation)
+citations$citation <- gsub("doi.*", "", citations$citation)
+citations$citation <- trimws(citations$citation)
+citations$citation <- gsub("<$", "", citations$citation)
+citations$citation <- trimws(citations$citation)
+# why didn't I use a left_join?!
+get_citations <- function(package, citations) {
+  if (!any(citations$name == package)) {
+    return("")
+  } 
+  
+  table <- citations[citations$name == package,]
+
+  return(
+    glue::glue_collapse(glue::glue_data(
+      table,
+      '📃 {citation} <a href="https://doi.org/{doi}" target="_blank">https://doi.org/{doi}</a>'), 
+      sep = "<br>")
+  )
+}
+
+packages$citations <- NA
+
+for (i in 1:nrow(packages)) {
+  packages$citations[i] <- get_citations(
+    packages$package[i],
+    citations
+    )
+}
+
+registry <- jsonlite::read_json("https://ropensci.github.io/roregistry/registry.json")
+pkgs <- purrr::map_chr(registry$packages, "name")
+registry <- registry$packages[pkgs %in% packages$package]
+
+for (i in 1:length(registry)) {
+  registry[[i]]$citations <- packages$citations[packages$package == registry[[i]]$name]
+  
+    registry[[i]]$data_source <- packages$data_source[packages$package == registry[[i]]$name]
+    
+  registry[[i]]$details <- cran_unquote(gsub("\\\n","", registry[[i]]$details))
+  
+  registry[[i]]$description <- cran_unquote(registry[[i]]$description)
+}
+
+jsonlite::write_json(
+  list(packages = registry),
+  path = "registry.json",
+  auto_unbox = TRUE,
+  pretty = TRUE
+  )
+```
+
+### Table of `r length(registry)` packages
+
+> The table below of `r length(registry)` packages uses JavaScript libraries including DataTable and jQuery. If you have disabled JavaScript from your browser or read from R-Bloggers or a feed reader rather than from <https://ropensci.org>, the table will be a vanilla html table of a random excerpt of 10 packages.[^solutions]
+
+You can expand rows by clicking on the book emoji :closed_book:.
+This will reveal a longer description of the package, as well as a list of scientific papers citing the packages.
+Click on the book emoji :book: again to collapse the row.
+
+```{r, echo=FALSE}
+library("magrittr")
+set.seed(42)
+registry %>%
+  purrr::map(tibble::as_tibble) %>%
+  dplyr::bind_rows() %>%
+  dplyr::mutate(book = "") %>%
+  dplyr::select(name, description, data_source, maintainer) %>%
+  dplyr::mutate(description = htmltools::htmlEscape(description)) %>%
+  dplyr::sample_n(10) %>%
+  knitr::kable(format = "html", table.attr = "class=\"display\" style=\"width:100%;max-height: 3.5em;\" id=\"packagestable\"", escape = FALSE)
+```
+
+
+<!--html_preserve-->
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.7/showdown.min.js" integrity="sha256-CKVcPmoyXVeFTOJvk7+k99gKxTMnKIGs9u8RKFQngVk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js" integrity="sha256-t5ZQTZsbQi8NxszC10CseKjJ5QeMw5NINtOXQrESGSU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="table.js"></script>
+<!-- https://datatables.net/forums/discussion/comment/151719/#Comment_151719 -->
+<!--/html_preserve-->
+
 ### This is where you come in
 
 **Are you an academic** - advisor or advisee - who has used one or more of these data sources in your research?
@@ -245,3 +382,5 @@ Consider submitting the package for [software peer review][].
 [Antarctic master directory (metadata catalogue)]: https://www.scar.org/data-products/antarctic-master-directory/ 
 [biodiversity.aq]: https://data.biodiversity.aq/
 [Southern Ocean Observing System]: http://soos.aq/
+
+[^solutions]: You can also explore [the JSON feeding the table](registry.json). For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
