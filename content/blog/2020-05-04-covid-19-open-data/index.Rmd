@@ -240,7 +240,7 @@ packages <- dplyr::bind_rows(
                  data_source = "https://tradestatistics.io/")
 )
 
-citations <- readr::read_tsv("citations_all.tsv")
+citations <- readr::read_tsv("https://raw.githubusercontent.com/ropenscilabs/ropensci_citations/master/citations_all.tsv")
 citations <- citations[!is.na(citations$doi),]
 citations$citation <- gsub("https://doi\\.org.*", "", citations$citation)
 citations$citation <- gsub("http://doi\\.org.*", "", citations$citation)
