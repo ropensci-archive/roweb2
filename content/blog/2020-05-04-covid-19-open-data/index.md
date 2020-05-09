@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: rOpenSci tools to access a world of open data for your research project
+title: rOpenSci Tools to Access a World of Open Data for Your Research Project
 author:
   - Maëlle Salmon
   - Stefanie Butland
@@ -13,6 +13,8 @@ author:
   - Louise Slater
   - Robin Lovelace
   - Ben Marwick
+  - Ben Raymond
+  - Anton Van de Putte
 date: 2020-05-04
 tags:
   - packages
@@ -22,7 +24,7 @@ tags:
   - data
   - data-access
   - open-data
-description: "Covid-19 and Open Data from rOpenSci."
+description: "Open data for research when you can't get to the lab or  field"
 # twitterImg: blog/2019/06/04/post-template/name-of-image.png
 ---
 
