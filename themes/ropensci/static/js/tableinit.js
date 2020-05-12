@@ -10,13 +10,7 @@ $(document).ready( function () {
             "dataSrc": "packages"
         },
         "columns": [
-          {
-                "data" : function(row, type, set, meta){
-                return '<a target="_blank" href=\"https://www.repostatus.org/#' + row.status + '"><i class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></i></a>';
-},
-                title: ""
-            },
-          
+         
           {
                 "data" : function(row, type, set, meta){
                 return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
@@ -40,6 +34,12 @@ $(document).ready( function () {
                 },
                 "title": "description",
             },
+          {
+                "data" : function(row, type, set, meta){
+                return '<a target="_blank" href=\"https://www.repostatus.org/#' + row.status + '"><i class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></i></a>';
+},
+                title: ""
+            },
             {
                 "data": function(row, type, set, meta){
                 var src = '';
@@ -57,7 +57,7 @@ $(document).ready( function () {
                 }
                 return src;
 },
-                title: "Details"
+                title: "Status"
             },
             {
                 "data": function(row, type, set, meta){return row.keywords || ""},
