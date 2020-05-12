@@ -486,7 +486,6 @@ q:before, q:after {
 }.label.icon-ropensci-short.suspended{
   color: #F27E40;
 }.label.icon-ropensci-short.active{
-  color: #4BC51D;
 }.label.icon-ropensci-short.inactive{
   color: #A1A328;
 }.label.icon-ropensci-short.unsupported{
@@ -1270,7 +1269,6 @@ q:before, q:after {
     font-size: .75rem;
     font-weight: 600;
     padding: 3px 10%
-
 }.paginate_button.disabled{
   color: #a1a8b7;
   text-decoration: none;
@@ -1279,6 +1277,12 @@ q:before, q:after {
   color: #1b6ada;
   border-radius: 20px;
   font-weight: 700;
+}td.details-control {
+  cursor: pointer;
+  width: 20px;
+  padding: 0;
+}.packagedetails {
+  margin: 0px 20px 0px 20px;
 }/*  Code stuff */code {
     background: #f3f7ff;
 }code, pre {
