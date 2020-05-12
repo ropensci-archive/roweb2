@@ -10,11 +10,16 @@ $(document).ready( function () {
             "dataSrc": "packages"
         },
         "columns": [
-         
-          {
+            {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": '<i class="label fa fa-caret-right"></i>'
+            },
+            {
                 "data" : function(row, type, set, meta){
-                return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
-},
+                    return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
+                },
                 title: "Name"
             },
             {
@@ -24,8 +29,8 @@ $(document).ready( function () {
             },
             {
                 "data": function(row, type, set, meta){
-                return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
-},
+                    return '<a href="#packagestable" onclick="oTable.search(\'' + row.maintainer + '\').draw();">' + row.maintainer + '</a>';
+            },
                 "title": "maintainer"
             },
             {
@@ -34,29 +39,29 @@ $(document).ready( function () {
                 },
                 "title": "description",
             },
-          {
+            {
                 "data" : function(row, type, set, meta){
-                return '<a target="_blank" href=\"https://www.repostatus.org/#' + row.status + '"><i class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></i></a>';
-},
+                    return '<a target="_blank" href=\"https://www.repostatus.org/#' + row.status + '"><i class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></i></a>';
+                },
                 title: ""
             },
             {
                 "data": function(row, type, set, meta){
-                var src = '';
-                if(row.on_cran){
-                    src = '<a target="_blank" href="https://cran.r-project.org/package=' + row.name + '"><p class="label cran">cran</p></a>' + src;
-                } else if(row.on_bioc){
-                    src = '<a target="_blank" href="https://bioconductor.org/packages/release/bioc/html/' + row.name + '.html"><p class="label bioc">bioc</p></a>' + src;
-                } else {
-                    src = '<p class="label nocran">cran</p>' + src;
-                }
-                if (row.onboarding){
-                  src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fas fa-comments fa-onboarding yes" title = "rOpenSci software review"></i></a>'
-                } else {
-                  src = src + '<i class="fas fa-comments fa-onboarding no"></i>'
-                }
-                return src;
-},
+                    var src = '';
+                    if(row.on_cran){
+                        src = '<a target="_blank" href="https://cran.r-project.org/package=' + row.name + '"><p class="label cran">cran</p></a>' + src;
+                    } else if(row.on_bioc){
+                        src = '<a target="_blank" href="https://bioconductor.org/packages/release/bioc/html/' + row.name + '.html"><p class="label bioc">bioc</p></a>' + src;
+                    } else {
+                        src = '<p class="label nocran">cran</p>' + src;
+                    }
+                    if (row.onboarding){
+                      src = src + '<a target=\"_blank\" href="' + row.onboarding + '"><i class="fas fa-comments fa-onboarding yes" title = "rOpenSci software review"></i></a>'
+                    } else {
+                      src = src + '<i class="fas fa-comments fa-onboarding no"></i>'
+                    }
+                    return src;
+                },
                 title: "Status"
             },
             {
@@ -112,4 +117,26 @@ $(document).ready( function () {
             return !filter || filter == 'all' || $(oSettings.aoData[iDataIndex].nTr).hasClass(filter);
         }
     );
+
+    function makeDetailsRow(data){
+        return '<p><i>' + (data.details || "No detail for this package available.") + "</i><p>";
+    }
+
+    // Add event listener for opening and closing details
+    $('#packagestable tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = oTable.row( tr );
+        if ( row.child.isShown() ) {
+            $(this).empty().append('<i class="label fa fa-caret-right"></i>')
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            $(this).empty().append('<i class="label fa fa-caret-down"></i>')
+            // Open this row
+            row.child( makeDetailsRow(row.data())).show();
+            tr.addClass('shown');
+        }
+    });
 });

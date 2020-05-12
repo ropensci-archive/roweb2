@@ -2365,3 +2365,9 @@ q:before, q:after {
 }.alert-error a {
   color: #e74c3c;
 }
+
+td.details-control {
+  cursor: pointer;
+  width: 20px;
+  padding-right: 0;
+}
