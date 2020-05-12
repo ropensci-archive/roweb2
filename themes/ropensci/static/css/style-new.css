@@ -2371,3 +2371,7 @@ td.details-control {
   width: 20px;
   padding-right: 0;
 }
+
+.packagedetails {
+  margin: 0px 20px 0px 20px;
+}

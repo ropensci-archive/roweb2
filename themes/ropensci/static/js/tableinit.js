@@ -118,8 +118,41 @@ $(document).ready( function () {
         }
     );
 
+    var citedata = {};
+    $.get('https://ropenscilabs.github.io/ropensci_citations/citations_all.tsv').done(function(x){
+        x.split("\n").forEach(function(line){
+            var pkgdata = line.split('\t');
+            var pkgname = pkgdata[0];
+            if( ! citedata[pkgname] )
+                citedata[pkgname] = [];
+            citedata[pkgname].push({
+                doi: pkgdata[1],
+                citation: pkgdata[2]
+            });
+        });
+        //console.log(citedata)
+    });
+
+
     function makeDetailsRow(data){
-        return '<p><i>' + (data.details || "No detail for this package available.") + "</i><p>";
+        //console.log(data)
+        var text = '<h5>Description</h5><p><i>' + (data.details || "No detail for this package available.") + "</i><p>";
+        if(Object.keys(citedata).length == 0){
+            text = text + "Citation data unavailable";
+            return text;
+        }
+        var citations = citedata[data.name];
+        if(citations){
+            var list = citations.map(function(cite){
+                var doilink = "";
+                if(cite.doi && cite.doi != "NA"){
+                    doilink = '<a href="https://doi.org/' + cite.doi + '">DOI:' + cite.doi + "</a>";
+                }
+                return '<li>' + cite.citation + doilink + '</li>';
+            }).join('\n');
+            text = text + "<br /><h5>Scientific use cases</h5> <ol>" + list + "</ol>";
+        }
+        return '<div class="packagedetails">' + text + '</div>';
     }
 
     // Add event listener for opening and closing details
