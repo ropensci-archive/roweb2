@@ -228,7 +228,7 @@
     "details": {
       "url": [" https://github.com/ropensci/hathi"],
       "description": [" HathiTrust bibliographic API"],
-      "data_source": [" NA"]
+      "data_source": [" https://www.hathitrust.org"]
     }
   },
   {
@@ -348,7 +348,7 @@
     "details": {
       "url": [" https://github.com/ropensci/opencontext"],
       "description": [" Open Context data"],
-      "data_source": [" NA"]
+      "data_source": [" https://opencontext.org"]
     }
   },
   {
@@ -412,7 +412,7 @@
     "details": {
       "url": [" https://github.com/ropensci/prism"],
       "description": [" Oregon State Prism climate data"],
-      "data_source": [" NA"]
+      "data_source": [" http://www.prism.oregonstate.edu/"]
     }
   },
   {
@@ -524,7 +524,7 @@
     "details": {
       "url": [" https://github.com/ropensci/rebird"],
       "description": [" eBird database of bird observations and locations"],
-      "data_source": [" NA"]
+      "data_source": [" https://ebird.org/home"]
     }
   },
   {
@@ -564,7 +564,7 @@
     "details": {
       "url": [" https://github.com/ropensci/rfisheries"],
       "description": [" 'openfisheries.org'"],
-      "data_source": [" NA"]
+      "data_source": [" http://www.openfisheries.org/"]
     }
   },
   {
@@ -596,7 +596,7 @@
     "details": {
       "url": [" https://github.com/ropensci/rglobi"],
       "description": [" Global Biotic Interactions (GloBI) data on spatial-temporal species interaction"],
-      "data_source": [" NA"]
+      "data_source": [" https://www.globalbioticinteractions.org/"]
     }
   },
   {
@@ -604,7 +604,7 @@
     "details": {
       "url": [" https://github.com/ropensci/rgpdd"],
       "description": [" Global Population Dynamics Database"],
-      "data_source": [" NA"]
+      "data_source": [" https://ecologicaldata.org/wiki/global-population-dynamics-database"]
     }
   },
   {
@@ -668,7 +668,7 @@
     "details": {
       "url": [" https://github.com/ropensci/rotl"],
       "description": [" 'Open Tree of Life' data on phylogenetic trees"],
-      "data_source": [" 'Open Tree of Life'"]
+      "data_source": [" https://tree.opentreeoflife.org/"]
     }
   },
   {
@@ -700,7 +700,7 @@
     "details": {
       "url": [" https://github.com/ropensci/rrricanes"],
       "description": [" Data on past and current hurricanes and tropical storms for the Atlantic and"],
-      "data_source": [" NA"]
+      "data_source": [" https://www.nhc.noaa.gov/archive/1998/1998archive.shtml"]
     }
   },
   {
@@ -756,7 +756,7 @@
     "details": {
       "url": [" https://github.com/ropensci/smapr"],
       "description": [" NASA Soil Moisture Active Passive (SMAP) data"],
-      "data_source": [" NA"]
+      "data_source": [" https://smap.jpl.nasa.gov/"]
     }
   },
   {
