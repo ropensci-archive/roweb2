@@ -25,7 +25,7 @@ description: "A very short summary of your post (~ 100 characters)"
 
 Webinars and community calls are a great way to gather many people to discuss a specific topic, without the logistic hurdles of in-person events. But it has its own set of challenges. In particular, it tends to be more difficult for deaf and hard of hearing people or non-native speakers to follow the conversation, because of low quality video hindering lip reading or low quality sound.
 
-When the calls are recorded, as it is the case for [rOpenSci community calls](https://ropensci.org/commcalls/), it is possible to rewind and replay, which may help but it is not always sufficient. A better solution, as suggested on the [GitHub issue tracker](https://github.com/ropensci-org/community-calls/issues/14) for community calls, would be to provide subtitles. In this blogpost we want to provide feedback on our experience subtitling one [community call on R package maintenance](https://ropensci.org/commcalls/2020-03-18/), pointing out the tools we used, the lessons we learned, and laying out a possible workflow for future video subtitling.
+When the calls are recorded, as it is the case for [rOpenSci community calls](/commcalls/), it is possible to rewind and replay, which may help but it is not always sufficient. A better solution, as suggested on the [GitHub issue tracker](https://github.com/ropensci-org/community-calls/issues/14) for community calls, would be to provide subtitles. In this blogpost we want to provide feedback on our experience subtitling one [community call on R package maintenance](/commcalls/2020-03-18/), pointing out the tools we used, the lessons we learned, and laying out a possible workflow for future video subtitling.
 
 One of us already had a little experience captioning short videos on YouTube so we volunteered to try and add subtitles to the next community call. Because we think it's important to work as much as possible with free and open source tools, our choice landed on [Amara](https://amara.org), which is a platform for community captioning used by other prolific video producers, such as [TED talks](https://www.ted.com/).
 
@@ -59,7 +59,7 @@ It was also a good reminder that even though we speak English quite fluently Eng
 
 #### The difficulty of collaborative captioning
 
-We're used to working together and have already collaborated on multiple projects. We even wrote [a post](https://ropensci.org/blog/2019/06/04/rromeo/) on this very blog about a package we submitted to rOpenSci software review.
+We're used to working together and have already collaborated on multiple projects. We even wrote [a post](/blog/2019/06/04/rromeo/) on this very blog about a package we submitted to rOpenSci software review.
 But this didn't help to find an efficient collaborative workflow for captioning. As mentioned earlier, one issue is that we had different captioning styles, and only realised it late in the project.
 
 Furthermore, even if Amara's subtitle editor is an amazing tool that allow you to easily pause, rewind, and advance the video while captioning, it does not support simultaneous editing of the subtitles. Comparatively from taking collaborative notes through EtherPad, this slows down the process quite a lot.
