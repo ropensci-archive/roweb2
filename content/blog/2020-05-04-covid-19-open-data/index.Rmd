@@ -10,16 +10,16 @@ author:
   - Jeroen Ooms
   - Carl Boettiger
   - Scott Chamberlain
+  - Brooke Anderson
+  - Robin Lovelace
+  - Ben Marwick
+  - Ben Raymond
+  - Anton Van de Putte
   - Louise Slater
   - Sam Zipper
   - Ilaria Prosdocimi
   - Sam Albers
   - Claudia Vitolo
-  - Robin Lovelace
-  - Ben Marwick
-  - Ben Raymond
-  - Anton Van de Putte
-  - Brooke Anderson
 date: 2020-05-04
 tags:
   - packages
