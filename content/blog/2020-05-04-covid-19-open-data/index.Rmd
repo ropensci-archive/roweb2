@@ -57,14 +57,14 @@ We've invited a few university faculty and researchers to highlight some sources
 
 _Louise Slater, University of Oxford, Sam Zipper, University of Kansas, Ilaria Prosdocimi, Ca 'Foscari University, Sam Albers, Government of British Columbia, and Claudia Vitolo, European Centre for Medium Range Weather Forecasts_ 
 
-In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK, USA, Greece, and Canada (although most countries sadly do not yet apply an open policy to their hydrological data). The [Task View on Hydrological Data and Modeling](https://cran.r-project.org/web/views/Hydrology.html) and accompanying blog post [Getting your toes wet in R: Hydrology, meteorology, and more](https://ropensci.org/blog/2019/04/02/hydrology-task-view/) provide an exciting overview of the most up-to-date R packages that are available for downloading, analyzing, and modeling these data. For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^1]. 
+In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK, USA, Greece, and Canada (although most countries sadly do not yet apply an open policy to their hydrological data). The [Task View on Hydrological Data and Modelling][] and accompanying blog post [Getting your toes wet in R: Hydrology, meteorology, and more][] provide an exciting overview of the most up-to-date R packages that are available for downloading, analysing, and modelling these data. For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^1]. 
 
 #### Transport
 
 _Robin Lovelace, University of Leeds_
 
 There has never been a better time for data driven and reproducible transport research. The Covid-19 pandemic has disrupted transport patterns worldwide and is leading to major changes that would have impossible just months ago, as outlined in a recent news article titled "World cities turn their streets over to walkers and cyclists". 
-There is a wealth of data out there that can be found with careful search queries and many new datasets (like [Uber's micromobility datasets](https://www.geospatialworld.net/blogs/ubers-new-mobility-heatmaps-give-insights-into-micromobility-trends-in-cities/), released on May 6th, 2020) but my starter 5 would be:
+There is a wealth of data out there that can be found with careful search queries and many new datasets (like [Uber's micromobility datasets][], released on May 6th) but my starter 5 would be:
 
 - For downloading data representing transport networks, I recommend heading to the [overpass website][] and for R users checking out [osmdata][] and the in-development geofabric (to be renamed) R packages.
 
