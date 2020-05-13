@@ -236,7 +236,6 @@ Consider submitting the package for [software peer review][].
 [Southern Ocean Observing System]: http://soos.aq/
 [USGS-R community]: https://owi.usgs.gov/R/
 
-[^solutions]: You can also explore [the JSON feeding the table](registry.json). For a full list of rOpenSci packages including their peer-review status, see our [Packages page](/packages) -- that uses a similar JS stack.
 
 <!--html_preserve-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
