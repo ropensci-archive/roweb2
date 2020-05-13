@@ -25,7 +25,7 @@ description: "A very short summary of your post (~ 100 characters)"
 
 Webinars and community calls are a great way to gather many people to discuss a specific topic, without the logistic hurdles of in-person events. But it has its own set of challenges. In particular, it tends to be more difficult for deaf and hard of hearing people or non-native speakers to follow the conversation, because of low quality video hindering lip reading or low quality sound.
 
-When the calls are recorded, as it is the case for [rOpenSci community calls](https://ropensci.org/commcalls/), it is possible to rewind and replay, which may help but it is not always sufficient. A better solution, as suggested on the [GitHub issue tracker](https://github.com/ropensci-org/community-calls/issues/14) for community calls, would be to provide subtitles.
+When the calls are recorded, as it is the case for [rOpenSci community calls](https://ropensci.org/commcalls/), it is possible to rewind and replay, which may help but it is not always sufficient. A better solution, as suggested on the [GitHub issue tracker](https://github.com/ropensci-org/community-calls/issues/14) for community calls, would be to provide subtitles. In this blogpost we want to provide feedback on our experience subtitling one [community call on R package maintenance](https://ropensci.org/commcalls/2020-03-18/), pointing out the tools we used, the lessons we learned, and laying out a possible workflow for future video subtitling.
 
 One of us already had a little experience captioning short videos on YouTube so we volunteered to try and add subtitles to the next community call. Because we think it's important to work as much as possible with free and open source tools, our choice landed on [Amara](https://amara.org), which is a platform for community captioning used by other prolific video producers, such as [TED talks](https://www.ted.com/).
 
@@ -33,7 +33,7 @@ One of us already had a little experience captioning short videos on YouTube so 
 
 #### The good thing about modern technology
 
-If you've never try captioning a video, you may think that the hardest parts writing the transcript and syncing the video and audio. Fortunately, we have pretty good tools for this nowadays. To ease the subtitling process, we didn't start from a blank slate, thanks to the fact that all rOpenSci community calls are recorded, Stefanie Butland provided us with a rough transcript as given automatically by Zoom once the call was recorded. Of course, technical and field specific terms were often wrong (the most common issue being 'R' transcripted as 'our', and rOpenSci as 'Our open sigh'). This seems like an unavoidable issue that happens no matter the tools you use. For example, YouTube gets even more creative with R slang:
+If you've never try captioning a video, you may think that the hardest parts are writing the transcript and syncing the video and audio. Fortunately, we have pretty good tools for this nowadays. To ease the subtitling process, we didn't start from a blank slate, thanks to the fact that all rOpenSci community calls are recorded, Stefanie Butland provided us with a rough transcript as given automatically by Zoom once the call was recorded. The file provided by Zoom not only contains a transcript of all the audio, but also some timestamps that synchronizes sections of the transcript with the video. Of course, technical and field specific terms were often wrong (the most common issue being 'R' transcripted as 'our', and rOpenSci as 'Our open sigh'). This seems like an unavoidable issue that happens no matter the tools you use. For example, YouTube gets even more creative with R slang:
 
 {{< tweet 1259507352774021121 >}}
 
@@ -47,7 +47,7 @@ But these tasks proved much more difficult than anticipated in this particular c
 
 #### Different speakers
 
-This was a very interesting exercise because it forces you to focus very hard on what people say. And very quickly, you notice that different people have different styles. Of course, you also notice the verbal tic of everybody. Even though it might be good to know in order to correct it, we don't necessarily recommend you do it on your own videos where you're speaking because it can be unnnerving, especially if you're already a generally self-conscious person.
+Subtitling was a very interesting exercise because it forces you to focus very hard on what people say. And very quickly, you notice that different people have different styles. Of course, you also notice the verbal tic of everybody. Even though it might be good to know in order to correct it, we don't necessarily recommend you do it on your own videos where you're speaking because it can be unnnerving, especially if you're already a generally self-conscious person. One difficulty was to remove some orality markers in the subtitles while consistently respecting the styles of different speakers.
 
 Another interesting difference between speakers that was made obvious due to the informal nature of the community call is that different people don't pause at the different moments. In this kind of discussion, you have to take some time to think, and some people pause to think mid-sentence while other pause inbetween sentences. This was probably made worse but the online nature of the discussion since silence in video discussion can be very awkward for the speakers and the listeners, as explained in the amazing [RStudio webinar by Greg Wilson about 'Teaching Online at Short Notice'](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/). Speakers may tend to 'fix' these silences by adding more orality markers or rushing to start a new sentence.
 
@@ -55,15 +55,14 @@ Another interesting difference between speakers that was made obvious due to the
 
 Unexpectedly, this difference between speakers uncovered a difference between the way we chose to break the captions. Matthias chose to break the captions based on the auditory context: add breaks where the speaker makes a pause, which sometimes resulted in caption breaks mid-sentence as explained above. On the opposite, Hugo chose to break the captions based on the grammatical context: add breaks where the pause *should* be, which sometimes resulted in mismatches with the audio when speakers made pauses to think.
 
-It was also a good reminder that even though we speak English quite fluently English is still a second language for us. We still sometimes don't understand everything and we don't even notice it. We attended this commcall live and manage to follow everything with ease but when looking at it one word at a time, we realised we missed some words here and there, especially when several participants interacted quickly.
+It was also a good reminder that even though we speak English quite fluently English is still a second language for us. We thus sometimes don't understand everything and we don't even notice it. We attended this commuity call live and manage to follow everything with ease but when looking at it one word at a time, we realised we missed some words here and there, especially when several participants interacted quickly.
 
 #### The difficulty of collaborative captioning
 
 We're used to working together and have already collaborated on multiple projects. We even wrote [a post](https://ropensci.org/blog/2019/06/04/rromeo/) on this very blog about a package we submitted to rOpenSci software review.
-
 But this didn't help to find an efficient collaborative workflow for captioning. As mentioned earlier, one issue is that we had different captioning styles, and only realised it late in the project.
 
-Furthermore, even if Amara's subtitle editor is an amazing tool that allow you to easily pause, rewind, and advance the video while captioning, it does not support simultaneous editing of the subtitles. Comparatively from collaborative notes taking through EtherPad, this slows down the process quite a lot.
+Furthermore, even if Amara's subtitle editor is an amazing tool that allow you to easily pause, rewind, and advance the video while captioning, it does not support simultaneous editing of the subtitles. Comparatively from taking collaborative notes through EtherPad, this slows down the process quite a lot.
 
 Other communities, such as TED videos captioning community, disable entirely
 collaborative captioning. When someone starts working on a video, it disappears from the list of available tasks and they work on it alone.
@@ -74,8 +73,10 @@ collaborative captioning. When someone starts working on a video, it disappears 
 
 Amara.org has a set of useful features that increase a bit your efficiency. The most notable ones in our opinion are:
 
-- keyboard shortcuts such as 'Tab' to play/pause the video, 'Shift+Tab' to go back in the video, 'Ctrl' to create a new subtitle, and 'Shift+Ctrl' to add a line break in a subtitle.
-- automatic deletion of leading whitespaces
+- keyboard shortcuts such as 'Tab' to play/pause the video, 'Shift+Tab' to go back in the video, 'Ctrl' to create a new subtitle, and 'Shift+Ctrl' to add a line break in a subtitle;
+- automatic deletion of leading whitespaces;
+- warnings regarding caption length, number of lines used, and caption reading speed (the longer the caption the longer it has to stay on screen so that viewers can read it!);
+- full versioning of the subtitles, we can still go back through all the subtitle versions we edited.
 
 #### Missing features
 
@@ -90,7 +91,8 @@ Given the amount of time required to achieve a perfect result (or even a "good e
 
 Nonetheless, in case someone would like to try it next, we propose an optimised workflow, that may help reducing the time you spend:
 
-1. Correct the transcript for typos and mistakes. In particular, pay attention to technical and field-specific terms
+1. Use the transcript provided by Zoom/YouTube.
+1. Correct the beforehand transcript for typos and mistakes. In particular, pay attention to technical and field-specific terms (R, package names, URLs).
 1. Make sure the breaks happen at the right place. If you opt for breaks based on the grammatical context, you don't need to have access for the video for this.
 
     These two steps can be done in your favorite text editor, thereby unlocking
@@ -100,21 +102,24 @@ Nonetheless, in case someone would like to try it next, we propose an optimised 
     sure you respect the character width limit (follow [these steps]() for
     RStudio  for example).
 
+1. Upload the corrected transcript on Amara.
 1. Sync the subtitles with the audio. Because the breaks are already placed at
 the right time, this should be quick using amara and its keybord shortcuts, and drag and drop feature.
 
 
 ### A time-consuming but gratifying experience
 
-Given the complexity of the task –almost our first subtitling experience, our first use of Amara, a community call with many different speakers– producing good enough subtitles took us quite some time. We (Stefanie, Matthias, and Hugo) spent a total of around 20 hours of work to edit the subtitles for this 55 minutes community call. Which makes a ratio of around 4 hours of work to caption a single hour of talk! It may seem quite a lot but at the same time we showed. Now that we are more used to the process, with the tools, we should be to work faster. And with a simpler video, such as a regular community call where speakers spend more time presenting their own work, without cutting off each other, it should take less time.
+Given the complexity of the task –almost our first subtitling experience, our first use of Amara, a community call with many different speakers– producing good enough subtitles took us quite some time. We (Stefanie, Matthias, and Hugo) spent a total of around 20 hours of work to edit the subtitles for this 55 minutes community call. Which makes a ratio of around 4 hours of work to caption a single hour of talk! It may seem quite a lot but at the same time, it was our first time doing this, first time using these tools, on a complex video with many different speakers, several interruptions, and quite open-ended discussion. Now that we are more used to the process, with the tools, we should be able to work faster. And with a simpler video, such as a regular community call where speakers spend more time presenting their own work, without cutting off each other, it should take less time.
 
-We learned a lot during the process, enjoyed the roundtable even more (in all its details), learning about subtitling best practices, asking questions about the best way to transcribe some oral expressions. It's a challenging but interesting exercise. For accessiblity reasons, to broaden and diversify our audience in the R community, we think it is worth our collective time to provide subtitles to our videos. And why not think about live-captioning for your future event to make it more accessible?
+We learned a lot during the process, enjoyed the roundtable even more (in all its details), learning about subtitling best practices, asking questions about the best way to transcribe some oral expressions. It's a challenging but interesting exercise. Even we may need a better workflow we think it is worth our collective time to provide subtitles to our videos, for accessiblity. But also to broaden and diversify the R community audience. We could also think at a more global scale of accessibility issues and spark discussion through the [R Consortium Diversity & Inclusion Working Group](https://github.com/RConsortium/RCDI-WG/). And why not think about live-captioning for your future event to make it more accessible?
 
 
 
 ### Resources to learn about captioning/subtitling
 
+When working on the subtitles we stumbled upon many useful resources ranging from quick tips and best practices to full guide describing the process of same-language subtitling for videos. They helped us ease our process and hope they will help you as well if you want to join the subtitling adventure:
+
 * A blogpost on Amara's blog with [7 tips for subtitling videos](https://blog.amara.org/2011/08/09/best-practices-for-subtitling-videos/),
 * A very short summary of [standard closed captioning guidelines](https://www.capitalcaptions.com/services/closed-captioning-services/closed-captioning-guidelines/) by Capital Captions,
-* Longer [Transcription Guidelines for Captioning](https://support.automaticsync.com/hc/en-us/articles/202355665-Transcription-Guidelines-for-Captioning) by CaptionSync, but they mostly refered to movie captioning,
-* The [BBC Subtitle Guidelines](https://bbc.github.io/subtitle-guidelines/) which are freely available on GitHub.
+* The longer [Transcription Guidelines for Captioning](https://support.automaticsync.com/hc/en-us/articles/202355665-Transcription-Guidelines-for-Captioning) by CaptionSync, but they mostly refered to movie captioning,
+* The exhaustive [BBC Subtitle Guidelines](https://bbc.github.io/subtitle-guidelines/) which describe the process and rules to best subtitle videos, it's freely available on GitHub.
