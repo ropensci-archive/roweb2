@@ -7,7 +7,13 @@ $(document).ready( function () {
     oTable = $('#packagestable').DataTable({
         "ajax": {
             "url": "https://ropensci.github.io/roregistry/registry.json",
-            "dataSrc": "packages"
+            "dataSrc": function ( json ) {
+                var data = json.packages
+                data = data.sort(function(a, b) {
+    return Date.parse(b.date_last_commit) - Date.parse(a.date_last_commit);
+});
+                return(data);
+            }
         },
         "columns": [
             {
