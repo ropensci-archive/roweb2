@@ -119,36 +119,9 @@ There is a wealth of data out there that can be found with careful search querie
 
 ### A lot of data
 
-<!-- Below we'll cover a variety of research areas (see _Thematic Areas_),  -->
-
-_(do we convert this section to a preface to the table stating estimate of total amount of data accessed by all rOpenSci packages? 1-2 sentences to note some impt thematic areas not addressed by experts above, but not noting the packages since they're in the table?)_
+_(this section is a preface to the table stating estimate of total amount of data accessed by all rOpenSci packages? 1-2 sentences to note some impt thematic areas not addressed by experts above)_
 
 rOpenSci packages give R users access to a whole lot of data. 
-For illustrative purposes, here are a few of the packages we have covering a variety of different thematic areas:
-
-Biology
-
-* [rentrez][]/[phylotaR][]/[biomartr][]: very brief description of data size
-* [rgbif][]: very brief description of data size
-* [taxize][]: very brief description of data size
-
-Social science
-
-* [essurvey][]: very brief description of data size
-* [comtradr][]: very brief description of data size
-
-Climate/Spatial
-
-* [MODIStsp][]: very brief description of data size
-* [rnoaa][]: very brief description of data size
-
-Chemistry
-
-* [webchem][]: very brief description of data size
-
-Economics
-
-* [skynet][]: very brief description of data size
 
 
 ### Table of packages
