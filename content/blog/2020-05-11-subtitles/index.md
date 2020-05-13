@@ -13,6 +13,7 @@ tags:
   - accessibility
   - community
   - community-call
+  - video
 # The summary below will be used by e.g. Twitter cards
 description: "A very short summary of your post (~ 100 characters)"
 # If you have no preferred image for Twitter cards,
