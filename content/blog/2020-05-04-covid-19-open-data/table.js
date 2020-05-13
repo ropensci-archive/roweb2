@@ -1,115 +1,69 @@
-function format ( d ) {
-    var markdown = new showdown.Converter();
-    
-    var src = "";
-    
-    src = src + markdown.makeHtml(d.details);
-    
-    if (d.onboarding){
-                  src = src + '<p><a target=\"_blank\" href="' + d.onboarding + '">This package has passed open software peer review.</a>.</p>';
-                } 
-    if (d.citations) {
-    src = src +
-       'Scientific use cases' +
-        markdown.makeHtml(d.citations);
-    } 
-    
-    return src
-}
- 
-function clearBox(elementID)
-{
-    document.getElementById(elementID).innerHTML = "";
-}
 $(document).ready(function() {
-    clearBox('packagestable');
-    var dt = $('#packagestable').DataTable( {
-        
-        "ajax": {
-            "url": "registry.json",
-            "dataSrc": "packages"
-        }, // Disables ability to change results number per page
-                "language": {
-            "search": ' ', // Changes 'Search' label value
-            "searchPlaceholder": "Search by: name, maintainer, or keyword", // adds placeholder text to search field
-            "paginate": {
-                "previous": "Prev", //changes 'Previous' label value
-            }},
-        "columns": [
-            {
-                "class":          "details-control",
-                "orderable":      false,
-                "data":           null,
-                "defaultContent": "",
-                title: "<small>Click for Details</small>"
-            },
-            {
-                "data" : function(row, type, set, meta){
-                return '<a href="https://docs.ropensci.org/' + row.name + '">' + row.name + '</a>';
-},
-                title: "Package"
-            },
-            {
-                data: "description",
-                title: "Description",
-            },
-            {
-                data:  function(row, type, set, meta){
-                  if (row.link) {
-                     return '<a href="' + row.link + '">' + row.data_source + '</a>'; 
-                  } else {
-                      var markdown = new showdown.Converter({simplifiedAutoLink: true});
-                      return markdown.makeHtml(row.data_source);
-                  }               
-},
-                title: "Data Source"
-            },
-            {
-                data: 'maintainer',
-                title: "Maintainer"
-            },
-            {
-                "data": function(row, type, set, meta){return row.keywords || ""},
-                "visible": false
-            },
-            {
-                "data": function(row, type, set, meta){return row.citations || ""},
-                "visible": false
-            }
-        ],
-        "order": [[1, 'asc']]
-    } );
- 
-    // Array to track the ids of the details displayed rows
-    var detailRows = [];
- 
-    $('#packagestable tbody').on( 'click', 'tr td.details-control', function () {
+    var dt = $('table').DataTable({searching: false, paging: false, info: false, "columns": [
+        {
+            "className":      'details-control',
+            "orderable":      false
+        },
+        null,
+        null
+    ]});
+    
+    var citedata = {};
+    $.get('https://ropenscilabs.github.io/ropensci_citations/citations_all.tsv').done(function(x){
+        x.split("\n").forEach(function(line){
+            var pkgdata = line.split('\t');
+            var pkgname = pkgdata[0];
+            if( ! citedata[pkgname] )
+                citedata[pkgname] = [];
+            citedata[pkgname].push({
+                doi: pkgdata[1],
+                citation: pkgdata[2]
+            });
+        });
+    });
+
+    function makeDetailsRow(data){
+        //console.log(data)
+        var pkgname = $(data[0]).text();
+        var text = '<h5>Package Homepage: <a href="https://docs.ropensci.org/' + pkgname + '">https://docs.ropensci.org/' + pkgname + '</a></h5>';
+        if(Object.keys(citedata).length === 0){
+            text = text + "Citation data unavailable";
+            return text;
+        }
+        var citations = citedata[pkgname];
+        if(citations){
+            var list = citations.map(function(cite){
+                var doilink = "";
+                if(cite.doi && cite.doi != "NA"){
+                    doilink = '<a href="https://doi.org/' + cite.doi + '">DOI:' + cite.doi + "</a>";
+                }
+                return '<li>' + cite.citation + doilink + '</li>';
+            }).join('\n');
+            text = text + "<br /><h5>Scientific use cases</h5> <ol>" + list + "</ol>";
+        }
+        return '<div class="packagedetails">' + text + '</div>';
+    }
+
+    // Add event listener for opening and closing details
+    $('table tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = dt.row( tr );
-        var idx = $.inArray( tr.attr('id'), detailRows );
- 
         if ( row.child.isShown() ) {
-            tr.removeClass( 'details' );
+            //$(this).empty().append('<i class="label fa fa-caret-right"></i>');
+            // This row is already open - close it
             row.child.hide();
- 
-            // Remove from the 'open' array
-            detailRows.splice( idx, 1 );
+            tr.removeClass('details');
         }
         else {
-            tr.addClass( 'details' );
-            row.child( format( row.data() ) ).show();
- 
-            // Add to the 'open' array
-            if ( idx === -1 ) {
-                detailRows.push( tr.attr('id') );
-            }
+            //$(this).empty().append('<i class="label fa fa-caret-down"></i>');
+            // Open this row
+            row.child( makeDetailsRow(row.data())).show();
+            tr.addClass('details');
         }
-    } );
- 
-    // On each draw, loop over the `detailRows` array and show any child rows
-    dt.on( 'draw', function () {
-        $.each( detailRows, function ( i, id ) {
-            $('#'+id+' td.details-control').trigger( 'click' );
-        } );
-    } );
-} );
+    });
+    
+    // Do not collapse when clicking package name
+    $('td.details-control a').on('click', function(e){
+        e.preventDefault();
+    });
+});
