@@ -63,7 +63,7 @@ Many of rOpenSci's tools are developed by practicing scientists and have strong 
 
 We invited a few university faculty and researchers to highlight some sources of open data for research in their fields. 
 
-#### Climate and Weather
+#### Climate and weather
 
 _Brooke Anderson, Colorado State University_
 
@@ -129,16 +129,16 @@ There is a wealth of data out there that can be found with careful search querie
 - For inspiration, I recommend checking out the [Propensity to Cycle Tool][], an interactive free and open web app that is being used to inform active transport investment plans in dozens of cities across the UK (it also has many data download options at zone, route and route network levels).
 
 
-### Heading
+#### Taxonomy, biodiversity, ecology
 
-_this text to be drafted by Scott and edited by Carl?_
+_NOTE this text to be drafted by Scott and edited by Carl?_
 
 rOpenSci is known for its tools making taxonomy and biodiversity data and data relevant to ecology available...examples of sources and tools. List a couple of lesser known areas not addressed by experts above? 
 
 Segue to table of data access packages
 
 
-### Table of packages
+### rOpenSci data-access packages
 
 The table below shows a subset of our full [suite of R packages](https://ropensci.org/packages/). 
 
@@ -169,7 +169,7 @@ packages %>%
 
 <br />
 
-### This is where you come in
+### This is where you come in!
 
 Have you successfully used one or more of these data sources in your research? We want others to imagine what’s possible by seeing examples. 
 Share your story in the comments and cite your paper or preprint if it's published.
@@ -177,7 +177,7 @@ Share your story in the comments and cite your paper or preprint if it's publish
 Is there a data source you want to access programmatically but there’s no R package to do that? 
 Tell us about it in the comments.
 
-Need help? Ask in our [discussion forum][]!
+Need help? Ask in our [discussion forum][] and we'll do our best to get you answers.
 
 
 [^1]: Tierney, N. J., & Ram, K. (2020). A Realistic Guide to Making Data Available Alongside Code to Improve Reproducibility. arXiv preprint arXiv:2002.11626. https://arxiv.org/abs/2002.11626
