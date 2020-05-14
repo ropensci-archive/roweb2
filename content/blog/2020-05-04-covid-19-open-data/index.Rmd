@@ -129,11 +129,13 @@ There is a wealth of data out there that can be found with careful search querie
 - For inspiration, I recommend checking out the [Propensity to Cycle Tool][], an interactive free and open web app that is being used to inform active transport investment plans in dozens of cities across the UK (it also has many data download options at zone, route and route network levels).
 
 
-### A lot of data
+### Heading
 
-_(this section is a preface to the table stating estimate of total amount of data accessed by all rOpenSci packages? 1-2 sentences to note some impt thematic areas not addressed by experts above)_
+_this text to be drafted by Scott and edited by Carl?_
 
-rOpenSci packages give R users access to a whole lot of data. 
+rOpenSci is known for its tools making taxonomy and biodiversity data and data relevant to ecology available...examples of sources and tools. List a couple of lesser known areas not addressed by experts above? 
+
+Segue to table of data access packages
 
 
 ### Table of packages
@@ -169,30 +171,14 @@ packages %>%
 
 ### This is where you come in
 
-**Are you an academic** - advisor or advisee - who has used one or more of these data sources in your research?
-We want others to imagine what's possible by seeing success stories.
-Comment on this post to share your story and cite your paper if the work is published.
+Have you successfully used one or more of these data sources in your research? We want others to imagine what’s possible by seeing examples. 
+Share your story in the comments and cite your paper or preprint if it's published.
 
-_(clearly frame the niche - what kinds of examples do we NOT want? open data use as a chapter that's part of a lab or field research thesis?)_ 
+Is there a data source you want to access programmatically but there’s no R package to do that? 
+Tell us about it in the comments.
 
-**Need help?**
-You can find examples of how rOpenSci tools have been used in our [discussion forum use cases category][]. 
+Need help? Ask in our [discussion forum][]!
 
-Ask questions in our [discussion forum packages category][]. 
-
-_(Stef and Scott to clarify use of questions vs packages categories)_
-
-**What’s missing?** Is there a data source you need to access programmatically but there’s no R package to do that? 
-We want to build robust tools for things people actually need. Add your request to our wishlist. 
-
-_(need to have wishlist ready for this. Stef to follow up)_
-
-<!-- **Do you maintain one of these tools?** 
-Comment on this post to share more insights, point to tutorials or blog posts, or let them know how they can reach out for advise or feedback. -->
-
-**Are you developing an R package to access an open data source** and you’d like people to know about it?
-Post to our [discussion forum packages category][].
-Consider submitting the package for [software peer review][].
 
 [^1]: Tierney, N. J., & Ram, K. (2020). A Realistic Guide to Making Data Available Alongside Code to Improve Reproducibility. arXiv preprint arXiv:2002.11626. https://arxiv.org/abs/2002.11626
 [^2]: Slater, L. J., Thirel, G., Harrigan, S., Delaigue, O., Hurley, A., Khouakhi, A., Prosdocimi, I., Vitolo, C., & Smith, K. (2019). Using R in hydrology: a review of recent developments and future directions. Hydrology and Earth System Sciences, 23(7), 2939-2963. https://www.hydrol-earth-syst-sci.net/23/2939/2019/
@@ -232,9 +218,7 @@ Consider submitting the package for [software peer review][].
 [osfr]: https://docs.ropensci.org/osfr
 [c14bazAAR package]: https://docs.ropensci.org/c14bazAAR
 [tweets from Ethan White]: https://twitter.com/ethanwhite/status/1252678387195359233
-[software peer review]: https://devguide.ropensci.org
-[discussion forum packages category]: https://discuss.ropensci.org/c/packages
-[discussion forum use cases category]: https://discuss.ropensci.org/c/usecases
+[discussion forum]: https://discuss.ropensci.org
 [Task View on Hydrological Data and Modelling]: https://cran.r-project.org/web/views/Hydrology.html
 [Getting your toes wet in R: Hydrology, meteorology, and more]: /blog/2019/04/02/hydrology-task-view
 [Uber's micromobility datasets]: https://medium.com/uber-movement/visualizing-micromobility-patterns-across-cities-with-movements-new-mobility-heatmap-16d2960144c0
