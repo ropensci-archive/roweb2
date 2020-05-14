@@ -133,7 +133,16 @@ There is a wealth of data out there that can be found with careful search querie
 
 _NOTE this text to be drafted by Scott and edited by Carl?_
 
-rOpenSci is known for its tools making taxonomy and biodiversity data and data relevant to ecology available...examples of sources and tools. List a couple of lesser known areas not addressed by experts above? 
+<!-- rOpenSci is known for its tools making taxonomy and biodiversity data and data relevant to ecology available...examples of sources and tools. List a couple of lesser known areas not addressed by experts above?  -->
+
+rOpenSci has its roots in software for biodiversity research, with many packages in the areas of taxonomy, biological occurrences, and natural history/traits. 
+
+- taxonomy: A good place to start is the [taxonomy task view](https://github.com/ropensci/taxonomy), covering many options for working with online taxonomy data
+- occurrences: Occurrence data forms the basis of much ecological research. The largest source of occurrence data ([GBIF](https://www.gbif.org/)) can be accessed with the [rgbif][] package. Many more are listed in the README for the package [spocc](https://github.com/ropensci/spocc#spocc).
+- natural history/traits: Conservation researchers may want to fetch data from the IUCN Red List via [rredlist][], Fishbase life history data from [rfishbase][], bird data from [auk][] or [rebird][], or trait data from various marine taxa in WoRMS (called "attributes" by WoRMS; [worrms][]). 
+
+A good general resource for rOpenSci packages on biodiversity is the rOpenSci community call from March 2019: [Research Applications of rOpenSci Taxonomy and Biodiversity Tools](https://ropensci.org/commcalls/2019-03-27/).
+
 
 Segue to table of data access packages
 
@@ -216,6 +225,12 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [pdftools]: https://docs.ropensci.org/pdftools
 [magick]: https://docs.ropensci.org/magick
 [osfr]: https://docs.ropensci.org/osfr
+[rgbif]: https://docs.ropensci.org/rgbif
+[rredlist]: https://docs.ropensci.org/rredlist
+[rfishbase]: https://docs.ropensci.org/rfishbase
+[auk]: https://docs.ropensci.org/auk
+[rebird]: https://docs.ropensci.org/rebird
+[worrms]: https://docs.ropensci.org/worrms
 [c14bazAAR package]: https://docs.ropensci.org/c14bazAAR
 [tweets from Ethan White]: https://twitter.com/ethanwhite/status/1252678387195359233
 [discussion forum]: https://discuss.ropensci.org
