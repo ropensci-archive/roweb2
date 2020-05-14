@@ -36,21 +36,32 @@ output:
     keep_md: true
 ---
 
-The COVID-19 pandemic has dramatically impacted all of our lives in a very short period of time. Spring and summer are usually very busy as students prepare to go the field to engage in various data collection efforts. The pandemic has also disrupted these carefully planned activities as travel is suspended and local and remote field stations have closed indefinitely. A lost field season can be a major setback for a dissertation timeline and students will have to improvise. One promising opportunity to continue research efforts during these unprecedented times is taking advantage of the massive amounts of open scientific data that are freely available. Open data can form the basis of a review, synthesis, or new research.
+The COVID-19 pandemic has dramatically impacted all of our lives in a very short period of time. 
+Spring and summer are usually very busy as students prepare to go the field to engage in various data collection efforts. 
+The pandemic has also disrupted these carefully planned activities as travel is suspended and local and remote field stations have closed indefinitely. 
+A lost field season can be a major setback for a dissertation timeline and students will have to improvise. 
+One promising opportunity to continue research efforts during these unprecedented times is taking advantage of the massive amounts of open scientific data that are freely available. 
+Open data can form the basis of a review, synthesis, or new research.
 
-Inspired by [tweets from Ethan White][] about "PhD research from a distance", the rOpenSci team did an in-depth exploration of how we provide access to open data. Our goal is to inspire students to find research opportunities with open data and highlight some of the rOpenSci packages that already make programmatic access possible. We also highlight some examples of how specific collections of packages are being used right now in fields such as archaeology and climate.
+Inspired by [tweets from Ethan White][] about "PhD research from a distance", the rOpenSci team did an in-depth exploration of how we provide access to open data. 
+Our goal is to inspire students to find research opportunities with open data and highlight some of the rOpenSci packages that already make programmatic access possible. 
+We also highlight some examples of how specific collections of packages are being used right now in fields such as archaeology and climate.
 
 
 ### Exploring open data
 
-Data are fundamental to scientific discovery and leveraging new discoveries would not be possible without access to data [^1]. Although people rarely develop new research entirely on open data, these datasets provide an opportunity to reproduce and validate existing results, improve models, and be combined with other data to generate new syntheses. The open science movement has been growing for over a decade and all of that interest has surfaced numerous databases and repositories. The growing interest in reproducibility has also led to the creation of a plethora of open source software to access such data. rOpenSci's core mission is to develop such tools and to date we have built over 120 robust data-access packages.  
+Data are fundamental to scientific discovery and leveraging new discoveries would not be possible without access to data [^1]. 
+Although people rarely develop new research entirely on open data, these datasets provide an opportunity to reproduce and validate existing results, improve models, and be combined with other data to generate new syntheses. 
+The open science movement has been growing for over a decade and all of that interest has surfaced numerous databases and repositories. The growing interest in reproducibility has also led to the creation of a plethora of open source software to access such data. 
+rOpenSci's core mission is to develop such tools and to date we have built over 120 robust data-access packages.  
 
-We hope that this post and list of tools provides inspiration for you to explore new data sources and chapter ideas. Many of rOpenSci's tools are developed by practicing scientists and have strong communities behind them. 
+We hope that this post and list of tools provides inspiration for you to explore new data sources and chapter ideas. 
+Many of rOpenSci's tools are developed by practicing scientists and have strong communities behind them. 
 
 
 ### Data sources for your research
 
-We've invited a few university faculty and researchers to highlight some sources of open data for research in their fields. 
+We invited a few university faculty and researchers to highlight some sources of open data for research in their fields. 
 
 #### Climate and Weather
 
