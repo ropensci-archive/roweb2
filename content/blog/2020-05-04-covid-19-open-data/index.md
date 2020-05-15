@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: When field or lab work is not an option - Leveraging open data resources for remote research
+title: When Field or Lab Work is Not an Option - Leveraging Open Data Resources for Remote Research
 author:
   - The rOpenSci Team
   - Brooke Anderson
@@ -249,7 +249,7 @@ The table below shows a subset of our full [suite of R packages][].
 |[weathercan](https://docs.ropensci.org/weathercan)               |__Historical weather data from Environment and Climate Change Canada.__ *http://climate.weather.gc.ca/historical_data/search_historic_data_e.html*                                                                                                                                                                                                                                                                                                                |Steffi LaZerte         |
 |[webchem](https://docs.ropensci.org/webchem)                     |__Chemical information from around the web..__                                                                                                                                                                                                                                                                                                                                                                                                                    |Tamás Stirling         |
 
-
+&nbsp;
 
 ### This is where you come in!
 

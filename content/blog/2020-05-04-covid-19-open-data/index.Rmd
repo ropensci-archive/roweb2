@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: When field or lab work is not an option - Leveraging open data resources for remote research
+title: When Field or Lab Work is Not an Option - Leveraging Open Data Resources for Remote Research
 author:
   - The rOpenSci Team
   - Brooke Anderson
@@ -164,7 +164,7 @@ packages %>%
   knitr::kable(format = "markdown")
 ```
 
-
+&nbsp;
 
 ### This is where you come in!
 
