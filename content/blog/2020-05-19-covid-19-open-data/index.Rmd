@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: When Field or Lab Work is Not an Option - Leveraging Open Data Resources for Remote Research
+title: When Field or Lab Work is not an Option - Leveraging Open Data Resources for Remote Research
 author:
   - The rOpenSci Team
   - Brooke Anderson
@@ -97,7 +97,7 @@ Our quick pivot to this new area was only possible thanks to high quality and we
 These enabled us to generate data rapidly, giving us more time for exploring and testing hypotheses, and ensuring our students could get to the end of the term ready to share some really interesting results. 
 
 We've been keeping up with the literature through in-depth study of new journal articles, especially those that include open data. 
-Archaeologists use specialised repositories such as [tDAR][], [Open Context][] as well as several generic repositories to share data (e.g. [Zenodo][], [Figshare][], [Dataverse][] - each of these have R packages to access data). 
+Archaeologists use specialised repositories such as [the Digital Archaeological Record (tDAR)][], [Open Context][] as well as several generic repositories to share data (e.g. [Zenodo][], [Figshare][], [Dataverse][] - each of these have R packages to access data). 
 There are R packages for accessing data hosted by those archaeology repositories ([tdar][], [opencontext][]), but many of our favourite recent articles had their data openly archived on the [Open Science Framework][] data repository. 
 While studying these articles we have enjoyed using rOpenSci's [osfr][] package to quickly and reproducibly access these materials for in-depth exploration. 
 A favourite type of data for many archaeologists is radiocarbon ages, and our group has also been working with these with ease thanks to the [c14bazAAR][] package. We've been using this package to get data to study radiocarbon dates from hundreds of archaeological sites in Australia. 
@@ -237,7 +237,7 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [Chapter 12 of Geocomputation with R]: https://geocompr.robinlovelace.net/transport.html
 [Chapter 11 of QGIS for tansport researchers]: https://itsleeds.github.io/QGIS-intro/data-sources-for-transport-data.html
 [Propensity to Cycle Tool]: https://www.pct.bike
-[tDAR]: https://www.tdar.org/about
+[the Digital Archaeological Record (tDAR)]: https://www.tdar.org/about
 [Open Context]: https://opencontext.org
 [Zenodo]: https://zenodo.org
 [Figshare]: https://figshare.com
@@ -252,7 +252,7 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [GBIF]: https://www.gbif.org/
 [spocc]: https://github.com/ropensci/spocc#spocc
 [Research Applications of rOpenSci Taxonomy and Biodiversity Tools]: /commcalls/2019-03-27/
-[suite of R packages]: https://ropensci.org/packages
+[suite of R packages]: /packages
 [USGS-R community]: https://owi.usgs.gov/R
 
 
