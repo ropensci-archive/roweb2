@@ -53,7 +53,9 @@ We also highlight some examples of how specific collections of packages are bein
 Data are fundamental to scientific discovery and leveraging new discoveries would not be possible without access to data [^1]. 
 Although people rarely develop new research entirely on open data, these datasets provide an opportunity to reproduce and validate existing results, improve models, and be combined with other data to generate new syntheses. 
 The open science movement has been growing for over a decade and all of that interest has surfaced numerous databases and repositories. The growing interest in reproducibility has also led to the creation of a plethora of open source software to access such data. 
-rOpenSci's core mission is to develop such tools and to date we have built over 120 robust data-access packages. Although it is impossible to thoroughly quantify the amount of data available through rOpenSci's packages, some of the stats we are able to glean are impressive. eBird offers up 700 million observations, crossref has 108 million records of scholarly works which include articles and books, Dryad makes available 13 terabytes of data associated with publishes papers, and GBIF has over 1.3 billion records of species worldwide. 
+rOpenSci's core mission is to develop such tools and to date we have built over 120 robust data-access packages. 
+Although it is impossible to thoroughly quantify the amount of data available through rOpenSci's packages, some of the stats we are able to glean are impressive. 
+eBird offers up 700 million observations, Crossref has 108 million records of scholarly works which include articles and books, Dryad makes available 13 terabytes of data associated with published papers, and GBIF has over 1.3 billion records of species worldwide. 
   
 
 We hope that this post and list of tools provides inspiration for you to explore new data sources and chapter ideas. 
@@ -113,7 +115,7 @@ While we're missing the lab, rOpenSci's packages for acquiring archaeological da
 _Robin Lovelace, University of Leeds_
 
 There has never been a better time for data driven and reproducible transport research. 
-The COVID-19 pandemic has disrupted transport patterns worldwide. This has led to changes, such as the construction of 'pop-up' active transport infrastructure, the prioritisation of which can be supported by reproducible and open data analysis, as outlined in pre-print (the analysis of which was undertaken in R) on the topic [^3].
+The COVID-19 pandemic has disrupted transport patterns worldwide. This has led to changes, such as the construction of 'pop-up' active transport infrastructure, the prioritisation of which can be supported by reproducible and open data analysis, as outlined in preprint (the analysis of which was undertaken in R) on the topic [^3].
 There is a wealth of data out there that can be found with careful search queries and many new datasets (like [Uber's micromobility datasets][], released on May 6th of this year).
 
 - For downloading data representing transport networks, I recommend heading to the [overpass website][] and for R users checking out [osmdata][] and the in-development geofabric (to be renamed) R packages.
