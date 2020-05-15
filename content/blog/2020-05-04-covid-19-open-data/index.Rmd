@@ -2,14 +2,7 @@
 slug: "covid-19-open-data"
 title: rOpenSci Tools to Access Open Data for Your Research Project
 author:
-  - Maëlle Salmon
-  - Stefanie Butland
-  - Karthik Ram
-  - Noam Ross
-  - Mark Padgham
-  - Jeroen Ooms
-  - Carl Boettiger
-  - Scott Chamberlain
+  - The rOpenSci Team
   - Brooke Anderson
   - Robin Lovelace
   - Ben Marwick
@@ -20,7 +13,7 @@ author:
   - Ilaria Prosdocimi
   - Sam Albers
   - Claudia Vitolo
-date: 2020-05-04
+date: 2020-05-19
 tags:
   - packages
   - R
@@ -29,7 +22,7 @@ tags:
   - data
   - data-access
   - open-data
-description: "Open data for research when you can't get to the lab or field"
+description: "Open data for your research when you can't get to the lab or field"
 # twitterImg: blog/2019/06/04/post-template/name-of-image.png
 output: 
   html_document:
