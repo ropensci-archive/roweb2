@@ -1,6 +1,6 @@
 ---
 slug: "subtitles"
-title: Community captioning of rOpenSci community calls
+title: Community Captioning of rOpenSci Community Calls
 author:
   - Matthias Grenié
   - Hugo Gruson
