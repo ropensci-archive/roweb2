@@ -164,7 +164,7 @@ packages %>%
   knitr::kable(format = "markdown")
 ```
 
-<br />
+
 
 ### This is where you come in!
 

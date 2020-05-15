@@ -1,15 +1,8 @@
 ---
 slug: "covid-19-open-data"
-title: rOpenSci Tools to Access Open Data for Your Research Project
+title: When field or lab work is not an option - Leveraging open data resources for remote research
 author:
-  - Maëlle Salmon
-  - Stefanie Butland
-  - Karthik Ram
-  - Noam Ross
-  - Mark Padgham
-  - Jeroen Ooms
-  - Carl Boettiger
-  - Scott Chamberlain
+  - The rOpenSci Team
   - Brooke Anderson
   - Robin Lovelace
   - Ben Marwick
@@ -20,7 +13,7 @@ author:
   - Ilaria Prosdocimi
   - Sam Albers
   - Claudia Vitolo
-date: 2020-05-04
+date: 2020-05-19
 tags:
   - packages
   - R
@@ -29,7 +22,7 @@ tags:
   - data
   - data-access
   - open-data
-description: "Open data for research when you can't get to the lab or field"
+description: "Open data for your research when you can't get to the lab or field"
 # twitterImg: blog/2019/06/04/post-template/name-of-image.png
 output: 
   html_document:
@@ -256,7 +249,7 @@ The table below shows a subset of our full [suite of R packages][].
 |[weathercan](https://docs.ropensci.org/weathercan)               |__Historical weather data from Environment and Climate Change Canada.__ *http://climate.weather.gc.ca/historical_data/search_historic_data_e.html*                                                                                                                                                                                                                                                                                                                |Steffi LaZerte         |
 |[webchem](https://docs.ropensci.org/webchem)                     |__Chemical information from around the web..__                                                                                                                                                                                                                                                                                                                                                                                                                    |Tamás Stirling         |
 
-<br />
+
 
 ### This is where you come in!
 
