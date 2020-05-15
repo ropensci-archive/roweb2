@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: rOpenSci Tools to Access a World of Open Data for Your Research Project
+title: rOpenSci Tools to Access Open Data for Your Research Project
 author:
   - Maëlle Salmon
   - Stefanie Butland
