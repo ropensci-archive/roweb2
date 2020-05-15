@@ -1,6 +1,6 @@
 ---
 slug: "covid-19-open-data"
-title: rOpenSci Tools to Access Open Data for Your Research Project
+title: When field or lab work is not an option - Leveraging open data resources for remote research
 author:
   - The rOpenSci Team
   - Brooke Anderson
