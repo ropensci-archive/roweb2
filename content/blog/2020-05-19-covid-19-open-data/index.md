@@ -38,7 +38,7 @@ Open data can form the basis of a review, synthesis, or new research.
 
 Inspired by [tweets from Ethan White][] about "PhD research from a distance", the rOpenSci team did an in-depth exploration of how we provide access to open data. 
 Our goal is to inspire students to find research opportunities with open data and highlight some of the rOpenSci packages that already make programmatic access possible. 
-We also highlight some examples of how specific collections of packages are being used right now in fields such as archaeology and climate.
+We also highlight some examples of how specific collections of packages are being used right now in fields as varied as archaeology and climate.
 
 
 ### Exploring open data
@@ -47,17 +47,16 @@ Data are fundamental to scientific discovery and leveraging new discoveries woul
 Although people rarely develop new research entirely on open data, these datasets provide an opportunity to reproduce and validate existing results, improve models, and be combined with other data to generate new syntheses. 
 The open science movement has been growing for over a decade and all of that interest has surfaced numerous databases and repositories. The growing interest in reproducibility has also led to the creation of a plethora of open source software to access such data. 
 rOpenSci's core mission is to develop such tools and to date we have built over 120 robust data-access packages. 
-Although it is impossible to thoroughly quantify the amount of data available through rOpenSci's packages, some of the stats we are able to glean are impressive. 
+These packages provide access to an impressive variety and quantity of data:  
 eBird offers up 700 million observations, Crossref has 108 million records of scholarly works which include articles and books, Dryad makes available 13 terabytes of data associated with published papers, and GBIF has over 1.3 billion records of species worldwide. 
   
 
-We hope that this post and list of tools provides inspiration for you to explore new data sources and chapter ideas. 
-Many of rOpenSci's tools are developed by practicing scientists and have strong communities behind them. 
+We hope that this post and these tools provide inspiration for you to explore new data sources and research topics. 
 
 
 ### Data sources for your research
 
-We invited a few university faculty and researchers to highlight some sources of open data for research in their fields. 
+Many of rOpenSci's tools are developed by practicing scientists and have strong communities behind them. We invited university faculty from our community of developer-researchers to highlight sources of open data for research in their fields. 
 
 #### Climate and weather
 
@@ -117,7 +116,7 @@ There is a wealth of data out there that can be found with careful search querie
 
 - For road safety data there is a lack of open data in many countries but you can access national road casualty data, with 60+ variables and 100,000+ records each year with the [stats19][] package.
 
-- For links to additional resources I recommend [Chapter 12 of Geocomputation with R][] and [Chapter 11 of QGIS for tansport researchers][].
+- For links to additional resources I recommend [Chapter 12 of Geocomputation with R][] and [Chapter 11 of QGIS for transport researchers][].
 
 - For inspiration, I recommend checking out the [Propensity to Cycle Tool][], an interactive free and open web app that is being used to inform active transport investment plans in dozens of cities across the UK (it also has many data download options at zone, route and route network levels).
 
