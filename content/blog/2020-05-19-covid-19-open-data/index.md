@@ -127,7 +127,7 @@ rOpenSci has its roots in software for biodiversity research, with many packages
 
 - taxonomy: A good place to start is the [taxonomy task view][], covering many options for working with online taxonomy data
 
-- occurrences: Occurrence data forms the basis of much ecological research. The largest source of occurrence data ([GBIF][] can be accessed with the [rgbif][] package. Many more are listed in the README for the package [spocc][].
+- occurrences: Occurrence data forms the basis of much ecological research. The largest source of occurrence data, [GBIF][], can be accessed with the [rgbif][] package. Many more are listed in the README for the package [spocc][].
 
 - natural history/traits: Conservation researchers may want to fetch data from the IUCN Red List via [rredlist][], Fishbase life history data from [rfishbase][], bird data from [auk][] or [rebird][], or trait data from various marine taxa in WoRMS (called "attributes" by WoRMS; [worrms][]). 
 
@@ -319,7 +319,7 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [overpass website]: https://overpass-turbo.eu
 [Origin-destination vignette]: https://docs.ropensci.org/stplanr/articles/stplanr-od.html
 [Chapter 12 of Geocomputation with R]: https://geocompr.robinlovelace.net/transport.html
-[Chapter 11 of QGIS for tansport researchers]: https://itsleeds.github.io/QGIS-intro/data-sources-for-transport-data.html
+[Chapter 11 of QGIS for transport researchers]: https://itsleeds.github.io/QGIS-intro/data-sources-for-transport-data.html
 [Propensity to Cycle Tool]: https://www.pct.bike
 [the Digital Archaeological Record (tDAR)]: https://www.tdar.org/about
 [Open Context]: https://opencontext.org
