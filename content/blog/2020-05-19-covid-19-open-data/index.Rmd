@@ -135,7 +135,7 @@ A good general resource for rOpenSci packages on biodiversity is the rOpenSci Co
 
 &nbsp;
 
-**Browse our table of > 100 data-access packages or jump ahead to [see where _you_ come in]({{< relref "#this-is-where-you-come-in" >}}).**
+**Browse our table of > 100 data-access packages or jump ahead to [see where _you_ come in](#this-is-where-you-come-in).**
 
 &nbsp;
 
