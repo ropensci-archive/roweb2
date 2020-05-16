@@ -38,7 +38,7 @@ Open data can form the basis of a review, synthesis, or new research.
 
 Inspired by [tweets from Ethan White][] about "PhD research from a distance", the rOpenSci team did an in-depth exploration of how we provide access to open data. 
 Our goal is to inspire students to find research opportunities with open data and highlight some of the rOpenSci packages that already make programmatic access possible. 
-We also highlight some examples of how specific collections of packages are being used right now in fields such as archaeology and climate.
+We also highlight some examples of how specific collections of packages are being used right now in fields as varied as archaeology and climate.
 
 
 ### Exploring open data
