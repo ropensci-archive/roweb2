@@ -1279,8 +1279,6 @@ q:before, q:after {
   color: #1b6ada;
   border-radius: 20px;
   font-weight: 700;
-}.packagedetails {
-  margin: 0px 12px 0px 12px;
 }/*  Code stuff */code {
     background: #f3f7ff;
 }code, pre {
