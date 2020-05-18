@@ -38,7 +38,7 @@ Open data can form the basis of a review, synthesis, or new research.
 
 Inspired by [tweets from Ethan White][] about "PhD research from a distance", the rOpenSci team did an in-depth exploration of how we provide access to open data. 
 Our goal is to inspire students to find research opportunities with open data and highlight some of the rOpenSci packages that already make programmatic access possible. 
-We also highlight some examples of how specific collections of packages are being used right now in fields as varied as archaeology and climate.
+We also highlight some examples of how specific collections of packages are being used right now in fields as varied as archaeology and climate science.
 
 
 ### Exploring open data
@@ -65,20 +65,20 @@ _Brooke Anderson, Colorado State University_
 Research on weather and climate—and their impacts on humans and the environment—can draw on numerous excellent open data sources, including many made available through programmatic access to data collected and shared by institutions and monitoring networks. 
 The US Geological Survey offers a particular exciting example, offering not only APIs for accessing their data, but also a full suite of R packages developed and shared through the [USGS-R community][]. 
 rOpenSci’s own [rnoaa][] package provides access to data through a number of the US National Oceanic and Atmospheric Administration’s open data APIs, allowing for fast and convenient access from R to national or worldwide data on, among others, meteorological observations, sea ice, and tides and currents, while its [bomrang][] package offers similar access to data from the Australian Government Bureau of Meteorology.
-Other rOpenSci packages provide access to weather- and climate-related data from the Iowa Environment Mesonet ([riem][]), New Zealand’s National Climate Database ([clifro][]), the US National Aeronautics and Space Administration’s Prediction of Worldwide Energy Resource (POWER) dataset ([nasapower][]), the US National Centers for Environmental Information’s Global Surface Summary of the Day (GSOD) dataset ([GSODR][]), the US National Hurricane Center ([rrricanes][]), the Flanders Environment Agency and Flanders Hydraulics Research’s waterinfo.be dataset ([wateRinfo][]), and  Environment and Climate Change Canada (ECCC) ([weathercan][]).
-
+Other rOpenSci packages provide access to weather- and climate-related data from the Iowa Environment Mesonet ([riem][]), New Zealand’s National Climate Database ([clifro][]), the US National Aeronautics and Space Administration’s Prediction of Worldwide Energy Resource (POWER) dataset ([nasapower][]), the US National Centers for Environmental Information’s Global Surface Summary of the Day (GSOD) dataset ([GSODR][]), the US National Hurricane Center ([rrricanes][]), the Flanders Environment Agency and Flanders Hydraulics Research’s waterinfo.be dataset ([wateRinfo][]), and  Environment and Climate Change Canada (ECCC) ([weathercan][]). 
+[bowerbird][] is general-purpose package for maintaining local copies of a range of satellite- and model-derived environmental and climate data.
 
 #### Water
 
 _Louise Slater, University of Oxford, Sam Zipper, University of Kansas, Ilaria Prosdocimi, Ca 'Foscari University, Sam Albers, Government of British Columbia, and Claudia Vitolo, European Centre for Medium Range Weather Forecasts_ 
 
-In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK, USA, Greece, and Canada (although most countries sadly do not yet apply an open policy to their hydrological data). 
+In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK ([rnrfa][] package), USA ([dataRetrieval][] package), Greece (rOpenSci’s [hydroscoper][] package), and Canada (rOpenSci’s [tidyhydat][] package) although most countries sadly do not yet apply an open policy to their hydrological data.
 The [Task View on Hydrological Data and Modelling][] and accompanying blog post [Getting your toes wet in R: Hydrology, meteorology, and more][] provide an exciting overview of the most up-to-date R packages that are available for downloading, analysing, and modelling these data. 
-For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^2]. 
+For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^2] which describes approaches to retrieve, analyse, map, model, and visualise hydrological data. 
 
 #### Antarctic and Southern Ocean
 
-_Ben Raymond, Australian Antarctic Division and Anton Van de Putte, KU Leuven_
+_Ben Raymond, Australian Antarctic Division and Anton Van de Putte, Royal Belgian Institute for Natural Science_
 
 Antarctic science has a strong culture of open data - the Antarctic treaty itself states that scientific observations and results from Antarctica should be openly shared, and the Scientific Committee on Antarctic Research has had an active data management group since the late 1980s. 
 To find Antarctic and Southern Ocean data, search the [Antarctic master directory (metadata catalogue)][] or portals such as [the Antarctic Biodiversity portal][] or the [Southern Ocean Observing System][].
@@ -97,10 +97,11 @@ These enabled us to generate data rapidly, giving us more time for exploring and
 
 We've been keeping up with the literature through in-depth study of new journal articles, especially those that include open data. 
 Archaeologists use specialised repositories such as [the Digital Archaeological Record (tDAR)][], [Open Context][] as well as several generic repositories to share data (e.g. [Zenodo][], [Figshare][], [Dataverse][] - each of these have R packages to access data). 
-There are R packages for accessing data hosted by those archaeology repositories ([tdar][], [opencontext][]), but many of our favourite recent articles had their data openly archived on the [Open Science Framework][] data repository. 
+There are R packages for accessing data hosted by those archaeology repositories ([tdar][], [opencontext][]), but many of our favourite recent articles (we keep a [list here][]) had their data openly archived on the [Open Science Framework][] data repository. 
 While studying these articles we have enjoyed using rOpenSci's [osfr][] package to quickly and reproducibly access these materials for in-depth exploration. 
 A favourite type of data for many archaeologists is radiocarbon ages, and our group has also been working with these with ease thanks to the [c14bazAAR][] package. We've been using this package to get data to study radiocarbon dates from hundreds of archaeological sites in Australia. 
-While we're missing the lab, rOpenSci's packages for acquiring archaeological data have been invaluable tools for efficiency enabling us to be active and engaged in our research. 
+While we're missing the lab, rOpenSci's packages for acquiring archaeological data have been invaluable tools for efficiently enabling us to be active and engaged in our research. 
+Our [task view for archaeological science][] shows the full range of tools we use, from data acquisition through environmental and geological analysis to writing reproducible manuscripts.
 
 #### Transport
 
@@ -311,6 +312,11 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [tdar]: https://github.com/bocinsky/tdar/
 [opencontext]: https://docs.ropensci.org/opencontext
 [c14bazAAR]: https://docs.ropensci.org/c14bazAAR
+[bowerbird]: https://docs.ropensci.org/bowerbird
+[rnrfa]: https://cran.r-project.org/web/packages/rnrfa/vignettes/rnrfa-vignette.html
+[dataRetrieval]: https://cran.r-project.org/web/packages/dataRetrieval/vignettes/dataRetrieval.html
+[hydroscoper]: https://docs.ropensci.org/hydroscoper
+[tidyhydat]: https://docs.ropensci.org/tidyhydat
 [tweets from Ethan White]: https://twitter.com/ethanwhite/status/1252678387195359233
 [discussion forum]: https://discuss.ropensci.org
 [Task View on Hydrological Data and Modelling]: https://cran.r-project.org/web/views/Hydrology.html
@@ -327,6 +333,8 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [Figshare]: https://figshare.com
 [Dataverse]: https://dataverse.org
 [Open Science Framework]: https://osf.io
+[list here]: https://github.com/benmarwick/ctv-archaeology/blob/master/README.md#publications-that-include-r-code
+[task view for archaeological science]: https://github.com/benmarwick/ctv-archaeology/blob/master/README.md
 [Antarctic master directory (metadata catalogue)]: https://www.scar.org/data-products/antarctic-master-directory 
 [the Antarctic Biodiversity portal]: https://data.biodiversity.aq
 [Southern Ocean Observing System]: http://soos.aq
