@@ -699,8 +699,8 @@
     "package": ["rrricanes"],
     "details": {
       "url": [" https://github.com/ropensci/rrricanes"],
-      "description": [" Data on past and current hurricanes and tropical storms for the Atlantic and"],
-      "data_source": [" https://www.nhc.noaa.gov/archive/1998/1998archive.shtml"]
+      "description": [" Data on past and current hurricanes and tropical storms"],
+      "data_source": [" https://www.nhc.noaa.gov/archive/2020/"]
     }
   },
   {
@@ -723,7 +723,7 @@
     "package": ["rusda"],
     "details": {
       "url": [" https://github.com/ropensci/rusda"],
-      "description": [" United States Department of Agriculture (USDA) data from the  Systematic"],
+      "description": [" United States Department of Agriculture (USDA) data from the Systematic Mycology and Microbiology Laboratory"],
       "data_source": [" NA"]
     }
   },
@@ -787,8 +787,8 @@
     "package": ["tidyhydat"],
     "details": {
       "url": [" https://github.com/ropensci/tidyhydat"],
-      "description": [" Historical and real-time national 'hydrometric' data from Water Survey of"],
-      "data_source": [" http://dd.weather.gc.ca/hydrometric/csv http://collaboration.cmc.ec.gc.ca/cmc/hydrometrics/www"]
+      "description": [" Historical and real-time national 'hydrometric' data from Water Survey of Canada"],
+      "data_source": [" NA"]
     }
   },
   {
