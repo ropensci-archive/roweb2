@@ -122,6 +122,8 @@ There is a wealth of data out there that can be found with careful search querie
 
 - For inspiration, I recommend checking out the [Propensity to Cycle Tool][], an interactive free and open web app that is being used to inform active transport investment plans in dozens of cities across the UK (it also has many data download options at zone, route and route network levels).
 
+![A plot from geocompr](https://geocompr.robinlovelace.net/12-transport_files/figure-html/zones-1.png)
+
 
 #### Taxonomy, biodiversity, ecology
 
