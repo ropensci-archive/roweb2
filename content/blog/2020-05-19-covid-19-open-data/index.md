@@ -135,7 +135,7 @@ rOpenSci has its roots in software for biodiversity research, with many packages
 
 A good general resource for rOpenSci packages on biodiversity is the rOpenSci Community Call from March 2019: [Research Applications of rOpenSci Taxonomy and Biodiversity Tools][].
 
-&nbsp;
+![Lesser Violetear (*Colibri cyanotus*) by Carlos Sanchez, Macaulay Library, eBird](https://test.cdn.download.ams.birds.cornell.edu/api/v1/asset/171633971/1800)
 
 **Browse our table of > 100 data-access packages or jump ahead to [see where _you_ come in](#this-is-where-you-come-in).**
 
