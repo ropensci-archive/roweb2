@@ -1,0 +1,275 @@
+---
+slug: "covid-19-open-data"
+title: When Field or Lab Work is not an Option - Leveraging Open Data Resources for Remote Research
+author:
+  - The rOpenSci Team
+  - Brooke Anderson
+  - Robin Lovelace
+  - Ben Marwick
+  - Ben Raymond
+  - Anton Van de Putte
+  - Louise Slater
+  - Sam Zipper
+  - Ilaria Prosdocimi
+  - Sam Albers
+  - Claudia Vitolo
+date: 2020-05-19
+tags:
+  - packages
+  - R
+  - community
+  - reproducibility
+  - data
+  - data-access
+  - open-data
+description: "Open data for your research when you can't get to the lab or field"
+# twitterImg: blog/2019/06/04/post-template/name-of-image.png
+output: 
+  html_document:
+    keep_md: true
+---
+
+The COVID-19 pandemic has dramatically impacted all of our lives in a very short period of time. 
+Spring and summer are usually very busy as students prepare to go the field to engage in various data collection efforts. 
+The pandemic has also disrupted these carefully planned activities as travel is suspended and local and remote field stations have closed indefinitely. 
+A lost field season can be a major setback for a dissertation timeline and students will have to improvise. 
+One promising opportunity to continue research efforts during these unprecedented times is taking advantage of the massive amounts of open scientific data that are freely available. 
+Open data can form the basis of a review, synthesis, or new research.
+
+Inspired by [tweets from Ethan White][] about "PhD research from a distance", the rOpenSci team did an in-depth exploration of how we provide access to open data. 
+Our goal is to inspire students to find research opportunities with open data and highlight some of the rOpenSci packages that already make programmatic access possible. 
+We also highlight some examples of how specific collections of packages are being used right now in fields as varied as archaeology and climate science.
+
+
+### Exploring open data
+
+Data are fundamental to scientific discovery and leveraging new discoveries would not be possible without access to data [^1]. 
+Although people rarely develop new research entirely on open data, these datasets provide an opportunity to reproduce and validate existing results, improve models, and be combined with other data to generate new syntheses. 
+The open science movement has been growing for over a decade and all of that interest has surfaced numerous databases and repositories. The growing interest in reproducibility has also led to the creation of a plethora of open source software to access such data. 
+rOpenSci's core mission is to develop such tools and to date we have built over 120 robust data-access packages. 
+These packages provide access to an impressive variety and quantity of data:  
+eBird offers up 700 million observations, Crossref has 108 million records of scholarly works which include articles and books, Dryad makes available 13 terabytes of data associated with published papers, and GBIF has over 1.3 billion records of species worldwide. 
+  
+
+We hope that this post and these tools provide inspiration for you to explore new data sources and research topics. 
+
+
+### Data sources for your research
+
+Many of rOpenSci's tools are developed by practicing scientists and have strong communities behind them. We invited university faculty from our community of developer-researchers to highlight sources of open data for research in their fields. 
+
+#### Climate and weather
+
+_Brooke Anderson, Colorado State University_
+
+Research on weather and climate—and their impacts on humans and the environment—can draw on numerous excellent open data sources, including many made available through programmatic access to data collected and shared by institutions and monitoring networks. 
+The US Geological Survey offers a particular exciting example, offering not only APIs for accessing their data, but also a full suite of R packages developed and shared through the [USGS-R community][]. 
+rOpenSci’s own [rnoaa][] package provides access to data through a number of the US National Oceanic and Atmospheric Administration’s open data APIs, allowing for fast and convenient access from R to national or worldwide data on, among others, meteorological observations, sea ice, and tides and currents, while its [bomrang][] package offers similar access to data from the Australian Government Bureau of Meteorology.
+Other rOpenSci packages provide access to weather- and climate-related data from the Iowa Environment Mesonet ([riem][]), New Zealand’s National Climate Database ([clifro][]), the US National Aeronautics and Space Administration’s Prediction of Worldwide Energy Resource (POWER) dataset ([nasapower][]), the US National Centers for Environmental Information’s Global Surface Summary of the Day (GSOD) dataset ([GSODR][]), the US National Hurricane Center ([rrricanes][]), the Flanders Environment Agency and Flanders Hydraulics Research’s waterinfo.be dataset ([wateRinfo][]), and  Environment and Climate Change Canada (ECCC) ([weathercan][]). 
+[bowerbird][] is general-purpose package for maintaining local copies of a range of satellite- and model-derived environmental and climate data.
+
+#### Water
+
+_Louise Slater, University of Oxford, Sam Zipper, University of Kansas, Ilaria Prosdocimi, Ca 'Foscari University, Sam Albers, Government of British Columbia, and Claudia Vitolo, European Centre for Medium Range Weather Forecasts_ 
+
+In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK ([rnrfa][] package), USA ([dataRetrieval][] package), Greece (rOpenSci’s [hydroscoper][] package), and Canada (rOpenSci’s [tidyhydat][] package) although most countries sadly do not yet apply an open policy to their hydrological data.
+The [Task View on Hydrological Data and Modelling][] and accompanying blog post [Getting your toes wet in R: Hydrology, meteorology, and more][] provide an exciting overview of the most up-to-date R packages that are available for downloading, analysing, and modelling these data. 
+For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^2] which describes approaches to retrieve, analyse, map, model, and visualise hydrological data. 
+
+#### Antarctic and Southern Ocean
+
+_Ben Raymond, Australian Antarctic Division and Anton Van de Putte, Royal Belgian Institute for Natural Science_
+
+Antarctic science has a strong culture of open data - the Antarctic treaty itself states that scientific observations and results from Antarctica should be openly shared, and the Scientific Committee on Antarctic Research has had an active data management group since the late 1980s. 
+To find Antarctic and Southern Ocean data, search the [Antarctic master directory (metadata catalogue)][] or portals such as [the Antarctic Biodiversity portal][] or the [Southern Ocean Observing System][].
+
+The Antarctic rOpenSci community is developing R resources to support Antarctic and Southern Ocean science, with a particular emphasis on simplifying data access and performing common analytical tasks. See [this blog post][] and [task view][] for an overview of some of the packages in development, and the types of analyses that we are aiming to support.
+
+
+#### Archaeology
+
+_Ben Marwick, University of Washington_
+
+Research shuddered to a stop in the Geoarchaeology Lab in early March, with UW being one of the first US campuses to switch to remote work. 
+No longer able to go to campus, we turned our attention to computational text analysis of a large corpus of archaeological conference abstracts to look at questions about gender imbalance and theory change in our field. 
+Our quick pivot to this new area was only possible thanks to high quality and well-documented software such as rOpenSci's [tesseract][], [pdftools][] and [magick][] packages. 
+These enabled us to generate data rapidly, giving us more time for exploring and testing hypotheses, and ensuring our students could get to the end of the term ready to share some really interesting results. 
+
+We've been keeping up with the literature through in-depth study of new journal articles, especially those that include open data. 
+Archaeologists use specialised repositories such as [the Digital Archaeological Record (tDAR)][], [Open Context][] as well as several generic repositories to share data (e.g. [Zenodo][], [Figshare][], [Dataverse][] - each of these have R packages to access data). 
+There are R packages for accessing data hosted by those archaeology repositories ([tdar][], [opencontext][]), but many of our favourite recent articles (we keep a [list here][]) had their data openly archived on the [Open Science Framework][] data repository. 
+While studying these articles we have enjoyed using rOpenSci's [osfr][] package to quickly and reproducibly access these materials for in-depth exploration. 
+A favourite type of data for many archaeologists is radiocarbon ages, and our group has also been working with these with ease thanks to the [c14bazAAR][] package. We've been using this package to get data to study radiocarbon dates from hundreds of archaeological sites in Australia. 
+While we're missing the lab, rOpenSci's packages for acquiring archaeological data have been invaluable tools for efficiently enabling us to be active and engaged in our research. 
+
+Our [task view for archaeological science][] shows the full range of tools we use, from data acquisition through environmental and geological analysis to writing reproducible manuscripts.
+
+#### Transport
+
+_Robin Lovelace, University of Leeds_
+
+There has never been a better time for data driven and reproducible transport research. 
+The COVID-19 pandemic has disrupted transport patterns worldwide. This has led to changes, such as the construction of 'pop-up' active transport infrastructure, the prioritisation of which can be supported by reproducible and open data analysis, as outlined in preprint (the analysis of which was undertaken in R) on the topic [^3].
+There is a wealth of data out there that can be found with careful search queries and many new datasets (like [Uber's micromobility datasets][], released on May 6th of this year).
+
+- For downloading data representing transport networks, I recommend heading to the [overpass website][] and for R users checking out [osmdata][] and the in-development geofabric (to be renamed) R packages.
+
+- For open origin-destination data there are many resources but the [PCT][] package provides a way to access national-scale datasets quickly from the R command line, as outlined [stplanr][]'s [Origin-destination vignette][].
+
+- For road safety data there is a lack of open data in many countries but you can access national road casualty data, with 60+ variables and 100,000+ records each year with the [stats19][] package.
+
+- For links to additional resources I recommend [Chapter 12 of Geocomputation with R][] and [Chapter 11 of QGIS for transport researchers][].
+
+- For inspiration, I recommend checking out the [Propensity to Cycle Tool][], an interactive free and open web app that is being used to inform active transport investment plans in dozens of cities across the UK (it also has many data download options at zone, route and route network levels).
+
+
+#### Taxonomy, biodiversity, ecology
+
+rOpenSci has its roots in software for biodiversity research, with many packages in the areas of taxonomy, biological occurrences, and natural history/traits. 
+
+- taxonomy: A good place to start is the [taxonomy task view][], covering many options for working with online taxonomy data
+
+- occurrences: Occurrence data forms the basis of much ecological research. The largest source of occurrence data, [GBIF][], can be accessed with the [rgbif][] package. Many more are listed in the README for the package [spocc][].
+
+- natural history/traits: Conservation researchers may want to fetch data from the IUCN Red List via [rredlist][], Fishbase life history data from [rfishbase][], bird data from [auk][] or [rebird][], or trait data from various marine taxa in WoRMS (called "attributes" by WoRMS; [worrms][]). 
+
+A good general resource for rOpenSci packages on biodiversity is the rOpenSci Community Call from March 2019: [Research Applications of rOpenSci Taxonomy and Biodiversity Tools][].
+
+&nbsp;
+
+**Browse our table of > 100 data-access packages (under the bird) or jump ahead to [see where _you_ come in](#this-is-where-you-come-in).**
+
+
+[![Lesser Violetear (*Colibri cyanotus*) by Carlos Sanchez, Macaulay Library, eBird](https://test.cdn.download.ams.birds.cornell.edu/api/v1/asset/171633971/1800)](https://ebird.org/news/please-bird-mindfully)
+__Lesser Violetear__ *Colibri cyanotus*. Carlos Sanchez, [*Macaulay Library*](https://macaulaylibrary.org/asset/171633971) | [eBird](https://ebird.org/).
+
+&nbsp;
+
+### rOpenSci data-access packages
+
+The table below shows a subset of our full [suite of R packages][]. 
+Click on the package name to see a list of scientific use cases.
+
+
+```{r, echo=FALSE}
+library(magrittr)
+
+cran_unquote <- function(string) {
+  gsub("\\'(.*?)\\'", "\\1", string)
+}
+
+pkgs <- jsonlite::fromJSON('pkgs.json', flatten = TRUE)
+pkgs$name = unlist(pkgs$package)
+pkgs$details.description = cran_unquote(trimws(unlist(pkgs$details.description)))
+pkgs$details.data_source = trimws(unlist(pkgs$details.data_source))
+pkgs$datasrc = paste0('__', pkgs$details.description, '.__',
+  ifelse(pkgs$details.data_source != "NA", paste0(" *", pkgs$details.data_source, "*"), ""))
+
+# Do we really need to show maintainer names?
+registry <- jsonlite::fromJSON("https://ropensci.github.io/roregistry/registry.json")$packages
+packages <- merge(pkgs, registry, by = 'name')
+
+packages %>%
+  dplyr::mutate(package = sprintf('[%s](https://docs.ropensci.org/%s)', name, name)) %>%
+  dplyr::select("R package" = package, "Data and source" = datasrc, "Maintainer" = maintainer) %>%
+  knitr::kable(format = "markdown")
+```
+
+&nbsp;
+
+### This is where you come in!
+
+Have you successfully used one or more of these data sources in your research? We want others to imagine what’s possible by seeing examples. 
+Share your story in the comments and cite your paper or preprint if it's published.
+
+Is there a data source you want to access programmatically but there’s no R package to do that? 
+Tell us about it in the comments.
+
+Need help? Ask in our [discussion forum][] and we'll do our best to get you answers.
+
+
+[^1]: Tierney, N. J., & Ram, K. (2020). A Realistic Guide to Making Data Available Alongside Code to Improve Reproducibility. arXiv preprint arXiv:2002.11626. https://arxiv.org/abs/2002.11626
+[^2]: Slater, L. J., Thirel, G., Harrigan, S., Delaigue, O., Hurley, A., Khouakhi, A., Prosdocimi, I., Vitolo, C., & Smith, K. (2019). Using R in hydrology: a review of recent developments and future directions. Hydrology and Earth System Sciences, 23(7), 2939-2963. https://www.hydrol-earth-syst-sci.net/23/2939/2019/
+[^3]: Lovelace, R., Morgan, M., Talbot, J., & Lucas-Smith, M. (2020, May 11). Methods to prioritise pop-up active transport infrastructure. https://doi.org/10.31219/osf.io/7wjb6
+
+
+
+[biomartr]: https://docs.ropensci.org/biomartr
+[rentrez]: https://docs.ropensci.org/rentrez
+[phylotaR]: https://docs.ropensci.org/phylotaR
+[rgbif]: https://docs.ropensci.org/rgbif
+[rebird]: https://docs.ropensci.org/rebird
+[auk]: https://docs.ropensci.org/auk
+[MODIStsp]: https://docs.ropensci.org/MODIStsp
+[rnoaa]: https://docs.ropensci.org/rnoaa
+[rcrossref]: https://docs.ropensci.org/rcrossref
+[webchem]: https://docs.ropensci.org/webchem
+[taxize]: https://docs.ropensci.org/taxize
+[skynet]: https://docs.ropensci.org/skynet
+[essurvey]: https://docs.ropensci.org/essurvey
+[comtradr]: https://docs.ropensci.org/comtradr
+[bomrang]: https://docs.ropensci.org/bomrang
+[riem]: https://docs.ropensci.org/riem
+[clifro]: https://docs.ropensci.org/clifro
+[nasapower]: https://docs.ropensci.org/nasapower
+[GSODR]: https://docs.ropensci.org/GSODR
+[rrricanes]: https://docs.ropensci.org/rrricanes
+[wateRinfo]: https://docs.ropensci.org/wateRinfo
+[weathercan]: https://docs.ropensci.org/weathercan
+[osmdata]: https://docs.ropensci.org/osmdata
+[stplanr]: https://docs.ropensci.org/stplanr
+[stats19]: https://docs.ropensci.org/stats19
+[PCT]: https://itsleeds.github.io/pct
+[tesseract]: https://docs.ropensci.org/tesseract
+[pdftools]: https://docs.ropensci.org/pdftools
+[magick]: https://docs.ropensci.org/magick
+[osfr]: https://docs.ropensci.org/osfr
+[rgbif]: https://docs.ropensci.org/rgbif
+[rredlist]: https://docs.ropensci.org/rredlist
+[rfishbase]: https://docs.ropensci.org/rfishbase
+[auk]: https://docs.ropensci.org/auk
+[rebird]: https://docs.ropensci.org/rebird
+[worrms]: https://docs.ropensci.org/worrms
+[tdar]: https://github.com/bocinsky/tdar/
+[opencontext]: https://docs.ropensci.org/opencontext
+[c14bazAAR]: https://docs.ropensci.org/c14bazAAR
+[bowerbird]: https://docs.ropensci.org/bowerbird
+[rnrfa]: https://cran.r-project.org/web/packages/rnrfa/vignettes/rnrfa-vignette.html
+[dataRetrieval]: https://cran.r-project.org/web/packages/dataRetrieval/vignettes/dataRetrieval.html
+[hydroscoper]: https://docs.ropensci.org/hydroscoper
+[tidyhydat]: https://docs.ropensci.org/tidyhydat
+[tweets from Ethan White]: https://twitter.com/ethanwhite/status/1252678387195359233
+[discussion forum]: https://discuss.ropensci.org
+[Task View on Hydrological Data and Modelling]: https://cran.r-project.org/web/views/Hydrology.html
+[Getting your toes wet in R: Hydrology, meteorology, and more]: /blog/2019/04/02/hydrology-task-view
+[Uber's micromobility datasets]: https://medium.com/uber-movement/visualizing-micromobility-patterns-across-cities-with-movements-new-mobility-heatmap-16d2960144c0
+[overpass website]: https://overpass-turbo.eu
+[Origin-destination vignette]: https://docs.ropensci.org/stplanr/articles/stplanr-od.html
+[Chapter 12 of Geocomputation with R]: https://geocompr.robinlovelace.net/transport.html
+[Chapter 11 of QGIS for transport researchers]: https://itsleeds.github.io/QGIS-intro/data-sources-for-transport-data.html
+[Propensity to Cycle Tool]: https://www.pct.bike
+[the Digital Archaeological Record (tDAR)]: https://www.tdar.org/about
+[Open Context]: https://opencontext.org
+[Zenodo]: https://zenodo.org
+[Figshare]: https://figshare.com
+[Dataverse]: https://dataverse.org
+[Open Science Framework]: https://osf.io
+[list here]: https://github.com/benmarwick/ctv-archaeology/blob/master/README.md#publications-that-include-r-code
+[task view for archaeological science]: https://github.com/benmarwick/ctv-archaeology/blob/master/README.md
+[Antarctic master directory (metadata catalogue)]: https://www.scar.org/data-products/antarctic-master-directory 
+[the Antarctic Biodiversity portal]: https://data.biodiversity.aq
+[Southern Ocean Observing System]: http://soos.aq
+[this blog post]: /blog/2018/11/13/antarctic
+[task view]: https://github.com/SCAR/ropensci/tree/master/task_view
+[taxonomy task view]: https://github.com/ropensci/taxonomy
+[GBIF]: https://www.gbif.org/
+[spocc]: https://github.com/ropensci/spocc#spocc
+[Research Applications of rOpenSci Taxonomy and Biodiversity Tools]: /commcalls/2019-03-27/
+[suite of R packages]: /packages
+[USGS-R community]: https://owi.usgs.gov/R
+
+
+<!--html_preserve-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="table.js"></script>
+<!--/html_preserve-->
