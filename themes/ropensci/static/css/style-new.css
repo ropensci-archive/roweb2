@@ -2369,5 +2369,5 @@ q:before, q:after {
 }.alert-error a {
   color: #e74c3c;
 }figure img {
-  width: 100%;
+  max-width: 100%;
 }
