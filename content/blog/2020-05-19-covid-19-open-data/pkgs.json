@@ -51,7 +51,7 @@
     "package": ["bold"],
     "details": {
       "url": [" https://github.com/ropensci/bold"],
-      "description": [" Bold Systems for genetic 'barcode' data."],
+      "description": [" Bold Systems for genetic 'barcode' data"],
       "data_source": [" http://www.boldsystems.org"]
     }
   },
@@ -67,7 +67,7 @@
     "package": ["camsRad"],
     "details": {
       "url": [" https://github.com/ropensci/camsRad"],
-      "description": [" Time series of global, direct, and diffuse irradiations on horizontal surface,"],
+      "description": [" Time series of global, direct, and diffuse irradiations on horizontal surface"],
       "data_source": [" Copernicus Atmosphere Monitoring Service (CAMS)"]
     }
   },
@@ -75,7 +75,7 @@
     "package": ["ccafs"],
     "details": {
       "url": [" https://github.com/ropensci/ccafs"],
-      "description": [" Climate Change, Agriculture, and Food Security ('CCAFS') General Circulation"],
+      "description": [" Climate Change, Agriculture, and Food Security ('CCAFS') General Circulation Models"],
       "data_source": [" NA"]
     }
   },
@@ -99,7 +99,7 @@
     "package": ["comtradr"],
     "details": {
       "url": [" https://github.com/ropensci/comtradr"],
-      "description": [" United Nations Comtrade "],
+      "description": [" United Nations Comtrade data"],
       "data_source": [" https://comtrade.un.org/data"]
     }
   },
@@ -139,7 +139,7 @@
     "package": ["ecoengine"],
     "details": {
       "url": [" https://github.com/ropensci/ecoengine"],
-      "description": [" Georeferenced specimen records from the University of California, Berkeley's"],
+      "description": [" Georeferenced specimen records from the University of California, Berkeley's Natural History Museums"],
       "data_source": [" https://ecoengine.berkeley.edu"]
     }
   },
@@ -155,7 +155,7 @@
     "package": ["essurvey"],
     "details": {
       "url": [" https://github.com/ropensci/essurvey"],
-      "description": [" European Social Survey"],
+      "description": [" European Social Survey data"],
       "data_source": [" http://www.europeansocialsurvey.org"]
     }
   },
@@ -163,7 +163,7 @@
     "package": ["FedData"],
     "details": {
       "url": [" https://github.com/ropensci/FedData"],
-      "description": [" Geospatial data from several federated data sources (mainly sources maintained"],
+      "description": [" Geospatial data from several federated data sources (mainly sources maintained by the US federal government)"],
       "data_source": [" National Elevation Dataset National Hydrography Dataset (USGS), The Soil Survey Geographic (SSURGO) database, the Global Historical Climatology Network (GHCN), the Daymet gridded estimates of daily weather parameters, the International Tree Ring Data Bank, and the National Land Cover Database (NLCD)."]
     }
   },
@@ -187,7 +187,7 @@
     "package": ["getCRUCLdata"],
     "details": {
       "url": [" https://github.com/ropensci/getCRUCLdata"],
-      "description": [" University of East Anglia Climate Research Unit gridded climatology of"],
+      "description": [" University of East Anglia Climate Research Unit gridded climatology of monthly means"],
       "data_source": [" https://crudata.uea.ac.uk/cru/data/hrg/tmc/readme.txt"]
     }
   },
@@ -203,7 +203,7 @@
     "package": ["GSODR"],
     "details": {
       "url": [" https://github.com/ropensci/GSODR"],
-      "description": [" Global Surface Summary of the Day ('GSOD') weather data from  USA National"],
+      "description": [" Global Surface Summary of the Day ('GSOD') weather data from  USA National Centers for Environmental Information ('NCEI')"],
       "data_source": [" http://www1.ncdc.noaa.gov/pub/data/gsod/readme.txt"]
     }
   },
@@ -251,7 +251,7 @@
     "package": ["historydata"],
     "details": {
       "url": [" https://github.com/ropensci/historydata"],
-      "description": [" sample data sets for historians on population, institutional, religious,"],
+      "description": [" sample data sets for historians on population, institutional, religious, military, and prosopographical data"],
       "data_source": [" NA"]
     }
   },
@@ -268,7 +268,7 @@
     "details": {
       "url": [" https://github.com/ropensci/internetarchive"],
       "description": [" Internet Archive"],
-      "data_source": [" NA"]
+      "data_source": [" https://archive.org/"]
     }
   },
   {
@@ -307,7 +307,7 @@
     "package": ["nasapower"],
     "details": {
       "url": [" https://github.com/ropensci/nasapower"],
-      "description": [" 'NASA' 'POWER' (Prediction Of Worldwide Energy Resource) global meteorology,"],
+      "description": [" 'NASA' 'POWER' (Prediction Of Worldwide Energy Resource) global meteorology and surface solar energy climatology data"],
       "data_source": [" https://power.larc.nasa.gov"]
     }
   },
@@ -331,7 +331,7 @@
     "package": ["nomisr"],
     "details": {
       "url": [" https://github.com/ropensci/nomisr"],
-      "description": [" UK official statistics from the 'Nomis' database, including data from the"],
+      "description": [" UK official statistics from the 'Nomis' database, including data from the from the Census, the Labour Force Survey, DWP benefit statistics and other economic and demographic data from the Office for National Statistics"],
       "data_source": [" https://www.nomisweb.co.uk/api/v01/help"]
     }
   },
@@ -435,7 +435,7 @@
     "package": ["rbace"],
     "details": {
       "url": [" https://github.com/ropensci/rbace"],
-      "description": [" 'Bielefeld' Academic Search Engine ('BASE') of more than 150 million scholarly"],
+      "description": [" 'Bielefeld' Academic Search Engine ('BASE') of more than 150 million scholarly documents from more than 7000 sources"],
       "data_source": [" https://www.base-search.net"]
     }
   },
@@ -443,7 +443,7 @@
     "package": ["rbhl"],
     "details": {
       "url": [" https://github.com/ropensci/rbhl"],
-      "description": [" 'Biodiversity' 'Heritage' Library ('BHL') of 'digitized' literature on"],
+      "description": [" 'Biodiversity' 'Heritage' Library ('BHL') of 'digitized' literature on biodiversity studies"],
       "data_source": [" https://www.biodiversitylibrary.org"]
     }
   },
@@ -451,7 +451,7 @@
     "package": ["rbison"],
     "details": {
       "url": [" https://github.com/ropensci/rbison"],
-      "description": [" 'USGS' 'BISON' 'database' for species occurrence data from"],
+      "description": [" 'USGS' 'BISON' 'database' for species occurrence data from the United States"],
       "data_source": [" https://bison.usgs.gov"]
     }
   },
@@ -459,7 +459,7 @@
     "package": ["rbraries"],
     "details": {
       "url": [" https://github.com/ropensci/rbraries"],
-      "description": [" 'Libraries.io' data from 36 different package managers for programming"],
+      "description": [" 'Libraries.io' data from 36 different package managers for programming languages"],
       "data_source": [" https://libraries.io/api"]
     }
   },
@@ -475,7 +475,7 @@
     "package": ["rdatacite"],
     "details": {
       "url": [" https://github.com/ropensci/rdatacite"],
-      "description": [" 'DataCite'"],
+      "description": [" 'DataCite' metadata"],
       "data_source": [" https://www.datacite.org"]
     }
   },
@@ -499,7 +499,7 @@
     "package": ["rdopa"],
     "details": {
       "url": [" https://github.com/ropensci/rdopa"],
-      "description": [" DOPA (Digital Observatory for protected Areas) by the European Union Joint"],
+      "description": [" DOPA (Digital Observatory for protected Areas) by the European Union Joint Research Centre"],
       "data_source": [" NA"]
     }
   },
@@ -555,7 +555,7 @@
     "package": ["rfishbase"],
     "details": {
       "url": [" https://github.com/ropensci/rfishbase"],
-      "description": [" Fishbase data on over 30,000 species of fish, their biology, ecology,"],
+      "description": [" Fishbase data on over 30,000 species of fish, their biology, ecology, morphology and more"],
       "data_source": [" http://www.fishbase.org http://www.sealifebase.org"]
     }
   },
@@ -595,7 +595,7 @@
     "package": ["rglobi"],
     "details": {
       "url": [" https://github.com/ropensci/rglobi"],
-      "description": [" Global Biotic Interactions (GloBI) data on spatial-temporal species interaction"],
+      "description": [" Global Biotic Interactions (GloBI) data on spatial-temporal species interactions"],
       "data_source": [" https://www.globalbioticinteractions.org/"]
     }
   },
@@ -611,7 +611,7 @@
     "package": ["riem"],
     "details": {
       "url": [" https://github.com/ropensci/riem"],
-      "description": [" Weather data from Automated Surface Observing System (ASOS) stations (airports)"],
+      "description": [" Weather data from Automated Surface Observing System (ASOS) stations "],
       "data_source": [" Iowa Environment Mesonet website."]
     }
   },
@@ -643,7 +643,7 @@
     "package": ["rnoaa"],
     "details": {
       "url": [" https://github.com/ropensci/rnoaa"],
-      "description": [" Many 'NOAA' data sources including 'NCDC' climate data,  and data on sea ice,"],
+      "description": [" Many 'NOAA' data sources including 'NCDC' climate data,  and data on sea ice, severe weather, historical metadata, storm and tornado data"],
       "data_source": [" https://www.ncdc.noaa.gov/cdo-web/webservices/v2"]
     }
   },
@@ -651,7 +651,7 @@
     "package": ["rnpn"],
     "details": {
       "url": [" https://github.com/ropensci/rnpn"],
-      "description": [" National 'Phenology' Network data on various life history events that occur at"],
+      "description": [" National 'Phenology' Network data on various life history events that occur at specific times"],
       "data_source": [" https://usanpn.org"]
     }
   },
@@ -699,15 +699,15 @@
     "package": ["rrricanes"],
     "details": {
       "url": [" https://github.com/ropensci/rrricanes"],
-      "description": [" Data on past and current hurricanes and tropical storms"],
-      "data_source": [" https://www.nhc.noaa.gov/archive/2020/"]
+      "description": [" Data on past and current hurricanes and tropical storms for the Atlantic and eastern Pacific oceans"],
+      "data_source": [" https://www.nhc.noaa.gov/archive/1998/1998archive.shtml"]
     }
   },
   {
     "package": ["rrricanesdata"],
     "details": {
       "url": [" https://github.com/ropensci/rrricanesdata"],
-      "description": [" Storm discussions, forecast/advisories, public advisories, wind speed"],
+      "description": [" Storm discussions, forecast/advisories, public advisories, wind speed probabilities, strike probabilities and more"],
       "data_source": [" National Hurricane Center"]
     }
   },
@@ -723,7 +723,7 @@
     "package": ["rusda"],
     "details": {
       "url": [" https://github.com/ropensci/rusda"],
-      "description": [" United States Department of Agriculture (USDA) data from the Systematic Mycology and Microbiology Laboratory"],
+      "description": [" United States Department of Agriculture (USDA) data from the Systematic Mycology and Microbiology Laboratory (SMML)"],
       "data_source": [" NA"]
     }
   },
@@ -739,7 +739,7 @@
     "package": ["rWBclimate"],
     "details": {
       "url": [" https://github.com/ropensci/rWBclimate"],
-      "description": [" Model predictions from 15 different global circulation models in 20 year"],
+      "description": [" Model predictions from 15 different global circulation models in 20 years"],
       "data_source": [" NA"]
     }
   },
@@ -787,15 +787,15 @@
     "package": ["tidyhydat"],
     "details": {
       "url": [" https://github.com/ropensci/tidyhydat"],
-      "description": [" Historical and real-time national 'hydrometric' data from Water Survey of Canada"],
-      "data_source": [" NA"]
+      "description": [" Historical and real-time national 'hydrometric' data from Water Survey of Canada data sources"],
+      "data_source": [" http://dd.weather.gc.ca/hydrometric/csv http://collaboration.cmc.ec.gc.ca/cmc/hydrometrics/www"]
     }
   },
   {
     "package": ["traits"],
     "details": {
       "url": [" https://github.com/ropensci/traits"],
-      "description": [" Species trait data from many different sources, including sequence data from"],
+      "description": [" Species trait data from many different sources, including sequence data from from 'NCBI', plant trait data from 'BETYdb', plant data from the USDA plants database, data from 'EOL' 'Traitbank',  Coral traits data, 'Birdlife' International,  and more."],
       "data_source": [" NA"]
     }
   },
@@ -811,7 +811,7 @@
     "package": ["USAboundaries"],
     "details": {
       "url": [" https://github.com/ropensci/USAboundaries"],
-      "description": [" Boundaries for geographical units in the United States of America, including"],
+      "description": [" Boundaries for geographical units in the United States of America"],
       "data_source": [" U.S. Census Bureau, Newberry Library's 'Atlas of Historical County Boundaries' "]
     }
   },
