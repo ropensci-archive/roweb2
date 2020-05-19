@@ -74,12 +74,11 @@ Other rOpenSci packages provide access to weather- and climate-related data from
 
 _Louise Slater, University of Oxford, Sam Zipper, University of Kansas, Ilaria Prosdocimi, Ca 'Foscari University, Sam Albers, Government of British Columbia, and Claudia Vitolo, European Centre for Medium Range Weather Forecasts_ 
 
-[![NOAA station](https://nrfaapps.ceh.ac.uk/nrfa/image/nrfaImage/stationImage.jpg?id=NRFA_D006112&category=H490L)](https://nrfa.ceh.ac.uk/)
-
-
 In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK ([rnrfa][] package), USA ([dataRetrieval][] package), Greece (rOpenSci’s [hydroscoper][] package), and Canada (rOpenSci’s [tidyhydat][] package) although most countries sadly do not yet apply an open policy to their hydrological data.
 The [Task View on Hydrological Data and Modelling][] and accompanying blog post [Getting your toes wet in R: Hydrology, meteorology, and more][] provide an exciting overview of the most up-to-date R packages that are available for downloading, analysing, and modelling these data. 
 For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^2] which describes approaches to retrieve, analyse, map, model, and visualise hydrological data. 
+
+[![NOAA station](https://nrfaapps.ceh.ac.uk/nrfa/image/nrfaImage/stationImage.jpg?id=NRFA_D006112&category=H490L)](https://nrfa.ceh.ac.uk/)
 
 
 #### Antarctic and Southern Ocean
