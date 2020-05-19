@@ -356,7 +356,7 @@
     "details": {
       "url": [" https://github.com/ropensci/originr"],
       "description": [" Species origin data from multiple sources"],
-      "data_source": [" Encyclopedia of Life (<http://eol.org>), Flora 'Europaea' (<http://rbg-web2.rbge.org.uk/FE/fe.html>), Global Invasive Species Database (<http://www.iucngisd.org/gisd>), the Native Species Resolver (<http://bien.nceas.ucsb.edu/bien/tools/nsr/nsr-ws/>), Integrated Taxonomic Information Service (<http://www.itis.gov/>), and Global Register of Introduced and Invasive Species (<http://www.griis.org/>)."]
+      "data_source": [" Encyclopedia of Life (<http://eol.org>), Flora 'Europaea' (<http://rbg-web2.rbge.org.uk/FE/fe.html>), Global Invasive Species Database (<http://www.iucngisd.org/gisd>), the Native Species Resolver (<http://bien.nceas.ucsb.edu/bien/tools/nsr/>), Integrated Taxonomic Information Service (<http://www.itis.gov/>), and Global Register of Introduced and Invasive Species (<http://www.griis.org/>)."]
     }
   },
   {
