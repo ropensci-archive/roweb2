@@ -68,13 +68,19 @@ rOpenSci’s own [rnoaa][] package provides access to data through a number of t
 Other rOpenSci packages provide access to weather- and climate-related data from the Iowa Environment Mesonet ([riem][]), New Zealand’s National Climate Database ([clifro][]), the US National Aeronautics and Space Administration’s Prediction of Worldwide Energy Resource (POWER) dataset ([nasapower][]), the US National Centers for Environmental Information’s Global Surface Summary of the Day (GSOD) dataset ([GSODR][]), the US National Hurricane Center ([rrricanes][]), the Flanders Environment Agency and Flanders Hydraulics Research’s waterinfo.be dataset ([wateRinfo][]), and  Environment and Climate Change Canada (ECCC) ([weathercan][]). 
 [bowerbird][] is general-purpose package for maintaining local copies of a range of satellite- and model-derived environmental and climate data.
 
+[![noaa](https://www.ncdc.noaa.gov/monitoring-content/sotc/tropical-cyclones/2017/annual/tws_atl_latest.gif)](https://docs.ropensci.org/rnoaa/)
+
 #### Water
 
 _Louise Slater, University of Oxford, Sam Zipper, University of Kansas, Ilaria Prosdocimi, Ca 'Foscari University, Sam Albers, Government of British Columbia, and Claudia Vitolo, European Centre for Medium Range Weather Forecasts_ 
 
+[![NOAA station](https://nrfaapps.ceh.ac.uk/nrfa/image/nrfaImage/stationImage.jpg?id=NRFA_D006112&category=H490L)](https://nrfa.ceh.ac.uk/)
+
+
 In hydrology, there has been a rapid growth in the number of streamflow data archives made publicly available online by countries such as the UK ([rnrfa][] package), USA ([dataRetrieval][] package), Greece (rOpenSci’s [hydroscoper][] package), and Canada (rOpenSci’s [tidyhydat][] package) although most countries sadly do not yet apply an open policy to their hydrological data.
 The [Task View on Hydrological Data and Modelling][] and accompanying blog post [Getting your toes wet in R: Hydrology, meteorology, and more][] provide an exciting overview of the most up-to-date R packages that are available for downloading, analysing, and modelling these data. 
 For an overview of the many advantages of using R for hydrological research, see the paper “Using R in Hydrology” [^2] which describes approaches to retrieve, analyse, map, model, and visualise hydrological data. 
+
 
 #### Antarctic and Southern Ocean
 
@@ -84,6 +90,8 @@ Antarctic science has a strong culture of open data - the Antarctic treaty itsel
 To find Antarctic and Southern Ocean data, search the [Antarctic master directory (metadata catalogue)][] or portals such as [the Antarctic Biodiversity portal][] or the [Southern Ocean Observing System][].
 
 The Antarctic rOpenSci community is developing R resources to support Antarctic and Southern Ocean science, with a particular emphasis on simplifying data access and performing common analytical tasks. See [this blog post][] and [task view][] for an overview of some of the packages in development, and the types of analyses that we are aiming to support.
+
+[![antarctic](https://i.imgur.com/1mv5rP5.png)](/blog/2018/11/13/antarctic/)
 
 
 #### Archaeology
@@ -122,7 +130,7 @@ There is a wealth of data out there that can be found with careful search querie
 
 - For inspiration, I recommend checking out the [Propensity to Cycle Tool][], an interactive free and open web app that is being used to inform active transport investment plans in dozens of cities across the UK (it also has many data download options at zone, route and route network levels).
 
-![A plot from geocompr](https://geocompr.robinlovelace.net/12-transport_files/figure-html/zones-1.png)
+[![A plot from geocompr](https://geocompr.robinlovelace.net/12-transport_files/figure-html/zones-1.png)](https://geocompr.robinlovelace.net/transport.html)
 
 
 #### Taxonomy, biodiversity, ecology
@@ -137,7 +145,7 @@ rOpenSci has its roots in software for biodiversity research, with many packages
 
 A good general resource for rOpenSci packages on biodiversity is the rOpenSci Community Call from March 2019: [Research Applications of rOpenSci Taxonomy and Biodiversity Tools][].
 
-![A bird from ebird](https://test.cdn.download.ams.birds.cornell.edu/api/v1/asset/233593111/2400)
+[![A bird from ebird](https://test.cdn.download.ams.birds.cornell.edu/api/v1/asset/233593111/2400)](https://ebird.org/)
 
 **Browse our table of > 100 data-access packages or jump ahead to [see where _you_ come in](#this-is-where-you-come-in).**
 
