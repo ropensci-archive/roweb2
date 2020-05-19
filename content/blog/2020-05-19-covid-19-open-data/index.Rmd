@@ -262,3 +262,9 @@ Need help? Ask in our [discussion forum][] and we'll do our best to get you answ
 [Research Applications of rOpenSci Taxonomy and Biodiversity Tools]: /commcalls/2019-03-27/
 [suite of R packages]: /packages
 [USGS-R community]: https://owi.usgs.gov/R
+
+
+<!--html_preserve-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="table.js"></script>
+<!--/html_preserve-->
