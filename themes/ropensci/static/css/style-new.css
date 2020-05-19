@@ -2369,3 +2369,19 @@ q:before, q:after {
 }.alert-error a {
   color: #e74c3c;
 }
+
+h2 .headerlink,
+h3 .headerlink,
+h4 .headerlink,
+h5 .headerlink {
+    display: none;
+}
+
+.headerlink:before { content: '🔗'; }
+
+h2:hover .headerlink,
+h3:hover .headerlink,
+h4:hover .headerlink,
+h5:hover .headerlink {
+    display: inline-block;
+}
