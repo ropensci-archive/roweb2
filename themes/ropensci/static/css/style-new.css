@@ -2368,4 +2368,6 @@ q:before, q:after {
   border-color: #ebe9ea;
 }.alert-error a {
   color: #e74c3c;
+}figure img {
+  max-width: 100%;
 }
