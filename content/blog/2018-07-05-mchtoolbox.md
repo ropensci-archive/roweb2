@@ -44,14 +44,9 @@ We aimed to build a package that addresses a gap in the workflow of researchers 
 
 If you’re an [isolated data scientist](https://peerj.com/preprints/3160/) or if you tend to develop analyses on your own, collaboration usually consists of documenting your code and using Git/GitHub so future you knows what past you was up to. Using version control on your own is a great place to begin if you haven’t tried it before, and is fairly straightforward. However, we rapidly discovered that working collaboratively on GitHub  can get quite complicated when you have 5 people sitting around a table contributing to a code base in real time, and some changes in git workflow habits may be required! Thanks to the community and environment rOpenSci intentionally creates at the unconf, we had a short crash course from Jenny Bryan in [happy git with R](https://happygitwithr.com/) and the `usethis` package, and help from Maëlle Salmon on setting up continuous integration, giving us a solid workflow for software development as we move forward. It can be a pretty big leap stepping into a highly collaborative project for the first time -- expect there to be challenges and absolutely don’t be afraid to ask for help! 
 
-{{< tweet 999059214759673856 >}}
-
 ### Rapid prototypes / explorations
 
 Contributing to open source can be intimidating if you feel like you need to build a perfect package that will solve a problem immediately, but it’s equally valuable to build a rapid prototype or exploration of how you want to go about solving the problem that you identified. Sharing a prototype allows you to  start a conversation with others facing the same challenges, and build connections that can lead to more ideas. Our project prototype at the unconf quickly led to feature requests via Twitter, GitHub comments from researchers who were working in a similar space, and involvement from others who found our project and offered to help. This allowed us to learn more about other efforts to solve the same or similar problems and start to think about how to bridge these efforts.
-
-{{< tweet 999062349972570112 >}}
-
 
 ### Next steps
 
