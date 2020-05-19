@@ -50,9 +50,6 @@ If you’re an [isolated data scientist](https://peerj.com/preprints/3160/) or i
 
 Contributing to open source can be intimidating if you feel like you need to build a perfect package that will solve a problem immediately, but it’s equally valuable to build a rapid prototype or exploration of how you want to go about solving the problem that you identified. Sharing a prototype allows you to  start a conversation with others facing the same challenges, and build connections that can lead to more ideas. Our project prototype at the unconf quickly led to feature requests via Twitter, GitHub comments from researchers who were working in a similar space, and involvement from others who found our project and offered to help. This allowed us to learn more about other efforts to solve the same or similar problems and start to think about how to bridge these efforts.
 
-{{< tweet 999062349972570112 >}}
-
-
 ### Next steps
 
 After the unconf, we were able to write a [round-up of existing packages and resources](http://www.monicagerber.com/2018/07/roundup-of-growth-chart-packages/). We plan to continue working on this problem, in collaboration with several folks who are interested in this space. Our next steps include looking for places where goals and strategies overlap and streamlining our approach to create a useful product for public health researchers. We’d love to have you [join the conversation](https://github.com/ropenscilabs/mchtoolbox/issues).
