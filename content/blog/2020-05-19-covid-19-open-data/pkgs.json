@@ -792,6 +792,14 @@
     }
   },
   {
+    "package": ["tradestatistics"],
+    "details": {
+      "url": [" https://github.com/ropensci/tradestatistics"],
+      "description": [" Access 'Open Trade Statistics' API from R to download international trade data."],
+      "data_source": [" NA"]
+    }
+  },
+  {
     "package": ["traits"],
     "details": {
       "url": [" https://github.com/ropensci/traits"],
