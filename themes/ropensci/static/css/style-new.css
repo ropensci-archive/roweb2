@@ -1294,9 +1294,7 @@ q:before, q:after {
     margin-bottom: 20px;
     overflow-x: auto
 }pre code{
-  background-color: #f8f8f8;
-}.highlight {
-        background-color: #f8f8f8;
+  background-color: inherit;
 }h2 code {
     display: inline-block;
     font-size: 2rem;
@@ -1364,7 +1362,7 @@ q:before, q:after {
             justify-content: start;
   }
 
-    #upcoming-events {
+    #upcoming-events {
     }
 
     #upcoming-events th, #upcoming-events td{
@@ -1532,7 +1530,7 @@ q:before, q:after {
             justify-content: start;
   }
 
-    #upcoming-events {
+    #upcoming-events {
     }
 
     #upcoming-events th, #upcoming-events td{
