@@ -182,12 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
         // if it's light -> go dark
-        if(themeStylesheet.href.includes('friendly')){
+        if(themeStylesheet.href.includes('pygments')){
             themeStylesheet.href = '/css/fruity.css';
             themeToggle.innerText = 'Switch to light mode';
         } else {
             // if it's dark -> go light
-            themeStylesheet.href = '/css/friendly.css';
+            themeStylesheet.href = '/css/pygments.css';
             themeToggle.innerText = 'Switch to dark mode';
 
         }
@@ -362,7 +362,7 @@ sep = "\n")
 
 will be knit to produce
 
-```r {hl_lines=[2,4]}
+```r {hl_lines=[4,2]}
 a <- 1
 b <- 2
 c <- 3
@@ -383,7 +383,7 @@ We referred to [the contrast criterion of the Web Content Accessibility Guidelin
 For instance, comments could be lighter or darker than code, but it is crucial to pay attention to the contrast between comments and code background!
 Like [Max Chadwick](https://maxchadwick.xyz/blog/syntax-highlighting-and-color-contrast-accessibility), we darkened colors of a default Chroma style, [friendly](https://xyproto.github.io/splash/docs/longer/friendly.html), until it passed on [an online tool](https://color.a11y.com/).
 Interestingly, this online tool can only work with a stylesheet: for a website with colors written in-line (Hugo default of `pygmentsUseClasses=false`), it won't pick up color contrast problems.
-We chose friendly as a basis because its background can stand out a bit against white, without being a dark theme, which might be bad on a mobile device in direct sunglight.
+We chose friendly as a basis because its background can stand out a bit against white, without being a dark theme, which might be bad on a mobile device in direct sunglight.[^pygments]
 Comments are moreover in italic which helps distinguish them from other code parts.
 
 
@@ -411,3 +411,4 @@ Now, how much time to fiddle with code appearance is probably a question of tast
 [^rss]: In this case colors are also hard-coded in RSS feeds which means the posts will look better in feed readers.
 [^chunk]: I never remember how to show code chunks without their being evaluated so I always need to look at [the source](https://github.com/gadenbuie/garrickadenbuie-com/blob/897d8cde5387a8237eb641490e69cabab39129c1/content/blog/2018/2018-03-05-dry-vignette-and-readme.Rmd) of [Garrick Aden-Buie's blog post about Rmd fragments](https://www.garrickadenbuie.com/blog/dry-vignette-and-readme/).
 [^button]: With color not hard-coded in the html, but as classes, you could imagine folks developing browser extensions to override your highlighting style.
+[^pygments]: We've changed styles again, now we use pygments.
