@@ -1287,8 +1287,7 @@ q:before, q:after {
     background: #f3f7ff;
 }code, pre {
     font-family: "Fira Code";
-    font-size: 16px;
-    line-height: 24px;
+    font-size: .8rem;
 }pre {
     border-radius: 5px;
     padding: 0.6rem;
