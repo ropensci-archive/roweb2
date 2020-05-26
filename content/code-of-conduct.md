@@ -62,7 +62,7 @@ The rOpenSci Code of Conduct has been influenced by and adapted from many source
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
   <a rel="license"
      href="https://creativecommons.org/publicdomain/zero/1.0/">
-    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none; width: 88px;" alt="CC0" />
+    <img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none; width: 88px;" alt="CC0" />
   </a>
   <br />
   To the extent possible under law,

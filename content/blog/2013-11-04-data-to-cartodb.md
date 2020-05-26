@@ -103,7 +103,7 @@ lapply(rows, function(x) cartodb.row.insert(name = "pumamap", columns = list("na
 
 After the upload is finished, I had to make sure the table was georeferenced, and played with settings to suit my style. And then I made a visualization from the `pumamap` dataset and made it public. And that's it!  You can [find the map](https://cdb.io/1fbvgCG), and it can be embedded:
 
-<iframe width='100%' height='400' frameborder='0' src='http://recology.cartodb.com/viz/76a5598e-444b-11e3-8a8c-5404a6a69006/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&zoom=3&center_lat=37.61423141542417&center_lon=-100.72265625'></iframe>
+<iframe width='100%' height='400' frameborder='0' src='https://recology.cartodb.com/viz/76a5598e-444b-11e3-8a8c-5404a6a69006/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&sublayer_options=1&sql=&zoom=3&center_lat=37.61423141542417&center_lon=-100.72265625'></iframe>
 
 
 And we can examine a row from the table in our CartoDB account with a single line of code
