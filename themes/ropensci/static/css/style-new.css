@@ -1294,7 +1294,9 @@ q:before, q:after {
     margin-bottom: 20px;
     overflow-x: auto
 }pre code{
-  background-color: inherit;
+  background-color: #f8f8f8;
+}.highlight {
+        background-color: #f8f8f8;
 }h2 code {
     display: inline-block;
     font-size: 2rem;
