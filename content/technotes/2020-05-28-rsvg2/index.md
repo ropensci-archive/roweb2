@@ -14,15 +14,15 @@ tags:
 
 This week we released a major new version of the [rsvg](https://cran.r-project.org/web/packages/rsvg/index.html) package on CRAN. This package provides R bindings to [librsvg2](https://developer.gnome.org/rsvg/stable/) which is a powerful system library for rendering svg images into bitmaps, which we can use for further processing in for example the [magick](https://docs.ropensci.org/magick) package.
 
-The biggest change in this release is the R package on Windows and MacOS now includes the latest librsvg 2.48.4. This is a major upgrade; the librsvg2 rendering engine has been [completely rewritten](https://people.gnome.org/~federico/blog/css-in-librsvg-is-now-in-rust.html) in Rust using components from [Mozilla Servo](https://research.mozilla.org/servo-engines/). This has resulted in major improvements in quality and performance, and we have gained full support for css styling.
+The biggest change in this release is the R package on Windows and MacOS now includes the latest librsvg 2.48.4. This is a major upgrade; the librsvg2 rendering engine has been [completely rewritten](https://people.gnome.org/~federico/blog/css-in-librsvg-is-now-in-rust.html) in Rust [^1] using components from [Mozilla Servo](https://research.mozilla.org/servo-engines/). This has resulted in major improvements in quality and performance, and we have gained full support for css styling.
 
 In this post we showcase how it works, and why you should use svg for R graphics.
 
 ## What is rendering
 
-A figure in svg format is stored as xml data containing a vector representation of a drawing, such as a sequence of lines, shapes, text, with their relative position, color, attributes, and so on. The benefit of storing graphics in svg format is that they can be resized without loss of quality. And because it is just xml, the shapes and text can be manipulated using standard xml/css tools, such as a browser.
+A figure in svg format is stored as xml data containing a vector representation of a drawing, such as a sequence of lines, shapes, text, with their relative position, size, color, attributes, etc. The benefit of svg is that it can be resized without loss of quality. And because it is just xml, the shapes and text can be manipulated using standard xml/css tools, such as a browser or the [xml2](https://xml2.r-lib.org/) package.
 
-For an image to be displayed on screen, printed in a document, or loaded in editing software, it has to be _rendered_ into a bitmap. A bitmap is a fixed a array (matrix) of pixels with color values. Bitmap formats such as png, jpeg, or tiff all store the same pixel data, using different compression methods.
+For an image to be displayed on screen, printed in a document, or loaded in editing software, it has to be _rendered_ into a bitmap. A bitmap is a fixed a array of w × h pixels with color values. Bitmap formats such as png, jpeg, or tiff all store the same pixel data, using different compression methods.
 
 The rsvg package renders svg into a bitmap image with the format and size of your choice, directly in R, and without loss of quality:
 
@@ -152,6 +152,9 @@ So is this useful? Maybe, I'm not sure. The R graphics system is pretty old, it 
 
 > D3’s vocabulary of graphical marks comes directly from web standards: HTML, SVG, and CSS. For example, you can create SVG elements using D3 and style them with external stylesheets. You can use composite filter effects, dashed strokes and clipping. If browser vendors introduce new features tomorrow, you’ll be able to use them immediately—no toolkit update required. And, if you decide in the future to use a toolkit other than D3, you can take your knowledge of standards with you!
 
-Maybe not everything generalizes directly to R, but some aspects do. One could imagine it would be useful to specify fonts and color palettes in the rendering phase, rather than hardcoding these in the graphic. For this to work, the graphics device would have to add support for tagging shapes and textboxes with a class or id, such that these can be selected using xpath, css or javascript.
+Maybe not everything generalizes directly to R, but some aspects do. One could imagine it would be useful to specify fonts and color palettes in the rendering phase, rather than hardcoding these in the graphic. Or that the same svg file would work in dark-mode, or with accessibility styling. For this to work, the graphics device would have to add support for tagging shapes and textboxes with a class or id, such that these can be selected using xpath, css or javascript.
 
-I think that if we can untangle these things in the graphics device, it may be possible to produce R graphics as objects that can both be rendered into bitmaps for printing, but at the same time allow for interactivity and animation in the browser. There are a lot of [JavaScript libraries](https://bashooka.com/coding/javascript-svg-animation-libraries/) to enhance svg graphics on a webpage (did you notice one was used in this post?), and with the rsvg package you can use _exactly the same svg file_ to render a high quality png images for in your paper. No fancyplot widget frameworks required ;)
+I think that if we can untangle these things in the graphics device, it may be possible to produce R graphics as objects that can both be rendered into bitmaps for printing, but at the same time allow for interactivity and animation in the browser. There are a lot of [JavaScript libraries](https://bashooka.com/coding/javascript-svg-animation-libraries/) to enhance svg graphics on a webpage [^2], and with the rsvg package you can use exactly the same svg file to render a high quality image for in your paper.
+
+[^1]: For other uses of Rust in R, see my presentation at Erum2018: [slides](https://jeroen.github.io/erum2018/), [recording](https://www.youtube.com/watch?v=MK9YNr3FTQs)
+[^2]: Did you notice one was used in this post? Try reloading the page, and look at the mtcars plot.

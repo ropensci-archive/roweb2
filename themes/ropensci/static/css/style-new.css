@@ -2371,4 +2371,10 @@ q:before, q:after {
   color: #e74c3c;
 }figure img {
   max-width: 100%;
+}/* Prevent Superscripts and Subscripts from Affecting Line-Height */sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}sub { 
+  top: 0.4em; 
 }
