@@ -1362,7 +1362,7 @@ q:before, q:after {
             justify-content: start;
   }
 
-    #upcoming-events {
+    #upcoming-events {
     }
 
     #upcoming-events th, #upcoming-events td{
@@ -1530,7 +1530,7 @@ q:before, q:after {
             justify-content: start;
   }
 
-    #upcoming-events {
+    #upcoming-events {
     }
 
     #upcoming-events th, #upcoming-events td{
@@ -2288,9 +2288,11 @@ q:before, q:after {
 }.blog-post h2{
   font-size: 1.8em;
   margin-top: 0.3em;
+  margin-bottom: 0.1em;
 }.blog-post h3{
   font-size: 1.6em;
   margin-top: 0.3em;
+  margin-bottom: 0.1em;
 }.blog-post h4{
   font-size: 1.4em;
   margin-top: 0.2em;
