@@ -4,7 +4,7 @@ title: 'Superior svg graphics rendering in R, and why it matters'
 date: '2020-05-28'
 author:
   - Jeroen Ooms
-cover: https://docs.ropensci.org/av/reference/read_audio-1.png
+topicid: 2101
 tags:
   - R
   - images
@@ -12,7 +12,7 @@ tags:
   - svg
 ---
 
-This week we released a major new version of the [rsvg](https://cran.r-project.org/web/packages/rsvg/index.html) package on CRAN. This package provides R bindings to [librsvg2](https://developer.gnome.org/rsvg/stable/) which is a powerful system library for rendering svg images into bitmaps, which we can use for further processing in for example the [magick](https://docs.ropensci.org/magick) package.
+This week we released a major new version of the [rsvg](https://cran.r-project.org/web/packages/rsvg/index.html) package on CRAN. This package provides R bindings to [librsvg2](https://developer.gnome.org/rsvg/stable/) which is a powerful system library for rendering svg images into bitmaps that can be displayed, or use for further processing in for example the [magick](https://docs.ropensci.org/magick) package.
 
 The biggest change in this release is the R package on Windows and MacOS now includes the latest librsvg 2.48.4. This is a major upgrade; the librsvg2 rendering engine has been [completely rewritten](https://people.gnome.org/~federico/blog/css-in-librsvg-is-now-in-rust.html) in Rust [^1] using components from [Mozilla Servo](https://research.mozilla.org/servo-engines/). This has resulted in major improvements in quality and performance, and we have gained full support for css styling.
 
