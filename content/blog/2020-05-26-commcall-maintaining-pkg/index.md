@@ -4,15 +4,12 @@ author:
   - Janani Ravi
   - Steffi LaZerte
 date: '2020-05-26'
-slug: comcall-maintaining-pkg
-categories:
-  - blog
+slug: commcall-maintaining-pkg
 tags:
   - r
   - community call
   - packages
   - maintenance
-package_version: 0.1.0
 description: Summary of questions addressed in the community call, maintaining R packages
 ---
 
@@ -20,6 +17,8 @@ Introductory blurb
 
 In March we had an invigorating [Community Call](/commcalls/2020-03-18/) discussing the maintenance of R packages. 
 This Community Call was slightly different from others in that it comprised of a [starting presentation](https://speakerdeck.com/juliasilge/maintaining-an-r-package) by [Julia Silge](/author/julia-silge/) followed by a panel discussion featuring panelists with a wide [variety of backgrounds](/blog/2020/03/04/commcall-mar2020/#speakers): [Elin Waring](/author/elin-waring), [Erin Grand](/author/erin-grand), [Leonardo Collado-Torres](/author/leonardo-collado-torres) and [Scott Chamberlain](/author/scott-chamberlain).  
+
+{{< figure src = "speakers.png" class = "center" width = "800" alt = "Headshots of the moderator and four panelists" >}}
 
 Prior to the discussion, questions were submitted by the community. 
 During the Community Call panelists answered questions and viewers added their own questions, answers and thoughts to the [collaborative document](https://docs.google.com/document/d/1KvuVNU4ICE_FHvJMAfKns_pZnOt_1cgJ4wokxGGuDaE/). 
