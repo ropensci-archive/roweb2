@@ -148,7 +148,8 @@ __Lesser Violetear__ *Colibri cyanotus*. Carlos Sanchez, [*Macaulay Library*](ht
 ### rOpenSci data-access packages
 
 The table below shows a subset of our full [suite of R packages][]. 
-Click on the package name to see a list of scientific use cases.
+Click on the package name there to see a list of scientific use cases.
+The table below doesn't contain use cases.
 
 
 
