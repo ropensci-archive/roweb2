@@ -19,28 +19,26 @@ tags:
   - piggyback
   - Rclean
   - RefManageR
+  - rflybase
   - rnaturalearth
   - rsvg2
   - tidyhydat
   - tradestatistics
 description: Semi-monthly summary of the rOpenSci Newsletter, June 2020
 preface: "A semi-monthly summary of the [rOpenSci Newsletter](https://news.ropensci.org/) including software reviews, packages on CRAN, use cases, posts from staff and community, and events. April 27 to June 8, 2020"
-# twitterImg: blog/2019/06/04/post-template/name-of-image.png
 ---
 
 ### rOpenSci HQ
 
-* rOpenSci, together with many expert community members, put together a guide to help researchers find open data available in R: [When Field or Lab Work is not an Option - Leveraging Open Data Resources for Remote Research](/blog/2020/05/19/covid-19-open-data/). The blog post has information on a few topical areas, as well as a table of rOpenSci packages for access to research data.
+The rOpenSci team, together with ten expert community members, put together a post: [When Field or Lab Work is not an Option - Leveraging Open Data Resources for Remote Research](/blog/2020/05/19/covid-19-open-data/). We highlighted examples of how specific collections of packages are being used right now in fields as varied as archaeology and climate science and compiled a table of > 100 rOpenSci packages for access to open data.
 
 &nbsp;
 
 ### Software Peer Review
 
-[Software peer review](/software-review/) is now accepting submissions again, after a pause in the interest of reducing load on reviewers and editors in light of the COVID-19 crisis.
+[Software peer review](/software-review/) is accepting submissions again, after a pause to reduce the load on reviewers and editors in light of the COVID-19 crisis.
 
-Consider [submitting your package](https://devguide.ropensci.org/softwarereviewintro.html) or [volunteering to review](https://devguide.ropensci.org/softwarereviewintro.html#whyreview).
-
-If you want to be a reviewer fill out [this short form](https://ropensci.org/onboarding/), and we'll ping you when there's a submission that fits in your area of expertise.
+Consider [submitting your package](https://devguide.ropensci.org/softwarereviewintro.html) or [volunteering to review](https://devguide.ropensci.org/softwarereviewintro.html#whyreview). If you want to be a reviewer fill out [this short form](https://ropensci.org/onboarding/), and we'll ping you when there's a submission that fits in your area of expertise.
 
 &nbsp;
 
@@ -68,7 +66,9 @@ If you want to be a reviewer fill out [this short form](https://ropensci.org/onb
 
 #### From the rOpenSci team
 
-* [rOpenSci Dev Guide 0.4.0: Updates](https://ropensci.org/blog/2020/04/14/devguide-release/)
+* [When Field or Lab Work is not an Option - Leveraging Open Data Resources for Remote Research](/blog/2020/05/19/covid-19-open-data/) - by [The rOpenSci Team](/author/the-ropensci-team/), [Brooke Anderson](/author/brooke-anderson/), [Robin Lovelace](/author/robin-lovelace/), [Ben Marwick](/author//ben-marwick/), [Ben Raymond](/author/ben-raymond/), [Anton Van de Putte](/author/anton-van-de-putte/), [Louise Slater](/author/louise-slater/), [Sam Zipper](/author/sam-zipper/), [Ilaria Prosdocimi](/author/ilaria-prosdocimi/), [Sam Albers](/author/sam-albers/), [Claudia Vitolo](/author/claudia-vitolo/)
+
+* [rOpenSci Dev Guide 0.4.0: Updates](/blog/2020/04/14/devguide-release/)
 
 * [Superior svg graphics rendering in R, and why it matters](/technotes/2020/05/28/rsvg2/) Tech Note - [Jeroen Ooms](/author/jeroen-ooms/)
 
@@ -102,8 +102,16 @@ _We have a discussion forum (using Discourse) for the rOpenSci community. It’s
 ---->
 ### In the News
 
-* [Why You Should Document Your Tests](https://hynek.me/articles/document-your-tests/)
-    - Should you document your tests? [Scott](/author/scott-chamberlain/) says "I for one, only sometimes include comments in my tests, but perhaps they should be documented better?" Do you comment or document your tests? This blog post is about Python, but the ideas apply to any language.
+[Why You Should Document Your Tests](https://hynek.me/articles/document-your-tests/), by Hynek Schlawack
+- [Scott](/author/scott-chamberlain/) says "I for one, only sometimes include comments in my tests, but perhaps they should be documented better?" Do you comment or document your tests? This blog post is about Python, but the ideas apply to any language.
+
+&nbsp;
+
+### Call For Maintainers
+
+Part of our mission is making sustainable software users can rely on. Sometimes software maintainers need to give up maintenance due to a variety of circumstances. When that happens we try to find new maintainers. Check out our guidance for [taking over maintenance of a package](https://devguide.ropensci.org/changing-maintainers.html).
+
+[**rflybase**](https://docs.ropensci.org/rflybase/) is in need of a new maintainer. [Email Scott](mailto:myrmecocystus@gmail.com) if you're interested.
 
 &nbsp;
 
@@ -112,7 +120,5 @@ _We have a discussion forum (using Discourse) for the rOpenSci community. It’s
 We create a newsletter every two weeks. You can subscribe via rss feed in [XML](https://news.ropensci.org/feed.xml) or [JSON](https://news.ropensci.org/feed.json) or via our one-way [mailing list](/#subscribe).
 
 Follow [@rOpenSci](https://twitter.com/ropensci) on Twitter.
-
-&nbsp;
 
 Find out how you can [contribute](https://devguide.ropensci.org/contributingguide.html) to rOpenSci as a user or developer.
