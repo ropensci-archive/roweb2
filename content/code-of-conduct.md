@@ -1,6 +1,7 @@
 +++
 title = "Code of Conduct"
 description = "rOpenSci Code of Conduct"
+subtitle = "Version 2.1 – January 15, 2020"
 +++
 
 **Version 2.1 – January 15, 2020**
