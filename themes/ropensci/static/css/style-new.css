@@ -1020,6 +1020,10 @@ q:before, q:after {
   object-fit: fill;
   width: initial;
   max-width: 100%;
+}article p img[src$=".svg"] {
+  object-fit: fill;
+  width: initial;
+  max-width: 100%;
 }/* Forms */form {
     width: 100%
 }form input{
