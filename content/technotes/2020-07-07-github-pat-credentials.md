@@ -15,7 +15,7 @@ tags:
 
 We have been working hard behind the scenes on the upcoming release of our new git package named [gert](https://docs.ropensci.org/gert), a joint effort from rOpenSci and the Tidyverse team. One of the main features of gert is the out-of-the-box authentication mechanism, which is provided via the new [credentials](https://docs.ropensci.org/credentials/articles/intro.html) package.
 
-Among other things, the credentials package makes it possible to save and load https authentication details from the [git credential store](https://git-scm.com/docs/git-credential-store), which is part of the official command-line git. Thereby credentials are automatically shared between command line git and the gert package, while safely stored by your operating system preferred password manager.
+Among other things, the credentials package makes it possible to save and load https authentication details from the [git credential store](https://git-scm.com/docs/git-credential-store), which is part of the official command-line git. Thereby credentials are automatically shared between command line git and the gert package, while safely stored by your operating system's preferred password manager.
 
 In this post we show how you can take this one step further, and use the credentials package to save your `GITHUB_PAT` in the git credential store. This way you can authenticate with the GitHub API using the same token that is used for HTTPS remotes in git and gert. This is convenient for users, and also provides package authors with a mechanism to prompt the user for credentials, without having to take responsibility for managing tokens.
 
