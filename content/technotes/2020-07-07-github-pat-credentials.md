@@ -100,13 +100,16 @@ Alternatively, if you want to switch to another PAT, use `set_github_pat(force_n
 credentials::set_github_pat(force_new = TRUE)
 ```
 
+![rstudio](https://i.imgur.com/dGd8tvB.png)
+
 ## Workflow
 
-We still need to figure out how this will affect the recommended workflow. Currently many users hardcode the GITHUB_PAT in the `~/.Renviron` file. Thereby the GITHUB_PAT variable is automatically set in every R session. You could accomplish the same with the credentials package by adding this to your `~/.Rprofile` file:
+We still need to figure out how this will affect the recommended workflow. Currently many users hardcode the GITHUB_PAT in the `~/.Renviron` file, so that it is automatically set in every R session. You could accomplish the same with the credentials package by adding this to your `~/.Rprofile` file:
 
 ```r
 # Load the GITHUB_PAT in the R session
 credentials::set_github_pat()
 ```
 
-However perhaps it is actually not needed to always have your GITHUB_PAT exposed. The nice thing about the credentials package is that it becomes easy to load your access token *on demand*. Hence, instead of setting the PAT on the start of each R session, a user or package could call `set_github_pat()` whenever it needs access to the Github API.
+However perhaps it is actually undesired to always have your GITHUB_PAT exposed in R. The nice thing about the credentials package is that it becomes easy to load your access token *on demand*. Hence, instead of setting the PAT on the start of each R session, a user or 3rd party package could call `set_github_pat()` whenever it needs access to the Github API.
+
