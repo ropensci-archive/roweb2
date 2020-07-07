@@ -26,7 +26,7 @@ GitHub allows you to generate [Personal Access Tokens](https://github.com/settin
 
  - If you have enabled 2FA, you must use a PAT to authenticate programmatically. You have no choice.
  - A PAT can easily be revoked or updated. You can even automate this via the Github API.
- - You can generate many PATs with specific permissions, giving you fine grained security control.
+ - You can generate many PATs with specific permissions, giving you fine-grained security control.
 
 In conclusion, if you are a responsible GitHub user, you have enabled 2FA on your account, and you only ever enter your main password when authenticating on the GitHub website. Everywhere else you should be using a PAT, preferably one that only has the permissions it needs.
 
