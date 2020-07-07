@@ -103,8 +103,8 @@ Nonetheless, in case someone would like to try it next, we propose an optimised 
     a much more efficient workflow. For example, if you use Vim (or RStudio with
     vim keybindings), then the 'merge line' operation that was difficult in
     amara is just a simple keystroke (J). You can also add a visual hint to make
-    sure you respect the character width limit (follow [these steps]() for
-    RStudio  for example).
+    sure you respect the character width limit (follow [these steps](https://community.rstudio.com/t/vertical-line-in-the-source-editor/24950/2) for
+    RStudio for example).
 
 1. Upload the corrected transcript on Amara.
 1. Sync the subtitles with the audio. Because the breaks are already placed at
