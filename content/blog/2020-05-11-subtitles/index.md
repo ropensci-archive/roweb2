@@ -75,8 +75,11 @@ collaborative captioning. When someone starts working on a video, it disappears 
 Amara.org has a set of useful features that increase your efficiency a bit. The most notable ones in our opinion are:
 
 - keyboard shortcuts such as 'Tab' to play/pause the video, 'Shift+Tab' to go back in the video, 'Ctrl' to create a new subtitle, and 'Shift+Ctrl' to add a line break in a subtitle;
+
 - automatic deletion of leading whitespaces;
+
 - warnings regarding caption length, number of lines used, and caption reading speed (the longer the caption the longer it has to stay on screen so that viewers can read it!);
+
 - full versioning of the subtitles, we can still go back through all the subtitle versions we edited.
 
 #### Missing features
