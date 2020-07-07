@@ -78,7 +78,7 @@ collaborative captioning. When someone starts working on a video, it disappears 
 
 #### Nice features
 
-{{< figure src = "amara-interface.png" alt = "Interface of Amara.org" caption = "The interface of Amara is divided in different sections each focusing on distinct aspects of captioning." class = "center" >}}
+{{< figure src = "amara-interface.png" alt = "Interface of Amara.org" caption = "The interface of Amara is divided in different sections each focusing on distinct aspects of captioning. The video is on the top. The middle part shows a timeline with the duration of each caption. The bottom part shows the text and the caption editor as well as a conservation window on the bottom right." class = "center" >}}
 
 Amara.org has a set of useful features that increase your efficiency a bit. The most notable ones in our opinion are:
 
@@ -102,7 +102,7 @@ There are other features we could not find (they might exist but we missed them?
 
 #### Proposed optimised workflow
 
-Given the amount of time required to achieve a perfect result (or even a "good enough" result as in this case), we are not sure it worth continuing this enterprise, at least as long as we don't find better tools / methods.
+Given the amount of time required to achieve a perfect result (or even a "good enough" result as in this case), we are not sure it worth continuing this enterprise, at least as long as we don't find better tools / methods. In the long term, it is always worth it to provide captions, as it increases the accessibility of the videos. In the short term, the amount of time required to caption even a single video puts too much burden on volunteers. With more collaborative tools and an optimized workflow, it should be possible to caption video quicker. One idea to increase captioning of many videos would be to organize "Captioning Sprints" where volunteers gather (online or in person) and split the captioning work in small workable chunks.
 
 Nonetheless, in case someone would like to try it next, we propose an optimised workflow, that may help reducing the time you spend:
 
