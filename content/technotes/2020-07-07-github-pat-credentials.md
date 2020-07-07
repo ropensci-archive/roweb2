@@ -45,7 +45,7 @@ This function calls out to the [git credential store](https://git-scm.com/docs/g
 ![token](https://i.imgur.com/cnJcRmw.png)
 
 
-The `set_github_pat` function returns `TRUE` when it succeeded in setting the `GITHUB_PAT` environment variable, and `FALSE` if not. Packages that call `set_github_pat()` to let the user authenticate, can check the return value to determine if authentication was successful.
+The `set_github_pat()` function returns `TRUE` when it succeeds in setting the `GITHUB_PAT` environment variable, and `FALSE` if not. Packages that call `set_github_pat()` to let the user authenticate, can check the return value to determine if authentication was successful.
 
 Once a working PAT has been stored in the git credential store, it can automatically be loaded in another R session by calling `set_github_pat()` again. The token is automatically validated, and if it still works, the `GITHUB_PAT` environment variable is set without the user having to do anything.
 
