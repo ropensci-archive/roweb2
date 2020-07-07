@@ -24,7 +24,7 @@ In this post we show how you can take this one step further, and use the credent
 
 GitHub allows you to generate [Personal Access Tokens](https://github.com/settings/tokens), which you can use instead of your password when authenticating over HTTPS, both for git remotes and the GitHub API. Major advantages are:
 
- - If you have enabled 2FA, you need a PAT to authenticate programmatically.
+ - If you have enabled 2FA, you must use a PAT to authenticate programmatically. You have no choice.
  - A PAT can easily be revoked or updated. You can even automate this via the Github API.
  - You can generate many PATs with specific permissions, giving you fine grained security control.
 
