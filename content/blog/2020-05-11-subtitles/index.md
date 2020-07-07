@@ -42,7 +42,7 @@ If you've never tried captioning a video, you may think that the hardest parts a
 
 But even after downloading the raw transcript, there is still a huge amount of work left. You have to balance subtitles, making sure each line is short enough to display even on short screens and that each frame doesn't have more than two lines. Additionally, and as we detail later in this blog post, it can be pleasant to remove excessive [discourse markers](https://dictionary.cambridge.org/grammar/british-grammar/discourse-markers-so-right-okay), such as 'uhm', 'like', 'so' or stutters.
 
-These tasks proved much more difficult than anticipated in this particular case. Indeed, this was probably not the best video to start this enterprise. As opposed to usual rOpenSci community calls, this did not follow a webinar format. It was a roundtable involving 5 participants in a lively unscripted discussion that lasted 55 minutes. This clashed strongly with the little experience we may have had beforehand since it was only on very short, 100% scripted YouTube documentaries, such as the [Kurzgesagt channel](https://www.youtube.com/user/Kurzgesagt).
+The Community Call was a roundtable involving 5 participants in a lively unscripted discussion that lasted 55 minutes. This clashed strongly with the little experience we may have had beforehand since it was only on very short, 100% scripted YouTube documentaries, such as the [Kurzgesagt channel](https://www.youtube.com/user/Kurzgesagt).
 
 ### A diverse community of speakers and captioners
 
@@ -78,7 +78,7 @@ Amara.org has a set of useful features that increase your efficiency a bit. The 
 
 - automatic deletion of leading whitespaces;
 
-- warnings regarding caption length, number of lines used, and caption reading speed (the longer the caption the longer it has to stay on screen so that viewers can read it!);
+- warnings regarding caption length, number of lines used, and caption reading speed (longer captions have to stay on screen for longer time so that viewers can read them!);
 
 - full versioning of the subtitles, we can still go back through all the subtitle versions we edited.
 
@@ -114,7 +114,7 @@ the right time, this should be quick using Amara and its keyboard shortcuts, and
 
 ### A time-consuming but gratifying experience
 
-Given the complexity of the task –almost our first subtitling experience, our first use of Amara, a community call with many different speakers– producing good enough subtitles took us quite some time. We (Stefanie, Matthias, and Hugo) spent a total of around 20 hours of work to edit the subtitles for this 55 minutes community call. Which makes a ratio of around 4 hours of work to caption a single hour of talk! It may seem quite a lot but at the same time, it was our first time doing this, first time using these tools, on a complex video with many different speakers, several interruptions, and quite open-ended discussion. Now that we are more used to the process, with the tools, we should be able to work faster. And with a simpler video, such as a regular community call where speakers spend more time presenting their own work, without cutting off each other, it should take less time.
+Given the complexity of the task –almost our first subtitling experience, our first use of Amara, a community call with many different speakers– producing good enough subtitles took us quite some time. We (Stefanie, Matthias, and Hugo) spent a total of around 20 hours of work to edit the subtitles for this 55 minutes community call. Which makes a ratio of around 4 hours of work to caption 15 minutes of talk! It may seem quite a lot but at the same time, it was our first time doing this, first time using these tools, on a complex video with many different speakers, several interruptions, and quite open-ended discussion. Now that we are more used to the process, with the tools, we should be able to work faster. And with a simpler video, such as a regular community call where speakers spend more time presenting their own work, without cutting off each other, it should take less time.
 
 We learned a lot during the process, enjoyed the roundtable even more (in all its details), learning about subtitling best practices, asking questions about the best way to transcribe some oral expressions. It's a challenging but interesting exercise. Even we may need a better workflow we think it is worth our collective time to provide subtitles to our videos, for accessiblity. But also to broaden and diversify the R community audience. We could also think at a more global scale of accessibility issues and spark discussion through the [R Consortium Diversity & Inclusion Working Group](https://github.com/RConsortium/RCDI-WG/). And why not think about live-captioning for your future event to make it more accessible?
 
