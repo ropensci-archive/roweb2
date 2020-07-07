@@ -28,13 +28,19 @@ Webinars and community calls are a great way to gather many people to discuss a 
 
 When the calls are recorded, as it is the case for [rOpenSci Community Calls](/commcalls/), it is possible to rewind and replay, which may help but it is not always sufficient. A better solution, as suggested on the [GitHub issue tracker](https://github.com/ropensci-org/community-calls/issues/14) for community calls, would be to provide subtitles. In this blog post we want to provide feedback on our experience subtitling one [community call on R package maintenance](/commcalls/2020-03-18/), pointing out the tools we used, the lessons we learned, and laying out a possible workflow for future video captioning. We here refer to [closed captioning](en.wikipedia.org/wiki/Closed_captioning) instead of [subtitling](https://en.wikipedia.org/wiki/Subtitles). Both consist on adding text on a video, but they differ in their goal. Subtitles only transcribe dialogues, while closed captioning also include the transcription of sound effect, musical cues, and other conversational cues such as the speakers' names.
 
+{{< figure src = "screen-video-subtitle.png" alt = "Screenshot of the video with closed captions" caption = "The Community Call video with captions activated on Vimeo" class = "center" >}}
+
 One of us already had a little experience captioning short videos on YouTube so we volunteered to try and add subtitles to the next community call. Because we think it's important to work as much as possible with free and open source tools, our choice landed on [Amara](https://amara.org), which is a platform for community captioning used by other prolific video producers, such as [TED talks](https://www.ted.com/).
 
 ### Some things were easier than expected but some were harder
 
 #### The good thing about modern technology
 
-If you've never tried captioning a video, you may think that the hardest parts are writing the transcript and syncing the video and audio. Fortunately, we have pretty good tools for this nowadays. To ease the subtitling process, we didn't start from a blank slate, thanks to the fact that all rOpenSci community calls are recorded, Stefanie Butland provided us with the raw transcript (in [VTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)) that was automatically generated from the Zoom call recording. That VTT file not only contains a transcript of all the audio, but also some timestamps that synchronizes sections of the transcript with the video. Of course, technical and field specific terms were often wrong (the most common issue being 'R' transcribed as 'our', and rOpenSci as 'Our open sigh'). This seems like an unavoidable issue that happens no matter the tools you use. For example, YouTube gets even more creative with R slang:
+If you've never tried captioning a video, you may think that the hardest parts are writing the transcript and syncing the video and audio. Fortunately, we have pretty good tools for this nowadays. To ease the subtitling process, we didn't start from a blank slate, thanks to the fact that all rOpenSci community calls are recorded, Stefanie Butland provided us with the raw transcript (in [VTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)) that was automatically generated from the Zoom call recording.
+
+{{< figure src = "webvtt-file.png" alt = "Content of a VTT file" caption = "Screenshot of a sample VTT file. It contains both text and corresponding timestamps" class = "center" >}}
+
+That VTT file not only contains a transcript of all the audio, but also some timestamps that synchronizes sections of the transcript with the video. Of course, technical and field specific terms were often wrong (the most common issue being 'R' transcribed as 'our', and rOpenSci as 'Our open sigh'). This seems like an unavoidable issue that happens no matter the tools you use. For example, YouTube gets even more creative with R slang:
 
 {{< tweet 1259507352774021121 >}}
 
@@ -72,6 +78,8 @@ collaborative captioning. When someone starts working on a video, it disappears 
 
 #### Nice features
 
+{{< figure src = "amara-interface.png" alt = "Interface of Amara.org" caption = "The interface of Amara is divided in different sections each focusing on distinct aspects of captioning." class = "center" >}}
+
 Amara.org has a set of useful features that increase your efficiency a bit. The most notable ones in our opinion are:
 
 - keyboard shortcuts such as 'Tab' to play/pause the video, 'Shift+Tab' to go back in the video, 'Ctrl' to create a new subtitle, and 'Shift+Ctrl' to add a line break in a subtitle;
@@ -79,6 +87,8 @@ Amara.org has a set of useful features that increase your efficiency a bit. The 
 - automatic deletion of leading whitespaces;
 
 - warnings regarding caption length, number of lines used, and caption reading speed (longer captions have to stay on screen for longer time so that viewers can read them!);
+
+{{< figure src = "warning-caption.png" alt = "Warning window from Amara.org on captions" caption = "If a caption does not follow what are considered best practices in captioning, it gets flagged with an exclamation mark. Here the first line of the caption exceeds the recommendation of 42 characters per line." class = "center" >}}
 
 - full versioning of the subtitles, we can still go back through all the subtitle versions we edited.
 
