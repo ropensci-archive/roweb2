@@ -40,9 +40,9 @@ If you've never tried captioning a video, you may think that the hardest parts a
 
 #### Unexpected tasks
 
-But even after this, there is still a huge amount of work left. You have to balance subtitles, making sure each line is short enough to display even on short screens and that each frame doesn't have more than two lines. Additionally, and as we detail later in this blog post, it can be pleasant to remove excessive [discourse markers](https://dictionary.cambridge.org/grammar/british-grammar/discourse-markers-so-right-okay), such as 'uhm', 'like', 'so' or stutters.
+But even after downloading the raw transcript, there is still a huge amount of work left. You have to balance subtitles, making sure each line is short enough to display even on short screens and that each frame doesn't have more than two lines. Additionally, and as we detail later in this blog post, it can be pleasant to remove excessive [discourse markers](https://dictionary.cambridge.org/grammar/british-grammar/discourse-markers-so-right-okay), such as 'uhm', 'like', 'so' or stutters.
 
-But these tasks proved much more difficult than anticipated in this particular case. Indeed, this was probably not the best video to start this enterprise. As opposed to usual rOpenSci community calls, this did not follow a webinar format. It was a roundtable involving 5 participants in a lively unscripted discussion that lasted 55 minutes. This clashed strongly with the little experience we may have had beforehand since it was only on very short, 100% scripted YouTube documentaries, such as the [Kurzgesagt channel](https://www.youtube.com/user/Kurzgesagt).
+These tasks proved much more difficult than anticipated in this particular case. Indeed, this was probably not the best video to start this enterprise. As opposed to usual rOpenSci community calls, this did not follow a webinar format. It was a roundtable involving 5 participants in a lively unscripted discussion that lasted 55 minutes. This clashed strongly with the little experience we may have had beforehand since it was only on very short, 100% scripted YouTube documentaries, such as the [Kurzgesagt channel](https://www.youtube.com/user/Kurzgesagt).
 
 ### A diverse community of speakers and captioners
 
