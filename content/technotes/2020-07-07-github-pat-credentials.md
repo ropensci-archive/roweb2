@@ -15,18 +15,20 @@ tags:
 
 We have been working hard behind the scenes on the upcoming release of our new git package named [gert](https://docs.ropensci.org/gert), a joint effort from rOpenSci and the Tidyverse team. One of the main features of gert is the out-of-the-box authentication mechanism, which is provided via the new [credentials](https://docs.ropensci.org/credentials/articles/intro.html) package.
 
-Among other things, the credentials package makes it possible to save and load https authentication details from the [git credential store](https://git-scm.com/docs/git-credential-store), which is part of the official command-line git. Thereby credentials are automatically shared between command line git and the gert package, while safely stored by your operating system's preferred password manager.
+Among other things, the credentials package makes it possible to save and load https authentication details from the [git credential store](https://git-scm.com/docs/gitcredentials), which is part of the official command-line git. Thereby credentials are automatically shared between command line git and the gert package, while safely stored by your operating system's preferred password manager.
 
 In this post we show how you can take this one step further, and use the credentials package to save your `GITHUB_PAT` in the git credential store. This way you can authenticate with the GitHub API using the same token that is used for HTTPS remotes in git and gert. This is convenient for users, and also provides package authors with a mechanism to prompt the user for credentials, without having to take responsibility for managing tokens.
+
+__Note for Windows users:__ the credentials package requires a recent version of [Git for Windows](https://git-scm.com/download/win).
 
 
 ## What is a Personal Access Token
 
 GitHub allows you to generate [Personal Access Tokens](https://github.com/settings/tokens), which you can use instead of your password when authenticating over HTTPS, both for git remotes and the GitHub API. Major advantages are:
 
- - If you have enabled 2FA, you must use a PAT to authenticate programmatically. You have no choice.
- - A PAT can easily be revoked or updated. You can even automate this via the Github API.
+ - If you have enabled [two-factor authentication](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa) (2FA), you must use a PAT to authenticate programmatically. You have no choice.
  - You can generate many PATs with specific permissions, giving you fine-grained security control.
+ - A PAT can easily be revoked or replaced with a new one.
 
 In conclusion, if you are a responsible GitHub user, you have enabled 2FA on your account, and you only ever enter your main password when authenticating on the GitHub website. Everywhere else you should be using a PAT, preferably one that only has the permissions it needs.
 
@@ -40,7 +42,7 @@ credentials::set_github_pat()
 ## TRUE
 ```
 
-This function calls out to the [git credential store](https://git-scm.com/docs/git-credential-store) to get a suitable token for the `github.com` domain. If no token is available yet, the git credential manager will then prompt the user to enter one. What this looks like depends on your operating system and [credential helper](https://git-scm.com/docs/gitcredentials) configuration.
+This function calls out to the [git credential store](https://git-scm.com/docs/gitcredentials) to get a suitable token for the `github.com` domain. If no token is available yet, the git credential manager will then prompt the user to enter one. What this looks like depends on your operating system and [credential helper](https://git-scm.com/docs/gitcredentials#_configuration_options) configuration.
 
 ![token](https://i.imgur.com/cnJcRmw.png)
 
@@ -97,3 +99,14 @@ Alternatively, if you want to switch to another PAT, use `set_github_pat(force_n
 # Drop existing GITHUB_PAT and ask for a new one
 credentials::set_github_pat(force_new = TRUE)
 ```
+
+## Workflow
+
+We still need to figure out how this will affect the recommended workflow. Currently many users hardcode the GITHUB_PAT in the `~/.Renviron` file. Thereby the GITHUB_PAT variable is automatically set in every R session. You could accomplish the same with the credentials package by adding this to your `~/.Rprofile` file:
+
+```r
+# Load the GITHUB_PAT in the R session
+credentials::set_github_pat()
+```
+
+However perhaps it is actually not needed to always have your GITHUB_PAT exposed. The nice thing about the credentials package is that it becomes easy to load your access token *on demand*. Hence, instead of setting the PAT on the start of each R session, a user or package could call `set_github_pat()` whenever it needs access to the Github API.
