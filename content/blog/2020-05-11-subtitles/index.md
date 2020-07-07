@@ -34,7 +34,7 @@ One of us already had a little experience captioning short videos on YouTube so 
 
 #### The good thing about modern technology
 
-If you've never tried captioning a video, you may think that the hardest parts are writing the transcript and syncing the video and audio. Fortunately, we have pretty good tools for this nowadays. To ease the subtitling process, we didn't start from a blank slate, thanks to the fact that all rOpenSci community calls are recorded, Stefanie Butland provided us with the raw transcript that was automatically generated from the Zoom call recording. That VTT file not only contains a transcript of all the audio, but also some timestamps that synchronizes sections of the transcript with the video. Of course, technical and field specific terms were often wrong (the most common issue being 'R' transcribed as 'our', and rOpenSci as 'Our open sigh'). This seems like an unavoidable issue that happens no matter the tools you use. For example, YouTube gets even more creative with R slang:
+If you've never tried captioning a video, you may think that the hardest parts are writing the transcript and syncing the video and audio. Fortunately, we have pretty good tools for this nowadays. To ease the subtitling process, we didn't start from a blank slate, thanks to the fact that all rOpenSci community calls are recorded, Stefanie Butland provided us with the raw transcript (in [VTT format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)) that was automatically generated from the Zoom call recording. That VTT file not only contains a transcript of all the audio, but also some timestamps that synchronizes sections of the transcript with the video. Of course, technical and field specific terms were often wrong (the most common issue being 'R' transcribed as 'our', and rOpenSci as 'Our open sigh'). This seems like an unavoidable issue that happens no matter the tools you use. For example, YouTube gets even more creative with R slang:
 
 {{< tweet 1259507352774021121 >}}
 
@@ -50,13 +50,13 @@ The Community Call was a roundtable involving 5 participants in a lively unscrip
 
 Subtitling was a very interesting exercise because it forces you to focus very hard on what people say. And very quickly, you notice that different people have different styles. Of course, you also notice the verbal tic of everybody. Even though it might be good to know in order to correct it, we don't necessarily recommend you do it on your own videos where you're speaking because it can be unnnerving, especially if you're already a generally self-conscious person. One difficulty was to remove some orality markers in the subtitles while consistently respecting the styles of different speakers.
 
-Another interesting difference between speakers that was made obvious due to the informal nature of the community call is that different people don't pause at the different moments. In this kind of discussion, you have to take some time to think, and some people pause to think mid-sentence while other pause inbetween sentences. This was probably made worse by the online nature of the discussion since silence in video discussion can be very awkward for the speakers and the listeners, as explained in the amazing [RStudio webinar by Greg Wilson about 'Teaching Online at Short Notice'](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/). Speakers may tend to 'fix' these silences by adding more orality markers or rushing to start a new sentence.
+Another interesting difference between speakers that was made obvious due to the informal nature of the community call is that different people pause at the different moments. In this kind of discussion, you have to take some time to think, and some people pause to think mid-sentence while other pause in between sentences. This was probably increased by the online nature of the discussion since silence in video discussion can be very awkward for the speakers and the listeners, as explained in the amazing [RStudio webinar by Greg Wilson about 'Teaching Online at Short Notice'](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/). Speakers may tend to 'fix' these silences by adding more discourse markers or rushing to start a new sentence.
 
 #### Different captioners
 
 Unexpectedly, this difference between speakers uncovered a difference between the way we chose to break the captions. Matthias chose to break the captions based on the auditory context: add breaks where the speaker makes a pause, which sometimes resulted in caption breaks mid-sentence as explained above. On the opposite, Hugo chose to break the captions based on the grammatical context: add breaks where the pause *should* be, which sometimes resulted in mismatches with the audio when speakers made pauses to think.
 
-It was also a good reminder that even though we speak English quite fluently English is still a second language for us. We thus sometimes don't understand everything and we don't even notice it. We attended this commuity call live and manage to follow everything with ease but when looking at it one word at a time, we realised we missed some words here and there, especially when several participants interacted quickly.
+It was also a good reminder that even though we speak English quite fluently English is still a second language for us. We thus sometimes don't understand everything and we don't even notice it. We attended this community call live and manage to follow everything with ease but when looking at it one word at a time, we realised we missed some words here and there, especially when several participants interacted quickly.
 
 #### The difficulty of collaborative captioning
 
@@ -84,9 +84,10 @@ Amara.org has a set of useful features that increase your efficiency a bit. The 
 
 #### Missing features
 
-But there are other features we could not find (they might exist but we missed them?):
+There are other features we could not find (they might exist but we missed them?):
 
-- an option to quickly merge subtitles. Very often, the subtitles are not split at the right place and you want to merge them to cut at the right time. A keyboard shortcut would be super useful here. It's even more annoying because when you try to select one subtitle to copy/paste it, amara removes your selection.
+- an option to quickly merge subtitles. Very often, the subtitles are not split at the right place and you want to merge them to cut at the right time. A keyboard shortcut would be super useful here. It's even more annoying because when you try to select one subtitle to copy/paste it, Amara removes your selection.
+
 - by default, subtitles start/stop exactly at the same time as the audio. Maybe it's not the recommended practice but we found it more comfortable to add some buffer (even a split second) to give smoother flow, and leave a bit more time for the reader.
 
 #### Proposed optimised workflow
