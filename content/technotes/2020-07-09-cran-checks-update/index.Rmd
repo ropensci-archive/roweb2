@@ -50,7 +50,33 @@ The documentation includes explanation of all the API routes, and includes examp
 
 There's also detailed explanation of notifications, see [the next section](#notifications).
 
-> Maëlle, what do you want to discuss here?
+For those interested in details about the Hugo website, here are a few. 
+You can find the [website source on GitHub](https://github.com/ropenscilabs/cranchecksdocs).
+
+The theme is an edited version of [bep's docuapi theme](https://github.com/bep/docuapi) in order to allow for [more flexibility of code tabs](https://github.com/bep/docuapi/issues/54).
+Note that bep is Hugo maintainer, so that was a good theme to build upon.
+The docuapi theme uses [Go modules](https://discourse.gohugo.io/t/hugo-modules-for-dummies/20758).
+The way languages are divided into tabs relies on using [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) that a JavaScript script can then access.
+
+The website source includes some knitr hooks to [deal with chunks of various languages](https://github.com/ropenscilabs/cranchecksdocs/blob/master/content/hooks.R).
+It might be a bit overcomplicated and could be simplified in the future, but it works for now.
+
+Using GitHub Actions, an [R script](https://github.com/ropenscilabs/cranchecksdocs/blob/master/make.R) is run every week to update the documentation.
+
+Apart from data attributes, another cool HTML thing we learnt about for this website is the Markdown extension for creating a [description list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl).
+
+```markdown
+parameter
+: its definition
+```
+
+is rendered to
+
+parameter
+: its definition
+
+Regarding the website styling, we didn't tweak it much. 
+We added an rOpenSci logo, and use a dark theme for code highlighting (a tweak version of the Chroma fruity style, to add some contrast).
 
 
 <br>
