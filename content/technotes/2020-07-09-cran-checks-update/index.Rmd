@@ -1,6 +1,6 @@
 ---
 slug: "cran-checks-docs-notifications"
-title: "cran checks API: Documentation, Notifications, and more"
+title: "CRAN checks API: Documentation, Notifications, and more"
 date: 2020-07-09
 author:
   - Scott Chamberlain
