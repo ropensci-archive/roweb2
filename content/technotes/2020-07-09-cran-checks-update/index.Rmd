@@ -85,7 +85,7 @@ We added an rOpenSci logo, and use a dark theme for code highlighting (a tweak v
 
 Good technical solutions are often born from scratching one's own itch. The first author has many packages on CRAN and would like to avoid getting emails from the CRAN maintainers with a deadline to fix a problem. If I could only know about a problem with a CRAN check and fix it quickly, we're all better off as users get fixes quickly, and CRAN maintainers email burden is that much less. 
 
-We're announcing here the availability of cran checks notifications. These notificaitons are emails; there could be other forms (e.g., twitter, etc.), but emails probably meet most people's needs. To get started see the docs at <https://docs.cranchecks.info/#notifications>.
+We're announcing here the availability of CRAN checks notifications. These notificaitons are emails; there could be other forms (e.g., Twitter, etc.), but emails probably meet most people's needs. To get started see the docs at <https://docs.cranchecks.info/#notifications>.
 
 Notifications work via a rule that you set. A rule is made up of one or more of four categories:
 
