@@ -48,7 +48,7 @@ Maëlle re-organized existing docs into a website made with Hugo: https://docs.c
 
 The documentation includes explanation of all the API routes, and includes examples in Shell/command line and for use in R. 
 
-There's also detailed explanation of notifications, see below.
+There's also detailed explanation of notifications, see [the next section](#notifications).
 
 > Maëlle, what do you want to discuss here?
 
