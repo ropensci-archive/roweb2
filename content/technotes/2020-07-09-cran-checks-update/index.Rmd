@@ -121,7 +121,7 @@ cchn_register()
 
 Running `cchn_register()` caches the token in a file locally on your computer. 
 
-After registering, you can manage rules for your packges. There's two ways to manage rules: a) across packages, or b) in a single package context.
+After registering, you can manage rules for your packages. There's two ways to manage rules: a) across packages, or b) in a single package context.
 
 Functions prefixed with `cchn_pkg_` operate within a package directory. That is, your current working directory is an R package, and is the package for which you want to handle CRAN checks notifications. These functions make sure that you are inside of an R package, and use the email address and package name based on the directory you're in.
 
