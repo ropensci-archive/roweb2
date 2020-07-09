@@ -43,7 +43,8 @@ The main thing this API is used for is badges like the one below that indicate s
 
 ### Documentation
 
-APIs are not very useful without good documentation.  Maëlle has single-handedly produced very nice documentation for the API: https://docs.cranchecks.info/
+APIs are not very useful without good documentation.  
+Maëlle re-organized existing docs into a website made with Hugo: https://docs.cranchecks.info/
 
 The documentation includes explanation of all the API routes, and includes examples in Shell/command line and for use in R. 
 
