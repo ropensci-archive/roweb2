@@ -1,6 +1,6 @@
 ---
 slug: "cran-checks-docs-notifications"
-title: "cran checks API: Documentation, Notifications, and more"
+title: "CRAN checks API: Documentation, Notifications, and more"
 date: 2020-07-09
 author:
   - Scott Chamberlain
@@ -19,7 +19,7 @@ output:
 
 In October last year [we wrote][ccblog] about the CRAN Checks API (<https://cranchecks.info>). Since then there have been four new major items introduced: documentation, notifications, search, and a new version of the cchecks R package. First, an introduction to the API for those not familiar.
 
-<br>
+
 
 ### CRAN Checks API
 
@@ -34,26 +34,53 @@ The main thing this API is used for is badges like the one below that indicate s
 
 <!-- <img src="/img/blog-images/2019-10-09-cran-checks-api-update/svgs/ok.svg"> -->
 
-<br>
+
 
 ### Documentation
 
-APIs are not very useful without good documentation.  Maëlle has single-handedly produced very nice documentation for the API: https://docs.cranchecks.info/
+APIs are not very useful without good documentation.  
+Maëlle re-organized existing docs into a website made with Hugo: https://docs.cranchecks.info/
 
 The documentation includes explanation of all the API routes, and includes examples in Shell/command line and for use in R. 
 
-There's also detailed explanation of notifications, see below.
+There's also detailed explanation of notifications, see [the next section](#notifications).
 
-> Maëlle, what do you want to discuss here?
+For those interested in details about the Hugo website, here are a few. 
+You can find the [website source on GitHub](https://github.com/ropenscilabs/cranchecksdocs).
+
+The theme is an edited version of [bep's docuapi theme](https://github.com/bep/docuapi) in order to allow for [more flexibility of code tabs](https://github.com/bep/docuapi/issues/54).
+Note that bep is Hugo maintainer, so that was a good theme to build upon.
+The docuapi theme uses [Go modules](https://discourse.gohugo.io/t/hugo-modules-for-dummies/20758).
+The way languages are divided into tabs relies on using [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) that a JavaScript script can then access.
+
+The website source includes some knitr hooks to [deal with chunks of various languages](https://github.com/ropenscilabs/cranchecksdocs/blob/master/content/hooks.R).
+It might be a bit overcomplicated and could be simplified in the future, but it works for now.
+
+Using GitHub Actions, an [R script](https://github.com/ropenscilabs/cranchecksdocs/blob/master/make.R) is run every week to update the documentation.
+
+Apart from data attributes, another cool HTML thing we learnt about for this website is the Markdown extension for creating a [description list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl).
+
+```markdown
+parameter
+: its definition
+```
+
+is rendered to
+
+parameter
+: its definition
+
+Regarding the website styling, we didn't tweak it much. 
+We added an rOpenSci logo, and use a dark theme for code highlighting (a tweak version of the Chroma fruity style, to add some contrast).
 
 
-<br>
+
 
 ### Notifications
 
 Good technical solutions are often born from scratching one's own itch. The first author has many packages on CRAN and would like to avoid getting emails from the CRAN maintainers with a deadline to fix a problem. If I could only know about a problem with a CRAN check and fix it quickly, we're all better off as users get fixes quickly, and CRAN maintainers email burden is that much less. 
 
-We're announcing here the availability of cran checks notifications. These notificaitons are emails; there could be other forms (e.g., twitter, etc.), but emails probably meet most people's needs. To get started see the docs at <https://docs.cranchecks.info/#notifications>.
+We're announcing here the availability of CRAN checks notifications. These notificaitons are emails; there could be other forms (e.g., Twitter, etc.), but emails probably meet most people's needs. To get started see the docs at <https://docs.cranchecks.info/#notifications>.
 
 Notifications work via a rule that you set. A rule is made up of one or more of four categories:
 
@@ -89,7 +116,7 @@ cchn_register()
 
 Running `cchn_register()` caches the token in a file locally on your computer. 
 
-After registering, you can manage rules for your packges. There's two ways to manage rules: a) across packages, or b) in a single package context.
+After registering, you can manage rules for your packages. There's two ways to manage rules: a) across packages, or b) in a single package context.
 
 Functions prefixed with `cchn_pkg_` operate within a package directory. That is, your current working directory is an R package, and is the package for which you want to handle CRAN checks notifications. These functions make sure that you are inside of an R package, and use the email address and package name based on the directory you're in.
 
@@ -109,13 +136,13 @@ cchn_pkg_rule_add(status = "warn", platform = 2)
 
 See `cchn_rules_add()` for adding many rules at once.
 
-<br>
+
 
 ### Search
 
 A benefit of having a proper database (aka SQL) of anything is that you can search it. We did not have search until May 2020, so it's relatively new. [Search](https://docs.cranchecks.info/#search) allows users to do full-text search the `check_details` field of the 30-day historical data across all packages. There's a few parameters users can toggle, including `one_each` (boolean) to only return a single result per matching package (rather than results for all days matching). The equivalent function in the R package is `cchecks::cch_pkgs_search()`. 
 
-<br>
+
 
 ### cchecks R package
 
