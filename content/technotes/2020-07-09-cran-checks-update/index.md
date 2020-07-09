@@ -42,7 +42,7 @@ Maëlle re-organized existing docs into a website made with Hugo: https://docs.c
 
 The documentation includes explanation of all the API routes, and includes examples in Shell/command line and for use in R. 
 
-There's also detailed explanation of notifications, see [the next section](#notifications).
+There's also detailed explanation of notifications, see [below](#notifications).
 
 For those interested in details about the Hugo website, here are a few. 
 You can find the [website source on GitHub](https://github.com/ropenscilabs/cranchecksdocs).
@@ -73,7 +73,33 @@ Regarding the website styling, we didn't tweak it much.
 We added an rOpenSci logo, and use a dark theme for code highlighting (a tweak version of the Chroma fruity style, to add some contrast).
 
 
+### cchecks R package
 
+The [cchecks package][cchecks] has been around for a while, but has received a lot of work recently, and is up to date with the current CRAN checks API. It is not on CRAN right now. To get started see the docs for the package at <https://docs.ropensci.org/cchecks>, as well as the API docs at <https://docs.cranchecks.info/>. You can install it like:
+
+```r
+remotes::install_github("ropenscilabs/cchecks")
+```
+
+Below we talk about using cchecks for [notifications](#notifications) and [searching check results](#search), so we'll give a brief example of some of the other functions here. 
+
+In our October 2019 blog post we discussed accessing "historical" data, that is, data older than 30 days from the present day. Data is stored in an Amazon S3 bucket, with a separate gzipped JSON file for each day. In October '19 we had the API route, but now you can access the data easily within R:
+
+
+```r
+library(cchecks)
+cch_history(date = "2020-04-01")
+```
+
+The `cch_history()` function calls our API, which returns a link to the file in the S3 bucket. We then download the file and then `jsonlite` reads in the JSON data to a data.frame. Using this function you can quickly get historical checks data if you need to do some archeological work. 
+
+To get checks data for specific packages up to 30 days old, we can use the `cch_pkgs_history()` function:
+
+
+```r
+cch_pkgs_history("MASS")
+cch_pkgs_history(c("crul", "leaflet", "MASS"))
+```
 
 ### Notifications
 
@@ -148,34 +174,6 @@ Here, we search for the term memory:
 cchecks::cch_pkgs_search(q = "memory")
 ```
 
-```
-#> $error
-#> NULL
-#> 
-#> $count
-#> [1] 1350
-#> 
-#> $returned
-#> [1] 30
-#> 
-#> $data
-#> # A tibble: 30 x 5
-#>    package date_updated summary$any   $ok $note $warn $error $fail checks
-#>    <chr>   <chr>        <lgl>       <int> <int> <int>  <int> <int> <list>
-#>  1 allan   2020-06-09T… TRUE            0     9     0      3     0 <df[,…
-#>  2 allan   2020-06-10T… TRUE            0     9     0      3     0 <df[,…
-#>  3 allan   2020-06-11T… TRUE            0     9     0      3     0 <df[,…
-#>  4 allan   2020-06-12T… TRUE            0     9     0      3     0 <df[,…
-#>  5 openCR  2020-06-13T… TRUE            0    11     0      1     0 <df[,…
-#>  6 allan   2020-06-13T… TRUE            0     9     0      3     0 <df[,…
-#>  7 openCR  2020-06-14T… TRUE            0    11     0      1     0 <df[,…
-#>  8 allan   2020-06-14T… TRUE            0     9     0      3     0 <df[,…
-#>  9 openCR  2020-06-15T… TRUE            0    11     0      1     0 <df[,…
-#> 10 allan   2020-06-15T… TRUE            0     9     0      3     0 <df[,…
-#> # … with 20 more rows, and 2 more variables: check_details$details <list>,
-#> #   $additional_issues <list>
-```
-
 The result is a list with number of results found, returned, and a data.frame of matches.
 
 If you want to return only one result for package, use the `one_each` parameter:
@@ -184,17 +182,6 @@ If you want to return only one result for package, use the `one_each` parameter:
 ```r
 cchecks::cch_pkgs_search(q = "memory", one_each = TRUE)
 ```
-
-
-### cchecks R package
-
-The [cchecks package][cchecks] has been around for a while, but has received a lot of work recently, and is up to date with the current CRAN checks API. It is not on CRAN right now. To get started see the docs for the package at <https://docs.ropensci.org/cchecks>, as well as the API docs at <https://docs.cranchecks.info/>. You can install it like:
-
-```r
-remotes::install_github("ropenscilabs/cchecks")
-```
-
-> What else to say here? Maybe go through some examples?
 
 
 ### Wrap up

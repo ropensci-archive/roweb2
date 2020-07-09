@@ -90,7 +90,7 @@ Below we talk about using cchecks for [notifications](#notifications) and [searc
 
 In our October 2019 blog post we discussed accessing "historical" data, that is, data older than 30 days from the present day. Data is stored in an Amazon S3 bucket, with a separate gzipped JSON file for each day. In October '19 we had the API route, but now you can access the data easily within R:
 
-```{r cache=TRUE}
+```{r eval=FALSE}
 library(cchecks)
 cch_history(date = "2020-04-01")
 ```
@@ -99,8 +99,9 @@ The `cch_history()` function calls our API, which returns a link to the file in 
 
 To get checks data for specific packages up to 30 days old, we can use the `cch_pkgs_history()` function:
 
-```{r cache=TRUE}
-cch_pkgs_history("MASS")$data$history
+```{r eval=FALSE}
+cch_pkgs_history("MASS")
+cch_pkgs_history(c("crul", "leaflet", "MASS"))
 ```
 
 ### Notifications
@@ -171,7 +172,7 @@ A benefit of having a proper database (aka SQL) of anything is that you can sear
 
 Here, we search for the term memory:
 
-```{r search-eg1, cache=TRUE}
+```{r search-eg1, eval=FALSE}
 cchecks::cch_pkgs_search(q = "memory")
 ```
 
