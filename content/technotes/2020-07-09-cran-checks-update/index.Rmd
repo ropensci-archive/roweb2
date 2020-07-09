@@ -102,7 +102,7 @@ Feel free to ignore these emails, or act them as you see fit.
 
 The email is structured as follows:
 
-{{<figure src="email.png" alt="example cran checks email" width="450">}}
+{{<figure src="email.png" alt="An example email users get from the CRAN checks API notifications service, including the rule triggered and link to check results." width="450">}}
 
 - Triggered rule: with a list of each of the four categories and their values.
 - Date of the check result (matches closely the date on the CRAN check results that CRAN maintainers created)
