@@ -107,7 +107,7 @@ The email is structured as follows:
 
 There is no web interface to notifications at this time. The only official interface is the cchecks R package - you are welcome to interact with the API itself via curl or any other tool.
 
-First, you'll need to register for a token (aka key). Using [cchn_register()](https://docs.ropensci.org/cchecks/reference/cchn_register), you run the function with or without an email address. If no email address is given we look for an email address in [various places](https://github.com/ropenscilabs/cchecks/blob/53b70365546e617e70f602a9bae8b65207e730b3/R/email-utils.R#L81-L129).
+First, you'll need to register for a token (aka key). Using [cchn_register()](https://docs.ropensci.org/cchecks/reference/cchn_register), you run the function with or without an email address. If no email address is given we look for an email address in [various places](https://github.com/ropenscilabs/cchecks/blob/53b70365546e617e70f602a9bae8b65207e730b3/R/email-utils.R#L81-L129), and ask you which one you'd like to use, or you can supply one at the prompt.
 
 ```r
 cchn_register()
@@ -196,6 +196,12 @@ remotes::install_github("ropenscilabs/cchecks")
 
 > What else to say here? Maybe go through some examples?
 
+
+### Wrap up
+
+Please try out the various items discussed above, and give us feedback. Whether it's about the documentation, the API itself, the notifications service, or the cchecks package - it's all useful! 
+
+We're particualarly interested in your feedback on the email notifications service. It's still early days for the service, so we're very keen to get all rough edges smoothed out to make for a good user experience. 
 
 
 [ccblog]: https://ropensci.org/technotes/2019/10/09/cran-checks-api-update/
