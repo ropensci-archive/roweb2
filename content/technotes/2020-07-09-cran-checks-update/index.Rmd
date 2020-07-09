@@ -146,6 +146,19 @@ See `cchn_rules_add()` for adding many rules at once.
 
 A benefit of having a proper database (aka SQL) of anything is that you can search it. We did not have search until May 2020, so it's relatively new. [Search](https://docs.cranchecks.info/#search) allows users to do full-text search the `check_details` field of the 30-day historical data across all packages. There's a few parameters users can toggle, including `one_each` (boolean) to only return a single result per matching package (rather than results for all days matching). The equivalent function in the R package is `cchecks::cch_pkgs_search()`. 
 
+Here, we search for the term memory:
+
+```{r search-eg1, cache=TRUE}
+cchecks::cch_pkgs_search(q = "memory")
+```
+
+The result is a list with number of results found, returned, and a data.frame of matches.
+
+If you want to return only one result for package, use the `one_each` parameter:
+
+```{r search-eg2, eval=FALSE}
+cchecks::cch_pkgs_search(q = "memory", one_each = TRUE)
+```
 
 
 ### cchecks R package

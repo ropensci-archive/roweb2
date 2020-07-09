@@ -141,6 +141,49 @@ See `cchn_rules_add()` for adding many rules at once.
 
 A benefit of having a proper database (aka SQL) of anything is that you can search it. We did not have search until May 2020, so it's relatively new. [Search](https://docs.cranchecks.info/#search) allows users to do full-text search the `check_details` field of the 30-day historical data across all packages. There's a few parameters users can toggle, including `one_each` (boolean) to only return a single result per matching package (rather than results for all days matching). The equivalent function in the R package is `cchecks::cch_pkgs_search()`. 
 
+Here, we search for the term memory:
+
+
+```r
+cchecks::cch_pkgs_search(q = "memory")
+```
+
+```
+#> $error
+#> NULL
+#> 
+#> $count
+#> [1] 1350
+#> 
+#> $returned
+#> [1] 30
+#> 
+#> $data
+#> # A tibble: 30 x 5
+#>    package date_updated summary$any   $ok $note $warn $error $fail checks
+#>    <chr>   <chr>        <lgl>       <int> <int> <int>  <int> <int> <list>
+#>  1 allan   2020-06-09T… TRUE            0     9     0      3     0 <df[,…
+#>  2 allan   2020-06-10T… TRUE            0     9     0      3     0 <df[,…
+#>  3 allan   2020-06-11T… TRUE            0     9     0      3     0 <df[,…
+#>  4 allan   2020-06-12T… TRUE            0     9     0      3     0 <df[,…
+#>  5 openCR  2020-06-13T… TRUE            0    11     0      1     0 <df[,…
+#>  6 allan   2020-06-13T… TRUE            0     9     0      3     0 <df[,…
+#>  7 openCR  2020-06-14T… TRUE            0    11     0      1     0 <df[,…
+#>  8 allan   2020-06-14T… TRUE            0     9     0      3     0 <df[,…
+#>  9 openCR  2020-06-15T… TRUE            0    11     0      1     0 <df[,…
+#> 10 allan   2020-06-15T… TRUE            0     9     0      3     0 <df[,…
+#> # … with 20 more rows, and 2 more variables: check_details$details <list>,
+#> #   $additional_issues <list>
+```
+
+The result is a list with number of results found, returned, and a data.frame of matches.
+
+If you want to return only one result for package, use the `one_each` parameter:
+
+
+```r
+cchecks::cch_pkgs_search(q = "memory", one_each = TRUE)
+```
 
 
 ### cchecks R package
