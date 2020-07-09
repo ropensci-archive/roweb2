@@ -164,6 +164,7 @@ cchn_pkg_rule_add(status = "warn", platform = 2)
 
 See `cchn_rules_add()` for adding many rules at once.
 
+What the first author does currently is a rule for each of his packages checking for a status of **ERROR** for at least **2 days**. You could take this approach as well for your packages. We are thinking about ways to build in some sensible default rules, as well as making it easier to work across all of your packages by [looking them up for you by your maintainer email](https://github.com/ropenscilabs/cchecks/issues/23).
 
 
 ### Search
