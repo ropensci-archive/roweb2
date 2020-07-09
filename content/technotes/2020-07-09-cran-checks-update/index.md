@@ -105,7 +105,7 @@ The email is structured as follows:
 
 #### Managing notifications
 
-There is no web interface to notifications at this time. The only interface is the cchecks R package.
+There is no web interface to notifications at this time. The only official interface is the cchecks R package - you are welcome to interact with the API itself via curl or any other tool.
 
 First, you'll need to register for a token (aka key). Using [cchn_register()](https://docs.ropensci.org/cchecks/reference/cchn_register), you run the function with or without an email address. If no email address is given we look for an email address in various places.
 
