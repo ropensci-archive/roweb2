@@ -5,7 +5,7 @@ author:
   - Matthias Grenié
   - Hugo Gruson
 # Set the date below to the publication date of your post
-date: 2020-05-11
+date: 2020-07-15
 # Minimal tags for a post about a community-contributed package
 # that has passed software peer review are listed below
 # Consult the Technical Guidelines for information on choosing other tags
