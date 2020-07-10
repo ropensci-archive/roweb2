@@ -69,10 +69,9 @@ It was also a good reminder that even though we speak English quite fluently, we
 We're used to working together and have already collaborated on multiple projects. We even wrote [a post](/blog/2019/06/04/rromeo/) on this very blog about a package we submitted to rOpenSci software review.
 But this didn't help us find an efficient collaborative workflow for captioning. As mentioned earlier, one issue is that we had different captioning styles, and only realised it late in the project.
 
-Furthermore, even if Amara's subtitle editor is an amazing tool that allows you to easily pause, rewind, and advance the video while captioning, it does not support simultaneous editing of the subtitles. Compared to taking collaborative notes through EtherPad, this slows down the process quite a lot.
+Even if Amara's subtitle editor is an amazing tool that allows you to easily pause, rewind, and advance the video while captioning, it does not support simultaneous editing of the subtitles. Compared to taking collaborative notes through EtherPad, this slows down the process quite a lot. Amara however allow for several people to edit the captions successively. Other communities, such as TED videos captioning community, disable entirely collaborative captioning. When someone starts working on a video, it disappears from the list of available tasks and they work on it alone.
 
-Other communities, such as TED videos captioning community, disable entirely
-collaborative captioning. When someone starts working on a video, it disappears from the list of available tasks and they work on it alone.
+From our experience being a team to caption a video cuts the work needed from each individual member. Simultaneous collaborative captioning would be helpful to edit different parts of the captions. It would allow to focus on different independent tasks when captioning: roughly place captions in time, correct for vocabulary/transcription issues, add speakers' names when necessary, etc. One important lesson for successful collaborative captioning would be to define before-hand the captioning style used throughout the captions, as well as to define a list of tasks that can be split among the different contributors.
 
 ### About Amara
 
@@ -125,10 +124,9 @@ the right time, this should be quick using Amara and its keyboard shortcuts, and
 
 ### A time-consuming but gratifying experience
 
-Given the complexity of the task –almost our first subtitling experience, our first use of Amara, a community call with many different speakers– producing good enough subtitles took us quite some time. We (Stefanie, Matthias, and Hugo) spent a total of around 20 hours of work to edit the subtitles for this 55 minutes community call. Which makes a ratio of around 4 hours of work to caption 15 minutes of talk! It may seem quite a lot but at the same time, it was our first time doing this, first time using these tools, on a complex video with many different speakers, several interruptions, and quite open-ended discussion. Now that we are more used to the process, with the tools, we should be able to work faster. And with a simpler video, such as a regular community call where speakers spend more time presenting their own work, without talking at the same time, it should take less time.
+Given the complexity of the task –almost our first subtitling experience, our first use of Amara, a community call with many different speakers– producing good enough subtitles took us quite some time. We (Stefanie, Matthias, and Hugo) spent a total of around 20 hours of work to edit the subtitles for this 1-hour community call. It may seem quite a lot but at the same time, it was our first time doing this, first time using these tools, on a complex video with many different speakers, several interruptions, and quite open-ended discussion. Now that we are more used to the process, with the tools, we should be able to work faster. And with a simpler video, such as a regular community call where speakers spend more time presenting their own work, without talking at the same time, it should take less time.
 
 We learned a lot during the process, enjoyed the roundtable even more (in all its details), learning about subtitling best practices, asking questions about the best way to transcribe some oral expressions. It was a challenging but interesting exercise. Even though we may need a better workflow we think it is worth our collective time to provide subtitles to our videos for accessibility and also to broaden and diversify the R community audience. We could also think at a more global scale of accessibility issues and spark discussion through the [R Consortium Diversity & Inclusion Working Group](https://github.com/RConsortium/RCDI-WG/). And why not think about live-captioning for your future event to make it more accessible?
-
 
 
 ### Resources
