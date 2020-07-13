@@ -1,15 +1,16 @@
 ---
 slug: "cran-checks-docs-notifications"
-title: "CRAN checks API: Documentation, Notifications, and more"
+title: "CRAN Checks API News: Documentation, Notifications, and More"
 date: 2020-07-09
 author:
   - Scott Chamberlain
   - Maëlle Salmon
-description: cran checks api update - notifications and documentation.
+description: Recent updates to the CRAN Checks API include a notifications service, prettier documentation, and more.
 tags:
   - API
   - software development
   - R
+  - Hugo
 output: 
   html_document:
     keep_md: true
