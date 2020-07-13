@@ -1,7 +1,7 @@
 ---
 slug: "cran-checks-docs-notifications"
 title: "CRAN Checks API News: Documentation, Notifications, and More"
-date: 2020-07-09
+date: 2020-07-16
 author:
   - Scott Chamberlain
   - Maëlle Salmon
