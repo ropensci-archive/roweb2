@@ -1,5 +1,5 @@
 ---
-title: Community Call - Maintaining R Packages Wrap Up
+title: Maintaining an R Package - Community Call Summary
 author:
   - Janani Ravi
   - Steffi LaZerte
