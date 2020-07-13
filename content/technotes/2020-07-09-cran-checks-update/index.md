@@ -75,15 +75,17 @@ We added an rOpenSci logo, and use a dark theme for code highlighting (a tweak v
 
 ### cchecks R package
 
-The [cchecks package][cchecks] has been around for a while, but has received a lot of work recently, and is up to date with the current CRAN checks API. It is not on CRAN right now. To get started see the docs for the package at <https://docs.ropensci.org/cchecks>, as well as the API docs at <https://docs.cranchecks.info/>. You can install it like:
+The [cchecks package][cchecks] has been around for a while, but has received a lot of work recently, and is up to date with the current CRAN checks API. Ironically, it is not on CRAN right now. To get started see the docs for the package at <https://docs.ropensci.org/cchecks>, as well as the API docs at <https://docs.cranchecks.info/>. You can install it like:
 
 ```r
 remotes::install_github("ropenscilabs/cchecks")
 ```
 
 Below we talk about using cchecks for [notifications](#notifications) and [searching check results](#search), so we'll give a brief example of some of the other functions here. 
-
-In our October 2019 blog post we discussed accessing "historical" data, that is, data older than 30 days from the present day. Data is stored in an Amazon S3 bucket, with a separate gzipped JSON file for each day. In October '19 we had the API route, but now you can access the data easily within R:
+### cchecks and historical checks data
+In our [October 2019 blog post](/technotes/2019/10/09/cran-checks-api-update/) we discussed accessing "historical" data, that is, data older than 30 days from the present day. 
+At that time there was an API endpoint for accessing that data but no R function accessign it yet.
+Now there is one!
 
 
 ```r
@@ -91,9 +93,12 @@ library(cchecks)
 cch_history(date = "2020-04-01")
 ```
 
-The `cch_history()` function calls our API, which returns a link to the file in the S3 bucket. We then download the file and then `jsonlite` reads in the JSON data to a data.frame. Using this function you can quickly get historical checks data if you need to do some archeological work. 
+The [`cch_history()`](https://docs.ropensci.org/cchecks/reference/cch_history.html) function calls our API, which returns a link to the file in the S3 bucket. 
+(Data is stored in an Amazon S3 bucket, with a separate gzipped JSON file for each day.)
+We then download the file and then `jsonlite` reads in the JSON data to a data.frame. Using this function you can quickly get historical checks data if you need to do some archeological work. 
 
-To get checks data for specific packages up to 30 days old, we can use the `cch_pkgs_history()` function:
+Not only can you get checks results by day for all packages at once, but you can also, with a different function and endpoint, get checks results for specific packages up to 30 days in the past.
+See below usage of `cch_pkgs_history()` function:
 
 
 ```r
@@ -107,7 +112,9 @@ Good technical solutions are often born from scratching one's own itch. The firs
 
 We're announcing here the availability of CRAN checks notifications. These notificaitons are emails; there could be other forms (e.g., Twitter, etc.), but emails probably meet most people's needs. To get started see the docs at <https://docs.cranchecks.info/#notifications>.
 
-Notifications work via a rule that you set. A rule is made up of one or more of four categories:
+Notifications work via a rule that you set. 
+The rule is the "what" in "Notify me when <what> happens".
+A rule is made up of one or more of four categories:
 
 - status: match against check status. one of: ok, note, warn, error, or fail
 - time: days in a row the match occurs. an integer. can only go 30 days back (history cleaned up after 30 days)
@@ -189,8 +196,8 @@ cchecks::cch_pkgs_search(q = "memory", one_each = TRUE)
 
 Please try out the various items discussed above, and give us feedback. Whether it's about the documentation, the API itself, the notifications service, or the cchecks package - it's all useful! 
 
-We're particualarly interested in your feedback on the email notifications service. It's still early days for the service, so we're very keen to get all rough edges smoothed out to make for a good user experience. 
+We're particularly interested in your feedback on the email notifications service. It's still early days for the service, so we're very keen to get all rough edges smoothed out to make for a good user experience. 
 
 
-[ccblog]: https://ropensci.org/technotes/2019/10/09/cran-checks-api-update/
+[ccblog]: /technotes/2019/10/09/cran-checks-api-update/
 [cchecks]: https://github.com/ropenscilabs/cchecks
