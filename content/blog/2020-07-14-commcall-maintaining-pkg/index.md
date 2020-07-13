@@ -48,7 +48,7 @@ We felt that the rich content in the video and collaborative notes document from
 
 **2. How do you manage issues / feature requests?** ([document](https://docs.google.com/document/d/1KvuVNU4ICE_FHvJMAfKns_pZnOt_1cgJ4wokxGGuDaE/edit#heading=h.89gqj51qdulg))  
 **What workflows do you use to do this?** ([document](https://docs.google.com/document/d/1KvuVNU4ICE_FHvJMAfKns_pZnOt_1cgJ4wokxGGuDaE/edit#heading=h.ccqqertq2gox))  
-([video - All](https://vimeo.com/399048757#t=22m04s))
+([video](https://vimeo.com/399048757#t=22m04s))
 
 **3. What is a path for new contributors to R packages? How can healthy norms be passed on?**
 ([video](https://vimeo.com/399048757#t=30m25s) | [document](https://docs.google.com/document/d/1KvuVNU4ICE_FHvJMAfKns_pZnOt_1cgJ4wokxGGuDaE/edit#heading=h.iasdrvr3cnko))
@@ -58,7 +58,7 @@ We felt that the rich content in the video and collaborative notes document from
 
 **4. What considerations go into decisions around dependency management?** ([video](https://vimeo.com/399048757#t=33m37s))  
 **APIs that change?** ([video](https://vimeo.com/399048757#t=35m45s))    
-([document - All](https://docs.google.com/document/d/1KvuVNU4ICE_FHvJMAfKns_pZnOt_1cgJ4wokxGGuDaE/edit#heading=h.g0dhr5i6flm3))
+([document](https://docs.google.com/document/d/1KvuVNU4ICE_FHvJMAfKns_pZnOt_1cgJ4wokxGGuDaE/edit#heading=h.g0dhr5i6flm3))
 
 <!-- **5. What do you consider when other packages depend on your work?** -->
 <!-- - [Link to video](https://vimeo.com/399048757#t=) -->
