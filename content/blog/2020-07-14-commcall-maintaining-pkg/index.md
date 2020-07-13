@@ -32,7 +32,7 @@ This live shared document helps everyone, including newbies, think through and f
 It also gives people the option to participate without having to interrupt and speak up on the call (thus reducing the barrier for people, especially newcomers, to ask questions). 
 The document also gives an opportunity for anyone in the community to share their expertise and add their perspective. 
 
-We felt that the rich content in the video and collaborative notes from this call warranted a post that points readers to the material to ensure more people benefit from it. Here we’ve collated the questions and links to the various answers to facilitate look up.
+We felt that the rich content in the video and collaborative notes document from this call warranted a post that points readers to the material to ensure more people benefit from it. Here we’ve collated the questions and links to the various answers to facilitate look up.
 
 ### Summarizing questions and answers
 
