@@ -29,10 +29,10 @@ In October last year [we wrote][ccblog] about the CRAN Checks API (<https://cran
 
 ### CRAN Checks API
 
-The CRAN checks API was born out of a few things:
+The CRANS checks API was born because whilst being crucial to a package's fate on CRAN, CRAN checks results were not available in a machine readable format, contrary to checks from continuous integration services. 
+Indeed, CRAN checks results are only distributed as HTML pages.
+Therefore CRAN checks API's goal is to provide data from CRAN checks in a format that's easier to work with from code.
 
-- the pain of CRAN checks data not being easily machine readable
-- the importance of CRAN checks vs. other checks (the maintainer's Travis-CI, Appveyor, etc.) for determining whether your package stays on CRAN or not
 
 CRAN checks are presented for packages in html meant for browser interaction, in a combination of tables, lists and text. On our server we scrape checks data for each package, and manipulate the data into a format that can be easily stored and searched, and then made machine readable.
 
