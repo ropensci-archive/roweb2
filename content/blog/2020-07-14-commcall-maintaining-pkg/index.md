@@ -10,6 +10,11 @@ tags:
   - community call
   - packages
   - maintenance
+  - qualtrics
+  - cran
+  - skimr
+  - bioconductor
+  - events
 description: Summary of questions addressed in the community call, maintaining R packages
 ---
 
