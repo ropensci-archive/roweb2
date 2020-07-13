@@ -102,6 +102,9 @@ cch_pkgs_history("MASS")
 cch_pkgs_history(c("crul", "leaflet", "MASS"))
 ```
 
+So when you need historical CRAN checks data, you'll use either `cch_pkgs_history()` (data for specific packages, up to 30 days in the past) or `cch_history()` (data for all packages, one day by function call, back to 2018-12-18), or a combination of both, depending on your needs.
+The resulting data is in both cases a data.frame so you can use your favorite R data munging tools.
+
 ### Notifications
 
 Good technical solutions are often born from scratching one's own itch. The first author has many packages on CRAN and would like to avoid getting emails from the CRAN maintainers with a deadline to fix a problem. If I could only know about a problem with a CRAN check and fix it quickly, we're all better off as users get fixes quickly, and CRAN maintainers email burden is that much less. 
