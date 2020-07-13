@@ -38,7 +38,7 @@ dev.off()
 image_shadow(img, geometry = "100x20+30+30")
 ```
 
-![ggplot2-shadow](http://jeroen.github.io/images/ggplot2-shadow.png)
+![ggplot2-shadow](https://jeroen.github.io/images/ggplot2-shadow.png)
 
 So fancy! Another cool example from Twitter:
 

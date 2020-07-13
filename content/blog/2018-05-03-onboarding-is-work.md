@@ -15,6 +15,7 @@ tags:
   - software
   - Software Peer Review
   - cloc
+  - reviewer
 output:
   md_document:
     variant: markdown_github
