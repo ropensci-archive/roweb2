@@ -54,7 +54,7 @@ The Community Call was a roundtable involving 5 participants in a lively unscrip
 
 #### Different speakers
 
-Subtitling is a very interesting exercise because it forces you to focus very hard on what people say. And very quickly, you notice that different people have different speech styles. Of course, you also notice the everybody's verbal tics. Even though it might be good to know in order to correct it, we don't necessarily recommend you try it on your own videos where you're speaking because it can be unnerving, especially if you're already self-conscious. One difficulty was to remove some orality markers in the subtitles while consistently respecting the styles of different speakers. We didn't want to go overboard and end up with a transcript that differed too much from the spontaneous discussion that actually took place.
+Subtitling is a very interesting exercise because it forces you to focus very hard on what people say. And very quickly, you notice that different people have different speech styles. Of course, you also notice everybody's verbal tics. Even though it might be good to know in order to correct it, we don't necessarily recommend you try it on your own videos where you're speaking because it can be unnerving, especially if you're already self-conscious. One difficulty was to remove some orality markers in the subtitles while consistently respecting the styles of different speakers. We didn't want to go overboard and end up with a transcript that differed too much from the spontaneous discussion that actually took place.
 
 Another interesting difference between speakers is that different people pause at different moments. In this kind of informal discussion, you have to take some time to think, and some people pause to think mid-sentence while other pause in between sentences. This was probably made worse by the online nature of the discussion since silence in video discussion can be very awkward for both the speaker and the listeners, as explained in the amazing [RStudio webinar by Greg Wilson about 'Teaching Online at Short Notice'](https://rstudio.com/resources/webinars/teaching-online-at-short-notice/). Speakers may tend to 'fix' these silences by adding more discourse markers or by rushing to start a new sentence.
 
@@ -71,7 +71,7 @@ But this didn't help us find an efficient collaborative workflow for captioning.
 
 Even if Amara's subtitle editor is an amazing tool that allows you to easily pause, rewind, and advance the video while captioning, it does not support simultaneous editing of the subtitles. Compared to taking collaborative notes through EtherPad, this slows down the process quite a lot. Amara however allow for several people to edit the captions successively. Other communities, such as TED videos captioning community, disable entirely collaborative captioning. When someone starts working on a video, it disappears from the list of available tasks and they work on it alone.
 
-From our experience being a team to caption a video cuts the work needed from each individual member. Simultaneous collaborative captioning would be helpful to edit different parts of the captions. It would allow to focus on different independent tasks when captioning: roughly place captions in time, correct for vocabulary/transcription issues, add speakers' names when necessary, etc. One important lesson for successful collaborative captioning would be to define before-hand the captioning style used throughout the captions, as well as to define a list of tasks that can be split among the different contributors.
+From our experience, being a team to caption a video cuts the work needed from each individual member. Simultaneous collaborative captioning would be helpful to edit different parts of the captions. It would allow  you to focus on different independent tasks when captioning: roughly place captions in time, correct for vocabulary/transcription issues, add speakers' names when necessary, etc. One important lesson for successful collaborative captioning would be to define before-hand the captioning style used throughout the captions, as well as to define a list of tasks that can be split among the different contributors.
 
 ### About Amara
 
@@ -103,7 +103,7 @@ There are other features we could not find (they might exist but we missed them?
 
 In the long term, it is always worth it to provide captions, as it increases the accessibility of the videos. However, in the short term, the amount of time required to caption even a single video puts too much burden on volunteers. Perhaps with more collaborative tools and an optimized workflow, it would be possible to caption video quicker. One idea to increase captioning of many videos would be to organize "Captioning Sprints" where volunteers gather (online or in person) and split the captioning work in small workable chunks.
 
-Nonetheless, in case someone would like to try it next, we propose an optimised workflow, that may help reducing the time you spend:
+Nonetheless, in case someone would like to try it next, we propose an optimised workflow, that may help reduce the time you spend:
 
 1. Use the transcript provided by Zoom/YouTube.
 1. Correct the initial raw transcript for typos and mistakes. In particular, pay attention to technical and field-specific terms (R, package names, URLs).
