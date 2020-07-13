@@ -113,4 +113,4 @@ You can also check out the [list of resources](https://docs.google.com/document/
 ### Excited for more?
 We hope this has inspired you to join in with future community calls!
 What would YOU like to hear about on a future rOpenSci Community Call? 
-Add your votes and ideas for topics and speakers by 1) browsing the [issues in this public repository](https://github.com/ropensci-org/community-calls); 2) giving a 👍🏻👍🏼👍🏽👍🏾👍🏿 or commenting on an issue; 3) opening a new issue if your idea doesn't fit in any others.
+Add your votes and ideas for topics and speakers by 1) browsing the [issues in this public repository](https://github.com/ropensci-org/community-calls); 2) giving a <img src="https://emoji.slack-edge.com/T026GCWK4/thumbsup_all/50096a1020.gif" style = "max-width:20px"> or commenting on an issue; 3) opening a new issue if your idea doesn't fit in any others.
