@@ -165,7 +165,7 @@ dittodb wouldn't have been possible without the help of a bunch of folks:
 
 * contributions from [Mauricio Vargas](https://pacha.dev)
 * thoughtful reviews and comments from Helen Miller and Etienne B. Racine
-* Anna Krystalli for being our editor and [rOpenSci](https://ropensci.org) for facilitating the package review
+* [Anna Krystalli](https://twitter.com/annakrystalli) for being our editor and [rOpenSci](https://ropensci.org) for facilitating the package review
 * as well as [Neal Richardson’s httptest]{https://enpiar.com/r/httptest/index.html} for inspiration
 * the [DBI](https://dbi.r-dbi.org) authors (Hadley Wickham, Kirill Müller, and the funding of the [R Consortium](https://www.r-consortium.org)) for providing a unified interface to database connections
 
