@@ -155,7 +155,7 @@ dittodb is similar when it is recording fixtures: during the process of interact
 
 ### Resources
 
-* You can install dittodb with `install.packages("dittodb")` and for more information, see [the documentation for more information](https://dittodb.jonkeane.com).
+* You can install dittodb with `install.packages("dittodb")` and see [the documentation for more information](https://dittodb.jonkeane.com).
 * If you want to get started using dittodb, see the [getting started vignette](https://dittodb.jonkeane.com/articles/dittodb.html)
 * We are very eager to receive [any bug reports, feature requests, or any other feedback](https://github.com/ropensci/dittodb/issues) on dittodb
 
