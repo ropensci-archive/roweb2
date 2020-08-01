@@ -80,7 +80,7 @@ Two that I will expand on here are our use of method dispatch and class inherita
 
 R is famous for having not [one](https://adv-r.hadley.nz/s3.html), not [two](https://adv-r.hadley.nz/s4.html), not [three](http://adv-r.had.co.nz/R5.html) but [four](https://adv-r.hadley.nz/r6.html) object orientation systems.[^10] The DBI package uses [S4](https://adv-r.hadley.nz/s4.html) classes extensively.
 One thing that sets S4 apart from S3 is that S4 allows for formal class inheritance.
-Though a full description of inheritance is out of scope for this post, the basics important for us is that S4 can inherit methods from their parent classes.
+Though a full description of inheritance is out of scope for this post, the most important point for us is that S4 can inherit methods from their parent classes.
 To borrow the inheritance metaphor from [Advanced R](https://adv-r.hadley.nz/s4.html#s4-dispatch):
 
 Say we have a class 🙂 which inherits from class 😶.
