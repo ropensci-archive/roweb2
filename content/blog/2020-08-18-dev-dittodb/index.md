@@ -85,7 +85,7 @@ To borrow the inheritance metaphor from [Advanced R](https://adv-r.hadley.nz/s4.
 
 Say we have a class 🙂 which inherits from class 😶.
 If we write a method `mouth_shape()` for objects of theses classes, we could define one method for each class, so for the 🙂 class which returns the value "smiling" when we call `mouth_shape(🙂)` and then we could define the same method for class 😶 which returns the value `NULL` when we call `mouth_shape(😶)` (since there is no mouth).
-But when we go to to define our method `eyes()` we don't actually have to define a method for both of the classes, since 🙂 inherits from 😶, we could define the method for 😶 only to return "open" when we call `eyes(😶)`.
+But when we go to define our method `eyes()` we don't actually have to define a method for both of the classes, since 🙂 inherits from 😶, we could define the method for 😶 only to return "open" when we call `eyes(😶)`.
 And now, when we call `eyes(🙂)` we will get the value "open" even though we did not explicitly write an `eyes()` method for the 🙂 class.
 Note that inheritance is directional and we couldn't do this the other way around: if we only defined an `eyes()` method for 🙂, we would not automatically get the same behavior for `eyes(😶)`.
 And if we _did_ want slightly different behavior for these methods, we can always define an `eyes()` method for the 🙂 class later.
