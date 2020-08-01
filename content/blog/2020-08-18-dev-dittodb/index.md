@@ -104,7 +104,7 @@ Easy as 🎂.[^8]
 
 #### Using trace in a relatively unorthodox way
 
-Custom classes and inheritance is really great, but what about when we want to interact with a real database and save the results to disk to use later as fixtures? Though many fixtures (especially those that are replicating errant behavior) are best crafted (or edited) by hand so that they are targeted and exercise precise things during tests, it can be convenient to be able to record all of the interactions with a database (especially for hand editing).
+Custom classes and inheritance are really great, but what about when we want to interact with a real database and save the results to disk to use later as fixtures? Though many fixtures (especially those that are replicating errant behavior) are best crafted (or edited) by hand so that they are targeted and exercise precise things during tests, it can be convenient to be able to record all of the interactions with a database (especially for hand editing).
 
 We provide functionality to do this with the commands [`capture_db_requests({...})`](https://dittodb.jonkeane.com/reference/capture_requests.html) which captures the requests made from any expressions wrapped inside, or [`start_db_capturing()` and  `stop_db_capturing()`](https://dittodb.jonkeane.com/reference/capture_requests.html).
 For these to work, we wanted to be able to call the standard, native database methods, but at the ends of some of them _also_ execute code to save the fixture objects to disk.
