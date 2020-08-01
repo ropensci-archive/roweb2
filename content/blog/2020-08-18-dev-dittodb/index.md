@@ -14,8 +14,7 @@ tags:
   - databases
   - SQL
   - dittodb
-description: "A peak behind the scenes of making dittodb"
-# twitterImg: blog/2019/06/04/post-template/name-of-image.png
+description: "A peak behind the scenes of making dittodb, a package that makes testing database interactions quick, easy, and fun"
 ---
 
 This post describes a few different aspects behind the scenes of the development of [dittodb](https://dittodb.jonkeane.com) which [recently went through](https://github.com/ropensci/software-review/issues/366) the [rOpenSci peer review process](/software-review/) and was [released to CRAN on 24 July 2020](https://jonkeane.com/blog/introducing_dittodb/).
@@ -52,22 +51,26 @@ The database package (e.g. [RPostgres](https://rpostgres.r-dbi.org) or [RMariaDB
 To be successful, when it is operating as a mock database, dittodb must be able to match a specific query to a result that is saved to disk (aka a fixture) and return that instead of executing against an actual database.
 We do this by hashing the query that is sent with `dbSendQuery()` and then we use that hash to look for the fixture file and read that fixture in when there is a call `dbFetch()`.
 
-To make this a concrete example, say you ran the following query while dittodb was mocking the connection[^7]:
+To make this a concrete example, say you ran the following code, which mocks a database connection, sends one query, receives the result, and then disconnects:
 
 ```r
-result <- dbSendQuery(
-  con,
-  "SELECT carrier, name FROM airlines LIMIT 1"
-)
+with_mock_db({
+  con <- dbConnect(...)
+  
+  result <- dbSendQuery(
+    con,
+    "SELECT carrier, name FROM airlines LIMIT 1"
+  )
+  
+  result_df <- dbFetch(result)
+  
+  dbDisconnect(con)
+})
 ```
 
-Under the hood, dittodb takes the select statement, and hashes the query (to `ef6317`) and returns a result object that will look for the file `SELECT-ef6317.R`.
-Then when we fetch the result:
+Under the hood, during the `dbSendQuery()` call dittodb takes the select statement, and hashes the query (to `ef6317`) and returns a result object that will look for the file `SELECT-ef6317.R`.
 
-```r
-result_df <- dbFetch(result)
-```
-dittodb looks for the file with the file name `SELECT-ef6317.R` in each of the [mock path directories that have been configured](https://dittodb.jonkeane.com/reference/mockPaths.html).
+Then when you run `dbFetch()` a few lines later, dittodb looks for the file with the file name `SELECT-ef6317.R` in each of the [mock path directories that have been configured](https://dittodb.jonkeane.com/reference/mockPaths.html).
 If it finds one, it will source that file and use that as the result of the fetch.
 This process is very similar to how httptest works and is one of the main pieces of inspiration that httptest had in the creation of dittodb.
 
@@ -84,7 +87,7 @@ Though a full description of inheritance is out of scope for this post, the most
 To borrow the inheritance metaphor from [Advanced R](https://adv-r.hadley.nz/s4.html#s4-dispatch):
 
 Say we have a class 🙂 which inherits from class 😶.
-If we write a method `mouth_shape()` for objects of theses classes, we could define one method for each class, so for the 🙂 class which returns the value "smiling" when we call `mouth_shape(🙂)` and then we could define the same method for class 😶 which returns the value `NULL` when we call `mouth_shape(😶)` (since there is no mouth).
+If we write a method `mouth_shape()` for objects of theses classes, we could define one method for each class, so for the 🙂 class which returns the value "smiling" when we call `mouth_shape(🙂)` and then we could define the same method for class 😶 which returns the value `NULL` when we call `mouth_shape(😶)`[^11].
 But when we go to define our method `eyes()` we don't actually have to define a method for both of the classes, since 🙂 inherits from 😶, we could define the method for 😶 only to return "open" when we call `eyes(😶)`.
 And now, when we call `eyes(🙂)` we will get the value "open" even though we did not explicitly write an `eyes()` method for the 🙂 class.
 Note that inheritance is directional and we couldn't do this the other way around: if we only defined an `eyes()` method for 🙂, we would not automatically get the same behavior for `eyes(😶)`.
@@ -164,8 +167,8 @@ dittodb is similar when it is recording fixtures: during the process of interact
 dittodb wouldn't have been possible without the help of a bunch of folks: 
 
 * contributions from [Mauricio Vargas](https://pacha.dev)
-* thoughtful reviews and comments from Helen Miller and Etienne B. Racine
-* [Anna Krystalli](/author/anna-krystalli) for being our editor and [rOpenSci](https://ropensci.org) for facilitating the package review
+* thoughtful reviews and comments from [Helen Miller](https://github.com/helenmiller16) and [Etienne B. Racine](https://github.com/etiennebr)
+* [Anna Krystalli](/author/anna-krystalli) for being our package review editor
 * as well as [Neal Richardson’s httptest](https://enpiar.com/r/httptest/index.html) for inspiration
 * the [DBI](https://dbi.r-dbi.org) authors (Hadley Wickham, Kirill Müller, and the funding of the [R Consortium](https://www.r-consortium.org)) for providing a unified interface to database connections
 
@@ -177,9 +180,9 @@ Though I will admit to being frustrated by bugs that my test suites reveal, _det
 [^4]: In fact, there are [multiple](https://docs.ropensci.org/vcr/) [packages](https://docs.ropensci.org/webmockr/) for [testing HTTP interfaces](https://enpiar.com/r/httptest/).
 [^5]: With [proper attribution](https://dittodb.jonkeane.com/LICENSE.html), of course.
 [^6]: Which, shockingly enough, inherits from `DBIResult`.
-[^7]: For example, by wrapping the expression in `dittodb::with_mock_db({...})`
 [^8]: The 🎂 is a lie.
 _It turns out_ this works for **almost** all database packages, but some like RPostgreSQL [define their own method](https://github.com/tomoakin/RPostgreSQL/blob/ac45baf6166336ae9955104da2ee0cbb9b51bfdf/RPostgreSQL/R/PostgreSQL.R#L101-L104) for `dbGetQuery()` that doesn't use `dbSendQuery()` and `dbFetch()` internally.
 To deal with this, we actually created another level of class hierarchy where each database driver has it's own custom class (e.g. `DBIMockRPostgreSQLConnection`) which inherits from *both* `DBIMockConnection` and `DBIRPostgreSQLConnection` so that we can define custom methods for DBI functions like `dbSendQuery()` for the specific drivers that need them.
 [^9]: If you would like to see the full source, see [the trace call](https://github.com/ropensci/dittodb/blob/26237ede9769933eb442155de617339d2814e18a/R/capture-requests.R#L102-L105) as well as [the function that is called on exit](https://github.com/ropensci/dittodb/blob/26237ede9769933eb442155de617339d2814e18a/R/capture-requests.R#L185-L197).
 [^10]: I may be missing some, but even if not now, surely a new one will be made soon enough!
+[^11]: There is no mouth, after all.
