@@ -74,7 +74,7 @@ This process is very similar to how httptest works and is one of the main pieces
 ### Main technical challenges
 
 The development process of dittodb had a number of interesting challenges.
-Two that I will expand on here is our use of method dispatch and class inheritance to make dittodb work as well as use of the `trace` function for recording fixtures.
+Two that I will expand on here are our use of method dispatch and class inheritance to make dittodb work as well as use of the `trace` function for recording fixtures.
 
 #### Using method dispatch for good
 
