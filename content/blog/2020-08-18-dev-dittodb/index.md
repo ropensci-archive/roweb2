@@ -167,7 +167,7 @@ dittodb is similar when it is recording fixtures: during the process of interact
 dittodb wouldn't have been possible without the help of a bunch of folks: 
 
 * contributions from [Mauricio Vargas](https://pacha.dev)
-* thoughtful reviews and comments from [Helen Miller](https://github.com/helenmiller16) and [Etienne B. Racine](https://github.com/etiennebr)
+* thoughtful reviews and comments from [Helen Miller](http://twitter.com/helenthehuman) and [Etienne B. Racine](https://github.com/etiennebr)
 * [Anna Krystalli](/author/anna-krystalli) for being our package review editor
 * as well as [Neal Richardson’s httptest](https://enpiar.com/r/httptest/index.html) for inspiration
 * the [DBI](https://dbi.r-dbi.org) authors (Hadley Wickham, Kirill Müller, and the funding of the [R Consortium](https://www.r-consortium.org)) for providing a unified interface to database connections
