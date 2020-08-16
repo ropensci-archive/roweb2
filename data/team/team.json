@@ -14,8 +14,7 @@
    "image" : "/img/team/scott.png",
    "roles": [
       "staff",
-      "leadership",
-      "editor"
+      "leadership"
    ]
 },
 {
@@ -67,7 +66,7 @@
    "url": "/authors/steffi-lazerte/",
    "image" : "/img/team/steffi-lazerte.jpg",
    "roles": [
-      "intern"
+      "staff"
    ]
 },
 {
