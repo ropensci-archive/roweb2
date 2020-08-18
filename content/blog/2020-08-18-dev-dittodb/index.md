@@ -182,7 +182,7 @@ Though I will admit to being frustrated by bugs that my test suites reveal, _det
 [^6]: Which, shockingly enough, inherits from `DBIResult`.
 [^8]: The 🎂 is a lie.
 _It turns out_ this works for **almost** all database packages, but some like RPostgreSQL [define their own method](https://github.com/tomoakin/RPostgreSQL/blob/ac45baf6166336ae9955104da2ee0cbb9b51bfdf/RPostgreSQL/R/PostgreSQL.R#L101-L104) for `dbGetQuery()` that doesn't use `dbSendQuery()` and `dbFetch()` internally.
-To deal with this, we actually created another level of class hierarchy where each database driver has it's own custom class (e.g. `DBIMockRPostgreSQLConnection`) which inherits from *both* `DBIMockConnection` and `DBIRPostgreSQLConnection` so that we can define custom methods for DBI functions like `dbSendQuery()` for the specific drivers that need them.
+To deal with this, we actually created another level of class hierarchy where each database driver has its own custom class (e.g. `DBIMockRPostgreSQLConnection`) which inherits from *both* `DBIMockConnection` and `DBIRPostgreSQLConnection` so that we can define custom methods for DBI functions like `dbSendQuery()` for the specific drivers that need them.
 [^9]: If you would like to see the full source, see [the trace call](https://github.com/ropensci/dittodb/blob/26237ede9769933eb442155de617339d2814e18a/R/capture-requests.R#L102-L105) as well as [the function that is called on exit](https://github.com/ropensci/dittodb/blob/26237ede9769933eb442155de617339d2814e18a/R/capture-requests.R#L185-L197).
 [^10]: I may be missing some, but even if not now, surely a new one will be made soon enough!
 [^11]: There is no mouth, after all.
