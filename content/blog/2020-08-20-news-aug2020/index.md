@@ -58,7 +58,7 @@ Consider [submitting your package](https://devguide.ropensci.org/softwarereviewi
 
 * [Developing dittodb](/blog/2020/08/18/dev-dittodb/) by [Jonathan Keane](/author/jonathan-keane/)
 
-* [OSF: A Project Management Service Built for Research](/blog/22020/08/04/osf/) by [Aaron Wolen](/author/aaron-wolen/)
+* [OSF: A Project Management Service Built for Research](/blog/2020/08/04/osf/) by [Aaron Wolen](/author/aaron-wolen/)
 
 * [Maintaining an R Package - Community Call Summary](/blog/2020/08/18/dev-dittodb/) by [Janani Ravi](/author/janani-ravi/) and [Steffi LaZerte](/author/steffi-lazerte/)
 
