@@ -38,7 +38,7 @@ Dmitry created the tool [gnfinder][] to pull scientific names out of text, and t
 
 Unfortunately, despite [some experiments][goexp], there isn't a solution that I know of for using Go packages within R packages that would work on CRAN. If you know of one that works on CRAN let me know.
 
-We can of course "shell out" to Go, which is what I've done with namext an rgnparser. Instead of using base `system()` I use the `sys` package for a bit nicer interface for doing system calls.
+We can of course "shell out" to Go, which is what I've done with namext and rgnparser. Instead of using base `system()` I use the `sys` package for a bit nicer interface for doing system calls.
 
 One nice thing about interfacing with Go is that Go makes it easy to make binaries for major computing platforms. So even though we'll make system calls from R, at least we're likely to not exclude users due to a binary not being available for their platform. I believe, correct me if I'm wrong, that you don't even need to install Go to run a Go binary.
 
