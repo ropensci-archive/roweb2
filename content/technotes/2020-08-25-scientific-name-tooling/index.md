@@ -152,7 +152,7 @@ gn_parse_tidy(unique(out$names$name))
 #> #   quality <dbl>
 ```
 
-## conclude
+## Conclusion
 
 Would love any feedback from namext and rgnparser, both with respect to the packages themselves, and any trouble with installing the Go tooling. 
 

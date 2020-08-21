@@ -1,6 +1,6 @@
 ---
 slug: "scientific-name-parsing"
-title: "Scientific name parsing: rgnparser and namext"
+title: "Scientific Name Parsing: rgnparser and namext"
 date: 2020-08-25
 author:
   - Scott Chamberlain
@@ -24,11 +24,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-I'm starting to tackle a few hard packages ([spplit][] and [spenv][]) having to do with integrating disparate data sources. I haven't worked on the packages in a few years, but thought I'd make another attempt with "fresh" eyes. In the process of re-visiting [spplit][], I sketched out a workflow 
+I'm starting to tackle a few hard packages ([spplit][] and [spenv][]) having to do with integrating disparate data sources. I haven't worked on the packages in a few years, but thought I'd make another attempt with "fresh" eyes. In the process of re-visiting [spplit][], I sketched out a workflow. 
 
 {{<figure src="flow.JPG" alt="An example email users get from the CRAN checks API notifications service, including the rule triggered and link to check results." width="450">}}
 
-That is, one would gather species occurrence data with `spocc::occ()`, then use `spplit::sp_lit_meta()` to search the literature for the scientific names in the occurrence data (gathering literature metadata only), then use `spplit::sp_lit_text()` to gather the full text (if available). With the full text one may want to proceed to text mining, but in addition or instead, one may want to extract the scientific names from the articles gathered by `spplit::sp_lit_text()` in a function we'll call `spplit::sp_lit_names()`.
+That is, one would gather species occurrence data with `spocc::occ()`, then use `spplit::sp_lit_meta()` to search the literature for the scientific names in the occurrence data (gathering literature metadata only), then use `spplit::sp_lit_text()` to gather the full text (if available). With the full text one may want to proceed to text mining, and in addition or instead, one may want to extract the scientific names from the articles gathered by `spplit::sp_lit_text()` in a function we'll call `spplit::sp_lit_names()`.
 
 The literature bits can be done using [fulltext][] and friends, but there weren't any existing R tools that I knew of for the scientific name extraction part. However, I knew about great tooling written in the [Go programming language][go] by [Dmitry Mozzherin](https://github.com/dimus). 
 
