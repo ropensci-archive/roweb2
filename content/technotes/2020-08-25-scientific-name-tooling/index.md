@@ -1,10 +1,10 @@
 ---
 slug: "scientific-name-parsing"
-title: "Scientific name parsing: rgnparser and namext"
+title: "Scientific Name Parsing: rgnparser and namext"
 date: 2020-08-25
 author:
   - Scott Chamberlain
-description: Recent updates to the CRAN Checks API include a notifications service, prettier documentation, and more.
+description: R tools for scientific names.
 tags:
   - taxonomy
   - scientific
@@ -19,11 +19,15 @@ output:
 
 
 
-I'm starting to tackle a few hard packages ([spplit][] and [spenv][]) having to do with integrating disparate data sources. I haven't worked on the packages in a few years, but thought I'd make another attempt with "fresh" eyes. In the process of re-visiting [spplit][], I sketched out a workflow 
+I'm starting to tackle a few hard packages ([spplit][] and [spenv][]) having to do with integrating disparate data sources. I'll talk here about spplit. I haven't worked on spplit in a few years; I thought I'd make another attempt with "fresh" eyes.
 
-{{<figure src="flow.JPG" alt="An example email users get from the CRAN checks API notifications service, including the rule triggered and link to check results." width="450">}}
+There are many use cases I can imagine for spplit; I'll highlight a few. First, one may want to find literature that mentions particular scientific names (find all the journal articles that include the name _Ursus americanus_ ([American black bear](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9643))). Second, one could extract scientific names from scientific literature to examine the different formats of scientific names used in different journals (e.g., [_Homo sapiens_](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9606) vs. _Homo sapiens Linnaeus_ vs. _Homo sapiens Linnaeus, 1758_). Last, you could extract the scientific names from your own manuscript before submission to check that all scientific names are properly formatted and match your preferred taxonomic reference.
 
-That is, one would gather species occurrence data with `spocc::occ()`, then use `spplit::sp_lit_meta()` to search the literature for the scientific names in the occurrence data (gathering literature metadata only), then use `spplit::sp_lit_text()` to gather the full text (if available). With the full text one may want to proceed to text mining, but in addition or instead, one may want to extract the scientific names from the articles gathered by `spplit::sp_lit_text()` in a function we'll call `spplit::sp_lit_names()`.
+In the process of re-visiting spplit, I sketched out a workflow that at least I think makes sense:
+
+{{<figure src="flow.JPG" alt="Example workflow for using the spplit R package." width="450">}}
+
+That is, one would gather species occurrence data with `spocc::occ()`, then use `spplit::sp_lit_meta()` to search the literature for the scientific names in the occurrence data (gathering literature metadata only), then use `spplit::sp_lit_text()` to gather the full text of the journal article (if available). With the full text of journal articles one may want to proceed to text mining, and in addition or instead, one may want to extract the scientific names from the articles gathered by `spplit::sp_lit_text()` in a function we'll call `spplit::sp_lit_names()`.
 
 The literature bits can be done using [fulltext][] and friends, but there weren't any existing R tools that I knew of for the scientific name extraction part. However, I knew about great tooling written in the [Go programming language][go] by [Dmitry Mozzherin](https://github.com/dimus). 
 
@@ -33,7 +37,7 @@ Dmitry created the tool [gnfinder][] to pull scientific names out of text, and t
 
 Unfortunately, despite [some experiments][goexp], there isn't a solution that I know of for using Go packages within R packages that would work on CRAN. If you know of one that works on CRAN let me know.
 
-We can of course "shell out" to Go, which is what I've done with namext an rgnparser. Instead of using base `system()` I use the `sys` package for a bit nicer interface for doing system calls.
+We can of course "shell out" to Go, which is what I've done with namext and rgnparser. Instead of using base `system()` I use the `sys` package for a bit nicer interface for doing system calls.
 
 One nice thing about interfacing with Go is that Go makes it easy to make binaries for major computing platforms. So even though we'll make system calls from R, at least we're likely to not exclude users due to a binary not being available for their platform. I believe, correct me if I'm wrong, that you don't even need to install Go to run a Go binary.
 
@@ -53,11 +57,11 @@ remotes::install_github("ropenscilabs/namext")
 ```
 
 Right now `name_extract()` only accepts a path to a file, which can be a pdf, in which case it will extract the text.
+We'll use the pdf from this article: <https://doi.org/10.3897/BDJ.8.e54333>
 
 
 ```r
 library(namext)
-x <- system.file("examples/BoegerEtal2015.pdf", package="namext")
 x <- "BDJ_article_54333.pdf"
 out <- name_extract(x)
 out
@@ -114,7 +118,8 @@ Using a brief example to demonstrate the output:
 library(rgnparser)
 x <- c("Quadrella steyermarkii (Standl.) Iltis &amp; Cornejo",
   "Parus major Linnaeus, 1788", "Helianthus annuus var. texanus")
-gn_parse_tidy(x)
+df <- gn_parse_tidy(x)
+df
 ```
 
 ```
@@ -127,7 +132,36 @@ gn_parse_tidy(x)
 #> # … with 3 more variables: authorship <chr>, year <dbl>, quality <dbl>
 ```
 
-Now, use the output from the above step with namext
+gnparser breaks down the names for us, so we can get just the scientific name without year/authors, or just authors, just years, etc.
+
+
+```r
+df$canonicalsimple
+```
+
+```
+#> [1] "Helianthus annuus texanus" "Quadrella steyermarkii"   
+#> [3] "Parus major"
+```
+
+```r
+df$authorship
+```
+
+```
+#> [1] NA                          "(Standl.) Iltis & Cornejo"
+#> [3] "Linnaeus 1788"
+```
+
+```r
+df$year
+```
+
+```
+#> [1]   NA   NA 1788
+```
+
+Now that we've seen what gnparser can do on a small example, let's use the output from the above text extraction step with `namext`:
 
 
 ```r
@@ -139,15 +173,15 @@ gn_parse_tidy(unique(out$names$name))
 #>    id    verbatim cardinality canonicalfull canonicalsimple canonicalstem
 #>    <chr> <chr>          <dbl> <chr>         <chr>           <chr>        
 #>  1 ac61… Lepidop…           1 Lepidoptera   Lepidoptera     Lepidoptera  
-#>  2 9eb5… Syzygiu…           2 Syzygium cum… Syzygium cumini Syzygium cum…
-#>  3 832b… Memecyl…           2 Memecylon um… Memecylon umbe… Memecylon um…
-#>  4 5041… Actinod…           2 Actinodaphne… Actinodaphne l… Actinodaphne…
-#>  5 3c4f… Glochid…           2 Glochidion l… Glochidion lan… Glochidion l…
-#>  6 f902… Olea di…           2 Olea dioica   Olea dioica     Olea dioic   
-#>  7 38bb… Garcini…           2 Garcinia ind… Garcinia indica Garcinia ind…
-#>  8 182a… Carissa…           2 Carissa cara… Carissa carand… Carissa cara…
-#>  9 d682… Lycaeni…           1 Lycaenidae    Lycaenidae      Lycaenidae   
-#> 10 022e… Caralli…           2 Carallia int… Carallia integ… Carallia int…
+#>  2 832b… Memecyl…           2 Memecylon um… Memecylon umbe… Memecylon um…
+#>  3 5041… Actinod…           2 Actinodaphne… Actinodaphne l… Actinodaphne…
+#>  4 9eb5… Syzygiu…           2 Syzygium cum… Syzygium cumini Syzygium cum…
+#>  5 022e… Caralli…           2 Carallia int… Carallia integ… Carallia int…
+#>  6 3c4f… Glochid…           2 Glochidion l… Glochidion lan… Glochidion l…
+#>  7 f902… Olea di…           2 Olea dioica   Olea dioica     Olea dioic   
+#>  8 38bb… Garcini…           2 Garcinia ind… Garcinia indica Garcinia ind…
+#>  9 182a… Carissa…           2 Carissa cara… Carissa carand… Carissa cara…
+#> 10 d682… Lycaeni…           1 Lycaenidae    Lycaenidae      Lycaenidae   
 #> # … with 307 more rows, and 3 more variables: authorship <lgl>, year <lgl>,
 #> #   quality <dbl>
 ```

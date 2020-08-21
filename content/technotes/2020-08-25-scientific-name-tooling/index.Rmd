@@ -4,7 +4,7 @@ title: "Scientific Name Parsing: rgnparser and namext"
 date: 2020-08-25
 author:
   - Scott Chamberlain
-description: Recent updates to the CRAN Checks API include a notifications service, prettier documentation, and more.
+description: R tools for scientific names.
 tags:
   - taxonomy
   - scientific
@@ -24,11 +24,15 @@ knitr::opts_chunk$set(
 )
 ```
 
-I'm starting to tackle a few hard packages ([spplit][] and [spenv][]) having to do with integrating disparate data sources. I haven't worked on the packages in a few years, but thought I'd make another attempt with "fresh" eyes. In the process of re-visiting [spplit][], I sketched out a workflow. 
+I'm starting to tackle a few hard packages ([spplit][] and [spenv][]) having to do with integrating disparate data sources. I'll talk here about spplit. I haven't worked on spplit in a few years; I thought I'd make another attempt with "fresh" eyes.
 
-{{<figure src="flow.JPG" alt="An example email users get from the CRAN checks API notifications service, including the rule triggered and link to check results." width="450">}}
+There are many use cases I can imagine for spplit; I'll highlight a few. First, one may want to find literature that mentions particular scientific names (find all the journal articles that include the name _Ursus americanus_ ([American black bear](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9643))). Second, one could extract scientific names from scientific literature to examine the different formats of scientific names used in different journals (e.g., [_Homo sapiens_](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9606) vs. _Homo sapiens Linnaeus_ vs. _Homo sapiens Linnaeus, 1758_). Last, you could extract the scientific names from your own manuscript before submission to check that all scientific names are properly formatted and match your preferred taxonomic reference.
 
-That is, one would gather species occurrence data with `spocc::occ()`, then use `spplit::sp_lit_meta()` to search the literature for the scientific names in the occurrence data (gathering literature metadata only), then use `spplit::sp_lit_text()` to gather the full text (if available). With the full text one may want to proceed to text mining, and in addition or instead, one may want to extract the scientific names from the articles gathered by `spplit::sp_lit_text()` in a function we'll call `spplit::sp_lit_names()`.
+In the process of re-visiting spplit, I sketched out a workflow that at least I think makes sense:
+
+{{<figure src="flow.JPG" alt="Example workflow for using the spplit R package." width="450">}}
+
+That is, one would gather species occurrence data with `spocc::occ()`, then use `spplit::sp_lit_meta()` to search the literature for the scientific names in the occurrence data (gathering literature metadata only), then use `spplit::sp_lit_text()` to gather the full text of the journal article (if available). With the full text of journal articles one may want to proceed to text mining, and in addition or instead, one may want to extract the scientific names from the articles gathered by `spplit::sp_lit_text()` in a function we'll call `spplit::sp_lit_names()`.
 
 The literature bits can be done using [fulltext][] and friends, but there weren't any existing R tools that I knew of for the scientific name extraction part. However, I knew about great tooling written in the [Go programming language][go] by [Dmitry Mozzherin](https://github.com/dimus). 
 
@@ -89,16 +93,25 @@ Using a brief example to demonstrate the output:
 library(rgnparser)
 x <- c("Quadrella steyermarkii (Standl.) Iltis &amp; Cornejo",
   "Parus major Linnaeus, 1788", "Helianthus annuus var. texanus")
-gn_parse_tidy(x)
+df <- gn_parse_tidy(x)
+df
 ```
 
-Now, use the output from the above step with namext
+gnparser breaks down the names for us, so we can get just the scientific name without year/authors, or just authors, just years, etc.
+
+```{r}
+df$canonicalsimple
+df$authorship
+df$year
+```
+
+Now that we've seen what gnparser can do on a small example, let's use the output from the above text extraction step with `namext`:
 
 ```{r}
 gn_parse_tidy(unique(out$names$name))
 ```
 
-## conclude
+## Conclusion
 
 Would love any feedback from namext and rgnparser, both with respect to the packages themselves, and any trouble with installing the Go tooling. 
 
