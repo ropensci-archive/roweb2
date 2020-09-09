@@ -20,8 +20,8 @@ description: "A look at treedata.table, a package for working efficiently with p
 ---
 
 The `data.table` package enables high-performance extended functionality for data tables in R. `treedata.table` is a wrapper
-for `data.table` for phylogenetic analyses that matches a phylogeny to the `data.table`, and preserves matching during data.table operations.
-Using the `data.table` package greatly increases the efficiency of these operations over other ways of performing similar tasks in
+for `data.table` for phylogenetic analyses that matches a phylogeny to the `data.table`, and preserves matching during `data.table` operations.
+Using the `data.table` package greatly increases analysis reproducibility and the efficiency of data manipulation operations over other ways of performing similar tasks in
 base R, enabling processing of larger trees and datasets.
 
 ### Why use treedata.table?
@@ -47,11 +47,11 @@ The simplest function that can be done in `treedata.table` is matching the tips 
 the rows in a `data.table` object.
 Like many R packages involving phylogenetic trees, `treedata.table` assumes that your tree is an object of class
 `phylo`.
-The first vignette (in English [here](https://ropensci.github.io/treedata.table/articles/AA_treedata.table_intro_english.html) and Portguese [here](https://ropensci.github.io/treedata.table/articles/AB_treedata.table_intro_spanish.html)) walks new users through matching a phylogeny to a `data.table`, and performing some common data operations, such as selecting data columns and dropping tips that do not have data.
+The first vignette (in English [here](https://ropensci.github.io/treedata.table/articles/AA_treedata.table_intro_english.html) and Spanish [here](https://ropensci.github.io/treedata.table/articles/AB_treedata.table_intro_spanish.html)) walks new users through matching a phylogeny to a `data.table`, and performing some common data operations, such as selecting data columns and dropping tips that do not have data.
 There are other ways to achieve similar results, but as seen on Fig. 1, these are not as efficient.
 
-Something unique in `treedata.table` is the ability to work with `multiphylo` objects.
-`Multiphylo` objects, as their name suggests, are colelctions of trees.
+Something unique in `treedata.table` is the ability to work with `multiPhylo` objects.
+`multiPhylo` objects, as their name suggests, are colelctions of trees.
 For example, perhaps you would like to match all the trees in a Bayesian posterior sample to a dataset to perform
 a comparative methods analysis for every tree in your sample.
 Our second [vignette](https://ropensci.github.io/treedata.table/articles/B_multiphylo_treedata.table.html) walks researchers through the process of syncing many trees to one dataset, manipulating the data, and performing a continuous trait evolution modeling exercise in [geiger](https://cran.r-project.org/web/packages/geiger/index.html).   
@@ -79,4 +79,4 @@ Intermediate programmers are often sort of left to their own devices in educatio
 ### Acknowledgements
 
 We'd like to thank all the participants at the workshop for a very special week together in an amazing place.
-We would also like to thank the instructors (Claudia and Klaus), Liam (and funder #), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
+We would also like to thank the instructors (Claudia and Klaus), Liam (and funder), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
