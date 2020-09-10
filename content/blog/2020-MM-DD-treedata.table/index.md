@@ -66,7 +66,7 @@ For example, syncing names across datasets and phylogenetic trees based on [part
 <font size="2"> **Fig. 2.** The beach outside the workshop bunkhouse. </font>
 
 `treedata.table` is a research output from the [Nantucket DevelopR workshop](https://github.com/NantucketDevelopeR/2019Workshop).
-Funded by a CAREER grant to [Liam Revell](http://www.faculty.umb.edu/liam.revell/), the workshop aimed to support intermediate R developers working with phylogenetic and phylogenetic comparative methods.
+Funded by an NSF grant to [Liam Revell](http://www.faculty.umb.edu/liam.revell/), the workshop aimed to support intermediate R developers working with phylogenetic and phylogenetic comparative methods.
 Last time around, we had four instructors ([April Wright](paleantology.com), [Josef Uyeda](http://www.uyedalab.com/), [Claudia Solis-Lemus](https://solislemuslab.github.io/) and [Klaus Schliep](https://www.phangorn.org/)).
 Each instructor taught one serious lesson during the week, and most did one "fireside chat" about being a computational scientist working in R.
 
@@ -79,4 +79,4 @@ Intermediate programmers are often sort of left to their own devices in educatio
 ### Acknowledgements
 
 We'd like to thank all the participants at the workshop for a very special week together in an amazing place.
-We would also like to thank the instructors (Claudia and Klaus), Liam (and funder), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
+We would also like to thank the instructors (Claudia and Klaus), Liam (NSF DBI-1759940), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
