@@ -47,7 +47,7 @@ $(document).ready( function () {
             },
             {
                 "data" : function(row, type, set, meta){
-                    return '<a target="_blank" href=\"https://www.repostatus.org/#' + row.status + '"><i class="label icon-ropensci-short ' + row.status  +'" ' + row.status + '" title = "' + row.status + ' package"></i></a>';
+                    return '<a target="_blank" href=\""><i class="label icon-ropensci-short ' + row.status  +'" ' + row.status.replace(".*#", "") + '" title = "' + row.status.replace(".*#", "") + ' package"></i></a>';
                 },
                 title: ""
             },
@@ -82,7 +82,7 @@ $(document).ready( function () {
             $(row).addClass(data.ropensci_category);
             if(data.on_cran)
                 $(row).addClass('on_cran');
-            if(data.status == "active" || data.status == "good")
+            if(data.status.includes("active") || data.status.includes("good"))
                 $(row).addClass('active');
         },
         "info": false, // won't display showed entries of total
