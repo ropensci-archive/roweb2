@@ -63,7 +63,7 @@ For example, syncing names across datasets and phylogenetic trees based on [part
 <div style="text-align:center">
 <img src='img/NantucketBeach.jpg' align="middle"width="600" />
 </div>
-<font size="2"> **Fig. 2.** The beach outside the workshop bunkhouse. </font>
+<font size="2"> **Fig. 2.** The beach outside the workshop bunkhouse.
 
 `treedata.table` is a research output from the [Nantucket DevelopR workshop](https://github.com/NantucketDevelopeR/2019Workshop).
 Funded by an NSF grant to [Liam Revell](http://www.faculty.umb.edu/liam.revell/), the workshop aimed to support intermediate R developers working with phylogenetic and phylogenetic comparative methods.
