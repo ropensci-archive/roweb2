@@ -56,7 +56,7 @@ For example, perhaps you would like to match all the trees in a Bayesian posteri
 a comparative methods analysis for every tree in your sample.
 Our second [vignette](https://ropensci.github.io/treedata.table/articles/B_multiphylo_treedata.table.html) walks researchers through the process of syncing many trees to one dataset, manipulating the data, and performing a continuous trait evolution modeling exercise in [geiger](https://cran.r-project.org/web/packages/geiger/index.html).   
 
-Our other two vignettes cover other important data functions researchers may wish to do with phylogenetic data.
+Our other two vignettes cover important data functions researchers may wish to do with phylogenetic data.
 For example, syncing names across datasets and phylogenetic trees based on [partial matching](https://ropensci.github.io/treedata.table/articles/C_PartialMatching.html), and [assorted data tidying functions](https://ropensci.github.io/treedata.table/articles/D_AdditionalFunctions_treedata.table.html).
 
 ### Where did `treedata.table` come from?
