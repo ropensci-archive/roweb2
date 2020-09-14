@@ -80,4 +80,4 @@ Intermediate programmers are often left to their own devices in education, and s
 ### Acknowledgements
 
 We'd like to thank all the participants at the workshop for a very special week together in an amazing place.
-We would also like to thank the instructors (Claudia and Klaus), Liam (NSF DBI-1759940), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
+We would also like to thank the other instructors (Claudia and Klaus), as well as Liam (NSF DBI-1759940), the UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
