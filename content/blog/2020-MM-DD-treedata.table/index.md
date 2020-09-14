@@ -75,7 +75,7 @@ But the real heart of the workshop was spending the day immersed in coding, both
 Participants each came with a project in mind, and made pitches to others for their project.
 Some participants worked on multiple projects, or one with a group and one alone.
 The instructors were housed separately, and often we'd show up to the beachside house to find everyone didn't want lecture yet - they were too busy working already.
-Intermediate programmers are often sort of left to their own devices in education, and spending a week developing skills, community, and friendships was absolutely lovely. And, as evidenced by this package, productive!
+Intermediate programmers are often left to their own devices in education, and spending a week developing skills, community, and friendships was absolutely lovely. And, as evidenced by this package, productive!
 
 ### Acknowledgements
 
