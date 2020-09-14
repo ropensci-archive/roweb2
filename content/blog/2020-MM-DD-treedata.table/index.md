@@ -67,7 +67,7 @@ For example, syncing names across datasets and phylogenetic trees based on [part
 
 `treedata.table` is a research output from the [Nantucket DevelopR workshop](https://github.com/NantucketDevelopeR/2019Workshop).
 Funded by an NSF grant to [Liam Revell](http://www.faculty.umb.edu/liam.revell/), the workshop aimed to support intermediate R developers working with phylogenetic and phylogenetic comparative methods.
-Last time around, we had four instructors ([April Wright](paleantology.com), [Josef Uyeda](http://www.uyedalab.com/), [Claudia Solis-Lemus](https://solislemuslab.github.io/) and [Klaus Schliep](https://www.phangorn.org/)).
+Last time around, we had four instructors ([April Wright](https://paleantology.com), [Josef Uyeda](https://www.uyedalab.com/), [Claudia Solis-Lemus](https://solislemuslab.github.io/) and [Klaus Schliep](https://www.phangorn.org/)).
 Each instructor taught one serious lesson during the week, and most did one "fireside chat" about being a computational scientist working in R.
 
 But the real heart of the workshop was spending the day immersed in coding, both collaboratively and alone.
