@@ -27,7 +27,7 @@ base R, enabling processing of larger trees and datasets.
 ### Why use treedata.table?
 
 Simultaneous processing of phylogenetic trees and data remains a computationally-intensive task.
-For example, processing a dataset of phylogenetic characters alongside a tree in `treedata.table` takes 90% longer than processing the data alone in `data.table` (Fig. 1A).
+For example, processing a tree alongside a dataset of phylogenetic characters means processing up to X% more data compared to processing the characters alone. This results in much longer processing times (Fig. 1A).
 `treedata.table` provides new tools for increasing the speed and efficiency of phylogenetic data processing.
 Data manipulation in `treedata.table` is significantly faster than in other commonly used packages such as base (>35%), `treeplyr` (>60%), and `dplyr` (>90%).
 Additionally, `treedata.table` is >400% faster than `treeplyr` during the initial data/tree matching step (Fig. 1B).
