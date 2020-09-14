@@ -52,7 +52,7 @@ The first vignette (in English [here](https://ropensci.github.io/treedata.table/
 There are other ways to achieve similar results, but as seen on Fig. 1, these are not as efficient.
 
 Something unique in `treedata.table` is the ability to work with `multiPhylo` objects.
-`multiPhylo` objects, as their name suggests, are colelctions of trees.
+`multiPhylo` objects, as their name suggests, are collections of trees.
 For example, perhaps you would like to match all the trees in a Bayesian posterior sample to a dataset to perform
 a comparative methods analysis for every tree in your sample.
 Our second [vignette](https://ropensci.github.io/treedata.table/articles/B_multiphylo_treedata.table.html) walks researchers through the process of syncing many trees to one dataset, manipulating the data, and performing a continuous trait evolution modeling exercise in [geiger](https://cran.r-project.org/web/packages/geiger/index.html).   
