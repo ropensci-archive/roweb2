@@ -19,7 +19,7 @@ tags:
 description: "A look at treedata.table, a package for working efficiently with phylogenetic trees and data"
 ---
 
-The `data.table` package enables high-performance extended functionality for data tables in R. [`treedata.table`](https://ropensci.github.io/treedata.table/) is a wrapper
+The (data.table](http://r-datatable.com/) package enables high-performance extended functionality for data tables in R. [treedata.table](https://ropensci.github.io/treedata.table/) is a wrapper
 for `data.table` for phylogenetic analyses that matches a phylogeny to the `data.table`, and preserves matching during `data.table` operations.
 Using the `data.table` package greatly increases analysis reproducibility and the efficiency of data manipulation operations over other ways of performing similar tasks in
 base R, enabling processing of larger trees and datasets.
