@@ -1,6 +1,6 @@
 ---
 slug: "treedata.table"
-title: The Treedata.table Package
+title: The treedata.table Package
 package_version: 0.1.1
 author:
   - April Wright
