@@ -37,7 +37,7 @@ Additionally, treedata.table is >400% faster than treeplyr during the initial da
 <img src='img/bench_TDT_Aug14.png' alt="Six panel figure showing comparisons of benchmark data for different phylogenetic data processing workflows" align="middle"width="600" />
 </div>
 
- <font size="2"> **Fig. 1.** Results for the treedata.table microbenchmark during (**A**) data manipulation (treedata.table[) and (**B**) tree/data matching steps.
+ <font size="2"> **Fig. 1.** Results for the treedata.table microbenchmark during (**A**) data manipulation (treedata.table) and (**B**) tree/data matching steps.
   We compare the performance of treedata.table against data.table, base, treeplyr, and dplyr using the microbenchmark R package.</font>
 
 
