@@ -16,6 +16,7 @@ tags:
   - biology
   - workshops
   - treedata.table
+  - community
 description: "A look at treedata.table, a package for working efficiently with phylogenetic trees and data"
 ---
 
