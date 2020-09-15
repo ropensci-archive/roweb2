@@ -16,10 +16,11 @@ tags:
   - biology
   - workshops
   - treedata.table
+  - community
 description: "A look at treedata.table, a package for working efficiently with phylogenetic trees and data"
 ---
 
-The (data.table](http://r-datatable.com/) package enables high-performance extended functionality for data tables in R. [treedata.table](https://ropensci.github.io/treedata.table/) is a wrapper
+The [data.table](http://r-datatable.com/) package enables high-performance extended functionality for data tables in R. [treedata.table](https://ropensci.github.io/treedata.table/) is a wrapper
 for data.table for phylogenetic analyses that matches a phylogeny to the data.table, and preserves matching during data.table operations.
 Using the data.table package greatly increases analysis reproducibility and the efficiency of data manipulation operations over other ways of performing similar tasks in
 base R, enabling processing of larger trees and datasets.
@@ -27,7 +28,7 @@ base R, enabling processing of larger trees and datasets.
 ### Why use treedata.table?
 
 Simultaneous processing of phylogenetic trees and data remains a computationally-intensive task.
-For example, processing a tree alongside a dataset of phylogenetic characters means processing up to X% more data compared to processing the characters alone. This results in much longer processing times (Fig. 1A).
+For example, processing a tree alongside a dataset of phylogenetic characters means processing much more data compared to processing the characters alone. This results in much longer processing times compared to more simple analysis with characters alone in data.table (Fig. 1A).
 treedata.table provides new tools for increasing the speed and efficiency of phylogenetic data processing.
 Data manipulation in treedata.table is significantly faster than in other commonly used packages such as base (>35%), treeplyr (>60%), and dplyr (>90%).
 Additionally, treedata.table is >400% faster than treeplyr during the initial data/tree matching step (Fig. 1B).
@@ -37,7 +38,7 @@ Additionally, treedata.table is >400% faster than treeplyr during the initial da
 <img src='img/bench_TDT_Aug14.png' alt="Six panel figure showing comparisons of benchmark data for different phylogenetic data processing workflows" align="middle"width="600" />
 </div>
 
- <font size="2"> **Fig. 1.** Results for the treedata.table microbenchmark during (**A**) data manipulation (treedata.table[) and (**B**) tree/data matching steps.
+ <font size="2"> **Fig. 1.** Results for the treedata.table microbenchmark during (**A**) data manipulation (treedata.table) and (**B**) tree/data matching steps.
   We compare the performance of treedata.table against data.table, base, treeplyr, and dplyr using the microbenchmark R package.</font>
 
 
@@ -63,6 +64,7 @@ For example, syncing names across datasets and phylogenetic trees based on [part
 <div style="text-align:center">
 <img src='img/NantucketBeach.jpg' alt="Beach with small waves" align="middle"width="600" />
 </div>
+
 <font size="2"> **Fig. 2.** The beach outside the workshop bunkhouse. </font>
 
 treedata.table is a research output from the [Nantucket DevelopR workshop](https://github.com/NantucketDevelopeR/2019Workshop).
@@ -79,4 +81,4 @@ Intermediate programmers are often sort of left to their own devices in educatio
 ### Acknowledgements
 
 We'd like to thank all the participants at the workshop for a very special week together in an amazing place.
-We would also like to thank the instructors (Claudia and Klaus), Liam (NSF DBI-1759940), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. We would also like to thank package reviewers [Hugo Gruson](https://github.com/Bisaloo), [Kari Norman](https://github.com/karinorman), editor [Julia Gustavson](https://github.com/jooolia) and blog editor [Steffi LaZerte](https://github.com/steffilazerte). AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
+We would also like to thank the instructors (Claudia and Klaus), Liam (NSF DBI-1759940), UMass field station coordinator Yolanda Vaillancourt, and course facilitator Fabio Machado Lugar. treedata.table is an rOpenSci [peer-reviewed package](https://github.com/ropensci/software-review/issues/367). We would also like to thank package reviewers [Hugo Gruson](/author/hugo-gruson/), [Kari Norman](/author/kari-norman/), editor [Julia Gustavson](https://github.com/jooolia) and blog editor [Steffi LaZerte](/author/steffi-lazerte). AMW was supported by an Institutional Development Award (IDeA) from the National Institute of General Medical Sciences of the National Institutes of Health under grant number P2O GM103424-18.
