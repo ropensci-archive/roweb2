@@ -286,4 +286,12 @@ it touch, and even better, please offer to help to overcome the final hurdle
 and enable [`mapscanner`](https://github.com/ropensci/mapscanner) to convert
 lines drawn on maps into geographical line objects.
 
+## Acknowledgements
+
+This package was enormously improved through the [peer review
+process](https://github.com/ropensci/software-review/issues/330) rOpenSci, in
+particular through the insightful reviews of Kelly Hondula and Nicholas Potter.
+The contributions of co-author Michael Sumner were particularly invaluable in
+the development of the `ms_aggregate_polys()` function.
+
 

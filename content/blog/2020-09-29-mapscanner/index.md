@@ -27,8 +27,7 @@ twitterImg: blog/2020-09-29-mapscanner/poly-aggr-plot.png
 ---
 
 
-mapscanner
-==========
+# mapscanner
 
 It is sometimes easy in the midst of the cutting-edge world of unique
 software development that is rOpenSci to forget that even though our
@@ -87,8 +86,7 @@ suitable for any and all kinds of subsequent analyses. The following
 section provides a very brief overview of functionality, followed by
 considering a few use cases to which the package may be applied.
 
-Package Functionality
----------------------
+## Package Functionality
 
 Package functionality is described in the [main
 vignette](https://docs.ropensci.org/mapscanner/articles/mapscanner.html),
@@ -120,8 +118,7 @@ something like the following:
     representations.
 6.  Analyse your results.
 
-Use Case \#1 – Where is downtown?
----------------------------------
+## Use Case \#1 – Where is downtown?
 
 A paper from 2003 by Montello, Goodchild, Gottsegen, and Fohl ([*Spatial
 Cognition and Computation* 3,
@@ -228,8 +225,7 @@ estimate (here in entirely arbitrary units) of:
     #> [1] 3.813569
     #> [1] 0.2800033
 
-Use Case \#2 – Point-based analyses
------------------------------------
+## Use Case \#2 – Point-based analyses
 
 [`mapscanner`](https://github.com/ropensci/mapscanner) can also rectify
 points, for which it allocates each distinct mark on a map to its
@@ -286,8 +282,7 @@ were also uploaded to Open Street Map, then the results from previous
 years could be made visible on the initially printed maps, and
 participants need only note any changes from the previous year.
 
-Use Case \#3 – Line-based analyses
-----------------------------------
+## Use Case \#3 – Line-based analyses
 
 Who has ever wanted to construct a GPS track to use on some kind of
 outdoor adventure? I quite often do that for bicycle adventures, and
@@ -311,3 +306,12 @@ you, please get it touch, and even better, please offer to help to
 overcome the final hurdle and enable
 [`mapscanner`](https://github.com/ropensci/mapscanner) to convert lines
 drawn on maps into geographical line objects.
+
+
+## Acknowledgements
+
+This package was enormously improved through the [peer review
+process](https://github.com/ropensci/software-review/issues/330) rOpenSci, in
+particular through the insightful reviews of Kelly Hondula and Nicholas Potter.
+The contributions of co-author Michael Sumner were particularly invaluable in
+the development of the `ms_aggregate_polys()` function.
