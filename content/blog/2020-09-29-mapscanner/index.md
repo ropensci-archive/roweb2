@@ -13,6 +13,7 @@ tags:
   - Software Peer Review
   - packages
   - R
+  - mapscanner
   - spatial
   - maps
   - survey
