@@ -261,7 +261,7 @@ hurdles:
     appropriate for a particular mapping exercise.
 
 The [mapscanner](https://github.com/ropensci/mapscanner) package can
-at least entire remove two of these three impediments to the successful
+at least entirely remove two of these three impediments to the successful
 collation and maintenance of a tree data base, leaving only the problem
 of finding sufficiently many participants. The package will nevertheless
 largely remove barriers to participation, with participants needing to
