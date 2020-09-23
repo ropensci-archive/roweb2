@@ -66,25 +66,23 @@ disadvantage.
 
 <!-- https://questionpro.com as example? -->
 
-With due acknowledgement that no single measure can be effective in
-overcoming systemic disadvantage, the new rOpenSci package
-[mapscanner](https://github.com/ropensci/mapscanner) aims to enable
-and empower the kinds of technologically sophisticated social research
-previously only available at considerable price. It does this by
-enabling spatially detailed social research to be conducted with pen and
-paper, minimally requiring little more than a printer to print survey
-maps, a mobile phone with a camera to digitise any marks made by hand
-upon the printed maps, and a single computer capable of running R. The
-package is likely to be of general utility for spatial analyses in
-general, in domains such as geography, ethnography, anthropology,
-archaeology, ecology, botany, political science, and many more, with
-potential use cases as diverse as the variety of hand-drawn marks on
-maps.
+With due acknowledgement that no single measure can be effective in overcoming
+systemic disadvantage, the new rOpenSci package
+[mapscanner](https://github.com/ropensci/mapscanner) aims to enable and empower
+the kinds of technologically sophisticated social research previously only
+available at considerable price. The package is able to convert scanned
+hand-drawn marks on a physical map to spatial objects suitable for any and all
+kinds of subsequent analyses. It therefore enables spatially detailed social
+research to be conducted with pen and paper, minimally requiring little more
+than a printer to print survey maps, a mobile phone with a camera to digitise
+any marks made by hand upon the printed maps, and a single computer capable of
+running R. The package is likely to be of general utility for spatial analyses
+in general, in domains such as geography, ethnography, anthropology,
+archaeology, ecology, botany, political science, and many more, with potential
+use cases as diverse as the variety of hand-drawn marks on maps. 
 
-The package is able to convert such hand-drawn marks to spatial objects
-suitable for any and all kinds of subsequent analyses. The following
-section provides a very brief overview of functionality, followed by
-considering a few use cases to which the package may be applied.
+The following section provides a very brief overview of functionality, followed
+by considering a few use cases to which the package may be applied.
 
 ### Package Functionality
 
