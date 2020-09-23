@@ -68,7 +68,7 @@ disadvantage.
 
 With due acknowledgement that no single measure can be effective in
 overcoming systemic disadvantage, the new rOpenSci package
-[`mapscanner`](https://github.com/ropensci/mapscanner) aims to enable
+[mapscanner](https://github.com/ropensci/mapscanner) aims to enable
 and empower the kinds of technologically sophisticated social research
 previously only available at considerable price. It does this by
 enabling spatially detailed social research to be conducted with pen and
@@ -131,7 +131,7 @@ representing the boundaries drawn by each participant, or as an
 equivalent series of rasterized dots, shaded according to numbers of
 polygons containing each dot.
 
-The [`mapscanner` package](https://github.com/ropensci/mapscanner) lends
+The [mapscanner package](https://github.com/ropensci/mapscanner) lends
 itself directly to such tasks, and enables far more powerful analyses,
 particularly through the ancillary function,
 [`ms_aggregate_polys()`](https://docs.ropensci.org/mapscanner/reference/ms_aggregate_polys.html).
@@ -214,7 +214,7 @@ downtown area. The authors of that paper were, however, able to do
 little beyond providing graphical illustrations of overlapping polygons,
 preventing any general conclusions about the perceived size or location
 of the downtown area. The above graph reflects the power of
-[`mapscanner`](https://github.com/ropensci/mapscanner)’s ability to
+[mapscanner](https://github.com/ropensci/mapscanner)’s ability to
 [aggreate
 polygons](https://docs.ropensci.org/mapscanner/reference/ms_aggregate_polys.html),
 clearly revealing aggregate numbers of between three and eight to
@@ -227,7 +227,7 @@ estimate (here in entirely arbitrary units) of:
 
 ### Use Case \#2 – Point-based analyses
 
-[`mapscanner`](https://github.com/ropensci/mapscanner) can also rectify
+[mapscanner](https://github.com/ropensci/mapscanner) can also rectify
 points, for which it allocates each distinct mark on a map to its
 geometric centroid, enabling points to be drawn as dots of arbitrary
 size, crosses, asterisks, or any marks with distinct centres. Such
@@ -260,7 +260,7 @@ hurdles:
 3.  Ensuring that each participant is able to use the software deemed
     appropriate for a particular mapping exercise.
 
-The [`mapscanner`](https://github.com/ropensci/mapscanner) package can
+The [mapscanner](https://github.com/ropensci/mapscanner) package can
 at least entire remove two of these three impediments to the successful
 collation and maintenance of a tree data base, leaving only the problem
 of finding sufficiently many participants. The package will nevertheless
@@ -274,7 +274,7 @@ example to remove duplicate entries through imposing minimal-distance
 criteria or similar.)
 
 A city could effectively construct and maintain a tree data base using
-the [`mapscanner` package](https://github.com/ropensci/mapscanner)
+the [mapscanner package](https://github.com/ropensci/mapscanner)
 through encouraging community groups to simply spend a short amount of
 time on a regular basis (such as an hour or two per year) walking around
 their neighbourhoods and marking trees on a piece of paper. If the data
@@ -291,7 +291,7 @@ brilliant web-based service was, however, recently bought out,
 re-branded to [`alltrails.com`](https://alltrails.com), and has lost
 much of the original functionality which drew me to the site. The
 current version of
-[`mapscanner`](https://github.com/ropensci/mapscanner) can rectify
+[mapscanner](https://github.com/ropensci/mapscanner) can rectify
 points and polygons, as described above, yet not lines. The ability to
 rectify lines would enable me to generate GPS tracks through simply
 drawing my desired route on a piece of paper. Even if `gpsies` existed
@@ -304,7 +304,7 @@ Implementing line-based analyses requires solving one, and only one,
 technical hurdle, so if you think that functionality might be useful to
 you, please get it touch, and even better, please offer to help to
 overcome the final hurdle and enable
-[`mapscanner`](https://github.com/ropensci/mapscanner) to convert lines
+[mapscanner](https://github.com/ropensci/mapscanner) to convert lines
 drawn on maps into geographical line objects.
 
 
