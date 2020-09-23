@@ -310,8 +310,8 @@ drawn on maps into geographical line objects.
 
 ### Acknowledgements
 
-This package was enormously improved through the [peer review
-process](https://github.com/ropensci/software-review/issues/330) rOpenSci, in
+This package was enormously improved through the rOpenSci [peer review
+process](https://github.com/ropensci/software-review/issues/330), in
 particular through the insightful reviews of [Kelly
 Hondula](https://github.com/khondula) and [Nicholas
 Potter](author/nicholas-potter/). The contributions of co-author Michael Sumner
