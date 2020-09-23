@@ -50,18 +50,18 @@ impossible for very many scientists, who are instead restricted to what
 many would generally refer to as “less” technologically sophisticated
 solutions like pens and paper.
 
-One technological development that has particularly impacted both life
-in general, and the practice of social sciences, has been interactive
-mapping systems. Coupled with portable screen-based devices, such
-systems greatly expand abilities to generate detailed, spatially
-explicit data on all aspects of social and natural environments. Yet
-screen-based systems for social and other research which allow for the
-input of spatially explicit data are often prohibitively expensive, and
-require those conducting such research to have access to large numbers
-of portable, screen-based devices in order to generate sufficient data.
-The comparative disadvantage placed upon scientists and scientific
-communities who do not have access to the kinds of funds necessary to
-conduct such research can easily accumulate to become systemic
+One technological development that has particularly impacted both life in
+general, and the practice of social sciences, has been interactive mapping
+systems -- think how easy it is to use a smartphone to find somewhere to eat in
+an unfamiliar city. Coupled with portable screen-based devices, such systems
+greatly expand abilities to generate detailed, spatially explicit data on all
+aspects of social and natural environments. Yet screen-based systems for social
+and other research which allow for the input of spatially explicit data are
+often prohibitively expensive, and require those conducting such research to
+have access to large numbers of portable, screen-based devices in order to
+generate sufficient data. The comparative disadvantage placed upon scientists
+and scientific communities who do not have access to the kinds of funds
+necessary to conduct such research can easily accumulate to become systemic
 disadvantage.
 
 <!-- https://questionpro.com as example? -->
