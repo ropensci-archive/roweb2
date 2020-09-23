@@ -290,7 +290,9 @@ lines drawn on maps into geographical line objects.
 
 This package was enormously improved through the [peer review
 process](https://github.com/ropensci/software-review/issues/330) rOpenSci, in
-particular through the insightful reviews of [Kelly Hondula](https://github.com/khondula) and [Nicholas Potter](author/nicholas-potter/).
-The contributions of co-author Michael Sumner were particularly invaluable in
-the development of the `ms_aggregate_polys()` function.
+particular through the insightful reviews of [Kelly
+Hondula](https://github.com/khondula) and [Nicholas
+Potter](author/nicholas-potter/). The contributions of co-author Michael Sumner
+were particularly invaluable in the development of the `ms_aggregate_polys()`
+function.
 
