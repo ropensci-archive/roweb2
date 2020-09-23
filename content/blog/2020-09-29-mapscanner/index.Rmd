@@ -87,8 +87,7 @@ for spatial analyses in general, in domains such as geography, ethnography,
 anthropology, archaeology, ecology, botany, political science, and many more,
 with potential use cases as diverse as the variety of hand-drawn marks on maps. 
 
-The package is able to convert such hand-drawn marks to spatial objects
-suitable for any and all kinds of subsequent analyses. The following section
+The following section
 provides a very brief overview of functionality, followed by considering a few
 use cases to which the package may be applied.
 
