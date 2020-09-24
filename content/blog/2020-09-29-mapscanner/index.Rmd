@@ -92,7 +92,7 @@ use cases as diverse as the variety of hand-drawn marks on maps.
 The following section provides a very brief overview of functionality, followed
 by considering a few use cases to which the package may be applied.
 
-### Package Functionality 
+### Package functionality 
 
 Package functionality is described in the [main
 vignette](https://docs.ropensci.org/mapscanner/articles/mapscanner.html), with
