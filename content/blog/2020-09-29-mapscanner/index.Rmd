@@ -1,7 +1,7 @@
 #
 ---
 slug: "mapscanner"
-title: Rectifying hand-drawn marks on maps with the mapscanner package
+title: Rectifying Hand-Drawn Marks on Maps With the mapscanner Package
 package_version: 0.0.3
 author:
   - Mark Padgham
