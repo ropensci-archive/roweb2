@@ -1,6 +1,6 @@
 ---
 slug: "mapscanner"
-title: Rectifying hand-drawn marks on maps with the mapscanner package
+title: Rectifying Hand-Drawn Marks on Maps With the mapscanner Package
 package_version: 0.0.3
 author:
   - Mark Padgham
@@ -84,7 +84,7 @@ use cases as diverse as the variety of hand-drawn marks on maps.
 The following section provides a very brief overview of functionality, followed
 by considering a few use cases to which the package may be applied.
 
-### Package Functionality
+### Package functionality
 
 Package functionality is described in the [main
 vignette](https://docs.ropensci.org/mapscanner/articles/mapscanner.html),
@@ -213,7 +213,7 @@ little beyond providing graphical illustrations of overlapping polygons,
 preventing any general conclusions about the perceived size or location
 of the downtown area. The above graph reflects the power of
 [mapscanner](https://github.com/ropensci/mapscanner)’s ability to
-[aggreate
+[aggregate
 polygons](https://docs.ropensci.org/mapscanner/reference/ms_aggregate_polys.html),
 clearly revealing aggregate numbers of between three and eight to
 reflect approximate consensus, translating here to a resultant areal
