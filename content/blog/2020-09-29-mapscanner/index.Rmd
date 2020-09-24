@@ -203,7 +203,7 @@ area. The authors of that paper were, however, able to do little beyond
 providing graphical illustrations of overlapping polygons, preventing any
 general conclusions about the perceived size or location of the downtown area.
 The above graph reflects the power of
-[mapscanner](https://github.com/ropensci/mapscanner)'s ability to [aggreate
+[mapscanner](https://github.com/ropensci/mapscanner)'s ability to [aggregate
 polygons](https://docs.ropensci.org/mapscanner/reference/ms_aggregate_polys.html),
 clearly revealing aggregate numbers of between three and eight to reflect
 approximate consensus, translating here to a resultant areal estimate (here in
