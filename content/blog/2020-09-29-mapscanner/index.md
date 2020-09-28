@@ -162,6 +162,7 @@ as observed in the above study of Santa Barbara.
     polys <- sf::st_sf (number = seq (npolys),
                         geometry = sf::st_sfc (polys))
 
+    # Start analysis
     library (mapscanner)
     polys_aggr <- ms_aggregate_polys (polys)
     polys_aggr
