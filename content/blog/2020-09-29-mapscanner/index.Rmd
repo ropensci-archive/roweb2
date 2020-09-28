@@ -159,6 +159,7 @@ set.seed (1)
 ```
 
 ```{r construct-polys}
+# Create simulated polygons
 npolys <- 10
 npts <- 50 # Number of points used to generate random polygons
 polys <- lapply (seq (npolys), function (i) {
