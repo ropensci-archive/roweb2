@@ -148,6 +148,7 @@ code are constructed so that the first few polygons decrease relatively rapidly
 in size before converging on approximately similar results for subsequent ones,
 as observed in the above study of Santa Barbara.
 
+    # Create simulated polygons
     npolys <- 10
     npts <- 50 # Number of points used to generate random polygons
     polys <- lapply (seq (npolys), function (i) {
