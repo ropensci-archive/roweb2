@@ -129,26 +129,24 @@ representing the boundaries drawn by each participant, or as an
 equivalent series of rasterized dots, shaded according to numbers of
 polygons containing each dot.
 
-The [mapscanner package](https://github.com/ropensci/mapscanner) lends
-itself directly to such tasks, and enables far more powerful analyses,
-particularly through the ancillary function,
+The [mapscanner package](https://github.com/ropensci/mapscanner) lends itself
+directly to such tasks, and enables far more powerful analyses, particularly
+through the ancillary function,
 [`ms_aggregate_polys()`](https://docs.ropensci.org/mapscanner/reference/ms_aggregate_polys.html).
 Having rectified some number of polygons via repeated application of the
 [`ms_rectify_map()`
 function](https://docs.ropensci.org/mapscanner/reference/ms_rectify_map.html),
-this function aggregates those polygons to produce a planar partition in
-which each distinct number of overlaps is represented by a distinct
-component. That complicated-sounding statement is likely better
-illustrated by way of an example, here by aggregating a series of
-polygons of increasing sizes. Most of the following code merely
-constructs the polygons in the necessary `sf` format. For practical
-usage, this would be replaced by a single command to aggregate a series
-of drawn-and-rectified polygons into an equivalent `sf`-format object
-containing all resultant individual polygons. The `xy` values in the
-following code are constructed so that the first few polygons decrease
-relatively rapidly in size before converging on approximately similar
-results for subsequent ones, as observed in the above study of Santa
-Barbara.
+this function aggregates those polygons to produce a planar partition in which
+each distinct number of overlaps is represented by a distinct component. That
+complicated-sounding statement is likely better illustrated by way of an
+example, here by aggregating a series of polygons of increasing sizes. Most of
+the following code merely constructs the simulated polygons in `sf` format. For
+practical usage, this would be replaced by a single command to aggregate a
+series of drawn-and-rectified polygons into an equivalent `sf`-format object
+containing all resultant individual polygons. The `xy` values in the following
+code are constructed so that the first few polygons decrease relatively rapidly
+in size before converging on approximately similar results for subsequent ones,
+as observed in the above study of Santa Barbara.
 
     npolys <- 10
     npts <- 50 # Number of points used to generate random polygons
