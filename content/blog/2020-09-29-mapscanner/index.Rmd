@@ -1,4 +1,4 @@
-#
+
 ---
 slug: "mapscanner"
 title: Rectifying Hand-Drawn Marks on Maps With the mapscanner Package
