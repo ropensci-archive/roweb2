@@ -145,7 +145,7 @@ this function aggregates those polygons to produce a planar partition in which
 each distinct number of overlaps is represented by a distinct component. That
 complicated-sounding statement is likely better illustrated by way of an
 example, here by aggregating a series of polygons of increasing sizes. Most of
-the following code merely constructs the polygons in the necessary `sf` format.
+the following code merely constructs the simulated polygons in `sf` format.
 For practical usage, this would be replaced by a single command to aggregate
 a series of drawn-and-rectified polygons into an equivalent `sf`-format object
 containing all resultant individual polygons. The `xy` values in the following
