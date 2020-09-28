@@ -1,26 +1,15 @@
 ![logo](https://i.imgur.com/jNpQMPW.png)
-# rOpenSci website
+# rOpenSci website 2017-2020
 
-Welcome to the new (October 2017) website for the rOpenSci project. Our old website ([repo](https://github.com/ropensci/roweb), [site](http://legacy.ropensci.org/)) is now archived and all new content should be added to this repository. For any issues with the site including typos or rendering issues, please file an [issue](https://github.com/ropensci/roweb2/issues) or send a pull request. The site automatically deploys once pull requests are merged.
+[![Project Status: Moved to http://example.com – The project has been moved to a new location, and the version at that location should be considered authoritative.](https://www.repostatus.org/badges/latest/moved.svg)](https://www.repostatus.org/#moved) to [https://github.com/ropensci/roweb3](https://github.com/ropensci/roweb3)
 
-### Contributing a blog post
+:warning:
 
-To contribute a blog post or tech note (🙏), first get the go-ahead and a tentative publication date from our community manager [Stefanie Butland](https://ropensci.org/authors/stefanie-butland/).
+To contribute to the site please visit our new repo [roweb3](https://github.com/ropensci/roweb3/) and add your contributions there. 
 
-Please refer to [our in-progress gitbook "rOpenSci Blog Guidelines for Authors and Editors"](https://blogguide.ropensci.org/). There we coach you in thinking through what you might say in your post ([Content Guidelines](https://blogguide.ropensci.org/content.html)) and suggest a workflow with templates, a checklist, and advice on incorporating commonly used elements ([Technical Guidelines](https://blogguide.ropensci.org/technical.html)).
+:warning:
 
-Briefly, the process is:
-1. Fork the repository (repo) of the rOpenSci website.
-1. Draft your post in R Markdown or Markdown and create or update your author metadata.
-1. Preview and refine your post locally.
-1. Submit via pull request and preview your post.
-1. A blog editor reviews your post.
-1. Revise your post in response to review.
-1. Enjoy having your work promoted.
-
-### Updating page templates
-
-For other website issues and updates, see [developer-notes](developer-notes.md).
+Welcome to the new (October 2017) website for the rOpenSci project. Our previous website ([repo](https://github.com/ropensci/roweb), [site](http://legacy.ropensci.org/)) is now archived and all new content should be added to this repository.
 
 ## Acknowledgements
 
