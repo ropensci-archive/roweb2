@@ -1,4 +1,5 @@
 <meta charset="utf-8" />
+<meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.css" integrity="sha256-mxq9NZggfcFYApx6yB2wrWDb2WV8J6ZQaVc8uyzeeog=" crossorigin="anonymous" />
   <!-- special treatment for authors pages -->
   {{ if and (in .Section "author") (eq .Kind "taxonomy") }}
@@ -17,7 +18,6 @@
 {{ partial "style-path.html" }}
 
 <meta name="viewport" content="width=device-width, initial-scale=1"><!-- this one is super important for mobile devices -->
-{{ template "_internal/google_analytics.html" . }}
 
 {{ if eq .RelPermalink "/" }}
   <title>{{ .Site.Title }}</title>
